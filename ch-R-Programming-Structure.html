@@ -24,7 +24,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2020-08-28" />
+<meta name="date" content="2020-08-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -803,7 +803,7 @@ x= -4 y= 0 z= 4 </code></pre>
 <span id="cb1817-4"><a href="ch-R-Programming-Structure.html#cb1817-4"></a><span class="op">&gt;</span><span class="st"> </span>y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n)</span>
 <span id="cb1817-5"><a href="ch-R-Programming-Structure.html#cb1817-5"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">system.time</span>(<span class="kw">sum</span>(<span class="kw">ifelse</span>(x <span class="op">&gt;</span><span class="st"> </span>y, x, y)))</span></code></pre></div>
 <pre><code> 사용자  시스템 elapsed 
-   0.03    0.00    0.03 </code></pre>
+   0.00    0.02    0.01 </code></pre>
 <p>앞의 문제를 for 문을 이용하여 구현한 후, 실행 시간을 측정해 보자. 쉽게 두 방식의 시간 차이를 확인할 수 있을 것이다.</p>
 <div class="sourceCode" id="cb1819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1819-1"><a href="ch-R-Programming-Structure.html#cb1819-1"></a><span class="op">&gt;</span><span class="st"> </span>s &lt;-<span class="st"> </span><span class="dv">0</span></span>
 <span id="cb1819-2"><a href="ch-R-Programming-Structure.html#cb1819-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">system.time</span>({</span>
@@ -812,7 +812,7 @@ x= -4 y= 0 z= 4 </code></pre>
 <span id="cb1819-5"><a href="ch-R-Programming-Structure.html#cb1819-5"></a><span class="op">+</span><span class="st">   </span>}</span>
 <span id="cb1819-6"><a href="ch-R-Programming-Structure.html#cb1819-6"></a><span class="op">+</span><span class="st"> </span>})</span></code></pre></div>
 <pre><code> 사용자  시스템 elapsed 
-   0.06    0.00    0.07 </code></pre>
+   0.06    0.00    0.08 </code></pre>
 <p>다음은 -1000부터 1000사이의 정수에서 복원 추출로 1,000,000 개의 수를 뽑은 후, 그 중 3의 배수가 되는 원소만 뽑아서 합을 구한 예이다. 첫번째 방식은 벡터 인덱싱과 sum() 함수를 이용했고, 두번째 방식은 for() 문을 이용해 각 원소별로 반복 작업을 하였다 그리고 이 두 방식의 실행 시간을 비교하였다. 마찬가지로 큰 시간 차이를 보임을 알 수 있다.</p>
 <div class="sourceCode" id="cb1821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1821-1"><a href="ch-R-Programming-Structure.html#cb1821-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">set.seed</span>(<span class="dv">111</span>)</span>
 <span id="cb1821-2"><a href="ch-R-Programming-Structure.html#cb1821-2"></a><span class="op">&gt;</span><span class="st"> </span>n &lt;-<span class="st"> </span><span class="dv">1000000</span></span>
@@ -822,7 +822,7 @@ x= -4 y= 0 z= 4 </code></pre>
 <span id="cb1821-6"><a href="ch-R-Programming-Structure.html#cb1821-6"></a><span class="op">+</span><span class="st">   </span><span class="kw">sum</span>( x[x <span class="op">%%</span><span class="st"> </span><span class="dv">3</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>] ) </span>
 <span id="cb1821-7"><a href="ch-R-Programming-Structure.html#cb1821-7"></a><span class="op">+</span><span class="st"> </span>})</span></code></pre></div>
 <pre><code> 사용자  시스템 elapsed 
-   0.02    0.00    0.02 </code></pre>
+   0.01    0.00    0.02 </code></pre>
 <div class="sourceCode" id="cb1823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1823-1"><a href="ch-R-Programming-Structure.html#cb1823-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">system.time</span>({</span>
 <span id="cb1823-2"><a href="ch-R-Programming-Structure.html#cb1823-2"></a><span class="op">+</span><span class="st">   </span>s &lt;-<span class="st"> </span><span class="dv">0</span></span>
 <span id="cb1823-3"><a href="ch-R-Programming-Structure.html#cb1823-3"></a><span class="op">+</span><span class="st">   </span><span class="cf">for</span> (a <span class="cf">in</span> x) {</span>
@@ -833,7 +833,7 @@ x= -4 y= 0 z= 4 </code></pre>
 <span id="cb1823-8"><a href="ch-R-Programming-Structure.html#cb1823-8"></a><span class="op">+</span><span class="st"> </span>})</span></code></pre></div>
 <pre><code>[1] 198993</code></pre>
 <pre><code> 사용자  시스템 elapsed 
-   0.16    0.00    0.16 </code></pre>
+   0.17    0.00    0.17 </code></pre>
 </div>
 <div id="apply-계열-함수로-암시적인-반복을-수행하라." class="section level4 unnumbered">
 <h4>apply 계열 함수로 암시적인 반복을 수행하라.</h4>
@@ -851,7 +851,7 @@ x= -4 y= 0 z= 4 </code></pre>
 <span id="cb1826-8"><a href="ch-R-Programming-Structure.html#cb1826-8"></a><span class="op">+</span><span class="st"> </span>})</span></code></pre></div>
 <pre><code>[1] 285816</code></pre>
 <pre><code> 사용자  시스템 elapsed 
-   0.19    0.00    0.19 </code></pre>
+    0.2     0.0     0.2 </code></pre>
 <p>다음은 for 문을 이용하여 x의 요소에 대하여 같은 작업을 반복하였다.
 계산 시간의 차이를 비교해 보자. 결과에서 보듯이 두 방법 모두 벡터화된 함수를 적절히 이용하면 속도의 차이는 거의 나지 않는다.</p>
 <div class="sourceCode" id="cb1829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1829-1"><a href="ch-R-Programming-Structure.html#cb1829-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">system.time</span>({</span>
@@ -864,7 +864,7 @@ x= -4 y= 0 z= 4 </code></pre>
 <span id="cb1829-8"><a href="ch-R-Programming-Structure.html#cb1829-8"></a><span class="op">+</span><span class="st"> </span>})</span></code></pre></div>
 <pre><code>[1] 285816</code></pre>
 <pre><code> 사용자  시스템 elapsed 
-   0.18    0.00    0.18 </code></pre>
+   0.22    0.00    0.21 </code></pre>
 <p>그렇다면 두 방법 중 어느 것을 선택해도 될까? 일반적으로 이 두 방법 중 어느 것이 더 좋다고 확언하기는 어렵지만 다음의 두 가지 이유 때문에 apply 계열 함수를 이용하는 것이 더 선호된다. 첫째, apply 계열 함수를 이용하면 코드를 더 간단하게 작성할 수 있어 코드의 가독성이 증가한다. 둘째, apply 계열 함수는 데이터 요소에 적용할 함수를 인수로 전달하는 방식으로 암시적 반복이 이루어진다. 따라서 함수 프로그래밍의 특징인 반복 실행의 부수적인 효과(side effect)가 반복문 바깥으로 전달되지 않는다. 따라서 동일한 프로그램을 병렬 프로그램으로 전환하기가 더 용이하다. 그러므로 처리해야 할 데이터가 커지면 병렬 프로그래밍 기법을 이용하여 추가적인 속도 향상을 꾀할 수 있는 가능성이 커진다.</p>
 </div>
 </div>
@@ -1278,7 +1278,7 @@ b(300) 호출이 이루어지면, f.in() 함수가 실행되는데, x는 지역 
 <div class="sourceCode" id="cb1985"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1985-1"><a href="ch-R-Programming-Structure.html#cb1985-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">environment</span>(f.out)</span></code></pre></div>
 <pre><code>&lt;environment: R_GlobalEnv&gt;</code></pre>
 <div class="sourceCode" id="cb1987"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1987-1"><a href="ch-R-Programming-Structure.html#cb1987-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">environment</span>(a); <span class="kw">parent.env</span>(<span class="kw">environment</span>(a))</span></code></pre></div>
-<pre><code>&lt;environment: 0x000000001e08cc28&gt;</code></pre>
+<pre><code>&lt;environment: 0x000000001e085e78&gt;</code></pre>
 <pre><code>&lt;environment: R_GlobalEnv&gt;</code></pre>
 <div class="sourceCode" id="cb1990"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1990-1"><a href="ch-R-Programming-Structure.html#cb1990-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">environment</span>(b); <span class="kw">parent.env</span>(<span class="kw">environment</span>(b))</span></code></pre></div>
 <pre><code>&lt;environment: 0x000000001763a560&gt;</code></pre>
