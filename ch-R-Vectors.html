@@ -24,7 +24,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2020-08-29" />
+<meta name="date" content="2020-09-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -979,9 +979,11 @@ attr(,&quot;class&quot;)
 <div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="ch-R-Vectors.html#cb350-1"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="dv">11</span><span class="op">:</span><span class="dv">20</span></span>
 <span id="cb350-2"><a href="ch-R-Vectors.html#cb350-2"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="dv">6</span>]</span></code></pre></div>
 <pre><code>[1] 16</code></pre>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="ch-R-Vectors.html#cb352-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="kw">seq</span>(<span class="dv">3</span>, <span class="dv">9</span>, <span class="dt">by=</span><span class="dv">2</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="ch-R-Vectors.html#cb352-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">10</span>)]</span></code></pre></div>
+<pre><code>[1] 16 20</code></pre>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="ch-R-Vectors.html#cb354-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="kw">seq</span>(<span class="dv">3</span>, <span class="dv">9</span>, <span class="dt">by=</span><span class="dv">2</span>)]</span></code></pre></div>
 <pre><code>[1] 13 15 17 19</code></pre>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="ch-R-Vectors.html#cb354-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>), <span class="dt">times=</span><span class="dv">3</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="ch-R-Vectors.html#cb356-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>), <span class="dt">times=</span><span class="dv">3</span>)]</span></code></pre></div>
 <pre><code>[1] 12 14 12 14 12 14</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:draw-number-index"></span>
 <img src="RVectors_files/figure-html/draw-number-index-1.png" alt="자연수 인덱스 벡터를 이용한 벡터 필터링" width="90%" />
@@ -989,27 +991,31 @@ attr(,&quot;class&quot;)
 Figure 3.6: 자연수 인덱스 벡터를 이용한 벡터 필터링
 </p>
 </div>
+<p>인덱스 벡터를 사용하여 여러 요소를 뽑을 때 주의할 점이 있다. 벡터의 필터링에서 대괄호 안에는 오직 하나의 인덱스 벡터만 기술될 수 있다는 것이다. 만약 2개 이상의 요소를 뽑아야 한다면, <code>c()</code> 등으로 연결하여 하나의 인덱스 벡터로 만든 후 대괄호에 넣어야 한다. 만약 이를 실수하여 다음처럼 뽑을 요소를 각각 기술하게 되면 오류가 발생한다.</p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="ch-R-Vectors.html#cb358-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="dv">6</span>, <span class="dv">10</span>]</span></code></pre></div>
+<pre><code>Error in x[6, 10]: incorrect number of dimensions</code></pre>
+<p>앞의 예에서는 6이라는 요소를 하나만 가지는 벡터 하나와, 10이라는 요소 하나만 가지는 또 다른 벡터를 대괄호 안에 기술한 것이다. 벡터는 일차원 구조로 오직 한 개의 인덱스 벡터를 입력 받으므로, 위의 경우는 <code>c(6, 10)</code>으로 하나의 벡터로 결합하여 인덱스 벡터를 전달해야 한다. 행렬에서는 두 개의 인덱스 벡터를 입력받게 되는데, 이 형식과 벡터의 인덱스 벡터를 혼동하지 않아야 한다.</p>
 <p>추출해야 할 요소를 사용자가 직접 지정할 수도 있지만, 어떤 경우에는 함수를 이용하여 원하는 요소를 특정할 수도 있다. 예를 들어 which.min() 함수는 숫자 벡터의 최소값의 위치를 자연수 인덱스 형식으로 반환한다. 따라서 which.min() 결과를 인덱스 벡터로 이용하면 해당 벡터의 최소값을 추출할 수 있다. 자연수 인덱스 벡터로 많이 사용되는 함수 중 하나가 order() 함수이다. order() 함수는 크기 순으로 벡터 요소의 위치를 반환해 주는 함수이다. 이 함수의 결과를 인덱스 벡터로 사용하면 벡터의 요소를 크기로 정렬하는 효과가 발생한다.</p>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="ch-R-Vectors.html#cb356-1"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">13</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">11</span>)</span>
-<span id="cb356-2"><a href="ch-R-Vectors.html#cb356-2"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="kw">which.min</span>(x)]  <span class="co"># You can use min() instead.</span></span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="ch-R-Vectors.html#cb360-1"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">13</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">11</span>)</span>
+<span id="cb360-2"><a href="ch-R-Vectors.html#cb360-2"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="kw">which.min</span>(x)]  <span class="co"># You can use min() instead.</span></span></code></pre></div>
 <pre><code>[1] 1</code></pre>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="ch-R-Vectors.html#cb358-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="kw">which.max</span>(x)] <span class="co"># You can use max() instead.</span></span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="ch-R-Vectors.html#cb362-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="kw">which.max</span>(x)] <span class="co"># You can use max() instead.</span></span></code></pre></div>
 <pre><code>[1] 13</code></pre>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="ch-R-Vectors.html#cb360-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="kw">which</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>)] <span class="co"># You can use a logical index vector instead.</span></span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="ch-R-Vectors.html#cb364-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="kw">which</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>)] <span class="co"># You can use a logical index vector instead.</span></span></code></pre></div>
 <pre><code>[1] 13 11</code></pre>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="ch-R-Vectors.html#cb362-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="kw">order</span>(x)] <span class="co"># You can use sort() instead.</span></span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="ch-R-Vectors.html#cb366-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="kw">order</span>(x)] <span class="co"># You can use sort() instead.</span></span></code></pre></div>
 <pre><code>[1]  1  4  4  6  7  9 11 13</code></pre>
 </div>
 <div id="음의-정수-인덱스-벡터" class="section level3">
 <h3><span class="header-section-number">3.5.2</span> 음의 정수 인덱스 벡터</h3>
 <p>자연수 인덱스가 추출한 요소의 위치를 표현한다면, 음의 정수 인덱스는 추출하지 않은 요소의 위치를 표현한다. 따라서 벡터 필터링에 음의 정수 인덱스 벡터가 사용되면, 데이터 벡터에서 해당 위치의 요소가 제외된 나머지 요소로 새로운 벡터를 만들어 반환한다. 예를 들어 인덱스 벡터가 -2라면 원래 벡터의 2번째 요소만 제외한 나머지 요소로 이루어진 벡터가 반환된다(그림 <a href="ch-R-Vectors.html#fig:draw-minuns-number-index">3.7</a> 참조).</p>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="ch-R-Vectors.html#cb364-1"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="dv">11</span><span class="op">:</span><span class="dv">20</span>; x</span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="ch-R-Vectors.html#cb368-1"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="dv">11</span><span class="op">:</span><span class="dv">20</span>; x</span></code></pre></div>
 <pre><code> [1] 11 12 13 14 15 16 17 18 19 20</code></pre>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="ch-R-Vectors.html#cb366-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="op">-</span><span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="ch-R-Vectors.html#cb370-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="op">-</span><span class="dv">2</span>]</span></code></pre></div>
 <pre><code>[1] 11 13 14 15 16 17 18 19 20</code></pre>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="ch-R-Vectors.html#cb368-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">-4</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="ch-R-Vectors.html#cb372-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">-4</span>)]</span></code></pre></div>
 <pre><code>[1] 11 13 15 16 17 18 19 20</code></pre>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="ch-R-Vectors.html#cb370-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="op">-</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">6</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="ch-R-Vectors.html#cb374-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="op">-</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">6</span>)]</span></code></pre></div>
 <pre><code>[1] 11 12 17 18 19 20</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:draw-minuns-number-index"></span>
 <img src="RVectors_files/figure-html/draw-minuns-number-index-1.png" alt="음의 정수 인덱스 벡터를 이용한 벡터 필터링" width="90%" />
@@ -1022,9 +1028,9 @@ Figure 3.7: 음의 정수 인덱스 벡터를 이용한 벡터 필터링
 <h3><span class="header-section-number">3.5.3</span> 논리 인덱스 벡터</h3>
 <p>논리 인덱스는 추출할 요소는 TRUE, 추출하지 않을 요소는 FALSE로 표시한다.
 인덱스 벡터가 논리 벡터로 주어지면 데이터 벡터에서 TRUE 위치의 요소만 선택되어 새로운 벡터가 만들어진다. 다음 예와 그림 <a href="ch-R-Vectors.html#fig:draw-logical-index">3.8</a>은 논리 인덱스 벡터가 벡터 필터링에 어떻게 사용되는지를 보여준다.</p>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="ch-R-Vectors.html#cb372-1"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></span>
-<span id="cb372-2"><a href="ch-R-Vectors.html#cb372-2"></a><span class="op">&gt;</span><span class="st"> </span>y &lt;-<span class="st"> </span><span class="kw">c</span>(T, F, T, T, F)</span>
-<span id="cb372-3"><a href="ch-R-Vectors.html#cb372-3"></a><span class="op">&gt;</span><span class="st"> </span>x[y]</span></code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="ch-R-Vectors.html#cb376-1"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></span>
+<span id="cb376-2"><a href="ch-R-Vectors.html#cb376-2"></a><span class="op">&gt;</span><span class="st"> </span>y &lt;-<span class="st"> </span><span class="kw">c</span>(T, F, T, T, F)</span>
+<span id="cb376-3"><a href="ch-R-Vectors.html#cb376-3"></a><span class="op">&gt;</span><span class="st"> </span>x[y]</span></code></pre></div>
 <pre><code>[1] 1 3 4</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:draw-logical-index"></span>
 <img src="RVectors_files/figure-html/draw-logical-index-1.png" alt="논리값 인덱스 벡터를 이용한 벡터 필터링" width="70%" />
@@ -1033,17 +1039,17 @@ Figure 3.8: 논리값 인덱스 벡터를 이용한 벡터 필터링
 </p>
 </div>
 <p>위의 예처럼 사용자가 직접 추출할 요소를 TRUE로 직접 기술하여 논리 인덱스 벡터를 제공할 수도 있지만, 더 많은 경우는 추출할 조건을 비교 연산 표현식으로 제공하는 경우가 더 많다(그림 <a href="ch-R-Vectors.html#fig:draw-logical-index">3.8</a> 참조).</p>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="ch-R-Vectors.html#cb374-1"></a><span class="op">&gt;</span><span class="st"> </span>x <span class="op">&gt;</span><span class="st"> </span><span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="ch-R-Vectors.html#cb378-1"></a><span class="op">&gt;</span><span class="st"> </span>x <span class="op">&gt;</span><span class="st"> </span><span class="dv">3</span></span></code></pre></div>
 <pre><code>[1] FALSE FALSE FALSE  TRUE  TRUE</code></pre>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="ch-R-Vectors.html#cb376-1"></a><span class="op">&gt;</span><span class="st"> </span>x[x<span class="op">&gt;</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="ch-R-Vectors.html#cb380-1"></a><span class="op">&gt;</span><span class="st"> </span>x[x<span class="op">&gt;</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>[1] 4 5</code></pre>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="ch-R-Vectors.html#cb378-1"></a><span class="op">&gt;</span><span class="st"> </span>x <span class="op">&gt;</span><span class="dv">3</span> <span class="op">&amp;</span><span class="st"> </span>x <span class="op">&lt;</span><span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="ch-R-Vectors.html#cb382-1"></a><span class="op">&gt;</span><span class="st"> </span>x <span class="op">&gt;</span><span class="dv">3</span> <span class="op">&amp;</span><span class="st"> </span>x <span class="op">&lt;</span><span class="dv">5</span></span></code></pre></div>
 <pre><code>[1] FALSE FALSE FALSE  TRUE FALSE</code></pre>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="ch-R-Vectors.html#cb380-1"></a><span class="op">&gt;</span><span class="st"> </span>x[x <span class="op">&gt;</span><span class="dv">3</span> <span class="op">&amp;</span><span class="st"> </span>x <span class="op">&lt;</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="ch-R-Vectors.html#cb384-1"></a><span class="op">&gt;</span><span class="st"> </span>x[x <span class="op">&gt;</span><span class="dv">3</span> <span class="op">&amp;</span><span class="st"> </span>x <span class="op">&lt;</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>[1] 4</code></pre>
 <p>다음처럼 논리 인덱스 벡터가 데이터 벡터의 길이보다 작으면 인덱스 벡터가 재사용되어 벡터 필터링이 이루어진다.</p>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="ch-R-Vectors.html#cb382-1"></a><span class="op">&gt;</span><span class="st"> </span>y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</span>
-<span id="cb382-2"><a href="ch-R-Vectors.html#cb382-2"></a><span class="op">&gt;</span><span class="st"> </span>x[y]</span></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="ch-R-Vectors.html#cb386-1"></a><span class="op">&gt;</span><span class="st"> </span>y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</span>
+<span id="cb386-2"><a href="ch-R-Vectors.html#cb386-2"></a><span class="op">&gt;</span><span class="st"> </span>x[y]</span></code></pre></div>
 <pre><code>[1] 1 3 5</code></pre>
 </div>
 <div id="이름-인덱스-벡터" class="section level3">
@@ -1051,42 +1057,42 @@ Figure 3.8: 논리값 인덱스 벡터를 이용한 벡터 필터링
 <p>R에선 벡터의 각 요소에 이름을 부여할 수 있다. 이름 인덱스 벡터는 추출할 요소의 위치를 벡터 요소의 이름으로 지정하는 방식이다.
 벡터 요소의 이름은 names() 함수로 확인하거나 할당할 수 있다. 벡터의 요소에 이름을 부여하면, 벡터가 출력될 때 데이터의 값뿐 아니라 요소의 이름도 함께 출력이 된다.
 다음은 names() 함수를 이용하여 animals라는 숫자 벡터의 각 요소에 이름을 부여한 후, 이름 인덱스 벡터로 요소들을 추출한 예이다.</p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="ch-R-Vectors.html#cb384-1"></a><span class="op">&gt;</span><span class="st"> </span>animals &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
-<span id="cb384-2"><a href="ch-R-Vectors.html#cb384-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">names</span>(animals) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;cats&quot;</span>, <span class="st">&quot;dogs&quot;</span>, <span class="st">&quot;camels&quot;</span>, <span class="st">&quot;donkeys&quot;</span>)</span>
-<span id="cb384-3"><a href="ch-R-Vectors.html#cb384-3"></a><span class="op">&gt;</span><span class="st"> </span>animals</span></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="ch-R-Vectors.html#cb388-1"></a><span class="op">&gt;</span><span class="st"> </span>animals &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
+<span id="cb388-2"><a href="ch-R-Vectors.html#cb388-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">names</span>(animals) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;cats&quot;</span>, <span class="st">&quot;dogs&quot;</span>, <span class="st">&quot;camels&quot;</span>, <span class="st">&quot;donkeys&quot;</span>)</span>
+<span id="cb388-3"><a href="ch-R-Vectors.html#cb388-3"></a><span class="op">&gt;</span><span class="st"> </span>animals</span></code></pre></div>
 <pre><code>   cats    dogs  camels donkeys 
       5       7       3       2 </code></pre>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="ch-R-Vectors.html#cb386-1"></a><span class="op">&gt;</span><span class="st"> </span>animals[<span class="st">&quot;camels&quot;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="ch-R-Vectors.html#cb390-1"></a><span class="op">&gt;</span><span class="st"> </span>animals[<span class="st">&quot;camels&quot;</span>]</span></code></pre></div>
 <pre><code>camels 
      3 </code></pre>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="ch-R-Vectors.html#cb388-1"></a><span class="op">&gt;</span><span class="st"> </span>animals[<span class="kw">c</span>(<span class="st">&quot;dogs&quot;</span>,<span class="st">&quot;donkeys&quot;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="ch-R-Vectors.html#cb392-1"></a><span class="op">&gt;</span><span class="st"> </span>animals[<span class="kw">c</span>(<span class="st">&quot;dogs&quot;</span>,<span class="st">&quot;donkeys&quot;</span>)]</span></code></pre></div>
 <pre><code>   dogs donkeys 
       7       2 </code></pre>
 </div>
 <div id="인덱스-벡터를-이용해-벡터-요소에-값-할당하기" class="section level3">
 <h3><span class="header-section-number">3.5.5</span> 인덱스 벡터를 이용해 벡터 요소에 값 할당하기</h3>
 <p>지금까지는 인덱스 벡터를 이용하여 필요한 요소를 추출하는 방법에 대하여 살펴보았다. 그런데 인덱스 벡터를 이용하여 데이터 벡터의 특정 요소에만 값을 할당할 수도 있다. 다음은 숫자 인덱스 벡터를 이용하여 벡터의 특정 요소에 값을 할당한 예이다.</p>
-<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="ch-R-Vectors.html#cb390-1"></a><span class="op">&gt;</span><span class="st"> </span>a &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>; a</span></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="ch-R-Vectors.html#cb394-1"></a><span class="op">&gt;</span><span class="st"> </span>a &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>; a</span></code></pre></div>
 <pre><code>[1] 1 2 3 4 5</code></pre>
-<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="ch-R-Vectors.html#cb392-1"></a><span class="op">&gt;</span><span class="st"> </span>a[<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="dv">20</span>; a</span></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="ch-R-Vectors.html#cb396-1"></a><span class="op">&gt;</span><span class="st"> </span>a[<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="dv">20</span>; a</span></code></pre></div>
 <pre><code>[1]  1 20  3  4  5</code></pre>
-<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="ch-R-Vectors.html#cb394-1"></a><span class="op">&gt;</span><span class="st"> </span>a[<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>)] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">300</span>); a</span></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="ch-R-Vectors.html#cb398-1"></a><span class="op">&gt;</span><span class="st"> </span>a[<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>)] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">300</span>); a</span></code></pre></div>
 <pre><code>[1]   1  20 100   4 300</code></pre>
-<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="ch-R-Vectors.html#cb396-1"></a><span class="op">&gt;</span><span class="st"> </span>a[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)] &lt;-<span class="st"> </span><span class="dv">-5</span>; a</span></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="ch-R-Vectors.html#cb400-1"></a><span class="op">&gt;</span><span class="st"> </span>a[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)] &lt;-<span class="st"> </span><span class="dv">-5</span>; a</span></code></pre></div>
 <pre><code>[1] -5 20 -5  4 -5</code></pre>
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="ch-R-Vectors.html#cb398-1"></a><span class="op">&gt;</span><span class="st"> </span>a[<span class="op">-</span><span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">0</span>; a</span></code></pre></div>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="ch-R-Vectors.html#cb402-1"></a><span class="op">&gt;</span><span class="st"> </span>a[<span class="op">-</span><span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">0</span>; a</span></code></pre></div>
 <pre><code>[1] -5  0  0  0  0</code></pre>
 <p>다음은 논리 인덱스 벡터를 이용하여 결측치가 있는 데이터에 결측치 대신 0을 넣는 예이다. is.na() 함수는 결측치가 있는 위치를 TRUE로 하는 논리값 벡터를 반환하므로, 이 결과를 인덱스 벡터로 하면 결측치가 있는 위치만 지정됨을 알 수 있다.</p>
-<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="ch-R-Vectors.html#cb400-1"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">4</span>, <span class="ot">NA</span>)</span>
-<span id="cb400-2"><a href="ch-R-Vectors.html#cb400-2"></a><span class="op">&gt;</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="ch-R-Vectors.html#cb404-1"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">4</span>, <span class="ot">NA</span>)</span>
+<span id="cb404-2"><a href="ch-R-Vectors.html#cb404-2"></a><span class="op">&gt;</span><span class="st"> </span>x</span></code></pre></div>
 <pre><code>[1] NA  2  3  4 NA</code></pre>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="ch-R-Vectors.html#cb402-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="kw">is.na</span>(x)] &lt;-<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb402-2"><a href="ch-R-Vectors.html#cb402-2"></a><span class="op">&gt;</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="ch-R-Vectors.html#cb406-1"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="kw">is.na</span>(x)] &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb406-2"><a href="ch-R-Vectors.html#cb406-2"></a><span class="op">&gt;</span><span class="st"> </span>x</span></code></pre></div>
 <pre><code>[1] 0 2 3 4 0</code></pre>
 <p>다음은 논리 인덱스 벡터를 이용하여 숫자 벡터의 요소를 모두 양수로 바꾸는 예이다.</p>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="ch-R-Vectors.html#cb404-1"></a><span class="op">&gt;</span><span class="st"> </span>y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">-7</span>, <span class="dv">8</span>)</span>
-<span id="cb404-2"><a href="ch-R-Vectors.html#cb404-2"></a><span class="op">&gt;</span><span class="st"> </span>y[y<span class="op">&lt;</span><span class="dv">0</span>] &lt;-<span class="st"> </span><span class="op">-</span>y[y<span class="op">&lt;</span><span class="dv">0</span>]</span>
-<span id="cb404-3"><a href="ch-R-Vectors.html#cb404-3"></a><span class="op">&gt;</span><span class="st"> </span>y</span></code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="ch-R-Vectors.html#cb408-1"></a><span class="op">&gt;</span><span class="st"> </span>y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">-7</span>, <span class="dv">8</span>)</span>
+<span id="cb408-2"><a href="ch-R-Vectors.html#cb408-2"></a><span class="op">&gt;</span><span class="st"> </span>y[y<span class="op">&lt;</span><span class="dv">0</span>] &lt;-<span class="st"> </span><span class="op">-</span>y[y<span class="op">&lt;</span><span class="dv">0</span>]</span>
+<span id="cb408-3"><a href="ch-R-Vectors.html#cb408-3"></a><span class="op">&gt;</span><span class="st"> </span>y</span></code></pre></div>
 <pre><code>[1] 2 0 4 7 8</code></pre>
 
 </div>
