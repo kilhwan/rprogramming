@@ -24,7 +24,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2020-09-14" />
+<meta name="date" content="2020-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -458,7 +458,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="matrix는-열을-순서대로-채워나간다." class="section level4 unnumbered">
 <h4>matrix()는 열을 순서대로 채워나간다.</h4>
 <p>벡터의 요소는 차례대로 1열의 1행을 채우고 2행을 채운다. 그리고 난 후 2열의 모든 행을 순서대로 채운다. 이러한 방식으로 차례차례 모든 열의 데이터를 채워 나감을 볼 수 있다. 만약 열이 아니라 행을 차례대로 채워나가면서 행렬을 만드고 싶으면 byrow=TRUE 인수를 사용하면 된다.</p>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="ch-R-Matrix.html#cb415-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">matrix</span>(n, <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">byrow=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="ch-R-Matrix.html#cb415-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">matrix</span>(n, <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">ncol=</span><span class="dv">5</span>, <span class="dt">byrow=</span>T)</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    1    2    3    4    5
 [2,]    6    7    8    9   10</code></pre>
@@ -472,7 +472,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>$dim
 [1] 2 5</code></pre>
 <p>matrix()로 벡터를 행렬로 변환시킬 때 행의 개수 대신 열의 개수를 지정할 수도 있다. 이 경우 nrow 대신 ncol 인수를 사용하면 된다. 아래 예에서는 열의 개수를 2로 지정하였으므로 행렬 m은 크기가 <span class="math inline">\(5 \times 2\)</span>인 행렬이 되었음을 볼 수 있다. 이는 dim 속성에서도 확인할 수 있다.</p>
-<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="ch-R-Matrix.html#cb421-1"></a><span class="op">&gt;</span><span class="st"> </span>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(n, <span class="dt">ncol=</span><span class="dv">2</span>)</span>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="ch-R-Matrix.html#cb421-1"></a><span class="op">&gt;</span><span class="st"> </span>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(n, <span class="dt">nrow=</span><span class="dv">5</span>, <span class="dt">ncol=</span><span class="dv">2</span>)</span>
 <span id="cb421-2"><a href="ch-R-Matrix.html#cb421-2"></a><span class="op">&gt;</span><span class="st"> </span>m</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    1    6
@@ -540,7 +540,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="벡터벡터-벡터행렬-행렬행렬-결합" class="section level4 unnumbered">
 <h4>벡터+벡터, 벡터+행렬, 행렬+행렬 결합</h4>
 <p>벡터들만 연결하여 행렬을 만드는 것이 아니라, 행렬과 벡터 또는 행렬과 행렬을 행 또는 열로 묶어 새로운 행렬을 만들 수 있다.</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="ch-R-Matrix.html#cb439-1"></a><span class="op">&gt;</span><span class="st"> </span>A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow=</span><span class="dv">3</span>)</span>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="ch-R-Matrix.html#cb439-1"></a><span class="op">&gt;</span><span class="st"> </span>A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">3</span>)</span>
 <span id="cb439-2"><a href="ch-R-Matrix.html#cb439-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">cbind</span>(A, <span class="dv">10</span><span class="op">:</span><span class="dv">12</span>)</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4]
 [1,]    1    4    7   10
@@ -611,7 +611,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="자연수-인덱스-벡터" class="section level4 unnumbered">
 <h4>자연수 인덱스 벡터</h4>
 <p>아래는 1부터 25까지의 숫자를 크기 <span class="math inline">\(5 \times 5\)</span>인 행렬로 만든 후 인덱스 벡터로 각 데이터 요소를 특정하는 예를 보여주고 있다.</p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="ch-R-Matrix.html#cb457-1"></a><span class="op">&gt;</span><span class="st"> </span>z &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>, <span class="dt">nrow=</span><span class="dv">5</span>)</span>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="ch-R-Matrix.html#cb457-1"></a><span class="op">&gt;</span><span class="st"> </span>z &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>, <span class="dt">nrow=</span><span class="dv">5</span>, <span class="dt">ncol=</span><span class="dv">5</span>)</span>
 <span id="cb457-2"><a href="ch-R-Matrix.html#cb457-2"></a><span class="op">&gt;</span><span class="st"> </span>z</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    1    6   11   16   21
@@ -794,7 +794,7 @@ student5    182     68    2</code></pre>
 <div id="행렬의-요소-단위-연산" class="section level4 unnumbered">
 <h4>행렬의 요소 단위 연산</h4>
 <p>행과 열의 수가 같은 행렬은 산술 연산을 할 수 있다. 이 경우 벡터와 마찬가지로 산술 연산은 같은 위치의 요소 단위(element-by-element)로 이루어진다.</p>
-<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="ch-R-Matrix.html#cb525-1"></a><span class="op">&gt;</span><span class="st"> </span>A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow=</span><span class="dv">3</span>)</span>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="ch-R-Matrix.html#cb525-1"></a><span class="op">&gt;</span><span class="st"> </span>A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">3</span>)</span>
 <span id="cb525-2"><a href="ch-R-Matrix.html#cb525-2"></a><span class="op">&gt;</span><span class="st"> </span>A</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    1    4    7
@@ -890,7 +890,7 @@ student5    182     68    2</code></pre>
 <div id="t" class="section level4 unnumbered">
 <h4>t()</h4>
 <p>어떤 행렬에서 행과 열이 바뀐 행렬을 전치행렬(transposed matrix)이라 한다. t() 함수를 이용하면 전치행렬을 구할 수 있다.</p>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="ch-R-Matrix.html#cb556-1"></a><span class="op">&gt;</span><span class="st"> </span>A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">nrow=</span><span class="dv">2</span>)</span>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="ch-R-Matrix.html#cb556-1"></a><span class="op">&gt;</span><span class="st"> </span>A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">ncol=</span><span class="dv">2</span>)</span>
 <span id="cb556-2"><a href="ch-R-Matrix.html#cb556-2"></a><span class="op">&gt;</span><span class="st"> </span>A</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    1    3
@@ -982,7 +982,7 @@ $dimnames[[2]]
 <span id="cb595-2"><a href="ch-R-Matrix.html#cb595-2"></a><span class="op">&gt;</span><span class="st"> </span>a &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>)</span>
 <span id="cb595-3"><a href="ch-R-Matrix.html#cb595-3"></a><span class="op">&gt;</span><span class="st"> </span>a</span></code></pre></div>
 <pre><code> [1] 15 19 14  3 10 18 11  5 23  6  9 21 24 20 22 25 17  1 12 13  2 16  7  8  4</code></pre>
-<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="ch-R-Matrix.html#cb597-1"></a><span class="op">&gt;</span><span class="st"> </span>A &lt;-<span class="st"> </span><span class="kw">matrix</span>(a, <span class="dt">nrow=</span><span class="dv">5</span>)</span>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="ch-R-Matrix.html#cb597-1"></a><span class="op">&gt;</span><span class="st"> </span>A &lt;-<span class="st"> </span><span class="kw">matrix</span>(a, <span class="dt">nrow=</span><span class="dv">5</span>, <span class="dt">ncol=</span><span class="dv">5</span>)</span>
 <span id="cb597-2"><a href="ch-R-Matrix.html#cb597-2"></a><span class="op">&gt;</span><span class="st"> </span>A</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]   15   18    9   25    2
@@ -1534,7 +1534,7 @@ B       2       6</code></pre>
 \mathbf{x} = \mathbf{A}^{-1} \mathbf{b}
 \end{equation*}\]</span></p>
 <p>R에서는 solve() 함수를 이용하여 해를 구한다. solve(a, b) 함수의 첫번째 인수 a에는 연립 일차 방정식의 좌변의 계수를 나타내는 정방행렬이, 두번째 인수 b에는 우변의 상수항을 나타내는 벡터가 제공된다.</p>
-<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="ch-R-Matrix.html#cb728-1"></a><span class="op">&gt;</span><span class="st"> </span>A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">-2</span>, <span class="dv">-3</span>, <span class="dv">4</span>), <span class="dt">nrow=</span><span class="dv">2</span>); A</span></code></pre></div>
+<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="ch-R-Matrix.html#cb728-1"></a><span class="op">&gt;</span><span class="st"> </span>A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">-2</span>, <span class="dv">-3</span>, <span class="dv">4</span>), <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">ncol=</span><span class="dv">2</span>); A</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    2   -3
 [2,]   -2    4</code></pre>
