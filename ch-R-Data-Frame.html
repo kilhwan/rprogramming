@@ -701,18 +701,17 @@ attr(,&quot;levels&quot;)
 <p>첫째, 벡터는 모두 같은 길이를 가져야 하며 행렬과 데이터 프레임은 모두 같은 행 수를 가져야 한다. 벡터의 같은 위치의 데이터와 행렬 및 데이터 프레임의 같은 행에 있는 데이터가 연결되어 하나의 데이터 단위가 된다.</p>
 <p>둘째, 벡터는 하나의 벡터가 데이터 프레임의 하나의 열이 되지만, 행렬, 데이터 프레임은 각 열이 데이터 프레임의 하나의 열이 된다.</p>
 <p>이러한 사실을 염두하면서 표 <a href="ch-R-Data-Frame.html#tab:class-scores">6.1</a>의 데이터를 데이터 프레임으로 만들어 본다. 먼저 학생이름, 학년, 성별로만 이루어진 데이터 프레임을 만들어 보자.</p>
-<div class="sourceCode" id="cb1093"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1093-1"><a href="ch-R-Data-Frame.html#cb1093-1"></a><span class="op">&gt;</span><span class="st"> </span>name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Kim Chulsu&quot;</span>, <span class="st">&quot;Kim Yunghee&quot;</span>, <span class="st">&quot;Lee Chulsu&quot;</span>, </span>
-<span id="cb1093-2"><a href="ch-R-Data-Frame.html#cb1093-2"></a><span class="op">+</span><span class="st">          &quot;Lee Younghee&quot;</span>, <span class="st">&quot;Hong Gildong&quot;</span>)</span>
-<span id="cb1093-3"><a href="ch-R-Data-Frame.html#cb1093-3"></a><span class="op">&gt;</span><span class="st"> </span>grade &lt;-<span class="st"> </span><span class="kw">factor</span>( <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>))</span>
-<span id="cb1093-4"><a href="ch-R-Data-Frame.html#cb1093-4"></a><span class="op">&gt;</span><span class="st"> </span>gender &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot; M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>)</span>
-<span id="cb1093-5"><a href="ch-R-Data-Frame.html#cb1093-5"></a><span class="op">&gt;</span><span class="st"> </span>student &lt;-<span class="st"> </span><span class="kw">data.frame</span>(name, grade, gender)</span>
-<span id="cb1093-6"><a href="ch-R-Data-Frame.html#cb1093-6"></a><span class="op">&gt;</span><span class="st"> </span>student</span></code></pre></div>
-<pre><code>          name grade gender
-1   Kim Chulsu     1      M
-2  Kim Yunghee     4      F
-3   Lee Chulsu     3      M
-4 Lee Younghee     2      F
-5 Hong Gildong     1      M</code></pre>
+<div class="sourceCode" id="cb1093"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1093-1"><a href="ch-R-Data-Frame.html#cb1093-1"></a><span class="op">&gt;</span><span class="st"> </span>name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;김철수&quot;</span>, <span class="st">&quot;김영희&quot;</span>, <span class="st">&quot;이철수&quot;</span>, <span class="st">&quot;이영희&quot;</span>, <span class="st">&quot;홍길동&quot;</span>)</span>
+<span id="cb1093-2"><a href="ch-R-Data-Frame.html#cb1093-2"></a><span class="op">&gt;</span><span class="st"> </span>grade &lt;-<span class="st"> </span><span class="kw">factor</span>( <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>))</span>
+<span id="cb1093-3"><a href="ch-R-Data-Frame.html#cb1093-3"></a><span class="op">&gt;</span><span class="st"> </span>gender &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot; M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>)</span>
+<span id="cb1093-4"><a href="ch-R-Data-Frame.html#cb1093-4"></a><span class="op">&gt;</span><span class="st"> </span>student &lt;-<span class="st"> </span><span class="kw">data.frame</span>(name, grade, gender)</span>
+<span id="cb1093-5"><a href="ch-R-Data-Frame.html#cb1093-5"></a><span class="op">&gt;</span><span class="st"> </span>student</span></code></pre></div>
+<pre><code>    name grade gender
+1 김철수     1      M
+2 김영희     4      F
+3 이철수     3      M
+4 이영희     2      F
+5 홍길동     1      M</code></pre>
 <p>위의 예에서는 길이가 같은 벡터와 요인을 인수로 해서 데이터 프레임을 만들었다. 데이터 프레임을 출력해 보면 자동으로 행 번호가 부여되어 있음을 볼 수 있다. 열의 이름으로 각각 벡터와 요인을 저장한 변수명이 부여되었음을 볼 수 있다.</p>
 <p>이번에는 만들어진 데이터 프레임에 중간, 기말 고사 점수와 재수강 여부를 포함시켜 새로운 데이터 프레임을 만들어 보자. 아래 예에서는 중간, 기말 고사 점수를 행렬로 먼저 만든 후 데이터 프레임에 포함시켜 보았다.</p>
 <div class="sourceCode" id="cb1095"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1095-1"><a href="ch-R-Data-Frame.html#cb1095-1"></a><span class="op">&gt;</span><span class="st"> </span>midterm =<span class="st"> </span><span class="kw">c</span>(<span class="dv">74</span>, <span class="dv">82</span>, <span class="dv">67</span>, <span class="dv">89</span>, <span class="dv">92</span>)</span>
@@ -728,12 +727,12 @@ attr(,&quot;levels&quot;)
 <div class="sourceCode" id="cb1097"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1097-1"><a href="ch-R-Data-Frame.html#cb1097-1"></a><span class="op">&gt;</span><span class="st"> </span>rt &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</span>
 <span id="cb1097-2"><a href="ch-R-Data-Frame.html#cb1097-2"></a><span class="op">&gt;</span><span class="st"> </span>students &lt;-<span class="st"> </span><span class="kw">data.frame</span>(student, scores, <span class="dt">retake =</span> rt)</span>
 <span id="cb1097-3"><a href="ch-R-Data-Frame.html#cb1097-3"></a><span class="op">&gt;</span><span class="st"> </span>students</span></code></pre></div>
-<pre><code>          name grade gender midterm final retake
-1   Kim Chulsu     1      M      74    91   TRUE
-2  Kim Yunghee     4      F      82    77  FALSE
-3   Lee Chulsu     3      M      67    88  FALSE
-4 Lee Younghee     2      F      89    78   TRUE
-5 Hong Gildong     1      M      92    86  FALSE</code></pre>
+<pre><code>    name grade gender midterm final retake
+1 김철수     1      M      74    91   TRUE
+2 김영희     4      F      82    77  FALSE
+3 이철수     3      M      67    88  FALSE
+4 이영희     2      F      89    78   TRUE
+5 홍길동     1      M      92    86  FALSE</code></pre>
 <p>위에서 새로운 데이터 프레임의 각 열의 이름은 기존 데이터 프레임의 각 열의 이름, 행렬의 열 이름이 자동으로 부여되고 있음을 볼 수 있다. 재수강 여부 데이터벡터 rt는 data.frame()이 호출될 때, retake = rt 형태로 인수를 전달하여 새로운 데이터 프레임에서는 이름이 retake로 변경되었다. 데이터 프레임을 생성할 때 각 열에 이름을 부여하고 싶으면 이와 같은 방식으로 이름을 부여하면 된다.</p>
 </div>
 <div id="cbind" class="section level4 unnumbered">
@@ -741,12 +740,12 @@ attr(,&quot;levels&quot;)
 <p>앞서 설명하였듯이 데이터 프레임은 행렬적인 외양을 가지고 있으므로 행렬처럼 cbind()나 rbind()를 이용하여 행과 열을 추가할 수 있다. 다음 예는 cbind를 이용하여 중간과 기말의 총점 열을 추가한 예이다.</p>
 <div class="sourceCode" id="cb1099"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1099-1"><a href="ch-R-Data-Frame.html#cb1099-1"></a><span class="op">&gt;</span><span class="st"> </span>total.scores &lt;-<span class="st"> </span>midterm <span class="op">+</span><span class="st"> </span>final</span>
 <span id="cb1099-2"><a href="ch-R-Data-Frame.html#cb1099-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">cbind</span>(students, total.scores)</span></code></pre></div>
-<pre><code>          name grade gender midterm final retake total.scores
-1   Kim Chulsu     1      M      74    91   TRUE          165
-2  Kim Yunghee     4      F      82    77  FALSE          159
-3   Lee Chulsu     3      M      67    88  FALSE          155
-4 Lee Younghee     2      F      89    78   TRUE          167
-5 Hong Gildong     1      M      92    86  FALSE          178</code></pre>
+<pre><code>    name grade gender midterm final retake total.scores
+1 김철수     1      M      74    91   TRUE          165
+2 김영희     4      F      82    77  FALSE          159
+3 이철수     3      M      67    88  FALSE          155
+4 이영희     2      F      89    78   TRUE          167
+5 홍길동     1      M      92    86  FALSE          178</code></pre>
 </div>
 <div id="rbind" class="section level4 unnumbered">
 <h4>rbind()</h4>
@@ -757,13 +756,13 @@ attr(,&quot;levels&quot;)
 <pre><code>       name grade gender midterm final retake
 1 Jane Eyre     4      F      90    85  FALSE</code></pre>
 <div class="sourceCode" id="cb1103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1103-1"><a href="ch-R-Data-Frame.html#cb1103-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">rbind</span>(students, a)</span></code></pre></div>
-<pre><code>          name grade gender midterm final retake
-1   Kim Chulsu     1      M      74    91   TRUE
-2  Kim Yunghee     4      F      82    77  FALSE
-3   Lee Chulsu     3      M      67    88  FALSE
-4 Lee Younghee     2      F      89    78   TRUE
-5 Hong Gildong     1      M      92    86  FALSE
-6    Jane Eyre     4      F      90    85  FALSE</code></pre>
+<pre><code>       name grade gender midterm final retake
+1    김철수     1      M      74    91   TRUE
+2    김영희     4      F      82    77  FALSE
+3    이철수     3      M      67    88  FALSE
+4    이영희     2      F      89    78   TRUE
+5    홍길동     1      M      92    86  FALSE
+6 Jane Eyre     4      F      90    85  FALSE</code></pre>
 </div>
 </div>
 <div id="데이터-프레임-각-열의-지정" class="section level2">
@@ -797,7 +796,7 @@ $row.names
 <div class="sourceCode" id="cb1114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1114-1"><a href="ch-R-Data-Frame.html#cb1114-1"></a><span class="op">&gt;</span><span class="st"> </span>students[[<span class="dv">5</span>]]</span></code></pre></div>
 <pre><code>[1] 91 77 88 78 86</code></pre>
 <div class="sourceCode" id="cb1116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1116-1"><a href="ch-R-Data-Frame.html#cb1116-1"></a><span class="op">&gt;</span><span class="st"> </span>students<span class="op">$</span>name</span></code></pre></div>
-<pre><code>[1] &quot;Kim Chulsu&quot;   &quot;Kim Yunghee&quot;  &quot;Lee Chulsu&quot;   &quot;Lee Younghee&quot; &quot;Hong Gildong&quot;</code></pre>
+<pre><code>[1] &quot;김철수&quot; &quot;김영희&quot; &quot;이철수&quot; &quot;이영희&quot; &quot;홍길동&quot;</code></pre>
 <div class="sourceCode" id="cb1118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1118-1"><a href="ch-R-Data-Frame.html#cb1118-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">typeof</span>(students<span class="op">$</span>name)</span></code></pre></div>
 <pre><code>[1] &quot;character&quot;</code></pre>
 </div>
@@ -816,12 +815,12 @@ $row.names
 <p>또한 리스트에 새로운 요소를 추가할 때와 마찬가지 방법으로 열을 추가할 수도 있다. 다음 예는 hw이라는 이름으로 숙제 점수 열을 추가하는 예이다.</p>
 <div class="sourceCode" id="cb1128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1128-1"><a href="ch-R-Data-Frame.html#cb1128-1"></a><span class="op">&gt;</span><span class="st"> </span>students<span class="op">$</span>hw &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">10</span>)</span>
 <span id="cb1128-2"><a href="ch-R-Data-Frame.html#cb1128-2"></a><span class="op">&gt;</span><span class="st"> </span>students</span></code></pre></div>
-<pre><code>          name grade gender midterm final retake hw
-1   Kim Chulsu     1      M      74    91   TRUE  8
-2  Kim Yunghee     4      F      82    77  FALSE  9
-3   Lee Chulsu     3      M      67    88  FALSE  7
-4 Lee Younghee     2      F      89    78   TRUE  8
-5 Hong Gildong     1      M      50    86  FALSE 10</code></pre>
+<pre><code>    name grade gender midterm final retake hw
+1 김철수     1      M      74    91   TRUE  8
+2 김영희     4      F      82    77  FALSE  9
+3 이철수     3      M      67    88  FALSE  7
+4 이영희     2      F      89    78   TRUE  8
+5 홍길동     1      M      50    86  FALSE 10</code></pre>
 </div>
 </div>
 <div id="데이터-프레임의-필터링" class="section level2">
@@ -838,12 +837,12 @@ $row.names
 <p>다음 예는 students 데이터 프레임에서 열의 인덱스를 숫자, 이름, 논리값으로 각각 지정하여 새로운 데이터 프레임을 만든 경우이다.</p>
 <div class="sourceCode" id="cb1131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1131-1"><a href="ch-R-Data-Frame.html#cb1131-1"></a><span class="op">&gt;</span><span class="st"> </span>students.new &lt;-<span class="st"> </span>students[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span>
 <span id="cb1131-2"><a href="ch-R-Data-Frame.html#cb1131-2"></a><span class="op">&gt;</span><span class="st"> </span>students.new</span></code></pre></div>
-<pre><code>          name grade
-1   Kim Chulsu     1
-2  Kim Yunghee     4
-3   Lee Chulsu     3
-4 Lee Younghee     2
-5 Hong Gildong     1</code></pre>
+<pre><code>    name grade
+1 김철수     1
+2 김영희     4
+3 이철수     3
+4 이영희     2
+5 홍길동     1</code></pre>
 <div class="sourceCode" id="cb1133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1133-1"><a href="ch-R-Data-Frame.html#cb1133-1"></a><span class="op">&gt;</span><span class="st"> </span>students.new &lt;-<span class="st"> </span>students[<span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)]</span>
 <span id="cb1133-2"><a href="ch-R-Data-Frame.html#cb1133-2"></a><span class="op">&gt;</span><span class="st"> </span>students.new</span></code></pre></div>
 <pre><code>  gender midterm final retake hw
@@ -862,12 +861,12 @@ $row.names
 5      M     1</code></pre>
 <div class="sourceCode" id="cb1137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1137-1"><a href="ch-R-Data-Frame.html#cb1137-1"></a><span class="op">&gt;</span><span class="st"> </span>student.new &lt;-<span class="st"> </span>students[<span class="kw">c</span>(T, F, F, T, T, F)]</span>
 <span id="cb1137-2"><a href="ch-R-Data-Frame.html#cb1137-2"></a><span class="op">&gt;</span><span class="st"> </span>student.new</span></code></pre></div>
-<pre><code>          name midterm final hw
-1   Kim Chulsu      74    91  8
-2  Kim Yunghee      82    77  9
-3   Lee Chulsu      67    88  7
-4 Lee Younghee      89    78  8
-5 Hong Gildong      50    86 10</code></pre>
+<pre><code>    name midterm final hw
+1 김철수      74    91  8
+2 김영희      82    77  9
+3 이철수      67    88  7
+4 이영희      89    78  8
+5 홍길동      50    86 10</code></pre>
 <p>data.frame() 함수를 이용하면 기존의 데이터 프레임에 새로운 열을 추가하여 새로운 데이터 프레임도 만들 수 있다. 다음 예는 기존의 students 데이터 프레임에 키 데이터를 추가한 경우이다.</p>
 <div class="sourceCode" id="cb1139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1139-1"><a href="ch-R-Data-Frame.html#cb1139-1"></a><span class="op">&gt;</span><span class="st"> </span>height &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">172</span>, <span class="dv">167</span>, <span class="dv">181</span>, <span class="dv">162</span>, <span class="dv">178</span>)</span>
 <span id="cb1139-2"><a href="ch-R-Data-Frame.html#cb1139-2"></a><span class="op">&gt;</span><span class="st"> </span>students.new &lt;-<span class="st"> </span><span class="kw">data.frame</span>(students[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>], <span class="dt">height=</span>height)</span>
@@ -925,26 +924,26 @@ $class
 <div class="sourceCode" id="cb1153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1153-1"><a href="ch-R-Data-Frame.html#cb1153-1"></a><span class="op">&gt;</span><span class="st"> </span>data_frame_name[row_index_vector, column_index_vector]</span></code></pre></div>
 <p>다음은 students 데이터 프레임에서 행렬 인덱스 벡터를 이용하여 데이터의 일부를 지정한 예이다.</p>
 <div class="sourceCode" id="cb1154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1154-1"><a href="ch-R-Data-Frame.html#cb1154-1"></a><span class="op">&gt;</span><span class="st"> </span>students[<span class="dv">1</span>,]</span></code></pre></div>
-<pre><code>        name grade gender midterm final retake hw
-1 Kim Chulsu     1      M      74    91   TRUE  8</code></pre>
+<pre><code>    name grade gender midterm final retake hw
+1 김철수     1      M      74    91   TRUE  8</code></pre>
 <div class="sourceCode" id="cb1156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1156-1"><a href="ch-R-Data-Frame.html#cb1156-1"></a><span class="op">&gt;</span><span class="st"> </span>students[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>,]</span></code></pre></div>
-<pre><code>         name grade gender midterm final retake hw
-2 Kim Yunghee     4      F      82    77  FALSE  9
-3  Lee Chulsu     3      M      67    88  FALSE  7</code></pre>
+<pre><code>    name grade gender midterm final retake hw
+2 김영희     4      F      82    77  FALSE  9
+3 이철수     3      M      67    88  FALSE  7</code></pre>
 <div class="sourceCode" id="cb1158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1158-1"><a href="ch-R-Data-Frame.html#cb1158-1"></a><span class="op">&gt;</span><span class="st"> </span>students[<span class="op">-</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>),]</span></code></pre></div>
-<pre><code>          name grade gender midterm final retake hw
-1   Kim Chulsu     1      M      74    91   TRUE  8
-4 Lee Younghee     2      F      89    78   TRUE  8
-5 Hong Gildong     1      M      50    86  FALSE 10</code></pre>
+<pre><code>    name grade gender midterm final retake hw
+1 김철수     1      M      74    91   TRUE  8
+4 이영희     2      F      89    78   TRUE  8
+5 홍길동     1      M      50    86  FALSE 10</code></pre>
 <div class="sourceCode" id="cb1160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1160-1"><a href="ch-R-Data-Frame.html#cb1160-1"></a><span class="op">&gt;</span><span class="st"> </span>students[,<span class="dv">4</span>]</span></code></pre></div>
 <pre><code>[1] 74 82 67 89 50</code></pre>
 <div class="sourceCode" id="cb1162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1162-1"><a href="ch-R-Data-Frame.html#cb1162-1"></a><span class="op">&gt;</span><span class="st"> </span>students[,<span class="op">-</span><span class="dv">4</span>]</span></code></pre></div>
-<pre><code>          name grade gender final retake hw
-1   Kim Chulsu     1      M    91   TRUE  8
-2  Kim Yunghee     4      F    77  FALSE  9
-3   Lee Chulsu     3      M    88  FALSE  7
-4 Lee Younghee     2      F    78   TRUE  8
-5 Hong Gildong     1      M    86  FALSE 10</code></pre>
+<pre><code>    name grade gender final retake hw
+1 김철수     1      M    91   TRUE  8
+2 김영희     4      F    77  FALSE  9
+3 이철수     3      M    88  FALSE  7
+4 이영희     2      F    78   TRUE  8
+5 홍길동     1      M    86  FALSE 10</code></pre>
 <div class="sourceCode" id="cb1164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1164-1"><a href="ch-R-Data-Frame.html#cb1164-1"></a><span class="op">&gt;</span><span class="st"> </span>students[, <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code></pre></div>
 <pre><code>  grade midterm
 1     1      74
@@ -960,18 +959,18 @@ $class
 <div class="sourceCode" id="cb1168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1168-1"><a href="ch-R-Data-Frame.html#cb1168-1"></a><span class="op">&gt;</span><span class="st"> </span>students<span class="op">$</span>midterm <span class="op">&gt;=</span><span class="st"> </span><span class="dv">80</span></span></code></pre></div>
 <pre><code>[1] FALSE  TRUE FALSE  TRUE FALSE</code></pre>
 <div class="sourceCode" id="cb1170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1170-1"><a href="ch-R-Data-Frame.html#cb1170-1"></a><span class="op">&gt;</span><span class="st"> </span>students[students<span class="op">$</span>midterm <span class="op">&gt;=</span><span class="st"> </span><span class="dv">80</span>, ]</span></code></pre></div>
-<pre><code>          name grade gender midterm final retake hw
-2  Kim Yunghee     4      F      82    77  FALSE  9
-4 Lee Younghee     2      F      89    78   TRUE  8</code></pre>
+<pre><code>    name grade gender midterm final retake hw
+2 김영희     4      F      82    77  FALSE  9
+4 이영희     2      F      89    78   TRUE  8</code></pre>
 <div class="sourceCode" id="cb1172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1172-1"><a href="ch-R-Data-Frame.html#cb1172-1"></a><span class="op">&gt;</span><span class="st"> </span>students[students<span class="op">$</span>midterm <span class="op">&gt;=</span><span class="st"> </span><span class="dv">80</span>, <span class="kw">c</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;grade&quot;</span>, <span class="st">&quot;gender&quot;</span>)]</span></code></pre></div>
-<pre><code>          name grade gender
-2  Kim Yunghee     4      F
-4 Lee Younghee     2      F</code></pre>
+<pre><code>    name grade gender
+2 김영희     4      F
+4 이영희     2      F</code></pre>
 <div class="sourceCode" id="cb1174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1174-1"><a href="ch-R-Data-Frame.html#cb1174-1"></a><span class="op">&gt;</span><span class="st"> </span>students[students<span class="op">$</span>grade <span class="op">!=</span><span class="st"> </span><span class="dv">1</span>, <span class="kw">c</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;grade&quot;</span>, <span class="st">&quot;gender&quot;</span>)]</span></code></pre></div>
-<pre><code>          name grade gender
-2  Kim Yunghee     4      F
-3   Lee Chulsu     3      M
-4 Lee Younghee     2      F</code></pre>
+<pre><code>    name grade gender
+2 김영희     4      F
+3 이철수     3      M
+4 이영희     2      F</code></pre>
 </div>
 <div id="행렬-필터링-방법을-이용한-데이터-프레임-정렬" class="section level4 unnumbered">
 <h4>행렬 필터링 방법을 이용한 데이터 프레임 정렬</h4>
@@ -979,49 +978,49 @@ $class
 <div class="sourceCode" id="cb1176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1176-1"><a href="ch-R-Data-Frame.html#cb1176-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">order</span>(students<span class="op">$</span>grade)</span></code></pre></div>
 <pre><code>[1] 1 5 4 3 2</code></pre>
 <div class="sourceCode" id="cb1178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1178-1"><a href="ch-R-Data-Frame.html#cb1178-1"></a><span class="op">&gt;</span><span class="st"> </span>students[<span class="kw">order</span>(students<span class="op">$</span>grade), ]</span></code></pre></div>
-<pre><code>          name grade gender midterm final retake hw
-1   Kim Chulsu     1      M      74    91   TRUE  8
-5 Hong Gildong     1      M      50    86  FALSE 10
-4 Lee Younghee     2      F      89    78   TRUE  8
-3   Lee Chulsu     3      M      67    88  FALSE  7
-2  Kim Yunghee     4      F      82    77  FALSE  9</code></pre>
+<pre><code>    name grade gender midterm final retake hw
+1 김철수     1      M      74    91   TRUE  8
+5 홍길동     1      M      50    86  FALSE 10
+4 이영희     2      F      89    78   TRUE  8
+3 이철수     3      M      67    88  FALSE  7
+2 김영희     4      F      82    77  FALSE  9</code></pre>
 <div class="sourceCode" id="cb1180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1180-1"><a href="ch-R-Data-Frame.html#cb1180-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">order</span>(students<span class="op">$</span>final, <span class="dt">decreasing =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>[1] 1 3 5 4 2</code></pre>
 <div class="sourceCode" id="cb1182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1182-1"><a href="ch-R-Data-Frame.html#cb1182-1"></a><span class="op">&gt;</span><span class="st"> </span>students[<span class="kw">order</span>(students<span class="op">$</span>final, <span class="dt">decreasing =</span> <span class="ot">TRUE</span>), ]</span></code></pre></div>
-<pre><code>          name grade gender midterm final retake hw
-1   Kim Chulsu     1      M      74    91   TRUE  8
-3   Lee Chulsu     3      M      67    88  FALSE  7
-5 Hong Gildong     1      M      50    86  FALSE 10
-4 Lee Younghee     2      F      89    78   TRUE  8
-2  Kim Yunghee     4      F      82    77  FALSE  9</code></pre>
+<pre><code>    name grade gender midterm final retake hw
+1 김철수     1      M      74    91   TRUE  8
+3 이철수     3      M      67    88  FALSE  7
+5 홍길동     1      M      50    86  FALSE 10
+4 이영희     2      F      89    78   TRUE  8
+2 김영희     4      F      82    77  FALSE  9</code></pre>
 <p>만약 학생을 학년으로 정렬을 한 후, 동일 학년이면 기말고사가 높은 사람이 먼저 나오게 정렬하고자 하면 어떻게 할까?
 사실 order() 함수는 길이가 같은 여러 개의 벡터를 차례대로 비교하여 순위를 결정할 수 있다. order()의 인수 중 맨처음 나열된 벡터를 기준으로 순서를 결정하지만, 동률이 있으면 두번째로 나열된 벡터를 기준으로 동률 간의 순서를 결정한다. 두번째 벡터에서도 동률이면 다음에 나열된 벡터를 기준으로 이용한다.
 예를 들어 학생을 학년 순서로 정렬하는데, 학년이 동률인 경우 기말고사 점수로 순서를 정한다고 하자. 그러면 다음과 같이 order() 함수를 기술하면 된다.</p>
 <div class="sourceCode" id="cb1184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1184-1"><a href="ch-R-Data-Frame.html#cb1184-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">order</span>(students<span class="op">$</span>grade, students<span class="op">$</span>final)</span></code></pre></div>
 <pre><code>[1] 5 1 4 3 2</code></pre>
 <div class="sourceCode" id="cb1186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1186-1"><a href="ch-R-Data-Frame.html#cb1186-1"></a><span class="op">&gt;</span><span class="st"> </span>students[<span class="kw">order</span>(students<span class="op">$</span>grade, students<span class="op">$</span>final), ]</span></code></pre></div>
-<pre><code>          name grade gender midterm final retake hw
-5 Hong Gildong     1      M      50    86  FALSE 10
-1   Kim Chulsu     1      M      74    91   TRUE  8
-4 Lee Younghee     2      F      89    78   TRUE  8
-3   Lee Chulsu     3      M      67    88  FALSE  7
-2  Kim Yunghee     4      F      82    77  FALSE  9</code></pre>
+<pre><code>    name grade gender midterm final retake hw
+5 홍길동     1      M      50    86  FALSE 10
+1 김철수     1      M      74    91   TRUE  8
+4 이영희     2      F      89    78   TRUE  8
+3 이철수     3      M      67    88  FALSE  7
+2 김영희     4      F      82    77  FALSE  9</code></pre>
 <p>그런데 우리는 학년은 낮은 학년부터 높은 학년으로 정렬하지만 기말고사는 높은 점수에서 낮은 점수로 정렬하고자 한다. order() 함수의 decreasing 인수를 TRUE로 하면 학년마저 높은 순에서 낮은 순으로 되니 원하는 결과를 얻을 수 없다.
 이런 경우에는 첫번째 벡터는 그대로 두고, 두번째 벡터에 -1을 곱한 후 순서를 정렬하면 원하는 결과를 얻을 수 있다.</p>
 <div class="sourceCode" id="cb1188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1188-1"><a href="ch-R-Data-Frame.html#cb1188-1"></a><span class="op">&gt;</span><span class="st"> </span>students[<span class="kw">order</span>(students<span class="op">$</span>grade, students<span class="op">$</span>final, <span class="dt">decreasing=</span>T), ]</span></code></pre></div>
-<pre><code>          name grade gender midterm final retake hw
-2  Kim Yunghee     4      F      82    77  FALSE  9
-3   Lee Chulsu     3      M      67    88  FALSE  7
-4 Lee Younghee     2      F      89    78   TRUE  8
-1   Kim Chulsu     1      M      74    91   TRUE  8
-5 Hong Gildong     1      M      50    86  FALSE 10</code></pre>
+<pre><code>    name grade gender midterm final retake hw
+2 김영희     4      F      82    77  FALSE  9
+3 이철수     3      M      67    88  FALSE  7
+4 이영희     2      F      89    78   TRUE  8
+1 김철수     1      M      74    91   TRUE  8
+5 홍길동     1      M      50    86  FALSE 10</code></pre>
 <div class="sourceCode" id="cb1190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1190-1"><a href="ch-R-Data-Frame.html#cb1190-1"></a><span class="op">&gt;</span><span class="st"> </span>students[<span class="kw">order</span>(students<span class="op">$</span>grade, <span class="op">-</span>students<span class="op">$</span>final), ]</span></code></pre></div>
-<pre><code>          name grade gender midterm final retake hw
-1   Kim Chulsu     1      M      74    91   TRUE  8
-5 Hong Gildong     1      M      50    86  FALSE 10
-4 Lee Younghee     2      F      89    78   TRUE  8
-3   Lee Chulsu     3      M      67    88  FALSE  7
-2  Kim Yunghee     4      F      82    77  FALSE  9</code></pre>
+<pre><code>    name grade gender midterm final retake hw
+1 김철수     1      M      74    91   TRUE  8
+5 홍길동     1      M      50    86  FALSE 10
+4 이영희     2      F      89    78   TRUE  8
+3 이철수     3      M      67    88  FALSE  7
+2 김영희     4      F      82    77  FALSE  9</code></pre>
 </div>
 </div>
 <div id="subset을-이용한-필터링" class="section level3">
@@ -1130,14 +1129,14 @@ Max.       89.0    91</code></pre>
 <div class="sourceCode" id="cb1221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1221-1"><a href="ch-R-Data-Frame.html#cb1221-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ncol</span>(students)</span></code></pre></div>
 <pre><code>[1] 7</code></pre>
 <div class="sourceCode" id="cb1223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1223-1"><a href="ch-R-Data-Frame.html#cb1223-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t</span>(students)</span></code></pre></div>
-<pre><code>        [,1]         [,2]          [,3]         [,4]           [,5]          
-name    &quot;Kim Chulsu&quot; &quot;Kim Yunghee&quot; &quot;Lee Chulsu&quot; &quot;Lee Younghee&quot; &quot;Hong Gildong&quot;
-grade   &quot;1&quot;          &quot;4&quot;           &quot;3&quot;          &quot;2&quot;            &quot;1&quot;           
-gender  &quot; M&quot;         &quot;F&quot;           &quot;M&quot;          &quot;F&quot;            &quot;M&quot;           
-midterm &quot;74&quot;         &quot;82&quot;          &quot;67&quot;         &quot;89&quot;           &quot;50&quot;          
-final   &quot;91&quot;         &quot;77&quot;          &quot;88&quot;         &quot;78&quot;           &quot;86&quot;          
-retake  &quot;TRUE&quot;       &quot;FALSE&quot;       &quot;FALSE&quot;      &quot;TRUE&quot;         &quot;FALSE&quot;       
-hw      &quot; 8&quot;         &quot; 9&quot;          &quot; 7&quot;         &quot; 8&quot;           &quot;10&quot;          </code></pre>
+<pre><code>        [,1]     [,2]     [,3]     [,4]     [,5]    
+name    &quot;김철수&quot; &quot;김영희&quot; &quot;이철수&quot; &quot;이영희&quot; &quot;홍길동&quot;
+grade   &quot;1&quot;      &quot;4&quot;      &quot;3&quot;      &quot;2&quot;      &quot;1&quot;     
+gender  &quot; M&quot;     &quot;F&quot;      &quot;M&quot;      &quot;F&quot;      &quot;M&quot;     
+midterm &quot;74&quot;     &quot;82&quot;     &quot;67&quot;     &quot;89&quot;     &quot;50&quot;    
+final   &quot;91&quot;     &quot;77&quot;     &quot;88&quot;     &quot;78&quot;     &quot;86&quot;    
+retake  &quot;TRUE&quot;   &quot;FALSE&quot;  &quot;FALSE&quot;  &quot;TRUE&quot;   &quot;FALSE&quot; 
+hw      &quot; 8&quot;     &quot; 9&quot;     &quot; 7&quot;     &quot; 8&quot;     &quot;10&quot;    </code></pre>
 <p>행과 열이 전치된 데이터 프레임을 살펴보면 모든 열이 문자열 벡터로 변경되었음을 볼 수 있다. 데이터 프레임의 각 열은 모두 동일한 타입이어야 한다. 전치된 열은 논리값, 숫자, 문자가 모두 포함되어 있다. 따라서 이를 모두 수용할 수 있는 문자 행렬로 변환되었음을 볼 수 있다.</p>
 </div>
 <div id="apply로-행이나-열에-함수-적용하기" class="section level4 unnumbered">
@@ -1345,34 +1344,34 @@ $row.names
 <span id="cb1280-3"><a href="ch-R-Data-Frame.html#cb1280-3"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">write.table</span>(students, <span class="st">&quot;data/students_rn.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>, <span class="dt">row.names=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span></code></pre></div>
 <p>첫 번째 write.table()은 공백문자로 데이터 표레임의 열을 분리하여 일반 텍스트 파일로 저장한 예이다. 다음은 저장된 students.txt 파일의 모습이다. 결과에서 볼 수 있듯이 데이터 프레임의 열 이름이 머리 행으로 저장되고 데이터들이 공백문자로 구분되어 저장되었다. 숫자 데이터는 그대로, 문자 데이터는 따옴표로 둘러싸여서 저장되어 있다.</p>
 <pre><code>&quot;name&quot; &quot;grade&quot; &quot;gender&quot; &quot;midterm&quot; &quot;final&quot; &quot;retake&quot; &quot;hw&quot;
-&quot;Kim Chulsu&quot; &quot;1&quot; &quot; M&quot; 74 91 TRUE 8
-&quot;Kim Yunghee&quot; &quot;4&quot; &quot;F&quot; 82 77 FALSE 9
-&quot;Lee Chulsu&quot; &quot;3&quot; &quot;M&quot; 67 88 FALSE 7
-&quot;Lee Younghee&quot; &quot;2&quot; &quot;F&quot; 89 78 TRUE 8
-&quot;Hong Gildong&quot; &quot;1&quot; &quot;M&quot; 50 86 FALSE 10</code></pre>
+&quot;김철수&quot; &quot;1&quot; &quot; M&quot; 74 91 TRUE 8
+&quot;김영희&quot; &quot;4&quot; &quot;F&quot; 82 77 FALSE 9
+&quot;이철수&quot; &quot;3&quot; &quot;M&quot; 67 88 FALSE 7
+&quot;이영희&quot; &quot;2&quot; &quot;F&quot; 89 78 TRUE 8
+&quot;홍길동&quot; &quot;1&quot; &quot;M&quot; 50 86 FALSE 10</code></pre>
 <p>두 번째 write.table()은 sep 인수에 ’,’를 부여하여 CSV 형식으로 데이터 프레임을 파일로 저장한 예이다. 다음은 저장된 students.csv 파일의 모습니다. 결과에서 볼 수 있듯이 쉼표로 각 데이터가 분리되어 있다.다음 결과에서 볼 수 있듯이 쉼표로 각 데이터가 분리되어 있다. Excel에서 파일을 읽으면 데이터를 Excel의 각 셀로 잘 읽어 들일 수 있다.</p>
 <pre><code>&quot;name&quot;,&quot;grade&quot;,&quot;gender&quot;,&quot;midterm&quot;,&quot;final&quot;,&quot;retake&quot;,&quot;hw&quot;
-&quot;Kim Chulsu&quot;,&quot;1&quot;,&quot; M&quot;,74,91,TRUE,8
-&quot;Kim Yunghee&quot;,&quot;4&quot;,&quot;F&quot;,82,77,FALSE,9
-&quot;Lee Chulsu&quot;,&quot;3&quot;,&quot;M&quot;,67,88,FALSE,7
-&quot;Lee Younghee&quot;,&quot;2&quot;,&quot;F&quot;,89,78,TRUE,8
-&quot;Hong Gildong&quot;,&quot;1&quot;,&quot;M&quot;,50,86,FALSE,10</code></pre>
+&quot;김철수&quot;,&quot;1&quot;,&quot; M&quot;,74,91,TRUE,8
+&quot;김영희&quot;,&quot;4&quot;,&quot;F&quot;,82,77,FALSE,9
+&quot;이철수&quot;,&quot;3&quot;,&quot;M&quot;,67,88,FALSE,7
+&quot;이영희&quot;,&quot;2&quot;,&quot;F&quot;,89,78,TRUE,8
+&quot;홍길동&quot;,&quot;1&quot;,&quot;M&quot;,50,86,FALSE,10</code></pre>
 <p>세 번째 write.table()은 두번째와 같은데 다만 행 번호를 같이 저장한 예이다. 다음은 저장된 students_rn.csv 파일의 모습니다. 결과에서 첫 번째 열에 행 번호가 저장되어 있음을 볼 수 있다.</p>
 <pre><code>&quot;name&quot;,&quot;grade&quot;,&quot;gender&quot;,&quot;midterm&quot;,&quot;final&quot;,&quot;retake&quot;,&quot;hw&quot;
-&quot;1&quot;,&quot;Kim Chulsu&quot;,&quot;1&quot;,&quot; M&quot;,74,91,TRUE,8
-&quot;2&quot;,&quot;Kim Yunghee&quot;,&quot;4&quot;,&quot;F&quot;,82,77,FALSE,9
-&quot;3&quot;,&quot;Lee Chulsu&quot;,&quot;3&quot;,&quot;M&quot;,67,88,FALSE,7
-&quot;4&quot;,&quot;Lee Younghee&quot;,&quot;2&quot;,&quot;F&quot;,89,78,TRUE,8
-&quot;5&quot;,&quot;Hong Gildong&quot;,&quot;1&quot;,&quot;M&quot;,50,86,FALSE,10</code></pre>
+&quot;1&quot;,&quot;김철수&quot;,&quot;1&quot;,&quot; M&quot;,74,91,TRUE,8
+&quot;2&quot;,&quot;김영희&quot;,&quot;4&quot;,&quot;F&quot;,82,77,FALSE,9
+&quot;3&quot;,&quot;이철수&quot;,&quot;3&quot;,&quot;M&quot;,67,88,FALSE,7
+&quot;4&quot;,&quot;이영희&quot;,&quot;2&quot;,&quot;F&quot;,89,78,TRUE,8
+&quot;5&quot;,&quot;홍길동&quot;,&quot;1&quot;,&quot;M&quot;,50,86,FALSE,10</code></pre>
 <p>다음 예에서 파일에서 다시 데이터 프레임을 잘 복원할 수 있음을 확인할 수 있다.</p>
 <div class="sourceCode" id="cb1284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1284-1"><a href="ch-R-Data-Frame.html#cb1284-1"></a><span class="op">&gt;</span><span class="st"> </span>test &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/students.txt&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
 <span id="cb1284-2"><a href="ch-R-Data-Frame.html#cb1284-2"></a><span class="op">&gt;</span><span class="st"> </span>test</span></code></pre></div>
-<pre><code>          name grade gender midterm final retake hw
-1   Kim Chulsu     1      M      74    91   TRUE  8
-2  Kim Yunghee     4      F      82    77  FALSE  9
-3   Lee Chulsu     3      M      67    88  FALSE  7
-4 Lee Younghee     2      F      89    78   TRUE  8
-5 Hong Gildong     1      M      50    86  FALSE 10</code></pre>
+<pre><code>    name grade gender midterm final retake hw
+1 김철수     1      M      74    91   TRUE  8
+2 김영희     4      F      82    77  FALSE  9
+3 이철수     3      M      67    88  FALSE  7
+4 이영희     2      F      89    78   TRUE  8
+5 홍길동     1      M      50    86  FALSE 10</code></pre>
 </div>
 <div id="바이너리-형식으로-데이터-객체-저장-및-복원" class="section level4 unnumbered">
 <h4>바이너리 형식으로 데이터 객체 저장 및 복원</h4>
