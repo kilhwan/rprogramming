@@ -24,7 +24,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2020-09-15" />
+<meta name="date" content="2020-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -803,7 +803,7 @@ x= -4 y= 0 z= 4 </code></pre>
 <span id="cb1820-4"><a href="ch-R-Programming-Structure.html#cb1820-4"></a><span class="op">&gt;</span><span class="st"> </span>y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n)</span>
 <span id="cb1820-5"><a href="ch-R-Programming-Structure.html#cb1820-5"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">system.time</span>(<span class="kw">sum</span>(<span class="kw">ifelse</span>(x <span class="op">&gt;</span><span class="st"> </span>y, x, y)))</span></code></pre></div>
 <pre><code> 사용자  시스템 elapsed 
-   0.03    0.00    0.03 </code></pre>
+   0.01    0.00    0.02 </code></pre>
 <p>앞의 문제를 for 문을 이용하여 구현한 후, 실행 시간을 측정해 보자. 쉽게 두 방식의 시간 차이를 확인할 수 있을 것이다.</p>
 <div class="sourceCode" id="cb1822"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1822-1"><a href="ch-R-Programming-Structure.html#cb1822-1"></a><span class="op">&gt;</span><span class="st"> </span>s &lt;-<span class="st"> </span><span class="dv">0</span></span>
 <span id="cb1822-2"><a href="ch-R-Programming-Structure.html#cb1822-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">system.time</span>({</span>
@@ -822,7 +822,7 @@ x= -4 y= 0 z= 4 </code></pre>
 <span id="cb1824-6"><a href="ch-R-Programming-Structure.html#cb1824-6"></a><span class="op">+</span><span class="st">   </span><span class="kw">sum</span>( x[x <span class="op">%%</span><span class="st"> </span><span class="dv">3</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>] ) </span>
 <span id="cb1824-7"><a href="ch-R-Programming-Structure.html#cb1824-7"></a><span class="op">+</span><span class="st"> </span>})</span></code></pre></div>
 <pre><code> 사용자  시스템 elapsed 
-   0.01    0.00    0.02 </code></pre>
+   0.02    0.00    0.02 </code></pre>
 <div class="sourceCode" id="cb1826"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1826-1"><a href="ch-R-Programming-Structure.html#cb1826-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">system.time</span>({</span>
 <span id="cb1826-2"><a href="ch-R-Programming-Structure.html#cb1826-2"></a><span class="op">+</span><span class="st">   </span>s &lt;-<span class="st"> </span><span class="dv">0</span></span>
 <span id="cb1826-3"><a href="ch-R-Programming-Structure.html#cb1826-3"></a><span class="op">+</span><span class="st">   </span><span class="cf">for</span> (a <span class="cf">in</span> x) {</span>
@@ -833,7 +833,7 @@ x= -4 y= 0 z= 4 </code></pre>
 <span id="cb1826-8"><a href="ch-R-Programming-Structure.html#cb1826-8"></a><span class="op">+</span><span class="st"> </span>})</span></code></pre></div>
 <pre><code>[1] 198993</code></pre>
 <pre><code> 사용자  시스템 elapsed 
-   0.17    0.00    0.18 </code></pre>
+   0.16    0.00    0.15 </code></pre>
 </div>
 <div id="apply-계열-함수로-암시적인-반복을-수행하라." class="section level4 unnumbered">
 <h4>apply 계열 함수로 암시적인 반복을 수행하라.</h4>
@@ -851,7 +851,7 @@ x= -4 y= 0 z= 4 </code></pre>
 <span id="cb1829-8"><a href="ch-R-Programming-Structure.html#cb1829-8"></a><span class="op">+</span><span class="st"> </span>})</span></code></pre></div>
 <pre><code>[1] 285816</code></pre>
 <pre><code> 사용자  시스템 elapsed 
-   0.17    0.01    0.19 </code></pre>
+   0.18    0.00    0.18 </code></pre>
 <p>다음은 for 문을 이용하여 x의 요소에 대하여 같은 작업을 반복하였다.
 계산 시간의 차이를 비교해 보자. 결과에서 보듯이 두 방법 모두 벡터화된 함수를 적절히 이용하면 속도의 차이는 거의 나지 않는다.</p>
 <div class="sourceCode" id="cb1832"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1832-1"><a href="ch-R-Programming-Structure.html#cb1832-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">system.time</span>({</span>
@@ -864,7 +864,7 @@ x= -4 y= 0 z= 4 </code></pre>
 <span id="cb1832-8"><a href="ch-R-Programming-Structure.html#cb1832-8"></a><span class="op">+</span><span class="st"> </span>})</span></code></pre></div>
 <pre><code>[1] 285816</code></pre>
 <pre><code> 사용자  시스템 elapsed 
-   0.18    0.01    0.20 </code></pre>
+   0.19    0.00    0.19 </code></pre>
 <p>그렇다면 두 방법 중 어느 것을 선택해도 될까? 일반적으로 이 두 방법 중 어느 것이 더 좋다고 확언하기는 어렵지만 다음의 두 가지 이유 때문에 apply 계열 함수를 이용하는 것이 더 선호된다. 첫째, apply 계열 함수를 이용하면 코드를 더 간단하게 작성할 수 있어 코드의 가독성이 증가한다. 둘째, apply 계열 함수는 데이터 요소에 적용할 함수를 인수로 전달하는 방식으로 암시적 반복이 이루어진다. 따라서 함수 프로그래밍의 특징인 반복 실행의 부수적인 효과(side effect)가 반복문 바깥으로 전달되지 않는다. 따라서 동일한 프로그램을 병렬 프로그램으로 전환하기가 더 용이하다. 그러므로 처리해야 할 데이터가 커지면 병렬 프로그래밍 기법을 이용하여 추가적인 속도 향상을 꾀할 수 있는 가능성이 커진다.</p>
 </div>
 </div>
@@ -1001,7 +1001,7 @@ g() 함수의 정의에서 형식 인수가 x, y, z 순으로 정의되었으므
     fill = TRUE, comment.char = &quot;&quot;, ...) 
 read.table(file = file, header = header, sep = sep, quote = quote, 
     dec = dec, fill = fill, comment.char = comment.char, ...)
-&lt;bytecode: 0x0000000015e24910&gt;
+&lt;bytecode: 0x0000000015e15038&gt;
 &lt;environment: namespace:utils&gt;</code></pre>
 <p>첫번째 형식 인수가 file로서 초기값이 없으므로 항상 read.csv() 호출시에는 파일 이름이 제공되어야 함을 알 수 있다. 두번째 형식 인수는 header인데 TRUE로 초기값을 가지고 있다. 따라서 header 인수를 지정하지 않고 호출하면 파일에 header가 있는 것으로 생각하고 파일을 읽어들인다. 그리고 sep 형식 인수는 파일이 데이터의 필드(열)를 무엇으로 분리하고 있는지를 전달하는 인수이다. 초기값이 ’,’로 되어 있어서 함수 호출시 특별한 지정이 없으면 쉼표로 데이터를 분리하여 인식한다는 것을 알 수 있다.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
 </div>
@@ -1043,7 +1043,7 @@ plot()의 주요한 형식 인수는 그래프 상에서의 점을 그릴 x 축�
 <div class="sourceCode" id="cb1914"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1914-1"><a href="ch-R-Programming-Structure.html#cb1914-1"></a><span class="op">&gt;</span><span class="st"> </span>plot</span></code></pre></div>
 <pre><code>function (x, y, ...) 
 UseMethod(&quot;plot&quot;)
-&lt;bytecode: 0x0000000015e14b40&gt;
+&lt;bytecode: 0x0000000015e052d8&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <div class="sourceCode" id="cb1916"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1916-1"><a href="ch-R-Programming-Structure.html#cb1916-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">plot</span>(x, y, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">pch=</span><span class="st">&quot;*&quot;</span>, <span class="dt">lty=</span><span class="dv">1</span>, <span class="dt">lwd=</span><span class="fl">1.5</span>)</span></code></pre></div>
 <p><img src="RProgrammingStructure_files/figure-html/unnamed-chunk-61-1.png" width="60%" style="display: block; margin: auto;" /></p>
@@ -1084,7 +1084,7 @@ R의 기본 함수 중에는 자신이 받은 인수를 다른 함수에 전달�
 <div class="sourceCode" id="cb1924"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1924-1"><a href="ch-R-Programming-Structure.html#cb1924-1"></a><span class="op">&gt;</span><span class="st"> </span>mean</span></code></pre></div>
 <pre><code>function (x, ...) 
 UseMethod(&quot;mean&quot;)
-&lt;bytecode: 0x00000000138474f0&gt;
+&lt;bytecode: 0x00000000138574f0&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 <div id="apply-계열-함수에-사용자-함수-적용하기" class="section level4 unnumbered">
@@ -1278,10 +1278,10 @@ b(300) 호출이 이루어지면, f.in() 함수가 실행되는데, x는 지역 
 <div class="sourceCode" id="cb1988"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1988-1"><a href="ch-R-Programming-Structure.html#cb1988-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">environment</span>(f.out)</span></code></pre></div>
 <pre><code>&lt;environment: R_GlobalEnv&gt;</code></pre>
 <div class="sourceCode" id="cb1990"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1990-1"><a href="ch-R-Programming-Structure.html#cb1990-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">environment</span>(a); <span class="kw">parent.env</span>(<span class="kw">environment</span>(a))</span></code></pre></div>
-<pre><code>&lt;environment: 0x000000001c8c44d0&gt;</code></pre>
+<pre><code>&lt;environment: 0x000000001c8b1af8&gt;</code></pre>
 <pre><code>&lt;environment: R_GlobalEnv&gt;</code></pre>
 <div class="sourceCode" id="cb1993"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1993-1"><a href="ch-R-Programming-Structure.html#cb1993-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">environment</span>(b); <span class="kw">parent.env</span>(<span class="kw">environment</span>(b))</span></code></pre></div>
-<pre><code>&lt;environment: 0x0000000015e797d0&gt;</code></pre>
+<pre><code>&lt;environment: 0x0000000015e69a28&gt;</code></pre>
 <pre><code>&lt;environment: R_GlobalEnv&gt;</code></pre>
 <div class="sourceCode" id="cb1996"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1996-1"><a href="ch-R-Programming-Structure.html#cb1996-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">environment</span>(f.in)</span></code></pre></div>
 <pre><code>Error in environment(f.in): 객체 &#39;f.in&#39;를 찾을 수 없습니다</code></pre>
