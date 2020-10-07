@@ -1329,8 +1329,8 @@ $row.names
 </div>
 <div id="파일에-데이터-프레임-쓰기" class="section level2">
 <h2><span class="header-section-number">6.7</span> 파일에 데이터 프레임 쓰기</h2>
-<div id="write.table" class="section level4 unnumbered">
-<h4>write.table()</h4>
+<div id="write.table과-write.csv" class="section level4 unnumbered">
+<h4>write.table()과 write.csv()</h4>
 <p>데이터 프레임의 작업 결과를 추후에 다시 이용하기 위해서, 또는 다른 통계 패키지에서 작업 결과를 이용하기 위해서는 데이터 프레임을 파일로 저장할 수 있어야 한다. 이 경우 <code>write.table()</code>과 <code>write.csv()</code> 함수를 이용하면 데이터 프레임을 파일에 저장할 수 있다.</p>
 <p>다음 예에서는 이 장에서 만든 students 데이터 프레임을 세 가지 형식으로 작업 디렉토리 밑의 <code>data</code> 디렉토리의 파일에 저장하고 있다.</p>
 <div class="sourceCode" id="cb1280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1280-1"><a href="ch-R-Data-Frame.html#cb1280-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">write.table</span>(students, <span class="st">&quot;data/students.txt&quot;</span>, <span class="dt">row.names=</span><span class="ot">FALSE</span>, <span class="dt">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
