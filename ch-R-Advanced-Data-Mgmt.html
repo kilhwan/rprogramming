@@ -24,7 +24,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2020-11-20" />
+<meta name="date" content="2020-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -556,7 +556,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="행-순서가-다른-데이터를-열로-결합하기" class="section level4 unnumbered">
 <h4>행 순서가 다른 데이터를 열로 결합하기</h4>
 <p>데이터를 열로 결합하는 경우 실제 데이터가 동일한 행 순서로 정렬되어 있지 않은 경우가 종종 있다.
-예를 들어 앞의 예에서 성적 처리를 위해서는 학생의 중간, 기말 고사 점수와 함께 출석 점수를 고려해야 한다고 하자. 그리고 출석점수는 attendance.csv 파일에 다음과 같이 class1과 class2의 모든 학생의 학번(ID) 순으로 정렬되어 분반 정보(Class)와 출석 점수(Attend)가 저장되어 있다고 하자.</p>
+예를 들어 앞의 예에서 성적 처리를 위해서는 학생의 중간, 기말 고사 점수와 함께 출석 점수를 고려해야 한다고 하자. 그리고 출석점수는 attendance 데이터 프레임에 다음과 같이 class1과 class2의 모든 학생의 학번(ID) 순으로 정렬되어 분반 정보(Class)와 출석 점수(Attend)가 저장되어 있다고 하자.</p>
 <div class="sourceCode" id="cb1642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1642-1"><a href="ch-R-Advanced-Data-Mgmt.html#cb1642-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>attendance</span></code></pre></div>
 <pre><code>   ID Class Attend
 1  12     2    185
