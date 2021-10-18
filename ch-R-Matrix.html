@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 R 행렬 | R 프로그래밍 (개정판)</title>
   <meta name="description" content="이 책은 경영정보시스템실습의 주교재로 사용되기 위해 개발되었습니다." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 R 행렬 | R 프로그래밍 (개정판)" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2020-11-23" />
+<meta name="date" content="2021-10-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="ch-R-Vectors.html"/>
 <link rel="next" href="ch-R-List.html"/>
-<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176754989-1"></script>
 <script>
@@ -66,6 +68,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -125,6 +128,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -493,21 +497,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="matrix" class="section level4 unnumbered">
 <h4>matrix()</h4>
 <p>matrix() 함수를 이용하면 데이터 벡터를 데이터 행렬로 변환시킬 수 있다. 다음의 예를 보면서 설명해 보자.</p>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="ch-R-Matrix.html#cb410-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>n &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
-<span id="cb410-2"><a href="ch-R-Matrix.html#cb410-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>n</span></code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="ch-R-Matrix.html#cb409-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> n <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb409-2"><a href="ch-R-Matrix.html#cb409-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> n</span></code></pre></div>
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="ch-R-Matrix.html#cb412-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(n, <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">ncol=</span><span class="dv">5</span>)</span>
-<span id="cb412-2"><a href="ch-R-Matrix.html#cb412-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>m</span></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="ch-R-Matrix.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(n, <span class="at">nrow=</span><span class="dv">2</span>, <span class="at">ncol=</span><span class="dv">5</span>)</span>
+<span id="cb411-2"><a href="ch-R-Matrix.html#cb411-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> m</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    1    3    5    7    9
 [2,]    2    4    6    8   10</code></pre>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="ch-R-Matrix.html#cb414-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(n, <span class="dt">nrow=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="ch-R-Matrix.html#cb413-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(n, <span class="at">nrow=</span><span class="dv">2</span>)</span></code></pre></div>
 <p>위 예에서 n은 1부터 10까지 숫자를 가진 벡터이다. matrix() 함수의 첫 인수로 행렬로 바꿀 벡터를 주고, nrow 인수에 새로 만들 행렬의 행 수를 주면 행렬이 만들어짐을 볼 수 있다. 이렇게 만들어진 행렬 m은 크기가 <span class="math inline">\(2 \times 5\)</span> 인 행렬이 된다. 왜냐하면 전체 데이터의 수는 10개인데 2 개의 행이 지정되었으므로 모두 5개의 열이 있어야 모든 데이터를 수용할 수 있기 때문이다.</p>
 </div>
 <div id="matrix는-열을-순서대로-채워나간다." class="section level4 unnumbered">
 <h4>matrix()는 열을 순서대로 채워나간다.</h4>
 <p>벡터의 요소는 차례대로 1열의 1행을 채우고 2행을 채운다. 그리고 난 후 2열의 모든 행을 순서대로 채운다. 이러한 방식으로 차례차례 모든 열의 데이터를 채워 나감을 볼 수 있다. 만약 열이 아니라 행을 차례대로 채워나가면서 행렬을 만드고 싶으면 byrow=TRUE 인수를 사용하면 된다.</p>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="ch-R-Matrix.html#cb415-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">matrix</span>(n, <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">ncol=</span><span class="dv">5</span>, <span class="dt">byrow=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="ch-R-Matrix.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">matrix</span>(n, <span class="at">nrow=</span><span class="dv">2</span>, <span class="at">ncol=</span><span class="dv">5</span>, <span class="at">byrow=</span>T)</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    1    2    3    4    5
 [2,]    6    7    8    9   10</code></pre>
@@ -515,21 +519,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="행렬과-dim-속성" class="section level4 unnumbered">
 <h4>행렬과 dim 속성</h4>
 <p>원래의 벡터 n과 벡터로 만들어진 행렬 m의 속성을 보기 위해 attributes() 함수를 이용하자. 벡터 n에는 아무 속성도 부여되지 않았지만 행렬 m은 차원을 의미하는 dim 속성이 부여되었음을 볼 수 있다. dim 속성에는 길이가 2인 숫자 벡터가 부여되어 있는데, 첫번째 요소는 행의 개수, 두번째 요소는 열의 개수를 나타낸다.</p>
-<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="ch-R-Matrix.html#cb417-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">attributes</span>(n)</span></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="ch-R-Matrix.html#cb416-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">attributes</span>(n)</span></code></pre></div>
 <pre><code>NULL</code></pre>
-<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="ch-R-Matrix.html#cb419-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">attributes</span>(m)</span></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="ch-R-Matrix.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">attributes</span>(m)</span></code></pre></div>
 <pre><code>$dim
 [1] 2 5</code></pre>
 <p>matrix()로 벡터를 행렬로 변환시킬 때 행의 개수 대신 열의 개수를 지정할 수도 있다. 이 경우 nrow 대신 ncol 인수를 사용하면 된다. 아래 예에서는 열의 개수를 2로 지정하였으므로 행렬 m은 크기가 <span class="math inline">\(5 \times 2\)</span>인 행렬이 되었음을 볼 수 있다. 이는 dim 속성에서도 확인할 수 있다.</p>
-<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="ch-R-Matrix.html#cb421-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(n, <span class="dt">nrow=</span><span class="dv">5</span>, <span class="dt">ncol=</span><span class="dv">2</span>)</span>
-<span id="cb421-2"><a href="ch-R-Matrix.html#cb421-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>m</span></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="ch-R-Matrix.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(n, <span class="at">nrow=</span><span class="dv">5</span>, <span class="at">ncol=</span><span class="dv">2</span>)</span>
+<span id="cb420-2"><a href="ch-R-Matrix.html#cb420-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> m</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    1    6
 [2,]    2    7
 [3,]    3    8
 [4,]    4    9
 [5,]    5   10</code></pre>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="ch-R-Matrix.html#cb423-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">attributes</span>(m)</span></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="ch-R-Matrix.html#cb422-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">attributes</span>(m)</span></code></pre></div>
 <pre><code>$dim
 [1] 5 2</code></pre>
 </div>
@@ -540,28 +544,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="matrix에서-벡터-재사용" class="section level4 unnumbered">
 <h4>matrix()에서 벡터 재사용</h4>
 <p>matrix() 함수를 이용하여 행렬을 만들 때 행과 열의 크기를 모두 지정할 수 있다. 만약 벡터의 크기가 행렬의 요소 개수보다 적으면 벡터가 재사용된다. 반대로 벡터의 크기가 행렬의 요소 개수보다 크거나 배수가 되지 않으면 경고 메시지가 출력되고 행렬을 만드는 데는 앞에 있는 벡터 요소들만 사용된다.</p>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="ch-R-Matrix.html#cb425-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">3</span>)</span>
-<span id="cb425-2"><a href="ch-R-Matrix.html#cb425-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>m</span></code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="ch-R-Matrix.html#cb424-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb424-2"><a href="ch-R-Matrix.html#cb424-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> m</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    1    4    7
 [2,]    2    5    8
 [3,]    3    6    9</code></pre>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="ch-R-Matrix.html#cb427-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span>, <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">3</span>)</span>
-<span id="cb427-2"><a href="ch-R-Matrix.html#cb427-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>m</span></code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="ch-R-Matrix.html#cb426-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span>, <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb426-2"><a href="ch-R-Matrix.html#cb426-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> m</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    1    1    1
 [2,]    1    1    1
 [3,]    1    1    1</code></pre>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="ch-R-Matrix.html#cb429-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">3</span>)</span>
-<span id="cb429-2"><a href="ch-R-Matrix.html#cb429-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>m</span></code></pre></div>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="ch-R-Matrix.html#cb428-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb428-2"><a href="ch-R-Matrix.html#cb428-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> m</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    1    1    1
 [2,]    2    2    2
 [3,]    3    3    3</code></pre>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="ch-R-Matrix.html#cb431-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">11</span><span class="op">:</span><span class="dv">30</span>, <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">3</span>)</span></code></pre></div>
-<pre><code>Warning in matrix(11:30, nrow = 3, ncol = 3): data length [20] is not a sub-
-multiple or multiple of the number of rows [3]</code></pre>
-<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="ch-R-Matrix.html#cb433-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>m</span></code></pre></div>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="ch-R-Matrix.html#cb430-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">11</span><span class="sc">:</span><span class="dv">30</span>, <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>)</span></code></pre></div>
+<pre><code>Warning in matrix(11:30, nrow = 3, ncol = 3): 데이터의 길이[20]가 행의 개수[3]의
+배수가 되지 않습니다</code></pre>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="ch-R-Matrix.html#cb432-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> m</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]   11   14   17
 [2,]   12   15   18
@@ -573,14 +577,14 @@ multiple or multiple of the number of rows [3]</code></pre>
 <div id="cbind와-rbind" class="section level4 unnumbered">
 <h4>cbind()와 rbind()</h4>
 <p>기존의 벡터나 행렬을 열이나 행으로 묶어서 새로운 행렬을 만들 수 있다. 아래 예는 벡터를 cbind()와 rbind() 함수를 이용하여 열 또는 행으로 묶은 경우이다.</p>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="ch-R-Matrix.html#cb435-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">cbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="ch-R-Matrix.html#cb434-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cbind</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">10</span><span class="sc">:</span><span class="dv">6</span>)</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    1   10
 [2,]    2    9
 [3,]    3    8
 [4,]    4    7
 [5,]    5    6</code></pre>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="ch-R-Matrix.html#cb437-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">rbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">6</span>, <span class="dv">11</span><span class="op">:</span><span class="dv">15</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="ch-R-Matrix.html#cb436-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rbind</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">10</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">11</span><span class="sc">:</span><span class="dv">15</span>)</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    1    2    3    4    5
 [2,]   10    9    8    7    6
@@ -589,31 +593,31 @@ multiple or multiple of the number of rows [3]</code></pre>
 <div id="벡터벡터-벡터행렬-행렬행렬-결합" class="section level4 unnumbered">
 <h4>벡터+벡터, 벡터+행렬, 행렬+행렬 결합</h4>
 <p>벡터들만 연결하여 행렬을 만드는 것이 아니라, 행렬과 벡터 또는 행렬과 행렬을 행 또는 열로 묶어 새로운 행렬을 만들 수 있다.</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="ch-R-Matrix.html#cb439-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">3</span>)</span>
-<span id="cb439-2"><a href="ch-R-Matrix.html#cb439-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">cbind</span>(A, <span class="dv">10</span><span class="op">:</span><span class="dv">12</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="ch-R-Matrix.html#cb438-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb438-2"><a href="ch-R-Matrix.html#cb438-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cbind</span>(A, <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4]
 [1,]    1    4    7   10
 [2,]    2    5    8   11
 [3,]    3    6    9   12</code></pre>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="ch-R-Matrix.html#cb441-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">rbind</span>(<span class="dv">10</span><span class="op">:</span><span class="dv">12</span>, A)</span></code></pre></div>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="ch-R-Matrix.html#cb440-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rbind</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>, A)</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]   10   11   12
 [2,]    1    4    7
 [3,]    2    5    8
 [4,]    3    6    9</code></pre>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="ch-R-Matrix.html#cb443-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">cbind</span>(A, A)</span></code></pre></div>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="ch-R-Matrix.html#cb442-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cbind</span>(A, A)</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5] [,6]
 [1,]    1    4    7    1    4    7
 [2,]    2    5    8    2    5    8
 [3,]    3    6    9    3    6    9</code></pre>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="ch-R-Matrix.html#cb445-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>t &lt;-<span class="st"> </span><span class="kw">rbind</span>(A, <span class="dv">10</span><span class="op">:</span><span class="dv">12</span>)</span>
-<span id="cb445-2"><a href="ch-R-Matrix.html#cb445-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>t</span></code></pre></div>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="ch-R-Matrix.html#cb444-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> t <span class="ot">&lt;-</span> <span class="fu">rbind</span>(A, <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb444-2"><a href="ch-R-Matrix.html#cb444-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> t</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    1    4    7
 [2,]    2    5    8
 [3,]    3    6    9
 [4,]   10   11   12</code></pre>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="ch-R-Matrix.html#cb447-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">rbind</span>(A, t)</span></code></pre></div>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="ch-R-Matrix.html#cb446-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rbind</span>(A, t)</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    1    4    7
 [2,]    2    5    8
@@ -622,14 +626,14 @@ multiple or multiple of the number of rows [3]</code></pre>
 [5,]    2    5    8
 [6,]    3    6    9
 [7,]   10   11   12</code></pre>
-<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="ch-R-Matrix.html#cb449-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">cbind</span>(A, t)</span></code></pre></div>
-<pre><code>Error in cbind(A, t): number of rows of matrices must match (see arg 2)</code></pre>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="ch-R-Matrix.html#cb448-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cbind</span>(A, t)</span></code></pre></div>
+<pre><code>Error in cbind(A, t): 각각의 행렬이 가진 행의 개수는 반드시 서로 일치해야 합니다 (인자 2를 참고하세요)</code></pre>
 </div>
 <div id="행렬행렬-연결은-행-또는-열의-수가-같아야-한다." class="section level4 unnumbered">
 <h4>행렬+행렬 연결은 행 또는 열의 수가 같아야 한다.</h4>
 <p>마지막 예에서 볼 수 있듯이 행렬을 cbind 할 때는 행의 수가 같아야 하며, rbind를 할 때에는 열의 수가 일치하여야 한다. 하지만 벡터의 경우에는 가장 긴 길이에 맞추어 요소가 재사용된다.</p>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="ch-R-Matrix.html#cb451-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dv">7</span><span class="op">:</span><span class="dv">9</span>)</span>
-<span id="cb451-2"><a href="ch-R-Matrix.html#cb451-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A</span></code></pre></div>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="ch-R-Matrix.html#cb450-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">7</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<span id="cb450-2"><a href="ch-R-Matrix.html#cb450-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    1    7
 [2,]    2    8
@@ -637,7 +641,7 @@ multiple or multiple of the number of rows [3]</code></pre>
 [4,]    4    7
 [5,]    5    8
 [6,]    6    9</code></pre>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="ch-R-Matrix.html#cb453-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">cbind</span>(A, <span class="dv">10</span><span class="op">:</span><span class="dv">11</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="ch-R-Matrix.html#cb452-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cbind</span>(A, <span class="dv">10</span><span class="sc">:</span><span class="dv">11</span>)</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    1    7   10
 [2,]    2    8   11
@@ -645,7 +649,7 @@ multiple or multiple of the number of rows [3]</code></pre>
 [4,]    4    7   11
 [5,]    5    8   10
 [6,]    6    9   11</code></pre>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="ch-R-Matrix.html#cb455-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">rbind</span>(<span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="ch-R-Matrix.html#cb454-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rbind</span>(<span class="dv">1</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    1    1    1    1    1
 [2,]    1    2    3    4    5</code></pre>
@@ -657,42 +661,42 @@ multiple or multiple of the number of rows [3]</code></pre>
 <h4>행과 열 인덱스 벡터</h4>
 <p>벡터와 마찬가지로 행렬도 인덱스 벡터에 의해 필터링을 할 수 있다. 벡터는 오직 한 개의 인덱스 벡터를 가지는데, 행렬은 2차원인 만큼 각 차원을 지정할 수 있도록 2개의 인덱스 벡터를 가진다. 첫번째 인덱스 벡터는 추출할 행의 위치를, 두번째 인덱스 벡터는 추출할 열의 위치를 지정하게 된다. 벡터와 마찬가지로 행렬도 자연수, 음의 정수, 논리, 이름 인덱스 벡터를 가질 수 있다.</p>
 </div>
-<div id="자연수-인덱스-벡터" class="section level4 unnumbered">
+<div id="자연수-인덱스-벡터-1" class="section level4 unnumbered">
 <h4>자연수 인덱스 벡터</h4>
 <p>아래는 1부터 25까지의 숫자를 크기 <span class="math inline">\(5 \times 5\)</span>인 행렬로 만든 후 인덱스 벡터로 각 데이터 요소를 특정하는 예를 보여주고 있다.</p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="ch-R-Matrix.html#cb457-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>, <span class="dt">nrow=</span><span class="dv">5</span>, <span class="dt">ncol=</span><span class="dv">5</span>)</span>
-<span id="cb457-2"><a href="ch-R-Matrix.html#cb457-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z</span></code></pre></div>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="ch-R-Matrix.html#cb456-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>, <span class="at">nrow=</span><span class="dv">5</span>, <span class="at">ncol=</span><span class="dv">5</span>)</span>
+<span id="cb456-2"><a href="ch-R-Matrix.html#cb456-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    1    6   11   16   21
 [2,]    2    7   12   17   22
 [3,]    3    8   13   18   23
 [4,]    4    9   14   19   24
 [5,]    5   10   15   20   25</code></pre>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="ch-R-Matrix.html#cb459-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z[<span class="dv">1</span>,<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="ch-R-Matrix.html#cb458-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z[<span class="dv">1</span>,<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>[1] 1</code></pre>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="ch-R-Matrix.html#cb461-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z[<span class="dv">5</span>,<span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="ch-R-Matrix.html#cb460-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z[<span class="dv">5</span>,<span class="dv">5</span>]</span></code></pre></div>
 <pre><code>[1] 25</code></pre>
-<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="ch-R-Matrix.html#cb463-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="ch-R-Matrix.html#cb462-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>[1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="ch-R-Matrix.html#cb465-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z[<span class="dv">2</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="ch-R-Matrix.html#cb464-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z[<span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>[1]  2  7 12</code></pre>
-<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="ch-R-Matrix.html#cb467-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z[<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="ch-R-Matrix.html#cb466-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z[<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    8   18
 [2,]   10   20</code></pre>
 <p>다음 예처럼 인덱스 벡터 위치가 비어 있으면 그 인덱스는 전체 범위를 취한다. 인덱스 벡터가 모두 비어 있으면 행렬 그 자체가 된다. 즉 z[ , ]은 z와 같다.</p>
-<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="ch-R-Matrix.html#cb469-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z[,<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="ch-R-Matrix.html#cb468-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z[,<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>[1]  6  7  8  9 10</code></pre>
-<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="ch-R-Matrix.html#cb471-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z[<span class="dv">3</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="ch-R-Matrix.html#cb470-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z[<span class="dv">3</span>,]</span></code></pre></div>
 <pre><code>[1]  3  8 13 18 23</code></pre>
-<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="ch-R-Matrix.html#cb473-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z[,<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">5</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="ch-R-Matrix.html#cb472-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z[,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>)]</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]   11   21
 [2,]   12   22
 [3,]   13   23
 [4,]   14   24
 [5,]   15   25</code></pre>
-<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="ch-R-Matrix.html#cb475-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z[ , ]</span></code></pre></div>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="ch-R-Matrix.html#cb474-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z[ , ]</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    1    6   11   16   21
 [2,]    2    7   12   17   22
@@ -700,30 +704,30 @@ multiple or multiple of the number of rows [3]</code></pre>
 [4,]    4    9   14   19   24
 [5,]    5   10   15   20   25</code></pre>
 </div>
-<div id="음의-정수-인덱스-벡터" class="section level4 unnumbered">
+<div id="음의-정수-인덱스-벡터-1" class="section level4 unnumbered">
 <h4>음의 정수 인덱스 벡터</h4>
 <p>벡터와 마찬가지로 음의 정수를 이용하면 해당 행과 열을 제외한 행렬을 구할 수 있다.</p>
-<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="ch-R-Matrix.html#cb477-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z[,<span class="op">-</span><span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="ch-R-Matrix.html#cb476-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z[,<span class="sc">-</span><span class="dv">2</span>]</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4]
 [1,]    1   11   16   21
 [2,]    2   12   17   22
 [3,]    3   13   18   23
 [4,]    4   14   19   24
 [5,]    5   15   20   25</code></pre>
-<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="ch-R-Matrix.html#cb479-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z[<span class="op">-</span><span class="dv">3</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="ch-R-Matrix.html#cb478-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z[<span class="sc">-</span><span class="dv">3</span>,]</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    1    6   11   16   21
 [2,]    2    7   12   17   22
 [3,]    4    9   14   19   24
 [4,]    5   10   15   20   25</code></pre>
-<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="ch-R-Matrix.html#cb481-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z[,<span class="op">-</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="ch-R-Matrix.html#cb480-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)]</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    1   11   21
 [2,]    2   12   22
 [3,]    3   13   23
 [4,]    4   14   24
 [5,]    5   15   25</code></pre>
-<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="ch-R-Matrix.html#cb483-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z[<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="ch-R-Matrix.html#cb482-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z[<span class="sc">-</span><span class="dv">3</span>,<span class="sc">-</span><span class="dv">2</span>]</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4]
 [1,]    1   11   16   21
 [2,]    2   12   17   22
@@ -733,14 +737,14 @@ multiple or multiple of the number of rows [3]</code></pre>
 <div id="인덱스-벡터로-행과-열-재배치-하기" class="section level4 unnumbered">
 <h4>인덱스 벡터로 행과 열 재배치 하기</h4>
 <p>행렬의 인덱스 벡터를 이용하여 행 단위 재배치나 열 단위 재배치가 가능하다.</p>
-<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="ch-R-Matrix.html#cb485-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z[<span class="dv">5</span><span class="op">:</span><span class="dv">1</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="ch-R-Matrix.html#cb484-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z[<span class="dv">5</span><span class="sc">:</span><span class="dv">1</span>, ]</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    5   10   15   20   25
 [2,]    4    9   14   19   24
 [3,]    3    8   13   18   23
 [4,]    2    7   12   17   22
 [5,]    1    6   11   16   21</code></pre>
-<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="ch-R-Matrix.html#cb487-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z[ , <span class="kw">c</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="ch-R-Matrix.html#cb486-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z[ , <span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)]</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]   11   16   21    1    6
 [2,]   12   17   22    2    7
@@ -748,49 +752,49 @@ multiple or multiple of the number of rows [3]</code></pre>
 [4,]   14   19   24    4    9
 [5,]   15   20   25    5   10</code></pre>
 <p>아울러 인덱스 벡터를 사용하여 행과 열에 대한 정렬도 가능하다. 다음은 행렬의 첫번째 열을 기준으로 행을 큰 순에서 작은 순으로 정렬한 예이다.</p>
-<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="ch-R-Matrix.html#cb489-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>a &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">16</span>), <span class="dt">nrow=</span><span class="dv">4</span>, <span class="dt">ncol=</span><span class="dv">4</span>)</span>
-<span id="cb489-2"><a href="ch-R-Matrix.html#cb489-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>a</span></code></pre></div>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="ch-R-Matrix.html#cb488-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>), <span class="at">nrow=</span><span class="dv">4</span>, <span class="at">ncol=</span><span class="dv">4</span>)</span>
+<span id="cb488-2"><a href="ch-R-Matrix.html#cb488-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4]
 [1,]    5    8    2   12
 [2,]   15    1    3    4
 [3,]    6   11   10   13
 [4,]   14    9    7   16</code></pre>
-<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="ch-R-Matrix.html#cb491-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>a[,<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="ch-R-Matrix.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a[,<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>[1]  5 15  6 14</code></pre>
-<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="ch-R-Matrix.html#cb493-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">order</span>(a[,<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="ch-R-Matrix.html#cb492-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">order</span>(a[,<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>[1] 1 3 4 2</code></pre>
-<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="ch-R-Matrix.html#cb495-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>a[<span class="kw">order</span>(a[,<span class="dv">1</span>]), ]</span></code></pre></div>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="ch-R-Matrix.html#cb494-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a[<span class="fu">order</span>(a[,<span class="dv">1</span>]), ]</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4]
 [1,]    5    8    2   12
 [2,]    6   11   10   13
 [3,]   14    9    7   16
 [4,]   15    1    3    4</code></pre>
 </div>
-<div id="논리-인덱스-벡터" class="section level4 unnumbered">
+<div id="논리-인덱스-벡터-1" class="section level4 unnumbered">
 <h4>논리 인덱스 벡터</h4>
 <p>벡터와 마찬가지로 논리 인덱스 벡터를 사용할 수 있다. 다음의 예에서 보듯이 행과 열의 인덱스 벡터에서 TRUE가 되는 행과 열만 선택된다.</p>
-<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="ch-R-Matrix.html#cb497-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>height &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">180</span>, <span class="dv">172</span>, <span class="dv">167</span>, <span class="dv">175</span>, <span class="dv">182</span>)</span>
-<span id="cb497-2"><a href="ch-R-Matrix.html#cb497-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>weight &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">72</span>, <span class="dv">78</span>, <span class="dv">58</span>, <span class="dv">64</span>, <span class="dv">68</span>)</span>
-<span id="cb497-3"><a href="ch-R-Matrix.html#cb497-3" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>year &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">2</span>)</span>
-<span id="cb497-4"><a href="ch-R-Matrix.html#cb497-4" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A &lt;-<span class="st"> </span><span class="kw">cbind</span>(height, weight, year)</span>
-<span id="cb497-5"><a href="ch-R-Matrix.html#cb497-5" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A[ , <span class="kw">c</span>(F, T, T)]</span></code></pre></div>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="ch-R-Matrix.html#cb496-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> height <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">180</span>, <span class="dv">172</span>, <span class="dv">167</span>, <span class="dv">175</span>, <span class="dv">182</span>)</span>
+<span id="cb496-2"><a href="ch-R-Matrix.html#cb496-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> weight <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">72</span>, <span class="dv">78</span>, <span class="dv">58</span>, <span class="dv">64</span>, <span class="dv">68</span>)</span>
+<span id="cb496-3"><a href="ch-R-Matrix.html#cb496-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> year <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">2</span>)</span>
+<span id="cb496-4"><a href="ch-R-Matrix.html#cb496-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A <span class="ot">&lt;-</span> <span class="fu">cbind</span>(height, weight, year)</span>
+<span id="cb496-5"><a href="ch-R-Matrix.html#cb496-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A[ , <span class="fu">c</span>(F, T, T)]</span></code></pre></div>
 <pre><code>     weight year
 [1,]     72    1
 [2,]     78    3
 [3,]     58    2
 [4,]     64    4
 [5,]     68    2</code></pre>
-<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="ch-R-Matrix.html#cb499-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A[ , <span class="kw">c</span>(T, F, T)]</span></code></pre></div>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="ch-R-Matrix.html#cb498-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A[ , <span class="fu">c</span>(T, F, T)]</span></code></pre></div>
 <pre><code>     height year
 [1,]    180    1
 [2,]    172    3
 [3,]    167    2
 [4,]    175    4
 [5,]    182    2</code></pre>
-<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="ch-R-Matrix.html#cb501-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A[ A[,<span class="dv">1</span>] <span class="op">&gt;</span><span class="st"> </span><span class="dv">180</span>,  ]</span></code></pre></div>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="ch-R-Matrix.html#cb500-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A[ A[,<span class="dv">1</span>] <span class="sc">&gt;</span> <span class="dv">180</span>,  ]</span></code></pre></div>
 <pre><code>height weight   year 
    182     68      2 </code></pre>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="ch-R-Matrix.html#cb503-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A[ A[,<span class="dv">2</span>] <span class="op">&lt;</span><span class="st"> </span><span class="dv">70</span>,  ]</span></code></pre></div>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="ch-R-Matrix.html#cb502-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A[ A[,<span class="dv">2</span>] <span class="sc">&lt;</span> <span class="dv">70</span>,  ]</span></code></pre></div>
 <pre><code>     height weight year
 [1,]    167     58    2
 [2,]    175     64    4
@@ -799,42 +803,42 @@ multiple or multiple of the number of rows [3]</code></pre>
 <div id="행과-열-이름-부여하기-rownames와-colnames" class="section level4 unnumbered">
 <h4>행과 열 이름 부여하기: rownames()와 colnames()</h4>
 <p>벡터와 마찬가지로 행과 열의 이름을 인덱스로 하여 행렬의 부분을 참조할 수 있다. 행렬의 행과 열 이름의 확인과 할당은 rownames()와 colnames() 함수를 이용하여 이루어진다. rbind()나 cbind()에 의해 벡터 변수가 결합되면 변수의 이름이 자동적으로 행이나 열의 이름으로 부여된다.</p>
-<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="ch-R-Matrix.html#cb505-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">colnames</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="ch-R-Matrix.html#cb504-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">colnames</span>(A)</span></code></pre></div>
 <pre><code>[1] &quot;height&quot; &quot;weight&quot; &quot;year&quot;  </code></pre>
-<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="ch-R-Matrix.html#cb507-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">rownames</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="ch-R-Matrix.html#cb506-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rownames</span>(A)</span></code></pre></div>
 <pre><code>NULL</code></pre>
-<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="ch-R-Matrix.html#cb509-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">rownames</span>(A) &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;student&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb509-2"><a href="ch-R-Matrix.html#cb509-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A</span></code></pre></div>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="ch-R-Matrix.html#cb508-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rownames</span>(A) <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;student&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb508-2"><a href="ch-R-Matrix.html#cb508-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A</span></code></pre></div>
 <pre><code>         height weight year
 student1    180     72    1
 student2    172     78    3
 student3    167     58    2
 student4    175     64    4
 student5    182     68    2</code></pre>
-<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="ch-R-Matrix.html#cb511-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A[, <span class="st">&quot;year&quot;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="ch-R-Matrix.html#cb510-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A[, <span class="st">&quot;year&quot;</span>]</span></code></pre></div>
 <pre><code>student1 student2 student3 student4 student5 
        1        3        2        4        2 </code></pre>
-<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="ch-R-Matrix.html#cb513-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A[<span class="st">&quot;student1&quot;</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="ch-R-Matrix.html#cb512-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A[<span class="st">&quot;student1&quot;</span>,]</span></code></pre></div>
 <pre><code>height weight   year 
    180     72      1 </code></pre>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="ch-R-Matrix.html#cb515-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A[<span class="st">&quot;student2&quot;</span>, <span class="st">&quot;weight&quot;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="ch-R-Matrix.html#cb514-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A[<span class="st">&quot;student2&quot;</span>, <span class="st">&quot;weight&quot;</span>]</span></code></pre></div>
 <pre><code>[1] 78</code></pre>
-<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="ch-R-Matrix.html#cb517-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A[<span class="st">&quot;student2&quot;</span>, <span class="dv">2</span>]  <span class="co"># 행과 열의 인덱스 벡터의 종류가 달라도 된다.</span></span></code></pre></div>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="ch-R-Matrix.html#cb516-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A[<span class="st">&quot;student2&quot;</span>, <span class="dv">2</span>]  <span class="co"># 행과 열의 인덱스 벡터의 종류가 달라도 된다.</span></span></code></pre></div>
 <pre><code>[1] 78</code></pre>
 </div>
 <div id="벡터로서-필터링-하기" class="section level4 unnumbered">
 <h4>벡터로서 필터링 하기</h4>
 <p>만약 행렬 이름 뒤에 인덱스 벡터가 하나밖에 주어지지 않으면, 행렬은 벡터로서 처리되어 필터링되고 행렬의 차원 정보는 무시된다</p>
-<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="ch-R-Matrix.html#cb519-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z</span></code></pre></div>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="ch-R-Matrix.html#cb518-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    1    6   11   16   21
 [2,]    2    7   12   17   22
 [3,]    3    8   13   18   23
 [4,]    4    9   14   19   24
 [5,]    5   10   15   20   25</code></pre>
-<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="ch-R-Matrix.html#cb521-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z[<span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="ch-R-Matrix.html#cb520-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z[<span class="dv">10</span>]</span></code></pre></div>
 <pre><code>[1] 10</code></pre>
-<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="ch-R-Matrix.html#cb523-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>z[z<span class="op">&gt;</span><span class="dv">15</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="ch-R-Matrix.html#cb522-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z[z<span class="sc">&gt;</span><span class="dv">15</span>]</span></code></pre></div>
 <pre><code> [1] 16 17 18 19 20 21 22 23 24 25</code></pre>
 </div>
 </div>
@@ -843,34 +847,34 @@ student5    182     68    2</code></pre>
 <div id="행렬의-요소-단위-연산" class="section level4 unnumbered">
 <h4>행렬의 요소 단위 연산</h4>
 <p>행과 열의 수가 같은 행렬은 산술 연산을 할 수 있다. 이 경우 벡터와 마찬가지로 산술 연산은 같은 위치의 요소 단위(element-by-element)로 이루어진다.</p>
-<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="ch-R-Matrix.html#cb525-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">3</span>)</span>
-<span id="cb525-2"><a href="ch-R-Matrix.html#cb525-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A</span></code></pre></div>
+<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="ch-R-Matrix.html#cb524-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb524-2"><a href="ch-R-Matrix.html#cb524-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    1    4    7
 [2,]    2    5    8
 [3,]    3    6    9</code></pre>
-<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="ch-R-Matrix.html#cb527-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>B &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">10</span>, <span class="dt">length=</span><span class="dv">9</span>, <span class="dt">by=</span><span class="dv">10</span>), <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">3</span>)</span>
-<span id="cb527-2"><a href="ch-R-Matrix.html#cb527-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>B</span></code></pre></div>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="ch-R-Matrix.html#cb526-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="at">from=</span><span class="dv">10</span>, <span class="at">length=</span><span class="dv">9</span>, <span class="at">by=</span><span class="dv">10</span>), <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb526-2"><a href="ch-R-Matrix.html#cb526-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> B</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]   10   40   70
 [2,]   20   50   80
 [3,]   30   60   90</code></pre>
-<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="ch-R-Matrix.html#cb529-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A <span class="op">+</span><span class="st"> </span>B</span></code></pre></div>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="ch-R-Matrix.html#cb528-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A <span class="sc">+</span> B</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]   11   44   77
 [2,]   22   55   88
 [3,]   33   66   99</code></pre>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="ch-R-Matrix.html#cb531-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>B <span class="op">-</span><span class="st"> </span>A</span></code></pre></div>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="ch-R-Matrix.html#cb530-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> B <span class="sc">-</span> A</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    9   36   63
 [2,]   18   45   72
 [3,]   27   54   81</code></pre>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="ch-R-Matrix.html#cb533-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A <span class="op">*</span><span class="st"> </span>B</span></code></pre></div>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="ch-R-Matrix.html#cb532-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A <span class="sc">*</span> B</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]   10  160  490
 [2,]   40  250  640
 [3,]   90  360  810</code></pre>
-<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="ch-R-Matrix.html#cb535-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>B <span class="op">/</span><span class="st"> </span>A</span></code></pre></div>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="ch-R-Matrix.html#cb534-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> B <span class="sc">/</span> A</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]   10   10   10
 [2,]   10   10   10
@@ -879,56 +883,55 @@ student5    182     68    2</code></pre>
 <div id="행렬은-재사용되지-않는다" class="section level4 unnumbered">
 <h4>행렬은 재사용되지 않는다</h4>
 <p>행과 열의 개수가 다른 행렬의 산술연산은 오류를 발생시킨다. 그 이유는 행렬은 벡터와 달리 요소의 재사용(recycling)이 일어나지 않기 때문이다. 그렇기 때문에 행렬과 행렬의 연산에서는 행과 열이 같은 크기이어야 한다.</p>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="ch-R-Matrix.html#cb537-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>C &lt;-<span class="st"> </span><span class="kw">cbind</span>(A, <span class="dv">10</span><span class="op">:</span><span class="dv">12</span>)</span>
-<span id="cb537-2"><a href="ch-R-Matrix.html#cb537-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>C</span></code></pre></div>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="ch-R-Matrix.html#cb536-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> C <span class="ot">&lt;-</span> <span class="fu">cbind</span>(A, <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb536-2"><a href="ch-R-Matrix.html#cb536-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> C</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4]
 [1,]    1    4    7   10
 [2,]    2    5    8   11
 [3,]    3    6    9   12</code></pre>
-<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="ch-R-Matrix.html#cb539-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>B <span class="op">+</span><span class="st"> </span>C</span></code></pre></div>
-<pre><code>Error in B + C: non-conformable arrays</code></pre>
-<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="ch-R-Matrix.html#cb541-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>C &lt;-<span class="st"> </span><span class="kw">rbind</span>(A, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)</span>
-<span id="cb541-2"><a href="ch-R-Matrix.html#cb541-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>C</span></code></pre></div>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="ch-R-Matrix.html#cb538-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> B <span class="sc">+</span> C</span></code></pre></div>
+<pre><code>Error in B + C: 배열의 크기가 올바르지 않습니다</code></pre>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="ch-R-Matrix.html#cb540-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> C <span class="ot">&lt;-</span> <span class="fu">rbind</span>(A, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb540-2"><a href="ch-R-Matrix.html#cb540-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> C</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    1    4    7
 [2,]    2    5    8
 [3,]    3    6    9
 [4,]    1    2    3</code></pre>
-<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="ch-R-Matrix.html#cb543-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>B <span class="op">*</span><span class="st"> </span>C</span></code></pre></div>
-<pre><code>Error in B * C: non-conformable arrays</code></pre>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="ch-R-Matrix.html#cb542-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> B <span class="sc">*</span> C</span></code></pre></div>
+<pre><code>Error in B * C: 배열의 크기가 올바르지 않습니다</code></pre>
 </div>
 <div id="벡터와-행렬의-연산-벡터는-재사용된다" class="section level4 unnumbered">
 <h4>벡터와 행렬의 연산: 벡터는 재사용된다</h4>
 <p>벡터와 행렬의 산술연산도 같은 위치의 요소 단위로 이루어진다. 벡터 a와 행렬 A의 연산시 벡터 a는 먼저 행렬 A와 같은 차원의 행렬로 변환되어 연산이 수행된다. 만약 벡터의 길이가 행렬의 길이보다 작으면 벡터의 데이터는 행렬의 길이만큼 순환 재사용된다. 연산을 위해 벡터가 행렬로 변환될 때도 matrix()로 행렬이 만들어질 때와 마찬가지로 열 별로 데이터를 채워나간다.</p>
-<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="ch-R-Matrix.html#cb545-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>a &lt;-<span class="st"> </span><span class="dv">9</span><span class="op">:</span><span class="dv">1</span></span>
-<span id="cb545-2"><a href="ch-R-Matrix.html#cb545-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>a <span class="op">+</span><span class="st"> </span>A</span></code></pre></div>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="ch-R-Matrix.html#cb544-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a <span class="ot">&lt;-</span> <span class="dv">9</span><span class="sc">:</span><span class="dv">1</span></span>
+<span id="cb544-2"><a href="ch-R-Matrix.html#cb544-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a <span class="sc">+</span> A</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]   10   10   10
 [2,]   10   10   10
 [3,]   10   10   10</code></pre>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="ch-R-Matrix.html#cb547-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
-<span id="cb547-2"><a href="ch-R-Matrix.html#cb547-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>a <span class="op">+</span><span class="st"> </span>A</span></code></pre></div>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="ch-R-Matrix.html#cb546-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
+<span id="cb546-2"><a href="ch-R-Matrix.html#cb546-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a <span class="sc">+</span> A</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    1    4    7
 [2,]   12   15   18
 [3,]  103  106  109</code></pre>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="ch-R-Matrix.html#cb549-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A <span class="op">*</span><span class="st"> </span>a</span></code></pre></div>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="ch-R-Matrix.html#cb548-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A <span class="sc">*</span> a</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    0    0    0
 [2,]   20   50   80
 [3,]  300  600  900</code></pre>
 <p>숫자와 행렬이 연산은 길이가 1인 벡터와 행렬이 연산되는 것이므로 모든 행렬의 요소와 숫자간에 연산이 이루어진다. 다음 예에서 숫자 10이 A의 모든 요소에 대응하여 계산되었음을 볼 수 있다.</p>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="ch-R-Matrix.html#cb551-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span> <span class="op">*</span><span class="st"> </span>A</span></code></pre></div>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="ch-R-Matrix.html#cb550-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="dv">10</span> <span class="sc">*</span> A</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]   10   40   70
 [2,]   20   50   80
 [3,]   30   60   90</code></pre>
 <p>그러나 벡터의 길이가 배열의 길이보다 길면 오류가 발생한다.</p>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="ch-R-Matrix.html#cb553-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>b &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
-<span id="cb553-2"><a href="ch-R-Matrix.html#cb553-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>b <span class="op">*</span><span class="st"> </span>A</span></code></pre></div>
-<pre><code>Warning in b * A: longer object length is not a multiple of shorter object
-length</code></pre>
-<pre><code>Error in eval(expr, envir, enclos): dims [product 9] do not match the length of object [10]</code></pre>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="ch-R-Matrix.html#cb552-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> b <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb552-2"><a href="ch-R-Matrix.html#cb552-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> b <span class="sc">*</span> A</span></code></pre></div>
+<pre><code>Warning in b * A: 두 객체의 길이가 서로 배수관계에 있지 않습니다</code></pre>
+<pre><code>Error in eval(expr, envir, enclos): dims [product 9]가 객체 [10]의 길이와 일치하지 않습니다</code></pre>
 <p>현재까지는 행렬의 연산 중 요소 단위의 연산만을 설명하였다. R은 이 외에도 행렬의 외적, 행렬의 곱, 역행렬 구하기 등 다양한 행렬 연산을 지원한다. 관심 있는 독자는 <a href="ch-R-Matrix.html#sec:RMatrix-operation-advanced">4.7</a> 절을 참조한다.</p>
 </div>
 </div>
@@ -940,12 +943,12 @@ length</code></pre>
 <div id="t" class="section level4 unnumbered">
 <h4>t()</h4>
 <p>어떤 행렬에서 행과 열이 바뀐 행렬을 전치행렬(transposed matrix)이라 한다. t() 함수를 이용하면 전치행렬을 구할 수 있다.</p>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="ch-R-Matrix.html#cb556-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">ncol=</span><span class="dv">2</span>)</span>
-<span id="cb556-2"><a href="ch-R-Matrix.html#cb556-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A</span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="ch-R-Matrix.html#cb555-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">nrow=</span><span class="dv">2</span>, <span class="at">ncol=</span><span class="dv">2</span>)</span>
+<span id="cb555-2"><a href="ch-R-Matrix.html#cb555-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    1    3
 [2,]    2    4</code></pre>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="ch-R-Matrix.html#cb558-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="ch-R-Matrix.html#cb557-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">t</span>(A)</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    1    2
 [2,]    3    4</code></pre>
@@ -953,30 +956,30 @@ length</code></pre>
 <div id="행렬의-차원-정보를-주는-함수-nrow-ncol-dim" class="section level4 unnumbered">
 <h4>행렬의 차원 정보를 주는 함수: nrow(), ncol(), dim()</h4>
 <p>행렬의 행 수와 열 수를 구할 때는 nrow(), ncol() 함수를 이용한다. 행과 열의 차원 전체를 얻고자 하면 dim() 함수를 이용한다.</p>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="ch-R-Matrix.html#cb560-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">nrow</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="ch-R-Matrix.html#cb559-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">nrow</span>(A)</span></code></pre></div>
 <pre><code>[1] 2</code></pre>
-<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="ch-R-Matrix.html#cb562-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ncol</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="ch-R-Matrix.html#cb561-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ncol</span>(A)</span></code></pre></div>
 <pre><code>[1] 2</code></pre>
-<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="ch-R-Matrix.html#cb564-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">dim</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="ch-R-Matrix.html#cb563-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dim</span>(A)</span></code></pre></div>
 <pre><code>[1] 2 2</code></pre>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="ch-R-Matrix.html#cb566-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">attributes</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="ch-R-Matrix.html#cb565-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">attributes</span>(A)</span></code></pre></div>
 <pre><code>$dim
 [1] 2 2</code></pre>
 </div>
 <div id="행과-열에-이름-함수-rownames-colnames" class="section level4 unnumbered">
 <h4>행과 열에 이름 함수: rownames(), colnames()</h4>
 <p>행과 열 이름을 확인하거나, 새로 할당할 때는 rownames()와 colnames() 함수를 이용한다.</p>
-<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="ch-R-Matrix.html#cb568-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">rownames</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="ch-R-Matrix.html#cb567-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rownames</span>(A)</span></code></pre></div>
 <pre><code>NULL</code></pre>
-<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="ch-R-Matrix.html#cb570-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">colnames</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="ch-R-Matrix.html#cb569-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">colnames</span>(A)</span></code></pre></div>
 <pre><code>NULL</code></pre>
-<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="ch-R-Matrix.html#cb572-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">rownames</span>(A) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;upper&quot;</span>, <span class="st">&quot;lower&quot;</span>)</span>
-<span id="cb572-2"><a href="ch-R-Matrix.html#cb572-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">colnames</span>(A) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;left&quot;</span>, <span class="st">&quot;right&quot;</span>)</span>
-<span id="cb572-3"><a href="ch-R-Matrix.html#cb572-3" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A</span></code></pre></div>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="ch-R-Matrix.html#cb571-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rownames</span>(A) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;upper&quot;</span>, <span class="st">&quot;lower&quot;</span>)</span>
+<span id="cb571-2"><a href="ch-R-Matrix.html#cb571-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">colnames</span>(A) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;left&quot;</span>, <span class="st">&quot;right&quot;</span>)</span>
+<span id="cb571-3"><a href="ch-R-Matrix.html#cb571-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A</span></code></pre></div>
 <pre><code>      left right
 upper    1     3
 lower    2     4</code></pre>
-<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="ch-R-Matrix.html#cb574-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">attributes</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="ch-R-Matrix.html#cb573-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">attributes</span>(A)</span></code></pre></div>
 <pre><code>$dim
 [1] 2 2
 
@@ -990,33 +993,33 @@ $dimnames[[2]]
 <div id="벡터로-변환-as.vector-c" class="section level4 unnumbered">
 <h4>벡터로 변환: as.vector(), c()</h4>
 <p>as.vector()나 c() 함수를 이용하면 행렬을 벡터로 변경할 수 있다. 배열을 벡터로 바꾸는 공식적인 방법은 as.vector() 함수를 이용하는 것이다. 다음 예를 살펴보자. (R이 대소문자를 구분하는 것에 주의.)</p>
-<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="ch-R-Matrix.html#cb576-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>X &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">5</span><span class="op">:</span><span class="dv">1</span>)</span>
-<span id="cb576-2"><a href="ch-R-Matrix.html#cb576-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>X</span></code></pre></div>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="ch-R-Matrix.html#cb575-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> X <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">5</span><span class="sc">:</span><span class="dv">1</span>)</span>
+<span id="cb575-2"><a href="ch-R-Matrix.html#cb575-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> X</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    1    2    3    4    5
 [2,]    5    4    3    2    1</code></pre>
-<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="ch-R-Matrix.html#cb578-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">as.vector</span>(X)</span>
-<span id="cb578-2"><a href="ch-R-Matrix.html#cb578-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="ch-R-Matrix.html#cb577-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(X)</span>
+<span id="cb577-2"><a href="ch-R-Matrix.html#cb577-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x</span></code></pre></div>
 <pre><code> [1] 1 5 2 4 3 3 4 2 5 1</code></pre>
-<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="ch-R-Matrix.html#cb580-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">attributes</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="ch-R-Matrix.html#cb579-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">attributes</span>(x)</span></code></pre></div>
 <pre><code>NULL</code></pre>
 <p>하지만 c() 함수도 이와 유사한 효과를 나타낸다. cbind()와 rbind()는 행렬과 벡터의 차원 속성을 유지하며 데이터를 연결한다. 그러나 c() 함수는 dim과 dimnames 속성을 지운다.</p>
-<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="ch-R-Matrix.html#cb582-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>y &lt;-<span class="st"> </span><span class="kw">c</span>(X)</span>
-<span id="cb582-2"><a href="ch-R-Matrix.html#cb582-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>y</span></code></pre></div>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="ch-R-Matrix.html#cb581-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> y <span class="ot">&lt;-</span> <span class="fu">c</span>(X)</span>
+<span id="cb581-2"><a href="ch-R-Matrix.html#cb581-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> y</span></code></pre></div>
 <pre><code> [1] 1 5 2 4 3 3 4 2 5 1</code></pre>
-<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="ch-R-Matrix.html#cb584-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">attributes</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="ch-R-Matrix.html#cb583-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">attributes</span>(y)</span></code></pre></div>
 <pre><code>NULL</code></pre>
 </div>
 <div id="행렬에-벡터-함수-적용하기" class="section level4 unnumbered">
 <h4>행렬에 벡터 함수 적용하기</h4>
 <p>사실 행렬은 벡터에 dim 속성이 부여된 것뿐이므로, 벡터에 적용되는 함수를 행렬에 적용하면 행렬을 벡터로 간주하여 잘 동작한다.</p>
-<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="ch-R-Matrix.html#cb586-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">sum</span>(X)</span></code></pre></div>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="ch-R-Matrix.html#cb585-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sum</span>(X)</span></code></pre></div>
 <pre><code>[1] 30</code></pre>
-<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="ch-R-Matrix.html#cb588-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">mean</span>(X)</span></code></pre></div>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="ch-R-Matrix.html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">mean</span>(X)</span></code></pre></div>
 <pre><code>[1] 3</code></pre>
-<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="ch-R-Matrix.html#cb590-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">sd</span>(X)</span></code></pre></div>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="ch-R-Matrix.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sd</span>(X)</span></code></pre></div>
 <pre><code>[1] 1.490712</code></pre>
-<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="ch-R-Matrix.html#cb592-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">range</span>(X)</span></code></pre></div>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="ch-R-Matrix.html#cb591-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">range</span>(X)</span></code></pre></div>
 <pre><code>[1] 1 5</code></pre>
 </div>
 </div>
@@ -1025,56 +1028,56 @@ $dimnames[[2]]
 <p>apply() 함수를 이용하면 행렬의 행별 또는 열별로 함수를 적용할 수 있다.</p>
 <div id="apply" class="section level4 unnumbered">
 <h4>apply()</h4>
-<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="ch-R-Matrix.html#cb594-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">apply</span>(X, MARGIN, FUN, ...)</span></code></pre></div>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="ch-R-Matrix.html#cb593-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">apply</span>(X, MARGIN, FUN, ...)</span></code></pre></div>
 <p>apply() 함수의 X 인수에는 행별 또는 열별로 함수를 적용할 행렬을, MARGIN 인수에는 함수를 적용할 방향을 지정한다. MARGIN 인수가 1이면 행별로, 2이면 열별로 함수가 적용된다. apply() 함수의 FUN 인수에는 행이나 열별로 적용할 함수를 전달한다.</p>
 <p>다음은 행렬 A에 대해 행별 합과 열별 합을 구한 예이다. 행렬 전체를 sum()한 결과와의 차이를 비교해 보라.</p>
-<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="ch-R-Matrix.html#cb595-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb595-2"><a href="ch-R-Matrix.html#cb595-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>a &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>)</span>
-<span id="cb595-3"><a href="ch-R-Matrix.html#cb595-3" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>a</span></code></pre></div>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="ch-R-Matrix.html#cb594-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb594-2"><a href="ch-R-Matrix.html#cb594-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>)</span>
+<span id="cb594-3"><a href="ch-R-Matrix.html#cb594-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a</span></code></pre></div>
 <pre><code> [1] 15 19 14  3 10 18 11  5 23  6  9 21 24 20 22 25 17  1 12 13  2 16  7  8  4</code></pre>
-<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="ch-R-Matrix.html#cb597-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A &lt;-<span class="st"> </span><span class="kw">matrix</span>(a, <span class="dt">nrow=</span><span class="dv">5</span>, <span class="dt">ncol=</span><span class="dv">5</span>)</span>
-<span id="cb597-2"><a href="ch-R-Matrix.html#cb597-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A</span></code></pre></div>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="ch-R-Matrix.html#cb596-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(a, <span class="at">nrow=</span><span class="dv">5</span>, <span class="at">ncol=</span><span class="dv">5</span>)</span>
+<span id="cb596-2"><a href="ch-R-Matrix.html#cb596-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]   15   18    9   25    2
 [2,]   19   11   21   17   16
 [3,]   14    5   24    1    7
 [4,]    3   23   20   12    8
 [5,]   10    6   22   13    4</code></pre>
-<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="ch-R-Matrix.html#cb599-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">apply</span>(A, <span class="dv">1</span>, sum)</span></code></pre></div>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="ch-R-Matrix.html#cb598-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">apply</span>(A, <span class="dv">1</span>, sum)</span></code></pre></div>
 <pre><code>[1] 69 84 51 66 55</code></pre>
-<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="ch-R-Matrix.html#cb601-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">apply</span>(A, <span class="dv">2</span>, sum)</span></code></pre></div>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="ch-R-Matrix.html#cb600-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">apply</span>(A, <span class="dv">2</span>, sum)</span></code></pre></div>
 <pre><code>[1] 61 63 96 68 37</code></pre>
-<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="ch-R-Matrix.html#cb603-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">sum</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="ch-R-Matrix.html#cb602-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sum</span>(A)</span></code></pre></div>
 <pre><code>[1] 325</code></pre>
 <p>apply() 함수가 적용되는 행렬의 행과 열에 이름이 있으면 apply()의 결과 벡터에도 해당 이름이 적용되어 출력된다.</p>
-<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="ch-R-Matrix.html#cb605-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">colnames</span>(A) &lt;-<span class="st"> </span>LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</span>
-<span id="cb605-2"><a href="ch-R-Matrix.html#cb605-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">rownames</span>(A) &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;X&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb605-3"><a href="ch-R-Matrix.html#cb605-3" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A</span></code></pre></div>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="ch-R-Matrix.html#cb604-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">colnames</span>(A) <span class="ot">&lt;-</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb604-2"><a href="ch-R-Matrix.html#cb604-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rownames</span>(A) <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;X&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb604-3"><a href="ch-R-Matrix.html#cb604-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A</span></code></pre></div>
 <pre><code>    A  B  C  D  E
 X1 15 18  9 25  2
 X2 19 11 21 17 16
 X3 14  5 24  1  7
 X4  3 23 20 12  8
 X5 10  6 22 13  4</code></pre>
-<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="ch-R-Matrix.html#cb607-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">apply</span>(A, <span class="dv">1</span>, min)</span></code></pre></div>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="ch-R-Matrix.html#cb606-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">apply</span>(A, <span class="dv">1</span>, min)</span></code></pre></div>
 <pre><code>X1 X2 X3 X4 X5 
  2 11  1  3  4 </code></pre>
-<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="ch-R-Matrix.html#cb609-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">apply</span>(A, <span class="dv">2</span>, max)</span></code></pre></div>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="ch-R-Matrix.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">apply</span>(A, <span class="dv">2</span>, max)</span></code></pre></div>
 <pre><code> A  B  C  D  E 
 19 23 24 25 16 </code></pre>
 </div>
 <div id="함수의-결과가-벡터이면-열로서-결합하여-출력한다." class="section level4 unnumbered">
 <h4>함수의 결과가 벡터이면 열로서 결합하여 출력한다.</h4>
 <p>지금까지 apply()의 FUN 인수에 부여된 함수는 sum()처럼 오직 하나의 값만을 반환하는 함수였다. 그렇기 때문에 apply() 함수로 행 또는 열별 합을 구하면 행 또는 열의 수만큼의 길이를 가지는 벡터로서 결과값이 반환되었다. 그러면 range()나 summary()처럼 길이가 2 이상인 벡터로서 결과를 주는 함수를 FUN 인수에 적용하면 어떻게 될까? 이 경우에는 함수가 적용되어 나온 결과 벡터를 cbind()처럼 열로서 결합하여 최종 결과를 출력한다.</p>
-<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="ch-R-Matrix.html#cb611-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">apply</span>(A, <span class="dv">2</span>, range)</span></code></pre></div>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="ch-R-Matrix.html#cb610-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">apply</span>(A, <span class="dv">2</span>, range)</span></code></pre></div>
 <pre><code>      A  B  C  D  E
 [1,]  3  5  9  1  2
 [2,] 19 23 24 25 16</code></pre>
-<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="ch-R-Matrix.html#cb613-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">apply</span>(A, <span class="dv">1</span>, range)</span></code></pre></div>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="ch-R-Matrix.html#cb612-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">apply</span>(A, <span class="dv">1</span>, range)</span></code></pre></div>
 <pre><code>     X1 X2 X3 X4 X5
 [1,]  2 11  1  3  4
 [2,] 25 21 24 23 22</code></pre>
-<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="ch-R-Matrix.html#cb615-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">apply</span>(A, <span class="dv">1</span>, summary)</span></code></pre></div>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="ch-R-Matrix.html#cb614-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">apply</span>(A, <span class="dv">1</span>, summary)</span></code></pre></div>
 <pre><code>          X1   X2   X3   X4 X5
 Min.     2.0 11.0  1.0  3.0  4
 1st Qu.  9.0 16.0  5.0  8.0  6
@@ -1091,21 +1094,21 @@ Max.    25.0 21.0 24.0 23.0 22</code></pre>
 <div id="배열의-생성" class="section level3" number="4.6.1">
 <h3><span class="header-section-number">4.6.1</span> 배열의 생성</h3>
 <p>벡터는 일차원 데이터 구조로 하나의 인덱스 벡터로 요소의 위치를 지정한다.</p>
-<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="ch-R-Matrix.html#cb617-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="dv">11</span><span class="op">:</span><span class="dv">20</span>; x</span></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="ch-R-Matrix.html#cb616-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="dv">11</span><span class="sc">:</span><span class="dv">20</span>; x</span></code></pre></div>
 <pre><code> [1] 11 12 13 14 15 16 17 18 19 20</code></pre>
-<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="ch-R-Matrix.html#cb619-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="ch-R-Matrix.html#cb618-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>[1] 11</code></pre>
-<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="ch-R-Matrix.html#cb621-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="dv">6</span><span class="op">:</span><span class="dv">7</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="ch-R-Matrix.html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x[<span class="dv">6</span><span class="sc">:</span><span class="dv">7</span>]</span></code></pre></div>
 <pre><code>[1] 16 17</code></pre>
 <p>행렬은 2차원의 데이터 구조로 두 개의 인덱스 벡터로 요소의 위치를 지정한다. 첫번째 인덱스 벡터가 행의 위치를 지정하고, 두번째 인덱스 벡터가 열 위치를 지정한다.</p>
-<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="ch-R-Matrix.html#cb623-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">11</span><span class="op">:</span><span class="dv">19</span>, <span class="dt">nrow=</span><span class="dv">3</span>, <span class="dt">ncol=</span><span class="dv">3</span>); x</span></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="ch-R-Matrix.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">11</span><span class="sc">:</span><span class="dv">19</span>, <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>); x</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]   11   14   17
 [2,]   12   15   18
 [3,]   13   16   19</code></pre>
-<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="ch-R-Matrix.html#cb625-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="dv">1</span>, <span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="ch-R-Matrix.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x[<span class="dv">1</span>, <span class="dv">2</span>]</span></code></pre></div>
 <pre><code>[1] 14</code></pre>
-<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="ch-R-Matrix.html#cb627-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="ch-R-Matrix.html#cb626-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">1</span>]</span></code></pre></div>
 <pre><code>[1] 12 13</code></pre>
 <p>배열은 행렬을 일반화한 것으로 2차원 이상의 차원을 가지는 데이터 구조이다.
 사실 행렬은 2차인 구조를 가지는 배열의 특수한 예이다.
@@ -1113,8 +1116,8 @@ Max.    25.0 21.0 24.0 23.0 22</code></pre>
 <div id="array" class="section level4 unnumbered">
 <h4>array()</h4>
 <p>배열은 array() 함수를 이용하여 행렬과 비슷한 방법으로 만들수 있다.</p>
-<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="ch-R-Matrix.html#cb629-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">matrix</span>(data, nrow, ncol)</span>
-<span id="cb629-2"><a href="ch-R-Matrix.html#cb629-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">array</span>(data, dim)</span></code></pre></div>
+<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="ch-R-Matrix.html#cb628-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">matrix</span>(data, nrow, ncol)</span>
+<span id="cb628-2"><a href="ch-R-Matrix.html#cb628-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">array</span>(data, dim)</span></code></pre></div>
 </div>
 <div id="dim-인수" class="section level4 unnumbered">
 <h4>dim 인수</h4>
@@ -1122,8 +1125,8 @@ Max.    25.0 21.0 24.0 23.0 22</code></pre>
 행렬은 2차원으로 차원이 정해져 있으므로 첫번째 차원인 행의 크기는 nrow 인수에 두번째 차원인 열의 크기는 ncol 인수에 숫자 하나로 제공된다.
 그러나 배열은 2차원 이상의 다양한 차원을 가질 수 있으므로, 원하는 차원의 수만큼 각 차원의 크기를 결정해야 한다.
 따라서 차원의 개수만큼의 요소를 가지는 벡터가 dim 인수에 제공된다. 따라서 어떤 배열의 차원 벡터의 길이가 k이면 그 배열은 k차원 배열이라고 한다. 다음은 3차원 배열을 생성한 예이다.</p>
-<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="ch-R-Matrix.html#cb630-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dv">11</span><span class="op">:</span><span class="dv">28</span>, <span class="dt">dim=</span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>))</span>
-<span id="cb630-2"><a href="ch-R-Matrix.html#cb630-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="ch-R-Matrix.html#cb629-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">11</span><span class="sc">:</span><span class="dv">28</span>, <span class="at">dim=</span><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb629-2"><a href="ch-R-Matrix.html#cb629-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x</span></code></pre></div>
 <pre><code>, , 1
 
      [,1] [,2] [,3]
@@ -1150,15 +1153,15 @@ Max.    25.0 21.0 24.0 23.0 22</code></pre>
 <div id="k차원-배열은-k개의-인덱스-벡터로-요소의-위치를-지정한다." class="section level4 unnumbered">
 <h4>k차원 배열은 k개의 인덱스 벡터로 요소의 위치를 지정한다.</h4>
 <p>3차원 배열에서 요소의 위치를 지정하기 위해서는 3개의 인덱스 벡터가 필요하다. 마찬가지로 k-차원의 배열에서 요소의 위치를 지정하기 위해서는 k개의 인덱스 벡터가 필요하다.</p>
-<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb632-1"><a href="ch-R-Matrix.html#cb632-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb631-1"><a href="ch-R-Matrix.html#cb631-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x[<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>]</span></code></pre></div>
 <pre><code>[1] 12</code></pre>
-<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="ch-R-Matrix.html#cb634-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb633-1"><a href="ch-R-Matrix.html#cb633-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x[<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>]</span></code></pre></div>
 <pre><code>[1] 21</code></pre>
-<div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="ch-R-Matrix.html#cb636-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="dv">1</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb635-1"><a href="ch-R-Matrix.html#cb635-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">2</span>]</span></code></pre></div>
 <pre><code>[1] 23 26</code></pre>
 <p>행렬은 2차원 배열이므로 array() 함수를 이용해서도 행렬을 만들 수 있다.</p>
-<div class="sourceCode" id="cb638"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb638-1"><a href="ch-R-Matrix.html#cb638-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dv">11</span><span class="op">:</span><span class="dv">19</span>, <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>))</span>
-<span id="cb638-2"><a href="ch-R-Matrix.html#cb638-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb637-1"><a href="ch-R-Matrix.html#cb637-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">11</span><span class="sc">:</span><span class="dv">19</span>, <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>))</span>
+<span id="cb637-2"><a href="ch-R-Matrix.html#cb637-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]   11   14   17
 [2,]   12   15   18
@@ -1167,8 +1170,8 @@ Max.    25.0 21.0 24.0 23.0 22</code></pre>
 <div id="벡터를-재사용하여-배열-만들기" class="section level4 unnumbered">
 <h4>벡터를 재사용하여 배열 만들기</h4>
 <p>행렬을 만들 때와 마찬가지로 데이터로 제공된 벡터가 배열의 모든 공간을 채울 수 없으면 벡터가 재사용된다.</p>
-<div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="ch-R-Matrix.html#cb640-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dv">1</span>, <span class="dt">dim=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>))</span>
-<span id="cb640-2"><a href="ch-R-Matrix.html#cb640-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb639-1"><a href="ch-R-Matrix.html#cb639-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span>, <span class="at">dim=</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb639-2"><a href="ch-R-Matrix.html#cb639-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x</span></code></pre></div>
 <pre><code>, , 1
 
      [,1] [,2] [,3]
@@ -1180,8 +1183,8 @@ Max.    25.0 21.0 24.0 23.0 22</code></pre>
      [,1] [,2] [,3]
 [1,]    1    1    1
 [2,]    1    1    1</code></pre>
-<div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb642-1"><a href="ch-R-Matrix.html#cb642-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">dim=</span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>))</span>
-<span id="cb642-2"><a href="ch-R-Matrix.html#cb642-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="ch-R-Matrix.html#cb641-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">dim=</span><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb641-2"><a href="ch-R-Matrix.html#cb641-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x</span></code></pre></div>
 <pre><code>, , 1
 
      [,1] [,2] [,3]
@@ -1196,8 +1199,8 @@ Max.    25.0 21.0 24.0 23.0 22</code></pre>
 [2,]    5    2    5
 [3,]    6    3    6</code></pre>
 <p>참고로 벡터를 재사용하여 배열을 채울 때, 벡터의 길이가 배열의 길이의 배수가 아니어도 경고 메시지가 나오지 않는다. 이는 행렬의 경우와 다른데 차원이 커지면 벡터의 길이와 배열의 길이를 배수로 맞추는 것이 쉽지 않기 때문에 생략한 것으로 보인다.</p>
-<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="ch-R-Matrix.html#cb644-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">dim=</span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>))</span>
-<span id="cb644-2"><a href="ch-R-Matrix.html#cb644-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="ch-R-Matrix.html#cb643-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">dim=</span><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb643-2"><a href="ch-R-Matrix.html#cb643-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x</span></code></pre></div>
 <pre><code>, , 1
 
      [,1] [,2] [,3]
@@ -1212,8 +1215,8 @@ Max.    25.0 21.0 24.0 23.0 22</code></pre>
 [2,]    1    4    2
 [3,]    2    5    3</code></pre>
 <p>마찬가지로 벡터의 길이가 배열의 길이보다 길어도 아무 경고 메시지 없이 배열을 잘 생성한다.</p>
-<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="ch-R-Matrix.html#cb646-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>, <span class="dt">dim=</span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>))</span>
-<span id="cb646-2"><a href="ch-R-Matrix.html#cb646-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="ch-R-Matrix.html#cb645-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>, <span class="at">dim=</span><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb645-2"><a href="ch-R-Matrix.html#cb645-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x</span></code></pre></div>
 <pre><code>, , 1
 
      [,1] [,2] [,3]
@@ -1231,8 +1234,8 @@ Max.    25.0 21.0 24.0 23.0 22</code></pre>
 <div id="차원-배열-예" class="section level4 unnumbered">
 <h4>4차원 배열 예</h4>
 <p>마지막으로 4차원 배열을 만들어 보자. 컴퓨터 화면은 2차원이므로 4차원 배열을 표현하기 위해, 세번째와 네번째 차원의 인덱스가 정해져 있을 때의 데이터를 2차원 행렬로 출력해 주는 것을 볼 수 있다. 3차원 배열 때와 마찬가지로 앞의 차원의 인덱스가 먼저 변하면서 데이터가 차례로 배정됨을 볼 수 있다.</p>
-<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="ch-R-Matrix.html#cb648-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>y &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>, <span class="dt">dim=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb648-2"><a href="ch-R-Matrix.html#cb648-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>y</span></code></pre></div>
+<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="ch-R-Matrix.html#cb647-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> y <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>, <span class="at">dim=</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb647-2"><a href="ch-R-Matrix.html#cb647-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> y</span></code></pre></div>
 <pre><code>, , 1, 1
 
      [,1] [,2] [,3]
@@ -1263,30 +1266,30 @@ Max.    25.0 21.0 24.0 23.0 22</code></pre>
 <div id="배열은-dim-속성을-가진-벡터이다." class="section level4 unnumbered">
 <h4>배열은 dim 속성을 가진 벡터이다.</h4>
 <p>행렬과 마찬가지로 배열도 사실 벡터이다. 그러므로 typeof() 함수를 이용하여 생성된 배열의 타입을 확인해 보면 숫자 벡터임을 보여준다. 그러나 class() 함수로 배열의 클래스를 확인하면 array 클래스로 처리됨을 볼 수 있다. 앞의 예에서도 벡터가 array 클래스로 처리되기 때문에 행, 열, 층 등으로 잘 구분되어 출력될 수 있었던 것이다. Array 클래스의 데이터는 본질적으로 벡터가 dim 속성을 가지고 있는 것 뿐이다. Dim 속성은 해당 배열의 각 차원의 크기를 나타내 준다. R은 dim 속성에 저장된 차원 정보를 이용하여 데이터 요소를 각 차원에 맞게 출력해 준다.</p>
-<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="ch-R-Matrix.html#cb650-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">typeof</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="ch-R-Matrix.html#cb649-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">typeof</span>(x)</span></code></pre></div>
 <pre><code>[1] &quot;integer&quot;</code></pre>
-<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb652-1"><a href="ch-R-Matrix.html#cb652-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">class</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb651-1"><a href="ch-R-Matrix.html#cb651-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">class</span>(x)</span></code></pre></div>
 <pre><code>[1] &quot;array&quot;</code></pre>
-<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="ch-R-Matrix.html#cb654-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">attributes</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb653-1"><a href="ch-R-Matrix.html#cb653-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">attributes</span>(x)</span></code></pre></div>
 <pre><code>$dim
 [1] 3 3 2</code></pre>
 </div>
 <div id="벡터에-dim-속성을-부여하여-배열-만들기" class="section level4 unnumbered">
 <h4>벡터에 dim 속성을 부여하여 배열 만들기</h4>
 <p>배열은 결국 벡터가 dim 속성을 가지고 있는 것이므로 벡터에 dim 속성을 부여하여 배열을 만들 수도 있다. 다음 예에서도 보듯이 데이터는 변함이 없고 dim 속성에 따라 데이터가 보여지는 형식이 달라짐을 볼 수 있다.</p>
-<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="ch-R-Matrix.html#cb656-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">12</span></span>
-<span id="cb656-2"><a href="ch-R-Matrix.html#cb656-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">dim</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb655-1"><a href="ch-R-Matrix.html#cb655-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span></span>
+<span id="cb655-2"><a href="ch-R-Matrix.html#cb655-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dim</span>(x)</span></code></pre></div>
 <pre><code>NULL</code></pre>
-<div class="sourceCode" id="cb658"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb658-1"><a href="ch-R-Matrix.html#cb658-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb657-1"><a href="ch-R-Matrix.html#cb657-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x</span></code></pre></div>
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10 11 12</code></pre>
-<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb660-1"><a href="ch-R-Matrix.html#cb660-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">dim</span>(x) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>)</span>
-<span id="cb660-2"><a href="ch-R-Matrix.html#cb660-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb659-1"><a href="ch-R-Matrix.html#cb659-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dim</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb659-2"><a href="ch-R-Matrix.html#cb659-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4]
 [1,]    1    4    7   10
 [2,]    2    5    8   11
 [3,]    3    6    9   12</code></pre>
-<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb662-1"><a href="ch-R-Matrix.html#cb662-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">dim</span>(x) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
-<span id="cb662-2"><a href="ch-R-Matrix.html#cb662-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb661-1"><a href="ch-R-Matrix.html#cb661-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dim</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
+<span id="cb661-2"><a href="ch-R-Matrix.html#cb661-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x</span></code></pre></div>
 <pre><code>, , 1
 
      [,1] [,2] [,3]
@@ -1298,18 +1301,18 @@ Max.    25.0 21.0 24.0 23.0 22</code></pre>
      [,1] [,2] [,3]
 [1,]    7    9   11
 [2,]    8   10   12</code></pre>
-<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="ch-R-Matrix.html#cb664-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">dim</span>(x) &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
-<span id="cb664-2"><a href="ch-R-Matrix.html#cb664-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb663-1"><a href="ch-R-Matrix.html#cb663-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dim</span>(x) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb663-2"><a href="ch-R-Matrix.html#cb663-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x</span></code></pre></div>
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10 11 12</code></pre>
 </div>
 <div id="dimnames-속성과-dimnames-함수" class="section level4 unnumbered">
 <h4>dimnames 속성과 dimnames() 함수</h4>
 <p>배열도 행렬과 마찬가지로 각 차원에 이름을 부여할 수 있다. 배열의 dimnames 속성에 차원의 이름 벡터를 리스트 객체로 만들어 부여하면 된다. (리스트 객체에 대한 설명은 <a href="ch-R-List.html#ch:R-List">5</a>장을 살펴보기 바란다.) 배열에 dimnames 속성을 부여하려면 array() 함수의 dimnames 인수를 이용하거나, 다음처럼 dimnames() 함수를 사용한다.</p>
-<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb666-1"><a href="ch-R-Matrix.html#cb666-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">dim</span>(x) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
-<span id="cb666-2"><a href="ch-R-Matrix.html#cb666-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">dimnames</span>(x) &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), </span>
-<span id="cb666-3"><a href="ch-R-Matrix.html#cb666-3" aria-hidden="true"></a><span class="op">+</span><span class="st">                     </span><span class="kw">paste</span>(<span class="st">&quot;group&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dt">sep=</span><span class="st">&quot;-&quot;</span>), </span>
-<span id="cb666-4"><a href="ch-R-Matrix.html#cb666-4" aria-hidden="true"></a><span class="op">+</span><span class="st">                     </span><span class="kw">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))</span>
-<span id="cb666-5"><a href="ch-R-Matrix.html#cb666-5" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb665-1"><a href="ch-R-Matrix.html#cb665-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dim</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
+<span id="cb665-2"><a href="ch-R-Matrix.html#cb665-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dimnames</span>(x) <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), </span>
+<span id="cb665-3"><a href="ch-R-Matrix.html#cb665-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                     <span class="fu">paste</span>(<span class="st">&quot;group&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="at">sep=</span><span class="st">&quot;-&quot;</span>), </span>
+<span id="cb665-4"><a href="ch-R-Matrix.html#cb665-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                     <span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))</span>
+<span id="cb665-5"><a href="ch-R-Matrix.html#cb665-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x</span></code></pre></div>
 <pre><code>, , Male
 
   group-1 group-2 group-3
@@ -1321,7 +1324,7 @@ B       2       4       6
   group-1 group-2 group-3
 A       7       9      11
 B       8      10      12</code></pre>
-<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="ch-R-Matrix.html#cb668-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">attributes</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb667-1"><a href="ch-R-Matrix.html#cb667-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">attributes</span>(x)</span></code></pre></div>
 <pre><code>$dim
 [1] 2 3 2
 
@@ -1341,7 +1344,7 @@ $dimnames[[3]]
 <div id="배열의-요소-단위-연산" class="section level4 unnumbered">
 <h4>배열의 요소 단위 연산</h4>
 <p>배열 연산과 필터링은 행렬 연산과 필터링의 경우와 동일한 원리로 작동한다. 다른 점은 행렬보다 더 많은 차원의 데이터를 다룬다는 것이다. 행렬 연산과 마찬가지로 배열 연산도 동일한 차원 벡터를 갖는 배열들이 요소 단위로 연산이 이루어진다.</p>
-<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="ch-R-Matrix.html#cb670-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>a &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>, <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>)); a</span></code></pre></div>
+<div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb669-1"><a href="ch-R-Matrix.html#cb669-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>)); a</span></code></pre></div>
 <pre><code>, , 1
 
      [,1] [,2]
@@ -1353,7 +1356,7 @@ $dimnames[[3]]
      [,1] [,2]
 [1,]    5    7
 [2,]    6    8</code></pre>
-<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="ch-R-Matrix.html#cb672-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>b &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dv">10</span><span class="op">^</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">7</span>), <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>)); b</span></code></pre></div>
+<div class="sourceCode" id="cb671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb671-1"><a href="ch-R-Matrix.html#cb671-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> b <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">10</span><span class="sc">^</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">7</span>), <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>)); b</span></code></pre></div>
 <pre><code>, , 1
 
      [,1] [,2]
@@ -1365,7 +1368,7 @@ $dimnames[[3]]
       [,1]  [,2]
 [1,] 1e+04 1e+06
 [2,] 1e+05 1e+07</code></pre>
-<div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb674-1"><a href="ch-R-Matrix.html#cb674-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>a <span class="op">+</span><span class="st"> </span>b</span></code></pre></div>
+<div class="sourceCode" id="cb673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb673-1"><a href="ch-R-Matrix.html#cb673-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a <span class="sc">+</span> b</span></code></pre></div>
 <pre><code>, , 1
 
      [,1] [,2]
@@ -1377,7 +1380,7 @@ $dimnames[[3]]
        [,1]     [,2]
 [1,]  10005  1000007
 [2,] 100006 10000008</code></pre>
-<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb676-1"><a href="ch-R-Matrix.html#cb676-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>a <span class="op">*</span><span class="st"> </span>b</span></code></pre></div>
+<div class="sourceCode" id="cb675"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb675-1"><a href="ch-R-Matrix.html#cb675-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a <span class="sc">*</span> b</span></code></pre></div>
 <pre><code>, , 1
 
      [,1] [,2]
@@ -1390,7 +1393,7 @@ $dimnames[[3]]
 [1,] 5e+04 7e+06
 [2,] 6e+05 8e+07</code></pre>
 <p>행렬 연산과 마찬가지로 차원 벡터가 다른 배열과 연산을 시도하면 오류가 발생한다.</p>
-<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb678-1"><a href="ch-R-Matrix.html#cb678-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>d &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dv">11</span><span class="op">:</span><span class="dv">30</span>, <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>)); d</span></code></pre></div>
+<div class="sourceCode" id="cb677"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb677-1"><a href="ch-R-Matrix.html#cb677-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> d <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">11</span><span class="sc">:</span><span class="dv">30</span>, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>)); d</span></code></pre></div>
 <pre><code>, , 1
 
      [,1] [,2] [,3]
@@ -1402,10 +1405,10 @@ $dimnames[[3]]
      [,1] [,2] [,3]
 [1,]   17   19   21
 [2,]   18   20   22</code></pre>
-<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb680-1"><a href="ch-R-Matrix.html#cb680-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>a <span class="op">+</span><span class="st"> </span>d</span></code></pre></div>
-<pre><code>Error in a + d: non-conformable arrays</code></pre>
+<div class="sourceCode" id="cb679"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb679-1"><a href="ch-R-Matrix.html#cb679-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a <span class="sc">+</span> d</span></code></pre></div>
+<pre><code>Error in a + d: 배열의 크기가 올바르지 않습니다</code></pre>
 <p>벡터와 배열이 연산되면 벡터는 배열의 길이만큼 재사용되어 연산이 수행된다.</p>
-<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="ch-R-Matrix.html#cb682-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>a</span></code></pre></div>
+<div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb681-1"><a href="ch-R-Matrix.html#cb681-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">*</span> a</span></code></pre></div>
 <pre><code>, , 1
 
      [,1] [,2]
@@ -1417,7 +1420,7 @@ $dimnames[[3]]
      [,1] [,2]
 [1,]   10   14
 [2,]   12   16</code></pre>
-<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="ch-R-Matrix.html#cb684-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>a</span></code></pre></div>
+<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb683-1"><a href="ch-R-Matrix.html#cb683-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span> <span class="sc">*</span> a</span></code></pre></div>
 <pre><code>, , 1
 
      [,1] [,2]
@@ -1433,7 +1436,7 @@ $dimnames[[3]]
 <div id="차원-축소와-drop-인수" class="section level4 unnumbered">
 <h4>차원 축소와 drop 인수</h4>
 <p>배열도 행렬과 마찬가지로 차원의 수만큼의 자연수, 음의 정수, 논리, 이름 인덱스 벡터로 필터링을 수행할 수 있다. 필터링의 결과로 어떤 차원의 크기가 1로 줄어들게 되면, 더 낮은 차원의 데이터 구조로 차원이 축소된다. 예를 들어 3차원 배열을 필터링한 결과가 1차원 벡터나 2차원 행렬이 될 수 있다. 이러한 차원 축소를 원하지 않으면 drop=FALSE 인수를 사용하여 필터링을 하면 된다.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
-<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="ch-R-Matrix.html#cb686-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb685"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb685-1"><a href="ch-R-Matrix.html#cb685-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x</span></code></pre></div>
 <pre><code>, , Male
 
   group-1 group-2 group-3
@@ -1445,21 +1448,21 @@ B       2       4       6
   group-1 group-2 group-3
 A       7       9      11
 B       8      10      12</code></pre>
-<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="ch-R-Matrix.html#cb688-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x[ , , <span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb687-1"><a href="ch-R-Matrix.html#cb687-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x[ , , <span class="dv">2</span>]</span></code></pre></div>
 <pre><code>  group-1 group-2 group-3
 A       7       9      11
 B       8      10      12</code></pre>
-<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="ch-R-Matrix.html#cb690-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x[ ,<span class="dv">2</span>, <span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb689-1"><a href="ch-R-Matrix.html#cb689-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x[ ,<span class="dv">2</span>, <span class="dv">2</span>]</span></code></pre></div>
 <pre><code> A  B 
  9 10 </code></pre>
-<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="ch-R-Matrix.html#cb692-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="dv">1</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="ch-R-Matrix.html#cb691-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">2</span>]</span></code></pre></div>
 <pre><code>group-2 group-3 
       9      11 </code></pre>
-<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="ch-R-Matrix.html#cb694-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="dv">1</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="ch-R-Matrix.html#cb693-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code></pre></div>
 <pre><code>        Male Female
 group-2    3      9
 group-3    5     11</code></pre>
-<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb696-1"><a href="ch-R-Matrix.html#cb696-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="dv">1</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, drop=F]</span></code></pre></div>
+<div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb695-1"><a href="ch-R-Matrix.html#cb695-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x[<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, drop<span class="ot">=</span>F]</span></code></pre></div>
 <pre><code>, , Male
 
   group-2 group-3
@@ -1469,11 +1472,11 @@ A       3       5
 
   group-2 group-3
 A       9      11</code></pre>
-<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="ch-R-Matrix.html#cb698-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x[,<span class="op">-</span><span class="dv">2</span>,<span class="kw">c</span>(T, F)]</span></code></pre></div>
+<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="ch-R-Matrix.html#cb697-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x[,<span class="sc">-</span><span class="dv">2</span>,<span class="fu">c</span>(T, F)]</span></code></pre></div>
 <pre><code>  group-1 group-3
 A       1       5
 B       2       6</code></pre>
-<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="ch-R-Matrix.html#cb700-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x[<span class="st">&quot;A&quot;</span>, <span class="st">&quot;group-2&quot;</span>, <span class="st">&quot;Female&quot;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb699-1"><a href="ch-R-Matrix.html#cb699-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x[<span class="st">&quot;A&quot;</span>, <span class="st">&quot;group-2&quot;</span>, <span class="st">&quot;Female&quot;</span>]</span></code></pre></div>
 <pre><code>[1] 9</code></pre>
 </div>
 </div>
@@ -1499,40 +1502,40 @@ B       2       6</code></pre>
 \end{pmatrix}
 \end{equation*}\]</span></p>
 <p>연산자 <code>%*%</code>는 행렬의 곱 연산을 수행한다. 다음의 예는 요소별로 곱이 이루어지는 <code>*</code> 연산자와 행렬의 곱 연산자 <code>%*%</code>이 어떻게 다른지 보여준다. 결과에서 알 수 있듯이 행렬 곱은 교환법칙이 성립하지 않는다. 반면 요소 단위의 곱은 교환법칙이 성립한다.</p>
-<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb702-1"><a href="ch-R-Matrix.html#cb702-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)); A</span></code></pre></div>
+<div class="sourceCode" id="cb701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb701-1"><a href="ch-R-Matrix.html#cb701-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)); A</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    1    3
 [2,]    2    4</code></pre>
-<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb704-1"><a href="ch-R-Matrix.html#cb704-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>B &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dv">10</span><span class="op">^</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">3</span>), <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)); B</span></code></pre></div>
+<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="ch-R-Matrix.html#cb703-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> B <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">10</span><span class="sc">^</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)); B</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    1  100
 [2,]   10 1000</code></pre>
-<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb706-1"><a href="ch-R-Matrix.html#cb706-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A <span class="op">*</span><span class="st"> </span>B</span></code></pre></div>
+<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb705-1"><a href="ch-R-Matrix.html#cb705-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A <span class="sc">*</span> B</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    1  300
 [2,]   20 4000</code></pre>
-<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb708-1"><a href="ch-R-Matrix.html#cb708-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>B <span class="op">*</span><span class="st"> </span>A</span></code></pre></div>
+<div class="sourceCode" id="cb707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb707-1"><a href="ch-R-Matrix.html#cb707-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> B <span class="sc">*</span> A</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    1  300
 [2,]   20 4000</code></pre>
-<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb710-1"><a href="ch-R-Matrix.html#cb710-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>B</span></code></pre></div>
+<div class="sourceCode" id="cb709"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb709-1"><a href="ch-R-Matrix.html#cb709-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A <span class="sc">%*%</span> B</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]   31 3100
 [2,]   42 4200</code></pre>
-<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb712-1"><a href="ch-R-Matrix.html#cb712-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>B <span class="op">%*%</span><span class="st"> </span>A</span></code></pre></div>
+<div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb711-1"><a href="ch-R-Matrix.html#cb711-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> B <span class="sc">%*%</span> A</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]  201  403
 [2,] 2010 4030</code></pre>
 <p>벡터가 행렬의 곱 수식에 나타나면 자동적으로 열 벡터나 행 벡터로 변환이 이루어진다. 그리고 행렬의 곱의 결과과 행이나 열 벡터로 표현되더라도 차원 축소는 일어나지 않는다.</p>
-<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="ch-R-Matrix.html#cb714-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb714-2"><a href="ch-R-Matrix.html#cb714-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x <span class="op">%*%</span><span class="st"> </span>A</span></code></pre></div>
+<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="ch-R-Matrix.html#cb713-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb713-2"><a href="ch-R-Matrix.html#cb713-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="sc">%*%</span> A</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    3    7</code></pre>
-<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="ch-R-Matrix.html#cb716-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb715"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb715-1"><a href="ch-R-Matrix.html#cb715-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A <span class="sc">%*%</span> x</span></code></pre></div>
 <pre><code>     [,1]
 [1,]    4
 [2,]    6</code></pre>
-<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="ch-R-Matrix.html#cb718-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x <span class="op">%*%</span><span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb717-1"><a href="ch-R-Matrix.html#cb717-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="sc">%*%</span> A <span class="sc">%*%</span> x</span></code></pre></div>
 <pre><code>     [,1]
 [1,]   10</code></pre>
 </div>
@@ -1544,20 +1547,20 @@ B       2       6</code></pre>
 <li>인수 x가 벡터이고 벡터의 길이가 1보다 크면, 그 벡터를 주대각선 요소로 하는 대각행렬(diagonal matrix)를 반환한다. 이 경우 nrow나 ncol이 주어지면 벡터가 재사용되어 대각행렬을 만들 수 있다.</li>
 <li>인수 x가 숫자 하나이고 그 값이 k이면, <span class="math inline">\(k \times k\)</span> 단위 행렬(identity matrix)을 반환한다. 만약 nrow나 ncol 등이 주어지면 k가 주대각선 요소인 대각행렬이 생성된다.</li>
 </ul>
-<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="ch-R-Matrix.html#cb720-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">diag</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb719-1"><a href="ch-R-Matrix.html#cb719-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">diag</span>(A)</span></code></pre></div>
 <pre><code>[1] 1 4</code></pre>
-<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="ch-R-Matrix.html#cb722-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">diag</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="ch-R-Matrix.html#cb721-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">diag</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3] [,4]
 [1,]    1    0    0    0
 [2,]    0    2    0    0
 [3,]    0    0    3    0
 [4,]    0    0    0    4</code></pre>
-<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb724-1"><a href="ch-R-Matrix.html#cb724-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">diag</span>(<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb723-1"><a href="ch-R-Matrix.html#cb723-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">diag</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    1    0    0
 [2,]    0    1    0
 [3,]    0    0    1</code></pre>
-<div class="sourceCode" id="cb726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb726-1"><a href="ch-R-Matrix.html#cb726-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">diag</span>(<span class="dv">3</span>, <span class="dt">nrow=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="ch-R-Matrix.html#cb725-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">diag</span>(<span class="dv">3</span>, <span class="at">nrow=</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    3    0
 [2,]    0    3</code></pre>
@@ -1584,15 +1587,15 @@ B       2       6</code></pre>
 \mathbf{x} = \mathbf{A}^{-1} \mathbf{b}
 \end{equation*}\]</span></p>
 <p>R에서는 solve() 함수를 이용하여 해를 구한다. solve(a, b) 함수의 첫번째 인수 a에는 연립 일차 방정식의 좌변의 계수를 나타내는 정방행렬이, 두번째 인수 b에는 우변의 상수항을 나타내는 벡터가 제공된다.</p>
-<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="ch-R-Matrix.html#cb728-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">-2</span>, <span class="dv">-3</span>, <span class="dv">4</span>), <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">ncol=</span><span class="dv">2</span>); A</span></code></pre></div>
+<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb727-1"><a href="ch-R-Matrix.html#cb727-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="dv">4</span>), <span class="at">nrow=</span><span class="dv">2</span>, <span class="at">ncol=</span><span class="dv">2</span>); A</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    2   -3
 [2,]   -2    4</code></pre>
-<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="ch-R-Matrix.html#cb730-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">-4</span>); b</span></code></pre></div>
+<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb729-1"><a href="ch-R-Matrix.html#cb729-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="sc">-</span><span class="dv">4</span>); b</span></code></pre></div>
 <pre><code>[1]  5 -4</code></pre>
-<div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb732-1"><a href="ch-R-Matrix.html#cb732-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">solve</span>(A, b); x</span></code></pre></div>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="ch-R-Matrix.html#cb731-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">solve</span>(A, b); x</span></code></pre></div>
 <pre><code>[1] 4 1</code></pre>
-<div class="sourceCode" id="cb734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb734-1"><a href="ch-R-Matrix.html#cb734-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb733-1"><a href="ch-R-Matrix.html#cb733-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A <span class="sc">%*%</span> x</span></code></pre></div>
 <pre><code>     [,1]
 [1,]    5
 [2,]   -4</code></pre>
@@ -1603,16 +1606,16 @@ B       2       6</code></pre>
 &amp; \mathbf{x} = \mathbf{A}^{-1} 
 \end{align*}\]</span></p>
 <p>단, <span class="math inline">\(\mathbf{I}\)</span>는 <span class="math inline">\(\mathbf{A}\)</span>와 차원이 같은 단위 행렬이다. 따라서 다음은 행렬 <span class="math inline">\(\mathbf{A}\)</span>의 역행렬 <span class="math inline">\(\mathbf{A}^{-1}\)</span>을 구해준다. 결과에서 solve()의 해를 원래의 행렬로 곱하면 단위 행렬이 됨을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb736-1"><a href="ch-R-Matrix.html#cb736-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A.inverse &lt;-<span class="st"> </span><span class="kw">solve</span>(A); A.inverse</span></code></pre></div>
+<div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb735-1"><a href="ch-R-Matrix.html#cb735-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A.inverse <span class="ot">&lt;-</span> <span class="fu">solve</span>(A); A.inverse</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    2  1.5
 [2,]    1  1.0</code></pre>
-<div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb738-1"><a href="ch-R-Matrix.html#cb738-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A <span class="op">%*%</span><span class="st"> </span>A.inverse</span></code></pre></div>
+<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb737-1"><a href="ch-R-Matrix.html#cb737-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A <span class="sc">%*%</span> A.inverse</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    1    0
 [2,]    0    1</code></pre>
 <p><span class="math inline">\(\mathbf{A}^{-1}\)</span>을 구하였으므로 <span class="math inline">\(\mathbf{x} = \mathbf{A}^{-1} \mathbf{b}\)</span> 관계를 이용하여 앞의 방정식의 해를 구할 수도 있다.</p>
-<div class="sourceCode" id="cb740"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb740-1"><a href="ch-R-Matrix.html#cb740-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A.inverse <span class="op">%*%</span><span class="st"> </span>b</span></code></pre></div>
+<div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb739-1"><a href="ch-R-Matrix.html#cb739-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A.inverse <span class="sc">%*%</span> b</span></code></pre></div>
 <pre><code>     [,1]
 [1,]    4
 [2,]    1</code></pre>
@@ -1621,19 +1624,19 @@ B       2       6</code></pre>
 <div id="고유치eigenvalues와-고유벡터eigenvectors" class="section level3" number="4.7.4">
 <h3><span class="header-section-number">4.7.4</span> 고유치(eigenvalues)와 고유벡터(eigenvectors)</h3>
 <p>행렬의 고유치와 고유벡터를 구하기 위해서는 eigen() 함수를 이용한다. eigen() 함수의 결과는 values와 vectors라는 이름을 가진 두 요소를 가지는 리스트이다. (리스트에 대해서는 <a href="ch-R-List.html#ch:R-List">5</a> 장을 참조하라.) 고유치 또는 고유벡터를 확인하려면 values 또는 vectors로 리스트 요소를 지정하면 된다.</p>
-<div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb742-1"><a href="ch-R-Matrix.html#cb742-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>A</span></code></pre></div>
+<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="ch-R-Matrix.html#cb741-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> A</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    2   -3
 [2,]   -2    4</code></pre>
-<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="ch-R-Matrix.html#cb744-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>ev &lt;-<span class="st"> </span><span class="kw">eigen</span>(A)</span>
-<span id="cb744-2"><a href="ch-R-Matrix.html#cb744-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>ev<span class="op">$</span>values</span></code></pre></div>
+<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="ch-R-Matrix.html#cb743-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ev <span class="ot">&lt;-</span> <span class="fu">eigen</span>(A)</span>
+<span id="cb743-2"><a href="ch-R-Matrix.html#cb743-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ev<span class="sc">$</span>values</span></code></pre></div>
 <pre><code>[1] 5.6457513 0.3542487</code></pre>
-<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="ch-R-Matrix.html#cb746-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>ev<span class="op">$</span>vectors</span></code></pre></div>
+<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="ch-R-Matrix.html#cb745-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ev<span class="sc">$</span>vectors</span></code></pre></div>
 <pre><code>           [,1]       [,2]
 [1,]  0.6354064 -0.8767397
 [2,] -0.7721779 -0.4809652</code></pre>
 <p>매우 큰 행렬의 경우 고유벡터가 필요하지 않다면 계산하지 않는 것이 효율적이다. eigen() 함수의 only.values 옵션을 TRUE로 설정하면 고유벡터는 계산하지 않고 고유치만 계산한다.</p>
-<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="ch-R-Matrix.html#cb748-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">eigen</span>(A, <span class="dt">only.values =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb747-1"><a href="ch-R-Matrix.html#cb747-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">eigen</span>(A, <span class="at">only.values =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>$values
 [1] 5.6457513 0.3542487
 
@@ -1678,6 +1681,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
