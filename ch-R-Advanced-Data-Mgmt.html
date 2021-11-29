@@ -566,18 +566,19 @@ div.csl-indent {
 <h4><code>rbind()</code>와 <code>bind_rows()</code>는 열의 순서를 자동으로 맞춘다.</h4>
 <p>이제 두 데이터 프레임의 열의 형태가 같아졌으므로 <code>bind_rows()</code>로 두 데이터를 원하는 방식으로 합칠 수 있다.
 두 데이터 프레임의 열의 순서가 다른 경우 <code>rbind()</code>와 <code>bind_rows()</code>는 첫번째 데이터 프레임의 열 이름을 기준으로 열의 순서를 자동으로 맞추어 준다.</p>
-<div class="sourceCode" id="cb1633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1633-1"><a href="ch-R-Advanced-Data-Mgmt.html#cb1633-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> class12 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(class1, <span class="fu">rename</span>(class2, <span class="at">Midterm =</span> Mid, <span class="at">Gender =</span> Gen))</span>
-<span id="cb1633-2"><a href="ch-R-Advanced-Data-Mgmt.html#cb1633-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> class12</span></code></pre></div>
-<pre><code>   ID   Name Gender Year Address Midterm Final Team
-1  15 김철수      M    1    서울      78    59    A
-2  18 김영희      F    3    경기      85    87    A
-3  25 이철수      M    3    충남      80    70    B
-4  34 이영희      F    2    대전      92    89    B
-5 151 홍길동   Male    4    세종      58    66    B
-6  12 장철수      M    2    &lt;NA&gt;      75    79    C
-7  19 장영희      F    2    &lt;NA&gt;      75    89    C
-8  28 최철수      M    1    &lt;NA&gt;      87    76    D
-9  45 최영희      F   30    &lt;NA&gt;      82    79    D</code></pre>
+<div class="sourceCode" id="cb1633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1633-1"><a href="ch-R-Advanced-Data-Mgmt.html#cb1633-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> class12 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(<span class="fu">select</span>(class1, <span class="sc">-</span>Address), </span>
+<span id="cb1633-2"><a href="ch-R-Advanced-Data-Mgmt.html#cb1633-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                      <span class="fu">rename</span>(class2, <span class="at">Midterm =</span> Mid, <span class="at">Gender =</span> Gen))</span>
+<span id="cb1633-3"><a href="ch-R-Advanced-Data-Mgmt.html#cb1633-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> class12</span></code></pre></div>
+<pre><code>   ID   Name Gender Year Midterm Final Team
+1  15 김철수      M    1      78    59    A
+2  18 김영희      F    3      85    87    A
+3  25 이철수      M    3      80    70    B
+4  34 이영희      F    2      92    89    B
+5 151 홍길동   Male    4      58    66    B
+6  12 장철수      M    2      75    79    C
+7  19 장영희      F    2      75    89    C
+8  28 최철수      M    1      87    76    D
+9  45 최영희      F   30      82    79    D</code></pre>
 <p>실제 데이터를 행으로 결합하는 과정에는 훨씬 더 다양한 문제들이 발생한다. 예를 들어 동일한 키를 나타내는 열이 하나는 cm로 하나는 m 단위로 정보가 주어져 있으면 이를 하나의 단위로 통일해야 한다. 그러나 복잡한 문제들도 결국 서로 다른 열 구조를 행으로 결합하기 위해서 어떤 열을 추가하거나 제외할 것인지를 결정하고, 열의 형식과 이름을 어떻게 통일할 것인가를 고려하는 과정이라는 점에서 본질적으로는 앞의 예와 동일하다 할 수 있다.</p>
 </div>
 </div>
@@ -607,29 +608,30 @@ div.csl-indent {
 그런데 ID 열은 두 데이터 프레임에 모두 있으므로 하나는 불필요하다. 따라서 attendance 데이터 프레임의 ID 정보는 제거한 후 결합한다.</p>
 <div class="sourceCode" id="cb1637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1637-1"><a href="ch-R-Advanced-Data-Mgmt.html#cb1637-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> class12.a <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(<span class="fu">arrange</span>(class12, ID), <span class="fu">select</span>(attendance, <span class="sc">-</span>ID))</span>
 <span id="cb1637-2"><a href="ch-R-Advanced-Data-Mgmt.html#cb1637-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> class12.a</span></code></pre></div>
-<pre><code>   ID   Name Gender Year Address Midterm Final Team Class Attend
-1  12 장철수      M    2    &lt;NA&gt;      75    79    C     2    185
-2  15 김철수      M    1    서울      78    59    A     1     90
-3  18 김영희      F    3    경기      85    87    A     1     95
-4  19 장영희      F    2    &lt;NA&gt;      75    89    C     2    100
-5  25 이철수      M    3    충남      80    70    B     1    100
-6  28 최철수      M    1    &lt;NA&gt;      87    76    D     2    100
-7  34 이영희      F    2    대전      92    89    B     1    100
-8  45 최영희      F   30    &lt;NA&gt;      82    79    D     2    100
-9 151 홍길동   Male    4    세종      58    66    B     1     95</code></pre>
+<pre><code>   ID   Name Gender Year Midterm Final Team Class Attend
+1  12 장철수      M    2      75    79    C     2    185
+2  15 김철수      M    1      78    59    A     1     90
+3  18 김영희      F    3      85    87    A     1     95
+4  19 장영희      F    2      75    89    C     2    100
+5  25 이철수      M    3      80    70    B     1    100
+6  28 최철수      M    1      87    76    D     2    100
+7  34 이영희      F    2      92    89    B     1    100
+8  45 최영희      F   30      82    79    D     2    100
+9 151 홍길동   Male    4      58    66    B     1     95</code></pre>
 <p>다른 방법으로 attendance 데이터 프레임을 Class와 ID 열로 정렬한 후 class12 데이터 프레임과 결합할 수도 있다.</p>
-<div class="sourceCode" id="cb1639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1639-1"><a href="ch-R-Advanced-Data-Mgmt.html#cb1639-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> class12.b <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(class12, attendance <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Class, ID) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>ID))</span>
-<span id="cb1639-2"><a href="ch-R-Advanced-Data-Mgmt.html#cb1639-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> class12.b</span></code></pre></div>
-<pre><code>   ID   Name Gender Year Address Midterm Final Team Class Attend
-1  15 김철수      M    1    서울      78    59    A     1     90
-2  18 김영희      F    3    경기      85    87    A     1     95
-3  25 이철수      M    3    충남      80    70    B     1    100
-4  34 이영희      F    2    대전      92    89    B     1    100
-5 151 홍길동   Male    4    세종      58    66    B     1     95
-6  12 장철수      M    2    &lt;NA&gt;      75    79    C     2    185
-7  19 장영희      F    2    &lt;NA&gt;      75    89    C     2    100
-8  28 최철수      M    1    &lt;NA&gt;      87    76    D     2    100
-9  45 최영희      F   30    &lt;NA&gt;      82    79    D     2    100</code></pre>
+<div class="sourceCode" id="cb1639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1639-1"><a href="ch-R-Advanced-Data-Mgmt.html#cb1639-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> class12.b <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(class12, </span>
+<span id="cb1639-2"><a href="ch-R-Advanced-Data-Mgmt.html#cb1639-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                 attendance <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Class, ID) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>ID))</span>
+<span id="cb1639-3"><a href="ch-R-Advanced-Data-Mgmt.html#cb1639-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> class12.b</span></code></pre></div>
+<pre><code>   ID   Name Gender Year Midterm Final Team Class Attend
+1  15 김철수      M    1      78    59    A     1     90
+2  18 김영희      F    3      85    87    A     1     95
+3  25 이철수      M    3      80    70    B     1    100
+4  34 이영희      F    2      92    89    B     1    100
+5 151 홍길동   Male    4      58    66    B     1     95
+6  12 장철수      M    2      75    79    C     2    185
+7  19 장영희      F    2      75    89    C     2    100
+8  28 최철수      M    1      87    76    D     2    100
+9  45 최영희      F   30      82    79    D     2    100</code></pre>
 <p>실제 데이터는 이보다 더 복잡한 문제를 가지고 있는 경우가 많다. 예를 들어 한 파일에 있는 행이 다른 파일에는 없는 경우도 있다. 이러한 경우엔 그 행의 정보를 모두 제거할 것인지, 아니면 그 행에 대해 없는 정보는 NA로 하여 결합을 할지 결정해야 한다. 결국 <code>cbind()</code>나 <code>bind_rows()</code>를 이용하여 열로 결합하기 위해서는 두 데이터의 행이 동일한 개체에 대한 정보가 되도록 일치시키는 것이 중요하다. 그런데 매번 두 데이터가 동일한 행으로 결합되도록 정렬하여 결합하는 작업을 사용자가 직접 하는 것은 오류 발생 가능성이 많다. 따라서 이 작업은 다음에 소개하는 ’관계형 데이터베이스처럼 데이터 결합하기’에 소개하는 방법을 사용할 것을 권장한다.</p>
 </div>
 </div>
@@ -645,16 +647,16 @@ div.csl-indent {
 <h4><code>inner_join()</code></h4>
 <p><code>inner_join()</code> 함수는 결합할 두 데이터 프레임을 인수로 먼저 기술한 다음 <code>by</code> 인수에 어떤 열을 기준으로 결합할 것인지를 열 이름으로 기술한다. <code>inner_join()</code> 함수는 두 데이터 프레임에서 <code>by</code> 인수로 주어진 열의 값이 동일한 행을 서로 연결하여 새로운 데이터 프레임을 만든다. 또한 새로 만들어진 데이터 프레임은 <code>by</code> 열을 기준으로 정렬이 이루어진다.</p>
 <div class="sourceCode" id="cb1641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1641-1"><a href="ch-R-Advanced-Data-Mgmt.html#cb1641-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">inner_join</span>(class12, attendance, <span class="at">by=</span><span class="st">&quot;ID&quot;</span>)</span></code></pre></div>
-<pre><code>   ID   Name Gender Year Address Midterm Final Team Class Attend
-1  15 김철수      M    1    서울      78    59    A     1     90
-2  18 김영희      F    3    경기      85    87    A     1     95
-3  25 이철수      M    3    충남      80    70    B     1    100
-4  34 이영희      F    2    대전      92    89    B     1    100
-5 151 홍길동   Male    4    세종      58    66    B     1     95
-6  12 장철수      M    2    &lt;NA&gt;      75    79    C     2    185
-7  19 장영희      F    2    &lt;NA&gt;      75    89    C     2    100
-8  28 최철수      M    1    &lt;NA&gt;      87    76    D     2    100
-9  45 최영희      F   30    &lt;NA&gt;      82    79    D     2    100</code></pre>
+<pre><code>   ID   Name Gender Year Midterm Final Team Class Attend
+1  15 김철수      M    1      78    59    A     1     90
+2  18 김영희      F    3      85    87    A     1     95
+3  25 이철수      M    3      80    70    B     1    100
+4  34 이영희      F    2      92    89    B     1    100
+5 151 홍길동   Male    4      58    66    B     1     95
+6  12 장철수      M    2      75    79    C     2    185
+7  19 장영희      F    2      75    89    C     2    100
+8  28 최철수      M    1      87    76    D     2    100
+9  45 최영희      F   30      82    79    D     2    100</code></pre>
 <ul>
 <li>만약 두 데이터 프레임이 결합의 기준이 되는 열의 이름이 다르면 `by = c(“key.x” = “key.y”) 형식으로 두 데이터 프레임의 키 열의 이름을 기술하여 결합하면 된다.</li>
 <li>만약 결합의 기준이 되는 열이 두 개 이상이면 `by = c(“key1,” “key2”) 형식으로 기술한다.</li>
@@ -667,16 +669,16 @@ div.csl-indent {
 <p><code>by</code> 인수가 주어지지 않으면 <code>inner_join()</code> 함수는 두 데이터 프레임에서 이름이 같은 열을 찾고 그 열을 기준으로 결합을 한다. 따라서 위의 경우 <code>by</code> 인수를 설정하지 않으면, 두 데이터 프레임에 공통으로 있는 ID 열을 기준으로 데이터가 결합된다.</p>
 <div class="sourceCode" id="cb1643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1643-1"><a href="ch-R-Advanced-Data-Mgmt.html#cb1643-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">inner_join</span>(class12, attendance)</span></code></pre></div>
 <pre><code>Joining, by = &quot;ID&quot;</code></pre>
-<pre><code>   ID   Name Gender Year Address Midterm Final Team Class Attend
-1  15 김철수      M    1    서울      78    59    A     1     90
-2  18 김영희      F    3    경기      85    87    A     1     95
-3  25 이철수      M    3    충남      80    70    B     1    100
-4  34 이영희      F    2    대전      92    89    B     1    100
-5 151 홍길동   Male    4    세종      58    66    B     1     95
-6  12 장철수      M    2    &lt;NA&gt;      75    79    C     2    185
-7  19 장영희      F    2    &lt;NA&gt;      75    89    C     2    100
-8  28 최철수      M    1    &lt;NA&gt;      87    76    D     2    100
-9  45 최영희      F   30    &lt;NA&gt;      82    79    D     2    100</code></pre>
+<pre><code>   ID   Name Gender Year Midterm Final Team Class Attend
+1  15 김철수      M    1      78    59    A     1     90
+2  18 김영희      F    3      85    87    A     1     95
+3  25 이철수      M    3      80    70    B     1    100
+4  34 이영희      F    2      92    89    B     1    100
+5 151 홍길동   Male    4      58    66    B     1     95
+6  12 장철수      M    2      75    79    C     2    185
+7  19 장영희      F    2      75    89    C     2    100
+8  28 최철수      M    1      87    76    D     2    100
+9  45 최영희      F   30      82    79    D     2    100</code></pre>
 </div>
 <div id="inner-join-1" class="section level4 unnumbered">
 <h4>0:1 inner join</h4>
@@ -764,16 +766,16 @@ div.csl-indent {
 다음은 <code>inner_join()</code>를 사용하여 n 대 1의 관계의 두 데이터 프레임을 inner join 한 결과이다.</p>
 <div class="sourceCode" id="cb1668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1668-1"><a href="ch-R-Advanced-Data-Mgmt.html#cb1668-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> class12.c <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(class12.a, pjt, <span class="at">by=</span><span class="st">&quot;Team&quot;</span>)</span>
 <span id="cb1668-2"><a href="ch-R-Advanced-Data-Mgmt.html#cb1668-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> class12.c</span></code></pre></div>
-<pre><code>   ID   Name Gender Year Address Midterm Final Team Class Attend Project
-1  12 장철수      M    2    &lt;NA&gt;      75    79    C     2    185      85
-2  15 김철수      M    1    서울      78    59    A     1     90      80
-3  18 김영희      F    3    경기      85    87    A     1     95      80
-4  19 장영희      F    2    &lt;NA&gt;      75    89    C     2    100      85
-5  25 이철수      M    3    충남      80    70    B     1    100      90
-6  28 최철수      M    1    &lt;NA&gt;      87    76    D     2    100      75
-7  34 이영희      F    2    대전      92    89    B     1    100      90
-8  45 최영희      F   30    &lt;NA&gt;      82    79    D     2    100      75
-9 151 홍길동   Male    4    세종      58    66    B     1     95      90</code></pre>
+<pre><code>   ID   Name Gender Year Midterm Final Team Class Attend Project
+1  12 장철수      M    2      75    79    C     2    185      85
+2  15 김철수      M    1      78    59    A     1     90      80
+3  18 김영희      F    3      85    87    A     1     95      80
+4  19 장영희      F    2      75    89    C     2    100      85
+5  25 이철수      M    3      80    70    B     1    100      90
+6  28 최철수      M    1      87    76    D     2    100      75
+7  34 이영희      F    2      92    89    B     1    100      90
+8  45 최영희      F   30      82    79    D     2    100      75
+9 151 홍길동   Male    4      58    66    B     1     95      90</code></pre>
 <p>결과에서 보듯이 <code>by</code> 인수로 <code>Team</code>을 주게 되면, <code>pjt</code> 데이터 프레임에서 <code>Team</code>이 A인 행은 하나지만, <code>class12.a</code>에서 <code>Team</code>이 A이고 학번이 15번과 18번인 학생과 관련된 두 행이 존재하므로, <code>pjt</code>의 한 행이 이 두 행에 차례로 결합되어 새로운 행을 만들었음을 알 수 있다. 이처럼 <code>inner_joint()</code>는 <code>by</code> 인수로 주어진 행에 동일한 값이 여러번 있으면 해당 값으로 결합이 여러번 발생한다.</p>
 </div>
 <div id="두-열-이상을-기준으로-join" class="section level4 unnumbered">
