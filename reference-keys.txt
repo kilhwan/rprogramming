@@ -162,6 +162,7 @@ subsec:statCategorical
 subsec:statNumerical
 stat_bin을-이용한-히스토그램
 geom_histogram
+geom_boxplot
 subsec:statNumericalPerCategory
 sec:position
 sec:typeofgraph

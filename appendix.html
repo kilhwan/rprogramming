@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Appendix | R 프로그래밍 (개정판)</title>
+  <meta name="description" content="이 책은 경영정보시스템실습의 주교재로 사용되기 위해 개발되었습니다." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Appendix | R 프로그래밍 (개정판)" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="이 책은 경영정보시스템실습의 주교재로 사용되기 위해 개발되었습니다." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Appendix | R 프로그래밍 (개정판)" />
+  
+  <meta name="twitter:description" content="이 책은 경영정보시스템실습의 주교재로 사용되기 위해 개발되었습니다." />
+  
+
+<meta name="author" content="Kilhwan Kim" />
+
+
+<meta name="date" content="2021-11-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ch-R-OOP.html"/>
+
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176754989-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176754989-1');
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R 프로그래밍</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#판-서문"><i class="fa fa-check"></i>1판 서문</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#판-서문-1"><i class="fa fa-check"></i>2판 서문</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>1</b> R 설치 및 시작</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="ch-intro.html"><a href="ch-intro.html#sec:Rintro"><i class="fa fa-check"></i><b>1.1</b> R 소개</a></li>
+<li class="chapter" data-level="1.2" data-path="ch-intro.html"><a href="ch-intro.html#sec:installation"><i class="fa fa-check"></i><b>1.2</b> R 설치하기</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="ch-intro.html"><a href="ch-intro.html#r-배포판-내려받기"><i class="fa fa-check"></i><b>1.2.1</b> R 배포판 내려받기</a></li>
+<li class="chapter" data-level="1.2.2" data-path="ch-intro.html"><a href="ch-intro.html#설치에-앞서-주의할-사항"><i class="fa fa-check"></i><b>1.2.2</b> 설치에 앞서 주의할 사항</a></li>
+<li class="chapter" data-level="1.2.3" data-path="ch-intro.html"><a href="ch-intro.html#r-설치하기"><i class="fa fa-check"></i><b>1.2.3</b> R 설치하기</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="ch-intro.html"><a href="ch-intro.html#sec:RStudio"><i class="fa fa-check"></i><b>1.3</b> RStudio</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="ch-intro.html"><a href="ch-intro.html#rstudio-설치"><i class="fa fa-check"></i><b>1.3.1</b> RStudio 설치</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="ch-intro.html"><a href="ch-intro.html#sec:R_start"><i class="fa fa-check"></i><b>1.4</b> RStudio로 R 시작하기</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔과-프롬프트"><i class="fa fa-check"></i><b>1.4.1</b> R 콘솔과 프롬프트</a></li>
+<li class="chapter" data-level="1.4.2" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔-사용과-관련된-몇-가지-팁"><i class="fa fa-check"></i><b>1.4.2</b> R 콘솔 사용과 관련된 몇 가지 팁</a></li>
+<li class="chapter" data-level="1.4.3" data-path="ch-intro.html"><a href="ch-intro.html#r-스크립트-파일-만들기"><i class="fa fa-check"></i><b>1.4.3</b> R 스크립트 파일 만들기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html"><i class="fa fa-check"></i><b>2</b> R 데이터 기초</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#단순한-데이터-형태"><i class="fa fa-check"></i><b>2.1</b> 단순한 데이터 형태</a></li>
+<li class="chapter" data-level="2.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#단순-연산"><i class="fa fa-check"></i><b>2.2</b> 단순 연산</a></li>
+<li class="chapter" data-level="2.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수와-할당"><i class="fa fa-check"></i><b>2.3</b> 변수와 할당</a></li>
+<li class="chapter" data-level="2.4" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#함수를-이용한-연산"><i class="fa fa-check"></i><b>2.4</b> 함수를 이용한 연산</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html"><i class="fa fa-check"></i><b>3</b> R 벡터</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#숫자-벡터"><i class="fa fa-check"></i><b>3.1</b> 숫자 벡터</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#c-함수를-이용한-숫자-벡터-만들기"><i class="fa fa-check"></i><b>3.1.1</b> c() 함수를 이용한 숫자 벡터 만들기</a></li>
+<li class="chapter" data-level="3.1.2" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#패턴을-이용한-숫자-벡터-만들기"><i class="fa fa-check"></i><b>3.1.2</b> 패턴을 이용한 숫자 벡터 만들기</a></li>
+<li class="chapter" data-level="3.1.3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#숫자-벡터의-연산"><i class="fa fa-check"></i><b>3.1.3</b> 숫자 벡터의 연산</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#논리-벡터"><i class="fa fa-check"></i><b>3.2</b> 논리 벡터</a></li>
+<li class="chapter" data-level="3.3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#문자-벡터"><i class="fa fa-check"></i><b>3.3</b> 문자 벡터</a></li>
+<li class="chapter" data-level="3.4" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#결측치-missing-values"><i class="fa fa-check"></i><b>3.4</b> 결측치 (Missing Values)</a></li>
+<li class="chapter" data-level="3.5" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#인덱스-벡터와-필터링"><i class="fa fa-check"></i><b>3.5</b> 인덱스 벡터와 필터링</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#자연수-인덱스-벡터"><i class="fa fa-check"></i><b>3.5.1</b> 자연수 인덱스 벡터</a></li>
+<li class="chapter" data-level="3.5.2" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#음의-정수-인덱스-벡터"><i class="fa fa-check"></i><b>3.5.2</b> 음의 정수 인덱스 벡터</a></li>
+<li class="chapter" data-level="3.5.3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#논리-인덱스-벡터"><i class="fa fa-check"></i><b>3.5.3</b> 논리 인덱스 벡터</a></li>
+<li class="chapter" data-level="3.5.4" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#이름-인덱스-벡터"><i class="fa fa-check"></i><b>3.5.4</b> 이름 인덱스 벡터</a></li>
+<li class="chapter" data-level="3.5.5" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#인덱스-벡터를-이용해-벡터-요소에-값-할당하기"><i class="fa fa-check"></i><b>3.5.5</b> 인덱스 벡터를 이용해 벡터 요소에 값 할당하기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html"><i class="fa fa-check"></i><b>4</b> R 행렬</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬-만들기"><i class="fa fa-check"></i><b>4.1</b> 행렬 만들기</a></li>
+<li class="chapter" data-level="4.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#벡터를-결합하여-행렬-만들기"><i class="fa fa-check"></i><b>4.2</b> 벡터를 결합하여 행렬 만들기</a></li>
+<li class="chapter" data-level="4.3" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-필터링"><i class="fa fa-check"></i><b>4.3</b> 행렬의 필터링</a></li>
+<li class="chapter" data-level="4.4" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-연산"><i class="fa fa-check"></i><b>4.4</b> 행렬의 연산</a></li>
+<li class="chapter" data-level="4.5" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬과-함수"><i class="fa fa-check"></i><b>4.5</b> 행렬과 함수</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬을-인수로-하는-함수들"><i class="fa fa-check"></i><b>4.5.1</b> 행렬을 인수로 하는 함수들</a></li>
+<li class="chapter" data-level="4.5.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-행별-또는-열별로-함수를-적용하는-방법"><i class="fa fa-check"></i><b>4.5.2</b> 행렬의 행별 또는 열별로 함수를 적용하는 방법</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#sec:RMatrix-array"><i class="fa fa-check"></i><b>4.6</b> 배열</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#배열의-생성"><i class="fa fa-check"></i><b>4.6.1</b> 배열의 생성</a></li>
+<li class="chapter" data-level="4.6.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#배열도-결국-벡터"><i class="fa fa-check"></i><b>4.6.2</b> 배열도 결국 벡터</a></li>
+<li class="chapter" data-level="4.6.3" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#배열의-연산과-필터링"><i class="fa fa-check"></i><b>4.6.3</b> 배열의 연산과 필터링</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#sec:RMatrix-operation-advanced"><i class="fa fa-check"></i><b>4.7</b> 행렬과 배열의 고급 연산</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-곱"><i class="fa fa-check"></i><b>4.7.1</b> 행렬의 곱</a></li>
+<li class="chapter" data-level="4.7.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-주대각선-요소와-대각행렬"><i class="fa fa-check"></i><b>4.7.2</b> 행렬의 주대각선 요소와 대각행렬</a></li>
+<li class="chapter" data-level="4.7.3" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#연립-일차-방정식과-역행렬"><i class="fa fa-check"></i><b>4.7.3</b> 연립 일차 방정식과 역행렬</a></li>
+<li class="chapter" data-level="4.7.4" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#고유치eigenvalues와-고유벡터eigenvectors"><i class="fa fa-check"></i><b>4.7.4</b> 고유치(eigenvalues)와 고유벡터(eigenvectors)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ch-R-List.html"><a href="ch-R-List.html"><i class="fa fa-check"></i><b>5</b> R 리스트</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="ch-R-List.html"><a href="ch-R-List.html#객체-객체의-타입-객체의-속성"><i class="fa fa-check"></i><b>5.1</b> 객체, 객체의 타입, 객체의 속성</a></li>
+<li class="chapter" data-level="5.2" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트의-생성-및-필터링"><i class="fa fa-check"></i><b>5.2</b> 리스트의 생성 및 필터링</a></li>
+<li class="chapter" data-level="5.3" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트의-변경-및-연결"><i class="fa fa-check"></i><b>5.3</b> 리스트의 변경 및 연결</a></li>
+<li class="chapter" data-level="5.4" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트에-함수-적용하기"><i class="fa fa-check"></i><b>5.4</b> 리스트에 함수 적용하기</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="ch-R-List.html"><a href="ch-R-List.html#lapply-함수"><i class="fa fa-check"></i><b>5.4.1</b> lapply() 함수</a></li>
+<li class="chapter" data-level="5.4.2" data-path="ch-R-List.html"><a href="ch-R-List.html#sapply-함수"><i class="fa fa-check"></i><b>5.4.2</b> sapply() 함수</a></li>
+<li class="chapter" data-level="5.4.3" data-path="ch-R-List.html"><a href="ch-R-List.html#mapply-함수"><i class="fa fa-check"></i><b>5.4.3</b> mapply() 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트-활용-분야"><i class="fa fa-check"></i><b>5.5</b> 리스트 활용 분야</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html"><i class="fa fa-check"></i><b>6</b> R 데이터 프레임</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#범주형-데이터와-요인-factors"><i class="fa fa-check"></i><b>6.1</b> 범주형 데이터와 요인 (Factors)</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#명목형-변수와-요인"><i class="fa fa-check"></i><b>6.1.1</b> 명목형 변수와 요인</a></li>
+<li class="chapter" data-level="6.1.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#순서형-변수와-요인"><i class="fa fa-check"></i><b>6.1.2</b> 순서형 변수와 요인</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임-만들기"><i class="fa fa-check"></i><b>6.2</b> 데이터 프레임 만들기</a></li>
+<li class="chapter" data-level="6.3" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임-각-열의-지정"><i class="fa fa-check"></i><b>6.3</b> 데이터 프레임 각 열의 지정</a></li>
+<li class="chapter" data-level="6.4" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임의-필터링"><i class="fa fa-check"></i><b>6.4</b> 데이터 프레임의 필터링</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#리스트-형식으로-필터링"><i class="fa fa-check"></i><b>6.4.1</b> 리스트 형식으로 필터링</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#행렬-형식으로-필터링"><i class="fa fa-check"></i><b>6.4.2</b> 행렬 형식으로 필터링</a></li>
+<li class="chapter" data-level="6.4.3" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#subset을-이용한-필터링"><i class="fa fa-check"></i><b>6.4.3</b> subset()을 이용한 필터링</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임에-함수-적용하기"><i class="fa fa-check"></i><b>6.5</b> 데이터 프레임에 함수 적용하기</a></li>
+<li class="chapter" data-level="6.6" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#파일에서-데이터-읽어오기"><i class="fa fa-check"></i><b>6.6</b> 파일에서 데이터 읽어오기</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#텍스트-파일에서-데이터-읽어오기"><i class="fa fa-check"></i><b>6.6.1</b> 텍스트 파일에서 데이터 읽어오기</a></li>
+<li class="chapter" data-level="6.6.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#excel-파일에서-데이터-읽어오기"><i class="fa fa-check"></i><b>6.6.2</b> Excel 파일에서 데이터 읽어오기</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#파일에-데이터-프레임-쓰기"><i class="fa fa-check"></i><b>6.7</b> 파일에 데이터 프레임 쓰기</a></li>
+<li class="chapter" data-level="6.8" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임의-열을-변수처럼-이용하는-방법"><i class="fa fa-check"></i><b>6.8</b> 데이터 프레임의 열을 변수처럼 이용하는 방법</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html"><i class="fa fa-check"></i><b>7</b> dplyr을 이용한 데이터 변환</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec:tidyData"><i class="fa fa-check"></i><b>7.1</b> 정돈 데이터 (tidy data)</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#정돈-데이터-형식의-조건"><i class="fa fa-check"></i><b>7.1.1</b> 정돈 데이터 형식의 조건</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#비정돈-데이터-형식"><i class="fa fa-check"></i><b>7.1.2</b> 비정돈 데이터 형식</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#정돈-데이터를-사용하는-이유"><i class="fa fa-check"></i><b>7.1.3</b> 정돈 데이터를 사용하는 이유</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#tidyverse-패키지"><i class="fa fa-check"></i><b>7.2</b> <code>tidyverse</code> 패키지</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#tidyverse-패키지-설치"><i class="fa fa-check"></i><b>7.2.1</b> <code>tidyverse</code> 패키지 설치</a></li>
+<li class="chapter" data-level="7.2.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#tidyverse-패키지-적재"><i class="fa fa-check"></i><b>7.2.2</b> <code>tidyverse</code> 패키지 적재</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec:dplyr"><i class="fa fa-check"></i><b>7.3</b> <code>dplyr</code> 패키지와 정돈 데이터의 변환</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#dplyr-패키지"><i class="fa fa-check"></i><b>7.3.1</b> <code>dplyr</code> 패키지</a></li>
+<li class="chapter" data-level="7.3.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#정돈-데이터-변환의-종류"><i class="fa fa-check"></i><b>7.3.2</b> 정돈 데이터 변환의 종류</a></li>
+<li class="chapter" data-level="7.3.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#dplyr-패키지-vs.-r의-기본-기능"><i class="fa fa-check"></i><b>7.3.3</b> <code>dplyr</code> 패키지 vs. R의 기본 기능</a></li>
+<li class="chapter" data-level="7.3.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#mpg-데이터"><i class="fa fa-check"></i><b>7.3.4</b> <code>mpg</code> 데이터</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec:filter"><i class="fa fa-check"></i><b>7.4</b> <code>filter()</code>로 행 선택하기</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#선택-조건이-하나인-경우"><i class="fa fa-check"></i><b>7.4.1</b> 선택 조건이 하나인 경우</a></li>
+<li class="chapter" data-level="7.4.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#여러-조건을-만족하는-행-추출하기"><i class="fa fa-check"></i><b>7.4.2</b> 여러 조건을 만족하는 행 추출하기</a></li>
+<li class="chapter" data-level="7.4.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#논리-연산자로-복합-조건-만들기"><i class="fa fa-check"></i><b>7.4.3</b> 논리 연산자로 복합 조건 만들기</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec:arrange"><i class="fa fa-check"></i><b>7.5</b> <code>arrange()</code>로 행 정렬하기</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#desc를-이용하여-내림차순으로-정렬하기"><i class="fa fa-check"></i><b>7.5.1</b> <code>desc()</code>를 이용하여 내림차순으로 정렬하기</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec:select"><i class="fa fa-check"></i><b>7.6</b> <code>select()</code>를 이용하여 변수 이름으로 열 선택하기</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-이름을-나열하여-선택하기"><i class="fa fa-check"></i><b>7.6.1</b> 변수 이름을 나열하여 선택하기</a></li>
+<li class="chapter" data-level="7.6.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-이름으로-변수-범위를-선택하기"><i class="fa fa-check"></i><b>7.6.2</b> 변수 이름으로 변수 범위를 선택하기</a></li>
+<li class="chapter" data-level="7.6.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-이름을-매칭하여-선택하기"><i class="fa fa-check"></i><b>7.6.3</b> 변수 이름을 매칭하여 선택하기</a></li>
+<li class="chapter" data-level="7.6.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-이름-바꾸기"><i class="fa fa-check"></i><b>7.6.4</b> 변수 이름 바꾸기</a></li>
+<li class="chapter" data-level="7.6.5" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-순서-바꾸기"><i class="fa fa-check"></i><b>7.6.5</b> 변수 순서 바꾸기</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec:mutate"><i class="fa fa-check"></i><b>7.7</b> <code>mutate()</code>로 새로운 변수 만들기</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#transmute로-새로운-변수만-남기기"><i class="fa fa-check"></i><b>7.7.1</b> <code>transmute()</code>로 새로운 변수만 남기기</a></li>
+<li class="chapter" data-level="7.7.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#새로운-변수를-만들-때-사용할-수-있는-함수들"><i class="fa fa-check"></i><b>7.7.2</b> 새로운 변수를 만들 때 사용할 수 있는 함수들</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec:summarize"><i class="fa fa-check"></i><b>7.8</b> <code>summarize()</code>로 변수 요약하기</a></li>
+<li class="chapter" data-level="7.9" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec:groupBy"><i class="fa fa-check"></i><b>7.9</b> <code>group_by()</code>로 그룹 별로 요약하기</a></li>
+<li class="chapter" data-level="7.10" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec:pipeOperator"><i class="fa fa-check"></i><b>7.10</b> <code>%&gt;%</code> 파이프 연산자</a>
+<ul>
+<li class="chapter" data-level="7.10.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#여러-단계를-거쳐-데이터를-변환할-때"><i class="fa fa-check"></i><b>7.10.1</b> 여러 단계를 거쳐 데이터를 변환할 때</a></li>
+<li class="chapter" data-level="7.10.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#파이프-연산자"><i class="fa fa-check"></i><b>7.10.2</b> 파이프 연산자</a></li>
+<li class="chapter" data-level="7.10.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#ungroup"><i class="fa fa-check"></i><b>7.10.3</b> <code>ungroup()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch-visualization.html"><a href="ch-visualization.html"><i class="fa fa-check"></i><b>8</b> ggplot2를 이용한 데이터 시각화</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="ch-visualization.html"><a href="ch-visualization.html#sec:getStarted-ggplot2"><i class="fa fa-check"></i><b>8.1</b> ggplot2 시작하기</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec:tryGgplot"><i class="fa fa-check"></i><b>8.1.1</b> ggplot2 그래프 그려보기</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="ch-visualization.html"><a href="ch-visualization.html#sec:aesMapping"><i class="fa fa-check"></i><b>8.2</b> 도형의 속성에 데이터 열을 대응시키기 (aesthetic mapping)</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="ch-visualization.html"><a href="ch-visualization.html#색상color-속성"><i class="fa fa-check"></i><b>8.2.1</b> 색상(<code>color</code>) 속성</a></li>
+<li class="chapter" data-level="8.2.2" data-path="ch-visualization.html"><a href="ch-visualization.html#모양shape-속성"><i class="fa fa-check"></i><b>8.2.2</b> 모양(<code>shape</code>) 속성</a></li>
+<li class="chapter" data-level="8.2.3" data-path="ch-visualization.html"><a href="ch-visualization.html#크기size와-투명도alpha-속성"><i class="fa fa-check"></i><b>8.2.3</b> 크기(<code>size</code>)와 투명도(<code>alpha</code>) 속성</a></li>
+<li class="chapter" data-level="8.2.4" data-path="ch-visualization.html"><a href="ch-visualization.html#도형의-여러-속성에-데이터-열을-대응시키기"><i class="fa fa-check"></i><b>8.2.4</b> 도형의 여러 속성에 데이터 열을 대응시키기</a></li>
+<li class="chapter" data-level="8.2.5" data-path="ch-visualization.html"><a href="ch-visualization.html#도형-속성에-데이터-열을-매핑하기---예제"><i class="fa fa-check"></i><b>8.2.5</b> 도형 속성에 데이터 열을 매핑하기 - 예제</a></li>
+<li class="chapter" data-level="8.2.6" data-path="ch-visualization.html"><a href="ch-visualization.html#도형의-속성에-대응시키기-vs.-도형의-속성-인수를-설정하기"><i class="fa fa-check"></i><b>8.2.6</b> 도형의 속성에 대응시키기 vs. 도형의 속성 인수를 설정하기</a></li>
+<li class="chapter" data-level="8.2.7" data-path="ch-visualization.html"><a href="ch-visualization.html#group-속성"><i class="fa fa-check"></i><b>8.2.7</b> <code>group</code> 속성</a></li>
+<li class="chapter" data-level="8.2.8" data-path="ch-visualization.html"><a href="ch-visualization.html#그룹으로-나누어-선-그래프-그리기"><i class="fa fa-check"></i><b>8.2.8</b> 그룹으로 나누어 선 그래프 그리기</a></li>
+<li class="chapter" data-level="8.2.9" data-path="ch-visualization.html"><a href="ch-visualization.html#이산형-변수는-group-속성으로-자동-매핑된다."><i class="fa fa-check"></i><b>8.2.9</b> 이산형 변수는 <code>group</code> 속성으로 자동 매핑된다.</a></li>
+<li class="chapter" data-level="8.2.10" data-path="ch-visualization.html"><a href="ch-visualization.html#geom_smooth-함수에서-group-속성"><i class="fa fa-check"></i><b>8.2.10</b> <code>geom_smooth()</code> 함수에서 <code>group</code> 속성</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="ch-visualization.html"><a href="ch-visualization.html#sec:commonProblems"><i class="fa fa-check"></i><b>8.3</b> ggplot 명령문을 입력할 때 자주 발생하는 문제들</a></li>
+<li class="chapter" data-level="8.4" data-path="ch-visualization.html"><a href="ch-visualization.html#sec:facets"><i class="fa fa-check"></i><b>8.4</b> 측면(facets)으로 나누어 그리기</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="ch-visualization.html"><a href="ch-visualization.html#facet_wrap로-일차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>8.4.1</b> <code>facet_wrap()</code>로 일차원 측면 그래프 그리기</a></li>
+<li class="chapter" data-level="8.4.2" data-path="ch-visualization.html"><a href="ch-visualization.html#facet_grid로-이차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>8.4.2</b> <code>facet_grid()</code>로 이차원 측면 그래프 그리기</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="ch-visualization.html"><a href="ch-visualization.html#sec:layerAndGeom"><i class="fa fa-check"></i><b>8.5</b> 그래프 계층(layers)과 도형(geoms)</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="ch-visualization.html"><a href="ch-visualization.html#geom-함수의-순서와-그래프-계층"><i class="fa fa-check"></i><b>8.5.1</b> geom 함수의 순서와 그래프 계층</a></li>
+<li class="chapter" data-level="8.5.2" data-path="ch-visualization.html"><a href="ch-visualization.html#ggplot-함수는-좌표축을-자동-조정한다."><i class="fa fa-check"></i><b>8.5.2</b> <code>ggplot()</code> 함수는 좌표축을 자동 조정한다.</a></li>
+<li class="chapter" data-level="8.5.3" data-path="ch-visualization.html"><a href="ch-visualization.html#여러-데이터를-사용하여-그래프-계층-만들기"><i class="fa fa-check"></i><b>8.5.3</b> 여러 데이터를 사용하여 그래프 계층 만들기</a></li>
+<li class="chapter" data-level="8.5.4" data-path="ch-visualization.html"><a href="ch-visualization.html#다른-데이터-범위로-그래프-계층-만들기"><i class="fa fa-check"></i><b>8.5.4</b> 다른 데이터 범위로 그래프 계층 만들기</a></li>
+<li class="chapter" data-level="8.5.5" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec:commonDataMapping"><i class="fa fa-check"></i><b>8.5.5</b> 공통 <code>data</code>와 <code>mapping</code>의 설정</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="ch-visualization.html"><a href="ch-visualization.html#sec:ggplotStat"><i class="fa fa-check"></i><b>8.6</b> 통계 변환</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec:statCategorical"><i class="fa fa-check"></i><b>8.6.1</b> 범주형 변수의 통계 요약</a></li>
+<li class="chapter" data-level="8.6.2" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec:statNumerical"><i class="fa fa-check"></i><b>8.6.2</b> 수치형 변수의 통계 요약</a></li>
+<li class="chapter" data-level="8.6.3" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec:statNumericalPerCategory"><i class="fa fa-check"></i><b>8.6.3</b> 수치형 변수의 범주별 통계요약</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="ch-visualization.html"><a href="ch-visualization.html#sec:position"><i class="fa fa-check"></i><b>8.7</b> 위치 조정</a></li>
+<li class="chapter" data-level="8.8" data-path="ch-visualization.html"><a href="ch-visualization.html#sec:typeofgraph"><i class="fa fa-check"></i><b>8.8</b> ggplot2 그래프의 종류</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="ch-visualization.html"><a href="ch-visualization.html#basic-graph"><i class="fa fa-check"></i><b>8.8.1</b> 기본 그래픽 함수</a></li>
+<li class="chapter" data-level="8.8.2" data-path="ch-visualization.html"><a href="ch-visualization.html#onecategory"><i class="fa fa-check"></i><b>8.8.2</b> 한 범주형 변수의 그래프</a></li>
+<li class="chapter" data-level="8.8.3" data-path="ch-visualization.html"><a href="ch-visualization.html#onenumeric"><i class="fa fa-check"></i><b>8.8.3</b> 한 수치형 변수의 그래프</a></li>
+<li class="chapter" data-level="8.8.4" data-path="ch-visualization.html"><a href="ch-visualization.html#twocategories"><i class="fa fa-check"></i><b>8.8.4</b> 두 범주형 변수의 그래프</a></li>
+<li class="chapter" data-level="8.8.5" data-path="ch-visualization.html"><a href="ch-visualization.html#category-numeric"><i class="fa fa-check"></i><b>8.8.5</b> 범주형 변수와 수치형 변수의 그래프</a></li>
+<li class="chapter" data-level="8.8.6" data-path="ch-visualization.html"><a href="ch-visualization.html#twonumeric"><i class="fa fa-check"></i><b>8.8.6</b> 두 수치형 변수의 그래프</a></li>
+<li class="chapter" data-level="8.8.7" data-path="ch-visualization.html"><a href="ch-visualization.html#morethanthree"><i class="fa fa-check"></i><b>8.8.7</b> 세 변수 이상의 그래프</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="ch-visualization.html"><a href="ch-visualization.html#modification"><i class="fa fa-check"></i><b>8.9</b> 그래프의 외양 바꾸기</a>
+<ul>
+<li class="chapter" data-level="8.9.1" data-path="ch-visualization.html"><a href="ch-visualization.html#axes"><i class="fa fa-check"></i><b>8.9.1</b> 좌표축의 조정</a></li>
+<li class="chapter" data-level="8.9.2" data-path="ch-visualization.html"><a href="ch-visualization.html#좌표계의-변경"><i class="fa fa-check"></i><b>8.9.2</b> 좌표계의 변경</a></li>
+<li class="chapter" data-level="8.9.3" data-path="ch-visualization.html"><a href="ch-visualization.html#색상-척도color-scales의-변경"><i class="fa fa-check"></i><b>8.9.3</b> 색상 척도(color scales)의 변경</a></li>
+<li class="chapter" data-level="8.9.4" data-path="ch-visualization.html"><a href="ch-visualization.html#labelsmodification"><i class="fa fa-check"></i><b>8.9.4</b> 레이블 조정</a></li>
+<li class="chapter" data-level="8.9.5" data-path="ch-visualization.html"><a href="ch-visualization.html#themes"><i class="fa fa-check"></i><b>8.9.5</b> 테마 변경</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="ch-visualization.html"><a href="ch-visualization.html#misc"><i class="fa fa-check"></i><b>8.10</b> 기타 유용한 팁들</a>
+<ul>
+<li class="chapter" data-level="8.10.1" data-path="ch-visualization.html"><a href="ch-visualization.html#combinegraph"><i class="fa fa-check"></i><b>8.10.1</b> 여러 그래프를 한 도표에 넣기</a></li>
+<li class="chapter" data-level="8.10.2" data-path="ch-visualization.html"><a href="ch-visualization.html#savegraph"><i class="fa fa-check"></i><b>8.10.2</b> 그래프 저장하기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html"><i class="fa fa-check"></i><b>9</b> R 고급 데이터 변환</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#데이터의-단순-결합"><i class="fa fa-check"></i><b>9.1</b> 데이터의 단순 결합</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#데이터를-행으로-결합하기"><i class="fa fa-check"></i><b>9.1.1</b> 데이터를 행으로 결합하기</a></li>
+<li class="chapter" data-level="9.1.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#데이터를-열로-결합하기"><i class="fa fa-check"></i><b>9.1.2</b> 데이터를 열로 결합하기</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#관계형-데이터베이스처럼-데이터-결합하기"><i class="fa fa-check"></i><b>9.2</b> 관계형 데이터베이스처럼 데이터 결합하기</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#inner-join과-outer-join"><i class="fa fa-check"></i><b>9.2.1</b> Inner join과 outer join</a></li>
+<li class="chapter" data-level="9.2.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#filtering-join"><i class="fa fa-check"></i><b>9.2.2</b> Filtering join</a></li>
+<li class="chapter" data-level="9.2.3" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#join을-수행하는-다른-방법들"><i class="fa fa-check"></i><b>9.2.3</b> Join을 수행하는 다른 방법들</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#sec:tidyr"><i class="fa fa-check"></i><b>9.3</b> <code>tidyr</code> 패키지를 이용하여 정돈 데이터 형식으로 바꾸기</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#pivot_longer-여러-열에-걸친-한-변수의-데이터를-하나의-열로-길게-모으기"><i class="fa fa-check"></i><b>9.3.1</b> <code>pivot_longer</code>: 여러 열에 걸친 한 변수의 데이터를 하나의 열로 길게 모으기</a></li>
+<li class="chapter" data-level="9.3.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#subsec:pivot-wider"><i class="fa fa-check"></i><b>9.3.2</b> <code>pivot_wider</code>: 한 열에 기술된 여러 변수의 데이터를 여러 열로 넓게 펼치기</a></li>
+<li class="chapter" data-level="9.3.3" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#seperate-한-셀을-여러-셀로-분리하기"><i class="fa fa-check"></i><b>9.3.3</b> <code>seperate</code>: 한 셀을 여러 셀로 분리하기</a></li>
+<li class="chapter" data-level="9.3.4" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#unite-여러-셀의-데이터를-하나의-셀로-병합하기"><i class="fa fa-check"></i><b>9.3.4</b> <code>unite</code>: 여러 셀의 데이터를 하나의 셀로 병합하기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html"><i class="fa fa-check"></i><b>10</b> R 프로그래밍 구조</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r-조건문"><i class="fa fa-check"></i><b>10.1</b> R 조건문</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#if-조건문"><i class="fa fa-check"></i><b>10.1.1</b> if 조건문</a></li>
+<li class="chapter" data-level="10.1.2" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#switch-함수"><i class="fa fa-check"></i><b>10.1.2</b> switch 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r-반복문"><i class="fa fa-check"></i><b>10.2</b> R 반복문</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#for-반복문"><i class="fa fa-check"></i><b>10.2.1</b> for 반복문</a></li>
+<li class="chapter" data-level="10.2.2" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#while-반복문"><i class="fa fa-check"></i><b>10.2.2</b> while 반복문</a></li>
+<li class="chapter" data-level="10.2.3" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#repeat-반복문"><i class="fa fa-check"></i><b>10.2.3</b> repeat 반복문</a></li>
+<li class="chapter" data-level="10.2.4" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#반복문의-제어-명령"><i class="fa fa-check"></i><b>10.2.4</b> 반복문의 제어 명령</a></li>
+<li class="chapter" data-level="10.2.5" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r에서-반복문-사용의-주의점"><i class="fa fa-check"></i><b>10.2.5</b> R에서 반복문 사용의 주의점</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r-함수"><i class="fa fa-check"></i><b>10.3</b> R 함수</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#함수의-생성과-호출"><i class="fa fa-check"></i><b>10.3.1</b> 함수의 생성과 호출</a></li>
+<li class="chapter" data-level="10.3.2" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#함수-객체를-인수로-사용하기"><i class="fa fa-check"></i><b>10.3.2</b> 함수 객체를 인수로 사용하기</a></li>
+<li class="chapter" data-level="10.3.3" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r-연산자"><i class="fa fa-check"></i><b>10.3.3</b> R 연산자</a></li>
+<li class="chapter" data-level="10.3.4" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#변수-범위"><i class="fa fa-check"></i><b>10.3.4</b> 변수 범위</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html"><i class="fa fa-check"></i><b>11</b> R 객체 지향 프로그래밍</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#객체-지향-프로그래밍"><i class="fa fa-check"></i><b>11.1</b> 객체 지향 프로그래밍</a></li>
+<li class="chapter" data-level="11.2" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s3-클래스"><i class="fa fa-check"></i><b>11.2</b> S3 클래스</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s3-클래스-객체-만들기"><i class="fa fa-check"></i><b>11.2.1</b> S3 클래스 객체 만들기</a></li>
+<li class="chapter" data-level="11.2.2" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#포괄-함수generic-functions"><i class="fa fa-check"></i><b>11.2.2</b> 포괄 함수(generic functions)</a></li>
+<li class="chapter" data-level="11.2.3" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s3에서-상속성의-구현"><i class="fa fa-check"></i><b>11.2.3</b> S3에서 상속성의 구현</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s4-클래스"><i class="fa fa-check"></i><b>11.3</b> S4 클래스</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
+<ul>
+<li><a href="appendix.html#r에서-계산-정확도를-향상시키기"><strong>R</strong>에서 계산 정확도를 향상시키기</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R 프로그래밍 (개정판)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="appendix" class="section level1 unnumbered">
+<h1>Appendix</h1>
+<p>이 장에서는 책의 본문에서 다루지 않은 다양한 주제를 부록의 형식으로 다룬다.</p>
+<div id="r에서-계산-정확도를-향상시키기" class="section level2 unnumbered">
+<h2><strong>R</strong>에서 계산 정확도를 향상시키기</h2>
+<p>현재 <strong>R</strong>은 IEC 60559 부동소수점 계산을 사용하고 있다.
+부동소수점 숫자를 저장하기 위해 64 비트를 사용하고 있고, 이중 53 비트는 유효숫자를 저장하고 11 비트는 지수부 정보를 저장한다.
+위와 관련된 정보는 <code>base</code> 패키지의 <code>.Machine</code> 변수를 출력해 보면 확인할 수 있다.</p>
+<div class="sourceCode" id="cb2077"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2077-1"><a href="appendix.html#cb2077-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> .Machine[<span class="fu">grep</span>(<span class="st">&quot;^double[.](digits|exponent)&quot;</span>, <span class="fu">names</span>(.Machine))]</span></code></pre></div>
+<pre><code>$double.digits
+[1] 53
+
+$double.exponent
+[1] 11</code></pre>
+<p>컴퓨터는 이진수로 숫자를 저장하기 때문에, 숫자의 유효숫자와 지수가 표현 범위에 있는 숫자라면 이진수로 표현할 수 있는 정수와 분모가 2의 거듭제곱으로 표현된 유리수에 대해서만 정확하게 표현할 수 있다.
+그 외의 숫자는 정수나 2의 거듭제곱을 분모로 가진 유리수로 근사하여 저장하므로 숫자를 저장할 수 있는 정밀도는 제한된다.
+그렇기 때문에 다음처럼 수학적으로 같아야할 숫자가 다른 숫자로 간주된다.</p>
+<div class="sourceCode" id="cb2079"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2079-1"><a href="appendix.html#cb2079-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">2</span>)</span>
+<span id="cb2079-2"><a href="appendix.html#cb2079-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a<span class="sc">^</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb2081"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2081-1"><a href="appendix.html#cb2081-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a<span class="sc">^</span><span class="dv">2</span> </span></code></pre></div>
+<pre><code>[1] 2</code></pre>
+<div class="sourceCode" id="cb2083"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2083-1"><a href="appendix.html#cb2083-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>[1] 4.440892e-16</code></pre>
+<p><span class="math inline">\(\sqrt{2}\)</span>를 제곱하면 2가 되어야 할 것이다. 그러나 <span class="math inline">\(\sqrt{2}\)</span>는 근사적인 값으로 저장되기 때문에 제곱의 결과가 정확히 2가 되지 않는다.
+위의 예에서 <span class="math inline">\(\sqrt{2}\)</span>의 제곱을 출력하면 2로 표현되는 것은 <strong>R</strong>의 출력에서 유효숫자의 크기가 제한되어 있기 때문이다. 숫자 출력의 유효숫자의 자리수를 늘리면 정확히 2는 아님을 확인할 수 있다.</p>
+<div class="sourceCode" id="cb2085"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2085-1"><a href="appendix.html#cb2085-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">options</span>(<span class="st">&quot;digits&quot;</span>)  <span class="co"># 현재의 유효숫자 자리수 출력</span></span></code></pre></div>
+<pre><code>$digits
+[1] 7</code></pre>
+<div class="sourceCode" id="cb2087"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2087-1"><a href="appendix.html#cb2087-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">22</span>) <span class="co"># 유효숫자 자리수를 22로 조정</span></span>
+<span id="cb2087-2"><a href="appendix.html#cb2087-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>[1] 2.000000000000000444089</code></pre>
+<p>일반적인 상황에서는 근사적인 이진수 표현으로 숫자를 저장하기 때문에 발생하는 오차는 큰 문제가 되지 않는다.
+그러나 정밀한 계산을 하거나 매우 작은 확률 값을 곱하는 계산을 하는 경우에는 이러한 오차가 문제가 될 수 있다.</p>
+<p><strong>R</strong>에서는 <code>Rmpfr</code> 패키지를 사용하면 부동소수점의 정밀도를 증가시킬 수 있다.
+다음 명령으로 <code>Rmpfr</code> 패키지를 설치해 보자.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></p>
+<div class="sourceCode" id="cb2089"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2089-1"><a href="appendix.html#cb2089-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">install.packages</span>(<span class="st">&quot;Rmpfr&quot;</span>)</span></code></pre></div>
+<p><code>Rmpfr</code> 패키지 설치가 완료되었으면 이 패키지를 메모리로 적재한다.
+그리고 정밀한 계산이 필요한 변수를 <code>mpfr()</code> 함수를 이용하여 높은 정밀도의 숫자를 생성할 수 있다.
+<code>mpfr()</code> 함수의 첫 번째 인수는 높은 정밀도를 필요로 하는 숫자를, 두 번째 인수는 유효숫자의 비트 수를 지정한다.</p>
+<div class="sourceCode" id="cb2090"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2090-1"><a href="appendix.html#cb2090-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(Rmpfr)</span>
+<span id="cb2090-2"><a href="appendix.html#cb2090-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> b <span class="ot">&lt;-</span> <span class="fu">mpfr</span>(<span class="dv">2</span>, <span class="at">precBits =</span> <span class="dv">200</span>)</span>
+<span id="cb2090-3"><a href="appendix.html#cb2090-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a_hp <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(b)</span>
+<span id="cb2090-4"><a href="appendix.html#cb2090-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a_hp<span class="sc">^</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb2092"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2092-1"><a href="appendix.html#cb2092-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a_hp<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>1 &#39;mpfr&#39; number of precision  200   bits 
+[1] 0</code></pre>
+<div class="sourceCode" id="cb2094"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2094-1"><a href="appendix.html#cb2094-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a_hp<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>1 &#39;mpfr&#39; number of precision  200   bits 
+[1] 2</code></pre>
+<p>200 비트로 유효숫자를 표현하자 2와 <span class="math inline">\(\sqrt{2}\)</span>의 제곱이 같다고 표현된다.
+다음 예처럼 <code>mpfr()</code> 함수로 생성된 높은 정밀도의 숫자는 더 정확한 정밀도로 계산이 수행되는 것을 확인할 수 있다.</p>
+<div class="sourceCode" id="cb2096"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2096-1"><a href="appendix.html#cb2096-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> b</span></code></pre></div>
+<pre><code>1 &#39;mpfr&#39; number of precision  200   bits 
+[1] 2</code></pre>
+<div class="sourceCode" id="cb2098"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2098-1"><a href="appendix.html#cb2098-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">log</span>(b)</span></code></pre></div>
+<pre><code>1 &#39;mpfr&#39; number of precision  200   bits 
+[1] 0.69314718055994530941723212145817656807550013436025525412067998</code></pre>
+<div class="sourceCode" id="cb2100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2100-1"><a href="appendix.html#cb2100-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">log</span>(<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>[1] 0.6931471805599452862268</code></pre>
+<div class="sourceCode" id="cb2102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2102-1"><a href="appendix.html#cb2102-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sin</span>(b)</span></code></pre></div>
+<pre><code>1 &#39;mpfr&#39; number of precision  200   bits 
+[1] 0.90929742682568169539601986591174484270225497144789026837897305</code></pre>
+<div class="sourceCode" id="cb2104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2104-1"><a href="appendix.html#cb2104-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sin</span>(<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>[1] 0.9092974268256817094169</code></pre>
+<p>다음은 1부터 24까지의 계승(factorials)을 일반적인 숫자와 mpfr 숫자로 구한 결과이다 <span class="citation">(<a href="#ref-machler2015arbitrarily" role="doc-biblioref">Mächler 2015</a>)</span>
+일반적인 숫자로 계승을 구하면 22까지는 정확한 결과를 주지만, 23과 24의 계승은 정확한 결과가 아니다. 왜냐하면 이 계승은 1의 자리가 0이어야 하기 때문이다. 반면 mpfr 숫자로 구한 계승은 정확한 결과를 반환하는 것을 볼 수 있다.</p>
+<div class="sourceCode" id="cb2106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2106-1"><a href="appendix.html#cb2106-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">10</span>)</span>
+<span id="cb2106-2"><a href="appendix.html#cb2106-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">factorial</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>)</span></code></pre></div>
+<pre><code> [1]                        1                        2                        6
+ [4]                       24                      120                      720
+ [7]                     5040                    40320                   362880
+[10]                  3628800                 39916800                479001600
+[13]               6227020800              87178291200            1307674368000
+[16]           20922789888000          355687428096000         6402373705728000
+[19]       121645100408832000      2432902008176640000     51090942171709440000
+[22]   1124000727777607680000  25852016738884978212864 620448401733239409999872</code></pre>
+<div class="sourceCode" id="cb2108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2108-1"><a href="appendix.html#cb2108-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">factorial</span>(<span class="fu">mpfr</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>, <span class="dv">120</span>))</span></code></pre></div>
+<pre><code>24 &#39;mpfr&#39; numbers of precision  120   bits 
+ [1]                     1e+0                     2e+0                     6e+0
+ [4]                   2.4e+1                   1.2e+2                   7.2e+2
+ [7]                  5.04e+3                 4.032e+4                3.6288e+5
+[10]                  3628800                 39916800                479001600
+[13]               6227020800              87178291200            1307674368000
+[16]           20922789888000          355687428096000         6402373705728000
+[19]       121645100408832000      2432902008176640000     51090942171709440000
+[22]   1124000727777607680000  25852016738884976640000 620448401733239439360000</code></pre>
+<p>마찬가지로 <code>Rmpfr</code> 패키지의 <code>chooseMpfr.all()</code> 함수를 사용하면 더 정확한 조합의 값을 얻을 수 있다.</p>
+<div class="sourceCode" id="cb2110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2110-1"><a href="appendix.html#cb2110-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> n <span class="ot">&lt;-</span> <span class="dv">60</span></span>
+<span id="cb2110-2"><a href="appendix.html#cb2110-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">choose</span>(n, <span class="dv">1</span><span class="sc">:</span>n)</span></code></pre></div>
+<pre><code> [1]                 60               1770              34220             487635
+ [5]            5461512           50063860          386206920         2558620845
+ [9]        14783142660        75394027566       342700125300      1399358844975
+[13]      5166863427600     17345898649800     53194089192720    149608375854525
+[17]    387221678682300    925029565741050   2044802197953900   4191844505805495
+[21]   7984465725343800  14154280149473100  23385332420868600  36052387482172424
+[25]  51915437974328288  69886166503903472  88004802264174752 103719945525634528
+[29] 114449595062769136 118264581564861152 114449595062769136 103719945525634528
+[33]  88004802264174752  69886166503903472  51915437974328288  36052387482172424
+[37]  23385332420868600  14154280149473100   7984465725343800   4191844505805495
+[41]   2044802197953900    925029565741050    387221678682300    149608375854525
+[45]     53194089192720     17345898649800      5166863427600      1399358844975
+[49]       342700125300        75394027566        14783142660         2558620845
+[53]          386206920           50063860            5461512             487635
+[57]              34220               1770                 60                  1</code></pre>
+<div class="sourceCode" id="cb2112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2112-1"><a href="appendix.html#cb2112-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">chooseMpfr.all</span>(n)</span></code></pre></div>
+<pre><code>60 &#39;mpfr&#39; numbers of precision  57   bits 
+ [1]               6e+1            1.77e+3           3.422e+4         4.87635e+5
+ [5]            5461512           50063860          386206920         2558620845
+ [9]        14783142660        75394027566       342700125300      1399358844975
+[13]      5166863427600     17345898649800     53194089192720    149608375854525
+[17]    387221678682300    925029565741050   2044802197953900   4191844505805495
+[21]   7984465725343800  14154280149473100  23385332420868600  36052387482172425
+[25]  51915437974328292  69886166503903470  88004802264174740 103719945525634515
+[29] 114449595062769120 118264581564861424 114449595062769120 103719945525634515
+[33]  88004802264174740  69886166503903470  51915437974328292  36052387482172425
+[37]  23385332420868600  14154280149473100   7984465725343800   4191844505805495
+[41]   2044802197953900    925029565741050    387221678682300    149608375854525
+[45]     53194089192720     17345898649800      5166863427600      1399358844975
+[49]       342700125300        75394027566        14783142660         2558620845
+[53]          386206920           50063860            5461512         4.87635e+5
+[57]           3.422e+4            1.77e+3               6e+1               1e+0</code></pre>
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Mächler, Martin. 2015. <span>“Arbitrarily Accurate Computation with r: The Rmpfr Package.”</span>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-machler2015arbitrarily" class="csl-entry">
+Mächler, Martin. 2015. <span>“Arbitrarily Accurate Computation with r: The Rmpfr Package.”</span>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="13">
+<li id="fn13"><p>리눅스를 사용한다면 GMP와 MPFR 라이브러리가 먼저 설치되어 있어야 한다. 우분투를 사용한다면 <code>apt install libgmp-dev libmpfr-dev</code> 명령으로 두 라이브러리를 설치할 수 있다.<a href="appendix.html#fnref13" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch-R-OOP.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["R-programming-2nd.pdf", "R-programming-2nd.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
