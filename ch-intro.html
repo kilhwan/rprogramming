@@ -5,26 +5,25 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 R 설치 및 시작 | R 프로그래밍 (개정판)</title>
-  <meta name="description" content="이 책은 경영정보시스템실습의 주교재로 사용되기 위해 개발되었습니다." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="description" content="이 책은 경영데이터분석기초의 주교재로 사용되기 위해 개발되었습니다." />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 R 설치 및 시작 | R 프로그래밍 (개정판)" />
   <meta property="og:type" content="book" />
   
-  
-  <meta property="og:description" content="이 책은 경영정보시스템실습의 주교재로 사용되기 위해 개발되었습니다." />
+  <meta property="og:description" content="이 책은 경영데이터분석기초의 주교재로 사용되기 위해 개발되었습니다." />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 1 R 설치 및 시작 | R 프로그래밍 (개정판)" />
   
-  <meta name="twitter:description" content="이 책은 경영정보시스템실습의 주교재로 사용되기 위해 개발되었습니다." />
+  <meta name="twitter:description" content="이 책은 경영데이터분석기초의 주교재로 사용되기 위해 개발되었습니다." />
   
 
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2021-11-29" />
+<meta name="date" content="2022-08-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="ch-R-Data-Basic.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176754989-1"></script>
 <script>
@@ -171,22 +170,25 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#판-서문"><i class="fa fa-check"></i>1판 서문</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#판-서문-1"><i class="fa fa-check"></i>2판 서문</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#판-서문-1"><i class="fa fa-check"></i>2판 서문</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#판의-주요-개정-2022년-7월-이후부터"><i class="fa fa-check"></i>2판의 주요 개정 (2022년 7월 이후부터)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>1</b> R 설치 및 시작</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="ch-intro.html"><a href="ch-intro.html#sec:Rintro"><i class="fa fa-check"></i><b>1.1</b> R 소개</a></li>
-<li class="chapter" data-level="1.2" data-path="ch-intro.html"><a href="ch-intro.html#sec:installation"><i class="fa fa-check"></i><b>1.2</b> R 설치하기</a>
+<li class="chapter" data-level="1.1" data-path="ch-intro.html"><a href="ch-intro.html#sec-Rintro"><i class="fa fa-check"></i><b>1.1</b> R 소개</a></li>
+<li class="chapter" data-level="1.2" data-path="ch-intro.html"><a href="ch-intro.html#sec-installation"><i class="fa fa-check"></i><b>1.2</b> R 설치하기</a>
 <ul>
 <li class="chapter" data-level="1.2.1" data-path="ch-intro.html"><a href="ch-intro.html#r-배포판-내려받기"><i class="fa fa-check"></i><b>1.2.1</b> R 배포판 내려받기</a></li>
 <li class="chapter" data-level="1.2.2" data-path="ch-intro.html"><a href="ch-intro.html#설치에-앞서-주의할-사항"><i class="fa fa-check"></i><b>1.2.2</b> 설치에 앞서 주의할 사항</a></li>
 <li class="chapter" data-level="1.2.3" data-path="ch-intro.html"><a href="ch-intro.html#r-설치하기"><i class="fa fa-check"></i><b>1.2.3</b> R 설치하기</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="ch-intro.html"><a href="ch-intro.html#sec:RStudio"><i class="fa fa-check"></i><b>1.3</b> RStudio</a>
+<li class="chapter" data-level="1.3" data-path="ch-intro.html"><a href="ch-intro.html#sec-RStudio"><i class="fa fa-check"></i><b>1.3</b> RStudio</a>
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="ch-intro.html"><a href="ch-intro.html#rstudio-설치"><i class="fa fa-check"></i><b>1.3.1</b> RStudio 설치</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="ch-intro.html"><a href="ch-intro.html#sec:R_start"><i class="fa fa-check"></i><b>1.4</b> RStudio로 R 시작하기</a>
+<li class="chapter" data-level="1.4" data-path="ch-intro.html"><a href="ch-intro.html#sec-R-start"><i class="fa fa-check"></i><b>1.4</b> RStudio로 R 시작하기</a>
 <ul>
 <li class="chapter" data-level="1.4.1" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔과-프롬프트"><i class="fa fa-check"></i><b>1.4.1</b> R 콘솔과 프롬프트</a></li>
 <li class="chapter" data-level="1.4.2" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔-사용과-관련된-몇-가지-팁"><i class="fa fa-check"></i><b>1.4.2</b> R 콘솔 사용과 관련된 몇 가지 팁</a></li>
@@ -231,13 +233,13 @@ div.csl-indent {
 <li class="chapter" data-level="4.5.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬을-인수로-하는-함수들"><i class="fa fa-check"></i><b>4.5.1</b> 행렬을 인수로 하는 함수들</a></li>
 <li class="chapter" data-level="4.5.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-행별-또는-열별로-함수를-적용하는-방법"><i class="fa fa-check"></i><b>4.5.2</b> 행렬의 행별 또는 열별로 함수를 적용하는 방법</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#sec:RMatrix-array"><i class="fa fa-check"></i><b>4.6</b> 배열</a>
+<li class="chapter" data-level="4.6" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#sec-RMatrix-array"><i class="fa fa-check"></i><b>4.6</b> 배열</a>
 <ul>
 <li class="chapter" data-level="4.6.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#배열의-생성"><i class="fa fa-check"></i><b>4.6.1</b> 배열의 생성</a></li>
 <li class="chapter" data-level="4.6.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#배열도-결국-벡터"><i class="fa fa-check"></i><b>4.6.2</b> 배열도 결국 벡터</a></li>
 <li class="chapter" data-level="4.6.3" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#배열의-연산과-필터링"><i class="fa fa-check"></i><b>4.6.3</b> 배열의 연산과 필터링</a></li>
 </ul></li>
-<li class="chapter" data-level="4.7" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#sec:RMatrix-operation-advanced"><i class="fa fa-check"></i><b>4.7</b> 행렬과 배열의 고급 연산</a>
+<li class="chapter" data-level="4.7" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#sec-RMatrix-operation-advanced"><i class="fa fa-check"></i><b>4.7</b> 행렬과 배열의 고급 연산</a>
 <ul>
 <li class="chapter" data-level="4.7.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-곱"><i class="fa fa-check"></i><b>4.7.1</b> 행렬의 곱</a></li>
 <li class="chapter" data-level="4.7.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-주대각선-요소와-대각행렬"><i class="fa fa-check"></i><b>4.7.2</b> 행렬의 주대각선 요소와 대각행렬</a></li>
@@ -284,7 +286,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="7" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html"><i class="fa fa-check"></i><b>7</b> dplyr을 이용한 데이터 변환</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec:tidyData"><i class="fa fa-check"></i><b>7.1</b> 정돈 데이터 (tidy data)</a>
+<li class="chapter" data-level="7.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-tidyData"><i class="fa fa-check"></i><b>7.1</b> 정돈 데이터 (tidy data)</a>
 <ul>
 <li class="chapter" data-level="7.1.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#정돈-데이터-형식의-조건"><i class="fa fa-check"></i><b>7.1.1</b> 정돈 데이터 형식의 조건</a></li>
 <li class="chapter" data-level="7.1.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#비정돈-데이터-형식"><i class="fa fa-check"></i><b>7.1.2</b> 비정돈 데이터 형식</a></li>
@@ -295,24 +297,24 @@ div.csl-indent {
 <li class="chapter" data-level="7.2.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#tidyverse-패키지-설치"><i class="fa fa-check"></i><b>7.2.1</b> <code>tidyverse</code> 패키지 설치</a></li>
 <li class="chapter" data-level="7.2.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#tidyverse-패키지-적재"><i class="fa fa-check"></i><b>7.2.2</b> <code>tidyverse</code> 패키지 적재</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec:dplyr"><i class="fa fa-check"></i><b>7.3</b> <code>dplyr</code> 패키지와 정돈 데이터의 변환</a>
+<li class="chapter" data-level="7.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-dplyr"><i class="fa fa-check"></i><b>7.3</b> <code>dplyr</code> 패키지와 정돈 데이터의 변환</a>
 <ul>
 <li class="chapter" data-level="7.3.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#dplyr-패키지"><i class="fa fa-check"></i><b>7.3.1</b> <code>dplyr</code> 패키지</a></li>
 <li class="chapter" data-level="7.3.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#정돈-데이터-변환의-종류"><i class="fa fa-check"></i><b>7.3.2</b> 정돈 데이터 변환의 종류</a></li>
 <li class="chapter" data-level="7.3.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#dplyr-패키지-vs.-r의-기본-기능"><i class="fa fa-check"></i><b>7.3.3</b> <code>dplyr</code> 패키지 vs. R의 기본 기능</a></li>
 <li class="chapter" data-level="7.3.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#mpg-데이터"><i class="fa fa-check"></i><b>7.3.4</b> <code>mpg</code> 데이터</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec:filter"><i class="fa fa-check"></i><b>7.4</b> <code>filter()</code>로 행 선택하기</a>
+<li class="chapter" data-level="7.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-filter"><i class="fa fa-check"></i><b>7.4</b> <code>filter()</code>로 행 선택하기</a>
 <ul>
 <li class="chapter" data-level="7.4.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#선택-조건이-하나인-경우"><i class="fa fa-check"></i><b>7.4.1</b> 선택 조건이 하나인 경우</a></li>
 <li class="chapter" data-level="7.4.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#여러-조건을-만족하는-행-추출하기"><i class="fa fa-check"></i><b>7.4.2</b> 여러 조건을 만족하는 행 추출하기</a></li>
 <li class="chapter" data-level="7.4.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#논리-연산자로-복합-조건-만들기"><i class="fa fa-check"></i><b>7.4.3</b> 논리 연산자로 복합 조건 만들기</a></li>
 </ul></li>
-<li class="chapter" data-level="7.5" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec:arrange"><i class="fa fa-check"></i><b>7.5</b> <code>arrange()</code>로 행 정렬하기</a>
+<li class="chapter" data-level="7.5" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-arrange"><i class="fa fa-check"></i><b>7.5</b> <code>arrange()</code>로 행 정렬하기</a>
 <ul>
 <li class="chapter" data-level="7.5.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#desc를-이용하여-내림차순으로-정렬하기"><i class="fa fa-check"></i><b>7.5.1</b> <code>desc()</code>를 이용하여 내림차순으로 정렬하기</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec:select"><i class="fa fa-check"></i><b>7.6</b> <code>select()</code>를 이용하여 변수 이름으로 열 선택하기</a>
+<li class="chapter" data-level="7.6" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-select"><i class="fa fa-check"></i><b>7.6</b> <code>select()</code>를 이용하여 변수 이름으로 열 선택하기</a>
 <ul>
 <li class="chapter" data-level="7.6.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-이름을-나열하여-선택하기"><i class="fa fa-check"></i><b>7.6.1</b> 변수 이름을 나열하여 선택하기</a></li>
 <li class="chapter" data-level="7.6.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-이름으로-변수-범위를-선택하기"><i class="fa fa-check"></i><b>7.6.2</b> 변수 이름으로 변수 범위를 선택하기</a></li>
@@ -320,14 +322,14 @@ div.csl-indent {
 <li class="chapter" data-level="7.6.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-이름-바꾸기"><i class="fa fa-check"></i><b>7.6.4</b> 변수 이름 바꾸기</a></li>
 <li class="chapter" data-level="7.6.5" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-순서-바꾸기"><i class="fa fa-check"></i><b>7.6.5</b> 변수 순서 바꾸기</a></li>
 </ul></li>
-<li class="chapter" data-level="7.7" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec:mutate"><i class="fa fa-check"></i><b>7.7</b> <code>mutate()</code>로 새로운 변수 만들기</a>
+<li class="chapter" data-level="7.7" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-mutate"><i class="fa fa-check"></i><b>7.7</b> <code>mutate()</code>로 새로운 변수 만들기</a>
 <ul>
 <li class="chapter" data-level="7.7.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#transmute로-새로운-변수만-남기기"><i class="fa fa-check"></i><b>7.7.1</b> <code>transmute()</code>로 새로운 변수만 남기기</a></li>
 <li class="chapter" data-level="7.7.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#새로운-변수를-만들-때-사용할-수-있는-함수들"><i class="fa fa-check"></i><b>7.7.2</b> 새로운 변수를 만들 때 사용할 수 있는 함수들</a></li>
 </ul></li>
-<li class="chapter" data-level="7.8" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec:summarize"><i class="fa fa-check"></i><b>7.8</b> <code>summarize()</code>로 변수 요약하기</a></li>
-<li class="chapter" data-level="7.9" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec:groupBy"><i class="fa fa-check"></i><b>7.9</b> <code>group_by()</code>로 그룹 별로 요약하기</a></li>
-<li class="chapter" data-level="7.10" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec:pipeOperator"><i class="fa fa-check"></i><b>7.10</b> <code>%&gt;%</code> 파이프 연산자</a>
+<li class="chapter" data-level="7.8" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-summarize"><i class="fa fa-check"></i><b>7.8</b> <code>summarize()</code>로 변수 요약하기</a></li>
+<li class="chapter" data-level="7.9" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-groupBy"><i class="fa fa-check"></i><b>7.9</b> <code>group_by()</code>로 그룹 별로 요약하기</a></li>
+<li class="chapter" data-level="7.10" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-pipeOperator"><i class="fa fa-check"></i><b>7.10</b> <code>%&gt;%</code> 파이프 연산자</a>
 <ul>
 <li class="chapter" data-level="7.10.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#여러-단계를-거쳐-데이터를-변환할-때"><i class="fa fa-check"></i><b>7.10.1</b> 여러 단계를 거쳐 데이터를 변환할 때</a></li>
 <li class="chapter" data-level="7.10.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#파이프-연산자"><i class="fa fa-check"></i><b>7.10.2</b> 파이프 연산자</a></li>
@@ -336,11 +338,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8" data-path="ch-visualization.html"><a href="ch-visualization.html"><i class="fa fa-check"></i><b>8</b> ggplot2를 이용한 데이터 시각화</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="ch-visualization.html"><a href="ch-visualization.html#sec:getStarted-ggplot2"><i class="fa fa-check"></i><b>8.1</b> ggplot2 시작하기</a>
+<li class="chapter" data-level="8.1" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-getStarted-ggplot2"><i class="fa fa-check"></i><b>8.1</b> ggplot2 시작하기</a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec:tryGgplot"><i class="fa fa-check"></i><b>8.1.1</b> ggplot2 그래프 그려보기</a></li>
+<li class="chapter" data-level="8.1.1" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec-tryGgplot"><i class="fa fa-check"></i><b>8.1.1</b> ggplot2 그래프 그려보기</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="ch-visualization.html"><a href="ch-visualization.html#sec:aesMapping"><i class="fa fa-check"></i><b>8.2</b> 도형의 속성에 데이터 열을 대응시키기 (aesthetic mapping)</a>
+<li class="chapter" data-level="8.2" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-aesMapping"><i class="fa fa-check"></i><b>8.2</b> 도형의 속성에 데이터 열을 대응시키기 (aesthetic mapping)</a>
 <ul>
 <li class="chapter" data-level="8.2.1" data-path="ch-visualization.html"><a href="ch-visualization.html#색상color-속성"><i class="fa fa-check"></i><b>8.2.1</b> 색상(<code>color</code>) 속성</a></li>
 <li class="chapter" data-level="8.2.2" data-path="ch-visualization.html"><a href="ch-visualization.html#모양shape-속성"><i class="fa fa-check"></i><b>8.2.2</b> 모양(<code>shape</code>) 속성</a></li>
@@ -353,28 +355,28 @@ div.csl-indent {
 <li class="chapter" data-level="8.2.9" data-path="ch-visualization.html"><a href="ch-visualization.html#이산형-변수는-group-속성으로-자동-매핑된다."><i class="fa fa-check"></i><b>8.2.9</b> 이산형 변수는 <code>group</code> 속성으로 자동 매핑된다.</a></li>
 <li class="chapter" data-level="8.2.10" data-path="ch-visualization.html"><a href="ch-visualization.html#geom_smooth-함수에서-group-속성"><i class="fa fa-check"></i><b>8.2.10</b> <code>geom_smooth()</code> 함수에서 <code>group</code> 속성</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="ch-visualization.html"><a href="ch-visualization.html#sec:commonProblems"><i class="fa fa-check"></i><b>8.3</b> ggplot 명령문을 입력할 때 자주 발생하는 문제들</a></li>
-<li class="chapter" data-level="8.4" data-path="ch-visualization.html"><a href="ch-visualization.html#sec:facets"><i class="fa fa-check"></i><b>8.4</b> 측면(facets)으로 나누어 그리기</a>
+<li class="chapter" data-level="8.3" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-commonProblems"><i class="fa fa-check"></i><b>8.3</b> ggplot 명령문을 입력할 때 자주 발생하는 문제들</a></li>
+<li class="chapter" data-level="8.4" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-facets"><i class="fa fa-check"></i><b>8.4</b> 측면(facets)으로 나누어 그리기</a>
 <ul>
 <li class="chapter" data-level="8.4.1" data-path="ch-visualization.html"><a href="ch-visualization.html#facet_wrap로-일차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>8.4.1</b> <code>facet_wrap()</code>로 일차원 측면 그래프 그리기</a></li>
 <li class="chapter" data-level="8.4.2" data-path="ch-visualization.html"><a href="ch-visualization.html#facet_grid로-이차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>8.4.2</b> <code>facet_grid()</code>로 이차원 측면 그래프 그리기</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="ch-visualization.html"><a href="ch-visualization.html#sec:layerAndGeom"><i class="fa fa-check"></i><b>8.5</b> 그래프 계층(layers)과 도형(geoms)</a>
+<li class="chapter" data-level="8.5" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-layerAndGeom"><i class="fa fa-check"></i><b>8.5</b> 그래프 계층(layers)과 도형(geoms)</a>
 <ul>
 <li class="chapter" data-level="8.5.1" data-path="ch-visualization.html"><a href="ch-visualization.html#geom-함수의-순서와-그래프-계층"><i class="fa fa-check"></i><b>8.5.1</b> geom 함수의 순서와 그래프 계층</a></li>
 <li class="chapter" data-level="8.5.2" data-path="ch-visualization.html"><a href="ch-visualization.html#ggplot-함수는-좌표축을-자동-조정한다."><i class="fa fa-check"></i><b>8.5.2</b> <code>ggplot()</code> 함수는 좌표축을 자동 조정한다.</a></li>
 <li class="chapter" data-level="8.5.3" data-path="ch-visualization.html"><a href="ch-visualization.html#여러-데이터를-사용하여-그래프-계층-만들기"><i class="fa fa-check"></i><b>8.5.3</b> 여러 데이터를 사용하여 그래프 계층 만들기</a></li>
 <li class="chapter" data-level="8.5.4" data-path="ch-visualization.html"><a href="ch-visualization.html#다른-데이터-범위로-그래프-계층-만들기"><i class="fa fa-check"></i><b>8.5.4</b> 다른 데이터 범위로 그래프 계층 만들기</a></li>
-<li class="chapter" data-level="8.5.5" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec:commonDataMapping"><i class="fa fa-check"></i><b>8.5.5</b> 공통 <code>data</code>와 <code>mapping</code>의 설정</a></li>
+<li class="chapter" data-level="8.5.5" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec-commonDataMapping"><i class="fa fa-check"></i><b>8.5.5</b> 공통 <code>data</code>와 <code>mapping</code>의 설정</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="ch-visualization.html"><a href="ch-visualization.html#sec:ggplotStat"><i class="fa fa-check"></i><b>8.6</b> 통계 변환</a>
+<li class="chapter" data-level="8.6" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-ggplotStat"><i class="fa fa-check"></i><b>8.6</b> 통계 변환</a>
 <ul>
-<li class="chapter" data-level="8.6.1" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec:statCategorical"><i class="fa fa-check"></i><b>8.6.1</b> 범주형 변수의 통계 요약</a></li>
-<li class="chapter" data-level="8.6.2" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec:statNumerical"><i class="fa fa-check"></i><b>8.6.2</b> 수치형 변수의 통계 요약</a></li>
-<li class="chapter" data-level="8.6.3" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec:statNumericalPerCategory"><i class="fa fa-check"></i><b>8.6.3</b> 수치형 변수의 범주별 통계요약</a></li>
+<li class="chapter" data-level="8.6.1" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec-statCategorical"><i class="fa fa-check"></i><b>8.6.1</b> 범주형 변수의 통계 요약</a></li>
+<li class="chapter" data-level="8.6.2" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec-statNumerical"><i class="fa fa-check"></i><b>8.6.2</b> 수치형 변수의 통계 요약</a></li>
+<li class="chapter" data-level="8.6.3" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec-statNumericalPerCategory"><i class="fa fa-check"></i><b>8.6.3</b> 수치형 변수의 범주별 통계요약</a></li>
 </ul></li>
-<li class="chapter" data-level="8.7" data-path="ch-visualization.html"><a href="ch-visualization.html#sec:position"><i class="fa fa-check"></i><b>8.7</b> 위치 조정</a></li>
-<li class="chapter" data-level="8.8" data-path="ch-visualization.html"><a href="ch-visualization.html#sec:typeofgraph"><i class="fa fa-check"></i><b>8.8</b> ggplot2 그래프의 종류</a>
+<li class="chapter" data-level="8.7" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-position"><i class="fa fa-check"></i><b>8.7</b> 위치 조정</a></li>
+<li class="chapter" data-level="8.8" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-typeofgraph"><i class="fa fa-check"></i><b>8.8</b> ggplot2 그래프의 종류</a>
 <ul>
 <li class="chapter" data-level="8.8.1" data-path="ch-visualization.html"><a href="ch-visualization.html#basic-graph"><i class="fa fa-check"></i><b>8.8.1</b> 기본 그래픽 함수</a></li>
 <li class="chapter" data-level="8.8.2" data-path="ch-visualization.html"><a href="ch-visualization.html#onecategory"><i class="fa fa-check"></i><b>8.8.2</b> 한 범주형 변수의 그래프</a></li>
@@ -411,10 +413,10 @@ div.csl-indent {
 <li class="chapter" data-level="9.2.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#filtering-join"><i class="fa fa-check"></i><b>9.2.2</b> Filtering join</a></li>
 <li class="chapter" data-level="9.2.3" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#join을-수행하는-다른-방법들"><i class="fa fa-check"></i><b>9.2.3</b> Join을 수행하는 다른 방법들</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#sec:tidyr"><i class="fa fa-check"></i><b>9.3</b> <code>tidyr</code> 패키지를 이용하여 정돈 데이터 형식으로 바꾸기</a>
+<li class="chapter" data-level="9.3" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#sec-tidyr"><i class="fa fa-check"></i><b>9.3</b> <code>tidyr</code> 패키지를 이용하여 정돈 데이터 형식으로 바꾸기</a>
 <ul>
 <li class="chapter" data-level="9.3.1" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#pivot_longer-여러-열에-걸친-한-변수의-데이터를-하나의-열로-길게-모으기"><i class="fa fa-check"></i><b>9.3.1</b> <code>pivot_longer</code>: 여러 열에 걸친 한 변수의 데이터를 하나의 열로 길게 모으기</a></li>
-<li class="chapter" data-level="9.3.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#subsec:pivot-wider"><i class="fa fa-check"></i><b>9.3.2</b> <code>pivot_wider</code>: 한 열에 기술된 여러 변수의 데이터를 여러 열로 넓게 펼치기</a></li>
+<li class="chapter" data-level="9.3.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#subsec-pivot-wider"><i class="fa fa-check"></i><b>9.3.2</b> <code>pivot_wider</code>: 한 열에 기술된 여러 변수의 데이터를 여러 열로 넓게 펼치기</a></li>
 <li class="chapter" data-level="9.3.3" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#seperate-한-셀을-여러-셀로-분리하기"><i class="fa fa-check"></i><b>9.3.3</b> <code>seperate</code>: 한 셀을 여러 셀로 분리하기</a></li>
 <li class="chapter" data-level="9.3.4" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#unite-여러-셀의-데이터를-하나의-셀로-병합하기"><i class="fa fa-check"></i><b>9.3.4</b> <code>unite</code>: 여러 셀의 데이터를 하나의 셀로 병합하기</a></li>
 </ul></li>
@@ -453,9 +455,23 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="11.3" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s4-클래스"><i class="fa fa-check"></i><b>11.3</b> S4 클래스</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="ch-RandPython.html"><a href="ch-RandPython.html"><i class="fa fa-check"></i><b>A</b> <strong>R</strong>과 <strong>Python</strong> 연동하기</a>
 <ul>
-<li><a href="appendix.html#r에서-계산-정확도를-향상시키기"><strong>R</strong>에서 계산 정확도를 향상시키기</a></li>
+<li class="chapter" data-level="A.1" data-path="ch-RandPython.html"><a href="ch-RandPython.html#reticulate-설치-및-사용할-파이썬-버전-설정"><i class="fa fa-check"></i><b>A.1</b> <code>reticulate</code> 설치 및 사용할 파이썬 버전 설정</a></li>
+<li class="chapter" data-level="A.2" data-path="ch-RandPython.html"><a href="ch-RandPython.html#r과-파이썬-연동하는-방법"><i class="fa fa-check"></i><b>A.2</b> R과 파이썬 연동하는 방법</a></li>
+<li class="chapter" data-level="A.3" data-path="ch-RandPython.html"><a href="ch-RandPython.html#파이썬-모듈-연동하기"><i class="fa fa-check"></i><b>A.3</b> 파이썬 모듈 연동하기</a>
+<ul>
+<li class="chapter" data-level="A.3.1" data-path="ch-RandPython.html"><a href="ch-RandPython.html#r과-python의-형식-변환"><i class="fa fa-check"></i><b>A.3.1</b> <strong>R</strong>과 <strong>Python</strong>의 형식 변환</a></li>
+<li class="chapter" data-level="A.3.2" data-path="ch-RandPython.html"><a href="ch-RandPython.html#형변환-직접-하기"><i class="fa fa-check"></i><b>A.3.2</b> 형변환 직접 하기</a></li>
+<li class="chapter" data-level="A.3.3" data-path="ch-RandPython.html"><a href="ch-RandPython.html#파이썬-모듈의-도움말-확인하기"><i class="fa fa-check"></i><b>A.3.3</b> 파이썬 모듈의 도움말 확인하기</a></li>
+<li class="chapter" data-level="A.3.4" data-path="ch-RandPython.html"><a href="ch-RandPython.html#pickle-사용하기"><i class="fa fa-check"></i><b>A.3.4</b> <code>pickle</code> 사용하기</a></li>
+</ul></li>
+<li class="chapter" data-level="A.4" data-path="ch-RandPython.html"><a href="ch-RandPython.html#r-마크다운-문서에서-파이썬-명령-실행하기"><i class="fa fa-check"></i><b>A.4</b> R 마크다운 문서에서 파이썬 명령 실행하기</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="ch-RTips.html"><a href="ch-RTips.html"><i class="fa fa-check"></i><b>B</b> <strong>R</strong> 관련 여러 주제들</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="ch-RTips.html"><a href="ch-RTips.html#r에서-계산-정확도를-향상시키기"><i class="fa fa-check"></i><b>B.1</b> <strong>R</strong>에서 계산 정확도를 향상시키기</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -477,10 +493,10 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch:intro" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> R 설치 및 시작</h1>
-<div id="sec:Rintro" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> R 소개</h2>
+<div id="ch-intro" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> R 설치 및 시작<a href="ch-intro.html#ch-intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="sec-Rintro" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> R 소개<a href="ch-intro.html#sec-Rintro" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R은 통계 계산과 그래픽을 위한 프로그래밍 언어이자 소프트웨어 환경이다.
 R은 1960년대와 1970년대 Bell 연구소에서 개발된 S라는 데이터 처리 언어에 기반을 두고 있다.
 1990년대 중반 뉴질랜드 오클랜드 대학의 로스 이하카와 로버트 젠틀맨에 의해 시작되어 현재는 R의 핵심 기능은 R 코어 팀이, 다양한 추가 기능은 자발적 기여자들에 의해 개발되고 있다.
@@ -497,10 +513,10 @@ R은 GPL 하에 배포되는 공개 소프트웨어로 누구나 자유롭게 �
 </ul>
 <p>이 장에서는 R을 설치하고 실행하는 방법과 R의 개괄적인 기능을 소개한다.</p>
 </div>
-<div id="sec:installation" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> R 설치하기</h2>
-<div id="r-배포판-내려받기" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> R 배포판 내려받기</h3>
+<div id="sec-installation" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> R 설치하기<a href="ch-intro.html#sec-installation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="r-배포판-내려받기" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> R 배포판 내려받기<a href="ch-intro.html#r-배포판-내려받기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R을 설치하기 위해서는 R 배포판을 먼저 구해야 한다. R은 공개 소프트웨어이므로 무료로 R 공식 웹 사이트 (<a href="http://www.r-project.org/)에서" class="uri">http://www.r-project.org/)에서</a> 내려받을 수 있다.</p>
 <p>R 공식 사이트의 첫 화면의 내용 중 <code>download R</code> 을 클릭하면 R 배포판을 내려받기할 CRAN 미러를 선택하는 화면으로 이동하게 된다.</p>
 <p><img src="img/R_install-homepage.png" width="80%" style="display: block; margin: auto;" /></p>
@@ -513,14 +529,14 @@ R은 GPL 하에 배포되는 공개 소프트웨어로 누구나 자유롭게 �
 <p>그러면 32/64bits 겸용 윈도우용 R 바이너리 파일을 내려받을 수 있는 화면으로 이동한다. <code>Download R x.x.x for windows</code>를 클릭하여 배포판을 내려받는다. 여기서 x.x.x는 내려받기를 하는 R 배포판의 버전을 의미한다.</p>
 <p><img src="img/R_install-download.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="설치에-앞서-주의할-사항" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> 설치에 앞서 주의할 사항</h3>
+<div id="설치에-앞서-주의할-사항" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> 설치에 앞서 주의할 사항<a href="ch-intro.html#설치에-앞서-주의할-사항" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>한글 윈도우에서 R과 RStudio를 설치하여 사용할 때 이유를 알 수 없는 여러 문제가 발생할 수 있다. 이러한 문제의 대부분은 파일과 디렉토리(폴더)의 경로명에 한글이 들어간 경우에 발생한다. 특히 윈도우 사용자 이름이 한글인 경우 이러한 문제가 빈번히 발생하는데, R이나 RStudio가 사용자 폴더의 하위 폴더에 필요한 파일과 디렉토리를 만들기 때문이다.</p>
 <p>이러한 문제를 미연에 방지하려면 설치 전에 윈도우 사용자 이름이 한글인지 확인하고, 한글이면 영문 사용자 이름으로 관리자 계정을 하나 더 만들어 그 계정으로 R과 RStudio의 설치를 진행하는 것이 좋다.</p>
 <p>물론 한글 사용자 이름을 사용하더라도 환경변수의 임시 디렉토리 설정을 변경하여 발생할 수 있는 대부분의 문제를 해결할 수 있지만, 새로운 패키지나 함수를 사용할 때마다 이러한 문제가 잠복되어 있다가 다른 방식으로 다시 발생할 수 있다. R에 대한 이해가 높지 않은 초심자의 경우 이러한 문제가 발생하면 문제의 원인을 파악하기 어렵다. 그렇기 때문에 영문 이름으로 된 관리자 권한의 사용자로서 R과 RStudio를 설치하기를 강력히 권장한다.</p>
 </div>
-<div id="r-설치하기" class="section level3" number="1.2.3">
-<h3><span class="header-section-number">1.2.3</span> R 설치하기</h3>
+<div id="r-설치하기" class="section level3 hasAnchor" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> R 설치하기<a href="ch-intro.html#r-설치하기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>내려받은 R 설치 파일을 실행시켜 R을 설치한다.</p>
 <ol style="list-style-type: decimal">
 <li><p>설치 과정 중 사용할 언어 선택 화면이 나타나면 한국어를 선택한 후 [확인]을 클릭한다.</p></li>
@@ -539,12 +555,12 @@ R은 GPL 하에 배포되는 공개 소프트웨어로 누구나 자유롭게 �
 <p><img src="img/R-windows-menu.png" width="40%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="sec:RStudio" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> RStudio</h2>
+<div id="sec-RStudio" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> RStudio<a href="ch-intro.html#sec-RStudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R 배포판이 제공하는 기능만으로도 기본적인 프로그래밍이나 데이터 분석이 가능하다. 그러나 프로그래밍이나 데이터 분석 작업이 복잡해지면 R을 좀 더 편리하게 사용할 수 있는 통합된 개발 환경(IDE: Integrated Development Environment)이 큰 도움이 된다.</p>
 <p>RStudio는 R을 위한 강력한 통합 개발 환경을 제공해 준다. R과 마찬가지로 공개 소프트웨어로 누구나 자유롭게 이용할 수 있다. 따라서 많은 R 사용자가 RStudio를 사용하고 있다.</p>
-<div id="rstudio-설치" class="section level3" number="1.3.1">
-<h3><span class="header-section-number">1.3.1</span> RStudio 설치</h3>
+<div id="rstudio-설치" class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> RStudio 설치<a href="ch-intro.html#rstudio-설치" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>RStudio 웹페이지(<a href="http://www.rstudio.com/product/rstudio/download/)에" class="uri">http://www.rstudio.com/product/rstudio/download/)에</a> 접속하면 RStudio를 내려 받을 수 있다. RStudio는 데스크탑용과 서버용이 있다. 데스크탑 버전은 개별 사용자를 위한 버전이고, 서버용 버전은 여러 사람이 동시에 데이터를 분석하거나 원격에서 데이터를 분석하기에 좋은 환경이다. 서버용 버전과 관련된 정보는 RStudio 홈페이지를 참조하기 바란다.</p>
 <p>RStudio Desktop은 무료용 Open Source License (Free) 버전과 상업용 Commercial License 버전이 있다. 데스크탑용 RStudio는 무료용이나 상업용이나 기능상 차이는 없다. 상업용에는 별도의 기술 지원이 추가된다. Open Source License (Free)에서 [DOWNLOAD]을 클릭하여 다운로드 페이지로 이동한다.</p>
 <p><img src="img/RStudio-download.png" width="60%" style="display: block; margin: auto;" /></p>
@@ -553,13 +569,13 @@ R은 GPL 하에 배포되는 공개 소프트웨어로 누구나 자유롭게 �
 <p>내려받은 파일을 실행하면 RStudio 설치를 완료할 수 있다.</p>
 </div>
 </div>
-<div id="sec:R_start" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> RStudio로 R 시작하기</h2>
+<div id="sec-R-start" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> RStudio로 R 시작하기<a href="ch-intro.html#sec-R-start" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>RStudio를 설치하면 윈도우 시작메뉴에 RStudio를 실행할 수 있는 메뉴가 나타난다. 이를 실행하면 다음 그림처럼 RStudio가 실행된다.</p>
 <p>기본 설정은 왼편에 R 콘솔이나 코드 편집기 창들이 위치하고, 오른편에 작업 환경, 명령어 히스토리, 파일, 그림, 패키지, 도움말 관련 창들이 위치하도록 되어 있다.</p>
 <p><img src="img/RStudio_start.png" width="60%" style="display: block; margin: auto;" /></p>
-<div id="r-콘솔과-프롬프트" class="section level3" number="1.4.1">
-<h3><span class="header-section-number">1.4.1</span> R 콘솔과 프롬프트</h3>
+<div id="r-콘솔과-프롬프트" class="section level3 hasAnchor" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> R 콘솔과 프롬프트<a href="ch-intro.html#r-콘솔과-프롬프트" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R은 기본적으로 텍스트 기반의 명령문을 입력받아 명령문에 대한 응답하는 방식으로 작동한다. R 콘솔은 사용자의 명령문을 받고 텍스트 기반 결과물을 출력하는 곳이다.</p>
 <p>R 콘솔은 사용자의 명령을 받을 준비가 되어 있다는 것을 나타내기 위해 명령 프롬프트인 `&gt;’ 기호를 표시한다. 프롬프트가 보이면 R 명령문을 입력하고 <strong>Enter</strong> 키를 누르면 입력된 R 명령문이 R에 전달되어 실행된다.</p>
 <p>명령문의 실행 결과가 텍스트이면 R 콘솔에 결과가 나타나고 그래프이면 오른편의 <strong>Plots</strong> 창에 그래프가 나타난다.</p>
@@ -606,10 +622,10 @@ Coefficients:
 <p><img src="getting-started_files/figure-html/unnamed-chunk-19-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>본 절에서 수행한 명령어가 궁금한 독자는 <code>help(명령어)</code>나 <code>?명령어</code>를 R 콘솔에 입력해 보라. 관련 도움말을 얻을 수 있을 것이다.</p>
 </div>
-<div id="r-콘솔-사용과-관련된-몇-가지-팁" class="section level3" number="1.4.2">
-<h3><span class="header-section-number">1.4.2</span> R 콘솔 사용과 관련된 몇 가지 팁</h3>
-<div id="입력-시-주의-사항" class="section level4 unnumbered">
-<h4>입력 시 주의 사항</h4>
+<div id="r-콘솔-사용과-관련된-몇-가지-팁" class="section level3 hasAnchor" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> R 콘솔 사용과 관련된 몇 가지 팁<a href="ch-intro.html#r-콘솔-사용과-관련된-몇-가지-팁" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="입력-시-주의-사항" class="section level4 unnumbered hasAnchor">
+<h4>입력 시 주의 사항<a href="ch-intro.html#입력-시-주의-사항" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>R 명령문은 대문자와 소문자를 다른 문자로 간주한다. 그러니 함수명이나 변수명을 입력할 때 대소문자가 틀리지 않도록 해야 한다.</p>
 <p>R 명령문 입력시 가장 많이 틀리는 부분이 <code>' '</code>, <code>" "</code>, <code>( )</code>, <code>{ }</code> 등이 서로 짝이 맞지 않는 경우다.</p>
 <p>R 명령문을 입력하고 <strong>Enter</strong>를 입력하였는데, 결과가 출력되지 않고 프롬프트가 <code>+</code>로 바뀌는 경우에는, 입력한 명령문이 완전하지 않기 때문에 나머지 입력을 받기 위해 기다리고 있다는 것을 나타낸다.</p>
@@ -619,8 +635,8 @@ Coefficients:
 </ul>
 <p>RStudio의 콘솔은 몇 가지 편의 기능을 제공한다. 이 기능들을 이용하면 작업의 생산성을 향상시킬 수 있다.</p>
 </div>
-<div id="코드-완성" class="section level4 unnumbered">
-<h4>코드 완성</h4>
+<div id="코드-완성" class="section level4 unnumbered hasAnchor">
+<h4>코드 완성<a href="ch-intro.html#코드-완성" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>RStudio 콘솔에서 <strong>Tab</strong> 키를 사용하여 코드를 자동 완성시킬 수 있다.</p>
 <ul>
 <li>예를 들어 앞 절에 나온 <code>lm.cars</code> 변수를 사용하는 예제를 수행한 뒤라면, <code>lm.c</code> 까지만 입력한 후 <strong>Tab</strong> 키를 눌러보자. 그러면 자동으로 변수의 전체 이름을 완성해 줄 것이다.</li>
@@ -631,8 +647,8 @@ Coefficients:
 <p>코드 완성 기능은 함수의 인수 입력에도 이용할 수 있다. <code>summary(</code>라고 입력한 후에* <strong>Tab</strong> 키를 누르면 함수 인수의 목록과 설명이 나온다. R 함수들의 인수 이름을 정확히 기억하는 것은 쉽지 않다. 코드 완성 기능을 오류 없이 정확한 명령어를 빠르게 입력할 수 있도록 도와준다.</p>
 <p><img src="img/RStudio_code_completion2.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="이전-명령문-불러오기" class="section level4 unnumbered">
-<h4>이전 명령문 불러오기</h4>
+<div id="이전-명령문-불러오기" class="section level4 unnumbered hasAnchor">
+<h4>이전 명령문 불러오기<a href="ch-intro.html#이전-명령문-불러오기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>R 콘솔에서는 이전에 입력한 명령을 불러와 다시 실행하거나 수정하여 실행시킬 수 있다. 이전 명령은 위와 아래 화살표 키를 이용하여 불러온다.</p>
 <ul>
 <li>[위 화살표 키] 이전에 입력한 명령을 차례대로 불러온다.</li>
@@ -642,8 +658,8 @@ Coefficients:
 <p><img src="img/RStudio_previous_commands.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="r-스크립트-파일-만들기" class="section level3" number="1.4.3">
-<h3><span class="header-section-number">1.4.3</span> R 스크립트 파일 만들기</h3>
+<div id="r-스크립트-파일-만들기" class="section level3 hasAnchor" number="1.4.3">
+<h3><span class="header-section-number">1.4.3</span> R 스크립트 파일 만들기<a href="ch-intro.html#r-스크립트-파일-만들기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R 콘솔에서 대화 형식으로 명령문을 입력하고 결과를 받는 것은 단순한 작업의 경우에는 편리하지만, 복잡한 분석을 위해 입력해야 할 명령문이 많거나 추후에 동일한 또는 유사한 작업을 할 예정이라면 R 스크립트 파일을 작성하여 명령문을 저장해 두는 것이 좋다.</p>
 <p>R 스크립트는 한번에 실행할 명령문을 단순한 텍스트 형식으로 기술한 파일이다. R 스크립트에는 실행할 명령문을 한 줄씩 입력한다. R은 스크립트를 읽어들여서 줄바꿈이 되는 곳을 기준으로 한 줄씩 처리한다.</p>
 <pre><code>summary(cars)
@@ -651,13 +667,13 @@ lm.cars &lt;- lm(dist~speed, data=cars)
 lm.cars
 plot(dist~speed, cars)
 abline(lm.cars)</code></pre>
-<div id="rstudio-코드-편집기" class="section level4 unnumbered">
-<h4>RStudio 코드 편집기</h4>
+<div id="rstudio-코드-편집기" class="section level4 unnumbered hasAnchor">
+<h4>RStudio 코드 편집기<a href="ch-intro.html#rstudio-코드-편집기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>RStudio의 코드 편집기는 R 스크립트 등 다양한 파일을 작성하는 것을 도와준다. 문법 강조 표현, 코드 완성 등 다양한 기능들을 가지고 있다. 또한 코드 편집기에 입력한 R 명령을 콘솔에서 즉시 실행해 볼 수도 있다.</p>
 <p>많은 R 사용자가 R 명령을 콘솔에서 직접 실행하는 것보다 코드 편집기에서 스크립트로 작성한 후 실행하는 것을 선호한다. 왜냐하면 코드 편집기를 이용하면 실행한 R 명령을 파일에 저장해 둘 수 있으므로, 나중에 동일한 코드를 재실행할 수 있을 뿐 아니라 함수 등으로 쉽게 변환할 수 있기 때문이다.</p>
 </div>
-<div id="rstudio에서-지원하는-주요-파일-형식" class="section level4 unnumbered">
-<h4>RStudio에서 지원하는 주요 파일 형식</h4>
+<div id="rstudio에서-지원하는-주요-파일-형식" class="section level4 unnumbered hasAnchor">
+<h4>RStudio에서 지원하는 주요 파일 형식<a href="ch-intro.html#rstudio에서-지원하는-주요-파일-형식" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>RStudio는 다음 형식의 파일에 대하여 문법 강조 표현 및 특화된 코드 편집 기능을 제공한다.</p>
 <ul>
 <li>R 스크립트: R 명령어 코드와 주석만을 포함하는 파일이다.</li>
@@ -672,38 +688,38 @@ abline(lm.cars)</code></pre>
 <li>R Documentation 문서: R 프로그램에 대한 문서화를 지원해 주는 파일 형식이다.</li>
 </ul>
 </div>
-<div id="스크립트-파일-만들기" class="section level4 unnumbered">
-<h4>스크립트 파일 만들기</h4>
+<div id="스크립트-파일-만들기" class="section level4 unnumbered hasAnchor">
+<h4>스크립트 파일 만들기<a href="ch-intro.html#스크립트-파일-만들기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>일반적인 사용자는 보통 R 스크립트 파일, R 마크다운 파일, R 프리젠테이션 파일을 많이 사용한다. RStudio에서 새로운 파일을 생성하려면 <strong>File-&gt;New File</strong> 메뉴를 이용하거나 그림처럼 새 파일을 만드는 명령 단추를 클릭한다.</p>
 <p><img src="img/RStudio_new_file.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>기존 파일을 열기 위해서는 <strong>File-&gt;Open File…</strong> 또는 <strong>File-&gt;Recent Files</strong> 메뉴를 이용하거나, 파일 열기 명령 단추를 클릭한다.</p>
 <p>RStudio에서 여러 파일을 열게 되면 탭으로 각 파일을 표시해 준다. 매우 많은 파일이 열려서 탭을 모두 표시할 수 없으면 우측 상단에 <strong>&gt;&gt;</strong> 또는 좌측 상단에 <strong>&lt;&lt;</strong> 아이콘이 표시되어 보이지 않는 파일 탭 사이를 전환할 수 있도록 해 준다.</p>
 </div>
-<div id="편집기의-코드-완성-기능" class="section level4 unnumbered">
-<h4>편집기의 코드 완성 기능</h4>
+<div id="편집기의-코드-완성-기능" class="section level4 unnumbered hasAnchor">
+<h4>편집기의 코드 완성 기능<a href="ch-intro.html#편집기의-코드-완성-기능" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>코드 편집기는 <strong>Tab</strong> 키를 이용하여 자동 코드 완성을 지원한다. 코드 완성 기능은 콘솔과 마찬가지니 콘솔의 설명을 참조하기 바란다.</p>
 </div>
-<div id="문자-찾기와-바꾸기" class="section level4 unnumbered">
-<h4>문자 찾기와 바꾸기</h4>
+<div id="문자-찾기와-바꾸기" class="section level4 unnumbered hasAnchor">
+<h4>문자 찾기와 바꾸기<a href="ch-intro.html#문자-찾기와-바꾸기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>코드 편집기는 문서의 문자를 찾거나 바꾸는 기능을 지원한다. <strong>Ctrl +F</strong> 단축키를 이용하거나 <strong>Edit-&gt;Find</strong> 또는 <strong>Edit-&gt;Replace and Find</strong> 메뉴를 이용한다.</p>
 </div>
-<div id="코드-실행" class="section level4 unnumbered">
-<h4>코드 실행</h4>
+<div id="코드-실행" class="section level4 unnumbered hasAnchor">
+<h4>코드 실행<a href="ch-intro.html#코드-실행" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>RStudio는 코드 편집기의 코드를 직접 실행시킬 수 있다. 실행할 코드는 콘솔에 자동 입력되어 실행되고 그 결과도 콘솔에 표시된다.</p>
 <p>코드의 한 줄 또는 일부 여러 줄을 실행하려면 그 줄을 선택한 후 코드 편집기의 도구 모음에서 <strong>Run</strong>를 실행하거나 <strong>Ctrl+Enter</strong> 키를 이용한다.</p>
 <p><img src="img/RStudio_code_execution.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>코드 전체를 실행하기 위해서는 코드 편집기의 도구 모음에서 <strong>Source -&gt; Source with Echo</strong>를 실행하거나 <strong>Ctrl+Shift+Enter</strong> 키를 이용한다.</p>
 <p>코드 편집기의 도구 모음에서 그냥 <strong>Source</strong>를 실행하면 파일의 명령문이 실행은 되나 결과가 콘솔에 출력되지 않는다.</p>
 </div>
-<div id="주석-처리" class="section level4 unnumbered">
-<h4>주석 처리</h4>
+<div id="주석-처리" class="section level4 unnumbered hasAnchor">
+<h4>주석 처리<a href="ch-intro.html#주석-처리" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>R 스트립트에 명령문이 아닌 내용을 입력하고 싶으면 <code>#</code>을 앞에 사용하여 주석 처리를 한다. <code>#</code> 뒤에 입력된 내용은 명령문으로 간주하지 않고 무시한다.</p>
 <p>주석문은 명령문의 의미를 나중에 이해하기 쉽도록 기술하거나, R 스크립트 개발 과정에서 디버깅이나 다른 이유로 명령문을 실행에서 제외할 때 사용한다.</p>
 <p>직접 <code>#</code>를 입력하는 방법뿐 아니라, <strong>Edit-&gt;Comment/Uncomment Lines</strong> 메뉴나 코드 편집기 상단의 코드 명령 단추에서 해당 메뉴를 이용하면 선택한 코드 부분 전체를 주석 처리하거나 주석 처리를 취소할 수 있다.</p>
 <p><img src="img/RStudio_comment.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="들여쓰기" class="section level4 unnumbered">
-<h4>들여쓰기</h4>
+<div id="들여쓰기" class="section level4 unnumbered hasAnchor">
+<h4>들여쓰기<a href="ch-intro.html#들여쓰기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>코드를 작성할 때 동일한 논리적 단위들을 동일하게 들여쓰기하면 코드를 읽기가 쉬워진다. RStudio는 코드 작성시 현재의 들여쓰기 옵션에 따라 자동으로 들여쓰기를 해 준다.</p>
 <p>코드를 작성한 후 들여쓰기를 직접 조정하고 싶으면, 코드를 선택한 후 <strong>Tab</strong> 키를 누른다. 그러면 <strong>Tab</strong> 키를 누른 횟수만큼 들여쓰기가 된다.</p>
 <p>반대로 <strong>Shift+Tab</strong> 키를 누르면, 누른 횟수만큼 내어쓰기가 된다.</p>
@@ -729,7 +745,6 @@ abline(lm.cars)</code></pre>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -769,6 +784,10 @@ gitbook.start({
 "text": null
 },
 "download": ["R-programming-2nd.pdf", "R-programming-2nd.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
