@@ -523,9 +523,9 @@ OOP가 가져야 하는 기본 특징은 다음과 같다.
 <div id="s3-클래스-객체는-리스트에-class-속성-부여하여-만든다." class="section level4 unnumbered hasAnchor">
 <h4>S3 클래스 객체는 리스트에 class 속성 부여하여 만든다.<a href="ch-R-OOP.html#s3-클래스-객체는-리스트에-class-속성-부여하여-만든다." class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>사용자도 리스트와 class() 함수를 이용하여 자신만의 S3 클래스를 만들 수 있다. 다음은 학생 관련 정보를 담는 student 클래스를 만든 예이다.</p>
-<div class="sourceCode" id="cb2050"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2050-1"><a href="ch-R-OOP.html#cb2050-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st1 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">name=</span><span class="st">&quot;Gildong&quot;</span>, <span class="at">year=</span><span class="dv">2</span>, <span class="at">GPA=</span><span class="fl">3.2</span>)</span>
-<span id="cb2050-2"><a href="ch-R-OOP.html#cb2050-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">class</span>(st1) <span class="ot">&lt;-</span> <span class="st">&quot;student&quot;</span></span>
-<span id="cb2050-3"><a href="ch-R-OOP.html#cb2050-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st1</span></code></pre></div>
+<div class="sourceCode" id="cb2044"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2044-1"><a href="ch-R-OOP.html#cb2044-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st1 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">name=</span><span class="st">&quot;Gildong&quot;</span>, <span class="at">year=</span><span class="dv">2</span>, <span class="at">GPA=</span><span class="fl">3.2</span>)</span>
+<span id="cb2044-2"><a href="ch-R-OOP.html#cb2044-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">class</span>(st1) <span class="ot">&lt;-</span> <span class="st">&quot;student&quot;</span></span>
+<span id="cb2044-3"><a href="ch-R-OOP.html#cb2044-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st1</span></code></pre></div>
 <pre><code>$name
 [1] &quot;Gildong&quot;
 
@@ -547,48 +547,48 @@ attr(,&quot;class&quot;)
 <p>포괄 함수란 print() 함수처럼 여러 클래스의 객체에 적용 가능한 함수를 의미한다. 포괄 함수는 인수로 주어진 객체의 클래스에 따라 클래스에 적합한 기능을 수행한다.</p>
 <p>그러면 포괄 함수는 어떻게 객체에 따라 적절한 기능을 수행할 수 있는 것일까? 심지어 print() 함수 같은 포괄 함수는 자신이 구현된 이후에 새로운 클래스가 추가되어도 새로운 클래스에 적합한 기능을 수행할 수 있다.
 포괄 함수는 사실 분배기의 역할만을 수행하기 때문에 이러한 기능이 가능한 것이다. 포괄 함수는 호출이 되면 UseMethod() 라는 분배 기능을 가지는 함수를 호출한다. 이 함수는 포괄 함수에 첫번째 인수로 부여된 객체의 클래스에 따라 포괄 함수를 대신하여 실행될 해당 클래스의 메소드를 호출한다. 그리고 포괄 함수는 해당 클래스의 메소드가 객체에 실행된 결과를 반환한다. 다음은 print() 함수가 호출되면 무엇이 수행되는지를 보여준다. UseMethod()가 호출되는 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb2052"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2052-1"><a href="ch-R-OOP.html#cb2052-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> print</span></code></pre></div>
+<div class="sourceCode" id="cb2046"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2046-1"><a href="ch-R-OOP.html#cb2046-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> print</span></code></pre></div>
 <pre><code>function (x, ...) 
 UseMethod(&quot;print&quot;)
-&lt;bytecode: 0x5596c53cd620&gt;
+&lt;bytecode: 0x562a0f185620&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 <div id="methods" class="section level4 unnumbered hasAnchor">
 <h4>methods()<a href="ch-R-OOP.html#methods" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>그러면 클래스별로 print 메소드는 어디에 있는 것일끼? methods() 함수를 이용하면 각 포괄 함수에 대해 구현된 모든 메소드를 확인할 수 있다. 다음은 그 중 일부만을 보여주고 있다.</p>
-<div class="sourceCode" id="cb2054"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2054-1"><a href="ch-R-OOP.html#cb2054-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(<span class="fu">methods</span>(print))</span></code></pre></div>
+<div class="sourceCode" id="cb2048"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2048-1"><a href="ch-R-OOP.html#cb2048-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(<span class="fu">methods</span>(print))</span></code></pre></div>
 <pre><code>[1] &quot;print.acf&quot;     &quot;print.AES&quot;     &quot;print.anova&quot;   &quot;print.aov&quot;    
 [5] &quot;print.aovlist&quot; &quot;print.ar&quot;     </code></pre>
 </div>
 <div id="메소드-이름-규칙" class="section level4 unnumbered hasAnchor">
 <h4>메소드 이름 규칙<a href="ch-R-OOP.html#메소드-이름-규칙" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>메소드 함수는 다음과 같은 이름으로 정의되어 있다.</p>
-<div class="sourceCode" id="cb2056"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2056-1"><a href="ch-R-OOP.html#cb2056-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> generic_function_name.class_name</span></code></pre></div>
+<div class="sourceCode" id="cb2050"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2050-1"><a href="ch-R-OOP.html#cb2050-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> generic_function_name.class_name</span></code></pre></div>
 <p>따라서 data.frame 클래스의 print 메소드는 print.data.frame이 된다. 이 메소드를 data.frame 객체에 적용하나, 포괄 함수인 print를 data.frame 객체에 적용하나 동일한 결과를 얻는다. 사실 R 콘솔은 명령문을 평가한 후 자동으로 print() 함수를 실행하므로 클래스에 대한 print 메소드 구현은 매우 중요하다. 다음은 R 콘솔에서 print(f)나, print.data.frame(f)나, f는 동일한 결과를 주는 것을 보여준다.</p>
-<div class="sourceCode" id="cb2057"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2057-1"><a href="ch-R-OOP.html#cb2057-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">print</span>(f)</span></code></pre></div>
+<div class="sourceCode" id="cb2051"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2051-1"><a href="ch-R-OOP.html#cb2051-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">print</span>(f)</span></code></pre></div>
 <pre><code>  X1.3 X6.8
 1    1    6
 2    2    7
 3    3    8</code></pre>
-<div class="sourceCode" id="cb2059"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2059-1"><a href="ch-R-OOP.html#cb2059-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">print.data.frame</span>(f)</span></code></pre></div>
+<div class="sourceCode" id="cb2053"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2053-1"><a href="ch-R-OOP.html#cb2053-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">print.data.frame</span>(f)</span></code></pre></div>
 <pre><code>  X1.3 X6.8
 1    1    6
 2    2    7
 3    3    8</code></pre>
-<div class="sourceCode" id="cb2061"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2061-1"><a href="ch-R-OOP.html#cb2061-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> f</span></code></pre></div>
+<div class="sourceCode" id="cb2055"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2055-1"><a href="ch-R-OOP.html#cb2055-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> f</span></code></pre></div>
 <pre><code>  X1.3 X6.8
 1    1    6
 2    2    7
 3    3    8</code></pre>
 <p>앞에서 확인할 수 있듯이 지금까지 객체가 R 콘솔에 출력될 때, 해당 객체의 클래스의 print 메소드들이 적절히 호출되어 해당 클래스에 적합한 형식으로 데이터를 보여 주었던 것이다.</p>
 <p>그러면 integer, character, list 등을 위한 메소드들도 있을까? grep() 함수로 해당 이름의 메소드를 찾아보면 그렇지 않음을 알 수 있다. 그러면 이 클래스의 객체들은 어떻게 출력이 이루어지는 걸까?</p>
-<div class="sourceCode" id="cb2063"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2063-1"><a href="ch-R-OOP.html#cb2063-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">grep</span>(<span class="st">&quot;integer&quot;</span>, <span class="fu">methods</span>(print))</span></code></pre></div>
+<div class="sourceCode" id="cb2057"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2057-1"><a href="ch-R-OOP.html#cb2057-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">grep</span>(<span class="st">&quot;integer&quot;</span>, <span class="fu">methods</span>(print))</span></code></pre></div>
 <pre><code>integer(0)</code></pre>
-<div class="sourceCode" id="cb2065"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2065-1"><a href="ch-R-OOP.html#cb2065-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">grep</span>(<span class="st">&quot;character&quot;</span>, <span class="fu">methods</span>(print))</span></code></pre></div>
+<div class="sourceCode" id="cb2059"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2059-1"><a href="ch-R-OOP.html#cb2059-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">grep</span>(<span class="st">&quot;character&quot;</span>, <span class="fu">methods</span>(print))</span></code></pre></div>
 <pre><code>integer(0)</code></pre>
-<div class="sourceCode" id="cb2067"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2067-1"><a href="ch-R-OOP.html#cb2067-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">grep</span>(<span class="st">&quot;list&quot;</span>, <span class="fu">methods</span>(print))</span></code></pre></div>
+<div class="sourceCode" id="cb2061"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2061-1"><a href="ch-R-OOP.html#cb2061-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">grep</span>(<span class="st">&quot;list&quot;</span>, <span class="fu">methods</span>(print))</span></code></pre></div>
 <pre><code> [1]   5  39  96 105 130 141 192 203 205 216 243</code></pre>
-<div class="sourceCode" id="cb2069"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2069-1"><a href="ch-R-OOP.html#cb2069-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">methods</span>(print)[<span class="fu">grep</span>(<span class="st">&quot;list&quot;</span>, <span class="fu">methods</span>(print))]</span></code></pre></div>
+<div class="sourceCode" id="cb2063"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2063-1"><a href="ch-R-OOP.html#cb2063-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">methods</span>(print)[<span class="fu">grep</span>(<span class="st">&quot;list&quot;</span>, <span class="fu">methods</span>(print))]</span></code></pre></div>
 <pre><code> [1] &quot;print.aovlist&quot;                    &quot;print.check_package_datalist&quot;    
  [3] &quot;print.Dlist&quot;                      &quot;print.dummy_coef_list&quot;           
  [5] &quot;print.htmltools.selector.list&quot;    &quot;print.listof&quot;                    
@@ -599,7 +599,7 @@ UseMethod(&quot;print&quot;)
 </div>
 <div id="디폴트-메소드" class="section level4 unnumbered hasAnchor">
 <h4>디폴트 메소드<a href="ch-R-OOP.html#디폴트-메소드" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb2071"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2071-1"><a href="ch-R-OOP.html#cb2071-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> print.default</span></code></pre></div>
+<div class="sourceCode" id="cb2065"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2065-1"><a href="ch-R-OOP.html#cb2065-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> print.default</span></code></pre></div>
 <pre><code>function (x, digits = NULL, quote = TRUE, na.print = NULL, print.gap = NULL, 
     right = FALSE, max = NULL, width = NULL, useSource = TRUE, 
     ...) 
@@ -612,12 +612,12 @@ UseMethod(&quot;print&quot;)
         missing(useSource))
     .Internal(print.default(x, args, missings))
 }
-&lt;bytecode: 0x5596c6272e78&gt;
+&lt;bytecode: 0x562a1002ae40&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>보통 default 메소드는 데이터가 가지는 기본적 타입에 대해 적절한 포괄 함수 관련 처리를 수행하도록 구현되어 있다. print.default는 기본적인 데이터의 타입에 따라 적절한 출력을 보여준다.</p>
 <p>앞서 우리는 student 클래스 객체를 만들었다. 그런나 print.student라는 메소드는 존재하지 않으므로 콘솔에서 해당 객체가 입력되었을 때, print.defualt가 student의 출력을 담당하였다. 따라서 student의 데이터 기본 타입인 list의 형식으로 데이터가 출력이 된것이다.</p>
 <p>methods() 함수의 class 인수를 이용하면 해당 클래스를 위해 정의된 모든 메소드의 목록을 볼 수 있다. student 클래스를 위한 어떠한 메소드도 구현되지 않았음을 볼 수 있다.</p>
-<div class="sourceCode" id="cb2073"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2073-1"><a href="ch-R-OOP.html#cb2073-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">methods</span>(<span class="at">class=</span><span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2067"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2067-1"><a href="ch-R-OOP.html#cb2067-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">methods</span>(<span class="at">class=</span><span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
 <pre><code> [1] add1           alias          anova          case.names     coerce        
  [6] confint        cooks.distance deviance       dfbeta         dfbetas       
 [11] drop1          dummy.coef     effects        extractAIC     family        
@@ -627,9 +627,9 @@ UseMethod(&quot;print&quot;)
 [31] residuals      rstandard      rstudent       show           simulate      
 [36] slotsFromS3    summary        variable.names vcov          
 see &#39;?methods&#39; for accessing help and source code</code></pre>
-<div class="sourceCode" id="cb2075"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2075-1"><a href="ch-R-OOP.html#cb2075-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">methods</span>(<span class="at">class=</span><span class="st">&quot;student&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2069"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2069-1"><a href="ch-R-OOP.html#cb2069-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">methods</span>(<span class="at">class=</span><span class="st">&quot;student&quot;</span>)</span></code></pre></div>
 <pre><code>no methods found</code></pre>
-<div class="sourceCode" id="cb2077"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2077-1"><a href="ch-R-OOP.html#cb2077-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">print.default</span>(st1)</span></code></pre></div>
+<div class="sourceCode" id="cb2071"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2071-1"><a href="ch-R-OOP.html#cb2071-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">print.default</span>(st1)</span></code></pre></div>
 <pre><code>$name
 [1] &quot;Gildong&quot;
 
@@ -645,21 +645,21 @@ attr(,&quot;class&quot;)
 <div id="메소드-정의하기" class="section level4 unnumbered hasAnchor">
 <h4>메소드 정의하기<a href="ch-R-OOP.html#메소드-정의하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>다음처럼 student 클래스를 위한 print 메소드를 만들어 보자. S3 클래스에서는 함수의 이름을 (포괄 함수명).(클래스명)으로 부여하면 된다. 그러면 UseMethod()가 해당 클래스를 위해 정의된 메소드를 호출해 준다.</p>
-<div class="sourceCode" id="cb2079"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2079-1"><a href="ch-R-OOP.html#cb2079-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> print.student <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb2079-2"><a href="ch-R-OOP.html#cb2079-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">cat</span>(x<span class="sc">$</span>name, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb2079-3"><a href="ch-R-OOP.html#cb2079-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">cat</span>(<span class="st">&quot;year&quot;</span>, x<span class="sc">$</span>year, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb2079-4"><a href="ch-R-OOP.html#cb2079-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">cat</span>(<span class="st">&quot;GPA&quot;</span>, x<span class="sc">$</span>GPA, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb2079-5"><a href="ch-R-OOP.html#cb2079-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> }</span>
-<span id="cb2079-6"><a href="ch-R-OOP.html#cb2079-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">methods</span>(<span class="at">class=</span><span class="st">&quot;student&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2073"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2073-1"><a href="ch-R-OOP.html#cb2073-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> print.student <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb2073-2"><a href="ch-R-OOP.html#cb2073-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">cat</span>(x<span class="sc">$</span>name, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb2073-3"><a href="ch-R-OOP.html#cb2073-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">cat</span>(<span class="st">&quot;year&quot;</span>, x<span class="sc">$</span>year, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb2073-4"><a href="ch-R-OOP.html#cb2073-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">cat</span>(<span class="st">&quot;GPA&quot;</span>, x<span class="sc">$</span>GPA, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb2073-5"><a href="ch-R-OOP.html#cb2073-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> }</span>
+<span id="cb2073-6"><a href="ch-R-OOP.html#cb2073-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">methods</span>(<span class="at">class=</span><span class="st">&quot;student&quot;</span>)</span></code></pre></div>
 <pre><code>[1] print
 see &#39;?methods&#39; for accessing help and source code</code></pre>
-<div class="sourceCode" id="cb2081"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2081-1"><a href="ch-R-OOP.html#cb2081-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">print</span>(st1)</span></code></pre></div>
+<div class="sourceCode" id="cb2075"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2075-1"><a href="ch-R-OOP.html#cb2075-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">print</span>(st1)</span></code></pre></div>
 <pre><code>Gildong 
 year 2 
 GPA 3.2 </code></pre>
 <p>위의 예에서 보듯이 student 클래스를 위한 print 메소드가 구현되었으므로 이제는 default 메소드가 아니라 student 클래스를 위한 print 메소드가 실행된다. 일반적으로 복잡한 클래스일수록 자신만의 print 메소드를 구현한다. 그래야 복잡한 내부 데이터를 모두 출력하지 않고 필요한 정보만 효율적으로 보여줄 수 있기 때문이다.</p>
 <p>그리고 R을 처음 접한 사람들이 의아해 하는 사항이 있다. 그것은 대부분의 클래스에서 print 메소드보다는 summary 메소드가 더 자세한 정보를 출력한다는 것이다. 문자 그대로 해석한다면 print() 함수는 모든 내용을 출력해야 하고, summary() 함수는 좀 더 요약된 정보를 제공해야 할 것 같은데 말이다. lm 클래스도 print() 함수 보다는 summary() 함수가 훨씬 더 자세한 정보를 제공한다.</p>
-<div class="sourceCode" id="cb2083"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2083-1"><a href="ch-R-OOP.html#cb2083-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb2077"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2077-1"><a href="ch-R-OOP.html#cb2077-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(a)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = cars)
@@ -693,12 +693,12 @@ F-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12</code></pre>
 <p>S3 클래스에서 상속성의 구현은 객체를 생성할 때 단지 class 속성에 하위 클래스 이름 다음에 상위 클래스 이름을 모두 나열하기만 하면 된다. 그러면 UseMethod() 분배 함수는 class 속성에 부여된 클래스 순으로 메소드를 찾아 실행한다. 따라서 하위 클래스를 위한 메소드가 없으면 다음에 정의되어 있는 상위 클래스의 메소드를 실행해 준다. 하위 클래스가 상속받은 상위 클래스가 또 다른 클래스를 상속 받았다면, class 속성에는 하위 클래스, 상위 클래스, 상위-상위 클래스 순으로 차례대로 기술해 주면 된다.</p>
 <p>S3 클래스에서 상속성이 어떻게 수행되는지 다음 예로 살펴보자. 현재 student 클래스를 이용하여 대학생과 대학원생 정보를 모두 처리하고 있다고 하자. 그런데 대학원생의 경우에는 student에 있는 데이터뿐 아니라 지도교수(advisor)에 대한 정보가 추가되어 관리되는 것이 편리하다고 판단되어, 지도교수 정보를 포함하는 gradstudent 클래스를 정의하고자 한다.
 다음 예에서 st2 객체를 생성할 때 리스트에 advisor 요소가 추가되었다. 그리고 class 속성에 먼저 하위 클래스 이름인 gradstudent, 그리고 상위 클래스 이름인 student가 기술되었다. 물론 아직은 gradstudent 클래스에 대한 어떠한 메소드도 존재하지 않는다.</p>
-<div class="sourceCode" id="cb2085"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2085-1"><a href="ch-R-OOP.html#cb2085-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st2 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">name=</span><span class="st">&quot;Gilsan&quot;</span>, <span class="at">year=</span><span class="dv">1</span>, <span class="at">GPA=</span><span class="fl">3.8</span>, <span class="at">advisor=</span><span class="st">&quot;Sejong&quot;</span>)</span>
-<span id="cb2085-2"><a href="ch-R-OOP.html#cb2085-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">class</span>(st2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;gradstudent&quot;</span>, <span class="st">&quot;student&quot;</span>)</span>
-<span id="cb2085-3"><a href="ch-R-OOP.html#cb2085-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">methods</span>(<span class="at">class=</span><span class="st">&quot;gradstudent&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2079"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2079-1"><a href="ch-R-OOP.html#cb2079-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st2 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">name=</span><span class="st">&quot;Gilsan&quot;</span>, <span class="at">year=</span><span class="dv">1</span>, <span class="at">GPA=</span><span class="fl">3.8</span>, <span class="at">advisor=</span><span class="st">&quot;Sejong&quot;</span>)</span>
+<span id="cb2079-2"><a href="ch-R-OOP.html#cb2079-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">class</span>(st2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;gradstudent&quot;</span>, <span class="st">&quot;student&quot;</span>)</span>
+<span id="cb2079-3"><a href="ch-R-OOP.html#cb2079-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">methods</span>(<span class="at">class=</span><span class="st">&quot;gradstudent&quot;</span>)</span></code></pre></div>
 <pre><code>no methods found</code></pre>
 <p>그러면 gradstudent 클래스인 st2를 출력해 보자. 그러면 UseMethod() 함수는 먼저 gradstudent 클래스를 위한 print 메소드를 찾는다. 해당 메소드가 없으므로 두번째로 기술되어 있는 student 클래스의 print 메소드를 찾는다. 해당 메소드가 있으므로 이 메소드로 출력을 수행한다. 이마저도 없으면 default 메소드가 수행될 것이다. 물론 student 클래스를 위한 print 메소드는 이미 구현되어 있기 때문에, 대학원생 정보인 st2도 student 클래스의 출력 형식에 맞추어 출력이 이루어진다. 따라서 gradstudent 객체는 student 클래스의 메소드를 상속 받았다고 볼 수 있다.</p>
-<div class="sourceCode" id="cb2087"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2087-1"><a href="ch-R-OOP.html#cb2087-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st2</span></code></pre></div>
+<div class="sourceCode" id="cb2081"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2081-1"><a href="ch-R-OOP.html#cb2081-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st2</span></code></pre></div>
 <pre><code>Gilsan 
 year 1 
 GPA 3.8 </code></pre>
@@ -706,11 +706,11 @@ GPA 3.8 </code></pre>
 <div id="메소드-overiding" class="section level4 unnumbered hasAnchor">
 <h4>메소드 overiding<a href="ch-R-OOP.html#메소드-overiding" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>만약 gradstudent 객체의 출력에 지도 교수 정보도 같이 출력되기를 원한다면, 다음처럼 gradstudent 클래스의 print 메소드를 구현하면 된다. 이 경우 gradstudent 클래스만의 메소드가 상속받은 student 클래스의 메소드를 overiding 하였다고 표현한다.</p>
-<div class="sourceCode" id="cb2089"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2089-1"><a href="ch-R-OOP.html#cb2089-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> print.gradstudent <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb2089-2"><a href="ch-R-OOP.html#cb2089-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">print.student</span>(x)</span>
-<span id="cb2089-3"><a href="ch-R-OOP.html#cb2089-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">cat</span>(<span class="st">&quot;Advisor&quot;</span>, x<span class="sc">$</span>advisor, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb2089-4"><a href="ch-R-OOP.html#cb2089-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> }</span>
-<span id="cb2089-5"><a href="ch-R-OOP.html#cb2089-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st2</span></code></pre></div>
+<div class="sourceCode" id="cb2083"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2083-1"><a href="ch-R-OOP.html#cb2083-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> print.gradstudent <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb2083-2"><a href="ch-R-OOP.html#cb2083-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">print.student</span>(x)</span>
+<span id="cb2083-3"><a href="ch-R-OOP.html#cb2083-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">cat</span>(<span class="st">&quot;Advisor&quot;</span>, x<span class="sc">$</span>advisor, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb2083-4"><a href="ch-R-OOP.html#cb2083-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> }</span>
+<span id="cb2083-5"><a href="ch-R-OOP.html#cb2083-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st2</span></code></pre></div>
 <pre><code>Gilsan 
 year 1 
 GPA 3.8 
@@ -782,14 +782,14 @@ chr (3): 작업 ,  S3 ,  S4
 <div id="클래스-정의-setclass" class="section level4 unnumbered hasAnchor">
 <h4>클래스 정의 setClass()<a href="ch-R-OOP.html#클래스-정의-setclass" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>다음은 setClass() 함수로 newstudent라는 새로운 클래스를 생성한 예이다. 데이터의 요소는 앞서 S3 클래스로 생성한 student 클래스와 동일하다. setClass()의 첫번째 인수로는 클래스 이름이, representation 인수는 클래스의 데이터 요소의 이름과 각 데이터 요소의 클래스가 명시된다. 이를 통해 해당 클래스 객체가 생성될 때 객체 요소의 데이터의 이름과 타입이 같아지도록 강제할 수 있다.</p>
-<div class="sourceCode" id="cb2092"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2092-1"><a href="ch-R-OOP.html#cb2092-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">setClass</span>(<span class="st">&quot;newstudent&quot;</span>, </span>
-<span id="cb2092-2"><a href="ch-R-OOP.html#cb2092-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">representation</span>(<span class="at">name=</span><span class="st">&quot;character&quot;</span>, <span class="at">year=</span><span class="st">&quot;numeric&quot;</span>, <span class="at">GPA=</span><span class="st">&quot;numeric&quot;</span> ))</span></code></pre></div>
+<div class="sourceCode" id="cb2086"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2086-1"><a href="ch-R-OOP.html#cb2086-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">setClass</span>(<span class="st">&quot;newstudent&quot;</span>, </span>
+<span id="cb2086-2"><a href="ch-R-OOP.html#cb2086-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">representation</span>(<span class="at">name=</span><span class="st">&quot;character&quot;</span>, <span class="at">year=</span><span class="st">&quot;numeric&quot;</span>, <span class="at">GPA=</span><span class="st">&quot;numeric&quot;</span> ))</span></code></pre></div>
 </div>
 <div id="객체-생성-new" class="section level4 unnumbered hasAnchor">
 <h4>객체 생성 new()<a href="ch-R-OOP.html#객체-생성-new" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>클래스로부터 새로운 객체를 생성할 때는 new() 함수를 이용한다. new() 함수는 첫번째 인수로 클래스 이름을, 나머지 인수로 객체의 각 데이터 요소를 정의한다.</p>
-<div class="sourceCode" id="cb2093"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2093-1"><a href="ch-R-OOP.html#cb2093-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st3 <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">&quot;newstudent&quot;</span>, <span class="at">name=</span><span class="st">&quot;Gildong&quot;</span>, <span class="at">year=</span><span class="dv">2</span>, <span class="at">GPA=</span><span class="fl">3.2</span>)</span>
-<span id="cb2093-2"><a href="ch-R-OOP.html#cb2093-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st3</span></code></pre></div>
+<div class="sourceCode" id="cb2087"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2087-1"><a href="ch-R-OOP.html#cb2087-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st3 <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">&quot;newstudent&quot;</span>, <span class="at">name=</span><span class="st">&quot;Gildong&quot;</span>, <span class="at">year=</span><span class="dv">2</span>, <span class="at">GPA=</span><span class="fl">3.2</span>)</span>
+<span id="cb2087-2"><a href="ch-R-OOP.html#cb2087-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st3</span></code></pre></div>
 <pre><code>An object of class &quot;newstudent&quot;
 Slot &quot;name&quot;:
 [1] &quot;Gildong&quot;
@@ -800,22 +800,22 @@ Slot &quot;year&quot;:
 Slot &quot;GPA&quot;:
 [1] 3.2</code></pre>
 <p>setClass()에 의해 클래스의 형태가 이미 정의되어 있어서 new()로 객체 생성 시 틀린 이름이나 틀린 타입의 데이터가 입력되면 오류가 발생하므로 항상 정확한 이름과 형식으로 객체가 생성되도록 강제할 수 있다.</p>
-<div class="sourceCode" id="cb2095"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2095-1"><a href="ch-R-OOP.html#cb2095-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st4 <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">&quot;newstudent&quot;</span>, <span class="at">sname=</span><span class="st">&quot;Gildong&quot;</span>, <span class="at">year=</span><span class="dv">2</span>, <span class="at">GPA=</span><span class="fl">3.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2089"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2089-1"><a href="ch-R-OOP.html#cb2089-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st4 <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">&quot;newstudent&quot;</span>, <span class="at">sname=</span><span class="st">&quot;Gildong&quot;</span>, <span class="at">year=</span><span class="dv">2</span>, <span class="at">GPA=</span><span class="fl">3.2</span>)</span></code></pre></div>
 <pre><code>Error in initialize(value, ...): invalid name for slot of class &quot;newstudent&quot;: sname</code></pre>
-<div class="sourceCode" id="cb2097"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2097-1"><a href="ch-R-OOP.html#cb2097-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st4 <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">&quot;newstudent&quot;</span>, <span class="at">name=</span><span class="st">&quot;Gildong&quot;</span>, <span class="at">year=</span><span class="dv">2</span>, <span class="at">GPA=</span><span class="st">&quot;3.2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2091"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2091-1"><a href="ch-R-OOP.html#cb2091-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st4 <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">&quot;newstudent&quot;</span>, <span class="at">name=</span><span class="st">&quot;Gildong&quot;</span>, <span class="at">year=</span><span class="dv">2</span>, <span class="at">GPA=</span><span class="st">&quot;3.2&quot;</span>)</span></code></pre></div>
 <pre><code>Error in validObject(.Object): 잘못된 클래스 &quot;newstudent&quot; 객체입니다: invalid object for slot &quot;GPA&quot; in class &quot;newstudent&quot;: got class &quot;character&quot;, should be or extend class &quot;numeric&quot;</code></pre>
 </div>
 <div id="객체-요소에-접근-slot" class="section level4 unnumbered hasAnchor">
 <h4>객체 요소에 접근 slot()<a href="ch-R-OOP.html#객체-요소에-접근-slot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>S4 클래스에서 객체의 각 데이터 요소(멤버 변수라고 한다)를 슬롯(slot)이라 하며, <code>@</code> 또는 slot()으로 접근한다. S4 클래스는 정의되지 않은 멤버 변수의 생성을 허용하지 않는다. 반면 S3는 단순한 리스트 객체이므로 아무 제약 없이 새로운 요소를 추가하거나 기존 요소를 삭제할 수 있다.</p>
-<div class="sourceCode" id="cb2099"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2099-1"><a href="ch-R-OOP.html#cb2099-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st3<span class="sc">@</span>name</span></code></pre></div>
+<div class="sourceCode" id="cb2093"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2093-1"><a href="ch-R-OOP.html#cb2093-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st3<span class="sc">@</span>name</span></code></pre></div>
 <pre><code>[1] &quot;Gildong&quot;</code></pre>
-<div class="sourceCode" id="cb2101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2101-1"><a href="ch-R-OOP.html#cb2101-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">slot</span>(st3, <span class="st">&quot;GPA&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2095"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2095-1"><a href="ch-R-OOP.html#cb2095-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">slot</span>(st3, <span class="st">&quot;GPA&quot;</span>)</span></code></pre></div>
 <pre><code>[1] 3.2</code></pre>
-<div class="sourceCode" id="cb2103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2103-1"><a href="ch-R-OOP.html#cb2103-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st3<span class="sc">@</span>year <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb2103-2"><a href="ch-R-OOP.html#cb2103-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st3<span class="sc">@</span>GPa <span class="ot">&lt;-</span> <span class="fl">4.0</span></span></code></pre></div>
+<div class="sourceCode" id="cb2097"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2097-1"><a href="ch-R-OOP.html#cb2097-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st3<span class="sc">@</span>year <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb2097-2"><a href="ch-R-OOP.html#cb2097-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st3<span class="sc">@</span>GPa <span class="ot">&lt;-</span> <span class="fl">4.0</span></span></code></pre></div>
 <pre><code>Error in (function (cl, name, valueClass) : &#39;GPa&#39;는 클래스 &quot;newstudent&quot;내에 있는 슬롯이 아닙니다</code></pre>
-<div class="sourceCode" id="cb2105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2105-1"><a href="ch-R-OOP.html#cb2105-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st3</span></code></pre></div>
+<div class="sourceCode" id="cb2099"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2099-1"><a href="ch-R-OOP.html#cb2099-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> st3</span></code></pre></div>
 <pre><code>An object of class &quot;newstudent&quot;
 Slot &quot;name&quot;:
 [1] &quot;Gildong&quot;
@@ -829,22 +829,22 @@ Slot &quot;GPA&quot;:
 <div id="s4-클래스-메소드-생성-setmethod" class="section level4 unnumbered hasAnchor">
 <h4>S4 클래스 메소드 생성 setMethod()<a href="ch-R-OOP.html#s4-클래스-메소드-생성-setmethod" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>S4 클래스에서는 메소드는 setMethod() 함수에 의해 정의된다. 앞에서 생성한 newstudent 객체에 summary() 함수를 적용하면 해당 클래스의 summary 메소드가 구현되지 않았으므로 디폴트로 제공되는 메소드에 의해 객체에 대한 매우 간략한 요약 정보만 출력한다.</p>
-<div class="sourceCode" id="cb2107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2107-1"><a href="ch-R-OOP.html#cb2107-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(st3)</span></code></pre></div>
+<div class="sourceCode" id="cb2101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2101-1"><a href="ch-R-OOP.html#cb2101-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(st3)</span></code></pre></div>
 <pre><code>    Length      Class       Mode 
          1 newstudent         S4 </code></pre>
 <p>newstudent 클래스에 summary 메소드를 다음과 같이 추가해 보자. setMethod() 함수는 첫번째 인수로 메소드 이름, 두번째 인수로 클래스 이름, 세번째 인수로 메소드 호출시 실행될 함수 객체를 받는다.</p>
-<div class="sourceCode" id="cb2109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2109-1"><a href="ch-R-OOP.html#cb2109-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">setMethod</span>(<span class="st">&quot;summary&quot;</span>, <span class="st">&quot;newstudent&quot;</span>,</span>
-<span id="cb2109-2"><a href="ch-R-OOP.html#cb2109-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="cf">function</span>(object){</span>
-<span id="cb2109-3"><a href="ch-R-OOP.html#cb2109-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>       <span class="fu">cat</span>(object<span class="sc">@</span>name, <span class="st">&quot; is a &quot;</span>, </span>
-<span id="cb2109-4"><a href="ch-R-OOP.html#cb2109-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>           object<span class="sc">@</span>year, <span class="st">&quot;th year student with GPA &quot;</span>, </span>
-<span id="cb2109-5"><a href="ch-R-OOP.html#cb2109-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>           object<span class="sc">@</span>GPA, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb2109-6"><a href="ch-R-OOP.html#cb2109-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     })</span>
-<span id="cb2109-7"><a href="ch-R-OOP.html#cb2109-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(st3)</span></code></pre></div>
+<div class="sourceCode" id="cb2103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2103-1"><a href="ch-R-OOP.html#cb2103-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">setMethod</span>(<span class="st">&quot;summary&quot;</span>, <span class="st">&quot;newstudent&quot;</span>,</span>
+<span id="cb2103-2"><a href="ch-R-OOP.html#cb2103-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="cf">function</span>(object){</span>
+<span id="cb2103-3"><a href="ch-R-OOP.html#cb2103-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>       <span class="fu">cat</span>(object<span class="sc">@</span>name, <span class="st">&quot; is a &quot;</span>, </span>
+<span id="cb2103-4"><a href="ch-R-OOP.html#cb2103-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>           object<span class="sc">@</span>year, <span class="st">&quot;th year student with GPA &quot;</span>, </span>
+<span id="cb2103-5"><a href="ch-R-OOP.html#cb2103-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>           object<span class="sc">@</span>GPA, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb2103-6"><a href="ch-R-OOP.html#cb2103-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     })</span>
+<span id="cb2103-7"><a href="ch-R-OOP.html#cb2103-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(st3)</span></code></pre></div>
 <pre><code>Gildong is a 4th year student with GPA 3.2</code></pre>
 <p>만약 명시적으로 생성한 메소드를 제거하려면 removeMethod() 함수를 이용한다.</p>
-<div class="sourceCode" id="cb2111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2111-1"><a href="ch-R-OOP.html#cb2111-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">removeMethod</span>(<span class="st">&quot;summary&quot;</span>, <span class="st">&quot;newstudent&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2105-1"><a href="ch-R-OOP.html#cb2105-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">removeMethod</span>(<span class="st">&quot;summary&quot;</span>, <span class="st">&quot;newstudent&quot;</span>)</span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb2113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2113-1"><a href="ch-R-OOP.html#cb2113-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(st3)</span></code></pre></div>
+<div class="sourceCode" id="cb2107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2107-1"><a href="ch-R-OOP.html#cb2107-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(st3)</span></code></pre></div>
 <pre><code>    Length      Class       Mode 
          1 newstudent         S4 </code></pre>
 
