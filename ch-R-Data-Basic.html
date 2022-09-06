@@ -23,7 +23,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2022-08-31" />
+<meta name="date" content="2022-09-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -549,7 +549,7 @@ div.csl-indent {
 [1] 4
 [1] 8
 [1] 16</code></pre>
-<p><strong>R</strong>은 파이썬처럼 <code>**</code> 연산자를 거듭젭곱 연산자로 사용할 수도 있다.</p>
+<p><strong>R</strong>은 파이썬처럼 <code>**</code> 연산자를 거듭 제곱 연산자로 사용할 수도 있다.</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="ch-R-Data-Basic.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="dv">2</span><span class="sc">**</span><span class="dv">4</span></span></code></pre></div>
 <pre><code>[1] 16</code></pre>
 </div>
@@ -733,13 +733,6 @@ div.csl-indent {
 <pre><code>[1] 1.25</code></pre>
 <div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="ch-R-Data-Basic.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sin</span>( (<span class="fu">sqrt</span>(<span class="dv">9</span>) <span class="sc">+</span> <span class="dv">2</span>)<span class="sc">/</span> <span class="dv">4</span> )</span></code></pre></div>
 <pre><code>[1] 0.9489846</code></pre>
-<pre><code>Rows: 12 Columns: 2
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: &quot;&amp;&quot;
-chr (2): 수학 함수  ,  설명 
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <table>
 <caption><span id="tab:math-functions">Table 2.1: </span>수학 관련 주요 함수</caption>
 <thead>
@@ -803,30 +796,30 @@ chr (2): 수학 함수  ,  설명
 <div id="실수를-정수로-변환하는-함수" class="section level4 unnumbered hasAnchor">
 <h4>실수를 정수로 변환하는 함수<a href="ch-R-Data-Basic.html#실수를-정수로-변환하는-함수" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>표 <a href="ch-R-Data-Basic.html#tab:math-functions">2.1</a>은 R에 내장되어 있는 수학 관련 주요 함수를 보여준다. 다음 예는 함수를 이용하여 숫자에 대한 올림, 내림, 버림, 반올림 등을 수행한 결과이다.</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="ch-R-Data-Basic.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a <span class="ot">&lt;-</span> <span class="fl">3.141593</span></span>
-<span id="cb135-2"><a href="ch-R-Data-Basic.html#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ceiling</span>(a) </span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="ch-R-Data-Basic.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> a <span class="ot">&lt;-</span> <span class="fl">3.141593</span></span>
+<span id="cb134-2"><a href="ch-R-Data-Basic.html#cb134-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ceiling</span>(a) </span></code></pre></div>
 <pre><code>[1] 4</code></pre>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="ch-R-Data-Basic.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">floor</span>(a) </span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="ch-R-Data-Basic.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">floor</span>(a) </span></code></pre></div>
 <pre><code>[1] 3</code></pre>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="ch-R-Data-Basic.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">trunc</span>(a)  </span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="ch-R-Data-Basic.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">trunc</span>(a)  </span></code></pre></div>
 <pre><code>[1] 3</code></pre>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="ch-R-Data-Basic.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">round</span>(a) </span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="ch-R-Data-Basic.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">round</span>(a) </span></code></pre></div>
 <pre><code>[1] 3</code></pre>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="ch-R-Data-Basic.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">round</span>(a, <span class="at">digits=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="ch-R-Data-Basic.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">round</span>(a, <span class="at">digits=</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>[1] 3.14</code></pre>
 </div>
 <div id="순열과-조합-함수" class="section level4 unnumbered hasAnchor">
 <h4>순열과 조합 함수<a href="ch-R-Data-Basic.html#순열과-조합-함수" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>다음은 순열(factorial)과 조합(combination)의 값을 구한 결과이다. 30에 대한 순열 값은 매우 커서 공학 형식으로 숫자가 표시된다. 이를 일반적인 형식으로 표시하기 위해서 format 함수를 이용하였다.</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="ch-R-Data-Basic.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">factorial</span>(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="ch-R-Data-Basic.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">factorial</span>(<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>[1] 120</code></pre>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="ch-R-Data-Basic.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">factorial</span>(<span class="dv">30</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="ch-R-Data-Basic.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">factorial</span>(<span class="dv">30</span>)</span></code></pre></div>
 <pre><code>[1] 2.652529e+32</code></pre>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="ch-R-Data-Basic.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">format</span>(<span class="fu">factorial</span>(<span class="dv">30</span>), <span class="at">scientific =</span> <span class="cn">FALSE</span>, )</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="ch-R-Data-Basic.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">format</span>(<span class="fu">factorial</span>(<span class="dv">30</span>), <span class="at">scientific =</span> <span class="cn">FALSE</span>, )</span></code></pre></div>
 <pre><code>[1] &quot;265252859812191032188804700045312&quot;</code></pre>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="ch-R-Data-Basic.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">choose</span>(<span class="dv">5</span>, <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="ch-R-Data-Basic.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">choose</span>(<span class="dv">5</span>, <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>[1] 10</code></pre>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="ch-R-Data-Basic.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">choose</span>(<span class="dv">45</span>, <span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="ch-R-Data-Basic.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">choose</span>(<span class="dv">45</span>, <span class="dv">6</span>)</span></code></pre></div>
 <pre><code>[1] 8145060</code></pre>
 <p>함수에 대한 자세한 내용은 <a href="ch-R-Programming-Structure.html#ch-R-Programming-Structure">10</a> 장의 함수(function)와 관련된 내용을 참조한다.</p>
 
