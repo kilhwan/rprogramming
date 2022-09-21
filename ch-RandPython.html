@@ -503,7 +503,7 @@ div.csl-indent {
 <ul>
 <li><strong>R</strong>에서 <strong>Python</strong>을 호출하는 기능: <strong>R</strong> 스크립트나 <strong>R</strong> 마크다운 문서에서 <strong>R</strong> 세션 중간에 파이썬 스크립트나 파이썬 모듈을 호출할 수 있다.</li>
 <li><strong>R</strong>과 <strong>Python</strong> 객체 간의 상호 변환: R의 데이터프레임과 파이썬의 Pandas 데이터프레임, R의 행렬/배열과 파이썬 Numpy 배열 간에 데이터를 자동 변환해 준다.</li>
-<li><strong>Python</strong>의 다양한 버전과의 연동 기능: 시스템 내에는 다양한 버전의 파이썬이 존재할 수 있다. <code>reticulate</code>는 가상 환경(virtual environments)나 콘다 환경(Conda environments)의 파이썬 버전 등과 연동할 수 있다.</li>
+<li><strong>Python</strong>의 다양한 버전과의 연동 기능: 시스템 내에는 다양한 버전의 파이썬이 존재할 수 있다. <code>reticulate</code>는 가상 환경(virtual environments)이나 콘다 환경(Conda environments)의 파이썬 버전 등과 연동할 수 있다.</li>
 </ul>
 <p>다음 설명은 이미 시스템에 파이썬이 설치되어 있고 파이썬에 대한 기본 지식을 가지고 있다는 가정 하에 설명을 한다.
 파이썬은 다양한 시스템에서 설치가 가능하고, 콘다 환경을 사용하면 독립적인 파이썬 환경을 구축하기 편리하다.
@@ -515,18 +515,18 @@ div.csl-indent {
 <p>설치가 잘 되었는지 <code>reticulate</code> 패키지를 적재해 보자.</p>
 <div class="sourceCode" id="cb2106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2106-1"><a href="ch-RandPython.html#cb2106-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(reticulate)</span></code></pre></div>
 <p>하나의 시스템에는 여러 버전의 파이썬이 설치되어 있는 경우가 자주 있다.
-그렇다면 <code>reticulate</code>는 시스템 내의 어떤 버전의 파이썬과 연동을 하게 될까?
-<code>reticulate</code>는 다음처럼 파이썬에 사용할 모듈을 <code>import()</code> 함수로 호출한다.</p>
+그렇다면 <code>reticulate</code>는 시스템 내의 어떤 버전의 파이썬과 연동을 하게 될까?</p>
+<p><code>reticulate</code>는 다음처럼 파이썬에서 사용할 모듈을 <code>import()</code> 함수로 호출한다.</p>
 <div class="sourceCode" id="cb2107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2107-1"><a href="ch-RandPython.html#cb2107-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> np <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;numpy&quot;</span>)</span></code></pre></div>
-<p><code>reticulate</code>가 적재되고 맨 처음 <code>import</code> 되는 모듈을 시스템 내에 설치된 파이썬 버전들을 차례로 검색하고, 맨 처음 해당 모듈이 찾아진 파이썬 버전과 연동을 한다. 그리고 이후의 파이썬 호출은 연동된 파이썬 버전에서 수행이 된다.
+<p><code>reticulate</code>는 맨 처음 <code>import</code> 되는 모듈을 시스템 내에 설치된 파이썬 버전들에서 차례로 검색하고, 해당 모듈이 맨 처음 발견된 파이썬 버전과 연동을 한다. 그리고 이후의 <strong>R</strong>에서의 파이썬 호출은 최초로 연동된 파이썬 버전에서 계속 수행하게 된다.
 만약 해당 모듈이 여러 곳의 파이썬 버전에 존재한다면 어떻게 될까?
 <code>reticulate</code>는 파이썬 모듈을 찾을 때 다음 순서로 파이썬 버전을 검색한다.</p>
 <ol style="list-style-type: decimal">
-<li>사용자가 만약 시스템에 <code>RETICULATE_PYTHON</code> 환경 변수를 설정에 두었다면, 환경 변수에 설정된 경로에 설치된 파이썬에서 가장 먼저 모듈을 검색한다. <code>.Rprofile</code>에 해당 환경 변수를 설정하려면 다음 명령처럼 설정을 한다. (그러나 이는 경직된 형태로 파이썬 검색 순서를 지정한 것이므로 일반적 상황에서는 권장되지 않는다.)</li>
+<li>사용자가 만약 시스템에 <code>RETICULATE_PYTHON</code> 환경 변수를 설정해 두었다면, 환경 변수에 설정된 경로에 설치된 파이썬에서 가장 먼저 모듈을 검색한다. <code>.Rprofile</code>에 해당 환경 변수를 설정하려면 다음 명령처럼 설정을 한다. (그러나 이는 경직된 형태로 파이썬 검색 순서를 지정한 것이므로 일반적 상황에서는 권장되지 않는다.)</li>
 </ol>
 <div class="sourceCode" id="cb2108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2108-1"><a href="ch-RandPython.html#cb2108-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">Sys.setenv</span>(<span class="at">RETICULATE_PYTHON =</span> <span class="st">&quot;경로&quot;</span>)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
-<li>사용자가 <code>use_python()</code>, <code>use_vertualenv()</code>, 또는 <code>use_condaenv()</code>를 호출하여 설정한 파이썬 버전을 다음으로 검색한다. <code>use_python()</code>은 파이썬이 설치된 경로를 지정할 때, <code>use_vertualenv()</code>나 <code>use_condaenv()</code>는 설치되어 있는 가상 환경이나 콘다 환경이 사용되도록 지정할 때 사용한다.</li>
+<li>사용자가 <code>use_python()</code>, <code>use_vertualenv()</code>, 또는 <code>use_condaenv()</code>를 사용하여 설정한 파이썬 버전을 그 다음으로 검색한다. <code>use_python()</code>은 파이썬이 설치된 경로를 지정할 때, <code>use_vertualenv()</code>나 <code>use_condaenv()</code>는 설치되어 있는 가상 환경이나 콘다 환경이 사용되도록 지정할 때 사용한다.</li>
 </ol>
 <div class="sourceCode" id="cb2109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2109-1"><a href="ch-RandPython.html#cb2109-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">use_python</span>(<span class="st">&quot;경로&quot;</span>)</span>
 <span id="cb2109-2"><a href="ch-RandPython.html#cb2109-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">use_virtualenv</span>(<span class="st">&quot;~/가상-환경-이름&quot;</span>)</span>
@@ -537,8 +537,8 @@ div.csl-indent {
 그러므로 지정된 경로나 환경이 없어도 해당 명령은 오류가 발생하지 않는다.
 만약 해당 파이썬 버전이 있는지 확인하려면 <code>use</code> 함수에 <code>required=TRUE</code> 인수를 추가하여 실행한다. 그러면 해당 파이썬 버전이 존재하지 않으면 오류를 발생시킨다.</p>
 <ol start="3" style="list-style-type: decimal">
-<li><p>가상 환경과 콘다 환경이 사용자 환경에 있으면, 가상 환경과 콘다 환경에서 해당 모듈을 검색한다.</p></li>
-<li><p>사용자 시스템 경로(<code>PATH</code>) 상의 파이썬 설치 위치를 검색한다. 시스템 경로에서 발견되는 파이썬이 어디에 설치되어 있는지를 확인하려면 다음 명령을 수행해 본다. 사용자의 시스템의 종류와 설치 방법에 따라 결과는 서로 다를 수 있다.</p></li>
+<li><p>사용자가 사용할 파이썬 버전을 환경 변수나 <code>use</code> 함수로 설정하지 않았으면, <code>reticulate</code>는 그 다음으로 사용자의 파이썬 가상 환경이나 콘다 환경을 검색한다. 가상 환경과 콘다 환경이 발견되면, 가상 환경과 콘다 환경에서 해당 모듈을 검색한다.</p></li>
+<li><p>다음으로 사용자 시스템 경로(<code>PATH</code>) 상의 파이썬 설치 위치를 검색한다. 시스템 경로에서 발견되는 파이썬이 어디에 설치되어 있는지를 확인하려면 다음 명령을 수행해 본다. 사용자의 시스템의 종류와 설치 방법에 따라 결과는 서로 다를 수 있다.</p></li>
 </ol>
 <div class="sourceCode" id="cb2111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2111-1"><a href="ch-RandPython.html#cb2111-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">Sys.which</span>(<span class="st">&quot;python&quot;</span>)</span></code></pre></div>
 <pre><code>           python 
@@ -546,7 +546,7 @@ div.csl-indent {
 <ol start="5" style="list-style-type: decimal">
 <li>마지막으로 사용자들이 주로 파이썬을 설치하는 일반적인 경로를 검색하여 파이썬 버전을 찾아 해당 모듈을 검색한다.</li>
 </ol>
-<p>현재 모듈을 검색하면 어떤 버전의 파이썬이 먼저 검색될지를 확인하려면 다음 명령을 사용한다.</p>
+<p>파이썬 모듈을 <code>import</code> 하면 어떤 버전의 파이썬이 먼저 검색될지를 확인하려면 다음 명령을 사용한다.</p>
 <div class="sourceCode" id="cb2113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2113-1"><a href="ch-RandPython.html#cb2113-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">py_discover_config</span>()</span></code></pre></div>
 <pre><code>python:         /home/sys4ppl/miniconda3/bin/python
 libpython:      /home/sys4ppl/miniconda3/lib/libpython3.7m.so
