@@ -23,7 +23,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2022-10-04" />
+<meta name="date" content="2022-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -279,12 +279,16 @@ div.csl-indent {
 <li class="chapter" data-level="6.4.3" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#subset을-이용한-필터링"><i class="fa fa-check"></i><b>6.4.3</b> subset()을 이용한 필터링</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임에-함수-적용하기"><i class="fa fa-check"></i><b>6.5</b> 데이터 프레임에 함수 적용하기</a></li>
-<li class="chapter" data-level="6.6" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#파일에서-데이터-읽어오기"><i class="fa fa-check"></i><b>6.6</b> 파일에서 데이터 읽어오기</a>
+<li class="chapter" data-level="6.6" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#dataFileImport"><i class="fa fa-check"></i><b>6.6</b> 파일에서 데이터 읽어오기</a>
 <ul>
 <li class="chapter" data-level="6.6.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#텍스트-파일에서-데이터-읽어오기"><i class="fa fa-check"></i><b>6.6.1</b> 텍스트 파일에서 데이터 읽어오기</a></li>
-<li class="chapter" data-level="6.6.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#excel-파일에서-데이터-읽어오기"><i class="fa fa-check"></i><b>6.6.2</b> Excel 파일에서 데이터 읽어오기</a></li>
+<li class="chapter" data-level="6.6.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#csv-파일에서-데이터-읽어오기"><i class="fa fa-check"></i><b>6.6.2</b> CSV 파일에서 데이터 읽어오기</a></li>
+<li class="chapter" data-level="6.6.3" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#excel-파일에서-데이터-읽기"><i class="fa fa-check"></i><b>6.6.3</b> Excel 파일에서 데이터 읽기</a></li>
 </ul></li>
-<li class="chapter" data-level="6.7" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#파일에-데이터-프레임-쓰기"><i class="fa fa-check"></i><b>6.7</b> 파일에 데이터 프레임 쓰기</a></li>
+<li class="chapter" data-level="6.7" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임을-파일로-쓰기"><i class="fa fa-check"></i><b>6.7</b> 데이터 프레임을 파일로 쓰기</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#바이너리-형식으로-데이터-객체-저장-및-복원"><i class="fa fa-check"></i><b>6.7.1</b> 바이너리 형식으로 데이터 객체 저장 및 복원</a></li>
+</ul></li>
 <li class="chapter" data-level="6.8" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임의-열을-변수처럼-이용하는-방법"><i class="fa fa-check"></i><b>6.8</b> 데이터 프레임의 열을 변수처럼 이용하는 방법 *</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html"><i class="fa fa-check"></i><b>7</b> dplyr을 이용한 데이터 변환</a>
@@ -1323,8 +1327,8 @@ hw      &quot; 8&quot;     &quot; 9&quot;     &quot; 7&quot;     &quot; 8&quot; 
 150          5.9         3.0          5.1         1.8 virginica</code></pre>
 </div>
 </div>
-<div id="파일에서-데이터-읽어오기" class="section level2 hasAnchor" number="6.6">
-<h2><span class="header-section-number">6.6</span> 파일에서 데이터 읽어오기<a href="ch-R-Data-Frame.html#파일에서-데이터-읽어오기" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="dataFileImport" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> 파일에서 데이터 읽어오기<a href="ch-R-Data-Frame.html#dataFileImport" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>규모가 큰 데이터는 R 콘솔에서 직접 입력하기보다는 파일에서 불러오는 경우가 많다. R에서는 주로 텍스트 파일이나 Excel의 데이터를 읽어오는 경우가 많다.</p>
 <div id="텍스트-파일에서-데이터-읽어오기" class="section level3 hasAnchor" number="6.6.1">
 <h3><span class="header-section-number">6.6.1</span> 텍스트 파일에서 데이터 읽어오기<a href="ch-R-Data-Frame.html#텍스트-파일에서-데이터-읽어오기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1333,12 +1337,14 @@ hw      &quot; 8&quot;     &quot; 9&quot;     &quot; 7&quot;     &quot; 8&quot; 
 <div id="작업-디렉토리-설정" class="section level4 unnumbered hasAnchor">
 <h4>작업 디렉토리 설정<a href="ch-R-Data-Frame.html#작업-디렉토리-설정" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>R 윈도우 버전에서 작업 디렉터리의 변경은 [파일]-[작업디렉토리변경] 메뉴를 이용하면 된다. RStudio에서는 [Session]-[Set Working Directory]-[Choose Directory] 메뉴를 이용하면 된다. 현재의 작업 디렉터리가 어디인지를 알기 위해서는 getwd() 명령을 이용하면 된다. 현재 작업 디렉터리의 파일을 보고 싶으면 list.files() 명령을 이용한다.</p>
-<p>R 명령으로 작업 디렉터리를 변경하려면 setwd()를 이용한다. 다음은 getwd()로 현재 작업 디렉토리를 얻은 후 setwd()로 data라는 하위 디렉토리(폴더)로 작업 디렉토리를 변경하고, 그 안에 있는 파일 목록을 확인한 예이다. R에서는 UNIX나 LINUX의 디렉토리 계층 체계를 따라 하위 디렉토리 계층을 나타날 때 <code>\</code>가 아니라 <code>/</code>을 이용한다.</p>
+<p>R 명령으로 작업 디렉터리를 변경하려면 setwd()를 이용한다. 다음은 getwd()로 현재 작업 디렉토리를 얻은 후 setwd()로 data라는 하위 디렉토리(폴더)로 작업 디렉토리를 변경하고, 그 안에 있는 파일 목록을 확인한 예이다.</p>
 <div class="sourceCode" id="cb1266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1266-1"><a href="ch-R-Data-Frame.html#cb1266-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> WD <span class="ot">&lt;-</span> <span class="fu">getwd</span>()</span>
-<span id="cb1266-2"><a href="ch-R-Data-Frame.html#cb1266-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">setwd</span>(<span class="fu">paste0</span>(WD, <span class="st">&quot;/data&quot;</span>))</span>
-<span id="cb1266-3"><a href="ch-R-Data-Frame.html#cb1266-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;.txt&quot;</span>)</span></code></pre></div>
+<span id="cb1266-2"><a href="ch-R-Data-Frame.html#cb1266-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">setwd</span>(<span class="fu">file.path</span>(WD, <span class="st">&quot;data&quot;</span>))</span>
+<span id="cb1266-3"><a href="ch-R-Data-Frame.html#cb1266-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;txt&quot;</span>)</span></code></pre></div>
 <pre><code>[1] &quot;courses2.txt&quot;         &quot;scores_no_header.txt&quot; &quot;scores_rn.txt&quot;       
 [4] &quot;scores.txt&quot;           &quot;students.txt&quot;        </code></pre>
+<p>텍스트 파일을 읽어들이는 예제는 다음 파일을 사용하니 예제를 따라하고자 하는 분들은 내려받기를 하자.</p>
+<a href="data:application/zip;base64,UEsDBBQAAgAIAMqMN0kGxCl30AAAAFkBAAAMAAAAY291cnNlczIudHh0U6pMTSxSUlAqTs1NLS5JBTGTM1NAZF5ibiqILkpNySwpBrIy8kuLipV4uYwUDBWUvAKMjMwNgaKvNu19M6PxbdvWV5tbHrUuUFIwUjBGUmNqBFfzZsHU15u3vOme86ZrydvWOUoKxgomIJVGUNOMMExbCDcNqsbUGKjm9fKON3sa3va0Qk0whtllgjDh1eY9b6fORFdgboJmRbB++JvuJW+6toJUGoNUwiwyB6nc0fFmDlDZVmSjoArMjBH+6p7zet2a1ws63szd8qZ1BlQlAFBLAwQKAAIAAAAkkxtRHMQCdCEAAAAhAAAAFAAAAHNjb3Jlc19ub19oZWFkZXIudHh07ISc7Jq4CTI1DQrrjIDsoIQJMzUNCuyynOyViAk0Mg0KUEsDBAoAAgAAACSTG1FeTF8oOwAAADsAAAANAAAAc2NvcmVzX3JuLnR4dCAgICBwcm92CXNjb3Jlcw0KMTAJ7ISc7Jq4CTI1DQoyMAnrjIDsoIQJMzUNCjMwCeyynOyViAk0Mg0KUEsDBAoAAgAAABSkG1HO8koXMgAAADIAAAAKAAAAc2NvcmVzLnR4dHByb3YgIHNjb3Jlcw0K7ISc7Jq4ICAyNQ0K64yA7KCEICAzNQ0K7LKc7JWIICA0Mg0KUEsDBBQAAgAIALSoTFXvZW+VpgAAANgAAAAMAAAAc3R1ZGVudHMudHh0U8pLzE1VUlBKL0pMAdOpeSmpRUBGbmZKSWpRLpCVlpmXmAOki1JLErNBajLKlbiUXu1seLNpwZuOGUoKhgpKCr5KCuYmCpaGCiFBoa4KFhD5GY1v565RUjBRUHJTUrAwUjA3V3Bz9Al2VbDkUnozdwtMv7GCElC7mbmChQVU3hwiD9VvBNFvqWBuATf+7czeVzt2vO6fCbYeqN3UQMHCDKrd0IALAFBLAQIeAxQAAgAIAMqMN0kGxCl30AAAAFkBAAAMAAAAAAAAAAEAAAC0gQAAAABjb3Vyc2VzMi50eHRQSwECHgMKAAIAAAAkkxtRHMQCdCEAAAAhAAAAFAAAAAAAAAABAAAApIH6AAAAc2NvcmVzX25vX2hlYWRlci50eHRQSwECHgMKAAIAAAAkkxtRXkxfKDsAAAA7AAAADQAAAAAAAAABAAAApIFNAQAAc2NvcmVzX3JuLnR4dFBLAQIeAwoAAgAAABSkG1HO8koXMgAAADIAAAAKAAAAAAAAAAEAAACkgbMBAABzY29yZXMudHh0UEsBAh4DFAACAAgAtKhMVe9lb5WmAAAA2AAAAAwAAAAAAAAAAQAAAKSBDQIAAHN0dWRlbnRzLnR4dFBLBQYAAAAABQAFACkBAADdAgAAAAA=" download="courses2.zip">텍스트 파일 내려받기</a>
 </div>
 <div id="머리-행이-있는-텍스트-데이터-파일-읽기" class="section level4 unnumbered hasAnchor">
 <h4>머리 행이 있는 텍스트 데이터 파일 읽기<a href="ch-R-Data-Frame.html#머리-행이-있는-텍스트-데이터-파일-읽기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1347,8 +1353,8 @@ hw      &quot; 8&quot;     &quot; 9&quot;     &quot; 7&quot;     &quot; 8&quot; 
 서울  25
 대전  35
 천안  42</code></pre>
-<p>데이터 파일이 작업 디렉토리(폴더) 밑의 <code>data</code> 디렉토리(폴더)에 <code>scores.txt</code>로 저장되어 있다면 read.table() 함수를 이용하여 다음과 같이 header=TRUE 인수로 데이터 프레임으로 읽어올 수 있다. 읽어들일 파일이 작업 디렉토리에 있다면 <code>"data/scores.txt"</code>가 아니라 <code>"scores.txt"</code> 형태로 읽어들이면 된다.</p>
-<div class="sourceCode" id="cb1269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1269-1"><a href="ch-R-Data-Frame.html#cb1269-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> prov.scores <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/scores.txt&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
+<p>데이터 파일이 작업 디렉토리(폴더) 밑에 <code>scores.txt</code>로 저장되어 있다면 read.table() 함수를 이용하여 다음과 같이 header=TRUE 인수로 데이터 프레임으로 읽어올 수 있다.</p>
+<div class="sourceCode" id="cb1269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1269-1"><a href="ch-R-Data-Frame.html#cb1269-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> prov.scores <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;scores.txt&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
 <span id="cb1269-2"><a href="ch-R-Data-Frame.html#cb1269-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> prov.scores</span></code></pre></div>
 <pre><code>  prov scores
 1 서울     25
@@ -1368,13 +1374,13 @@ $row.names
 </div>
 <div id="행-이름이-있는-텍스트-데이터-파일-읽기" class="section level4 unnumbered hasAnchor">
 <h4>행 이름이 있는 텍스트 데이터 파일 읽기<a href="ch-R-Data-Frame.html#행-이름이-있는-텍스트-데이터-파일-읽기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>다음 예는 파일에 데이터의 행 번호 또는 이름이 부여되어 있는 경우이다. 이 같은 경우에는 첫 행에 행 번호를 나타내는 이름은 표시하지 않는다. 따라서 첫 행과 다른 행은 한 항목의 수에서 차이가 난다.</p>
+<p>다음 예는 파일에 데이터의 행 번호 또는 이름이 부여되어 있는 경우이다. 이 같은 경우에는 첫 행에 행 번호를 나타내는 이름은 표시하지 않는다. 따라서 첫 행과 다른 행은 항목의 수가 하나 차이가 난다.</p>
 <pre><code>    prov    scores
 10  서울  25
 20  대전  35
 30  천안  42</code></pre>
-<p>이와 같은 형식의 파일이 작업 디렉토리 밑의 <code>data</code> 디렉토리의 <code>scores_rn.txt</code>에 저장되어 있는 경우에도 같은 방식으로 데이터를 데이터 프레임으로 읽어온다. 다음에서 볼 수 있듯이 행 번호로 파일의 첫 번째 열의 값이 사용되었다. 그리고 read.table() 함수에서 header 인수를 사용하지 않았다. 항목이 하나 적은 것으로 첫 번째 행이 머리행인 것을 자동 인식하기 때문이다.</p>
-<div class="sourceCode" id="cb1274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1274-1"><a href="ch-R-Data-Frame.html#cb1274-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> prov.scores <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/scores_rn.txt&quot;</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
+<p>이와 같은 형식의 파일이 작업 디렉토리 밑의 <code>scores_rn.txt</code>에 저장되어 있는 경우에도 같은 방식으로 데이터를 데이터 프레임으로 읽어온다. 다음에서 볼 수 있듯이 행 번호로 파일의 첫 번째 열의 값이 사용되었다. 그리고 read.table() 함수에서 header 인수를 사용하지 않았다. 항목이 하나 적은 것으로 첫 번째 행이 머리행인 것을 자동 인식하기 때문이다.</p>
+<div class="sourceCode" id="cb1274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1274-1"><a href="ch-R-Data-Frame.html#cb1274-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> prov.scores <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;scores_rn.txt&quot;</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
 <span id="cb1274-2"><a href="ch-R-Data-Frame.html#cb1274-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> prov.scores</span></code></pre></div>
 <pre><code>   prov scores
 10 서울     25
@@ -1383,12 +1389,12 @@ $row.names
 </div>
 <div id="머리-행이-없는-텍스트-데이터-파일-읽기" class="section level4 unnumbered hasAnchor">
 <h4>머리 행이 없는 텍스트 데이터 파일 읽기<a href="ch-R-Data-Frame.html#머리-행이-없는-텍스트-데이터-파일-읽기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>위의 결과에서 파일에 있는 행 번호가 데이터 프레임에 이용되었음을 볼 수 있다. read.table() 함수는 머리 행이 없는 텍스트 파일에서도 데이터를 읽어들일 수 있다. 다음과 같은 <code>scores_no_header.txt</code> 파일이 작업 디렉토리 밑의 <code>data</code> 디렉토리에 저장되어 있다고 하자.</p>
+<p>위의 결과에서 파일에 있는 행 번호가 데이터 프레임에 이용되었음을 볼 수 있다. read.table() 함수는 머리 행이 없는 텍스트 파일에서도 데이터를 읽어들일 수 있다. 다음과 같은 <code>scores_no_header.txt</code> 파일이 작업 디렉토리에 저장되어 있다고 하자.</p>
 <pre><code>서울  25
 대전  35
 천안  42</code></pre>
 <p>다음 명령문은 <code>scores_no_header.txt</code> 데이터 파일을 데이터 프레임으로 읽어들인 예이다. 열의 이름이 임의로 붙여졌음을 볼 수 있다.</p>
-<div class="sourceCode" id="cb1277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1277-1"><a href="ch-R-Data-Frame.html#cb1277-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> prov.scores <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/scores_no_header.txt&quot;</span>, <span class="at">header=</span><span class="cn">FALSE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
+<div class="sourceCode" id="cb1277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1277-1"><a href="ch-R-Data-Frame.html#cb1277-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> prov.scores <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;scores_no_header.txt&quot;</span>, <span class="at">header=</span><span class="cn">FALSE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
 <span id="cb1277-2"><a href="ch-R-Data-Frame.html#cb1277-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> prov.scores</span></code></pre></div>
 <pre><code>    V1 V2
 1 서울 25
@@ -1401,16 +1407,18 @@ $row.names
 <div class="sourceCode" id="cb1279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1279-1"><a href="ch-R-Data-Frame.html#cb1279-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> prov.scores.new <span class="ot">&lt;-</span> <span class="fu">edit</span>(prov.scores)</span></code></pre></div>
 </div>
 </div>
-<div id="excel-파일에서-데이터-읽어오기" class="section level3 hasAnchor" number="6.6.2">
-<h3><span class="header-section-number">6.6.2</span> Excel 파일에서 데이터 읽어오기<a href="ch-R-Data-Frame.html#excel-파일에서-데이터-읽어오기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="csv-파일에서-데이터-읽어오기" class="section level3 hasAnchor" number="6.6.2">
+<h3><span class="header-section-number">6.6.2</span> CSV 파일에서 데이터 읽어오기<a href="ch-R-Data-Frame.html#csv-파일에서-데이터-읽어오기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="csv-파일" class="section level4 unnumbered hasAnchor">
 <h4>CSV 파일<a href="ch-R-Data-Frame.html#csv-파일" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>많은 경우 데이터가 Excel로 저장되어 있다. Excel에서 데이터를 읽어오기 위해서는 먼저 Excel 파일을 CSV 형태의 파일로 작업 디렉토리에 저장하여야 한다.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> CSV 파일은 데이터의 각 필드가 쉼표로 분리되어 있는 파일이다. 대부분의 통계 패키지뿐 아니라 다수의 SW에서 지원하는 파일 형식이다. Excel의 버전에 따라 저장방식이 조금 차이가 있을 수 있으나, 대부분 ’다른 이름으로 저장’에서 파일 형식을 CSV 형식으로 지정해 주면 된다.</p>
+<p>CSV 파일을 읽어들이는 예제는 다음 파일을 사용하니 예제를 따라하고자 하는 독자는 내려받도록 하자.</p>
+<a href="data:text/csv;base64,Q291bnRyeSxZZWFyLE1hbGVzLEZlbWFsZXMNCkFMQkFOSUEsMyw0LjcsMy4zDQpBTlRJR1VBIEFORCBCQVJCVURBLDk1LDAsMA0KQVJHRU5USU5BLDgsMTIuNiwzDQpBUk1FTklBLDgsMi44LDEuMQ0KQVVTVFJBTElBLDYsMTIuOCwzLjYNCkFVU1RSSUEsOSwyMy44LDcuMQ0KQVpFUkJBSUpBTiw3LDEsMC4zDQpCQUhBTUFTLDUsMS45LDAuNg0KQkFIUkFJTiw2LDQsMy41DQpCQVJCQURPUyw2LDcuMywwDQpCRUxBUlVTLDcsNDguNyw4LjgNCkJFTEdJVU0sNSwyOC44LDEwLjMNCkJFTElaRSw4LDYuNiwwLjcNCkJPU05JQSBBTkQgSEVSWkVHT1ZJTkEsOTEsMjAuMywzLjMNCkJSQVpJTCw4LDcuNywyDQpCVUxHQVJJQSw4LDE4LjgsNi4yDQpDQU5BREEsNCwxNy4zLDUuNA0KQ0hJTEUsNywxOC4yLDQuMg0KQ0hJTkEgKFNlbGVjdGVkIHJ1cmFsICYgdXJiYW4gYXJlYXMpLDk5LDEzLDE0LjgNCkNISU5BIChIb25nIEtvbmcgU0FSKSw5LDE5LDEwLjcNCkNPTE9NQklBLDcsNy45LDINCkNPU1RBIFJJQ0EsOSwxMC4yLDEuOQ0KQ1JPQVRJQSw5LDI4LjksNy41DQpDVUJBLDgsMTksNS41DQpDWVBSVVMsOCw3LjQsMS43DQpDWkVDSCBSRVBVQkxJQyw5LDIzLjksNC40DQpERU5NQVJLLDYsMTcuNSw2LjQNCkRPTUlOSUNBTiBSRVBVQkxJQyw1LDMuOSwwLjcNCkVDVUFET1IsOSwxMC41LDMuNg0KRUdZUFQsOSwwLjEsMA0KRUwgU0FMVkFET1IsOCwxMi45LDMuNg0KRVNUT05JQSw4LDMwLjYsNy4zDQpGSU5MQU5ELDksMjksMTANCkZSQU5DRSw3LDI0LjcsOC41DQpHRU9SR0lBLDksNy4xLDEuNw0KR0VSTUFOWSw2LDE3LjksNg0KR1JFRUNFLDksNiwxDQpHUkVOQURBLDgsMCwwDQpHVUFURU1BTEEsOCw1LjYsMS43DQpHVVlBTkEsNiwzOSwxMy40DQpIQUlUSSwzLDAsMA0KSE9ORFVSQVMsNzgsMCwwDQpIVU5HQVJZLDksNDAsMTAuNg0KSUNFTEFORCw4LDE2LjUsNw0KSU5ESUEsOSwxMyw3LjgNCklSQU4sOTEsMC4zLDAuMQ0KSVJFTEFORCw5LDE5LDQuNw0KSVNSQUVMLDcsNywxLjUNCklUQUxZLDcsMTAsMi44DQpKQU1BSUNBLDkwLDAuMywwDQpKQVBBTiw5LDM2LjIsMTMuMg0KSk9SREFOLDgsMC4yLDANCktBWkFLSFNUQU4sOCw0Myw5LjQNCktVV0FJVCw5LDEuOSwxLjcNCktZUkdZWlNUQU4sOSwxNC4xLDMuNg0KTEFUVklBLDksNDAsOC4yDQpMSVRIVUFOSUEsOSw2MS4zLDEwLjQNCkxVWEVNQk9VUkcsOCwxNi4xLDMuMg0KTUFMRElWRVMsNSwwLjcsMA0KTUFMVEEsOCw1LjksMQ0KTUFVUklUSVVTLDgsMTEuOCwxLjkNCk1FWElDTyw4LDcsMS41DQpORVRIRVJMQU5EUyw5LDEzLjEsNS41DQpORVcgWkVBTEFORCw3LDE4LjEsNS41DQpOSUNBUkFHVUEsNiw5LDIuNg0KTk9SV0FZLDksMTcuMyw2LjUNClBBTkFNQSw4LDksMS45DQpQQVJBR1VBWSw4LDUuMSwyDQpQRVJVLDcsMS45LDENClBISUxJUFBJTkVTLDkzLDIuNSwxLjcNClBPTEFORCw4LDI2LjQsNC4xDQpQT1JUVUdBTCw5LDE1LjYsNA0KUFVFUlRPIFJJQ08sNSwxMy4yLDINClJFUFVCTElDIE9GIEtPUkVBLDksMzkuOSwyMi4xDQpSRVBVQkxJQyBPRiBNT0xET1ZBLDgsMzAuMSw1LjYNClJPTUFOSUEsOSwyMSwzLjUNClJVU1NJQU4gRkVERVJBVElPTiw2LDUzLjksOS41DQpTQUlOVCBLSVRUUyBBTkQgTkVWSVMsOTUsMCwwDQpTQUlOVCBMVUNJQSw1LDQuOSwwDQpTQUlOVCBWSU5DRU5UIEFORCBUSEUgR1JFTkFESU5FUyw4LDUuNCwxLjkNClNBTyBUT01FIEFORCBQUklOQ0lQRSw4NywwLDEuOA0KU0VSQklBLDksMjguMSwxMA0KU0VZQ0hFTExFUyw4LDguOSwwDQpTSU5HQVBPUkUsNiwxMi45LDcuNw0KU0xPVkFLSUEsNSwyMi4zLDMuNA0KU0xPVkVOSUEsOSwzNC42LDkuNA0KU09VVEggQUZSSUNBLDcsMS40LDAuNA0KU1BBSU4sOCwxMS45LDMuNA0KU1JJIExBTktBLDkxLDQ0LjYsMTYuOA0KU1VSSU5BTUUsNSwyMy45LDQuOA0KU1dFREVOLDgsMTguNyw2LjgNClNXSVRaRVJMQU5ELDcsMjQuOCwxMS40DQpTWVJJQU4gQVJBQiBSRVBVQkxJQyw4NSwwLjIsMA0KVEFKSUtJU1RBTiwxLDIuOSwyLjMNClRIQUlMQU5ELDIsMTIsMy44DQpURllSIE1BQ0VET05JQSwzLDkuNSw0DQpUUklOSURBRCBBTkQgVE9CQUdPLDYsMTcuOSwzLjgNClRVUktNRU5JU1RBTiw5OCwxMy44LDMuNQ0KVUtSQUlORSw5LDM3LjgsNw0KVU5JVEVEIEtJTkdET00sOSwxMC45LDMNClVOSVRFRCBTVEFURVMgT0YgQU1FUklDQSw1LDE3LjcsNC41DQpVUlVHVUFZLDQsMjYsNi4zDQpVWkJFS0lTVEFOLDUsNywyLjMNClZFTkVaVUVMQSw3LDUuMywxLjINClpJTUJBQldFLDkwLDEwLjYsNS4yDQo=" download="suicide_rates.csv">Download suicide_rates.csv</a>
 </div>
 <div id="read.csv" class="section level4 unnumbered hasAnchor">
 <h4>read.csv()<a href="ch-R-Data-Frame.html#read.csv" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>R에서 CSV 파일을 읽어오는 함수는 read.csv()이다. 다음은 각 국의 자살률에 대한 성별, 조사년도 데이터를 읽어온 예이다. 총 105개의 데이터인데 처음 몇 개의 데이터만 출력하여 보이고 있다.</p>
-<div class="sourceCode" id="cb1280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1280-1"><a href="ch-R-Data-Frame.html#cb1280-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> sr <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">&quot;data/suicide_rates.csv&quot;</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
+<div class="sourceCode" id="cb1280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1280-1"><a href="ch-R-Data-Frame.html#cb1280-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> sr <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">&quot;suicide_rates.csv&quot;</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
 <span id="cb1280-2"><a href="ch-R-Data-Frame.html#cb1280-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">nrow</span>(sr)</span></code></pre></div>
 <pre><code>[1] 105</code></pre>
 <div class="sourceCode" id="cb1282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1282-1"><a href="ch-R-Data-Frame.html#cb1282-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(sr)</span></code></pre></div>
@@ -1421,8 +1429,9 @@ $row.names
 4             ARMENIA    8   2.8     1.1
 5           AUSTRALIA    6  12.8     3.6
 6             AUSTRIA    9  23.8     7.1</code></pre>
+<p>참고로 이 예에서는 영어로 된 파일이므로 파일 인코딩을 지정하지 않아도 된다.</p>
 <p>사실 read.csv() 함수는 read.table()의 wrapper 함수로서 header=TRUE, sep=‘,’ 인수로 read.table() 함수를 호출하기만 한다. 따라서 다음처럼 read.table() 함수를 이용해서도 CSV 파일을 읽어들일 수 있다. 이 때 주의할 점은 함수 호출 시 header=TRUE, sep=‘,’ 인수를 지정해야 한다는 것이다.</p>
-<div class="sourceCode" id="cb1284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1284-1"><a href="ch-R-Data-Frame.html#cb1284-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> sr2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span><span class="st">&quot;data/suicide_rates.csv&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
+<div class="sourceCode" id="cb1284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1284-1"><a href="ch-R-Data-Frame.html#cb1284-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> sr2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span><span class="st">&quot;suicide_rates.csv&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
 <span id="cb1284-2"><a href="ch-R-Data-Frame.html#cb1284-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">nrow</span>(sr2)</span></code></pre></div>
 <pre><code>[1] 105</code></pre>
 <div class="sourceCode" id="cb1286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1286-1"><a href="ch-R-Data-Frame.html#cb1286-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(sr2)</span></code></pre></div>
@@ -1437,13 +1446,13 @@ $row.names
 <div id="read.csv와-관련된-흔한-실수" class="section level4 unnumbered hasAnchor">
 <h4>read.csv()와 관련된 흔한 실수<a href="ch-R-Data-Frame.html#read.csv와-관련된-흔한-실수" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>read.csv() 함수를 이용할 때 초보자가 가장 자주 하는 실수가 일반 텍스트 파일인데 read.csv() 함수로 데이터를 읽어들이는 것이다. 다음은 공백으로 필드가 구분된 scores.txt 파일을 read.table()과 read.csv() 함수로 각각 읽어들인 결과이다.</p>
-<div class="sourceCode" id="cb1288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1288-1"><a href="ch-R-Data-Frame.html#cb1288-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> prov.scores <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/scores.txt&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
+<div class="sourceCode" id="cb1288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1288-1"><a href="ch-R-Data-Frame.html#cb1288-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> prov.scores <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;scores.txt&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
 <span id="cb1288-2"><a href="ch-R-Data-Frame.html#cb1288-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> prov.scores</span></code></pre></div>
 <pre><code>  prov scores
 1 서울     25
 2 대전     35
 3 천안     42</code></pre>
-<div class="sourceCode" id="cb1290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1290-1"><a href="ch-R-Data-Frame.html#cb1290-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> prov.scores.csv <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/scores.txt&quot;</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
+<div class="sourceCode" id="cb1290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1290-1"><a href="ch-R-Data-Frame.html#cb1290-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> prov.scores.csv <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;scores.txt&quot;</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
 <span id="cb1290-2"><a href="ch-R-Data-Frame.html#cb1290-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> prov.scores.csv</span></code></pre></div>
 <pre><code>  prov..scores
 1     서울  25
@@ -1467,16 +1476,84 @@ $row.names
 <pre><code>[1] &quot;prov..scores&quot;</code></pre>
 </div>
 </div>
+<div id="excel-파일에서-데이터-읽기" class="section level3 hasAnchor" number="6.6.3">
+<h3><span class="header-section-number">6.6.3</span> Excel 파일에서 데이터 읽기<a href="ch-R-Data-Frame.html#excel-파일에서-데이터-읽기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Excel에는 Excel 파일을 CSV 파일로 저장하는 기능이 있다.
+이 기능을 사용하여 CSV 파일로 변환을 하면 앞에서 설명한 <code>read.csv()</code> 함수를 이용하여 Excel 데이터를 읽어들일 수 있다.
+만약 Excel 데이터를 변환 없이 그대로 읽어들이고 싶으면, <code>readxl</code> 패키지의 <code>read_excel()</code> 함수를 사용한다.
+<code>readxl</code> 패키지가 설치되어 있지 않다면 다음 명령이나 RStudio의 Packages 패널의 기능을 사용하여 설치한다.</p>
+<div class="sourceCode" id="cb1305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1305-1"><a href="ch-R-Data-Frame.html#cb1305-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span></code></pre></div>
+<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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" download="dataMerge.xlsx">Download dataMerge.xlsx</a>
+<p>위의 파일을 내려받으면, 다음과 같이, 4 개의 워크시트가 있는 Excel 파일에서 project라는 이름의 워크시트를 데이터프레임으로 읽어들이는 예를 살펴보자.</p>
+<p><img src="dataMerge.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><code>read_excel()</code> 함수는 첫 번째 인수로 파일명을, 두 번째 <code>sheet</code> 인수로 읽어들일 워크시트를 지정한다.
+(<code>read_excel()</code> 함수는 데이터를 <code>tibble</code>이라는 일종의 개량된 data.frame 형식으로 저장한다. 그렇기 때문에 출력 결과과 일반 data.frame과 조금 다르다.)</p>
+<div class="sourceCode" id="cb1306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1306-1"><a href="ch-R-Data-Frame.html#cb1306-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(readxl)</span>
+<span id="cb1306-2"><a href="ch-R-Data-Frame.html#cb1306-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> project <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;dataMerge.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;project&quot;</span>) </span>
+<span id="cb1306-3"><a href="ch-R-Data-Frame.html#cb1306-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> project</span></code></pre></div>
+<pre><code># A tibble: 4 × 2
+  Team  Project
+  &lt;chr&gt;   &lt;dbl&gt;
+1 A          80
+2 B          90
+3 C          85
+4 D          75</code></pre>
+<p><code>sheet</code> 인수에 아무것도 지정하지 않으면, 맨 처음 워크시트의 데이터를 읽어들인다.</p>
+<div class="sourceCode" id="cb1308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1308-1"><a href="ch-R-Data-Frame.html#cb1308-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> class1 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;dataMerge.xlsx&quot;</span>) </span>
+<span id="cb1308-2"><a href="ch-R-Data-Frame.html#cb1308-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> class1</span></code></pre></div>
+<pre><code># A tibble: 5 × 6
+  ID    Name   Adress Midterm Final Team 
+  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+1 015   김철수 서울        78    59 A    
+2 018   김영희 경기        85    87 A    
+3 025   이철수 충남        80    70 B    
+4 034   이영희 대전        92    89 B    
+5 151   홍길동 세종        58    66 B    </code></pre>
 </div>
-<div id="파일에-데이터-프레임-쓰기" class="section level2 hasAnchor" number="6.7">
-<h2><span class="header-section-number">6.7</span> 파일에 데이터 프레임 쓰기<a href="ch-R-Data-Frame.html#파일에-데이터-프레임-쓰기" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="데이터-프레임을-파일로-쓰기" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> 데이터 프레임을 파일로 쓰기<a href="ch-R-Data-Frame.html#데이터-프레임을-파일로-쓰기" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="write.table과-write.csv" class="section level4 unnumbered hasAnchor">
 <h4>write.table()과 write.csv()<a href="ch-R-Data-Frame.html#write.table과-write.csv" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>데이터 프레임의 작업 결과를 추후에 다시 이용하기 위해서, 또는 다른 통계 패키지에서 작업 결과를 이용하기 위해서는 데이터 프레임을 파일로 저장할 수 있어야 한다. 이 경우 <code>write.table()</code>과 <code>write.csv()</code> 함수를 이용하면 데이터 프레임을 파일에 저장할 수 있다.</p>
-<p>다음 예에서는 이 장에서 만든 students 데이터 프레임을 세 가지 형식으로 작업 디렉토리 밑의 <code>data</code> 디렉토리의 파일에 저장하고 있다.</p>
-<div class="sourceCode" id="cb1305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1305-1"><a href="ch-R-Data-Frame.html#cb1305-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">write.table</span>(students, <span class="st">&quot;data/students.txt&quot;</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
-<span id="cb1305-2"><a href="ch-R-Data-Frame.html#cb1305-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">write.csv</span>(students, <span class="st">&quot;data/students.csv&quot;</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
-<span id="cb1305-3"><a href="ch-R-Data-Frame.html#cb1305-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">write.csv</span>(students, <span class="st">&quot;data/students_rn.csv&quot;</span>, <span class="at">row.names=</span><span class="cn">TRUE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span></code></pre></div>
+<p>다음 <code>sr</code> 데이터프레임에 남자(<code>Males</code>)와 여자(<code>Females</code>)의 자살률의 산술 평균을 <code>Avg</code> 열로 추가한 후, 그 결과를 <code>sr.csv</code>라는 파일로 저장하는 예이다.</p>
+<div class="sourceCode" id="cb1310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1310-1"><a href="ch-R-Data-Frame.html#cb1310-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> sr<span class="sc">$</span>Avg <span class="ot">&lt;-</span> (sr<span class="sc">$</span>Males <span class="sc">+</span> sr<span class="sc">$</span>Females) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb1310-2"><a href="ch-R-Data-Frame.html#cb1310-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(sr)</span></code></pre></div>
+<pre><code>              Country Year Males Females   Avg
+1             ALBANIA    3   4.7     3.3  4.00
+2 ANTIGUA AND BARBUDA   95   0.0     0.0  0.00
+3           ARGENTINA    8  12.6     3.0  7.80
+4             ARMENIA    8   2.8     1.1  1.95
+5           AUSTRALIA    6  12.8     3.6  8.20
+6             AUSTRIA    9  23.8     7.1 15.45</code></pre>
+<div class="sourceCode" id="cb1312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1312-1"><a href="ch-R-Data-Frame.html#cb1312-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">write.csv</span>(sr, <span class="at">file =</span> <span class="st">&quot;sr.csv&quot;</span>)</span></code></pre></div>
+<p>작업 디렉토리에 저장된 <code>sr.csv</code> 파일을 열어보면 다음처럼 행번호도 함께 저장된 것을 확인할 수 있다.</p>
+<pre><code>&quot;&quot;,&quot;Country&quot;,&quot;Year&quot;,&quot;Males&quot;,&quot;Females&quot;,&quot;Avg&quot;
+&quot;1&quot;,&quot;ALBANIA&quot;,3,4.7,3.3,4
+&quot;2&quot;,&quot;ANTIGUA AND BARBUDA&quot;,95,0,0,0
+&quot;3&quot;,&quot;ARGENTINA&quot;,8,12.6,3,7.8
+&quot;4&quot;,&quot;ARMENIA&quot;,8,2.8,1.1,1.95</code></pre>
+<p>행번호를 제외하고 파일에 데이터를 저장하려면 <code>row.names=F</code>로 설정한다.</p>
+<div class="sourceCode" id="cb1314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1314-1"><a href="ch-R-Data-Frame.html#cb1314-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">write.csv</span>(sr, <span class="at">file =</span> <span class="st">&quot;sr2.csv&quot;</span>, <span class="at">row.names =</span> F)</span></code></pre></div>
+<p>작업 디렉토리에 저장된 <code>sr2.csv</code> 파일을 열어보면 이번에는 행번호가 저장되지 않은 것을 확인할 수 있다.</p>
+<pre><code>&quot;Country&quot;,&quot;Year&quot;,&quot;Males&quot;,&quot;Females&quot;,&quot;Avg&quot;
+&quot;ALBANIA&quot;,3,4.7,3.3,4
+&quot;ANTIGUA AND BARBUDA&quot;,95,0,0,0
+&quot;ARGENTINA&quot;,8,12.6,3,7.8
+&quot;ARMENIA&quot;,8,2.8,1.1,1.95</code></pre>
+<p>만약 데이터에 영어와 숫자 이외에 한글 등이 포함되어 있으면 파일의 인코딩을 지정하여 저장하여 저장하는 것이 좋다.
+다음 예에서는 이 장에서 만든 students 데이터 프레임을 세 가지 형식으로 작업 디렉토리 밑에 저장하고 있다.
+한글 때문에 파일의 인코딩 방식을 지정하여 저장하였다.</p>
+<div class="sourceCode" id="cb1316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1316-1"><a href="ch-R-Data-Frame.html#cb1316-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> students</span></code></pre></div>
+<pre><code>    name grade gender midterm final retake hw
+1 김철수     1      M      74    91   TRUE  8
+2 김영희     4      F      82    77  FALSE  9
+3 이철수     3      M      67    88  FALSE  7
+4 이영희     2      F      89    78   TRUE  8
+5 홍길동     1      M      50    86  FALSE 10</code></pre>
+<div class="sourceCode" id="cb1318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1318-1"><a href="ch-R-Data-Frame.html#cb1318-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">write.table</span>(students, <span class="st">&quot;students.txt&quot;</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
+<span id="cb1318-2"><a href="ch-R-Data-Frame.html#cb1318-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">write.csv</span>(students, <span class="st">&quot;students.csv&quot;</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
+<span id="cb1318-3"><a href="ch-R-Data-Frame.html#cb1318-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">write.csv</span>(students, <span class="st">&quot;students_rn.csv&quot;</span>, <span class="at">row.names=</span><span class="cn">TRUE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span></code></pre></div>
 <p>첫 번째 <code>write.table()</code>은 공백문자로 데이터 표레임의 열을 분리하여 일반 텍스트 파일로 저장한 예이다. 다음은 저장된 students.txt 파일의 모습이다. 결과에서 볼 수 있듯이 데이터 프레임의 열 이름이 머리 행으로 저장되고 데이터들이 공백문자로 구분되어 저장되었다. 숫자 데이터는 그대로, 문자 데이터는 따옴표로 둘러싸여서 저장되어 있다.</p>
 <pre><code>&quot;name&quot; &quot;grade&quot; &quot;gender&quot; &quot;midterm&quot; &quot;final&quot; &quot;retake&quot; &quot;hw&quot;
 &quot;김철수&quot; 1 &quot; M&quot; 74 91 TRUE 8
@@ -1499,14 +1576,14 @@ $row.names
 &quot;4&quot;,&quot;이영희&quot;,2,&quot;F&quot;,89,78,TRUE,8
 &quot;5&quot;,&quot;홍길동&quot;,1,&quot;M&quot;,50,86,FALSE,10</code></pre>
 <p>다음 예에서 <code>write.table()</code> 또는 <code>write.csv()</code> 파일로 저장한 데이터를 다시 데이터 프레임으로 잘 복원할 수 있음을 확인할 수 있다. 이 때로 파일의 형식이 공백으로 분리된 파일인지 CSV 파일인지에 따라 <code>read.table()</code>과 <code>read.csv()</code>를 적절히 선택하여야 한다.</p>
-<div class="sourceCode" id="cb1309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1309-1"><a href="ch-R-Data-Frame.html#cb1309-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">read.table</span>(<span class="st">&quot;data/students.txt&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1322-1"><a href="ch-R-Data-Frame.html#cb1322-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">read.table</span>(<span class="st">&quot;students.txt&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span></code></pre></div>
 <pre><code>    name grade gender midterm final retake hw
 1 김철수     1      M      74    91   TRUE  8
 2 김영희     4      F      82    77  FALSE  9
 3 이철수     3      M      67    88  FALSE  7
 4 이영희     2      F      89    78   TRUE  8
 5 홍길동     1      M      50    86  FALSE 10</code></pre>
-<div class="sourceCode" id="cb1311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1311-1"><a href="ch-R-Data-Frame.html#cb1311-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/students.csv&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1324-1"><a href="ch-R-Data-Frame.html#cb1324-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">read.csv</span>(<span class="st">&quot;students.csv&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span></code></pre></div>
 <pre><code>    name grade gender midterm final retake hw
 1 김철수     1      M      74    91   TRUE  8
 2 김영희     4      F      82    77  FALSE  9
@@ -1514,12 +1591,66 @@ $row.names
 4 이영희     2      F      89    78   TRUE  8
 5 홍길동     1      M      50    86  FALSE 10</code></pre>
 <p>사실 <code>write.csv()</code> 함수는 <code>write.table()</code>에서 sep 인수에 <code>','</code>를 부여한 결과와 같다. 따라서 두 번째와 세 번째 명령문은 다음처럼 하여도 같은 결과를 얻을 수 있다.</p>
-<div class="sourceCode" id="cb1313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1313-1"><a href="ch-R-Data-Frame.html#cb1313-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">write.table</span>(students, <span class="st">&quot;data/students.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
-<span id="cb1313-2"><a href="ch-R-Data-Frame.html#cb1313-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">write.table</span>(students, <span class="st">&quot;data/students_rn.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">row.names=</span><span class="cn">TRUE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1326-1"><a href="ch-R-Data-Frame.html#cb1326-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">write.table</span>(students, <span class="st">&quot;students.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span>
+<span id="cb1326-2"><a href="ch-R-Data-Frame.html#cb1326-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">write.table</span>(students, <span class="st">&quot;students_rn.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">row.names=</span><span class="cn">TRUE</span>, <span class="at">fileEncoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span></code></pre></div>
 </div>
-<div id="바이너리-형식으로-데이터-객체-저장-및-복원" class="section level4 unnumbered hasAnchor">
-<h4>바이너리 형식으로 데이터 객체 저장 및 복원<a href="ch-R-Data-Frame.html#바이너리-형식으로-데이터-객체-저장-및-복원" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>데이터 프레임뿐 아니라 R의 모든 객체들을 saveRDS()와 readRDS(), 또는 save()와 load() 함수를 이용하여 바이너리 형식으로 저장하고 복원할 수 있다. 이 경우 메모리에 적재되는 형태대로 파일에 저장되었다가 복원되므로 별도의 처리 과정이 불필요해진다. 그러므로 대용량의 데이터를 R 플랫폼 내에서 저장하거나 복원할 때 매우 유용하다. 관련된 내용은 saveRDS()/readRDS()와 save()/load() 함수의 도움말을 참조하기 바란다.</p>
+<div id="데이터-프레임을-excel-파일에-쓰기" class="section level4 unnumbered hasAnchor">
+<h4>데이터 프레임을 Excel 파일에 쓰기<a href="ch-R-Data-Frame.html#데이터-프레임을-excel-파일에-쓰기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>데이터 프레임을 Excel 파일로 저장하려면, CSV 파일로 저장한 후 Excel에서 이를 다시 Excel의 파일 형식인 xlsx 형식의 파일로 저장하거나, <code>writexl</code> 패키지를 사용하여 Excel 파일을 R에서 직접 생성하면 된다.
+여기서는 <code>writexl</code> 패키지를 사용하여 Excel 파일로 데이터를 저장하는 방법을 설명한다.</p>
+<p><code>writexl</code> 패키지가 설치되어 있지 않다면, 다음 명령이나 RStudio의 Packages 패널의 기능을 사용하여 설치한다.</p>
+<div class="sourceCode" id="cb1327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1327-1"><a href="ch-R-Data-Frame.html#cb1327-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">install.packages</span>(<span class="st">&quot;writexl&quot;</span>)</span></code></pre></div>
+<p><code>writexl</code> 패키지의 <code>write_xlsx()</code> 함수를 사용하면 데이터 프레임을 Excel 파일로 저장할 수 있다.
+다음은 하나의 students 데이터 프레임을 Excel 파일로 저장하는 예이다.</p>
+<div class="sourceCode" id="cb1328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1328-1"><a href="ch-R-Data-Frame.html#cb1328-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(writexl)</span>
+<span id="cb1328-2"><a href="ch-R-Data-Frame.html#cb1328-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">write_xlsx</span>(students, <span class="st">&quot;students1.xlsx&quot;</span>)</span></code></pre></div>
+<p>작업 디렉토리에 만들어진 <code>students1.xlsx</code> 파일을 Excel로 열어보면 첫 번째 워크시트에 데이터 프레임이 저장되어 있는 것을 확인할 수 있다.
+여러 데이터 프레임을 한 번에 저장하려면 다음처럼 리스트 형식으로 데이터를 전달한다.
+이 때 리스트의 각 요소에 이름을 부여하면 해당 이름으로 워크시트가 만들어져 데이터 프레임들이 저장된다.</p>
+<div class="sourceCode" id="cb1329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1329-1"><a href="ch-R-Data-Frame.html#cb1329-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">write_xlsx</span>(<span class="fu">list</span>(<span class="at">students=</span>students, <span class="at">sr=</span>sr, <span class="at">project=</span>project), <span class="st">&quot;multipleData.xlsx&quot;</span>)</span></code></pre></div>
+</div>
+<div id="바이너리-형식으로-데이터-객체-저장-및-복원" class="section level3 hasAnchor" number="6.7.1">
+<h3><span class="header-section-number">6.7.1</span> 바이너리 형식으로 데이터 객체 저장 및 복원<a href="ch-R-Data-Frame.html#바이너리-형식으로-데이터-객체-저장-및-복원" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>데이터 프레임뿐 아니라 R의 모든 객체들을 <code>saveRDS()</code>와 <code>readRDS()</code>, 또는 <code>save()</code>와 <code>load()</code> 함수를 이용하여 바이너리 형식으로 저장하고 복원할 수 있다. 이 경우 메모리에 적재되는 형태대로 파일에 저장되었다가 복원되므로 별도의 처리 과정이 불필요해진다. 그러므로 대용량의 데이터를 R 플랫폼 내에서 저장하거나 복원할 때 매우 유용하다.</p>
+<p>다음은 <code>x</code>라는 벡터, <code>y</code>라는 행렬, <code>z</code>라는 데이터 프레임을 만든 후, <code>save()</code> 함수를 이용하여 바이너리 형식으로 <code>xyz.RData</code>라는 파일에 저장하는 예이다.</p>
+<div class="sourceCode" id="cb1330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1330-1"><a href="ch-R-Data-Frame.html#cb1330-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>; x</span></code></pre></div>
+<pre><code>[1] 1 2 3</code></pre>
+<div class="sourceCode" id="cb1332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1332-1"><a href="ch-R-Data-Frame.html#cb1332-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> y <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">3</span>); y</span></code></pre></div>
+<pre><code>     [,1] [,2] [,3]
+[1,]    4    7   10
+[2,]    5    8   11
+[3,]    6    9   12</code></pre>
+<div class="sourceCode" id="cb1334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1334-1"><a href="ch-R-Data-Frame.html#cb1334-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x, y); z</span></code></pre></div>
+<pre><code>  x X1 X2 X3
+1 1  4  7 10
+2 2  5  8 11
+3 3  6  9 12</code></pre>
+<div class="sourceCode" id="cb1336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1336-1"><a href="ch-R-Data-Frame.html#cb1336-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">save</span>(x, y, z, <span class="at">file =</span> <span class="st">&quot;xyz.RData&quot;</span>)</span></code></pre></div>
+<p>작업 디렉토리에 가보면 <code>xyz.RData</code>라는 파일이 생성된 것을 확인할 수 있다.
+<code>save()</code>와 <code>load()</code> 함수를 이용하여 저장하는 데이터 파일은 일밙거으로 <code>.RData</code>라는 확장자를 이용한다.
+그러면 대부분의 컴퓨터 설정에서 <code>.RData</code> 데이터 파일이 <strong>R</strong>이나 <strong>RStudio</strong>로 자동으로 연결되어 더블 클릭만으로 파일에 저장된 객체를 <strong>R</strong> 세션에 적재할 수 있다.</p>
+<p>파일에 데이터가 잘 저장되었고 이를 다시 <code>load()</code> 함수로 <strong>R</strong> 세션에 잘 복원할 수 있는지를 확인하기 위하여, 현재 <strong>R</strong> 세션에 있는, <code>x</code>, <code>y</code>, <code>z</code> 객체를 환경에서 제거해 보자. 다음 명령을 사용하거나 <strong>RStudio</strong>의 Environment 패널에 이 객체를 제거할 수 있다.</p>
+<div class="sourceCode" id="cb1337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1337-1"><a href="ch-R-Data-Frame.html#cb1337-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rm</span>(x, y, z)</span>
+<span id="cb1337-2"><a href="ch-R-Data-Frame.html#cb1337-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x; y; z</span></code></pre></div>
+<pre><code>Error in eval(expr, envir, enclos): 객체 &#39;x&#39;를 찾을 수 없습니다</code></pre>
+<pre><code>Error in eval(expr, envir, enclos): 객체 &#39;y&#39;를 찾을 수 없습니다</code></pre>
+<pre><code>Error in eval(expr, envir, enclos): 객체 &#39;z&#39;를 찾을 수 없습니다</code></pre>
+<p>세 객체가 모두 제거되었기 때문에 객체를 출력하려고 하면 오류가 발생한다.</p>
+<p>다음으로 작업 디렉토리의 <code>xyz.RData</code>를 이용하여 <strong>R</strong> 세션에 복원해 보자.
+이를 위해 다음처럼 데이터 파일이 있는 폴더를 작업 디렉토리로 설정하고 <code>load()</code> 함수를 사용할 수도 있고, 파일 탐색기에서 해당 파일의 컨텍스트 메뉴에서 연결 프로그램을 <strong>RStudio</strong>로 하여 파일을 열어도 된다.</p>
+<div class="sourceCode" id="cb1341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1341-1"><a href="ch-R-Data-Frame.html#cb1341-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">load</span>(<span class="st">&quot;xyz.RData&quot;</span>)</span>
+<span id="cb1341-2"><a href="ch-R-Data-Frame.html#cb1341-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x; y; z</span></code></pre></div>
+<pre><code>[1] 1 2 3</code></pre>
+<pre><code>     [,1] [,2] [,3]
+[1,]    4    7   10
+[2,]    5    8   11
+[3,]    6    9   12</code></pre>
+<pre><code>  x X1 X2 X3
+1 1  4  7 10
+2 2  5  8 11
+3 3  6  9 12</code></pre>
+<p>이번에는 세 객체가 모두 잘 출력되는 것을 확인할 수 있다.
+<strong>RStudio</strong>의 Environment 패널에서도 이 객체가 다시 생성되었음을 확인할 수 있다.</p>
 </div>
 </div>
 <div id="데이터-프레임의-열을-변수처럼-이용하는-방법" class="section level2 hasAnchor" number="6.8">
@@ -1527,57 +1658,59 @@ $row.names
 <div id="변수-검색-경로" class="section level4 unnumbered hasAnchor">
 <h4>변수 검색 경로<a href="ch-R-Data-Frame.html#변수-검색-경로" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><code>$</code> 기호를 이용하는 방법보다 좀 더 간편하게 데이터 프레임의 열에 접근할 수 있는 방법이 있다. attach() 함수를 이용하면 데이터 프레임의 각 열을 변수로 등록할 수 있다. attach() 함수가 실행되면 해당 데이터 프레임의 각 열을 변수로 검색 경로(search path)에 등록한다. 검색 경로란 R이 어떤 변수를 참조할 때 변수에 대한 정보를 검색하는 경로를 의미한다. 현재의 검색 경로를 파악하기 위해서는 search() 함수를 이용하면 된다.</p>
-<div class="sourceCode" id="cb1314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1314-1"><a href="ch-R-Data-Frame.html#cb1314-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">search</span>()</span></code></pre></div>
-<pre><code>[1] &quot;.GlobalEnv&quot;        &quot;package:stats&quot;     &quot;package:graphics&quot; 
-[4] &quot;package:grDevices&quot; &quot;package:utils&quot;     &quot;package:datasets&quot; 
-[7] &quot;package:methods&quot;   &quot;Autoloads&quot;         &quot;package:base&quot;     </code></pre>
+<div class="sourceCode" id="cb1345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1345-1"><a href="ch-R-Data-Frame.html#cb1345-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">search</span>()</span></code></pre></div>
+<pre><code> [1] &quot;.GlobalEnv&quot;        &quot;package:writexl&quot;   &quot;package:readxl&quot;   
+ [4] &quot;package:stats&quot;     &quot;package:graphics&quot;  &quot;package:grDevices&quot;
+ [7] &quot;package:utils&quot;     &quot;package:datasets&quot;  &quot;package:methods&quot;  
+[10] &quot;Autoloads&quot;         &quot;package:base&quot;     </code></pre>
 <p>위의 결과에서 알 수 있듯이 R이 기동되면 현재의 작업공간을 .GlobalEnv라는 이름으로 첫 번째 검색 경로로 등록한다. 현재의 작업 공간에서 만든 변수들은 여기서 찾을 수 있다. 그리고 package:를 접두사로 하여 패키지별 변수의 데이터베이스가 검색 경로에 등록된다. R은 검색 경로에 나와 있는 순서대로 변수들의 정보를 찾는다.</p>
 </div>
 <div id="attach로-데이터-프레임을-검색-경로에-등록하기" class="section level4 unnumbered hasAnchor">
 <h4>attach()로 데이터 프레임을 검색 경로에 등록하기<a href="ch-R-Data-Frame.html#attach로-데이터-프레임을-검색-경로에-등록하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>본격적으로 attach() 함수의 작동을 보기 전에 students 데이터 프레임을 제외하고 다른 데이터 객체를 .GlobalEnv에서 삭제하도록 하겠다. .GlobalEnv 작업공간에 있는 변수를 보기 위해서는 ls() 또는 objects() 함수를 사용한다. rm() 함수를 이용하면 작업공간의 변수를 삭제할 수 있다. 이들 함수의 자세한 사용방법은 도움말을 참조한다.</p>
-<div class="sourceCode" id="cb1316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1316-1"><a href="ch-R-Data-Frame.html#cb1316-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> obj <span class="ot">&lt;-</span> <span class="fu">ls</span>()</span>
-<span id="cb1316-2"><a href="ch-R-Data-Frame.html#cb1316-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rm</span>(<span class="at">list=</span>obj[<span class="fu">which</span>(obj <span class="sc">!=</span> <span class="st">&quot;students&quot;</span>)])</span>
-<span id="cb1316-3"><a href="ch-R-Data-Frame.html#cb1316-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ls</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1347-1"><a href="ch-R-Data-Frame.html#cb1347-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> obj <span class="ot">&lt;-</span> <span class="fu">ls</span>()</span>
+<span id="cb1347-2"><a href="ch-R-Data-Frame.html#cb1347-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rm</span>(<span class="at">list=</span>obj[<span class="fu">which</span>(obj <span class="sc">!=</span> <span class="st">&quot;students&quot;</span>)])</span>
+<span id="cb1347-3"><a href="ch-R-Data-Frame.html#cb1347-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ls</span>()</span></code></pre></div>
 <pre><code>[1] &quot;obj&quot;      &quot;students&quot;</code></pre>
-<div class="sourceCode" id="cb1318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1318-1"><a href="ch-R-Data-Frame.html#cb1318-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rm</span>(obj)</span>
-<span id="cb1318-2"><a href="ch-R-Data-Frame.html#cb1318-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">objects</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1349-1"><a href="ch-R-Data-Frame.html#cb1349-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rm</span>(obj)</span>
+<span id="cb1349-2"><a href="ch-R-Data-Frame.html#cb1349-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">objects</span>()</span></code></pre></div>
 <pre><code>[1] &quot;students&quot;</code></pre>
 <p>아래는 attach() 함수를 이용하여 students 데이터 프레임을 검색 경로에 등록한 예이다. 아래 예에서 보듯이 students를 검색 경로에 등록하기 전에는 retake 변수가 검색 경로에 없으므로 찾을 수 없다고 나온다. 그러나 students 데이터 프레임을 검색 경로에 등록하면 데이터 프레임의 열인 retake를 변수처럼 이용할 수 있음을 알 수 있다.</p>
-<div class="sourceCode" id="cb1320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1320-1"><a href="ch-R-Data-Frame.html#cb1320-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> retake</span></code></pre></div>
+<div class="sourceCode" id="cb1351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1351-1"><a href="ch-R-Data-Frame.html#cb1351-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> retake</span></code></pre></div>
 <pre><code>Error in eval(expr, envir, enclos): 객체 &#39;retake&#39;를 찾을 수 없습니다</code></pre>
-<div class="sourceCode" id="cb1322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1322-1"><a href="ch-R-Data-Frame.html#cb1322-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">attach</span>(students)</span>
-<span id="cb1322-2"><a href="ch-R-Data-Frame.html#cb1322-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> retake</span></code></pre></div>
+<div class="sourceCode" id="cb1353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1353-1"><a href="ch-R-Data-Frame.html#cb1353-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">attach</span>(students)</span>
+<span id="cb1353-2"><a href="ch-R-Data-Frame.html#cb1353-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> retake</span></code></pre></div>
 <pre><code>[1]  TRUE FALSE FALSE  TRUE FALSE</code></pre>
-<div class="sourceCode" id="cb1324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1324-1"><a href="ch-R-Data-Frame.html#cb1324-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">search</span>()</span></code></pre></div>
-<pre><code> [1] &quot;.GlobalEnv&quot;        &quot;students&quot;          &quot;package:stats&quot;    
- [4] &quot;package:graphics&quot;  &quot;package:grDevices&quot; &quot;package:utils&quot;    
- [7] &quot;package:datasets&quot;  &quot;package:methods&quot;   &quot;Autoloads&quot;        
-[10] &quot;package:base&quot;     </code></pre>
+<div class="sourceCode" id="cb1355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1355-1"><a href="ch-R-Data-Frame.html#cb1355-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">search</span>()</span></code></pre></div>
+<pre><code> [1] &quot;.GlobalEnv&quot;        &quot;students&quot;          &quot;package:writexl&quot;  
+ [4] &quot;package:readxl&quot;    &quot;package:stats&quot;     &quot;package:graphics&quot; 
+ [7] &quot;package:grDevices&quot; &quot;package:utils&quot;     &quot;package:datasets&quot; 
+[10] &quot;package:methods&quot;   &quot;Autoloads&quot;         &quot;package:base&quot;     </code></pre>
 </div>
 <div id="attach로-등록된-변수는-데이터-프레임과-독립적인-복사본이다." class="section level4 unnumbered hasAnchor">
 <h4>attach()로 등록된 변수는 데이터 프레임과 독립적인 복사본이다.<a href="ch-R-Data-Frame.html#attach로-등록된-변수는-데이터-프레임과-독립적인-복사본이다." class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>여기서 주의할 점은 attach 된 변수가 변경되더라도 원래 데이터 프레임의 데이터가 변경되지는 않는다는 것이다. attach를 통해 등록된 변수는 데이터 프레임의 데이터가 복사되어 생성되지만 데이터 프레임과는 무관한 별도의 변수처럼 작동한다.</p>
-<div class="sourceCode" id="cb1326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1326-1"><a href="ch-R-Data-Frame.html#cb1326-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> retake[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb1326-2"><a href="ch-R-Data-Frame.html#cb1326-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> retake</span></code></pre></div>
+<div class="sourceCode" id="cb1357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1357-1"><a href="ch-R-Data-Frame.html#cb1357-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> retake[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb1357-2"><a href="ch-R-Data-Frame.html#cb1357-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> retake</span></code></pre></div>
 <pre><code>[1]    NA FALSE FALSE  TRUE FALSE</code></pre>
-<div class="sourceCode" id="cb1328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1328-1"><a href="ch-R-Data-Frame.html#cb1328-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> students<span class="sc">$</span>retake</span></code></pre></div>
+<div class="sourceCode" id="cb1359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1359-1"><a href="ch-R-Data-Frame.html#cb1359-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> students<span class="sc">$</span>retake</span></code></pre></div>
 <pre><code>[1]  TRUE FALSE FALSE  TRUE FALSE</code></pre>
 <p>데이터 프레임의 데이터를 변경하려면 <code>$</code> 기호를 써서 직접 변경하여야 한다. 마찬가지로 원래 데이터 프레임의 데이터가 변경되어도 검색 경로에 추가된 retake 변수의 데이터는 변경되지 않음을 알 수 있다.</p>
-<div class="sourceCode" id="cb1330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1330-1"><a href="ch-R-Data-Frame.html#cb1330-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> students<span class="sc">$</span>retake[<span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb1330-2"><a href="ch-R-Data-Frame.html#cb1330-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> students<span class="sc">$</span>retake</span></code></pre></div>
+<div class="sourceCode" id="cb1361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1361-1"><a href="ch-R-Data-Frame.html#cb1361-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> students<span class="sc">$</span>retake[<span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb1361-2"><a href="ch-R-Data-Frame.html#cb1361-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> students<span class="sc">$</span>retake</span></code></pre></div>
 <pre><code>[1]  TRUE FALSE FALSE  TRUE    NA</code></pre>
-<div class="sourceCode" id="cb1332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1332-1"><a href="ch-R-Data-Frame.html#cb1332-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> retake</span></code></pre></div>
+<div class="sourceCode" id="cb1363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1363-1"><a href="ch-R-Data-Frame.html#cb1363-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> retake</span></code></pre></div>
 <pre><code>[1]    NA FALSE FALSE  TRUE FALSE</code></pre>
 </div>
 <div id="detach" class="section level4 unnumbered hasAnchor">
 <h4>detach()<a href="ch-R-Data-Frame.html#detach" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>데이터 프레임을 검색 경로에서 제거하려면 detach() 함수를 이용한다.</p>
-<div class="sourceCode" id="cb1334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1334-1"><a href="ch-R-Data-Frame.html#cb1334-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">detach</span>(students)</span>
-<span id="cb1334-2"><a href="ch-R-Data-Frame.html#cb1334-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">search</span>()</span></code></pre></div>
-<pre><code>[1] &quot;.GlobalEnv&quot;        &quot;package:stats&quot;     &quot;package:graphics&quot; 
-[4] &quot;package:grDevices&quot; &quot;package:utils&quot;     &quot;package:datasets&quot; 
-[7] &quot;package:methods&quot;   &quot;Autoloads&quot;         &quot;package:base&quot;     </code></pre>
+<div class="sourceCode" id="cb1365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1365-1"><a href="ch-R-Data-Frame.html#cb1365-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">detach</span>(students)</span>
+<span id="cb1365-2"><a href="ch-R-Data-Frame.html#cb1365-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">search</span>()</span></code></pre></div>
+<pre><code> [1] &quot;.GlobalEnv&quot;        &quot;package:writexl&quot;   &quot;package:readxl&quot;   
+ [4] &quot;package:stats&quot;     &quot;package:graphics&quot;  &quot;package:grDevices&quot;
+ [7] &quot;package:utils&quot;     &quot;package:datasets&quot;  &quot;package:methods&quot;  
+[10] &quot;Autoloads&quot;         &quot;package:base&quot;     </code></pre>
 </div>
 <div id="attach로-등록된-변수의-검색-경로-상의-위치" class="section level4 unnumbered hasAnchor">
 <h4>attach()로 등록된 변수의 검색 경로 상의 위치<a href="ch-R-Data-Frame.html#attach로-등록된-변수의-검색-경로-상의-위치" class="anchor-section" aria-label="Anchor link to header"></a></h4>
