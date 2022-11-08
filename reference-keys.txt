@@ -13,6 +13,7 @@ tab:students-table
 tab:class-scores
 fig:tidyData
 fig:untidyData
+fig:unnamed-chunk-4
 fig:stat-bar
 tab:geomTypes
 fig:unnamed-chunk-11
@@ -143,10 +144,10 @@ ch-visualization
 sec-getStarted-ggplot2
 subsec-tryGgplot
 sec-aesMapping
-색상color-속성
-모양shape-속성
-크기size와-투명도alpha-속성
-도형의-여러-속성에-데이터-열을-대응시키기
+범주형-변수를-색상color-속성에-매핑하기
+범주형-변수를-모양shape-속성에-매핑하기
+연속형-변수를-크기size-투명도alpha-색상color-속성에-매핑하기
+도형의-여러-속성에-데이터-열을-매핑시키기
 도형-속성에-데이터-열을-매핑하기---예제
 도형의-속성에-대응시키기-vs.-도형의-속성-인수를-설정하기
 도형의-속성-인수-설정하기
@@ -155,7 +156,6 @@ group-속성
 그룹으로-나누어-선-그래프-그리기
 이산형-변수는-group-속성으로-자동-매핑된다.
 geom_smooth-함수에서-group-속성
-sec-commonProblems
 sec-facets
 facet_wrap로-일차원-측면-그래프-그리기
 facet_grid로-이차원-측면-그래프-그리기
@@ -168,6 +168,7 @@ subsec-commonDataMapping
 ggplot-함수에-공통-데이터와-매핑-설정하기
 geom-함수에서-데이터와-매핑의-재정의
 ggplot과-geom-함수에서-대표-인수의-이름을-생략하기
+sec-commonProblems
 sec-ggplotStat
 subsec-statCategorical
 subsec-statNumerical
