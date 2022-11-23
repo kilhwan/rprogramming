@@ -615,8 +615,8 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 8  28 최철수      M    1      87    76    D
 9  45 최영희      F   30      82    79    D</code></pre>
 </div>
-<div id="합쳐지는-데이터에-식별자-부여하기" class="section level4 hasAnchor" number="9.1.1.1">
-<h4><span class="header-section-number">9.1.1.1</span> 합쳐지는 데이터에 식별자 부여하기<a href="ch-R-Advanced-Data-Mgmt.html#합쳐지는-데이터에-식별자-부여하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="합쳐지는-데이터에-식별자-부여하기" class="section level4 unnumbered hasAnchor">
+<h4>합쳐지는 데이터에 식별자 부여하기<a href="ch-R-Advanced-Data-Mgmt.html#합쳐지는-데이터에-식별자-부여하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>앞의 class1과 class2 데이터는 1분반과 2분반 학생의 데이터이다. 그런데 이 두 데이터를 행으로 결합한 데이터에서는 각 행이 어떤 데이터에서 온 것인지에 대한 정보가 없기 때문에 학생이 속한 분반을 확인할 수 없다.
 이런 경우 <code>bind_rows()</code>의 <code>.id</code> 인수를 사용하면, 결합되는 데이터의 순서에 따라 일련번호를 부여하는 열을 생성할 수 있다.</p>
 <div class="sourceCode" id="cb1769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1769-1"><a href="ch-R-Advanced-Data-Mgmt.html#cb1769-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">bind_rows</span>(<span class="fu">select</span>(class1, <span class="sc">-</span>Address), </span>

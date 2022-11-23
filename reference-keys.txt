@@ -197,7 +197,6 @@ savegraph
 ch-R-Advanced-Data-Mgmt
 데이터의-단순-결합
 데이터를-행으로-결합하기
-합쳐지는-데이터에-식별자-부여하기
 데이터를-열로-결합하기
 관계형-데이터베이스처럼-데이터-결합하기
 inner-join과-outer-join
