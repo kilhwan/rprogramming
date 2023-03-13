@@ -7,7 +7,7 @@
 <title>B R 관련 여러 주제들 | R 프로그래밍 (개정판)</title>
 <meta name="author" content="Kilhwan Kim">
 <meta name="description" content="이 장에서는 하나의 장으로 독립적으로 다루기에는 잡다한 R 관련 주제를 다룬다.  B.1 R에서 계산 정확도를 향상시키기 현재 R은 IEC 60559 부동소수점 계산을 사용하고 있다. 부동소수점 숫자를 저장하기 위해 64 비트를 사용하고 있고, 이중 53 비트는 유효숫자를 저장하고 11 비트는 지수부 정보를 저장한다. 위와 관련된 정보는 base...">
-<meta name="generator" content="bookdown 0.27 with bs4_book()">
+<meta name="generator" content="bookdown 0.31 with bs4_book()">
 <meta property="og:title" content="B R 관련 여러 주제들 | R 프로그래밍 (개정판)">
 <meta property="og:type" content="book">
 <meta property="og:description" content="이 장에서는 하나의 장으로 독립적으로 다루기에는 잡다한 R 관련 주제를 다룬다.  B.1 R에서 계산 정확도를 향상시키기 현재 R은 IEC 60559 부동소수점 계산을 사용하고 있다. 부동소수점 숫자를 저장하기 위해 64 비트를 사용하고 있고, 이중 53 비트는 유효숫자를 저장하고 11 비트는 지수부 정보를 저장한다. 위와 관련된 정보는 base...">
@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="이 장에서는 하나의 장으로 독립적으로 다루기에는 잡다한 R 관련 주제를 다룬다.  B.1 R에서 계산 정확도를 향상시키기 현재 R은 IEC 60559 부동소수점 계산을 사용하고 있다. 부동소수점 숫자를 저장하기 위해 64 비트를 사용하고 있고, 이중 53 비트는 유효숫자를 저장하고 11 비트는 지수부 정보를 저장한다. 위와 관련된 정보는 base...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-176754989-1"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -105,7 +105,7 @@
 <p>현재 <strong>R</strong>은 IEC 60559 부동소수점 계산을 사용하고 있다.
 부동소수점 숫자를 저장하기 위해 64 비트를 사용하고 있고, 이중 53 비트는 유효숫자를 저장하고 11 비트는 지수부 정보를 저장한다.
 위와 관련된 정보는 <code>base</code> 패키지의 <code>.Machine</code> 변수를 출력해 보면 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2302"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2340"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">.Machine</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grep</a></span><span class="op">(</span><span class="st">"^double[.](digits|exponent)"</span>, <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">.Machine</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
 <pre><code>#&gt; $double.digits
 #&gt; [1] 53
@@ -115,23 +115,23 @@
 <p>컴퓨터는 이진수로 숫자를 저장하기 때문에, 숫자의 유효숫자와 지수가 표현 범위에 있는 숫자라면 이진수로 표현할 수 있는 정수와 분모가 2의 거듭제곱으로 표현된 유리수에 대해서만 정확하게 표현할 수 있다.
 그 외의 숫자는 정수나 2의 거듭제곱을 분모로 가진 유리수로 근사하여 저장하므로 숫자를 저장할 수 있는 정밀도는 제한된다.
 그렇기 때문에 다음처럼 수학적으로 같아야할 숫자가 다른 숫자로 간주된다.</p>
-<div class="sourceCode" id="cb2304"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2342"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span>
 <span><span class="va">a</span><span class="op">^</span><span class="fl">2</span> <span class="op">==</span> <span class="fl">2</span></span></code></pre></div>
 <pre><code>#&gt; [1] FALSE</code></pre>
-<div class="sourceCode" id="cb2306"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2344"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span><span class="op">^</span><span class="fl">2</span> </span></code></pre></div>
 <pre><code>#&gt; [1] 2</code></pre>
-<div class="sourceCode" id="cb2308"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2346"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span><span class="op">^</span><span class="fl">2</span> <span class="op">-</span> <span class="fl">2</span></span></code></pre></div>
 <pre><code>#&gt; [1] 4.440892e-16</code></pre>
 <p><span class="math inline">\(\sqrt{2}\)</span>를 제곱하면 2가 되어야 할 것이다. 그러나 <span class="math inline">\(\sqrt{2}\)</span>는 근사적인 값으로 저장되기 때문에 제곱의 결과가 정확히 2가 되지 않는다.
 위의 예에서 <span class="math inline">\(\sqrt{2}\)</span>의 제곱을 출력하면 2로 표현되는 것은 <strong>R</strong>의 출력에서 유효숫자의 크기가 제한되어 있기 때문이다. 숫자 출력의 유효숫자의 자리수를 늘리면 정확히 2는 아님을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2310"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2348"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="st">"digits"</span><span class="op">)</span>  <span class="co"># 현재의 유효숫자 자리수 출력</span></span></code></pre></div>
 <pre><code>#&gt; $digits
 #&gt; [1] 7</code></pre>
-<div class="sourceCode" id="cb2312"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2350"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">22</span><span class="op">)</span> <span class="co"># 유효숫자 자리수를 22로 조정</span></span>
 <span><span class="va">a</span><span class="op">^</span><span class="fl">2</span></span></code></pre></div>
 <pre><code>#&gt; [1] 2.000000000000000444089</code></pre>
@@ -139,48 +139,48 @@
 그러나 정밀한 계산을 하거나 매우 작은 확률 값을 곱하는 계산을 하는 경우에는 이러한 오차가 문제가 될 수 있다.</p>
 <p><strong>R</strong>에서는 <code>Rmpfr</code> 패키지를 사용하면 부동소수점의 정밀도를 증가시킬 수 있다.
 다음 명령으로 <code>Rmpfr</code> 패키지를 설치해 보자.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;리눅스를 사용한다면 GMP와 MPFR 라이브러리가 먼저 설치되어 있어야 한다. 우분투를 사용한다면 &lt;code&gt;apt install libgmp-dev libmpfr-dev&lt;/code&gt; 명령으로 두 라이브러리를 설치할 수 있다.&lt;/p&gt;"><sup>15</sup></a></p>
-<div class="sourceCode" id="cb2314"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2352"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"Rmpfr"</span><span class="op">)</span></span></code></pre></div>
 <p><code>Rmpfr</code> 패키지 설치가 완료되었으면 이 패키지를 메모리로 적재한다.
 그리고 정밀한 계산이 필요한 변수를 <code><a href="https://rdrr.io/pkg/Rmpfr/man/mpfr.html">mpfr()</a></code> 함수를 이용하여 높은 정밀도의 숫자를 생성할 수 있다.
 <code><a href="https://rdrr.io/pkg/Rmpfr/man/mpfr.html">mpfr()</a></code> 함수의 첫 번째 인수는 높은 정밀도를 필요로 하는 숫자를, 두 번째 인수는 유효숫자의 비트 수를 지정한다.</p>
-<div class="sourceCode" id="cb2315"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2353"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rmpfr.r-forge.r-project.org/">Rmpfr</a></span><span class="op">)</span></span>
 <span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/Rmpfr/man/mpfr.html">mpfr</a></span><span class="op">(</span><span class="fl">2</span>, precBits <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span>
 <span><span class="va">a_hp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">b</span><span class="op">)</span></span>
 <span><span class="va">a_hp</span><span class="op">^</span><span class="fl">2</span> <span class="op">==</span> <span class="fl">2</span></span></code></pre></div>
 <pre><code>#&gt; [1] TRUE</code></pre>
-<div class="sourceCode" id="cb2317"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2355"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a_hp</span><span class="op">^</span><span class="fl">2</span> <span class="op">-</span> <span class="fl">2</span></span></code></pre></div>
 <pre><code>#&gt; 1 'mpfr' number of precision  200   bits 
 #&gt; [1] 0</code></pre>
-<div class="sourceCode" id="cb2319"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2357"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a_hp</span><span class="op">^</span><span class="fl">2</span></span></code></pre></div>
 <pre><code>#&gt; 1 'mpfr' number of precision  200   bits 
 #&gt; [1] 2</code></pre>
 <p>200 비트로 유효숫자를 표현하자 2와 <span class="math inline">\(\sqrt{2}\)</span>의 제곱이 같다고 표현된다.
 다음 예처럼 <code><a href="https://rdrr.io/pkg/Rmpfr/man/mpfr.html">mpfr()</a></code> 함수로 생성된 높은 정밀도의 숫자는 더 정확한 정밀도로 계산이 수행되는 것을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2321"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2359"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">b</span></span></code></pre></div>
 <pre><code>#&gt; 1 'mpfr' number of precision  200   bits 
 #&gt; [1] 2</code></pre>
-<div class="sourceCode" id="cb2323"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2361"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">b</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; 1 'mpfr' number of precision  200   bits 
 #&gt; [1] 0.69314718055994530941723212145817656807550013436025525412067998</code></pre>
-<div class="sourceCode" id="cb2325"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2363"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; [1] 0.6931471805599452862268</code></pre>
-<div class="sourceCode" id="cb2327"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2365"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Trig.html">sin</a></span><span class="op">(</span><span class="va">b</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; 1 'mpfr' number of precision  200   bits 
 #&gt; [1] 0.90929742682568169539601986591174484270225497144789026837897305</code></pre>
-<div class="sourceCode" id="cb2329"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2367"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Trig.html">sin</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; [1] 0.9092974268256817094169</code></pre>
 <p>다음은 1부터 24까지의 계승(factorials)을 일반적인 숫자와 mpfr 숫자로 구한 결과이다 <span class="citation">(<a href="ch-RTips.html#ref-machler2015arbitrarily" role="doc-biblioref">Mächler 2015</a>)</span>
 일반적인 숫자로 계승을 구하면 22까지는 정확한 결과를 주지만, 23과 24의 계승은 정확한 결과가 아니다. 왜냐하면 이 계승은 1의 자리가 0이어야 하기 때문이다. 반면 mpfr 숫자로 구한 계승은 정확한 결과를 반환하는 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb2331"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2369"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>scipen <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">24</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt;  [1]                        1                        2                        6
@@ -191,7 +191,7 @@
 #&gt; [16]           20922789888000          355687428096000         6402373705728000
 #&gt; [19]       121645100408832000      2432902008176640000     51090942171709440000
 #&gt; [22]   1124000727777607680000  25852016738884978212864 620448401733239409999872</code></pre>
-<div class="sourceCode" id="cb2333"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2371"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/Rmpfr/man/mpfr.html">mpfr</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">24</span>, <span class="fl">120</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; 24 'mpfr' numbers of precision  120   bits 
 #&gt;  [1]                     1e+0                     2e+0                     6e+0
@@ -203,7 +203,7 @@
 #&gt; [19]       121645100408832000      2432902008176640000     51090942171709440000
 #&gt; [22]   1124000727777607680000  25852016738884976640000 620448401733239439360000</code></pre>
 <p>마찬가지로 <code>Rmpfr</code> 패키지의 <code><a href="https://rdrr.io/pkg/Rmpfr/man/chooseMpfr.html">chooseMpfr.all()</a></code> 함수를 사용하면 더 정확한 조합의 값을 얻을 수 있다.</p>
-<div class="sourceCode" id="cb2335"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2373"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">60</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span><span class="op">:</span><span class="va">n</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt;  [1]                 60               1770              34220             487635
@@ -221,7 +221,7 @@
 #&gt; [49]       342700125300        75394027566        14783142660         2558620845
 #&gt; [53]          386206920           50063860            5461512             487635
 #&gt; [57]              34220               1770                 60                  1</code></pre>
-<div class="sourceCode" id="cb2337"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2375"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/Rmpfr/man/chooseMpfr.html">chooseMpfr.all</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; 60 'mpfr' numbers of precision  57   bits 
 #&gt;  [1]               6e+1            1.77e+3           3.422e+4         4.87635e+5
@@ -292,7 +292,7 @@ Mächler, Martin. 2015. <span>“Arbitrarily Accurate Computation with r: The Rm
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R 프로그래밍 (개정판)</strong>" was written by Kilhwan Kim. It was last built on 2022-11-30.</p>
+    <p>"<strong>R 프로그래밍 (개정판)</strong>" was written by Kilhwan Kim. It was last built on 2023-03-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -305,7 +305,7 @@ Mächler, Martin. 2015. <span>“Arbitrarily Accurate Computation with r: The Rm
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

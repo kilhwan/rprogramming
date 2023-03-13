@@ -7,7 +7,7 @@
 <title>A R과 Python 연동하기 | R 프로그래밍 (개정판)</title>
 <meta name="author" content="Kilhwan Kim">
 <meta name="description" content="R의 reticlate 패키지를 사용하여 R과 Python을 쉽게 연동시킬 수 있다. reticulate 패키지는 크게 다음 세 가지 기능을 수행한다. R에서 Python을 호출하는 기능: R 스크립트나 R 마크다운 문서에서 R 세션 중간에 파이썬 스크립트나 파이썬 모듈을 호출할 수 있다. R과 Python 객체 간의 상호 변환: R의 데이터프레임과...">
-<meta name="generator" content="bookdown 0.27 with bs4_book()">
+<meta name="generator" content="bookdown 0.31 with bs4_book()">
 <meta property="og:title" content="A R과 Python 연동하기 | R 프로그래밍 (개정판)">
 <meta property="og:type" content="book">
 <meta property="og:description" content="R의 reticlate 패키지를 사용하여 R과 Python을 쉽게 연동시킬 수 있다. reticulate 패키지는 크게 다음 세 가지 기능을 수행한다. R에서 Python을 호출하는 기능: R 스크립트나 R 마크다운 문서에서 R 세션 중간에 파이썬 스크립트나 파이썬 모듈을 호출할 수 있다. R과 Python 객체 간의 상호 변환: R의 데이터프레임과...">
@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="R의 reticlate 패키지를 사용하여 R과 Python을 쉽게 연동시킬 수 있다. reticulate 패키지는 크게 다음 세 가지 기능을 수행한다. R에서 Python을 호출하는 기능: R 스크립트나 R 마크다운 문서에서 R 세션 중간에 파이썬 스크립트나 파이썬 모듈을 호출할 수 있다. R과 Python 객체 간의 상호 변환: R의 데이터프레임과...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-176754989-1"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -115,15 +115,15 @@
 <span class="header-section-number">A.1</span> <code>reticulate</code> 설치 및 사용할 파이썬 버전 설정<a class="anchor" aria-label="anchor" href="#reticulate-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%82%AC%EC%9A%A9%ED%95%A0-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%B2%84%EC%A0%84-%EC%84%A4%EC%A0%95"><i class="fas fa-link"></i></a>
 </h2>
 <p>다음 명령이나 RStudio 패키지 탭을 이용하여 <code>reticulate</code> 패키지를 설치한다.</p>
-<div class="sourceCode" id="cb2233"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2271"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'reticulate'</span><span class="op">)</span></span></code></pre></div>
 <p>설치가 잘 되었는지 <code>reticulate</code> 패키지를 적재해 보자.</p>
-<div class="sourceCode" id="cb2234"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2272"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/reticulate/">reticulate</a></span><span class="op">)</span></span></code></pre></div>
 <p>하나의 시스템에는 여러 버전의 파이썬이 설치되어 있는 경우가 자주 있다.
 그렇다면 <code>reticulate</code>는 시스템 내의 어떤 버전의 파이썬과 연동을 하게 될까?</p>
 <p><code>reticulate</code>는 다음처럼 파이썬에서 사용할 모듈을 <code><a href="https://rstudio.github.io/reticulate/reference/import.html">import()</a></code> 함수로 호출한다.</p>
-<div class="sourceCode" id="cb2235"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2273"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">np</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/import.html">import</a></span><span class="op">(</span><span class="st">"numpy"</span><span class="op">)</span></span></code></pre></div>
 <p><code>reticulate</code>는 맨 처음 <code>import</code> 되는 모듈을 시스템 내에 설치된 파이썬 버전들에서 차례로 검색하고, 해당 모듈이 맨 처음 발견된 파이썬 버전과 연동을 한다. 그리고 이후의 <strong>R</strong>에서의 파이썬 호출은 최초로 연동된 파이썬 버전에서 계속 수행하게 된다.
 만약 해당 모듈이 여러 곳의 파이썬 버전에 존재한다면 어떻게 될까?
@@ -131,17 +131,17 @@
 <ol style="list-style-type: decimal">
 <li>사용자가 만약 시스템에 <code>RETICULATE_PYTHON</code> 환경 변수를 설정해 두었다면, 환경 변수에 설정된 경로에 설치된 파이썬에서 가장 먼저 모듈을 검색한다. <code>.Rprofile</code>에 해당 환경 변수를 설정하려면 다음 명령처럼 설정을 한다. (그러나 이는 경직된 형태로 파이썬 검색 순서를 지정한 것이므로 일반적 상황에서는 권장되지 않는다.)</li>
 </ol>
-<div class="sourceCode" id="cb2236"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2274"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html">Sys.setenv</a></span><span class="op">(</span>RETICULATE_PYTHON <span class="op">=</span> <span class="st">"경로"</span><span class="op">)</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>사용자가 <code><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_python()</a></code>, <code>use_vertualenv()</code>, 또는 <code><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_condaenv()</a></code>를 사용하여 설정한 파이썬 버전을 그 다음으로 검색한다. <code><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_python()</a></code>은 파이썬이 설치된 경로를 지정할 때, <code>use_vertualenv()</code>나 <code><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_condaenv()</a></code>는 설치되어 있는 가상 환경이나 콘다 환경이 사용되도록 지정할 때 사용한다.</li>
 </ol>
-<div class="sourceCode" id="cb2237"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2275"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_python</a></span><span class="op">(</span><span class="st">"경로"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_virtualenv</a></span><span class="op">(</span><span class="st">"~/가상-환경-이름"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_condaenv</a></span><span class="op">(</span><span class="st">"콘다-환경-이름"</span><span class="op">)</span></span></code></pre></div>
 <p><code><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_condaenv()</a></code>에서 콘다 설치 버전이 여러 개인 경우 특정 콘다 설치 경로를 지정하여 콘다 환경을 찾도록 설정할 수 있다.</p>
-<div class="sourceCode" id="cb2238"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2276"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_condaenv</a></span><span class="op">(</span><span class="st">"콘다-환경-이름"</span>, conda <span class="op">=</span> <span class="st">"콘다-설치-경로"</span><span class="op">)</span></span></code></pre></div>
 <p>그런데 <code>use</code> 함수들은 파이썬 버전을 찾을 힌트를 제공하는 것이지 실제 파이썬 버전을 찾는 작업을 수행하지는 않는다.
 그러므로 지정된 경로나 환경이 없어도 해당 명령은 오류가 발생하지 않는다.
@@ -150,31 +150,26 @@
 <li><p>사용자가 사용할 파이썬 버전을 환경 변수나 <code>use</code> 함수로 설정하지 않았으면, <code>reticulate</code>는 그 다음으로 사용자의 파이썬 가상 환경이나 콘다 환경을 검색한다. 가상 환경과 콘다 환경이 발견되면, 가상 환경과 콘다 환경에서 해당 모듈을 검색한다.</p></li>
 <li><p>다음으로 사용자 시스템 경로(<code>PATH</code>) 상의 파이썬 설치 위치를 검색한다. 시스템 경로에서 발견되는 파이썬이 어디에 설치되어 있는지를 확인하려면 다음 명령을 수행해 본다. 사용자의 시스템의 종류와 설치 방법에 따라 결과는 서로 다를 수 있다.</p></li>
 </ol>
-<div class="sourceCode" id="cb2239"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2277"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.which.html">Sys.which</a></span><span class="op">(</span><span class="st">"python"</span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt;            python 
-#&gt; "/usr/bin/python"</code></pre>
+<pre><code>#&gt;                                python 
+#&gt; "/home/sys4ppl/miniconda3/bin/python"</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>마지막으로 사용자들이 주로 파이썬을 설치하는 일반적인 경로를 검색하여 파이썬 버전을 찾아 해당 모듈을 검색한다.</li>
 </ol>
 <p>파이썬 모듈을 <code>import</code> 하면 어떤 버전의 파이썬이 먼저 검색될지를 확인하려면 다음 명령을 사용한다.</p>
-<div class="sourceCode" id="cb2241"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2279"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/py_discover_config.html">py_discover_config</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; python:         /home/sys4ppl/miniconda3/bin/python
 #&gt; libpython:      /home/sys4ppl/miniconda3/lib/libpython3.7m.so
 #&gt; pythonhome:     /home/sys4ppl/miniconda3:/home/sys4ppl/miniconda3
-#&gt; version:        3.7.15 (default, Nov  7 2022, 22:00:21)  [GCC 11.2.0]
+#&gt; version:        3.7.16 (default, Jan 17 2023, 22:20:44)  [GCC 11.2.0]
 #&gt; numpy:          /home/sys4ppl/miniconda3/lib/python3.7/site-packages/numpy
 #&gt; numpy_version:  1.21.5
 #&gt; 
-#&gt; python versions found: 
-#&gt;  /usr/bin/python3
-#&gt;  /home/sys4ppl/miniconda3/bin/python
-#&gt;  /home/sys4ppl/.virtualenvs/r-tf/bin/python
-#&gt;  /home/sys4ppl/miniconda3/envs/ml/bin/python
-#&gt;  /home/sys4ppl/miniconda3/envs/r-tf/bin/python</code></pre>
+#&gt; NOTE: Python version was forced by RETICULATE_PYTHON_FALLBACK</code></pre>
 <p>시스템에 하나의 버전의 파이썬만 설치된 것이 아니라면, 실행의 일관성을 확보하기 위하여 <code>use</code> 함수들을 사용하여 사용할 파이썬 버전을 지정할 것을 권장한다. 다음은 <code>base</code>라는 콘다 환경에서 파이썬 모듈을 먼저 찾도록 하는 명령이다.</p>
-<div class="sourceCode" id="cb2243"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2281"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_condaenv</a></span><span class="op">(</span><span class="st">"base"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="r과-파이썬-연동하는-방법" class="section level2" number="12.2">
@@ -196,12 +191,12 @@
 <p><code><a href="https://rstudio.github.io/reticulate/reference/import.html">import()</a></code> 함수를 사용하면 파이썬 모듈을 호출할 수 있다.
 호출된 모듈은 R 변수에 할당하여야 해당 파이썬 모듈을 사용할 수 있다.
 다음은 Numpy 모듈을 R에서 연동시킨 예이다.</p>
-<div class="sourceCode" id="cb2244"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2282"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/reticulate/">reticulate</a></span><span class="op">)</span></span>
 <span><span class="va">np</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/import.html">import</a></span><span class="op">(</span><span class="st">"numpy"</span><span class="op">)</span></span></code></pre></div>
 <p>연동된 모듈이 제공하는 함수나 객체는 <code>$</code> 연산자를 사용하여 이용할 수 있다.
 다음은 Numpy 모듈의 <code>full()</code> 함수를 이용하여 1로만 이루어진 <span class="math inline">\(3 \times 3\)</span> 배열을 만든 예이다.</p>
-<div class="sourceCode" id="cb2245"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2283"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">np</span><span class="op">$</span><span class="fu">full</span><span class="op">(</span>shape <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3L</span>,<span class="fl">3L</span><span class="op">)</span>, fill_value <span class="op">=</span> <span class="fl">1L</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt;      [,1] [,2] [,3]
 #&gt; [1,]    1    1    1
@@ -219,8 +214,8 @@ Figure A.1: R에서 Python 함수의 호출
 <p>따라서 <code>np$full()</code> 함수를 호출할 때는 R 형식의 인수를 제공해야 하지, Python 형식의 데이터를 입력해서는 안 된다.
 원래 Numpy의 <code>full()</code> 함수는 <code>shape</code> 인수에 정수나 정수의 시퀀스(sequence) 형식의 데이터를 입력하여야 한다.
 다음은 파이썬에서의 원래 명령문과 실행 결과를 보여준다.</p>
-<div class="sourceCode" id="cb2247"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2247-1"><a href="ch-RandPython.html#cb2247-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2247-2"><a href="ch-RandPython.html#cb2247-2" aria-hidden="true" tabindex="-1"></a>np.full(shape <span class="op">=</span> (<span class="dv">3</span>,<span class="dv">3</span>), fill_value <span class="op">=</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2285"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2285-1"><a href="ch-RandPython.html#cb2285-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2285-2"><a href="ch-RandPython.html#cb2285-2" aria-hidden="true" tabindex="-1"></a>np.full(shape <span class="op">=</span> (<span class="dv">3</span>,<span class="dv">3</span>), fill_value <span class="op">=</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>#&gt; array([[1, 1, 1],
 #&gt;        [1, 1, 1],
 #&gt;        [1, 1, 1]])</code></pre>
@@ -296,23 +291,23 @@ Figure A.1: R에서 Python 함수의 호출
 <p>그런데 이러한 자동 형 변환에서 주의해야 할 점이 있다.
 R에서는 숫자 데이터는 정수나 실수나 모두 double 형식으로 자동으로 변환되어 처리하는 경우가 많다.
 예를 들어 다음처럼 3이라는 정수 두 개로 이루어진 벡터는 정수로 처리되는 것이 아니라 부동소수점 형식인 double로 데이터가 처리된다.</p>
-<div class="sourceCode" id="cb2249"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2287"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; [1] "double"</code></pre>
 <p>그런데 파이썬에서는 정수 형식과 실수 형식의 데이터를 엄격하게 구별하여 처리한다.
 따라서 파이썬 함수에서 정수 값이 인수이여야 하는 곳에 무심코 다음 같이 R 데이터를 입력하면 파이썬에서 함수가 실행될 때 데이터 형식이 맞지 않아 오류가 발생한다.</p>
-<div class="sourceCode" id="cb2251"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2289"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 오류: 파이썬 함수의 integer 인수일 때 형변환에 주의</span></span>
 <span><span class="va">np</span><span class="op">$</span><span class="fu">full</span><span class="op">(</span>shape <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">3</span><span class="op">)</span>, fill_value <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: 'float' object cannot be interpreted as an integer</code></pre>
 <p>그렇기 때문에 앞에서 <code>np$full()</code> 함수의 <code>shape</code> 인수를 부여할 때, <code>3L</code>로 정수형 데이터임을 명시적으로 표현하였다.
 그러면 R도 형변환이 필요하기 전까지는 이 값을 double 형식이 아니라 integer 형식으로 저장하고 처리한다.</p>
-<div class="sourceCode" id="cb2253"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2291"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3L</span>, <span class="fl">3L</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">b</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; [1] "integer"</code></pre>
-<div class="sourceCode" id="cb2255"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2293"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">np</span><span class="op">$</span><span class="fu">full</span><span class="op">(</span>shape <span class="op">=</span> <span class="va">b</span>, fill_value <span class="op">=</span> <span class="fl">1L</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt;      [,1] [,2] [,3]
 #&gt; [1,]    1    1    1
@@ -326,31 +321,31 @@ R에서는 숫자 데이터는 정수나 실수나 모두 double 형식으로 �
 <p>자동 형 변환에서 또 하나 주의할 점은 파이썬에서 리스트나 튜플을 인수로 원할 때이다.
 파이썬에 정수 하나로 이루어진 리스트나 튜플을 전달한다고 하자.
 파이썬에서는 정수 자체와, 정수 하나로 이루어진 리스트와 튜플은 서로 다른 형식의 데이터이다.</p>
-<div class="sourceCode" id="cb2257"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2257-1"><a href="ch-RandPython.html#cb2257-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2295"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2295-1"><a href="ch-RandPython.html#cb2295-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>#&gt; &lt;class 'int'&gt;</code></pre>
-<div class="sourceCode" id="cb2259"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2259-1"><a href="ch-RandPython.html#cb2259-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>([<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb2297"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2297-1"><a href="ch-RandPython.html#cb2297-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>([<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>#&gt; &lt;class 'list'&gt;</code></pre>
-<div class="sourceCode" id="cb2261"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2261-1"><a href="ch-RandPython.html#cb2261-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>((<span class="dv">1</span>,))</span></code></pre></div>
+<div class="sourceCode" id="cb2299"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2299-1"><a href="ch-RandPython.html#cb2299-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>((<span class="dv">1</span>,))</span></code></pre></div>
 <pre><code>#&gt; &lt;class 'tuple'&gt;</code></pre>
 <p>그러나 R에서는 스칼라 형식은 없으므로 정수 하나도 모두 벡터로 표현된다.
 그런데 파이썬에서는 스칼라 형식이 매우 자주 사용되므로 R의 요소 하나짜리 벡터는 모두 해당 형식의 스칼라로 자동 변환된다.
 그러므로 반드시 파이썬의 리스트나 튜플 형식으로 데이터를 전달하려면 다음처럼 R의 리스트와 <code>reticulate</code>의 <code><a href="https://rstudio.github.io/reticulate/reference/tuple.html">tuple()</a></code> 함수를 사용한다.
 다음에 사용된 <code><a href="https://rstudio.github.io/reticulate/reference/r-py-conversion.html">r_to_py()</a></code> 함수는 R 객체를 파이썬 객체로 변환하는 함수이다.</p>
-<div class="sourceCode" id="cb2263"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2301"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/r-py-conversion.html">r_to_py</a></span><span class="op">(</span><span class="fl">1L</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; [1] "python.builtin.int"    "python.builtin.object"</code></pre>
-<div class="sourceCode" id="cb2265"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2303"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/r-py-conversion.html">r_to_py</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1L</span><span class="op">)</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; [1] "python.builtin.list"   "python.builtin.object"</code></pre>
-<div class="sourceCode" id="cb2267"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2305"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/r-py-conversion.html">r_to_py</a></span><span class="op">(</span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/tuple.html">tuple</a></span><span class="op">(</span><span class="fl">1L</span><span class="op">)</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; [1] "python.builtin.tuple"  "python.builtin.object"</code></pre>
 <p>R의 이름 붙은 리스트는 파이썬의 딕셔너리로 잘 변환이 된다.
 그러나 R의 리스트는 요소의 이름으로 문자열만 사용할 수 있는 반면, 파이썬의 딕셔너리의 키 값은 더 복잡한 불변하는 객체가 될 수 있다. 따라서 R에서 좀 더 복잡한 파이썬 딕셔너리를 인수로 전달하고자 하면, <code>reticulate</code>의 <code><a href="https://rstudio.github.io/reticulate/reference/dict.html">dict()</a></code> 함수를 사용한다.</p>
-<div class="sourceCode" id="cb2269"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2307"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>year<span class="op">=</span><span class="fl">3</span>, major<span class="op">=</span><span class="st">"me"</span>, name<span class="op">=</span><span class="st">"홍길동"</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; [1] "list"</code></pre>
-<div class="sourceCode" id="cb2271"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2309"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span></span></code></pre></div>
 <pre><code>#&gt; $year
 #&gt; [1] 3
@@ -360,16 +355,16 @@ R에서는 숫자 데이터는 정수나 실수나 모두 double 형식으로 �
 #&gt; 
 #&gt; $name
 #&gt; [1] "홍길동"</code></pre>
-<div class="sourceCode" id="cb2273"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2311"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/r-py-conversion.html">r_to_py</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">b</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; [1] "python.builtin.dict"   "python.builtin.object"</code></pre>
-<div class="sourceCode" id="cb2275"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2313"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">b</span></span></code></pre></div>
 <pre><code>#&gt; {'year': 3.0, 'major': 'me', 'name': '홍길동'}</code></pre>
-<div class="sourceCode" id="cb2277"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2315"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/dict.html">dict</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"홍길동"</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; [1] "python.builtin.dict"   "python.builtin.object"</code></pre>
-<div class="sourceCode" id="cb2279"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2317"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span></span></code></pre></div>
 <pre><code>#&gt; {'name': '홍길동'}</code></pre>
 <p>아울러 R은 벡터와 리스트 등의 인덱싱이 1부터 시작하지만, 파이썬의 리스트, 튜플 등의 시퀀스 객체는 0부터 인덱싱이 시작하니 이러한 차이에 주의하여야 한다.</p>
@@ -383,22 +378,22 @@ R에서는 숫자 데이터는 정수나 실수나 모두 double 형식으로 �
 만약 파이썬 객체를 R 객체로 자동 변환하지 않고, 파이썬 객체의 R 참조자를 반환하게 하려면 <code><a href="https://rstudio.github.io/reticulate/reference/import.html">import()</a></code> 함수에 <code>convert=FALSE</code> 인수를 전달한다.
 그러면 파이썬의 결과는 모두 R 참조자로 전달되므로, R에서 전달된 참조자로 다시 파이썬 객체의 메쏘드 등을 실행할 수 있다.
 마지막에 R로서 결과를 확인하려면 <code><a href="https://rstudio.github.io/reticulate/reference/r-py-conversion.html">py_to_r()</a></code> 함수를 사용하여 R 참조자가 참조하는 파이썬 객체를 R 객체로 변환하여야 한다.</p>
-<div class="sourceCode" id="cb2281"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2319"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">np</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/import.html">import</a></span><span class="op">(</span><span class="st">"numpy"</span>, convert<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">a</span> <span class="op">&lt;-</span> <span class="va">np</span><span class="op">$</span><span class="fu">array</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
 <span><span class="va">a</span> <span class="co"># 파이썬 객체의 R 참조자</span></span></code></pre></div>
 <pre><code>#&gt; array([1, 2, 3, 4])</code></pre>
-<div class="sourceCode" id="cb2283"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2321"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; [1] "numpy.ndarray"         "python.builtin.object"</code></pre>
-<div class="sourceCode" id="cb2285"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2323"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a_max</span> <span class="op">&lt;-</span> <span class="va">a</span><span class="op">$</span><span class="fu">max</span><span class="op">(</span><span class="op">)</span> <span class="co"># Numpy 배열의 max 메쏘드 호출</span></span>
 <span><span class="va">a_max</span> <span class="co"># 파이썬 객체의 R 참조자</span></span></code></pre></div>
 <pre><code>#&gt; 4</code></pre>
-<div class="sourceCode" id="cb2287"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2325"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a_max</span> <span class="op">+</span> <span class="fl">1</span>  <span class="co"># R 객체가 아니므로 R 연산은 오류 발생</span></span></code></pre></div>
 <pre><code>#&gt; Error in a_max + 1: 이항연산자에 수치가 아닌 인수입니다</code></pre>
-<div class="sourceCode" id="cb2289"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2327"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/r-py-conversion.html">py_to_r</a></span><span class="op">(</span><span class="va">a_max</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1</span></span></code></pre></div>
 <pre><code>#&gt; [1] 5</code></pre>
 </div>
@@ -407,7 +402,7 @@ R에서는 숫자 데이터는 정수나 실수나 모두 double 형식으로 �
 <span class="header-section-number">A.3.3</span> 파이썬 모듈의 도움말 확인하기<a class="anchor" aria-label="anchor" href="#%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AA%A8%EB%93%88%EC%9D%98-%EB%8F%84%EC%9B%80%EB%A7%90-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://rstudio.github.io/reticulate/reference/py_help.html">py_help()</a></code> 함수를 사용하면 파이썬 객체에 대한 도움말을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2291"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2329"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/py_help.html">py_help</a></span><span class="op">(</span><span class="va">np</span><span class="op">$</span><span class="va">full</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="pickle-사용하기" class="section level3" number="12.3.4">
@@ -417,11 +412,11 @@ R에서는 숫자 데이터는 정수나 실수나 모두 double 형식으로 �
 <p>파이썬에서는 객체들을 바이너리 형식으로 저장할 때 <code>pickle</code> 모듈을 자주 사용한다.
 파이썬 모듈의 결과를 파이썬 객체 형식으로 파일에 저장하거나, 이미 파이썬에서 작업하여 바이너리 형식으로 저장된 데이터를 읽어오려면 <code><a href="https://rstudio.github.io/reticulate/reference/py_save_object.html">py_save_object()</a></code>와 <code><a href="https://rstudio.github.io/reticulate/reference/py_save_object.html">py_load_object()</a></code> 함수를 사용한다.
 읽어들인 파이썬 객체가 자동으로 R 객체로 형변환된 것을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2292"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2330"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/np_array.html">np_array</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, dtype<span class="op">=</span><span class="st">"int64"</span><span class="op">)</span> <span class="co"># 파이썬 Numpy 배열의 R 참조자</span></span>
 <span><span class="va">a</span></span></code></pre></div>
 <pre><code>#&gt; array([1, 2, 3, 4])</code></pre>
-<div class="sourceCode" id="cb2294"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2332"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/py_save_object.html">py_save_object</a></span><span class="op">(</span><span class="va">a</span>, filename <span class="op">=</span> <span class="st">"a.p"</span><span class="op">)</span> <span class="co"># 파이썬 객체 저장</span></span>
 <span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/py_save_object.html">py_load_object</a></span><span class="op">(</span>filename <span class="op">=</span> <span class="st">"a.p"</span><span class="op">)</span> <span class="co"># 저장된 파이썬 객체 읽어오기</span></span>
 <span><span class="va">b</span></span></code></pre></div>
@@ -445,7 +440,7 @@ R 마크다운 문서에는 R 명령 모듬뿐 아니라 Python 명령 모듬도
 </ul>
 <p>아울러 파이썬 세션에 R 객체가 전달될 때, R 세션에 파이썬 객체가 전달될 때 상호 자동 변환이 이루어진다.</p>
 <p>다음은 R의 <code>ggplot</code> 패키지의 <code>mpg</code> 데이터를 파이썬 모듬에 전달하여 그래프를 그리고 통계 요약한 후, 그 결과를 다시 R로 보내서 출력한 예이다.</p>
-<div class="sourceCode" id="cb2296"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2334"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># R 모듬 1</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="va">mpg</span></span></code></pre></div>
@@ -462,15 +457,14 @@ R 마크다운 문서에는 R 명령 모듬뿐 아니라 Python 명령 모듬도
 #&gt;  8 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…
 #&gt;  9 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…
 #&gt; 10 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…
-#&gt; # … with 224 more rows
-#&gt; # ℹ Use `print(n = ...)` to see more rows</code></pre>
-<div class="sourceCode" id="cb2298"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2298-1"><a href="ch-RandPython.html#cb2298-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 파이썬 모듬 1</span></span>
-<span id="cb2298-2"><a href="ch-RandPython.html#cb2298-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2298-3"><a href="ch-RandPython.html#cb2298-3" aria-hidden="true" tabindex="-1"></a>r.mpg.plot(x <span class="op">=</span> <span class="st">"displ"</span>, y <span class="op">=</span> <span class="st">"hwy"</span>, kind <span class="op">=</span> <span class="st">"scatter"</span>)  <span class="co"># 배기량 vs. 고속도로연비 산점도</span></span>
-<span id="cb2298-4"><a href="ch-RandPython.html#cb2298-4" aria-hidden="true" tabindex="-1"></a>plt.show()  </span></code></pre></div>
+#&gt; # … with 224 more rows</code></pre>
+<div class="sourceCode" id="cb2336"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2336-1"><a href="ch-RandPython.html#cb2336-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 파이썬 모듬 1</span></span>
+<span id="cb2336-2"><a href="ch-RandPython.html#cb2336-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2336-3"><a href="ch-RandPython.html#cb2336-3" aria-hidden="true" tabindex="-1"></a>r.mpg.plot(x <span class="op">=</span> <span class="st">"displ"</span>, y <span class="op">=</span> <span class="st">"hwy"</span>, kind <span class="op">=</span> <span class="st">"scatter"</span>)  <span class="co"># 배기량 vs. 고속도로연비 산점도</span></span>
+<span id="cb2336-4"><a href="ch-RandPython.html#cb2336-4" aria-hidden="true" tabindex="-1"></a>plt.show()  </span></code></pre></div>
 <div class="inline-figure"><img src="RandPython_files/figure-html/unnamed-chunk-24-1.png" width="60%" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb2299"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2299-1"><a href="ch-RandPython.html#cb2299-1" aria-hidden="true" tabindex="-1"></a>mean_cty_per_class <span class="op">=</span> r.mpg.groupby([<span class="st">'class'</span>])[<span class="st">'cty'</span>].mean() <span class="co"># 종류별 도심연비 평균 계산</span></span>
-<span id="cb2299-2"><a href="ch-RandPython.html#cb2299-2" aria-hidden="true" tabindex="-1"></a>mean_cty_per_class</span></code></pre></div>
+<div class="sourceCode" id="cb2337"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2337-1"><a href="ch-RandPython.html#cb2337-1" aria-hidden="true" tabindex="-1"></a>mean_cty_per_class <span class="op">=</span> r.mpg.groupby([<span class="st">'class'</span>])[<span class="st">'cty'</span>].mean() <span class="co"># 종류별 도심연비 평균 계산</span></span>
+<span id="cb2337-2"><a href="ch-RandPython.html#cb2337-2" aria-hidden="true" tabindex="-1"></a>mean_cty_per_class</span></code></pre></div>
 <pre><code>#&gt; class
 #&gt; 2seater       15.400000
 #&gt; compact       20.127660
@@ -480,7 +474,7 @@ R 마크다운 문서에는 R 명령 모듬뿐 아니라 Python 명령 모듬도
 #&gt; subcompact    20.371429
 #&gt; suv           13.500000
 #&gt; Name: cty, dtype: float64</code></pre>
-<div class="sourceCode" id="cb2301"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2339"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># R 모듬 2</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="va">py</span><span class="op">$</span><span class="va">mean_cty_per_class</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="RandPython_files/figure-html/unnamed-chunk-25-3.png" width="60%" style="display: block; margin: auto;"></div>
@@ -521,7 +515,7 @@ R 마크다운 문서에는 R 명령 모듬뿐 아니라 Python 명령 모듬도
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R 프로그래밍 (개정판)</strong>" was written by Kilhwan Kim. It was last built on 2022-11-30.</p>
+    <p>"<strong>R 프로그래밍 (개정판)</strong>" was written by Kilhwan Kim. It was last built on 2023-03-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -534,7 +528,7 @@ R 마크다운 문서에는 R 명령 모듬뿐 아니라 Python 명령 모듬도
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -7,7 +7,7 @@
 <title>Chapter 1 R 설치 및 시작 | R 프로그래밍 (개정판)</title>
 <meta name="author" content="Kilhwan Kim">
 <meta name="description" content="1.1 R 소개 R은 통계 계산과 그래픽을 위한 프로그래밍 언어이자 소프트웨어 환경이다. R은 1960년대와 1970년대 Bell 연구소에서 개발된 S라는 데이터 처리 언어에 기반을 두고 있다. 1990년대 중반 뉴질랜드 오클랜드 대학의 로스 이하카와 로버트 젠틀맨에 의해 시작되어 현재는 R의 핵심 기능은 R 코어 팀이, 다양한 추가 기능은 자발적...">
-<meta name="generator" content="bookdown 0.27 with bs4_book()">
+<meta name="generator" content="bookdown 0.31 with bs4_book()">
 <meta property="og:title" content="Chapter 1 R 설치 및 시작 | R 프로그래밍 (개정판)">
 <meta property="og:type" content="book">
 <meta property="og:description" content="1.1 R 소개 R은 통계 계산과 그래픽을 위한 프로그래밍 언어이자 소프트웨어 환경이다. R은 1960년대와 1970년대 Bell 연구소에서 개발된 S라는 데이터 처리 언어에 기반을 두고 있다. 1990년대 중반 뉴질랜드 오클랜드 대학의 로스 이하카와 로버트 젠틀맨에 의해 시작되어 현재는 R의 핵심 기능은 R 코어 팀이, 다양한 추가 기능은 자발적...">
@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="1.1 R 소개 R은 통계 계산과 그래픽을 위한 프로그래밍 언어이자 소프트웨어 환경이다. R은 1960년대와 1970년대 Bell 연구소에서 개발된 S라는 데이터 처리 언어에 기반을 두고 있다. 1990년대 중반 뉴질랜드 오클랜드 대학의 로스 이하카와 로버트 젠틀맨에 의해 시작되어 현재는 R의 핵심 기능은 R 코어 팀이, 다양한 추가 기능은 자발적...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-176754989-1"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -152,6 +152,9 @@
 <h3>
 <span class="header-section-number">1.2.3</span> <strong>R</strong> 배포판 내려받기<a class="anchor" aria-label="anchor" href="#r-%EB%B0%B0%ED%8F%AC%ED%8C%90-%EB%82%B4%EB%A0%A4%EB%B0%9B%EA%B8%B0"><i class="fas fa-link"></i></a>
 </h3>
+<blockquote>
+<p>앞 절에서 <code>winget</code>을 사용하여 <strong>R</strong>을 설치하였으면 이 절의 내용은 수행하지 않고 <a href="ch-intro.html#sec-RStudio">1.3</a> 절로 가서 <strong>RStudio</strong>를 설치하도록 한다. 이 절은 <code>winget</code>으로 <strong>R</strong>을 설치하지 못하였거나, 윈도우즈 이외의 운영체제를 사용하는 독자를 위해 <strong>R</strong>을 직접 내려받아 설치하는 방법을 설명한다.</p>
+</blockquote>
 <p><strong>R</strong>을 설치하기 위해서는 <strong>R</strong> 배포판을 먼저 구해야 한다. <strong>R</strong>은 공개 소프트웨어이므로 무료로 <a href="http://www.r-project.org/"><strong>R</strong> 공식 웹 사이트</a>에서 내려받을 수 있다.</p>
 <p><strong>R</strong> 공식 사이트의 첫 화면의 내용 중 <code>download R</code> 을 클릭하면 <strong>R</strong> 배포판을 내려받기할 CRAN 미러를 선택하는 화면으로 이동하게 된다.</p>
 <div class="inline-figure"><img src="img/R_install-homepage.png" width="80%" style="display: block; margin: auto;"></div>
@@ -209,6 +212,9 @@ cmd 창이나 PowerShell 창에서 다음 명령을 실행하면 RStudo를 내�
 <h3>
 <span class="header-section-number">1.3.2</span> RStudio 설치<a class="anchor" aria-label="anchor" href="#rstudio-%EC%84%A4%EC%B9%98"><i class="fas fa-link"></i></a>
 </h3>
+<blockquote>
+<p>앞 절에서 <code>winget</code>을 사용하여 <strong>RStudio</strong>를 설치하였으면 이 절의 내용은 수행하지 않아도 된다. 이 절은 <code>winget</code>으로 <strong>RStudio</strong>를 설치하지 못하였거나, 윈도우즈 이외의 운영체제를 사용하는 독자를 위해 <strong>R</strong>을 직접 내려받아 설치하는 방법을 설명한다.</p>
+</blockquote>
 <p><a href="http://www.rstudio.com/products/rstudio/download/">RStudio 다운로드 웹페이지</a>에 접속하면 RStudio를 내려 받을 수 있다. RStudio는 데스크탑용과 서버용이 있다. 데스크탑 버전은 개별 사용자를 위한 버전이고, 서버용 버전은 여러 사람이 동시에 데이터를 분석하거나 원격에서 데이터를 분석하기에 좋은 환경이다. 서버용 버전과 관련된 정보는 RStudio 홈페이지를 참조하기 바란다.</p>
 <p>RStudio Desktop은 무료용 Open Source License (Free) 버전과 상업용 Commercial License 버전이 있다. 데스크탑용 RStudio는 무료용이나 상업용이나 기능상 차이는 없다. 상업용에는 별도의 기술 지원이 추가된다. Open Source License (Free)에서 [DOWNLOAD]을 클릭하여 다운로드 페이지로 이동한다.</p>
 <div class="inline-figure"><img src="img/RStudio-download.png" width="60%" style="display: block; margin: auto;"></div>
@@ -448,7 +454,7 @@ cmd 창이나 PowerShell 창에서 다음 명령을 실행하면 RStudo를 내�
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R 프로그래밍 (개정판)</strong>" was written by Kilhwan Kim. It was last built on 2022-11-30.</p>
+    <p>"<strong>R 프로그래밍 (개정판)</strong>" was written by Kilhwan Kim. It was last built on 2023-03-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -461,7 +467,7 @@ cmd 창이나 PowerShell 창에서 다음 명령을 실행하면 RStudo를 내�
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

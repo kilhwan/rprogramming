@@ -7,7 +7,7 @@
 <title>Chapter 9 R 고급 데이터 변환 | R 프로그래밍 (개정판)</title>
 <meta name="author" content="Kilhwan Kim">
 <meta name="description" content="7 장과 8 장에서 정돈 형식의 데이터를 변환하고 시각화하는 방법을 배웠다. 그러나 실제 데이터 분석에서는 분석하고자 하는 데이터가 하나의 데이터 프레임에 정돈 형식으로 제공되는 경우가 많지 않다. 대부분의 경우 다음 두 가지 작업 중 하나 또는 두 가지 모두가 필요한 경우가 많다. [Merge] 다양한 원천에서 획득된 데이터를 하나의 정돈 형식의...">
-<meta name="generator" content="bookdown 0.27 with bs4_book()">
+<meta name="generator" content="bookdown 0.31 with bs4_book()">
 <meta property="og:title" content="Chapter 9 R 고급 데이터 변환 | R 프로그래밍 (개정판)">
 <meta property="og:type" content="book">
 <meta property="og:description" content="7 장과 8 장에서 정돈 형식의 데이터를 변환하고 시각화하는 방법을 배웠다. 그러나 실제 데이터 분석에서는 분석하고자 하는 데이터가 하나의 데이터 프레임에 정돈 형식으로 제공되는 경우가 많지 않다. 대부분의 경우 다음 두 가지 작업 중 하나 또는 두 가지 모두가 필요한 경우가 많다. [Merge] 다양한 원천에서 획득된 데이터를 하나의 정돈 형식의...">
@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="7 장과 8 장에서 정돈 형식의 데이터를 변환하고 시각화하는 방법을 배웠다. 그러나 실제 데이터 분석에서는 분석하고자 하는 데이터가 하나의 데이터 프레임에 정돈 형식으로 제공되는 경우가 많지 않다. 대부분의 경우 다음 두 가지 작업 중 하나 또는 두 가지 모두가 필요한 경우가 많다. [Merge] 다양한 원천에서 획득된 데이터를 하나의 정돈 형식의...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-176754989-1"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -104,7 +104,7 @@
 </ul>
 <p>본 장에서는 이러한 데이터 전처리에 필요한 다양한 기법을 논의한다.
 데이터의 결합을 위해서는 <code>dplyr</code> 패키지를 사용할 것이며, 비정돈 형식의 데이터를 정돈 데이터 형식으로 변형하기 위해서는 <code>tidyr</code> 패키지를 사용할 것이다. 이 두 패키지는 모두 <code>tidyverse</code> 패키지에 속해 있으므로, 이 두 패키지를 사용하기 위해서 <code>tidyverse</code> 패키지를 적재한다.</p>
-<div class="sourceCode" id="cb1754"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1792"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
 <div id="데이터의-단순-결합" class="section level2" number="9.1">
 <h2>
@@ -133,7 +133,7 @@
 <a href="data:application/octet-stream;base64,H4sIAAAAAAAAA61Uz2sTQRSe7I+kCf4oeiqIh95bsF5KvTQ/SKg1NZQUWxHKsjsNKUlWdhe8RqngQfHYVlopgqDgQYpKevAfSrZnD2rjm903yexkY6Fa+Dpv3rzZmfd9X2a1sH47s54hhKhEA6g6hERfqxZn5gnRFJgkYCENY9JsGK57Cyqvw2wCcJmVAq4CrgGmANOAXcAkrrGd6e5J2z8+8l/siYm9p6eHn3jCP/wSrWCJSMXp/qtup9N7vT/4eHitRJkHxbEZrWw0qHDhRNBvCNaiJl046e8c+G86fNY9/t7tfB6sffvYe/aBz3ov2/7RznBfx3/3XDhpBbAGqAAeARaEtTuAB4AiYAOQkzvLjgS5mCCqkt4ymtTFL01gUlkqcCZWYJkLWqItizp8ZYMaPE5lLcuhrsun5brlUafJjyjWW0aDb6tSoynfIXAK3oEnM5bhGbNbDjs/Wp527Cez/NqMHKUN//r9/k8YzmJdOIcuTOEOJuAlAMvdAMwI+WUEo3pVyN9H2u9hPIn50H5v30t+hETUsV8PpApI8IrwWyhRfiQoDAOp9q9mHt5dQTAj3wwZUvr4rdSI6CroF6udYIZQR6wHY0RcERyg8gPGKqr1JQF/xQiYMTwPfGe0TIoiqrgrjSLy54StTaGg0yjqrlDLCUgIsTzy2hPAQ8AmwIrBpkSiOkKing9MjS7MBk1cmJgfMcSoj7c9ZESRbTH6AORFC3FbVLBL9uIsSx0pMUKnKo69TU3vvwqsmdmaKK1Ip343+JnHTJIlmzpsX6Q+mbMbns3NqFfrtcF7hRNCrrD6xSwJ/hYXcCy1wyBe1sxW3XG94NHhjxCoG0moRo1emJffMbykzKWWaTfHUcMJGE+URKVIRixPA2pCKhbnkZo58o/UJOvYyLjez2eNsUPO/gAVeyz4fggAAA==" download="advancedDataMgmt.RData">Download advancedDataMgmt.RData</a>
 <p>내려받은 파일을 우클릭하여 RStudio로 열거나 내려받은 파일이 있는 폴더를 작업디렉토리로 설정한 후 다음 명령을 수행하면
 class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 어떤 강의의 두 분반의 중간 및 기말 고사 정보이다.</p>
-<div class="sourceCode" id="cb1755"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1793"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"advancedDataMgmt.RData"</span><span class="op">)</span></span>
 <span><span class="va">class1</span></span></code></pre></div>
 <pre><code>#&gt;    ID   Name Gender Year Address Midterm Final Team
@@ -142,7 +142,7 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 #&gt; 3  25 이철수      M    3    충남      80    70    B
 #&gt; 4  34 이영희      F    2    대전      92    89    B
 #&gt; 5 151 홍길동   Male    4    세종      58    66    B</code></pre>
-<div class="sourceCode" id="cb1757"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1795"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">class2</span></span></code></pre></div>
 <pre><code>#&gt;   ID Mid Final   Name Team Gen Year
 #&gt; 1 12  75    79 장철수    C   M    2
@@ -156,7 +156,7 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 <code>rbind()</code>는 열의 개수가 다른 데이터 프레임을 행으로 결합하지 못한다.<a class="anchor" aria-label="anchor" href="#rbind%EB%8A%94-%EC%97%B4%EC%9D%98-%EA%B0%9C%EC%88%98%EA%B0%80-%EB%8B%A4%EB%A5%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84%EC%9D%84-%ED%96%89%EC%9C%BC%EB%A1%9C-%EA%B2%B0%ED%95%A9%ED%95%98%EC%A7%80-%EB%AA%BB%ED%95%9C%EB%8B%A4."><i class="fas fa-link"></i></a>
 </h4>
 <p>두 분반 학생의 점수를 통합하여 성적 처리를 하기 위해 두 분반의 데이터를 결합하려고 한다고 하자. 이를 어떻게 수행하여야 할까? <code><a href="https://rdrr.io/r/base/cbind.html">rbind()</a></code>로 먼저 두 데이터 프레임을 통합하려고 시도해 보자.</p>
-<div class="sourceCode" id="cb1759"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1797"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">class1</span>, <span class="va">class2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Error in rbind(deparse.level, ...): numbers of columns of arguments do not match</code></pre>
 <p>열의 수가 다르기 때문에 결합이 되지 않음을 알 수 있다. 따라서 <code><a href="https://rdrr.io/r/base/cbind.html">rbind()</a></code>로 두 데이터를 결합하려면 class1에만 있는 Address 열을 어떻게 처리할지를 결정해야 한다. 일반적으로 다음 둘 중 하나의 방법을 택하여 문제를 해결한다. 첫번째 방법은 class1의 Address 열을 제외하고 결합하는 것이고, 두번째 방법은 class2에 Address 열을 추가하고 결측치(NA)로 값을 준 후 결합하는 것이다.</p>
@@ -166,7 +166,7 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 <code>bind_rows()</code>는 열의 개수가 다른 데이터 프레임임도 행으로 결합을 한다.<a class="anchor" aria-label="anchor" href="#bind_rows%EB%8A%94-%EC%97%B4%EC%9D%98-%EA%B0%9C%EC%88%98%EA%B0%80-%EB%8B%A4%EB%A5%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84%EC%9E%84%EB%8F%84-%ED%96%89%EC%9C%BC%EB%A1%9C-%EA%B2%B0%ED%95%A9%EC%9D%84-%ED%95%9C%EB%8B%A4."><i class="fas fa-link"></i></a>
 </h4>
 <p>두 분반 학생의 데이터를 dplyr 패키지의 <code><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows()</a></code> 함수를 사용하여 연결해 보자.</p>
-<div class="sourceCode" id="cb1761"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1799"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span><span class="va">class1</span>, <span class="va">class2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt;    ID   Name Gender Year Address Midterm Final Team Mid  Gen
 #&gt; 1  15 김철수      M    1    서울      78    59    A  NA &lt;NA&gt;
@@ -185,11 +185,11 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 <code>rbind()</code>는 두 데이터의 열의 이름이 다른 경우 행으로 결합하지 못한다.<a class="anchor" aria-label="anchor" href="#rbind%EB%8A%94-%EB%91%90-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EC%97%B4%EC%9D%98-%EC%9D%B4%EB%A6%84%EC%9D%B4-%EB%8B%A4%EB%A5%B8-%EA%B2%BD%EC%9A%B0-%ED%96%89%EC%9C%BC%EB%A1%9C-%EA%B2%B0%ED%95%A9%ED%95%98%EC%A7%80-%EB%AA%BB%ED%95%9C%EB%8B%A4."><i class="fas fa-link"></i></a>
 </h4>
 <p><code>class1</code> 데이터의 Address 열을 제외하고 두 데이터를 다시 <code><a href="https://rdrr.io/r/base/cbind.html">rbind()</a></code>로 결합해 보자.</p>
-<div class="sourceCode" id="cb1763"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1801"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">class1</span>, <span class="op">-</span><span class="va">Address</span><span class="op">)</span>, <span class="va">class2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Error in match.names(clabs, names(xi)): 이전에 사용된 이름들과 일치하지 않습니다.</code></pre>
 <p><code><a href="https://rdrr.io/r/base/cbind.html">rbind()</a></code>는 열의 개수가 동일하더라도 두 데이터 프레임의 열의 이름이 서로 다르면 행으로 결합하지 못함을 볼 수 있다. 지금 중간고사 점수 열과 성별 열의 이름이 서로 다르기 때문에 연결이 안되는 것이므로 다음처럼 열의 이름을 변경한 후 두 데이터 프레임을 행으로 연결시킨다.</p>
-<div class="sourceCode" id="cb1765"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1803"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">class1</span>, <span class="op">-</span><span class="va">Address</span><span class="op">)</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span><span class="va">class2</span>, Midterm <span class="op">=</span> <span class="va">Mid</span>, Gender <span class="op">=</span> <span class="va">Gen</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt;    ID   Name Gender Year Midterm Final Team
 #&gt; 1  15 김철수      M    1      78    59    A
@@ -208,7 +208,7 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 </h4>
 <p>이제 두 데이터 프레임의 열의 형태가 같아졌으므로 <code><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows()</a></code>로 두 데이터를 원하는 방식으로 합칠 수 있다.
 두 데이터 프레임의 열의 순서가 다른 경우 <code><a href="https://rdrr.io/r/base/cbind.html">rbind()</a></code>와 <code><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows()</a></code>는 첫번째 데이터 프레임의 열 이름을 기준으로 열의 순서를 자동으로 맞추어 준다.</p>
-<div class="sourceCode" id="cb1767"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1805"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">class12</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">class1</span>, <span class="op">-</span><span class="va">Address</span><span class="op">)</span>, </span>
 <span>             <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span><span class="va">class2</span>, Midterm <span class="op">=</span> <span class="va">Mid</span>, Gender <span class="op">=</span> <span class="va">Gen</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">class12</span></span></code></pre></div>
@@ -228,7 +228,7 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 </h4>
 <p>앞의 class1과 class2 데이터는 1분반과 2분반 학생의 데이터이다. 그런데 이 두 데이터를 행으로 결합한 데이터에서는 각 행이 어떤 데이터에서 온 것인지에 대한 정보가 없기 때문에 학생이 속한 분반을 확인할 수 없다.
 이런 경우 <code><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows()</a></code>의 <code>.id</code> 인수를 사용하면, 결합되는 데이터의 순서에 따라 일련번호를 부여하는 열을 생성할 수 있다.</p>
-<div class="sourceCode" id="cb1769"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1807"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">class1</span>, <span class="op">-</span><span class="va">Address</span><span class="op">)</span>, </span>
 <span>         <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span><span class="va">class2</span>, Midterm <span class="op">=</span> <span class="va">Mid</span>, Gender <span class="op">=</span> <span class="va">Gen</span><span class="op">)</span>,</span>
 <span>         .id <span class="op">=</span> <span class="st">"Class"</span><span class="op">)</span>  <span class="co"># class 열로 데이터 출처 식별</span></span></code></pre></div>
@@ -254,7 +254,7 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 </h4>
 <p>데이터를 열로 결합하는 경우 실제 데이터가 동일한 행 순서로 정렬되어 있지 않은 경우가 종종 있다.
 예를 들어 앞의 예에서 성적 처리를 위해서는 학생의 중간, 기말 고사 점수와 함께 출석 점수를 고려해야 한다고 하자. 그리고 출석점수는 attendance 데이터 프레임에 다음과 같이 class1과 class2의 모든 학생의 학번(ID) 순으로 정렬되어 분반 정보(Class)와 출석 점수(Attend)가 저장되어 있다고 하자.</p>
-<div class="sourceCode" id="cb1771"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1809"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">attendance</span></span></code></pre></div>
 <pre><code>#&gt;    ID Class Attend
 #&gt; 1  12     2    185
@@ -274,7 +274,7 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 <p>이를 해결하는 가장 간단한 방법은 두 데이터 프레임을 동일한 기준으로 정렬한 후 <code><a href="https://rdrr.io/r/base/cbind.html">cbind()</a></code>나 <code><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_cols()</a></code>를 수행하는 것이다.
 먼저 class12를 ID 순으로 정렬한 후 열로 결합해 보자.
 그런데 ID 열은 두 데이터 프레임에 모두 있으므로 하나는 불필요하다. 따라서 attendance 데이터 프레임의 ID 열을 제거한 후 결합한다.</p>
-<div class="sourceCode" id="cb1773"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1811"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">class12.a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_cols</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">class12</span>, <span class="va">ID</span><span class="op">)</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">attendance</span>, <span class="op">-</span><span class="va">ID</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">class12.a</span></span></code></pre></div>
 <pre><code>#&gt;    ID   Name Gender Year Midterm Final Team Class Attend
@@ -288,7 +288,7 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 #&gt; 8  45 최영희      F   30      82    79    D     2    100
 #&gt; 9 151 홍길동   Male    4      58    66    B     1     95</code></pre>
 <p>다른 방법으로 attendance 데이터 프레임을 Class와 ID 열로 정렬한 후 class12 데이터 프레임과 결합할 수도 있다. attendence 데이터를 분반과 학번으로 정렬하여 class112와 순서를 맞춘 후 데이터를 열로 결합해 보자.</p>
-<div class="sourceCode" id="cb1775"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1813"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">class12.b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_cols</a></span><span class="op">(</span><span class="va">class12</span>, </span>
 <span>                <span class="va">attendance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">Class</span>, <span class="va">ID</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">ID</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">class12.b</span></span></code></pre></div>
@@ -322,7 +322,7 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 <code>inner_join()</code><a class="anchor" aria-label="anchor" href="#inner_join"><i class="fas fa-link"></i></a>
 </h4>
 <p><code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code> 함수는 결합할 두 데이터 프레임을 인수로 먼저 기술한 다음 <code>by</code> 인수에 어떤 열을 기준으로 결합할 것인지를 열 이름으로 기술한다. <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code> 함수는 두 데이터 프레임에서 <code>by</code> 인수로 주어진 열의 값이 동일한 행을 서로 연결하여 새로운 데이터 프레임을 만든다. 또한 새로 만들어진 데이터 프레임은 <code>by</code> 열을 기준으로 정렬이 이루어진다.</p>
-<div class="sourceCode" id="cb1777"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1815"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">class12</span>, <span class="va">attendance</span>, by<span class="op">=</span><span class="st">"ID"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt;    ID   Name Gender Year Midterm Final Team Class Attend
 #&gt; 1  15 김철수      M    1      78    59    A     1     90
@@ -345,7 +345,7 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 </h4>
 <p>앞의 예처럼 데이터가 결합되는 방식을 1 대 1 inner join이라고 부른다. 두 데이터 프레임에 ID가 동일한 학생은 오직 한 명만 존재하고, 두 데이터 프레임의 학생의 ID가 일 대 일로 대응된다. 따라서 두 데이터 프레임의 행들이 일 대 일로 결합되어 새로운 데이터 프레임이 생성된다.</p>
 <p><code>by</code> 인수가 주어지지 않으면 <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code> 함수는 두 데이터 프레임에서 이름이 같은 열을 찾고 그 열을 기준으로 결합을 한다. 따라서 위의 경우 <code>by</code> 인수를 설정하지 않으면, 두 데이터 프레임에 공통으로 있는 ID 열을 기준으로 데이터가 결합된다.</p>
-<div class="sourceCode" id="cb1779"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1817"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">class12</span>, <span class="va">attendance</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Joining, by = "ID"</code></pre>
 <pre><code>#&gt;    ID   Name Gender Year Midterm Final Team Class Attend
@@ -365,7 +365,7 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 <p>앞서 <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code> 함수는 두 데이터 프레임에서 <code>by</code> 인수로 주어진 열의 값이 같은 행을 서로 연결한다고 했다. 그러면 한 데이터 프레임에는 해당 개체의 정보가 있으나 다른 데이터 프레임에는 해당 개체의 정보가 없는 경우에 두 데이터 프레임을 연결하면 어떻게 될까?
 다음 예처럼 <code>class1</code>에는 1분반 학생의 데이터만 있고, <code>attendance</code>는 1, 2분반의 학생 데이터가 모두 있는 경우 두 데이터 프레임을 <code>ID</code> 열로 결합하는 경우를 고려해 보자. <code>attendance</code>에는 동일한 <code>ID</code>를 가지고 있는 학생이 오직 한 명만 존재하고, <code>class1</code>에는 <code>attendance</code>에 있는 학생 정보가 0개 또는 1개가 있는 경우이다. 이러한 데이터 결합 방식을 0 대 1 inner join이라고 부른다.</p>
 <p>Inner join은 두 데이터 프레임에서 <code>by</code>로 지정된 열이 값이 서로 대응이 되는 행만 남겨둔다. 따라서 위의 경우에는 <code>class1</code>에 있는 학생의 행으로만 구성된 데이터 프레임이 생성된다. 즉, <code>by</code> 인수에 주어진 열이 서로 동일한 값을 가진 행만 결합되어 결과가 나오므로 한 쪽 데이터 프레임에 없는 행은 제거되었음을 알 수 있다.</p>
-<div class="sourceCode" id="cb1782"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1820"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">class1</span>, <span class="va">attendance</span>, by<span class="op">=</span><span class="st">"ID"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt;    ID   Name Gender Year Address Midterm Final Team Class Attend
 #&gt; 1  15 김철수      M    1    서울      78    59    A     1     90
@@ -389,39 +389,39 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 </ul>
 <p>대신 한 쪽에 없는 정보는 모두 결측치 <code>NA</code>가 입력되어 결합된다.
 다음은 <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join()</a></code>의 차이가 무엇인지를 보여주는 예이다.</p>
-<div class="sourceCode" id="cb1784"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1822"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, name <span class="op">=</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span>; <span class="va">x</span></span></code></pre></div>
 <pre><code>#&gt;   id name
 #&gt; 1  1    a
 #&gt; 2  2    b
 #&gt; 3  3    c</code></pre>
-<div class="sourceCode" id="cb1786"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1824"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">4</span>, addr <span class="op">=</span> <span class="va">LETTERS</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span>; <span class="va">y</span></span></code></pre></div>
 <pre><code>#&gt;   id addr
 #&gt; 1  2    B
 #&gt; 2  3    C
 #&gt; 3  4    D</code></pre>
-<div class="sourceCode" id="cb1788"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1826"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Joining, by = "id"</code></pre>
 <pre><code>#&gt;   id name addr
 #&gt; 1  2    b    B
 #&gt; 2  3    c    C</code></pre>
-<div class="sourceCode" id="cb1791"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1829"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Joining, by = "id"</code></pre>
 <pre><code>#&gt;   id name addr
 #&gt; 1  1    a &lt;NA&gt;
 #&gt; 2  2    b    B
 #&gt; 3  3    c    C</code></pre>
-<div class="sourceCode" id="cb1794"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1832"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Joining, by = "id"</code></pre>
 <pre><code>#&gt;   id name addr
 #&gt; 1  2    b    B
 #&gt; 2  3    c    C
 #&gt; 3  4 &lt;NA&gt;    D</code></pre>
-<div class="sourceCode" id="cb1797"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1835"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Joining, by = "id"</code></pre>
 <pre><code>#&gt;   id name addr
@@ -430,7 +430,7 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 #&gt; 3  3    c    C
 #&gt; 4  4 &lt;NA&gt;    D</code></pre>
 <p>다음은 <code>class1</code>과 <code>attendance</code> 데이터에서 <code>attendance</code>의 모든 행을 남겨두는 outer join을 수행한 결과이다.</p>
-<div class="sourceCode" id="cb1800"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1838"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join</a></span><span class="op">(</span><span class="va">class1</span>, <span class="va">attendance</span>, by<span class="op">=</span><span class="st">"ID"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt;    ID   Name Gender Year Address Midterm Final Team Class Attend
 #&gt; 1  15 김철수      M    1    서울      78    59    A     1     90
@@ -448,7 +448,7 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 </h4>
 <p>만약에 한 데이터 프레임에서 결합의 기준이 되는 열에 동일한 값이 여러번 나오면 어떻게 될까? 다음의 예를 살펴보면서 그 결과가 어떻게 되는지 확인해 보자.
 지금까지 우리는 <code>class12.a</code>라는 데이터 프레임에 중간, 기말, 출석 점수를 통합하였다. 그런데 다음과 같이 프로젝트 팀별로 프로젝트 평가 점수가 있다고 하자.</p>
-<div class="sourceCode" id="cb1802"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1840"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pjt</span></span></code></pre></div>
 <pre><code>#&gt;   Team Project
 #&gt; 1    A      80
@@ -458,7 +458,7 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 <p>한 프로젝트 팀에는 2, 3 명의 학생이 포함되고, 프로젝트 점수는 프로젝트 팀별로 주어지고 학생 개별로는 부여되지 않는다. 따라서 학생의 성적을 산정하려면 각 학생이 어떤 프로젝트 팀에 속한지를 확인한 후 학생이 속한 프로젝트 팀의 점수를 그 학생의 프로젝트 점수로 부여하는 작업이 필요하다.
 이 경우 <code>class12.a</code>와 <code>pjt</code> 데이터 프레임이 결합되어야 하는데, 결합의 기준 열은 프로젝트 팀을 나타내는 <code>Team</code> 열이 되어야 한다. 그런데 <code>pjt</code> 데이터 프레임에는 한 팀에 해당되는 행이 오직 한 개만 존재하지만, <code>class12.a</code> 데이터 프레임에는 한 팀에 속한 학생이 여러 명 있으므로 여러 행이 존재한다. 이러한 경우의 데이터 결합 방식을 1 대 n inner join이라고 한다.<br>
 다음은 <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>를 사용하여 n 대 1의 관계의 두 데이터 프레임을 inner join 한 결과이다.</p>
-<div class="sourceCode" id="cb1804"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1842"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">class12.c</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">class12.a</span>, <span class="va">pjt</span>, by<span class="op">=</span><span class="st">"Team"</span><span class="op">)</span></span>
 <span><span class="va">class12.c</span></span></code></pre></div>
 <pre><code>#&gt;    ID   Name Gender Year Midterm Final Team Class Attend Project
@@ -477,20 +477,20 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 <h4>두 열 이상을 기준으로 join<a class="anchor" aria-label="anchor" href="#%EB%91%90-%EC%97%B4-%EC%9D%B4%EC%83%81%EC%9D%84-%EA%B8%B0%EC%A4%80%EC%9C%BC%EB%A1%9C-join"><i class="fas fa-link"></i></a>
 </h4>
 <p>Join의 기준이 되는 열은 하나가 아니라 여러 개가 될 수 있다. 다음과 같은 두 개의 데이터 프레임이 있다고 하자. 그리고 이 두 데이터 프레임을 하나의 데이터 프레임으로 결합한다고 하자.</p>
-<div class="sourceCode" id="cb1806"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1844"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cAge</span></span></code></pre></div>
 <pre><code>#&gt;   first.name last.name age
 #&gt; 1      James    Bolton  34
 #&gt; 2      James     Tiger  26
 #&gt; 3     Goerge     Tiger  47</code></pre>
-<div class="sourceCode" id="cb1808"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1846"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cIncome</span></span></code></pre></div>
 <pre><code>#&gt;   first.name last.name income
 #&gt; 1     Goerge     Tiger     35
 #&gt; 2      James    Bolton     24
 #&gt; 3      James     Tiger     18</code></pre>
 <p>두 데이터 프레임 각각에는 한 사람에 대한 정보는 오직 한 행에만 정보가 기술되어 있다. 그러나 두 데이터 프레임에서 <code>first.name</code>이 동일한 사람이 2명, <code>last.name</code>이 동일한 사람이 2명이 있다. 그래서 <code>first.name</code>이나 <code>last.name</code>만으로 데이터를 결합한다면 동일한 이름을 가진 사람이 있어서 원하는 결과를 얻을 수 없다. 다음은 <code>first.name</code>으로 결합한 결과이다.</p>
-<div class="sourceCode" id="cb1810"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1848"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">cAge</span>, <span class="va">cIncome</span>, by<span class="op">=</span><span class="st">"first.name"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt;   first.name last.name.x age last.name.y income
 #&gt; 1      James      Bolton  34      Bolton     24
@@ -501,7 +501,7 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 <p>결과에서 보듯이 <code>cAge</code>의 James Bolton 행은 <code>cIncome</code>의 James Bolton과 James Tiger 행과 <code>first.name</code>이 동일하므로 두 번 결합이 이루어진다. 마찬가지로 <code>cAge</code>의 James Tiger 행도 <code>cIncome</code>의 James Bolton과 James Tiger 행과 first.name이 동일하므로 역시 두 번 행 결합이 발생한다. 그래서 결합된 결과가 3건이 아니라 총 5건의 데이터 행을 갖는다.
 그리고 <code>cAge</code>와 <code>cIncome</code> 모두 <code>last.name</code> 열이 있어서 어떤 <code>last.name</code>을 남겨두어야 할지 모르므로, 첫번째 데이터 프레임에서 온 열은 .x, 두번째 데이터 프레임에서 온 열은 .y라는 접미사를 붙여서 열을 만들었다.</p>
 <p>이러한 경우는 <code>first.name</code>과 <code>last.name</code>이 모두 같은 경우에만 행이 결합되도록 하는 것이 더 바람직하다. 그렇게 하려면 이 두 열의 이름을 모두 by 인수로 전달하면 된다.</p>
-<div class="sourceCode" id="cb1812"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1850"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">cAge</span>, <span class="va">cIncome</span>, by<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"last.name"</span>, <span class="st">"first.name"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt;   first.name last.name age income
 #&gt; 1      James    Bolton  34     24
@@ -525,12 +525,12 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 <li>
 <code>anti_join(x, y)</code>: <code>x</code> 데이터 프레임에서 <code>y</code>에 있는 행은 제외한다.</li>
 </ul>
-<div class="sourceCode" id="cb1814"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1852"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">semi_join</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt;   id name
 #&gt; 1  2    b
 #&gt; 2  3    c</code></pre>
-<div class="sourceCode" id="cb1816"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1854"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">anti_join</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt;   id name
 #&gt; 1  1    a</code></pre>
@@ -544,24 +544,24 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 <span class="header-section-number">9.2.3.1</span> <code>merge()</code> 함수<a class="anchor" aria-label="anchor" href="#merge-%ED%95%A8%EC%88%98"><i class="fas fa-link"></i></a>
 </h4>
 <p>R의 기본 함수인 <code><a href="https://rdrr.io/r/base/merge.html">merge()</a></code> 함수는 dplyr 패키지의 inner와 outer join을 수행해 준다.</p>
-<div class="sourceCode" id="cb1818"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1856"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span>                 <span class="co"># inner join</span></span></code></pre></div>
 <pre><code>#&gt;   id name addr
 #&gt; 1  2    b    B
 #&gt; 2  3    c    C</code></pre>
-<div class="sourceCode" id="cb1820"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1858"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, all.x <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>   <span class="co"># left join</span></span></code></pre></div>
 <pre><code>#&gt;   id name addr
 #&gt; 1  1    a &lt;NA&gt;
 #&gt; 2  2    b    B
 #&gt; 3  3    c    C</code></pre>
-<div class="sourceCode" id="cb1822"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1860"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, all.y <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>   <span class="co"># right join</span></span></code></pre></div>
 <pre><code>#&gt;   id name addr
 #&gt; 1  2    b    B
 #&gt; 2  3    c    C
 #&gt; 3  4 &lt;NA&gt;    D</code></pre>
-<div class="sourceCode" id="cb1824"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1862"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>     <span class="co"># full join</span></span></code></pre></div>
 <pre><code>#&gt;   id name addr
 #&gt; 1  1    a &lt;NA&gt;
@@ -586,7 +586,7 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 <span class="header-section-number">9.3.1</span> <code>pivot_longer</code>: 여러 열에 걸친 한 변수의 데이터를 하나의 열로 길게 모으기<a class="anchor" aria-label="anchor" href="#pivot_longer-%EC%97%AC%EB%9F%AC-%EC%97%B4%EC%97%90-%EA%B1%B8%EC%B9%9C-%ED%95%9C-%EB%B3%80%EC%88%98%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%ED%95%98%EB%82%98%EC%9D%98-%EC%97%B4%EB%A1%9C-%EA%B8%B8%EA%B2%8C-%EB%AA%A8%EC%9C%BC%EA%B8%B0"><i class="fas fa-link"></i></a>
 </h3>
 <p>정돈 데이터는 한 열이 하나의 변수에 대응을 해야 한다. 그러나 현실의 데이터에서는 동일한 변수의 값이 여러 열에 흩뿌려져 있는 경우가 발생한다. 시계열 데이터들이 대표적인 사례라 할 수 있다. 다음은 <code>tidyr</code>에 포함된 <code>table4a</code> 데이터이다. 세 나라의 1999년도와 2000년도의 어떤 사건의 발생 건수를 보여주고 있다. 발생 건수를 나타내는 데이터 열이 두 개의 열로 나눠져 있음을 볼 수 있다.</p>
-<div class="sourceCode" id="cb1826"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1864"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">table4a</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 3 × 3
 #&gt;   country     `1999` `2000`
@@ -595,7 +595,7 @@ class1과 class2 등의 데이터가 적재된다. 이 데이터는 대학의 �
 #&gt; 2 Brazil       37737  80488
 #&gt; 3 China       212258 213766</code></pre>
 <p><code>table4a</code>를 정돈 데이터로 바꾸려면 두 열을 한 열로 모아야 한다. <code>tidyr</code>의 <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> 함수는 그러한 역할을 수행한다.</p>
-<div class="sourceCode" id="cb1828"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1866"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">table4a</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">`1999`</span>, <span class="va">`2000`</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"year"</span>, values_to <span class="op">=</span><span class="st">"cases"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 × 3
@@ -625,7 +625,7 @@ Figure 9.1: pivot_longer 작동 방식 (출처: R for Data Science)
 <h4>결측치가 있는 경우<a class="anchor" aria-label="anchor" href="#%EA%B2%B0%EC%B8%A1%EC%B9%98%EA%B0%80-%EC%9E%88%EB%8A%94-%EA%B2%BD%EC%9A%B0"><i class="fas fa-link"></i></a>
 </h4>
 <p><code>table4a</code>에서 중국의 2000년도 데이터가 조사되지 않아서 <code>NA</code>로 표시되어 있다면 <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code>는 어떤 결과를 줄까? 다음 결과에서 보듯이 결측치가 있는 셀도 모두 별도의 행으로 표현이 된다.</p>
-<div class="sourceCode" id="cb1830"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1868"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">na_table4a</span> <span class="op">&lt;-</span> <span class="va">table4a</span></span>
 <span><span class="va">na_table4a</span><span class="op">$</span><span class="va">`2000`</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span>
 <span><span class="va">na_table4a</span></span></code></pre></div>
@@ -635,7 +635,7 @@ Figure 9.1: pivot_longer 작동 방식 (출처: R for Data Science)
 #&gt; 1 Afghanistan    745   2666
 #&gt; 2 Brazil       37737  80488
 #&gt; 3 China       212258     NA</code></pre>
-<div class="sourceCode" id="cb1832"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1870"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">na_table4a</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">`1999`</span>, <span class="va">`2000`</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"year"</span>, values_to <span class="op">=</span> <span class="st">"cases"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 × 3
@@ -648,7 +648,7 @@ Figure 9.1: pivot_longer 작동 방식 (출처: R for Data Science)
 #&gt; 5 China       1999  212258
 #&gt; 6 China       2000      NA</code></pre>
 <p>만약 긴 형식에서는 결측치인 행을 없애고 싶으면 <code>values_drop_na</code> 인수를 TRUE로 설정한다.</p>
-<div class="sourceCode" id="cb1834"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1872"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">na_long_table4a</span> <span class="op">&lt;-</span> <span class="va">na_table4a</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">`1999`</span>, <span class="va">`2000`</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"year"</span>,</span>
 <span>               values_to <span class="op">=</span> <span class="st">"cases"</span>, values_drop_na <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
@@ -667,7 +667,7 @@ Figure 9.1: pivot_longer 작동 방식 (출처: R for Data Science)
 <code>gather</code> 함수<a class="anchor" aria-label="anchor" href="#gather-%ED%95%A8%EC%88%98"><i class="fas fa-link"></i></a>
 </h4>
 <p><code>tidyr</code> 패키지는 1.0 버전이 출시되면서 많은 변화가 있었다. 이전 버전의 에서는 <code><a href="https://tidyr.tidyverse.org/reference/gather.html">gather()</a></code> 함수가 <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> 함수의 역할을 수행하였다. 그리고 호환성을 위해 현재의 버전에서도 <code><a href="https://tidyr.tidyverse.org/reference/gather.html">gather()</a></code> 함수를 사용할 수 있다. 아직도 많은 R 관련 책에서 이 함수를 사용하고 있어서 사용법을 여기에 기술한다.</p>
-<div class="sourceCode" id="cb1836"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1874"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">table4a</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/gather.html">gather</a></span><span class="op">(</span><span class="va">`1999`</span>, <span class="va">`2000`</span>, key <span class="op">=</span> <span class="st">"year"</span>, value <span class="op">=</span><span class="st">"cases"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 × 3
@@ -692,7 +692,7 @@ Figure 9.1: pivot_longer 작동 방식 (출처: R for Data Science)
 <span class="header-section-number">9.3.2</span> <code>pivot_wider</code>: 한 열에 기술된 여러 변수의 데이터를 여러 열로 넓게 펼치기<a class="anchor" aria-label="anchor" href="#subsec-pivot-wider"><i class="fas fa-link"></i></a>
 </h3>
 <p>정돈 데이터는 하나의 열은 하나의 변수에 대응을 해야 한다. 그러나 현실의 데이터에서는 한 열에 여러 변수의 값이 표현되어 있는 경우도 있다. 다음 데이터는 세 나라의 어떤 년도의 사건의 발생 건수와 인구수가 <code>count</code>라는 한 열에 표현되었다. 그렇기 때문에 <code>count</code> 열은 인구수와 사건 횟수라는 두 변수의 값을 모두 포함한 열이 되었다.</p>
-<div class="sourceCode" id="cb1838"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1876"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">table2</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 12 × 4
 #&gt;    country      year type            count
@@ -710,7 +710,7 @@ Figure 9.1: pivot_longer 작동 방식 (출처: R for Data Science)
 #&gt; 11 China        2000 cases          213766
 #&gt; 12 China        2000 population 1280428583</code></pre>
 <p><code>table2</code>를 정돈 데이터로 바꾸려면 <code>count</code> 열의 데이터를 인구수와 사건 횟수를 나타내는 열로 분리하여 한다. <code>tidyr</code>의 <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> 함수는 그러한 역할을 수행한다.</p>
-<div class="sourceCode" id="cb1840"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1878"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">table2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">type</span>, values_from <span class="op">=</span> <span class="va">count</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 × 4
@@ -739,7 +739,7 @@ Figure 9.2: pivot_wider의 작동 방식 (출처: R for Data Science)
 <h4>결측치가 있는 경우<a class="anchor" aria-label="anchor" href="#%EA%B2%B0%EC%B8%A1%EC%B9%98%EA%B0%80-%EC%9E%88%EB%8A%94-%EA%B2%BD%EC%9A%B0-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>앞서 <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code>에서 중국의 2000년도 데이터에 결측값이 있는 행을 제거하여 데이터 프레임을 만들었다.</p>
-<div class="sourceCode" id="cb1842"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1880"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">na_long_table4a</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 5 × 3
 #&gt;   country     year   cases
@@ -750,7 +750,7 @@ Figure 9.2: pivot_wider의 작동 방식 (출처: R for Data Science)
 #&gt; 4 Brazil      2000   80488
 #&gt; 5 China       1999  212258</code></pre>
 <p>만약 이 데이터를 넓은 형식으로 합치면 어떤 결과가 나올까? 결과에서 보듯이 결측이 있는 곳이 NA로 표시되고 데이터가 넓은 형식으로 변환된다.</p>
-<div class="sourceCode" id="cb1844"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1882"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">na_long_table4a</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">year</span>, values_from <span class="op">=</span> <span class="va">cases</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 3 × 3
@@ -765,7 +765,7 @@ Figure 9.2: pivot_wider의 작동 방식 (출처: R for Data Science)
 <code>spread</code> 함수<a class="anchor" aria-label="anchor" href="#spread-%ED%95%A8%EC%88%98"><i class="fas fa-link"></i></a>
 </h4>
 <p><code>tidyr</code> 패키지는 1.0 버전이 출시되면서 많은 변화가 있었다. 이전 버전의 에서는 <code><a href="https://tidyr.tidyverse.org/reference/spread.html">spread()</a></code> 함수가 <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> 함수의 역할을 수행하였다. 그리고 호환성을 위해 현재의 버전에서도 <code><a href="https://tidyr.tidyverse.org/reference/spread.html">spread()</a></code> 함수를 사용할 수 있다. 아직도 많은 R 관련 책에서 이 함수를 사용하고 있어서 사용법을 여기에 기술한다.</p>
-<div class="sourceCode" id="cb1846"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1884"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">table2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/spread.html">spread</a></span><span class="op">(</span>key <span class="op">=</span> <span class="va">type</span>, value <span class="op">=</span> <span class="va">count</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 × 4
@@ -788,7 +788,7 @@ Figure 9.2: pivot_wider의 작동 방식 (출처: R for Data Science)
 <span class="header-section-number">9.3.3</span> <code>seperate</code>: 한 셀을 여러 셀로 분리하기<a class="anchor" aria-label="anchor" href="#seperate-%ED%95%9C-%EC%85%80%EC%9D%84-%EC%97%AC%EB%9F%AC-%EC%85%80%EB%A1%9C-%EB%B6%84%EB%A6%AC%ED%95%98%EA%B8%B0"><i class="fas fa-link"></i></a>
 </h3>
 <p>한 셀에 여러 값이 기술되어 있으면 정돈 형식의 데이터가 아니다. <code>table3</code>의 <code>rate</code> 열은 사건의 수와 인구수 데이터가 문자열 형식으로 표현된 열이다.</p>
-<div class="sourceCode" id="cb1848"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1886"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">table3</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 × 3
 #&gt;   country      year rate             
@@ -804,7 +804,7 @@ Figure 9.2: pivot_wider의 작동 방식 (출처: R for Data Science)
 <span class="header-section-number">9.3.3.1</span> 특정 문자를 기준으로 분리하기<a class="anchor" aria-label="anchor" href="#%ED%8A%B9%EC%A0%95-%EB%AC%B8%EC%9E%90%EB%A5%BC-%EA%B8%B0%EC%A4%80%EC%9C%BC%EB%A1%9C-%EB%B6%84%EB%A6%AC%ED%95%98%EA%B8%B0"><i class="fas fa-link"></i></a>
 </h4>
 <p><code>seperate()</code>는 정해진 열을 <code>sep</code>에 지정된 문자를 기준으로 분리하여 분리된 값을 <code>into</code>에 지정된 열 이름으로 분리한다. 앞의 다른 함수와 마찬가지로 원 데이터의 열은 변수로서 따옴표 없이 지정되었고 결과 데이터에 사용될 열 이름은 따옴표를 사용하여 문자열로 전달되었다.</p>
-<div class="sourceCode" id="cb1850"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1888"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">table3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span><span class="va">rate</span>, into<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cases"</span>, <span class="st">"population"</span><span class="op">)</span>, sep<span class="op">=</span><span class="st">"/"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 × 4
@@ -830,7 +830,7 @@ Figure 9.3: separate의 작동 방식 (출처: R for Data Science)
 <span class="header-section-number">9.3.3.2</span> 분리한 열의 형변환<a class="anchor" aria-label="anchor" href="#%EB%B6%84%EB%A6%AC%ED%95%9C-%EC%97%B4%EC%9D%98-%ED%98%95%EB%B3%80%ED%99%98"><i class="fas fa-link"></i></a>
 </h4>
 <p>앞의 결과를 보면 <code>rate</code> 열의 데이터가 문자열이기 때문에 결과 열도 모두 문자열 형식임을 볼 수 있다. 그런데 <code>cases</code>와 <code>population</code> 열은 모두 숫자로서 의미를 가지고 있으므로 숫자로 변환되는 것이 좋다. 셀의 내용을 분리한 후 숫자나 논리값으로 변형이 가능하면 변형을 하려면 <code>convert</code> 인수를 TRUE로 설정한다.</p>
-<div class="sourceCode" id="cb1852"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1890"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">table3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span><span class="va">rate</span>, into<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cases"</span>, <span class="st">"population"</span><span class="op">)</span>, sep<span class="op">=</span><span class="st">"/"</span>, convert <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span>
 <span><span class="va">x</span></span></code></pre></div>
@@ -843,7 +843,7 @@ Figure 9.3: separate의 작동 방식 (출처: R for Data Science)
 #&gt; 4 Brazil       2000  80488  174504898
 #&gt; 5 China        1999 212258 1272915272
 #&gt; 6 China        2000 213766 1280428583</code></pre>
-<div class="sourceCode" id="cb1854"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1892"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>total_cases<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">cases</span><span class="op">)</span>, mean_pop<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 1 × 2
 #&gt;   total_cases   mean_pop
@@ -855,7 +855,7 @@ Figure 9.3: separate의 작동 방식 (출처: R for Data Science)
 <span class="header-section-number">9.3.3.3</span> 문자 수를 기준으로 분리하기<a class="anchor" aria-label="anchor" href="#%EB%AC%B8%EC%9E%90-%EC%88%98%EB%A5%BC-%EA%B8%B0%EC%A4%80%EC%9C%BC%EB%A1%9C-%EB%B6%84%EB%A6%AC%ED%95%98%EA%B8%B0"><i class="fas fa-link"></i></a>
 </h4>
 <p><code>sep</code> 인수에 문자 대신 숫자를 입력하면 문자 수를를 기준으로 열을 분리한다. 양수이면 왼쪽에서 시작하여 <code>sep</code>에 입력된 문자 수까지와 그 이후로 열을 분리하고, 음수이면 오른쪽을 기준으로 <code>sep</code>에 입력된 문자 수까지와 그 이전으로 열을 분리한다.</p>
-<div class="sourceCode" id="cb1856"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1894"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">table3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span><span class="va">rate</span>, into<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cases"</span>, <span class="st">"population"</span><span class="op">)</span>, sep<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 × 4
@@ -867,7 +867,7 @@ Figure 9.3: separate의 작동 방식 (출처: R for Data Science)
 #&gt; 4 Brazil       2000 804   88/174504898  
 #&gt; 5 China        1999 212   258/1272915272
 #&gt; 6 China        2000 213   766/1280428583</code></pre>
-<div class="sourceCode" id="cb1858"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1896"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">table3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span><span class="va">rate</span>, into<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cases"</span>, <span class="st">"population"</span><span class="op">)</span>, sep<span class="op">=</span><span class="op">-</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 × 4
@@ -880,7 +880,7 @@ Figure 9.3: separate의 작동 방식 (출처: R for Data Science)
 #&gt; 5 China        1999 212258/1272915 272       
 #&gt; 6 China        2000 213766/1280428 583</code></pre>
 <p>앞의 예에서 숫자열인 <code>year</code>에 적용하여 세기와 나머지 년도로 분리해 내보자.</p>
-<div class="sourceCode" id="cb1860"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1898"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">table3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span><span class="va">year</span>, into<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"century"</span>, <span class="st">"year"</span><span class="op">)</span>, sep<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 × 4
@@ -893,7 +893,7 @@ Figure 9.3: separate의 작동 방식 (출처: R for Data Science)
 #&gt; 5 China       19      99    212258/1272915272
 #&gt; 6 China       20      00    213766/1280428583</code></pre>
 <p>만약 세기와 연도를 숫자로 표현하는 것이 필요하다면 앞서 설명한 것처럼 <code>convert</code> 인수를 TRUE로 설정하면 된다. 이 경우 00년도가 모두 숫자 0으로 변환된 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb1862"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1900"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">table3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span><span class="va">year</span>, into<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"century"</span>, <span class="st">"year"</span><span class="op">)</span>, sep<span class="op">=</span><span class="fl">2</span>, convert <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 × 4
@@ -912,7 +912,7 @@ Figure 9.3: separate의 작동 방식 (출처: R for Data Science)
 <span class="header-section-number">9.3.4</span> <code>unite</code>: 여러 셀의 데이터를 하나의 셀로 병합하기<a class="anchor" aria-label="anchor" href="#unite-%EC%97%AC%EB%9F%AC-%EC%85%80%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%ED%95%98%EB%82%98%EC%9D%98-%EC%85%80%EB%A1%9C-%EB%B3%91%ED%95%A9%ED%95%98%EA%B8%B0"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://tidyr.tidyverse.org/reference/separate.html">separate()</a></code> 함수와 반대 작용을 하는 함수가 <code><a href="https://tidyr.tidyverse.org/reference/unite.html">unite()</a></code> 함수이다. <code><a href="https://tidyr.tidyverse.org/reference/unite.html">unite()</a></code> 함수는 여러 셀의 내용을 하나의 셀로 합친다. <code>table5</code>는 년도 데이터가 세기(<code>century</code>)와 나머지 년도(<code>year</code>)로 나뉘어져 있는 데이터이다. 세기와 무관하게 년도 별로 데이터를 분석하려고 하면 이 두 열을 합쳐서 온전한 년도 데이터를 만들어야 한다.</p>
-<div class="sourceCode" id="cb1864"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1902"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">table5</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unite.html">unite</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">century</span>, <span class="va">year</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"year"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 × 3
@@ -925,7 +925,7 @@ Figure 9.3: separate의 작동 방식 (출처: R for Data Science)
 #&gt; 5 China       19_99 212258/1272915272
 #&gt; 6 China       20_00 213766/1280428583</code></pre>
 <p><code><a href="https://tidyr.tidyverse.org/reference/unite.html">unite()</a></code>의 기본 설정은 <code>_</code>을 구분자로 사용하여 합쳐진 셀의 내용을 연결한다. 이를 조정하려면, <code>sep</code> 인수를 설정하면 된다. 다음처럼 하면 구분자 없이 연결을 수행한다.</p>
-<div class="sourceCode" id="cb1866"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1904"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">table5</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unite.html">unite</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">century</span>, <span class="va">year</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"year"</span>, sep<span class="op">=</span><span class="st">""</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 6 × 3
@@ -985,7 +985,7 @@ Figure 9.3: separate의 작동 방식 (출처: R for Data Science)
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R 프로그래밍 (개정판)</strong>" was written by Kilhwan Kim. It was last built on 2022-11-30.</p>
+    <p>"<strong>R 프로그래밍 (개정판)</strong>" was written by Kilhwan Kim. It was last built on 2023-03-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -998,7 +998,7 @@ Figure 9.3: separate의 작동 방식 (출처: R for Data Science)
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
