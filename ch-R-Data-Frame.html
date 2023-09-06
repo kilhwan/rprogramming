@@ -7,7 +7,7 @@
 <title>Chapter 6 R 데이터 프레임 | R 프로그래밍 (개정판)</title>
 <meta name="author" content="Kilhwan Kim">
 <meta name="description" content="이 장에서는 여러 타입의 데이터가 혼재된 데이터 프레임이란 데이터 구조를 다룬다. 보통 다른 통계 소프트웨어에서 데이터 분석의 기본 단위인 데이터 집합 또는 데이터 행렬이라고 불리는 것이다. 데이터 프레임의 두 측면: 리스트적 측면 행렬적 측면 데이터 프레임은 행렬을 일반화한 것으로 생각하면 이해하기 쉽다. 행렬에 속한 데이터는 모두 같은 타입인데...">
-<meta name="generator" content="bookdown 0.31 with bs4_book()">
+<meta name="generator" content="bookdown 0.33 with bs4_book()">
 <meta property="og:title" content="Chapter 6 R 데이터 프레임 | R 프로그래밍 (개정판)">
 <meta property="og:type" content="book">
 <meta property="og:description" content="이 장에서는 여러 타입의 데이터가 혼재된 데이터 프레임이란 데이터 구조를 다룬다. 보통 다른 통계 소프트웨어에서 데이터 분석의 기본 단위인 데이터 집합 또는 데이터 행렬이라고 불리는 것이다. 데이터 프레임의 두 측면: 리스트적 측면 행렬적 측면 데이터 프레임은 행렬을 일반화한 것으로 생각하면 이해하기 쉽다. 행렬에 속한 데이터는 모두 같은 타입인데...">
@@ -1119,7 +1119,7 @@ subset() 함수는 다음과 같은 형식을 가진다.</p>
 <pre><code>#&gt; [1] "courses2.txt"         "scores_no_header.txt" "scores_rn.txt"       
 #&gt; [4] "scores.txt"           "students.txt"</code></pre>
 <p>텍스트 파일을 읽어들이는 예제는 다음 파일을 사용하니 예제를 따라하고자 하는 분들은 내려받기를 하자.</p>
-<a href="data:application/zip;base64,UEsDBBQAAgAIAMqMN0kGxCl30AAAAFkBAAAMAAAAY291cnNlczIudHh0U6pMTSxSUlAqTs1NLS5JBTGTM1NAZF5ibiqILkpNySwpBrIy8kuLipV4uYwUDBWUvAKMjMwNgaKvNu19M6PxbdvWV5tbHrUuUFIwUjBGUmNqBFfzZsHU15u3vOme86ZrydvWOUoKxgomIJVGUNOMMExbCDcNqsbUGKjm9fKON3sa3va0Qk0whtllgjDh1eY9b6fORFdgboJmRbB++JvuJW+6toJUGoNUwiwyB6nc0fFmDlDZVmSjoArMjBH+6p7zet2a1ws63szd8qZ1BlQlAFBLAwQKAAIAAAAkkxtRHMQCdCEAAAAhAAAAFAAAAHNjb3Jlc19ub19oZWFkZXIudHh07ISc7Jq4CTI1DQrrjIDsoIQJMzUNCuyynOyViAk0Mg0KUEsDBAoAAgAAACSTG1FeTF8oOwAAADsAAAANAAAAc2NvcmVzX3JuLnR4dCAgICBwcm92CXNjb3Jlcw0KMTAJ7ISc7Jq4CTI1DQoyMAnrjIDsoIQJMzUNCjMwCeyynOyViAk0Mg0KUEsDBAoAAgAAABSkG1HO8koXMgAAADIAAAAKAAAAc2NvcmVzLnR4dHByb3YgIHNjb3Jlcw0K7ISc7Jq4ICAyNQ0K64yA7KCEICAzNQ0K7LKc7JWIICA0Mg0KUEsDBBQAAgAIAHe1bVbvZW+VpgAAANgAAAAMAAAAc3R1ZGVudHMudHh0U8pLzE1VUlBKL0pMAdOpeSmpRUBGbmZKSWpRLpCVlpmXmAOki1JLErNBajLKlbiUXu1seLNpwZuOGUoKhgpKCr5KCuYmCpaGCiFBoa4KFhD5GY1v565RUjBRUHJTUrAwUjA3V3Bz9Al2VbDkUnozdwtMv7GCElC7mbmChQVU3hwiD9VvBNFvqWBuATf+7czeVzt2vO6fCbYeqN3UQMHCDKrd0IALAFBLAQIeAxQAAgAIAMqMN0kGxCl30AAAAFkBAAAMAAAAAAAAAAEAAAC0gQAAAABjb3Vyc2VzMi50eHRQSwECHgMKAAIAAAAkkxtRHMQCdCEAAAAhAAAAFAAAAAAAAAABAAAApIH6AAAAc2NvcmVzX25vX2hlYWRlci50eHRQSwECHgMKAAIAAAAkkxtRXkxfKDsAAAA7AAAADQAAAAAAAAABAAAApIFNAQAAc2NvcmVzX3JuLnR4dFBLAQIeAwoAAgAAABSkG1HO8koXMgAAADIAAAAKAAAAAAAAAAEAAACkgbMBAABzY29yZXMudHh0UEsBAh4DFAACAAgAd7VtVu9lb5WmAAAA2AAAAAwAAAAAAAAAAQAAAKSBDQIAAHN0dWRlbnRzLnR4dFBLBQYAAAAABQAFACkBAADdAgAAAAA=" download="courses2.zip">텍스트 파일 내려받기</a>
+<a href="data:application/zip;base64,UEsDBBQAAgAIAMqMN0kGxCl30AAAAFkBAAAMAAAAY291cnNlczIudHh0U6pMTSxSUlAqTs1NLS5JBTGTM1NAZF5ibiqILkpNySwpBrIy8kuLipV4uYwUDBWUvAKMjMwNgaKvNu19M6PxbdvWV5tbHrUuUFIwUjBGUmNqBFfzZsHU15u3vOme86ZrydvWOUoKxgomIJVGUNOMMExbCDcNqsbUGKjm9fKON3sa3va0Qk0whtllgjDh1eY9b6fORFdgboJmRbB++JvuJW+6toJUGoNUwiwyB6nc0fFmDlDZVmSjoArMjBH+6p7zet2a1ws63szd8qZ1BlQlAFBLAwQKAAIAAAAkkxtRHMQCdCEAAAAhAAAAFAAAAHNjb3Jlc19ub19oZWFkZXIudHh07ISc7Jq4CTI1DQrrjIDsoIQJMzUNCuyynOyViAk0Mg0KUEsDBAoAAgAAACSTG1FeTF8oOwAAADsAAAANAAAAc2NvcmVzX3JuLnR4dCAgICBwcm92CXNjb3Jlcw0KMTAJ7ISc7Jq4CTI1DQoyMAnrjIDsoIQJMzUNCjMwCeyynOyViAk0Mg0KUEsDBAoAAgAAABSkG1HO8koXMgAAADIAAAAKAAAAc2NvcmVzLnR4dHByb3YgIHNjb3Jlcw0K7ISc7Jq4ICAyNQ0K64yA7KCEICAzNQ0K7LKc7JWIICA0Mg0KUEsDBBQAAgAIAK2yJlfvZW+VpgAAANgAAAAMAAAAc3R1ZGVudHMudHh0U8pLzE1VUlBKL0pMAdOpeSmpRUBGbmZKSWpRLpCVlpmXmAOki1JLErNBajLKlbiUXu1seLNpwZuOGUoKhgpKCr5KCuYmCpaGCiFBoa4KFhD5GY1v565RUjBRUHJTUrAwUjA3V3Bz9Al2VbDkUnozdwtMv7GCElC7mbmChQVU3hwiD9VvBNFvqWBuATf+7czeVzt2vO6fCbYeqN3UQMHCDKrd0IALAFBLAQIeAxQAAgAIAMqMN0kGxCl30AAAAFkBAAAMAAAAAAAAAAEAAAC0gQAAAABjb3Vyc2VzMi50eHRQSwECHgMKAAIAAAAkkxtRHMQCdCEAAAAhAAAAFAAAAAAAAAABAAAApIH6AAAAc2NvcmVzX25vX2hlYWRlci50eHRQSwECHgMKAAIAAAAkkxtRXkxfKDsAAAA7AAAADQAAAAAAAAABAAAApIFNAQAAc2NvcmVzX3JuLnR4dFBLAQIeAwoAAgAAABSkG1HO8koXMgAAADIAAAAKAAAAAAAAAAEAAACkgbMBAABzY29yZXMudHh0UEsBAh4DFAACAAgArbImV+9lb5WmAAAA2AAAAAwAAAAAAAAAAQAAAKSBDQIAAHN0dWRlbnRzLnR4dFBLBQYAAAAABQAFACkBAADdAgAAAAA=" download="courses2.zip">텍스트 파일 내려받기</a>
 </div>
 <div id="머리-행이-있는-텍스트-데이터-파일-읽기" class="section level4 unnumbered">
 <h4>머리 행이 있는 텍스트 데이터 파일 읽기<a class="anchor" aria-label="anchor" href="#%EB%A8%B8%EB%A6%AC-%ED%96%89%EC%9D%B4-%EC%9E%88%EB%8A%94-%ED%85%8D%EC%8A%A4%ED%8A%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%8C%8C%EC%9D%BC-%EC%9D%BD%EA%B8%B0"><i class="fas fa-link"></i></a>
@@ -1626,7 +1626,7 @@ subset() 함수는 다음과 같은 형식을 가진다.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R 프로그래밍 (개정판)</strong>" was written by Kilhwan Kim. It was last built on 2023-03-13.</p>
+    <p>"<strong>R 프로그래밍 (개정판)</strong>" was written by Kilhwan Kim. It was last built on 2023-09-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

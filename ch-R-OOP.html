@@ -7,7 +7,7 @@
 <title>Chapter 11 R 객체 지향 프로그래밍 | R 프로그래밍 (개정판)</title>
 <meta name="author" content="Kilhwan Kim">
 <meta name="description" content="11.1 객체 지향 프로그래밍 객체 지향 프로그램(Object-Oriented Programming(OOP))이 무엇인지, 그것이 왜 필요한지를 논의하려면 별도로 한 장이 할애되어야 할 것이다. 여기서는 객체 지향 프로그래밍의 개요에 대해서만 간단히 짚어본다. OOP는 복잡한 프로그램을 구조화하는 방식에 대한 하나의 관점 또는 패러다임이라 할 수...">
-<meta name="generator" content="bookdown 0.31 with bs4_book()">
+<meta name="generator" content="bookdown 0.33 with bs4_book()">
 <meta property="og:title" content="Chapter 11 R 객체 지향 프로그래밍 | R 프로그래밍 (개정판)">
 <meta property="og:type" content="book">
 <meta property="og:description" content="11.1 객체 지향 프로그래밍 객체 지향 프로그램(Object-Oriented Programming(OOP))이 무엇인지, 그것이 왜 필요한지를 논의하려면 별도로 한 장이 할애되어야 할 것이다. 여기서는 객체 지향 프로그래밍의 개요에 대해서만 간단히 짚어본다. OOP는 복잡한 프로그램을 구조화하는 방식에 대한 하나의 관점 또는 패러다임이라 할 수...">
@@ -132,7 +132,7 @@ OOP가 가져야 하는 기본 특징은 다음과 같다.
 <h4>S3 클래스 객체는 리스트에 class 속성 부여하여 만든다.<a class="anchor" aria-label="anchor" href="#s3-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B0%9D%EC%B2%B4%EB%8A%94-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%97%90-class-%EC%86%8D%EC%84%B1-%EB%B6%80%EC%97%AC%ED%95%98%EC%97%AC-%EB%A7%8C%EB%93%A0%EB%8B%A4."><i class="fas fa-link"></i></a>
 </h4>
 <p>사용자도 리스트와 class() 함수를 이용하여 자신만의 S3 클래스를 만들 수 있다. 다음은 학생 관련 정보를 담는 student 클래스를 만든 예이다.</p>
-<div class="sourceCode" id="cb2206"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2202"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">st1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>name<span class="op">=</span><span class="st">"Gildong"</span>, year<span class="op">=</span><span class="fl">2</span>, GPA<span class="op">=</span><span class="fl">3.2</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">st1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"student"</span></span>
 <span><span class="va">st1</span></span></code></pre></div>
@@ -160,42 +160,43 @@ OOP가 가져야 하는 기본 특징은 다음과 같다.
 <p>포괄 함수란 print() 함수처럼 여러 클래스의 객체에 적용 가능한 함수를 의미한다. 포괄 함수는 인수로 주어진 객체의 클래스에 따라 클래스에 적합한 기능을 수행한다.</p>
 <p>그러면 포괄 함수는 어떻게 객체에 따라 적절한 기능을 수행할 수 있는 것일까? 심지어 print() 함수 같은 포괄 함수는 자신이 구현된 이후에 새로운 클래스가 추가되어도 새로운 클래스에 적합한 기능을 수행할 수 있다.
 포괄 함수는 사실 분배기의 역할만을 수행하기 때문에 이러한 기능이 가능한 것이다. 포괄 함수는 호출이 되면 UseMethod() 라는 분배 기능을 가지는 함수를 호출한다. 이 함수는 포괄 함수에 첫번째 인수로 부여된 객체의 클래스에 따라 포괄 함수를 대신하여 실행될 해당 클래스의 메소드를 호출한다. 그리고 포괄 함수는 해당 클래스의 메소드가 객체에 실행된 결과를 반환한다. 다음은 print() 함수가 호출되면 무엇이 수행되는지를 보여준다. UseMethod()가 호출되는 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb2208"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2204"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">print</span></span></code></pre></div>
 <pre><code>#&gt; function (x, ...) 
 #&gt; UseMethod("print")
-#&gt; &lt;bytecode: 0x55c44669c488&gt;
+#&gt; &lt;bytecode: 0x560c126fb5f0&gt;
 #&gt; &lt;environment: namespace:base&gt;</code></pre>
 </div>
 <div id="methods" class="section level4 unnumbered">
 <h4>methods()<a class="anchor" aria-label="anchor" href="#methods"><i class="fas fa-link"></i></a>
 </h4>
 <p>그러면 클래스별로 print 메소드는 어디에 있는 것일끼? methods() 함수를 이용하면 각 포괄 함수에 대해 구현된 모든 메소드를 확인할 수 있다. 다음은 그 중 일부만을 보여주고 있다.</p>
-<div class="sourceCode" id="cb2210"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2206"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/methods.html">methods</a></span><span class="op">(</span><span class="va">print</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt; [1] "print.acf"     "print.AES"     "print.anova"   "print.aov"    
-#&gt; [5] "print.aovlist" "print.ar"</code></pre>
+<pre><code>#&gt; [1] "print.acf"               "print.activeConcordance"
+#&gt; [3] "print.AES"               "print.anova"            
+#&gt; [5] "print.aov"               "print.aovlist"</code></pre>
 </div>
 <div id="메소드-이름-규칙" class="section level4 unnumbered">
 <h4>메소드 이름 규칙<a class="anchor" aria-label="anchor" href="#%EB%A9%94%EC%86%8C%EB%93%9C-%EC%9D%B4%EB%A6%84-%EA%B7%9C%EC%B9%99"><i class="fas fa-link"></i></a>
 </h4>
 <p>메소드 함수는 다음과 같은 이름으로 정의되어 있다.</p>
-<div class="sourceCode" id="cb2212"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2208"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">generic_function_name.class_name</span></span></code></pre></div>
 <p>따라서 data.frame 클래스의 print 메소드는 print.data.frame이 된다. 이 메소드를 data.frame 객체에 적용하나, 포괄 함수인 print를 data.frame 객체에 적용하나 동일한 결과를 얻는다. 사실 R 콘솔은 명령문을 평가한 후 자동으로 print() 함수를 실행하므로 클래스에 대한 print 메소드 구현은 매우 중요하다. 다음은 R 콘솔에서 print(f)나, print.data.frame(f)나, f는 동일한 결과를 주는 것을 보여준다.</p>
-<div class="sourceCode" id="cb2213"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2209"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt;   X1.3 X6.8
 #&gt; 1    1    6
 #&gt; 2    2    7
 #&gt; 3    3    8</code></pre>
-<div class="sourceCode" id="cb2215"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2211"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.dataframe.html">print.data.frame</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt;   X1.3 X6.8
 #&gt; 1    1    6
 #&gt; 2    2    7
 #&gt; 3    3    8</code></pre>
-<div class="sourceCode" id="cb2217"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2213"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">f</span></span></code></pre></div>
 <pre><code>#&gt;   X1.3 X6.8
 #&gt; 1    1    6
@@ -203,16 +204,16 @@ OOP가 가져야 하는 기본 특징은 다음과 같다.
 #&gt; 3    3    8</code></pre>
 <p>앞에서 확인할 수 있듯이 지금까지 객체가 R 콘솔에 출력될 때, 해당 객체의 클래스의 print 메소드들이 적절히 호출되어 해당 클래스에 적합한 형식으로 데이터를 보여 주었던 것이다.</p>
 <p>그러면 integer, character, list 등을 위한 메소드들도 있을까? grep() 함수로 해당 이름의 메소드를 찾아보면 그렇지 않음을 알 수 있다. 그러면 이 클래스의 객체들은 어떻게 출력이 이루어지는 걸까?</p>
-<div class="sourceCode" id="cb2219"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2215"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grep</a></span><span class="op">(</span><span class="st">"integer"</span>, <span class="fu"><a href="https://rdrr.io/r/utils/methods.html">methods</a></span><span class="op">(</span><span class="va">print</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; integer(0)</code></pre>
-<div class="sourceCode" id="cb2221"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2217"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grep</a></span><span class="op">(</span><span class="st">"character"</span>, <span class="fu"><a href="https://rdrr.io/r/utils/methods.html">methods</a></span><span class="op">(</span><span class="va">print</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; integer(0)</code></pre>
-<div class="sourceCode" id="cb2223"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2219"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grep</a></span><span class="op">(</span><span class="st">"list"</span>, <span class="fu"><a href="https://rdrr.io/r/utils/methods.html">methods</a></span><span class="op">(</span><span class="va">print</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt;  [1]   5  39  96 105 134 146 198 211 213 225 256</code></pre>
-<div class="sourceCode" id="cb2225"><pre class="downlit sourceCode r">
+<pre><code>#&gt;  [1]   6  40  97 106 133 144 198 211 213 224 251</code></pre>
+<div class="sourceCode" id="cb2221"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/methods.html">methods</a></span><span class="op">(</span><span class="va">print</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grep</a></span><span class="op">(</span><span class="st">"list"</span>, <span class="fu"><a href="https://rdrr.io/r/utils/methods.html">methods</a></span><span class="op">(</span><span class="va">print</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
 <pre><code>#&gt;  [1] "print.aovlist"                    "print.check_package_datalist"    
 #&gt;  [3] "print.Dlist"                      "print.dummy_coef_list"           
@@ -225,7 +226,7 @@ OOP가 가져야 하는 기본 특징은 다음과 같다.
 <div id="디폴트-메소드" class="section level4 unnumbered">
 <h4>디폴트 메소드<a class="anchor" aria-label="anchor" href="#%EB%94%94%ED%8F%B4%ED%8A%B8-%EB%A9%94%EC%86%8C%EB%93%9C"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb2227"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2223"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">print.default</span></span></code></pre></div>
 <pre><code>#&gt; function (x, digits = NULL, quote = TRUE, na.print = NULL, print.gap = NULL, 
 #&gt;     right = FALSE, max = NULL, width = NULL, useSource = TRUE, 
@@ -239,12 +240,12 @@ OOP가 가져야 하는 기본 특징은 다음과 같다.
 #&gt;         missing(useSource))
 #&gt;     .Internal(print.default(x, args, missings))
 #&gt; }
-#&gt; &lt;bytecode: 0x55c4499bd800&gt;
+#&gt; &lt;bytecode: 0x560c12dcd4d8&gt;
 #&gt; &lt;environment: namespace:base&gt;</code></pre>
 <p>보통 default 메소드는 데이터가 가지는 기본적 타입에 대해 적절한 포괄 함수 관련 처리를 수행하도록 구현되어 있다. print.default는 기본적인 데이터의 타입에 따라 적절한 출력을 보여준다.</p>
 <p>앞서 우리는 student 클래스 객체를 만들었다. 그런나 print.student라는 메소드는 존재하지 않으므로 콘솔에서 해당 객체가 입력되었을 때, print.defualt가 student의 출력을 담당하였다. 따라서 student의 데이터 기본 타입인 list의 형식으로 데이터가 출력이 된것이다.</p>
 <p>methods() 함수의 class 인수를 이용하면 해당 클래스를 위해 정의된 모든 메소드의 목록을 볼 수 있다. student 클래스를 위한 어떠한 메소드도 구현되지 않았음을 볼 수 있다.</p>
-<div class="sourceCode" id="cb2229"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2225"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/methods.html">methods</a></span><span class="op">(</span>class<span class="op">=</span><span class="st">"lm"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt;  [1] add1           alias          anova          case.names     coerce        
 #&gt;  [6] confint        cooks.distance deviance       dfbeta         dfbetas       
@@ -255,10 +256,10 @@ OOP가 가져야 하는 기본 특징은 다음과 같다.
 #&gt; [31] residuals      rstandard      rstudent       show           simulate      
 #&gt; [36] slotsFromS3    summary        variable.names vcov          
 #&gt; see '?methods' for accessing help and source code</code></pre>
-<div class="sourceCode" id="cb2231"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2227"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/methods.html">methods</a></span><span class="op">(</span>class<span class="op">=</span><span class="st">"student"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; no methods found</code></pre>
-<div class="sourceCode" id="cb2233"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2229"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.default.html">print.default</a></span><span class="op">(</span><span class="va">st1</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; $name
 #&gt; [1] "Gildong"
@@ -276,7 +277,7 @@ OOP가 가져야 하는 기본 특징은 다음과 같다.
 <h4>메소드 정의하기<a class="anchor" aria-label="anchor" href="#%EB%A9%94%EC%86%8C%EB%93%9C-%EC%A0%95%EC%9D%98%ED%95%98%EA%B8%B0"><i class="fas fa-link"></i></a>
 </h4>
 <p>다음처럼 student 클래스를 위한 print 메소드를 만들어 보자. S3 클래스에서는 함수의 이름을 (포괄 함수명).(클래스명)으로 부여하면 된다. 그러면 UseMethod()가 해당 클래스를 위해 정의된 메소드를 호출해 준다.</p>
-<div class="sourceCode" id="cb2235"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2231"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">print.student</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">x</span><span class="op">$</span><span class="va">name</span>, <span class="st">"\n"</span><span class="op">)</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"year"</span>, <span class="va">x</span><span class="op">$</span><span class="va">year</span>, <span class="st">"\n"</span><span class="op">)</span></span>
@@ -285,14 +286,14 @@ OOP가 가져야 하는 기본 특징은 다음과 같다.
 <span><span class="fu"><a href="https://rdrr.io/r/utils/methods.html">methods</a></span><span class="op">(</span>class<span class="op">=</span><span class="st">"student"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; [1] print
 #&gt; see '?methods' for accessing help and source code</code></pre>
-<div class="sourceCode" id="cb2237"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2233"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">st1</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Gildong 
 #&gt; year 2 
 #&gt; GPA 3.2</code></pre>
 <p>위의 예에서 보듯이 student 클래스를 위한 print 메소드가 구현되었으므로 이제는 default 메소드가 아니라 student 클래스를 위한 print 메소드가 실행된다. 일반적으로 복잡한 클래스일수록 자신만의 print 메소드를 구현한다. 그래야 복잡한 내부 데이터를 모두 출력하지 않고 필요한 정보만 효율적으로 보여줄 수 있기 때문이다.</p>
 <p>그리고 R을 처음 접한 사람들이 의아해 하는 사항이 있다. 그것은 대부분의 클래스에서 print 메소드보다는 summary 메소드가 더 자세한 정보를 출력한다는 것이다. 문자 그대로 해석한다면 print() 함수는 모든 내용을 출력해야 하고, summary() 함수는 좀 더 요약된 정보를 제공해야 할 것 같은데 말이다. lm 클래스도 print() 함수 보다는 summary() 함수가 훨씬 더 자세한 정보를 제공한다.</p>
-<div class="sourceCode" id="cb2239"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2235"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; 
 #&gt; Call:
@@ -331,13 +332,13 @@ OOP가 가져야 하는 기본 특징은 다음과 같다.
 <p>S3 클래스에서 상속성의 구현은 객체를 생성할 때 단지 class 속성에 하위 클래스 이름 다음에 상위 클래스 이름을 모두 나열하기만 하면 된다. 그러면 UseMethod() 분배 함수는 class 속성에 부여된 클래스 순으로 메소드를 찾아 실행한다. 따라서 하위 클래스를 위한 메소드가 없으면 다음에 정의되어 있는 상위 클래스의 메소드를 실행해 준다. 하위 클래스가 상속받은 상위 클래스가 또 다른 클래스를 상속 받았다면, class 속성에는 하위 클래스, 상위 클래스, 상위-상위 클래스 순으로 차례대로 기술해 주면 된다.</p>
 <p>S3 클래스에서 상속성이 어떻게 수행되는지 다음 예로 살펴보자. 현재 student 클래스를 이용하여 대학생과 대학원생 정보를 모두 처리하고 있다고 하자. 그런데 대학원생의 경우에는 student에 있는 데이터뿐 아니라 지도교수(advisor)에 대한 정보가 추가되어 관리되는 것이 편리하다고 판단되어, 지도교수 정보를 포함하는 gradstudent 클래스를 정의하고자 한다.
 다음 예에서 st2 객체를 생성할 때 리스트에 advisor 요소가 추가되었다. 그리고 class 속성에 먼저 하위 클래스 이름인 gradstudent, 그리고 상위 클래스 이름인 student가 기술되었다. 물론 아직은 gradstudent 클래스에 대한 어떠한 메소드도 존재하지 않는다.</p>
-<div class="sourceCode" id="cb2241"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2237"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">st2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>name<span class="op">=</span><span class="st">"Gilsan"</span>, year<span class="op">=</span><span class="fl">1</span>, GPA<span class="op">=</span><span class="fl">3.8</span>, advisor<span class="op">=</span><span class="st">"Sejong"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">st2</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"gradstudent"</span>, <span class="st">"student"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/methods.html">methods</a></span><span class="op">(</span>class<span class="op">=</span><span class="st">"gradstudent"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; no methods found</code></pre>
 <p>그러면 gradstudent 클래스인 st2를 출력해 보자. 그러면 UseMethod() 함수는 먼저 gradstudent 클래스를 위한 print 메소드를 찾는다. 해당 메소드가 없으므로 두번째로 기술되어 있는 student 클래스의 print 메소드를 찾는다. 해당 메소드가 있으므로 이 메소드로 출력을 수행한다. 이마저도 없으면 default 메소드가 수행될 것이다. 물론 student 클래스를 위한 print 메소드는 이미 구현되어 있기 때문에, 대학원생 정보인 st2도 student 클래스의 출력 형식에 맞추어 출력이 이루어진다. 따라서 gradstudent 객체는 student 클래스의 메소드를 상속 받았다고 볼 수 있다.</p>
-<div class="sourceCode" id="cb2243"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2239"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">st2</span></span></code></pre></div>
 <pre><code>#&gt; Gilsan 
 #&gt; year 1 
@@ -347,7 +348,7 @@ OOP가 가져야 하는 기본 특징은 다음과 같다.
 <h4>메소드 overiding<a class="anchor" aria-label="anchor" href="#%EB%A9%94%EC%86%8C%EB%93%9C-overiding"><i class="fas fa-link"></i></a>
 </h4>
 <p>만약 gradstudent 객체의 출력에 지도 교수 정보도 같이 출력되기를 원한다면, 다음처럼 gradstudent 클래스의 print 메소드를 구현하면 된다. 이 경우 gradstudent 클래스만의 메소드가 상속받은 student 클래스의 메소드를 overiding 하였다고 표현한다.</p>
-<div class="sourceCode" id="cb2245"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2241"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">print.gradstudent</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu">print.student</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Advisor"</span>, <span class="va">x</span><span class="op">$</span><span class="va">advisor</span>, <span class="st">"\n"</span><span class="op">)</span></span>
@@ -427,16 +428,16 @@ OOP가 가져야 하는 기본 특징은 다음과 같다.
 <h4>클래스 정의 setClass()<a class="anchor" aria-label="anchor" href="#%ED%81%B4%EB%9E%98%EC%8A%A4-%EC%A0%95%EC%9D%98-setclass"><i class="fas fa-link"></i></a>
 </h4>
 <p>다음은 setClass() 함수로 newstudent라는 새로운 클래스를 생성한 예이다. 데이터의 요소는 앞서 S3 클래스로 생성한 student 클래스와 동일하다. setClass()의 첫번째 인수로는 클래스 이름이, representation 인수는 클래스의 데이터 요소의 이름과 각 데이터 요소의 클래스가 명시된다. 이를 통해 해당 클래스 객체가 생성될 때 객체 요소의 데이터의 이름과 타입이 같아지도록 강제할 수 있다.</p>
-<div class="sourceCode" id="cb2248"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw">setClass</span><span class="op">(</span><span class="st">"newstudent"</span>, </span>
-<span>  <span class="fu">representation</span><span class="op">(</span>name<span class="op">=</span><span class="st">"character"</span>, year<span class="op">=</span><span class="st">"numeric"</span>, GPA<span class="op">=</span><span class="st">"numeric"</span> <span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2244"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/methods/setClass.html">setClass</a></span><span class="op">(</span><span class="st">"newstudent"</span>, </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/methods/representation.html">representation</a></span><span class="op">(</span>name<span class="op">=</span><span class="st">"character"</span>, year<span class="op">=</span><span class="st">"numeric"</span>, GPA<span class="op">=</span><span class="st">"numeric"</span> <span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="객체-생성-new" class="section level4 unnumbered">
 <h4>객체 생성 new()<a class="anchor" aria-label="anchor" href="#%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1-new"><i class="fas fa-link"></i></a>
 </h4>
 <p>클래스로부터 새로운 객체를 생성할 때는 new() 함수를 이용한다. new() 함수는 첫번째 인수로 클래스 이름을, 나머지 인수로 객체의 각 데이터 요소를 정의한다.</p>
-<div class="sourceCode" id="cb2249"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">st3</span> <span class="op">&lt;-</span> <span class="fu">new</span><span class="op">(</span><span class="st">"newstudent"</span>, name<span class="op">=</span><span class="st">"Gildong"</span>, year<span class="op">=</span><span class="fl">2</span>, GPA<span class="op">=</span><span class="fl">3.2</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb2245"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">st3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/methods/new.html">new</a></span><span class="op">(</span><span class="st">"newstudent"</span>, name<span class="op">=</span><span class="st">"Gildong"</span>, year<span class="op">=</span><span class="fl">2</span>, GPA<span class="op">=</span><span class="fl">3.2</span><span class="op">)</span></span>
 <span><span class="va">st3</span></span></code></pre></div>
 <pre><code>#&gt; An object of class "newstudent"
 #&gt; Slot "name":
@@ -448,28 +449,28 @@ OOP가 가져야 하는 기본 특징은 다음과 같다.
 #&gt; Slot "GPA":
 #&gt; [1] 3.2</code></pre>
 <p>setClass()에 의해 클래스의 형태가 이미 정의되어 있어서 new()로 객체 생성 시 틀린 이름이나 틀린 타입의 데이터가 입력되면 오류가 발생하므로 항상 정확한 이름과 형식으로 객체가 생성되도록 강제할 수 있다.</p>
-<div class="sourceCode" id="cb2251"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">st4</span> <span class="op">&lt;-</span> <span class="fu">new</span><span class="op">(</span><span class="st">"newstudent"</span>, sname<span class="op">=</span><span class="st">"Gildong"</span>, year<span class="op">=</span><span class="fl">2</span>, GPA<span class="op">=</span><span class="fl">3.2</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2247"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">st4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/methods/new.html">new</a></span><span class="op">(</span><span class="st">"newstudent"</span>, sname<span class="op">=</span><span class="st">"Gildong"</span>, year<span class="op">=</span><span class="fl">2</span>, GPA<span class="op">=</span><span class="fl">3.2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Error in initialize(value, ...): invalid name for slot of class "newstudent": sname</code></pre>
-<div class="sourceCode" id="cb2253"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">st4</span> <span class="op">&lt;-</span> <span class="fu">new</span><span class="op">(</span><span class="st">"newstudent"</span>, name<span class="op">=</span><span class="st">"Gildong"</span>, year<span class="op">=</span><span class="fl">2</span>, GPA<span class="op">=</span><span class="st">"3.2"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2249"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">st4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/methods/new.html">new</a></span><span class="op">(</span><span class="st">"newstudent"</span>, name<span class="op">=</span><span class="st">"Gildong"</span>, year<span class="op">=</span><span class="fl">2</span>, GPA<span class="op">=</span><span class="st">"3.2"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Error in validObject(.Object): 잘못된 클래스 "newstudent" 객체입니다: invalid object for slot "GPA" in class "newstudent": got class "character", should be or extend class "numeric"</code></pre>
 </div>
 <div id="객체-요소에-접근-slot" class="section level4 unnumbered">
 <h4>객체 요소에 접근 slot()<a class="anchor" aria-label="anchor" href="#%EA%B0%9D%EC%B2%B4-%EC%9A%94%EC%86%8C%EC%97%90-%EC%A0%91%EA%B7%BC-slot"><i class="fas fa-link"></i></a>
 </h4>
 <p>S4 클래스에서 객체의 각 데이터 요소(멤버 변수라고 한다)를 슬롯(slot)이라 하며, <code>@</code> 또는 slot()으로 접근한다. S4 클래스는 정의되지 않은 멤버 변수의 생성을 허용하지 않는다. 반면 S3는 단순한 리스트 객체이므로 아무 제약 없이 새로운 요소를 추가하거나 기존 요소를 삭제할 수 있다.</p>
-<div class="sourceCode" id="cb2255"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2251"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">st3</span><span class="op">@</span><span class="va">name</span></span></code></pre></div>
 <pre><code>#&gt; [1] "Gildong"</code></pre>
-<div class="sourceCode" id="cb2257"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">slot</span><span class="op">(</span><span class="va">st3</span>, <span class="st">"GPA"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2253"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/methods/slot.html">slot</a></span><span class="op">(</span><span class="va">st3</span>, <span class="st">"GPA"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; [1] 3.2</code></pre>
-<div class="sourceCode" id="cb2259"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2255"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">st3</span><span class="op">@</span><span class="va">year</span> <span class="op">&lt;-</span> <span class="fl">4</span></span>
 <span><span class="va">st3</span><span class="op">@</span><span class="va">GPa</span> <span class="op">&lt;-</span> <span class="fl">4.0</span></span></code></pre></div>
 <pre><code>#&gt; Error in (function (cl, name, valueClass) : 'GPa'는 클래스 "newstudent"내에 있는 슬롯이 아닙니다</code></pre>
-<div class="sourceCode" id="cb2261"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2257"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">st3</span></span></code></pre></div>
 <pre><code>#&gt; An object of class "newstudent"
 #&gt; Slot "name":
@@ -485,13 +486,13 @@ OOP가 가져야 하는 기본 특징은 다음과 같다.
 <h4>S4 클래스 메소드 생성 setMethod()<a class="anchor" aria-label="anchor" href="#s4-%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%A9%94%EC%86%8C%EB%93%9C-%EC%83%9D%EC%84%B1-setmethod"><i class="fas fa-link"></i></a>
 </h4>
 <p>S4 클래스에서는 메소드는 setMethod() 함수에 의해 정의된다. 앞에서 생성한 newstudent 객체에 summary() 함수를 적용하면 해당 클래스의 summary 메소드가 구현되지 않았으므로 디폴트로 제공되는 메소드에 의해 객체에 대한 매우 간략한 요약 정보만 출력한다.</p>
-<div class="sourceCode" id="cb2263"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2259"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">st3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt;     Length      Class       Mode 
 #&gt;          1 newstudent         S4</code></pre>
 <p>newstudent 클래스에 summary 메소드를 다음과 같이 추가해 보자. setMethod() 함수는 첫번째 인수로 메소드 이름, 두번째 인수로 클래스 이름, 세번째 인수로 메소드 호출시 실행될 함수 객체를 받는다.</p>
-<div class="sourceCode" id="cb2265"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw">setMethod</span><span class="op">(</span><span class="st">"summary"</span>, <span class="st">"newstudent"</span>,</span>
+<div class="sourceCode" id="cb2261"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/methods/setMethod.html">setMethod</a></span><span class="op">(</span><span class="st">"summary"</span>, <span class="st">"newstudent"</span>,</span>
 <span>    <span class="kw">function</span><span class="op">(</span><span class="va">object</span><span class="op">)</span><span class="op">{</span></span>
 <span>      <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">object</span><span class="op">@</span><span class="va">name</span>, <span class="st">" is a "</span>, </span>
 <span>          <span class="va">object</span><span class="op">@</span><span class="va">year</span>, <span class="st">"th year student with GPA "</span>, </span>
@@ -500,10 +501,10 @@ OOP가 가져야 하는 기본 특징은 다음과 같다.
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">st3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Gildong is a 4th year student with GPA 3.2</code></pre>
 <p>만약 명시적으로 생성한 메소드를 제거하려면 removeMethod() 함수를 이용한다.</p>
-<div class="sourceCode" id="cb2267"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">removeMethod</span><span class="op">(</span><span class="st">"summary"</span>, <span class="st">"newstudent"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2263"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/methods/removeMethod.html">removeMethod</a></span><span class="op">(</span><span class="st">"summary"</span>, <span class="st">"newstudent"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; [1] TRUE</code></pre>
-<div class="sourceCode" id="cb2269"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2265"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">st3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt;     Length      Class       Mode 
 #&gt;          1 newstudent         S4</code></pre>
@@ -551,7 +552,7 @@ OOP가 가져야 하는 기본 특징은 다음과 같다.
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R 프로그래밍 (개정판)</strong>" was written by Kilhwan Kim. It was last built on 2023-03-13.</p>
+    <p>"<strong>R 프로그래밍 (개정판)</strong>" was written by Kilhwan Kim. It was last built on 2023-09-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -7,7 +7,7 @@
 <title>Chapter 1 R 설치 및 시작 | R 프로그래밍 (개정판)</title>
 <meta name="author" content="Kilhwan Kim">
 <meta name="description" content="1.1 R 소개 R은 통계 계산과 그래픽을 위한 프로그래밍 언어이자 소프트웨어 환경이다. R은 1960년대와 1970년대 Bell 연구소에서 개발된 S라는 데이터 처리 언어에 기반을 두고 있다. 1990년대 중반 뉴질랜드 오클랜드 대학의 로스 이하카와 로버트 젠틀맨에 의해 시작되어 현재는 R의 핵심 기능은 R 코어 팀이, 다양한 추가 기능은 자발적...">
-<meta name="generator" content="bookdown 0.31 with bs4_book()">
+<meta name="generator" content="bookdown 0.33 with bs4_book()">
 <meta property="og:title" content="Chapter 1 R 설치 및 시작 | R 프로그래밍 (개정판)">
 <meta property="og:type" content="book">
 <meta property="og:description" content="1.1 R 소개 R은 통계 계산과 그래픽을 위한 프로그래밍 언어이자 소프트웨어 환경이다. R은 1960년대와 1970년대 Bell 연구소에서 개발된 S라는 데이터 처리 언어에 기반을 두고 있다. 1990년대 중반 뉴질랜드 오클랜드 대학의 로스 이하카와 로버트 젠틀맨에 의해 시작되어 현재는 R의 핵심 기능은 R 코어 팀이, 다양한 추가 기능은 자발적...">
@@ -201,11 +201,11 @@
 </h3>
 <p><code>winget</code>에 대한 설명은 <a href="ch-intro.html#winget">1.2.2</a> 절을 참조한다.
 cmd 창이나 PowerShell 창에서 다음 명령을 실행하면 RStudo를 내려받고 설치 관리자를 실행한다.</p>
-<pre><code>winget install --id RStudio.RStudio.OpenSource</code></pre>
+<pre><code>winget install --id Posit.RStudio</code></pre>
 <p>설치 관리자가 설치할 것인지 확인하면 ’Yes’를 선택한다.
 만약 이전 버전의 RStudio가 이미 설치되어 있다면, 업그레이드 하도록 다음 명령을 실행한다.
 <strong>R</strong>과 달리 RStudio 설치 관리자는 이전 버전을 지우고 신규 버전을 재설치 한다.</p>
-<pre><code>winget upgrade --id RStudio.RStudio.OpenSource</code></pre>
+<pre><code>winget upgrade --id Posit.RStudio</code></pre>
 <p><code>winget</code>으로 RStudio를 설치할 수 없으면 다음 절의 설명을 참조하여 직접 RStudio를 내려받고 설치를 수행한다.</p>
 </div>
 <div id="rstudio-설치" class="section level3" number="1.3.2">
@@ -215,11 +215,10 @@ cmd 창이나 PowerShell 창에서 다음 명령을 실행하면 RStudo를 내�
 <blockquote>
 <p>앞 절에서 <code>winget</code>을 사용하여 <strong>RStudio</strong>를 설치하였으면 이 절의 내용은 수행하지 않아도 된다. 이 절은 <code>winget</code>으로 <strong>RStudio</strong>를 설치하지 못하였거나, 윈도우즈 이외의 운영체제를 사용하는 독자를 위해 <strong>R</strong>을 직접 내려받아 설치하는 방법을 설명한다.</p>
 </blockquote>
-<p><a href="http://www.rstudio.com/products/rstudio/download/">RStudio 다운로드 웹페이지</a>에 접속하면 RStudio를 내려 받을 수 있다. RStudio는 데스크탑용과 서버용이 있다. 데스크탑 버전은 개별 사용자를 위한 버전이고, 서버용 버전은 여러 사람이 동시에 데이터를 분석하거나 원격에서 데이터를 분석하기에 좋은 환경이다. 서버용 버전과 관련된 정보는 RStudio 홈페이지를 참조하기 바란다.</p>
-<p>RStudio Desktop은 무료용 Open Source License (Free) 버전과 상업용 Commercial License 버전이 있다. 데스크탑용 RStudio는 무료용이나 상업용이나 기능상 차이는 없다. 상업용에는 별도의 기술 지원이 추가된다. Open Source License (Free)에서 [DOWNLOAD]을 클릭하여 다운로드 페이지로 이동한다.</p>
-<div class="inline-figure"><img src="img/RStudio-download.png" width="60%" style="display: block; margin: auto;"></div>
-<p>그러면 자동으로 접속자의 환경을 파악하여 사용자가 사용하는 운영체제에 적절한 RStudio 데스크탑 버전을 선택해 준다. 윈도우즈 사용자들은 [DOWNLOAD RSTUDIO FOR WINDOWS]가 나타날 것이다. 이를 클릭하면 RStudio가 다운로드 될 것이다. 만약 다른 운영체제의 RStudio가 필요하면 하단의 목록에서 적절한 배포한을 선택한다. (RStudio는 공개 소프트웨어로 프로그램 소스 파일도 함께 공개되어 있어, 같은 페이지 하단에서 볼 수 있는 바와 같이 RStudio 소스를 내려받을 수도 있다.)</p>
-<div class="inline-figure"><img src="img/RStudio-desktop-dist.png" width="60%" style="display: block; margin: auto;"></div>
+<p><a href="https://posit.co/downloads/">RStudio 다운로드 웹페이지</a>에 접속하면 RStudio를 내려 받을 수 있다. RStudio는 데스크탑용과 서버용이 있다. 데스크탑 버전은 개별 사용자를 위한 버전이고, 서버용 버전은 여러 사람이 동시에 데이터를 분석하거나 원격에서 데이터를 분석하기에 좋은 환경이다. 서버용 버전과 관련된 정보는 RStudio 홈페이지를 참조하기 바란다.
+[DOWNLOAD RSTUDIO]를 클릭하여 RStudio 설치 안내 페이지로 이동한다.</p>
+<p>그러면 RStudio 설자 안내 페이지에는 <code>1: Install R</code>이라는 섹션에 <strong>R</strong>을 설치하를 먼저 하라고 나와있는데, 우리는 이미 <strong>R</strong>을 설치하였으므로 <code>2: Install RStudio</code>을 수행하면 된다.
+페이지를 중간 쯤에 운영체제 별로 다운로드 할 수 있는 파일이 제공되고 있다. 윈도우즈 사용자들은 <code>Windows 10/11</code> 행에 있는 파일을 다운로드 하여 설치하면 된다. 만약 다른 운영체제의 RStudio가 필요하면 목록에서 적절한 배포판을 선택한다.</p>
 <p>내려받은 파일을 실행하면 RStudio 설치를 완료할 수 있다.</p>
 </div>
 </div>
@@ -265,7 +264,7 @@ cmd 창이나 PowerShell 창에서 다음 명령을 실행하면 RStudo를 내�
 #&gt;  Max.   :25.0   Max.   :120.00</code></pre>
 <p>자동차의 속력과 제동 거리의 상관 관계를 보기 위해 <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> 함수를 이용하여 산점도(scatter plot)를 그려 본다.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">dist</span> <span class="op">~</span> <span class="va">speed</span>, data<span class="op">=</span><span class="va">cars</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="getting-started_files/figure-html/unnamed-chunk-17-1.png" width="60%" style="display: block; margin: auto;"></div>
 <p>자동차의 속력과 제동 거리의 관계를 선형 모형으로 나타내기 위해 다음 명령어를 이용하여 cars 데이터에 대한 선형회귀분석을 수행한다.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
@@ -281,7 +280,7 @@ cmd 창이나 PowerShell 창에서 다음 명령을 실행하면 RStudo를 내�
 <p>제동 거리를 속도로 회귀분석해 보면 절편이 -17.579이고 기울기가 3.932가 됨을 알 수 있다.</p>
 <p>앞에 그린 산점도에 <code><a href="https://rdrr.io/r/graphics/abline.html">abline()</a></code> 함수를 이용하여 회귀 적합선을 그려 넣어 본다.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">dist</span> <span class="op">~</span> <span class="va">speed</span>, data<span class="op">=</span><span class="va">cars</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">lm.cars</span>, col<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="getting-started_files/figure-html/unnamed-chunk-19-1.png" width="60%" style="display: block; margin: auto;"></div>
 <p>본 절에서 수행한 명령어가 궁금한 독자는 <code>help(명령어)</code>나 <code>?명령어</code>를 R 콘솔에 입력해 보라. 관련 도움말을 얻을 수 있을 것이다.</p>
@@ -454,7 +453,7 @@ cmd 창이나 PowerShell 창에서 다음 명령을 실행하면 RStudo를 내�
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R 프로그래밍 (개정판)</strong>" was written by Kilhwan Kim. It was last built on 2023-03-13.</p>
+    <p>"<strong>R 프로그래밍 (개정판)</strong>" was written by Kilhwan Kim. It was last built on 2023-09-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

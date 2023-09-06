@@ -6,14 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 8 ggplot2를 이용한 데이터 시각화 | R 프로그래밍 (개정판)</title>
 <meta name="author" content="Kilhwan Kim">
-<meta name="description" content="이 장에서는 ggplot2를 이용하여 데이터를 시각화하는 방법을 배운다. ggplot2 패키지는 tidyverse 패키지를 설치하였으면 자동으로 설치된다. 그리고 tidyverse 패키지를 적재하면 ggplot2 패키지도 자동 적재된다. library(tidyverse) #&gt; ── Attaching packages...">
-<meta name="generator" content="bookdown 0.31 with bs4_book()">
+<meta name="description" content="이 장에서는 ggplot2를 이용하여 데이터를 시각화하는 방법을 배운다. ggplot2 패키지는 tidyverse 패키지를 설치하였으면 자동으로 설치된다. 그리고 tidyverse 패키지를 적재하면 ggplot2 패키지도 자동 적재된다. library(tidyverse) #&gt; ── Attaching core tidyverse packages...">
+<meta name="generator" content="bookdown 0.33 with bs4_book()">
 <meta property="og:title" content="Chapter 8 ggplot2를 이용한 데이터 시각화 | R 프로그래밍 (개정판)">
 <meta property="og:type" content="book">
-<meta property="og:description" content="이 장에서는 ggplot2를 이용하여 데이터를 시각화하는 방법을 배운다. ggplot2 패키지는 tidyverse 패키지를 설치하였으면 자동으로 설치된다. 그리고 tidyverse 패키지를 적재하면 ggplot2 패키지도 자동 적재된다. library(tidyverse) #&gt; ── Attaching packages...">
+<meta property="og:description" content="이 장에서는 ggplot2를 이용하여 데이터를 시각화하는 방법을 배운다. ggplot2 패키지는 tidyverse 패키지를 설치하였으면 자동으로 설치된다. 그리고 tidyverse 패키지를 적재하면 ggplot2 패키지도 자동 적재된다. library(tidyverse) #&gt; ── Attaching core tidyverse packages...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 8 ggplot2를 이용한 데이터 시각화 | R 프로그래밍 (개정판)">
-<meta name="twitter:description" content="이 장에서는 ggplot2를 이용하여 데이터를 시각화하는 방법을 배운다. ggplot2 패키지는 tidyverse 패키지를 설치하였으면 자동으로 설치된다. 그리고 tidyverse 패키지를 적재하면 ggplot2 패키지도 자동 적재된다. library(tidyverse) #&gt; ── Attaching packages...">
+<meta name="twitter:description" content="이 장에서는 ggplot2를 이용하여 데이터를 시각화하는 방법을 배운다. ggplot2 패키지는 tidyverse 패키지를 설치하였으면 자동으로 설치된다. 그리고 tidyverse 패키지를 적재하면 ggplot2 패키지도 자동 적재된다. library(tidyverse) #&gt; ── Attaching core tidyverse packages...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -100,14 +100,16 @@
 <p>이 장에서는 ggplot2를 이용하여 데이터를 시각화하는 방법을 배운다. ggplot2 패키지는 tidyverse 패키지를 설치하였으면 자동으로 설치된다. 그리고 tidyverse 패키지를 적재하면 ggplot2 패키지도 자동 적재된다.</p>
 <div class="sourceCode" id="cb1557"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt; ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-#&gt; ✔ ggplot2 3.4.0      ✔ purrr   0.3.5 
-#&gt; ✔ tibble  3.1.8      ✔ dplyr   1.0.10
-#&gt; ✔ tidyr   1.2.1      ✔ stringr 1.5.0 
-#&gt; ✔ readr   2.1.3      ✔ forcats 0.5.2 
+<pre><code>#&gt; ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+#&gt; ✔ dplyr     1.1.2     ✔ readr     2.1.4
+#&gt; ✔ forcats   1.0.0     ✔ stringr   1.5.0
+#&gt; ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+#&gt; ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+#&gt; ✔ purrr     1.0.1     
 #&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 #&gt; ✖ dplyr::filter() masks stats::filter()
-#&gt; ✖ dplyr::lag()    masks stats::lag()</code></pre>
+#&gt; ✖ dplyr::lag()    masks stats::lag()
+#&gt; ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 <div id="sec-getStarted-ggplot2" class="section level2" number="8.1">
 <h2>
 <span class="header-section-number">8.1</span> ggplot2 시작하기<a class="anchor" aria-label="anchor" href="#sec-getStarted-ggplot2"><i class="fas fa-link"></i></a>
@@ -686,7 +688,7 @@ Figure 8.1: ggplot2의 그래픽 문법 (출처: Data visualization with ggplot2
 #&gt;  8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53
 #&gt;  9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49
 #&gt; 10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39
-#&gt; # … with 53,930 more rows</code></pre>
+#&gt; # ℹ 53,930 more rows</code></pre>
 <p>다이아몬드의 가공의 품질(<code>cut</code>) 수준에 따른 빈도를 시각화해 보자. 현재 <code>cut</code>의 수준별 빈도수에 대한 데이터가 없기 때문에 먼저 이 데이터를 구하기 위한 통계적 변환을 수행해야 한다. 이를 위해 뒤에 설명할 <code>dplyr</code> 패키지의 <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code> 함수를 이용하였다.</p>
 <div class="sourceCode" id="cb1636"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cut_table</span> <span class="op">&lt;-</span> <span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -725,7 +727,10 @@ Figure 8.2: stat의 작동 방식 (출처: R for Data Science)
 <div class="sourceCode" id="cb1641"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">clarity</span>, <span class="va">..prop..</span>, group<span class="op">=</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>#&gt; Warning: The dot-dot notation (`..prop..`) was deprecated in ggplot2 3.4.0.
-#&gt; ℹ Please use `after_stat(prop)` instead.</code></pre>
+#&gt; ℹ Please use `after_stat(prop)` instead.
+#&gt; This warning is displayed once every 8 hours.
+#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+#&gt; generated.</code></pre>
 <div class="inline-figure"><img src="visualization_files/figure-html/unnamed-chunk-59-1.png" width="60%" style="display: block; margin: auto;"></div>
 </div>
 <div id="subsec-statNumerical" class="section level3" number="8.6.2">
@@ -1321,25 +1326,25 @@ facet을 사용하면 제3, 4 변수의 값에 따라 그래프 각각 그린 �
 <div class="sourceCode" id="cb1731"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">midwest</span></span></code></pre></div>
 <pre><code>#&gt; # A tibble: 437 × 28
-#&gt;      PID county    state  area poptotal popden…¹ popwh…² popbl…³ popam…⁴ popas…⁵
-#&gt;    &lt;int&gt; &lt;chr&gt;     &lt;chr&gt; &lt;dbl&gt;    &lt;int&gt;    &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;
-#&gt;  1   561 ADAMS     IL    0.052    66090    1271.   63917    1702      98     249
-#&gt;  2   562 ALEXANDER IL    0.014    10626     759     7054    3496      19      48
-#&gt;  3   563 BOND      IL    0.022    14991     681.   14477     429      35      16
-#&gt;  4   564 BOONE     IL    0.017    30806    1812.   29344     127      46     150
-#&gt;  5   565 BROWN     IL    0.018     5836     324.    5264     547      14       5
-#&gt;  6   566 BUREAU    IL    0.05     35688     714.   35157      50      65     195
-#&gt;  7   567 CALHOUN   IL    0.017     5322     313.    5298       1       8      15
-#&gt;  8   568 CARROLL   IL    0.027    16805     622.   16519     111      30      61
-#&gt;  9   569 CASS      IL    0.024    13437     560.   13384      16       8      23
-#&gt; 10   570 CHAMPAIGN IL    0.058   173025    2983.  146506   16559     331    8033
-#&gt; # … with 427 more rows, 18 more variables: popother &lt;int&gt;, percwhite &lt;dbl&gt;,
+#&gt;      PID county  state  area poptotal popdensity popwhite popblack popamerindian
+#&gt;    &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt;    &lt;int&gt;      &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt;         &lt;int&gt;
+#&gt;  1   561 ADAMS   IL    0.052    66090      1271.    63917     1702            98
+#&gt;  2   562 ALEXAN… IL    0.014    10626       759      7054     3496            19
+#&gt;  3   563 BOND    IL    0.022    14991       681.    14477      429            35
+#&gt;  4   564 BOONE   IL    0.017    30806      1812.    29344      127            46
+#&gt;  5   565 BROWN   IL    0.018     5836       324.     5264      547            14
+#&gt;  6   566 BUREAU  IL    0.05     35688       714.    35157       50            65
+#&gt;  7   567 CALHOUN IL    0.017     5322       313.     5298        1             8
+#&gt;  8   568 CARROLL IL    0.027    16805       622.    16519      111            30
+#&gt;  9   569 CASS    IL    0.024    13437       560.    13384       16             8
+#&gt; 10   570 CHAMPA… IL    0.058   173025      2983.   146506    16559           331
+#&gt; # ℹ 427 more rows
+#&gt; # ℹ 19 more variables: popasian &lt;int&gt;, popother &lt;int&gt;, percwhite &lt;dbl&gt;,
 #&gt; #   percblack &lt;dbl&gt;, percamerindan &lt;dbl&gt;, percasian &lt;dbl&gt;, percother &lt;dbl&gt;,
 #&gt; #   popadults &lt;int&gt;, perchsd &lt;dbl&gt;, percollege &lt;dbl&gt;, percprof &lt;dbl&gt;,
 #&gt; #   poppovertyknown &lt;int&gt;, percpovertyknown &lt;dbl&gt;, percbelowpoverty &lt;dbl&gt;,
 #&gt; #   percchildbelowpovert &lt;dbl&gt;, percadultpoverty &lt;dbl&gt;,
-#&gt; #   percelderlypoverty &lt;dbl&gt;, inmetro &lt;int&gt;, category &lt;chr&gt;, and abbreviated
-#&gt; #   variable names ¹​popdensity, ²​popwhite, ³​popblack, ⁴​popamerindian, …</code></pre>
+#&gt; #   percelderlypoverty &lt;dbl&gt;, inmetro &lt;int&gt;, category &lt;chr&gt;</code></pre>
 <ul>
 <li>area: 면적</li>
 <li>poptotal: 총 인수수</li>
@@ -1545,7 +1550,7 @@ popasian: 아시아인 거주자수</li>
 <p>지금까지는 <code>ggplot2</code> 패키지가 자체적으로 제공하는 테마만 보았다. <code>ggthemes</code> 패키지를 설치하면 더 많은 테마를 사용할 수 있다.</p>
 <div class="sourceCode" id="cb1762"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"ggthemes"</span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt; '/home/sys4ppl/R/x86_64-pc-linux-gnu-library/4.2'의 위치에 패키지(들)을 설치합니다.
+<pre><code>#&gt; '/home/sys4ppl/R/x86_64-pc-linux-gnu-library/4.3'의 위치에 패키지(들)을 설치합니다.
 #&gt; (왜냐하면 'lib'가 지정되지 않았기 때문입니다)</code></pre>
 <p><code>ggthemes</code> 패키지가 제공하는 테마는 매우 많지만 그 중에 몇 가지 예만 살펴본다.</p>
 <div class="sourceCode" id="cb1764"><pre class="downlit sourceCode r">
@@ -1832,7 +1837,7 @@ popasian: 아시아인 거주자수</li>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R 프로그래밍 (개정판)</strong>" was written by Kilhwan Kim. It was last built on 2023-03-13.</p>
+    <p>"<strong>R 프로그래밍 (개정판)</strong>" was written by Kilhwan Kim. It was last built on 2023-09-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
