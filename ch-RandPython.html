@@ -1,148 +1,562 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="" xml:lang="">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>A R과 Python 연동하기 | R 프로그래밍 (개정판)</title>
-<meta name="author" content="Kilhwan Kim">
-<meta name="description" content="R의 reticlate 패키지를 사용하여 R과 Python을 쉽게 연동시킬 수 있다. reticulate 패키지는 크게 다음 세 가지 기능을 수행한다. R에서 Python을 호출하는 기능: R 스크립트나 R 마크다운 문서에서 R 세션 중간에 파이썬 스크립트나 파이썬 모듈을 호출할 수 있다. R과 Python 객체 간의 상호 변환: R의 데이터프레임과...">
-<meta name="generator" content="bookdown 0.33 with bs4_book()">
-<meta property="og:title" content="A R과 Python 연동하기 | R 프로그래밍 (개정판)">
-<meta property="og:type" content="book">
-<meta property="og:description" content="R의 reticlate 패키지를 사용하여 R과 Python을 쉽게 연동시킬 수 있다. reticulate 패키지는 크게 다음 세 가지 기능을 수행한다. R에서 Python을 호출하는 기능: R 스크립트나 R 마크다운 문서에서 R 세션 중간에 파이썬 스크립트나 파이썬 모듈을 호출할 수 있다. R과 Python 객체 간의 상호 변환: R의 데이터프레임과...">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A R과 Python 연동하기 | R 프로그래밍 (개정판)">
-<meta name="twitter:description" content="R의 reticlate 패키지를 사용하여 R과 Python을 쉽게 연동시킬 수 있다. reticulate 패키지는 크게 다음 세 가지 기능을 수행한다. R에서 Python을 호출하는 기능: R 스크립트나 R 마크다운 문서에서 R 세션 중간에 파이썬 스크립트나 파이썬 모듈을 호출할 수 있다. R과 Python 객체 간의 상호 변환: R의 데이터프레임과...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-176754989-1"></script><script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'UA-176754989-1');
-    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
-    
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  </style>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>A R과 Python 연동하기 | R 프로그래밍 (개정판)</title>
+  <meta name="description" content="이 책은 경영데이터분석기초의 주교재로 사용되기 위해 개발되었습니다." />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="A R과 Python 연동하기 | R 프로그래밍 (개정판)" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="이 책은 경영데이터분석기초의 주교재로 사용되기 위해 개발되었습니다." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A R과 Python 연동하기 | R 프로그래밍 (개정판)" />
+  
+  <meta name="twitter:description" content="이 책은 경영데이터분석기초의 주교재로 사용되기 위해 개발되었습니다." />
+  
+
+<meta name="author" content="Kilhwan Kim" />
+
+
+<meta name="date" content="2023-10-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ch-R-OOP.html"/>
+<link rel="next" href="ch-RTips.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176754989-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176754989-1');
+</script>
+
+
 <style type="text/css">
-    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-        }
-    .hanging div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }
-  </style>
-<link rel="stylesheet" href="style.css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
-<body data-spy="scroll" data-target="#toc">
 
-<div class="container-fluid">
-<div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<body>
 
-    <div class="d-flex align-items-start justify-content-between">
-      <h1>
-        <a href="index.html" title="">R 프로그래밍 (개정판)</a>
-      </h1>
-      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
-    </div>
 
-    <div id="main-nav" class="collapse-lg">
-      <form role="search">
-        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Preface</a></li>
-<li><a class="" href="ch-intro.html"><span class="header-section-number">1</span> R 설치 및 시작</a></li>
-<li><a class="" href="ch-R-Data-Basic.html"><span class="header-section-number">2</span> R 데이터 기초</a></li>
-<li><a class="" href="ch-R-Vectors.html"><span class="header-section-number">3</span> R 벡터</a></li>
-<li><a class="" href="ch-R-Matrix.html"><span class="header-section-number">4</span> R 행렬</a></li>
-<li><a class="" href="ch-R-List.html"><span class="header-section-number">5</span> R 리스트</a></li>
-<li><a class="" href="ch-R-Data-Frame.html"><span class="header-section-number">6</span> R 데이터 프레임</a></li>
-<li><a class="" href="ch-dataTransformation.html"><span class="header-section-number">7</span> dplyr을 이용한 데이터 변환</a></li>
-<li><a class="" href="ch-visualization.html"><span class="header-section-number">8</span> ggplot2를 이용한 데이터 시각화</a></li>
-<li><a class="" href="ch-R-Advanced-Data-Mgmt.html"><span class="header-section-number">9</span> R 고급 데이터 변환</a></li>
-<li><a class="" href="ch-R-Programming-Structure.html"><span class="header-section-number">10</span> R 프로그래밍 구조</a></li>
-<li><a class="" href="ch-R-OOP.html"><span class="header-section-number">11</span> R 객체 지향 프로그래밍</a></li>
-<li class="book-part">Appendix</li>
-<li><a class="active" href="ch-RandPython.html"><span class="header-section-number">A</span> R과 Python 연동하기</a></li>
-<li><a class="" href="ch-RTips.html"><span class="header-section-number">B</span> R 관련 여러 주제들</a></li>
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R 프로그래밍</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#판-서문"><i class="fa fa-check"></i>1판 서문</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#판-서문-1"><i class="fa fa-check"></i>2판 서문</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#판의-주요-개정-2022년-7월-이후부터"><i class="fa fa-check"></i>2판의 주요 개정 (2022년 7월 이후부터)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#일러두기"><i class="fa fa-check"></i>일러두기</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>1</b> <strong>R</strong> 설치 및 시작</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="ch-intro.html"><a href="ch-intro.html#sec-Rintro"><i class="fa fa-check"></i><b>1.1</b> <strong>R</strong> 소개</a></li>
+<li class="chapter" data-level="1.2" data-path="ch-intro.html"><a href="ch-intro.html#sec-installation"><i class="fa fa-check"></i><b>1.2</b> <strong>R</strong> 설치하기</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="ch-intro.html"><a href="ch-intro.html#r을-윈도우즈에-설치할-때-주의-사항"><i class="fa fa-check"></i><b>1.2.1</b> <strong>R</strong>을 윈도우즈에 설치할 때 주의 사항</a></li>
+<li class="chapter" data-level="1.2.2" data-path="ch-intro.html"><a href="ch-intro.html#winget"><i class="fa fa-check"></i><b>1.2.2</b> <code>winget</code> 명령어로 설치하기</a></li>
+<li class="chapter" data-level="1.2.3" data-path="ch-intro.html"><a href="ch-intro.html#r-배포판-내려받기"><i class="fa fa-check"></i><b>1.2.3</b> <strong>R</strong> 배포판 내려받기</a></li>
+<li class="chapter" data-level="1.2.4" data-path="ch-intro.html"><a href="ch-intro.html#r-설치하기"><i class="fa fa-check"></i><b>1.2.4</b> R 설치하기</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="ch-intro.html"><a href="ch-intro.html#sec-RStudio"><i class="fa fa-check"></i><b>1.3</b> RStudio</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="ch-intro.html"><a href="ch-intro.html#winget을-이용한-rstudio-설치"><i class="fa fa-check"></i><b>1.3.1</b> <code>winget</code>을 이용한 RStudio 설치</a></li>
+<li class="chapter" data-level="1.3.2" data-path="ch-intro.html"><a href="ch-intro.html#rstudio-설치"><i class="fa fa-check"></i><b>1.3.2</b> RStudio 설치</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="ch-intro.html"><a href="ch-intro.html#sec-R-start"><i class="fa fa-check"></i><b>1.4</b> RStudio로 R 시작하기</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔과-프롬프트"><i class="fa fa-check"></i><b>1.4.1</b> R 콘솔과 프롬프트</a></li>
+<li class="chapter" data-level="1.4.2" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔-사용과-관련된-몇-가지-팁"><i class="fa fa-check"></i><b>1.4.2</b> R 콘솔 사용과 관련된 몇 가지 팁</a></li>
+<li class="chapter" data-level="1.4.3" data-path="ch-intro.html"><a href="ch-intro.html#r-스크립트-파일-만들기"><i class="fa fa-check"></i><b>1.4.3</b> R 스크립트 파일 만들기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html"><i class="fa fa-check"></i><b>2</b> R 데이터 기초</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#단순한-데이터-형식-data-types"><i class="fa fa-check"></i><b>2.1</b> 단순한 데이터 형식 (data types)</a></li>
+<li class="chapter" data-level="2.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#단순-연산"><i class="fa fa-check"></i><b>2.2</b> 단순 연산</a></li>
+<li class="chapter" data-level="2.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수와-할당"><i class="fa fa-check"></i><b>2.3</b> 변수와 할당</a></li>
+<li class="chapter" data-level="2.4" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#함수를-이용한-연산"><i class="fa fa-check"></i><b>2.4</b> 함수를 이용한 연산</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html"><i class="fa fa-check"></i><b>3</b> R 벡터</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#숫자-벡터"><i class="fa fa-check"></i><b>3.1</b> 숫자 벡터</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#c-함수를-이용한-숫자-벡터-만들기"><i class="fa fa-check"></i><b>3.1.1</b> c() 함수를 이용한 숫자 벡터 만들기</a></li>
+<li class="chapter" data-level="3.1.2" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#패턴을-이용한-숫자-벡터-만들기"><i class="fa fa-check"></i><b>3.1.2</b> 패턴을 이용한 숫자 벡터 만들기</a></li>
+<li class="chapter" data-level="3.1.3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#숫자-벡터의-연산"><i class="fa fa-check"></i><b>3.1.3</b> 숫자 벡터의 연산</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#논리-벡터"><i class="fa fa-check"></i><b>3.2</b> 논리 벡터</a></li>
+<li class="chapter" data-level="3.3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#문자-벡터"><i class="fa fa-check"></i><b>3.3</b> 문자 벡터</a></li>
+<li class="chapter" data-level="3.4" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#결측치-missing-values"><i class="fa fa-check"></i><b>3.4</b> 결측치 (Missing Values)</a></li>
+<li class="chapter" data-level="3.5" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#인덱스-벡터와-필터링"><i class="fa fa-check"></i><b>3.5</b> 인덱스 벡터와 필터링</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#자연수-인덱스-벡터"><i class="fa fa-check"></i><b>3.5.1</b> 자연수 인덱스 벡터</a></li>
+<li class="chapter" data-level="3.5.2" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#음의-정수-인덱스-벡터"><i class="fa fa-check"></i><b>3.5.2</b> 음의 정수 인덱스 벡터</a></li>
+<li class="chapter" data-level="3.5.3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#논리-인덱스-벡터"><i class="fa fa-check"></i><b>3.5.3</b> 논리 인덱스 벡터</a></li>
+<li class="chapter" data-level="3.5.4" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#이름-인덱스-벡터"><i class="fa fa-check"></i><b>3.5.4</b> 이름 인덱스 벡터</a></li>
+<li class="chapter" data-level="3.5.5" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#인덱스-벡터를-이용해-벡터-요소에-값-할당하기"><i class="fa fa-check"></i><b>3.5.5</b> 인덱스 벡터를 이용해 벡터 요소에 값 할당하기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html"><i class="fa fa-check"></i><b>4</b> R 행렬</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬-만들기"><i class="fa fa-check"></i><b>4.1</b> 행렬 만들기</a></li>
+<li class="chapter" data-level="4.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#벡터를-결합하여-행렬-만들기"><i class="fa fa-check"></i><b>4.2</b> 벡터를 결합하여 행렬 만들기</a></li>
+<li class="chapter" data-level="4.3" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-필터링"><i class="fa fa-check"></i><b>4.3</b> 행렬의 필터링</a></li>
+<li class="chapter" data-level="4.4" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-연산"><i class="fa fa-check"></i><b>4.4</b> 행렬의 연산</a></li>
+<li class="chapter" data-level="4.5" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬과-함수"><i class="fa fa-check"></i><b>4.5</b> 행렬과 함수</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬을-인수로-하는-함수들"><i class="fa fa-check"></i><b>4.5.1</b> 행렬을 인수로 하는 함수들</a></li>
+<li class="chapter" data-level="4.5.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-행별-또는-열별로-함수를-적용하는-방법"><i class="fa fa-check"></i><b>4.5.2</b> 행렬의 행별 또는 열별로 함수를 적용하는 방법</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#sec-RMatrix-array"><i class="fa fa-check"></i><b>4.6</b> 배열 *</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#배열의-생성"><i class="fa fa-check"></i><b>4.6.1</b> 배열의 생성</a></li>
+<li class="chapter" data-level="4.6.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#배열도-결국-벡터"><i class="fa fa-check"></i><b>4.6.2</b> 배열도 결국 벡터</a></li>
+<li class="chapter" data-level="4.6.3" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#배열의-연산과-필터링"><i class="fa fa-check"></i><b>4.6.3</b> 배열의 연산과 필터링</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#sec-RMatrix-operation-advanced"><i class="fa fa-check"></i><b>4.7</b> 행렬과 배열의 고급 연산 *</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-곱"><i class="fa fa-check"></i><b>4.7.1</b> 행렬의 곱</a></li>
+<li class="chapter" data-level="4.7.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-주대각선-요소와-대각행렬"><i class="fa fa-check"></i><b>4.7.2</b> 행렬의 주대각선 요소와 대각행렬</a></li>
+<li class="chapter" data-level="4.7.3" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#연립-일차-방정식과-역행렬"><i class="fa fa-check"></i><b>4.7.3</b> 연립 일차 방정식과 역행렬</a></li>
+<li class="chapter" data-level="4.7.4" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#고유치eigenvalues와-고유벡터eigenvectors"><i class="fa fa-check"></i><b>4.7.4</b> 고유치(eigenvalues)와 고유벡터(eigenvectors)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ch-R-List.html"><a href="ch-R-List.html"><i class="fa fa-check"></i><b>5</b> R 리스트</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="ch-R-List.html"><a href="ch-R-List.html#객체-객체의-타입-객체의-속성"><i class="fa fa-check"></i><b>5.1</b> 객체, 객체의 타입, 객체의 속성 *</a></li>
+<li class="chapter" data-level="5.2" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트의-생성-및-필터링"><i class="fa fa-check"></i><b>5.2</b> 리스트의 생성 및 필터링</a></li>
+<li class="chapter" data-level="5.3" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트의-변경-및-연결"><i class="fa fa-check"></i><b>5.3</b> 리스트의 변경 및 연결</a></li>
+<li class="chapter" data-level="5.4" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트에-함수-적용하기"><i class="fa fa-check"></i><b>5.4</b> 리스트에 함수 적용하기</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="ch-R-List.html"><a href="ch-R-List.html#lapply-함수"><i class="fa fa-check"></i><b>5.4.1</b> lapply() 함수</a></li>
+<li class="chapter" data-level="5.4.2" data-path="ch-R-List.html"><a href="ch-R-List.html#sapply-함수"><i class="fa fa-check"></i><b>5.4.2</b> sapply() 함수</a></li>
+<li class="chapter" data-level="5.4.3" data-path="ch-R-List.html"><a href="ch-R-List.html#mapply-함수"><i class="fa fa-check"></i><b>5.4.3</b> mapply() 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트-활용-분야"><i class="fa fa-check"></i><b>5.5</b> 리스트 활용 분야</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html"><i class="fa fa-check"></i><b>6</b> R 데이터 프레임</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#범주형-데이터와-요인-factors"><i class="fa fa-check"></i><b>6.1</b> 범주형 데이터와 요인 (Factors)</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#명목형-변수와-요인"><i class="fa fa-check"></i><b>6.1.1</b> 명목형 변수와 요인</a></li>
+<li class="chapter" data-level="6.1.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#순서형-변수와-요인"><i class="fa fa-check"></i><b>6.1.2</b> 순서형 변수와 요인</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임-만들기"><i class="fa fa-check"></i><b>6.2</b> 데이터 프레임 만들기</a></li>
+<li class="chapter" data-level="6.3" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임-각-열의-지정"><i class="fa fa-check"></i><b>6.3</b> 데이터 프레임 각 열의 지정</a></li>
+<li class="chapter" data-level="6.4" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임의-필터링"><i class="fa fa-check"></i><b>6.4</b> 데이터 프레임의 필터링</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#리스트-형식으로-필터링"><i class="fa fa-check"></i><b>6.4.1</b> 리스트 형식으로 필터링</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#행렬-형식으로-필터링"><i class="fa fa-check"></i><b>6.4.2</b> 행렬 형식으로 필터링</a></li>
+<li class="chapter" data-level="6.4.3" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#subset을-이용한-필터링"><i class="fa fa-check"></i><b>6.4.3</b> subset()을 이용한 필터링</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임에-함수-적용하기"><i class="fa fa-check"></i><b>6.5</b> 데이터 프레임에 함수 적용하기</a></li>
+<li class="chapter" data-level="6.6" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#dataFileImport"><i class="fa fa-check"></i><b>6.6</b> 파일에서 데이터 읽어오기</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#텍스트-파일에서-데이터-읽어오기"><i class="fa fa-check"></i><b>6.6.1</b> 텍스트 파일에서 데이터 읽어오기</a></li>
+<li class="chapter" data-level="6.6.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#csv-파일에서-데이터-읽어오기"><i class="fa fa-check"></i><b>6.6.2</b> CSV 파일에서 데이터 읽어오기</a></li>
+<li class="chapter" data-level="6.6.3" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#excel-파일에서-데이터-읽기"><i class="fa fa-check"></i><b>6.6.3</b> Excel 파일에서 데이터 읽기</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임을-파일로-쓰기"><i class="fa fa-check"></i><b>6.7</b> 데이터 프레임을 파일로 쓰기</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#바이너리-형식으로-데이터-객체-저장-및-복원"><i class="fa fa-check"></i><b>6.7.1</b> 바이너리 형식으로 데이터 객체 저장 및 복원</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임의-열을-변수처럼-이용하는-방법"><i class="fa fa-check"></i><b>6.8</b> 데이터 프레임의 열을 변수처럼 이용하는 방법 *</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html"><i class="fa fa-check"></i><b>7</b> dplyr을 이용한 데이터 변환</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-tidyData"><i class="fa fa-check"></i><b>7.1</b> 정돈 데이터 (tidy data)</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#정돈-데이터-형식의-조건"><i class="fa fa-check"></i><b>7.1.1</b> 정돈 데이터 형식의 조건</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#비정돈-데이터-형식"><i class="fa fa-check"></i><b>7.1.2</b> 비정돈 데이터 형식</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#정돈-데이터를-사용하는-이유"><i class="fa fa-check"></i><b>7.1.3</b> 정돈 데이터를 사용하는 이유</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#tidyverse-패키지"><i class="fa fa-check"></i><b>7.2</b> <code>tidyverse</code> 패키지</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#tidyverse-패키지-설치"><i class="fa fa-check"></i><b>7.2.1</b> <code>tidyverse</code> 패키지 설치</a></li>
+<li class="chapter" data-level="7.2.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#tidyverse-패키지-적재"><i class="fa fa-check"></i><b>7.2.2</b> <code>tidyverse</code> 패키지 적재</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-dplyr"><i class="fa fa-check"></i><b>7.3</b> <code>dplyr</code> 패키지와 정돈 데이터의 변환</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#dplyr-패키지"><i class="fa fa-check"></i><b>7.3.1</b> <code>dplyr</code> 패키지</a></li>
+<li class="chapter" data-level="7.3.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#정돈-데이터-변환의-종류"><i class="fa fa-check"></i><b>7.3.2</b> 정돈 데이터 변환의 종류</a></li>
+<li class="chapter" data-level="7.3.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#dplyr-패키지-vs.-r의-기본-기능"><i class="fa fa-check"></i><b>7.3.3</b> <code>dplyr</code> 패키지 vs. R의 기본 기능</a></li>
+<li class="chapter" data-level="7.3.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#mpg-데이터"><i class="fa fa-check"></i><b>7.3.4</b> <code>mpg</code> 데이터</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-filter"><i class="fa fa-check"></i><b>7.4</b> <code>filter()</code>로 행 선택하기</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#선택-조건이-하나인-경우"><i class="fa fa-check"></i><b>7.4.1</b> 선택 조건이 하나인 경우</a></li>
+<li class="chapter" data-level="7.4.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#여러-조건을-만족하는-행-추출하기"><i class="fa fa-check"></i><b>7.4.2</b> 여러 조건을 만족하는 행 추출하기</a></li>
+<li class="chapter" data-level="7.4.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#논리-연산자로-복합-조건-만들기"><i class="fa fa-check"></i><b>7.4.3</b> 논리 연산자로 복합 조건 만들기</a></li>
+<li class="chapter" data-level="7.4.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#in-연산자"><i class="fa fa-check"></i><b>7.4.4</b> <code>%in%</code> 연산자</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-slice"><i class="fa fa-check"></i><b>7.5</b> <code>slice()</code>로 행 선택하기</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#slice_sample로-표본-추출하기"><i class="fa fa-check"></i><b>7.5.1</b> <code>slice_sample()</code>로 표본 추출하기</a></li>
+<li class="chapter" data-level="7.5.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#slice_head와-slice_tail"><i class="fa fa-check"></i><b>7.5.2</b> <code>slice_head()</code>와 <code>slice_tail()</code></a></li>
+<li class="chapter" data-level="7.5.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#slice_min과-slice_max"><i class="fa fa-check"></i><b>7.5.3</b> <code>slice_min()</code>과 <code>slice_max()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-arrange"><i class="fa fa-check"></i><b>7.6</b> <code>arrange()</code>로 행 정렬하기</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#desc를-이용하여-내림차순으로-정렬하기"><i class="fa fa-check"></i><b>7.6.1</b> <code>desc()</code>를 이용하여 내림차순으로 정렬하기</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-select"><i class="fa fa-check"></i><b>7.7</b> <code>select()</code>를 이용하여 변수 이름으로 열 선택하기</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-이름을-나열하여-선택하기"><i class="fa fa-check"></i><b>7.7.1</b> 변수 이름을 나열하여 선택하기</a></li>
+<li class="chapter" data-level="7.7.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-이름으로-변수-범위를-선택하기"><i class="fa fa-check"></i><b>7.7.2</b> 변수 이름으로 변수 범위를 선택하기</a></li>
+<li class="chapter" data-level="7.7.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-위치로-매칭하여-선택하기"><i class="fa fa-check"></i><b>7.7.3</b> 변수 위치로 매칭하여 선택하기</a></li>
+<li class="chapter" data-level="7.7.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-이름을-매칭하여-선택하기"><i class="fa fa-check"></i><b>7.7.4</b> 변수 이름을 매칭하여 선택하기</a></li>
+<li class="chapter" data-level="7.7.5" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수의-형식이나-조건으로-매칭하여-선택하기"><i class="fa fa-check"></i><b>7.7.5</b> 변수의 형식이나 조건으로 매칭하여 선택하기*</a></li>
+<li class="chapter" data-level="7.7.6" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-이름-바꾸기"><i class="fa fa-check"></i><b>7.7.6</b> 변수 이름 바꾸기</a></li>
+<li class="chapter" data-level="7.7.7" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-순서-바꾸기"><i class="fa fa-check"></i><b>7.7.7</b> 변수 순서 바꾸기</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-mutate"><i class="fa fa-check"></i><b>7.8</b> <code>mutate()</code>로 새로운 변수 만들기</a>
+<ul>
+<li class="chapter" data-level="7.8.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#transmute로-새로운-변수만-남기기"><i class="fa fa-check"></i><b>7.8.1</b> <code>transmute()</code>로 새로운 변수만 남기기</a></li>
+<li class="chapter" data-level="7.8.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#새로운-변수를-만들-때-사용할-수-있는-함수들"><i class="fa fa-check"></i><b>7.8.2</b> 새로운 변수를 만들 때 사용할 수 있는 함수들</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-summarize"><i class="fa fa-check"></i><b>7.9</b> <code>summarize()</code>로 변수 요약하기</a>
+<ul>
+<li class="chapter" data-level="7.9.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#across로-여려-변수를-요약하기"><i class="fa fa-check"></i><b>7.9.1</b> <code>across()</code>로 여려 변수를 요약하기*</a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-groupBy"><i class="fa fa-check"></i><b>7.10</b> <code>group_by()</code>로 그룹별로 요약하기</a>
+<ul>
+<li class="chapter" data-level="7.10.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#group_by로-그룹별로-새-변수-추가하기"><i class="fa fa-check"></i><b>7.10.1</b> <code>group_by()</code>로 그룹별로 새 변수 추가하기</a></li>
+<li class="chapter" data-level="7.10.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#count로-개수-세기"><i class="fa fa-check"></i><b>7.10.2</b> <code>count()</code>로 개수 세기</a></li>
+</ul></li>
+<li class="chapter" data-level="7.11" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-pipeOperator"><i class="fa fa-check"></i><b>7.11</b> <code>%&gt;%</code> 파이프 연산자</a>
+<ul>
+<li class="chapter" data-level="7.11.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#여러-단계를-거쳐-데이터를-변환할-때"><i class="fa fa-check"></i><b>7.11.1</b> 여러 단계를 거쳐 데이터를 변환할 때</a></li>
+<li class="chapter" data-level="7.11.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#파이프-연산자"><i class="fa fa-check"></i><b>7.11.2</b> 파이프 연산자</a></li>
+<li class="chapter" data-level="7.11.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#ungroup"><i class="fa fa-check"></i><b>7.11.3</b> <code>ungroup()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch-visualization.html"><a href="ch-visualization.html"><i class="fa fa-check"></i><b>8</b> ggplot2를 이용한 데이터 시각화</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-getStarted-ggplot2"><i class="fa fa-check"></i><b>8.1</b> ggplot2 시작하기</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec-tryGgplot"><i class="fa fa-check"></i><b>8.1.1</b> ggplot2 그래프 그려보기</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-aesMapping"><i class="fa fa-check"></i><b>8.2</b> 도형의 속성에 데이터 열을 대응시키기 (aesthetic mapping)</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="ch-visualization.html"><a href="ch-visualization.html#범주형-변수를-색상color-속성에-매핑하기"><i class="fa fa-check"></i><b>8.2.1</b> 범주형 변수를 색상(<code>color</code>) 속성에 매핑하기</a></li>
+<li class="chapter" data-level="8.2.2" data-path="ch-visualization.html"><a href="ch-visualization.html#범주형-변수를-모양shape-속성에-매핑하기"><i class="fa fa-check"></i><b>8.2.2</b> 범주형 변수를 모양(<code>shape</code>) 속성에 매핑하기</a></li>
+<li class="chapter" data-level="8.2.3" data-path="ch-visualization.html"><a href="ch-visualization.html#연속형-변수를-크기size-투명도alpha-색상color-속성에-매핑하기"><i class="fa fa-check"></i><b>8.2.3</b> 연속형 변수를 크기(<code>size</code>), 투명도(<code>alpha</code>), 색상(<code>color</code>) 속성에 매핑하기</a></li>
+<li class="chapter" data-level="8.2.4" data-path="ch-visualization.html"><a href="ch-visualization.html#도형의-여러-속성에-데이터-열을-매핑시키기"><i class="fa fa-check"></i><b>8.2.4</b> 도형의 여러 속성에 데이터 열을 매핑시키기</a></li>
+<li class="chapter" data-level="8.2.5" data-path="ch-visualization.html"><a href="ch-visualization.html#도형-속성에-데이터-열을-매핑하기---예제"><i class="fa fa-check"></i><b>8.2.5</b> 도형 속성에 데이터 열을 매핑하기 - 예제</a></li>
+<li class="chapter" data-level="8.2.6" data-path="ch-visualization.html"><a href="ch-visualization.html#도형의-속성에-대응시키기-vs.-도형의-속성-인수를-설정하기"><i class="fa fa-check"></i><b>8.2.6</b> 도형의 속성에 대응시키기 vs. 도형의 속성 인수를 설정하기</a></li>
+<li class="chapter" data-level="8.2.7" data-path="ch-visualization.html"><a href="ch-visualization.html#group-속성"><i class="fa fa-check"></i><b>8.2.7</b> <code>group</code> 속성</a></li>
+<li class="chapter" data-level="8.2.8" data-path="ch-visualization.html"><a href="ch-visualization.html#그룹으로-나누어-선-그래프-그리기"><i class="fa fa-check"></i><b>8.2.8</b> 그룹으로 나누어 선 그래프 그리기</a></li>
+<li class="chapter" data-level="8.2.9" data-path="ch-visualization.html"><a href="ch-visualization.html#이산형-변수는-group-속성으로-자동-매핑된다."><i class="fa fa-check"></i><b>8.2.9</b> 이산형 변수는 <code>group</code> 속성으로 자동 매핑된다.</a></li>
+<li class="chapter" data-level="8.2.10" data-path="ch-visualization.html"><a href="ch-visualization.html#geom_smooth-함수에서-group-속성"><i class="fa fa-check"></i><b>8.2.10</b> <code>geom_smooth()</code> 함수에서 <code>group</code> 속성</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-facets"><i class="fa fa-check"></i><b>8.3</b> 측면(facets)으로 나누어 그리기</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="ch-visualization.html"><a href="ch-visualization.html#facet_wrap로-일차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>8.3.1</b> <code>facet_wrap()</code>로 일차원 측면 그래프 그리기</a></li>
+<li class="chapter" data-level="8.3.2" data-path="ch-visualization.html"><a href="ch-visualization.html#facet_grid로-이차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>8.3.2</b> <code>facet_grid()</code>로 이차원 측면 그래프 그리기</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-layerAndGeom"><i class="fa fa-check"></i><b>8.4</b> 그래프 계층(layers)과 도형(geoms)</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="ch-visualization.html"><a href="ch-visualization.html#geom-함수의-순서와-그래프-계층"><i class="fa fa-check"></i><b>8.4.1</b> geom 함수의 순서와 그래프 계층</a></li>
+<li class="chapter" data-level="8.4.2" data-path="ch-visualization.html"><a href="ch-visualization.html#ggplot-함수는-좌표축을-자동-조정한다."><i class="fa fa-check"></i><b>8.4.2</b> <code>ggplot()</code> 함수는 좌표축을 자동 조정한다.</a></li>
+<li class="chapter" data-level="8.4.3" data-path="ch-visualization.html"><a href="ch-visualization.html#여러-데이터를-사용하여-그래프-계층-만들기"><i class="fa fa-check"></i><b>8.4.3</b> 여러 데이터를 사용하여 그래프 계층 만들기</a></li>
+<li class="chapter" data-level="8.4.4" data-path="ch-visualization.html"><a href="ch-visualization.html#다른-데이터-범위로-그래프-계층-만들기"><i class="fa fa-check"></i><b>8.4.4</b> 다른 데이터 범위로 그래프 계층 만들기</a></li>
+<li class="chapter" data-level="8.4.5" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec-commonDataMapping"><i class="fa fa-check"></i><b>8.4.5</b> 공통 <code>data</code>와 <code>mapping</code>의 설정</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-commonProblems"><i class="fa fa-check"></i><b>8.5</b> ggplot 명령문을 입력할 때 자주 발생하는 문제들</a></li>
+<li class="chapter" data-level="8.6" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-ggplotStat"><i class="fa fa-check"></i><b>8.6</b> 통계 변환</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec-statCategorical"><i class="fa fa-check"></i><b>8.6.1</b> 범주형 변수의 통계 요약</a></li>
+<li class="chapter" data-level="8.6.2" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec-statNumerical"><i class="fa fa-check"></i><b>8.6.2</b> 수치형 변수의 통계 요약</a></li>
+<li class="chapter" data-level="8.6.3" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec-statNumericalPerCategory"><i class="fa fa-check"></i><b>8.6.3</b> 수치형 변수의 범주별 통계요약</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-position"><i class="fa fa-check"></i><b>8.7</b> 위치 조정</a></li>
+<li class="chapter" data-level="8.8" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-typeofgraph"><i class="fa fa-check"></i><b>8.8</b> ggplot2 그래프의 종류</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="ch-visualization.html"><a href="ch-visualization.html#basic-graph"><i class="fa fa-check"></i><b>8.8.1</b> 직선을 그리는 그래픽 함수</a></li>
+<li class="chapter" data-level="8.8.2" data-path="ch-visualization.html"><a href="ch-visualization.html#onecategory"><i class="fa fa-check"></i><b>8.8.2</b> 한 범주형 변수의 그래프</a></li>
+<li class="chapter" data-level="8.8.3" data-path="ch-visualization.html"><a href="ch-visualization.html#onenumeric"><i class="fa fa-check"></i><b>8.8.3</b> 한 수치형 변수의 그래프</a></li>
+<li class="chapter" data-level="8.8.4" data-path="ch-visualization.html"><a href="ch-visualization.html#twocategories"><i class="fa fa-check"></i><b>8.8.4</b> 두 범주형 변수의 그래프</a></li>
+<li class="chapter" data-level="8.8.5" data-path="ch-visualization.html"><a href="ch-visualization.html#category-numeric"><i class="fa fa-check"></i><b>8.8.5</b> 범주형 변수와 수치형 변수의 그래프</a></li>
+<li class="chapter" data-level="8.8.6" data-path="ch-visualization.html"><a href="ch-visualization.html#twonumeric"><i class="fa fa-check"></i><b>8.8.6</b> 두 수치형 변수의 그래프</a></li>
+<li class="chapter" data-level="8.8.7" data-path="ch-visualization.html"><a href="ch-visualization.html#morethanthree"><i class="fa fa-check"></i><b>8.8.7</b> 세 변수 이상의 그래프</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="ch-visualization.html"><a href="ch-visualization.html#modification"><i class="fa fa-check"></i><b>8.9</b> 그래프의 외양 바꾸기</a>
+<ul>
+<li class="chapter" data-level="8.9.1" data-path="ch-visualization.html"><a href="ch-visualization.html#axes"><i class="fa fa-check"></i><b>8.9.1</b> 좌표축의 조정</a></li>
+<li class="chapter" data-level="8.9.2" data-path="ch-visualization.html"><a href="ch-visualization.html#좌표계의-변경"><i class="fa fa-check"></i><b>8.9.2</b> 좌표계의 변경</a></li>
+<li class="chapter" data-level="8.9.3" data-path="ch-visualization.html"><a href="ch-visualization.html#색상-척도color-scales의-변경"><i class="fa fa-check"></i><b>8.9.3</b> 색상 척도(color scales)의 변경</a></li>
+<li class="chapter" data-level="8.9.4" data-path="ch-visualization.html"><a href="ch-visualization.html#labelsmodification"><i class="fa fa-check"></i><b>8.9.4</b> 레이블 조정</a></li>
+<li class="chapter" data-level="8.9.5" data-path="ch-visualization.html"><a href="ch-visualization.html#themes"><i class="fa fa-check"></i><b>8.9.5</b> 테마 변경</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="ch-visualization.html"><a href="ch-visualization.html#misc"><i class="fa fa-check"></i><b>8.10</b> 기타 유용한 팁들</a>
+<ul>
+<li class="chapter" data-level="8.10.1" data-path="ch-visualization.html"><a href="ch-visualization.html#combinegraph"><i class="fa fa-check"></i><b>8.10.1</b> 여러 그래프를 한 도표에 넣기</a></li>
+<li class="chapter" data-level="8.10.2" data-path="ch-visualization.html"><a href="ch-visualization.html#savegraph"><i class="fa fa-check"></i><b>8.10.2</b> 그래프 저장하기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html"><i class="fa fa-check"></i><b>9</b> R 고급 데이터 변환</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#데이터의-단순-결합"><i class="fa fa-check"></i><b>9.1</b> 데이터의 단순 결합</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#데이터를-행으로-결합하기"><i class="fa fa-check"></i><b>9.1.1</b> 데이터를 행으로 결합하기</a></li>
+<li class="chapter" data-level="9.1.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#데이터를-열로-결합하기"><i class="fa fa-check"></i><b>9.1.2</b> 데이터를 열로 결합하기</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#관계형-데이터베이스처럼-데이터-결합하기"><i class="fa fa-check"></i><b>9.2</b> 관계형 데이터베이스처럼 데이터 결합하기</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#inner-join과-outer-join"><i class="fa fa-check"></i><b>9.2.1</b> Inner join과 outer join</a></li>
+<li class="chapter" data-level="9.2.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#filtering-join"><i class="fa fa-check"></i><b>9.2.2</b> Filtering join</a></li>
+<li class="chapter" data-level="9.2.3" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#join을-수행하는-다른-방법들"><i class="fa fa-check"></i><b>9.2.3</b> Join을 수행하는 다른 방법들</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#sec-tidyr"><i class="fa fa-check"></i><b>9.3</b> <code>tidyr</code> 패키지를 이용하여 정돈 데이터 형식으로 바꾸기</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#pivot_longer-여러-열에-걸친-한-변수의-데이터를-하나의-열로-길게-모으기"><i class="fa fa-check"></i><b>9.3.1</b> <code>pivot_longer</code>: 여러 열에 걸친 한 변수의 데이터를 하나의 열로 길게 모으기</a></li>
+<li class="chapter" data-level="9.3.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#subsec-pivot-wider"><i class="fa fa-check"></i><b>9.3.2</b> <code>pivot_wider</code>: 한 열에 기술된 여러 변수의 데이터를 여러 열로 넓게 펼치기</a></li>
+<li class="chapter" data-level="9.3.3" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#seperate-한-셀을-여러-셀로-분리하기"><i class="fa fa-check"></i><b>9.3.3</b> <code>seperate</code>: 한 셀을 여러 셀로 분리하기</a></li>
+<li class="chapter" data-level="9.3.4" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#unite-여러-셀의-데이터를-하나의-셀로-병합하기"><i class="fa fa-check"></i><b>9.3.4</b> <code>unite</code>: 여러 셀의 데이터를 하나의 셀로 병합하기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html"><i class="fa fa-check"></i><b>10</b> R 프로그래밍 구조</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r-조건문"><i class="fa fa-check"></i><b>10.1</b> R 조건문</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#if-조건문"><i class="fa fa-check"></i><b>10.1.1</b> if 조건문</a></li>
+<li class="chapter" data-level="10.1.2" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#switch-함수"><i class="fa fa-check"></i><b>10.1.2</b> switch 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r-반복문"><i class="fa fa-check"></i><b>10.2</b> R 반복문</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#for-반복문"><i class="fa fa-check"></i><b>10.2.1</b> for 반복문</a></li>
+<li class="chapter" data-level="10.2.2" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#while-반복문"><i class="fa fa-check"></i><b>10.2.2</b> while 반복문</a></li>
+<li class="chapter" data-level="10.2.3" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#repeat-반복문"><i class="fa fa-check"></i><b>10.2.3</b> repeat 반복문</a></li>
+<li class="chapter" data-level="10.2.4" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#반복문의-제어-명령"><i class="fa fa-check"></i><b>10.2.4</b> 반복문의 제어 명령</a></li>
+<li class="chapter" data-level="10.2.5" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r에서-반복문-사용의-주의점"><i class="fa fa-check"></i><b>10.2.5</b> R에서 반복문 사용의 주의점</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r-함수"><i class="fa fa-check"></i><b>10.3</b> R 함수</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#함수의-생성과-호출"><i class="fa fa-check"></i><b>10.3.1</b> 함수의 생성과 호출</a></li>
+<li class="chapter" data-level="10.3.2" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#함수-객체를-인수로-사용하기"><i class="fa fa-check"></i><b>10.3.2</b> 함수 객체를 인수로 사용하기</a></li>
+<li class="chapter" data-level="10.3.3" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r-연산자"><i class="fa fa-check"></i><b>10.3.3</b> R 연산자</a></li>
+<li class="chapter" data-level="10.3.4" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#변수-범위"><i class="fa fa-check"></i><b>10.3.4</b> 변수 범위</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html"><i class="fa fa-check"></i><b>11</b> R 객체 지향 프로그래밍</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#객체-지향-프로그래밍"><i class="fa fa-check"></i><b>11.1</b> 객체 지향 프로그래밍</a></li>
+<li class="chapter" data-level="11.2" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s3-클래스"><i class="fa fa-check"></i><b>11.2</b> S3 클래스</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s3-클래스-객체-만들기"><i class="fa fa-check"></i><b>11.2.1</b> S3 클래스 객체 만들기</a></li>
+<li class="chapter" data-level="11.2.2" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#포괄-함수generic-functions"><i class="fa fa-check"></i><b>11.2.2</b> 포괄 함수(generic functions)</a></li>
+<li class="chapter" data-level="11.2.3" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s3에서-상속성의-구현"><i class="fa fa-check"></i><b>11.2.3</b> S3에서 상속성의 구현</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s4-클래스"><i class="fa fa-check"></i><b>11.3</b> S4 클래스</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="ch-RandPython.html"><a href="ch-RandPython.html"><i class="fa fa-check"></i><b>A</b> <strong>R</strong>과 <strong>Python</strong> 연동하기</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="ch-RandPython.html"><a href="ch-RandPython.html#reticulate-설치-및-사용할-파이썬-버전-설정"><i class="fa fa-check"></i><b>A.1</b> <code>reticulate</code> 설치 및 사용할 파이썬 버전 설정</a></li>
+<li class="chapter" data-level="A.2" data-path="ch-RandPython.html"><a href="ch-RandPython.html#r과-파이썬-연동하는-방법"><i class="fa fa-check"></i><b>A.2</b> R과 파이썬 연동하는 방법</a></li>
+<li class="chapter" data-level="A.3" data-path="ch-RandPython.html"><a href="ch-RandPython.html#파이썬-모듈-연동하기"><i class="fa fa-check"></i><b>A.3</b> 파이썬 모듈 연동하기</a>
+<ul>
+<li class="chapter" data-level="A.3.1" data-path="ch-RandPython.html"><a href="ch-RandPython.html#r과-python의-형식-변환"><i class="fa fa-check"></i><b>A.3.1</b> <strong>R</strong>과 <strong>Python</strong>의 형식 변환</a></li>
+<li class="chapter" data-level="A.3.2" data-path="ch-RandPython.html"><a href="ch-RandPython.html#형변환-직접-하기"><i class="fa fa-check"></i><b>A.3.2</b> 형변환 직접 하기</a></li>
+<li class="chapter" data-level="A.3.3" data-path="ch-RandPython.html"><a href="ch-RandPython.html#파이썬-모듈의-도움말-확인하기"><i class="fa fa-check"></i><b>A.3.3</b> 파이썬 모듈의 도움말 확인하기</a></li>
+<li class="chapter" data-level="A.3.4" data-path="ch-RandPython.html"><a href="ch-RandPython.html#pickle-사용하기"><i class="fa fa-check"></i><b>A.3.4</b> <code>pickle</code> 사용하기</a></li>
+</ul></li>
+<li class="chapter" data-level="A.4" data-path="ch-RandPython.html"><a href="ch-RandPython.html#r-마크다운-문서에서-파이썬-명령-실행하기"><i class="fa fa-check"></i><b>A.4</b> R 마크다운 문서에서 파이썬 명령 실행하기</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="ch-RTips.html"><a href="ch-RTips.html"><i class="fa fa-check"></i><b>B</b> <strong>R</strong> 관련 여러 주제들</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="ch-RTips.html"><a href="ch-RTips.html#r에서-계산-정확도를-향상시키기"><i class="fa fa-check"></i><b>B.1</b> <strong>R</strong>에서 계산 정확도를 향상시키기</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
 </ul>
 
-        <div class="book-extra">
-          
-        </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="ch-RandPython" class="section level1" number="12">
-<h1>
-<span class="header-section-number">A</span> <strong>R</strong>과 <strong>Python</strong> 연동하기<a class="anchor" aria-label="anchor" href="#ch-RandPython"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R 프로그래밍 (개정판)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch-RandPython" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">A</span> <strong>R</strong>과 <strong>Python</strong> 연동하기<a href="ch-RandPython.html#ch-RandPython" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><strong>R</strong>의 <code>reticlate</code> 패키지를 사용하여 <strong>R</strong>과 <strong>Python</strong>을 쉽게 연동시킬 수 있다.
 <code>reticulate</code> 패키지는 크게 다음 세 가지 기능을 수행한다.</p>
 <ul>
-<li>
-<strong>R</strong>에서 <strong>Python</strong>을 호출하는 기능: <strong>R</strong> 스크립트나 <strong>R</strong> 마크다운 문서에서 <strong>R</strong> 세션 중간에 파이썬 스크립트나 파이썬 모듈을 호출할 수 있다.</li>
-<li>
-<strong>R</strong>과 <strong>Python</strong> 객체 간의 상호 변환: R의 데이터프레임과 파이썬의 Pandas 데이터프레임, R의 행렬/배열과 파이썬 Numpy 배열 간에 데이터를 자동 변환해 준다.</li>
-<li>
-<strong>Python</strong>의 다양한 버전과의 연동 기능: 시스템 내에는 다양한 버전의 파이썬이 존재할 수 있다. <code>reticulate</code>는 가상 환경(virtual environments)이나 콘다 환경(Conda environments)의 파이썬 버전 등과 연동할 수 있다.</li>
+<li><strong>R</strong>에서 <strong>Python</strong>을 호출하는 기능: <strong>R</strong> 스크립트나 <strong>R</strong> 마크다운 문서에서 <strong>R</strong> 세션 중간에 파이썬 스크립트나 파이썬 모듈을 호출할 수 있다.</li>
+<li><strong>R</strong>과 <strong>Python</strong> 객체 간의 상호 변환: R의 데이터프레임과 파이썬의 Pandas 데이터프레임, R의 행렬/배열과 파이썬 Numpy 배열 간에 데이터를 자동 변환해 준다.</li>
+<li><strong>Python</strong>의 다양한 버전과의 연동 기능: 시스템 내에는 다양한 버전의 파이썬이 존재할 수 있다. <code>reticulate</code>는 가상 환경(virtual environments)이나 콘다 환경(Conda environments)의 파이썬 버전 등과 연동할 수 있다.</li>
 </ul>
 <p>다음 설명은 이미 시스템에 파이썬이 설치되어 있고 파이썬에 대한 기본 지식을 가지고 있다는 가정 하에 설명을 한다.
 파이썬은 다양한 시스템에서 설치가 가능하고, 콘다 환경을 사용하면 독립적인 파이썬 환경을 구축하기 편리하다.
 파이썬 설치에 대해서는 인터넷 등에서 관련 정보를 찾아보기 바란다.</p>
-<div id="reticulate-설치-및-사용할-파이썬-버전-설정" class="section level2" number="12.1">
-<h2>
-<span class="header-section-number">A.1</span> <code>reticulate</code> 설치 및 사용할 파이썬 버전 설정<a class="anchor" aria-label="anchor" href="#reticulate-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%82%AC%EC%9A%A9%ED%95%A0-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%B2%84%EC%A0%84-%EC%84%A4%EC%A0%95"><i class="fas fa-link"></i></a>
-</h2>
+<div id="reticulate-설치-및-사용할-파이썬-버전-설정" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">A.1</span> <code>reticulate</code> 설치 및 사용할 파이썬 버전 설정<a href="ch-RandPython.html#reticulate-설치-및-사용할-파이썬-버전-설정" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>다음 명령이나 RStudio 패키지 탭을 이용하여 <code>reticulate</code> 패키지를 설치한다.</p>
-<div class="sourceCode" id="cb2267"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'reticulate'</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2267-1"><a href="ch-RandPython.html#cb2267-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;reticulate&#39;</span>)</span></code></pre></div>
 <p>설치가 잘 되었는지 <code>reticulate</code> 패키지를 적재해 보자.</p>
-<div class="sourceCode" id="cb2268"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/reticulate/">reticulate</a></span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2268-1"><a href="ch-RandPython.html#cb2268-1" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span></code></pre></div>
 <p>하나의 시스템에는 여러 버전의 파이썬이 설치되어 있는 경우가 자주 있다.
 그렇다면 <code>reticulate</code>는 시스템 내의 어떤 버전의 파이썬과 연동을 하게 될까?</p>
-<p><code>reticulate</code>는 다음처럼 파이썬에서 사용할 모듈을 <code><a href="https://rstudio.github.io/reticulate/reference/import.html">import()</a></code> 함수로 호출한다.</p>
-<div class="sourceCode" id="cb2269"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">np</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/import.html">import</a></span><span class="op">(</span><span class="st">"numpy"</span><span class="op">)</span></span></code></pre></div>
+<p><code>reticulate</code>는 다음처럼 파이썬에서 사용할 모듈을 <code>import()</code> 함수로 호출한다.</p>
+<div class="sourceCode" id="cb2269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2269-1"><a href="ch-RandPython.html#cb2269-1" tabindex="-1"></a>np <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;numpy&quot;</span>)</span></code></pre></div>
 <p><code>reticulate</code>는 맨 처음 <code>import</code> 되는 모듈을 시스템 내에 설치된 파이썬 버전들에서 차례로 검색하고, 해당 모듈이 맨 처음 발견된 파이썬 버전과 연동을 한다. 그리고 이후의 <strong>R</strong>에서의 파이썬 호출은 최초로 연동된 파이썬 버전에서 계속 수행하게 된다.
 만약 해당 모듈이 여러 곳의 파이썬 버전에 존재한다면 어떻게 될까?
 <code>reticulate</code>는 파이썬 모듈을 찾을 때 다음 순서로 파이썬 버전을 검색한다.</p>
 <ol style="list-style-type: decimal">
 <li>사용자가 만약 시스템에 <code>RETICULATE_PYTHON</code> 환경 변수를 설정해 두었다면, 환경 변수에 설정된 경로에 설치된 파이썬에서 가장 먼저 모듈을 검색한다. <code>.Rprofile</code>에 해당 환경 변수를 설정하려면 다음 명령처럼 설정을 한다. (그러나 이는 경직된 형태로 파이썬 검색 순서를 지정한 것이므로 일반적 상황에서는 권장되지 않는다.)</li>
 </ol>
-<div class="sourceCode" id="cb2270"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html">Sys.setenv</a></span><span class="op">(</span>RETICULATE_PYTHON <span class="op">=</span> <span class="st">"경로"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2270-1"><a href="ch-RandPython.html#cb2270-1" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">RETICULATE_PYTHON =</span> <span class="st">&quot;경로&quot;</span>)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
-<li>사용자가 <code><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_python()</a></code>, <code>use_vertualenv()</code>, 또는 <code><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_condaenv()</a></code>를 사용하여 설정한 파이썬 버전을 그 다음으로 검색한다. <code><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_python()</a></code>은 파이썬이 설치된 경로를 지정할 때, <code>use_vertualenv()</code>나 <code><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_condaenv()</a></code>는 설치되어 있는 가상 환경이나 콘다 환경이 사용되도록 지정할 때 사용한다.</li>
+<li>사용자가 <code>use_python()</code>, <code>use_vertualenv()</code>, 또는 <code>use_condaenv()</code>를 사용하여 설정한 파이썬 버전을 그 다음으로 검색한다. <code>use_python()</code>은 파이썬이 설치된 경로를 지정할 때, <code>use_vertualenv()</code>나 <code>use_condaenv()</code>는 설치되어 있는 가상 환경이나 콘다 환경이 사용되도록 지정할 때 사용한다.</li>
 </ol>
-<div class="sourceCode" id="cb2271"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_python</a></span><span class="op">(</span><span class="st">"경로"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_virtualenv</a></span><span class="op">(</span><span class="st">"~/가상-환경-이름"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_condaenv</a></span><span class="op">(</span><span class="st">"콘다-환경-이름"</span><span class="op">)</span></span></code></pre></div>
-<p><code><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_condaenv()</a></code>에서 콘다 설치 버전이 여러 개인 경우 특정 콘다 설치 경로를 지정하여 콘다 환경을 찾도록 설정할 수 있다.</p>
-<div class="sourceCode" id="cb2272"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_condaenv</a></span><span class="op">(</span><span class="st">"콘다-환경-이름"</span>, conda <span class="op">=</span> <span class="st">"콘다-설치-경로"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2271-1"><a href="ch-RandPython.html#cb2271-1" tabindex="-1"></a><span class="fu">use_python</span>(<span class="st">&quot;경로&quot;</span>)</span>
+<span id="cb2271-2"><a href="ch-RandPython.html#cb2271-2" tabindex="-1"></a><span class="fu">use_virtualenv</span>(<span class="st">&quot;~/가상-환경-이름&quot;</span>)</span>
+<span id="cb2271-3"><a href="ch-RandPython.html#cb2271-3" tabindex="-1"></a><span class="fu">use_condaenv</span>(<span class="st">&quot;콘다-환경-이름&quot;</span>)</span></code></pre></div>
+<p><code>use_condaenv()</code>에서 콘다 설치 버전이 여러 개인 경우 특정 콘다 설치 경로를 지정하여 콘다 환경을 찾도록 설정할 수 있다.</p>
+<div class="sourceCode" id="cb2272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2272-1"><a href="ch-RandPython.html#cb2272-1" tabindex="-1"></a><span class="fu">use_condaenv</span>(<span class="st">&quot;콘다-환경-이름&quot;</span>, <span class="at">conda =</span> <span class="st">&quot;콘다-설치-경로&quot;</span>)</span></code></pre></div>
 <p>그런데 <code>use</code> 함수들은 파이썬 버전을 찾을 힌트를 제공하는 것이지 실제 파이썬 버전을 찾는 작업을 수행하지는 않는다.
 그러므로 지정된 경로나 환경이 없어도 해당 명령은 오류가 발생하지 않는다.
 만약 해당 파이썬 버전이 있는지 확인하려면 <code>use</code> 함수에 <code>required=TRUE</code> 인수를 추가하여 실행한다. 그러면 해당 파이썬 버전이 존재하지 않으면 오류를 발생시킨다.</p>
@@ -150,90 +564,80 @@
 <li><p>사용자가 사용할 파이썬 버전을 환경 변수나 <code>use</code> 함수로 설정하지 않았으면, <code>reticulate</code>는 그 다음으로 사용자의 파이썬 가상 환경이나 콘다 환경을 검색한다. 가상 환경과 콘다 환경이 발견되면, 가상 환경과 콘다 환경에서 해당 모듈을 검색한다.</p></li>
 <li><p>다음으로 사용자 시스템 경로(<code>PATH</code>) 상의 파이썬 설치 위치를 검색한다. 시스템 경로에서 발견되는 파이썬이 어디에 설치되어 있는지를 확인하려면 다음 명령을 수행해 본다. 사용자의 시스템의 종류와 설치 방법에 따라 결과는 서로 다를 수 있다.</p></li>
 </ol>
-<div class="sourceCode" id="cb2273"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.which.html">Sys.which</a></span><span class="op">(</span><span class="st">"python"</span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt;                                python 
-#&gt; "/home/sys4ppl/miniconda3/bin/python"</code></pre>
+<div class="sourceCode" id="cb2273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2273-1"><a href="ch-RandPython.html#cb2273-1" tabindex="-1"></a><span class="fu">Sys.which</span>(<span class="st">&quot;python&quot;</span>)</span></code></pre></div>
+<pre><code>                               python 
+&quot;/home/sys4ppl/miniconda3/bin/python&quot; </code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>마지막으로 사용자들이 주로 파이썬을 설치하는 일반적인 경로를 검색하여 파이썬 버전을 찾아 해당 모듈을 검색한다.</li>
 </ol>
 <p>파이썬 모듈을 <code>import</code> 하면 어떤 버전의 파이썬이 먼저 검색될지를 확인하려면 다음 명령을 사용한다.</p>
-<div class="sourceCode" id="cb2275"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/py_discover_config.html">py_discover_config</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt; python:         /home/sys4ppl/miniconda3/bin/python
-#&gt; libpython:      /home/sys4ppl/miniconda3/lib/libpython3.7m.so
-#&gt; pythonhome:     /home/sys4ppl/miniconda3:/home/sys4ppl/miniconda3
-#&gt; version:        3.7.16 (default, Jan 17 2023, 22:20:44)  [GCC 11.2.0]
-#&gt; numpy:          /home/sys4ppl/miniconda3/lib/python3.7/site-packages/numpy
-#&gt; numpy_version:  1.21.5
-#&gt; 
-#&gt; NOTE: Python version was forced by RETICULATE_PYTHON_FALLBACK</code></pre>
-<p>시스템에 하나의 버전의 파이썬만 설치된 것이 아니라면, 실행의 일관성을 확보하기 위하여 <code>use</code> 함수들을 사용하여 사용할 파이썬 버전을 지정할 것을 권장한다. 다음은 <code>base</code>라는 콘다 환경에서 파이썬 모듈을 먼저 찾도록 하는 명령이다.</p>
-<div class="sourceCode" id="cb2277"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_condaenv</a></span><span class="op">(</span><span class="st">"base"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2275-1"><a href="ch-RandPython.html#cb2275-1" tabindex="-1"></a><span class="fu">py_discover_config</span>()</span></code></pre></div>
+<pre><code>python:         /home/sys4ppl/miniconda3/envs/dm/bin/python3.11
+libpython:      /home/sys4ppl/miniconda3/envs/dm/lib/libpython3.11.so
+pythonhome:     /home/sys4ppl/miniconda3/envs/dm:/home/sys4ppl/miniconda3/envs/dm
+version:        3.11.5 | packaged by conda-forge | (main, Aug 27 2023, 03:34:09) [GCC 12.3.0]
+numpy:          /home/sys4ppl/miniconda3/envs/dm/lib/python3.11/site-packages/numpy
+numpy_version:  1.25.2
+
+NOTE: Python version was forced by RETICULATE_PYTHON_FALLBACK</code></pre>
+<p>시스템에 하나의 버전의 파이썬만 설치된 것이 아니라면, 실행의 일관성을 확보하기 위하여 <code>use</code> 함수들을 사용하여 사용할 파이썬 버전을 지정할 것을 권장한다. 다음은 <code>dm</code>라는 콘다 환경에서 파이썬 모듈을 먼저 찾도록 하는 명령이다.</p>
+<div class="sourceCode" id="cb2277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2277-1"><a href="ch-RandPython.html#cb2277-1" tabindex="-1"></a><span class="fu">use_condaenv</span>(<span class="st">&quot;base&quot;</span>)</span></code></pre></div>
 </div>
-<div id="r과-파이썬-연동하는-방법" class="section level2" number="12.2">
-<h2>
-<span class="header-section-number">A.2</span> R과 파이썬 연동하는 방법<a class="anchor" aria-label="anchor" href="#r%EA%B3%BC-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%97%B0%EB%8F%99%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95"><i class="fas fa-link"></i></a>
-</h2>
+<div id="r과-파이썬-연동하는-방법" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">A.2</span> R과 파이썬 연동하는 방법<a href="ch-RandPython.html#r과-파이썬-연동하는-방법" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>R</strong>에서 파이썬을 연동하는 방법은 크게 다음 4 가지 방법이 있다.</p>
 <ol style="list-style-type: decimal">
 <li>R 마크다운 문서에서 파이썬 명령 실행하기: R 마크다운의 파이썬 엔진이 마크다운 문서 전 범위에서 하나의 파이썬 세션으로 R 마크다운에 기술된 파이썬 명령문을 실행시킨다. 그리고 파이썬 세션의 결과를 R로, R 세션의 결과를 파이썬으로 주고 받을 수 있다.</li>
-<li>파이썬 모듈을 R 세션에서 연동하기: <code><a href="https://rstudio.github.io/reticulate/reference/import.html">import()</a></code> 함수로 파이썬 모듈을 R에 연동시켜서 R에서 직접 파이썬 모듈의 함수를 호출하여 결과를 받을 수 있다.</li>
-<li>파이썬 스크립트 실행하기: <code><a href="https://rstudio.github.io/reticulate/reference/source_python.html">source_python()</a></code> 함수를 사용하여 R 세션에서 파이썬 스크립트를 실행할 수 있다. 그러면 파이썬 명령문을 통해 생성된 파이썬 함수와 객체를 R 세션에서 사용할 수 있다.</li>
-<li>파이썬 REPL 실행하기: <code><a href="https://rstudio.github.io/reticulate/reference/repl_python.html">repl_python()</a></code> 함수를 사용하여 R 내에서 대화형으로 파이썬 콘솔 환경을 생성할 수 있다. 이 경우에도 R 세션과 파이썬 세션은 서로 객체를 주고 받을 수 있다.</li>
+<li>파이썬 모듈을 R 세션에서 연동하기: <code>import()</code> 함수로 파이썬 모듈을 R에 연동시켜서 R에서 직접 파이썬 모듈의 함수를 호출하여 결과를 받을 수 있다.</li>
+<li>파이썬 스크립트 실행하기: <code>source_python()</code> 함수를 사용하여 R 세션에서 파이썬 스크립트를 실행할 수 있다. 그러면 파이썬 명령문을 통해 생성된 파이썬 함수와 객체를 R 세션에서 사용할 수 있다.</li>
+<li>파이썬 REPL 실행하기: <code>repl_python()</code> 함수를 사용하여 R 내에서 대화형으로 파이썬 콘솔 환경을 생성할 수 있다. 이 경우에도 R 세션과 파이썬 세션은 서로 객체를 주고 받을 수 있다.</li>
 </ol>
 </div>
-<div id="파이썬-모듈-연동하기" class="section level2" number="12.3">
-<h2>
-<span class="header-section-number">A.3</span> 파이썬 모듈 연동하기<a class="anchor" aria-label="anchor" href="#%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AA%A8%EB%93%88-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0"><i class="fas fa-link"></i></a>
-</h2>
-<p><code><a href="https://rstudio.github.io/reticulate/reference/import.html">import()</a></code> 함수를 사용하면 파이썬 모듈을 호출할 수 있다.
+<div id="파이썬-모듈-연동하기" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">A.3</span> 파이썬 모듈 연동하기<a href="ch-RandPython.html#파이썬-모듈-연동하기" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>import()</code> 함수를 사용하면 파이썬 모듈을 호출할 수 있다.
 호출된 모듈은 R 변수에 할당하여야 해당 파이썬 모듈을 사용할 수 있다.
 다음은 Numpy 모듈을 R에서 연동시킨 예이다.</p>
-<div class="sourceCode" id="cb2278"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/reticulate/">reticulate</a></span><span class="op">)</span></span>
-<span><span class="va">np</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/import.html">import</a></span><span class="op">(</span><span class="st">"numpy"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2278-1"><a href="ch-RandPython.html#cb2278-1" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
+<span id="cb2278-2"><a href="ch-RandPython.html#cb2278-2" tabindex="-1"></a>np <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;numpy&quot;</span>)</span></code></pre></div>
 <p>연동된 모듈이 제공하는 함수나 객체는 <code>$</code> 연산자를 사용하여 이용할 수 있다.
 다음은 Numpy 모듈의 <code>full()</code> 함수를 이용하여 1로만 이루어진 <span class="math inline">\(3 \times 3\)</span> 배열을 만든 예이다.</p>
-<div class="sourceCode" id="cb2279"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">np</span><span class="op">$</span><span class="fu">full</span><span class="op">(</span>shape <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3L</span>,<span class="fl">3L</span><span class="op">)</span>, fill_value <span class="op">=</span> <span class="fl">1L</span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt;      [,1] [,2] [,3]
-#&gt; [1,]    1    1    1
-#&gt; [2,]    1    1    1
-#&gt; [3,]    1    1    1</code></pre>
+<div class="sourceCode" id="cb2279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2279-1"><a href="ch-RandPython.html#cb2279-1" tabindex="-1"></a>np<span class="sc">$</span><span class="fu">full</span>(<span class="at">shape =</span> <span class="fu">c</span>(3L,3L), <span class="at">fill_value =</span> 1L)</span></code></pre></div>
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    1    1
+[2,]    1    1    1
+[3,]    1    1    1</code></pre>
 <p>이 때 주의해서 이해해야 하는 것은 위의 <code>np$full()</code> 함수의 실제 기능은 Numpy 모듈의 <code>full()</code>이라는 파이썬 함수가 제공하고, <code>np$full()</code> 함수는 R의 껍데기 함수라는 것이다.
-<code><a href="https://rstudio.github.io/reticulate/reference/import.html">import()</a></code> 함수로 파이썬 모듈을 연동시키면 파이썬의 함수와 객체와 연동되는 R의 껍데기 함수와 객체가 생성된다.
+<code>import()</code> 함수로 파이썬 모듈을 연동시키면 파이썬의 함수와 객체와 연동되는 R의 껍데기 함수와 객체가 생성된다.
 R 세션에서는 파이썬 함수에 직접 접근하는 방법은 없으며, 이 껍데기 함수와 객체를 통해서 파이썬의 함수와 객체에 접근하게 된다. (Figure <a href="ch-RandPython.html#fig:reticulate-call">A.1</a> 참조)</p>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:reticulate-call"></span>
-<img src="img/reticulate-call.png" alt="R에서 Python 함수의 호출" width="100%"><p class="caption">
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:reticulate-call"></span>
+<img src="img/reticulate-call.png" alt="R에서 Python 함수의 호출" width="100%" />
+<p class="caption">
 Figure A.1: R에서 Python 함수의 호출
 </p>
 </div>
 <p>따라서 <code>np$full()</code> 함수를 호출할 때는 R 형식의 인수를 제공해야 하지, Python 형식의 데이터를 입력해서는 안 된다.
 원래 Numpy의 <code>full()</code> 함수는 <code>shape</code> 인수에 정수나 정수의 시퀀스(sequence) 형식의 데이터를 입력하여야 한다.
 다음은 파이썬에서의 원래 명령문과 실행 결과를 보여준다.</p>
-<div class="sourceCode" id="cb2281"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2281-1"><a href="ch-RandPython.html#cb2281-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2281-2"><a href="ch-RandPython.html#cb2281-2" aria-hidden="true" tabindex="-1"></a>np.full(shape <span class="op">=</span> (<span class="dv">3</span>,<span class="dv">3</span>), fill_value <span class="op">=</span> <span class="dv">1</span>)</span></code></pre></div>
-<pre><code>#&gt; array([[1, 1, 1],
-#&gt;        [1, 1, 1],
-#&gt;        [1, 1, 1]])</code></pre>
+<div class="sourceCode" id="cb2281"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2281-1"><a href="ch-RandPython.html#cb2281-1" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2281-2"><a href="ch-RandPython.html#cb2281-2" tabindex="-1"></a>np.full(shape <span class="op">=</span> (<span class="dv">3</span>,<span class="dv">3</span>), fill_value <span class="op">=</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>array([[1, 1, 1],
+       [1, 1, 1],
+       [1, 1, 1]])</code></pre>
 <p>그러나 <code>np$full()</code> 함수는 R 함수이므로 <code>shape</code> 인수에 파이썬의 정수 형식이나 정수의 시퀀스 형식에 대응하는 R 형식 데이터를 입력하여야 한다.
 그러면 <code>reticulate</code>는 R 형식의 인수를 파이썬 형식의 데이터로 변환하여 파이썬의 <code>np.full()</code> 함수를 호출한다.
 그리고 다시 파이썬의 <code>np.full()</code> 함수가 Numpy 배열 형식으로 데이터를 반환하면 <code>reticulate</code>는 Numpy 배열에 대응되는 R 형식인 행렬 또는 배열로 변환하여 R 세션에 결과를 전달한다.</p>
-<div id="r과-python의-형식-변환" class="section level3" number="12.3.1">
-<h3>
-<span class="header-section-number">A.3.1</span> <strong>R</strong>과 <strong>Python</strong>의 형식 변환<a class="anchor" aria-label="anchor" href="#r%EA%B3%BC-python%EC%9D%98-%ED%98%95%EC%8B%9D-%EB%B3%80%ED%99%98"><i class="fas fa-link"></i></a>
-</h3>
+<div id="r과-python의-형식-변환" class="section level3 hasAnchor" number="12.3.1">
+<h3><span class="header-section-number">A.3.1</span> <strong>R</strong>과 <strong>Python</strong>의 형식 변환<a href="ch-RandPython.html#r과-python의-형식-변환" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R과 파이썬은 <code>reticulate</code>를 통하여 다음처럼 형식 변환된다.</p>
-<div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
+<table>
+<thead>
+<tr class="header">
 <th align="left"><strong>R</strong></th>
 <th align="left"><strong>Python</strong></th>
-<th align="left">
-<strong>R</strong>에서의 예</th>
-</tr></thead>
+<th align="left"><strong>R</strong>에서의 예</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td align="left">요소가 하나인 벡터</td>
@@ -281,152 +685,119 @@ Figure A.1: R에서 Python 함수의 호출
 <td align="left"><code>NULL, TRUE, FALSE</code></td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <p>만약 사용자가 정의한 클래스의 파이썬 객체가 전달되어야 하면, 해당 객체의 R 참조자가 반환된다.
 그러면 R에서 파이썬 모듈에 접근할 수 있는 것과 유사한 방법으로 파이썬 객체의 메쏘드와 속성을 R 참조자 객체를 이용하여 접근할 수 있다.</p>
-<div id="정수-형식의-데이터-변환의-주의점" class="section level4" number="12.3.1.1">
-<h4>
-<span class="header-section-number">A.3.1.1</span> 정수 형식의 데이터 변환의 주의점<a class="anchor" aria-label="anchor" href="#%EC%A0%95%EC%88%98-%ED%98%95%EC%8B%9D%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B3%80%ED%99%98%EC%9D%98-%EC%A3%BC%EC%9D%98%EC%A0%90"><i class="fas fa-link"></i></a>
-</h4>
+<div id="정수-형식의-데이터-변환의-주의점" class="section level4 hasAnchor" number="12.3.1.1">
+<h4><span class="header-section-number">A.3.1.1</span> 정수 형식의 데이터 변환의 주의점<a href="ch-RandPython.html#정수-형식의-데이터-변환의-주의점" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>그런데 이러한 자동 형 변환에서 주의해야 할 점이 있다.
 R에서는 숫자 데이터는 정수나 실수나 모두 double 형식으로 자동으로 변환되어 처리하는 경우가 많다.
 예를 들어 다음처럼 3이라는 정수 두 개로 이루어진 벡터는 정수로 처리되는 것이 아니라 부동소수점 형식인 double로 데이터가 처리된다.</p>
-<div class="sourceCode" id="cb2283"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt; [1] "double"</code></pre>
+<div class="sourceCode" id="cb2283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2283-1"><a href="ch-RandPython.html#cb2283-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb2283-2"><a href="ch-RandPython.html#cb2283-2" tabindex="-1"></a><span class="fu">typeof</span>(a)</span></code></pre></div>
+<pre><code>[1] &quot;double&quot;</code></pre>
 <p>그런데 파이썬에서는 정수 형식과 실수 형식의 데이터를 엄격하게 구별하여 처리한다.
 따라서 파이썬 함수에서 정수 값이 인수이여야 하는 곳에 무심코 다음 같이 R 데이터를 입력하면 파이썬에서 함수가 실행될 때 데이터 형식이 맞지 않아 오류가 발생한다.</p>
-<div class="sourceCode" id="cb2285"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># 오류: 파이썬 함수의 integer 인수일 때 형변환에 주의</span></span>
-<span><span class="va">np</span><span class="op">$</span><span class="fu">full</span><span class="op">(</span>shape <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">3</span><span class="op">)</span>, fill_value <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt; Error in eval(expr, envir, enclos): TypeError: 'float' object cannot be interpreted as an integer</code></pre>
+<div class="sourceCode" id="cb2285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2285-1"><a href="ch-RandPython.html#cb2285-1" tabindex="-1"></a><span class="co"># 오류: 파이썬 함수의 integer 인수일 때 형변환에 주의</span></span>
+<span id="cb2285-2"><a href="ch-RandPython.html#cb2285-2" tabindex="-1"></a>np<span class="sc">$</span><span class="fu">full</span>(<span class="at">shape =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>), <span class="at">fill_value =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>&#39;float&#39; object cannot be interpreted as an integer</code></pre>
 <p>그렇기 때문에 앞에서 <code>np$full()</code> 함수의 <code>shape</code> 인수를 부여할 때, <code>3L</code>로 정수형 데이터임을 명시적으로 표현하였다.
 그러면 R도 형변환이 필요하기 전까지는 이 값을 double 형식이 아니라 integer 형식으로 저장하고 처리한다.</p>
-<div class="sourceCode" id="cb2287"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3L</span>, <span class="fl">3L</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">b</span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt; [1] "integer"</code></pre>
-<div class="sourceCode" id="cb2289"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">np</span><span class="op">$</span><span class="fu">full</span><span class="op">(</span>shape <span class="op">=</span> <span class="va">b</span>, fill_value <span class="op">=</span> <span class="fl">1L</span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt;      [,1] [,2] [,3]
-#&gt; [1,]    1    1    1
-#&gt; [2,]    1    1    1
-#&gt; [3,]    1    1    1</code></pre>
+<div class="sourceCode" id="cb2287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2287-1"><a href="ch-RandPython.html#cb2287-1" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(3L, 3L)</span>
+<span id="cb2287-2"><a href="ch-RandPython.html#cb2287-2" tabindex="-1"></a><span class="fu">typeof</span>(b)</span></code></pre></div>
+<pre><code>[1] &quot;integer&quot;</code></pre>
+<div class="sourceCode" id="cb2289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2289-1"><a href="ch-RandPython.html#cb2289-1" tabindex="-1"></a>np<span class="sc">$</span><span class="fu">full</span>(<span class="at">shape =</span> b, <span class="at">fill_value =</span> 1L)</span></code></pre></div>
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    1    1
+[2,]    1    1    1
+[3,]    1    1    1</code></pre>
 </div>
-<div id="리스트-튜플-딕셔너리-형식으로-변환할-때-주의점" class="section level4" number="12.3.1.2">
-<h4>
-<span class="header-section-number">A.3.1.2</span> 리스트, 튜플, 딕셔너리 형식으로 변환할 때 주의점<a class="anchor" aria-label="anchor" href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8-%ED%8A%9C%ED%94%8C-%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC-%ED%98%95%EC%8B%9D%EC%9C%BC%EB%A1%9C-%EB%B3%80%ED%99%98%ED%95%A0-%EB%95%8C-%EC%A3%BC%EC%9D%98%EC%A0%90"><i class="fas fa-link"></i></a>
-</h4>
+<div id="리스트-튜플-딕셔너리-형식으로-변환할-때-주의점" class="section level4 hasAnchor" number="12.3.1.2">
+<h4><span class="header-section-number">A.3.1.2</span> 리스트, 튜플, 딕셔너리 형식으로 변환할 때 주의점<a href="ch-RandPython.html#리스트-튜플-딕셔너리-형식으로-변환할-때-주의점" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>자동 형 변환에서 또 하나 주의할 점은 파이썬에서 리스트나 튜플을 인수로 원할 때이다.
 파이썬에 정수 하나로 이루어진 리스트나 튜플을 전달한다고 하자.
 파이썬에서는 정수 자체와, 정수 하나로 이루어진 리스트와 튜플은 서로 다른 형식의 데이터이다.</p>
-<div class="sourceCode" id="cb2291"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2291-1"><a href="ch-RandPython.html#cb2291-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="dv">1</span>)</span></code></pre></div>
-<pre><code>#&gt; &lt;class 'int'&gt;</code></pre>
-<div class="sourceCode" id="cb2293"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2293-1"><a href="ch-RandPython.html#cb2293-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>([<span class="dv">1</span>])</span></code></pre></div>
-<pre><code>#&gt; &lt;class 'list'&gt;</code></pre>
-<div class="sourceCode" id="cb2295"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2295-1"><a href="ch-RandPython.html#cb2295-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>((<span class="dv">1</span>,))</span></code></pre></div>
-<pre><code>#&gt; &lt;class 'tuple'&gt;</code></pre>
+<div class="sourceCode" id="cb2291"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2291-1"><a href="ch-RandPython.html#cb2291-1" tabindex="-1"></a><span class="bu">type</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>&lt;class &#39;int&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb2293"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2293-1"><a href="ch-RandPython.html#cb2293-1" tabindex="-1"></a><span class="bu">type</span>([<span class="dv">1</span>])</span></code></pre></div>
+<pre><code>&lt;class &#39;list&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb2295"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2295-1"><a href="ch-RandPython.html#cb2295-1" tabindex="-1"></a><span class="bu">type</span>((<span class="dv">1</span>,))</span></code></pre></div>
+<pre><code>&lt;class &#39;tuple&#39;&gt;</code></pre>
 <p>그러나 R에서는 스칼라 형식은 없으므로 정수 하나도 모두 벡터로 표현된다.
 그런데 파이썬에서는 스칼라 형식이 매우 자주 사용되므로 R의 요소 하나짜리 벡터는 모두 해당 형식의 스칼라로 자동 변환된다.
-그러므로 반드시 파이썬의 리스트나 튜플 형식으로 데이터를 전달하려면 다음처럼 R의 리스트와 <code>reticulate</code>의 <code><a href="https://rstudio.github.io/reticulate/reference/tuple.html">tuple()</a></code> 함수를 사용한다.
-다음에 사용된 <code><a href="https://rstudio.github.io/reticulate/reference/r-py-conversion.html">r_to_py()</a></code> 함수는 R 객체를 파이썬 객체로 변환하는 함수이다.</p>
-<div class="sourceCode" id="cb2297"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/r-py-conversion.html">r_to_py</a></span><span class="op">(</span><span class="fl">1L</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt; [1] "python.builtin.int"    "python.builtin.object"</code></pre>
-<div class="sourceCode" id="cb2299"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/r-py-conversion.html">r_to_py</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1L</span><span class="op">)</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt; [1] "python.builtin.list"   "python.builtin.object"</code></pre>
-<div class="sourceCode" id="cb2301"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/r-py-conversion.html">r_to_py</a></span><span class="op">(</span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/tuple.html">tuple</a></span><span class="op">(</span><span class="fl">1L</span><span class="op">)</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt; [1] "python.builtin.tuple"  "python.builtin.object"</code></pre>
+그러므로 반드시 파이썬의 리스트나 튜플 형식으로 데이터를 전달하려면 다음처럼 R의 리스트와 <code>reticulate</code>의 <code>tuple()</code> 함수를 사용한다.
+다음에 사용된 <code>r_to_py()</code> 함수는 R 객체를 파이썬 객체로 변환하는 함수이다.</p>
+<div class="sourceCode" id="cb2297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2297-1"><a href="ch-RandPython.html#cb2297-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">r_to_py</span>(1L); <span class="fu">class</span>(a)</span></code></pre></div>
+<pre><code>[1] &quot;python.builtin.int&quot;    &quot;python.builtin.object&quot;</code></pre>
+<div class="sourceCode" id="cb2299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2299-1"><a href="ch-RandPython.html#cb2299-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">r_to_py</span>(<span class="fu">list</span>(1L)); <span class="fu">class</span>(a)</span></code></pre></div>
+<pre><code>[1] &quot;python.builtin.list&quot;   &quot;python.builtin.object&quot;</code></pre>
+<div class="sourceCode" id="cb2301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2301-1"><a href="ch-RandPython.html#cb2301-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">r_to_py</span>(<span class="fu">tuple</span>(1L)); <span class="fu">class</span>(a)</span></code></pre></div>
+<pre><code>[1] &quot;python.builtin.tuple&quot;  &quot;python.builtin.object&quot;</code></pre>
 <p>R의 이름 붙은 리스트는 파이썬의 딕셔너리로 잘 변환이 된다.
-그러나 R의 리스트는 요소의 이름으로 문자열만 사용할 수 있는 반면, 파이썬의 딕셔너리의 키 값은 더 복잡한 불변하는 객체가 될 수 있다. 따라서 R에서 좀 더 복잡한 파이썬 딕셔너리를 인수로 전달하고자 하면, <code>reticulate</code>의 <code><a href="https://rstudio.github.io/reticulate/reference/dict.html">dict()</a></code> 함수를 사용한다.</p>
-<div class="sourceCode" id="cb2303"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>year<span class="op">=</span><span class="fl">3</span>, major<span class="op">=</span><span class="st">"me"</span>, name<span class="op">=</span><span class="st">"홍길동"</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt; [1] "list"</code></pre>
-<div class="sourceCode" id="cb2305"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">a</span></span></code></pre></div>
-<pre><code>#&gt; $year
-#&gt; [1] 3
-#&gt; 
-#&gt; $major
-#&gt; [1] "me"
-#&gt; 
-#&gt; $name
-#&gt; [1] "홍길동"</code></pre>
-<div class="sourceCode" id="cb2307"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/r-py-conversion.html">r_to_py</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">b</span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt; [1] "python.builtin.dict"   "python.builtin.object"</code></pre>
-<div class="sourceCode" id="cb2309"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">b</span></span></code></pre></div>
-<pre><code>#&gt; {'year': 3.0, 'major': 'me', 'name': '홍길동'}</code></pre>
-<div class="sourceCode" id="cb2311"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/dict.html">dict</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"홍길동"</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt; [1] "python.builtin.dict"   "python.builtin.object"</code></pre>
-<div class="sourceCode" id="cb2313"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">a</span></span></code></pre></div>
-<pre><code>#&gt; {'name': '홍길동'}</code></pre>
+그러나 R의 리스트는 요소의 이름으로 문자열만 사용할 수 있는 반면, 파이썬의 딕셔너리의 키 값은 더 복잡한 불변하는 객체가 될 수 있다. 따라서 R에서 좀 더 복잡한 파이썬 딕셔너리를 인수로 전달하고자 하면, <code>reticulate</code>의 <code>dict()</code> 함수를 사용한다.</p>
+<div class="sourceCode" id="cb2303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2303-1"><a href="ch-RandPython.html#cb2303-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">year=</span><span class="dv">3</span>, <span class="at">major=</span><span class="st">&quot;me&quot;</span>, <span class="at">name=</span><span class="st">&quot;홍길동&quot;</span>); <span class="fu">class</span>(a)</span></code></pre></div>
+<pre><code>[1] &quot;list&quot;</code></pre>
+<div class="sourceCode" id="cb2305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2305-1"><a href="ch-RandPython.html#cb2305-1" tabindex="-1"></a>a</span></code></pre></div>
+<pre><code>$year
+[1] 3
+
+$major
+[1] &quot;me&quot;
+
+$name
+[1] &quot;홍길동&quot;</code></pre>
+<div class="sourceCode" id="cb2307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2307-1"><a href="ch-RandPython.html#cb2307-1" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">r_to_py</span>(a); <span class="fu">class</span>(b)</span></code></pre></div>
+<pre><code>[1] &quot;python.builtin.dict&quot;   &quot;python.builtin.object&quot;</code></pre>
+<div class="sourceCode" id="cb2309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2309-1"><a href="ch-RandPython.html#cb2309-1" tabindex="-1"></a>b</span></code></pre></div>
+<pre><code>{&#39;year&#39;: 3.0, &#39;major&#39;: &#39;me&#39;, &#39;name&#39;: &#39;홍길동&#39;}</code></pre>
+<div class="sourceCode" id="cb2311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2311-1"><a href="ch-RandPython.html#cb2311-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">dict</span>(<span class="at">name =</span> <span class="st">&quot;홍길동&quot;</span>); <span class="fu">class</span>(a)</span></code></pre></div>
+<pre><code>[1] &quot;python.builtin.dict&quot;   &quot;python.builtin.object&quot;</code></pre>
+<div class="sourceCode" id="cb2313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2313-1"><a href="ch-RandPython.html#cb2313-1" tabindex="-1"></a>a</span></code></pre></div>
+<pre><code>{&#39;name&#39;: &#39;홍길동&#39;}</code></pre>
 <p>아울러 R은 벡터와 리스트 등의 인덱싱이 1부터 시작하지만, 파이썬의 리스트, 튜플 등의 시퀀스 객체는 0부터 인덱싱이 시작하니 이러한 차이에 주의하여야 한다.</p>
 </div>
 </div>
-<div id="형변환-직접-하기" class="section level3" number="12.3.2">
-<h3>
-<span class="header-section-number">A.3.2</span> 형변환 직접 하기<a class="anchor" aria-label="anchor" href="#%ED%98%95%EB%B3%80%ED%99%98-%EC%A7%81%EC%A0%91-%ED%95%98%EA%B8%B0"><i class="fas fa-link"></i></a>
-</h3>
+<div id="형변환-직접-하기" class="section level3 hasAnchor" number="12.3.2">
+<h3><span class="header-section-number">A.3.2</span> 형변환 직접 하기<a href="ch-RandPython.html#형변환-직접-하기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>reticulate</code>의 기본 설정은 파이썬 객체를 R 세션으로 전달할 때 대응되는 R 객체로 자동 변환한다.
-만약 파이썬 객체를 R 객체로 자동 변환하지 않고, 파이썬 객체의 R 참조자를 반환하게 하려면 <code><a href="https://rstudio.github.io/reticulate/reference/import.html">import()</a></code> 함수에 <code>convert=FALSE</code> 인수를 전달한다.
+만약 파이썬 객체를 R 객체로 자동 변환하지 않고, 파이썬 객체의 R 참조자를 반환하게 하려면 <code>import()</code> 함수에 <code>convert=FALSE</code> 인수를 전달한다.
 그러면 파이썬의 결과는 모두 R 참조자로 전달되므로, R에서 전달된 참조자로 다시 파이썬 객체의 메쏘드 등을 실행할 수 있다.
-마지막에 R로서 결과를 확인하려면 <code><a href="https://rstudio.github.io/reticulate/reference/r-py-conversion.html">py_to_r()</a></code> 함수를 사용하여 R 참조자가 참조하는 파이썬 객체를 R 객체로 변환하여야 한다.</p>
-<div class="sourceCode" id="cb2315"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">np</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/import.html">import</a></span><span class="op">(</span><span class="st">"numpy"</span>, convert<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="va">a</span> <span class="op">&lt;-</span> <span class="va">np</span><span class="op">$</span><span class="fu">array</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
-<span><span class="va">a</span> <span class="co"># 파이썬 객체의 R 참조자</span></span></code></pre></div>
-<pre><code>#&gt; array([1, 2, 3, 4])</code></pre>
-<div class="sourceCode" id="cb2317"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
-<pre><code>#&gt; [1] "numpy.ndarray"         "python.builtin.object"</code></pre>
-<div class="sourceCode" id="cb2319"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">a_max</span> <span class="op">&lt;-</span> <span class="va">a</span><span class="op">$</span><span class="fu">max</span><span class="op">(</span><span class="op">)</span> <span class="co"># Numpy 배열의 max 메쏘드 호출</span></span>
-<span><span class="va">a_max</span> <span class="co"># 파이썬 객체의 R 참조자</span></span></code></pre></div>
-<pre><code>#&gt; 4</code></pre>
-<div class="sourceCode" id="cb2321"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">a_max</span> <span class="op">+</span> <span class="fl">1</span>  <span class="co"># R 객체가 아니므로 R 연산은 오류 발생</span></span></code></pre></div>
-<pre><code>#&gt; Error in a_max + 1: 이항연산자에 수치가 아닌 인수입니다</code></pre>
-<div class="sourceCode" id="cb2323"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/r-py-conversion.html">py_to_r</a></span><span class="op">(</span><span class="va">a_max</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1</span></span></code></pre></div>
-<pre><code>#&gt; [1] 5</code></pre>
+마지막에 R로서 결과를 확인하려면 <code>py_to_r()</code> 함수를 사용하여 R 참조자가 참조하는 파이썬 객체를 R 객체로 변환하여야 한다.</p>
+<div class="sourceCode" id="cb2315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2315-1"><a href="ch-RandPython.html#cb2315-1" tabindex="-1"></a>np <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;numpy&quot;</span>, <span class="at">convert=</span><span class="cn">FALSE</span>)</span>
+<span id="cb2315-2"><a href="ch-RandPython.html#cb2315-2" tabindex="-1"></a>a <span class="ot">&lt;-</span> np<span class="sc">$</span><span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb2315-3"><a href="ch-RandPython.html#cb2315-3" tabindex="-1"></a>a <span class="co"># 파이썬 객체의 R 참조자</span></span></code></pre></div>
+<pre><code>array([1, 2, 3, 4])</code></pre>
+<div class="sourceCode" id="cb2317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2317-1"><a href="ch-RandPython.html#cb2317-1" tabindex="-1"></a><span class="fu">class</span>(a)</span></code></pre></div>
+<pre><code>[1] &quot;numpy.ndarray&quot;         &quot;python.builtin.object&quot;</code></pre>
+<div class="sourceCode" id="cb2319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2319-1"><a href="ch-RandPython.html#cb2319-1" tabindex="-1"></a>a_max <span class="ot">&lt;-</span> a<span class="sc">$</span><span class="fu">max</span>() <span class="co"># Numpy 배열의 max 메쏘드 호출</span></span>
+<span id="cb2319-2"><a href="ch-RandPython.html#cb2319-2" tabindex="-1"></a>a_max <span class="co"># 파이썬 객체의 R 참조자</span></span></code></pre></div>
+<pre><code>4</code></pre>
+<div class="sourceCode" id="cb2321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2321-1"><a href="ch-RandPython.html#cb2321-1" tabindex="-1"></a>a_max <span class="sc">+</span> <span class="dv">1</span>  <span class="co"># R 객체가 아니므로 R 연산은 오류 발생</span></span></code></pre></div>
+<pre><code>5.0</code></pre>
+<div class="sourceCode" id="cb2323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2323-1"><a href="ch-RandPython.html#cb2323-1" tabindex="-1"></a><span class="fu">py_to_r</span>(a_max) <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
+<pre><code>[1] 5</code></pre>
 </div>
-<div id="파이썬-모듈의-도움말-확인하기" class="section level3" number="12.3.3">
-<h3>
-<span class="header-section-number">A.3.3</span> 파이썬 모듈의 도움말 확인하기<a class="anchor" aria-label="anchor" href="#%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AA%A8%EB%93%88%EC%9D%98-%EB%8F%84%EC%9B%80%EB%A7%90-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0"><i class="fas fa-link"></i></a>
-</h3>
-<p><code><a href="https://rstudio.github.io/reticulate/reference/py_help.html">py_help()</a></code> 함수를 사용하면 파이썬 객체에 대한 도움말을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2325"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/py_help.html">py_help</a></span><span class="op">(</span><span class="va">np</span><span class="op">$</span><span class="va">full</span><span class="op">)</span></span></code></pre></div>
+<div id="파이썬-모듈의-도움말-확인하기" class="section level3 hasAnchor" number="12.3.3">
+<h3><span class="header-section-number">A.3.3</span> 파이썬 모듈의 도움말 확인하기<a href="ch-RandPython.html#파이썬-모듈의-도움말-확인하기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>py_help()</code> 함수를 사용하면 파이썬 객체에 대한 도움말을 확인할 수 있다.</p>
+<div class="sourceCode" id="cb2325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2325-1"><a href="ch-RandPython.html#cb2325-1" tabindex="-1"></a><span class="fu">py_help</span>(np<span class="sc">$</span>full)</span></code></pre></div>
 </div>
-<div id="pickle-사용하기" class="section level3" number="12.3.4">
-<h3>
-<span class="header-section-number">A.3.4</span> <code>pickle</code> 사용하기<a class="anchor" aria-label="anchor" href="#pickle-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0"><i class="fas fa-link"></i></a>
-</h3>
+<div id="pickle-사용하기" class="section level3 hasAnchor" number="12.3.4">
+<h3><span class="header-section-number">A.3.4</span> <code>pickle</code> 사용하기<a href="ch-RandPython.html#pickle-사용하기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>파이썬에서는 객체들을 바이너리 형식으로 저장할 때 <code>pickle</code> 모듈을 자주 사용한다.
-파이썬 모듈의 결과를 파이썬 객체 형식으로 파일에 저장하거나, 이미 파이썬에서 작업하여 바이너리 형식으로 저장된 데이터를 읽어오려면 <code><a href="https://rstudio.github.io/reticulate/reference/py_save_object.html">py_save_object()</a></code>와 <code><a href="https://rstudio.github.io/reticulate/reference/py_save_object.html">py_load_object()</a></code> 함수를 사용한다.
+파이썬 모듈의 결과를 파이썬 객체 형식으로 파일에 저장하거나, 이미 파이썬에서 작업하여 바이너리 형식으로 저장된 데이터를 읽어오려면 <code>py_save_object()</code>와 <code>py_load_object()</code> 함수를 사용한다.
 읽어들인 파이썬 객체가 자동으로 R 객체로 형변환된 것을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2326"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/np_array.html">np_array</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, dtype<span class="op">=</span><span class="st">"int64"</span><span class="op">)</span> <span class="co"># 파이썬 Numpy 배열의 R 참조자</span></span>
-<span><span class="va">a</span></span></code></pre></div>
-<pre><code>#&gt; array([1, 2, 3, 4])</code></pre>
-<div class="sourceCode" id="cb2328"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/py_save_object.html">py_save_object</a></span><span class="op">(</span><span class="va">a</span>, filename <span class="op">=</span> <span class="st">"a.p"</span><span class="op">)</span> <span class="co"># 파이썬 객체 저장</span></span>
-<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/py_save_object.html">py_load_object</a></span><span class="op">(</span>filename <span class="op">=</span> <span class="st">"a.p"</span><span class="op">)</span> <span class="co"># 저장된 파이썬 객체 읽어오기</span></span>
-<span><span class="va">b</span></span></code></pre></div>
-<pre><code>#&gt; [1] 1 2 3 4</code></pre>
+<div class="sourceCode" id="cb2326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2326-1"><a href="ch-RandPython.html#cb2326-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">np_array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">dtype=</span><span class="st">&quot;int64&quot;</span>) <span class="co"># 파이썬 Numpy 배열의 R 참조자</span></span>
+<span id="cb2326-2"><a href="ch-RandPython.html#cb2326-2" tabindex="-1"></a>a</span></code></pre></div>
+<pre><code>array([1, 2, 3, 4])</code></pre>
+<div class="sourceCode" id="cb2328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2328-1"><a href="ch-RandPython.html#cb2328-1" tabindex="-1"></a><span class="fu">py_save_object</span>(a, <span class="at">filename =</span> <span class="st">&quot;a.p&quot;</span>) <span class="co"># 파이썬 객체 저장</span></span>
+<span id="cb2328-2"><a href="ch-RandPython.html#cb2328-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">py_load_object</span>(<span class="at">filename =</span> <span class="st">&quot;a.p&quot;</span>) <span class="co"># 저장된 파이썬 객체 읽어오기</span></span>
+<span id="cb2328-3"><a href="ch-RandPython.html#cb2328-3" tabindex="-1"></a>b</span></code></pre></div>
+<pre><code>[1] 1 2 3 4</code></pre>
 </div>
 </div>
-<div id="r-마크다운-문서에서-파이썬-명령-실행하기" class="section level2" number="12.4">
-<h2>
-<span class="header-section-number">A.4</span> R 마크다운 문서에서 파이썬 명령 실행하기<a class="anchor" aria-label="anchor" href="#r-%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EB%AC%B8%EC%84%9C%EC%97%90%EC%84%9C-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AA%85%EB%A0%B9-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0"><i class="fas fa-link"></i></a>
-</h2>
+<div id="r-마크다운-문서에서-파이썬-명령-실행하기" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">A.4</span> R 마크다운 문서에서 파이썬 명령 실행하기<a href="ch-RandPython.html#r-마크다운-문서에서-파이썬-명령-실행하기" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R 마크다운 문서는 일반적으로 마크다운으로 형식화된 문서 정보와 R 명령 모듬(chunks)으로 구성된다.
 R 마크다운 문서를 직조(knitting)하면 R 명령문 모듬이 실행되어 그 결과가 문서의 다른 부분과 결합하여 문서가 동적으로 완성된다.
 R 마크다운 문서에는 R 명령 모듬뿐 아니라 Python 명령 모듬도 포함시킬 수 있다.
@@ -440,90 +811,107 @@ R 마크다운 문서에는 R 명령 모듬뿐 아니라 Python 명령 모듬도
 </ul>
 <p>아울러 파이썬 세션에 R 객체가 전달될 때, R 세션에 파이썬 객체가 전달될 때 상호 자동 변환이 이루어진다.</p>
 <p>다음은 R의 <code>ggplot</code> 패키지의 <code>mpg</code> 데이터를 파이썬 모듬에 전달하여 그래프를 그리고 통계 요약한 후, 그 결과를 다시 R로 보내서 출력한 예이다.</p>
-<div class="sourceCode" id="cb2330"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># R 모듬 1</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="va">mpg</span></span></code></pre></div>
-<pre><code>#&gt; # A tibble: 234 × 11
-#&gt;    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
-#&gt;    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
-#&gt;  1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…
-#&gt;  2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…
-#&gt;  3 audi         a4           2    2008     4 manu… f        20    31 p     comp…
-#&gt;  4 audi         a4           2    2008     4 auto… f        21    30 p     comp…
-#&gt;  5 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…
-#&gt;  6 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…
-#&gt;  7 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…
-#&gt;  8 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…
-#&gt;  9 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…
-#&gt; 10 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…
-#&gt; # ℹ 224 more rows</code></pre>
-<div class="sourceCode" id="cb2332"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2332-1"><a href="ch-RandPython.html#cb2332-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 파이썬 모듬 1</span></span>
-<span id="cb2332-2"><a href="ch-RandPython.html#cb2332-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2332-3"><a href="ch-RandPython.html#cb2332-3" aria-hidden="true" tabindex="-1"></a>r.mpg.plot(x <span class="op">=</span> <span class="st">"displ"</span>, y <span class="op">=</span> <span class="st">"hwy"</span>, kind <span class="op">=</span> <span class="st">"scatter"</span>)  <span class="co"># 배기량 vs. 고속도로연비 산점도</span></span>
-<span id="cb2332-4"><a href="ch-RandPython.html#cb2332-4" aria-hidden="true" tabindex="-1"></a>plt.show()  </span></code></pre></div>
-<div class="inline-figure"><img src="RandPython_files/figure-html/unnamed-chunk-24-1.png" width="60%" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb2333"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2333-1"><a href="ch-RandPython.html#cb2333-1" aria-hidden="true" tabindex="-1"></a>mean_cty_per_class <span class="op">=</span> r.mpg.groupby([<span class="st">'class'</span>])[<span class="st">'cty'</span>].mean() <span class="co"># 종류별 도심연비 평균 계산</span></span>
-<span id="cb2333-2"><a href="ch-RandPython.html#cb2333-2" aria-hidden="true" tabindex="-1"></a>mean_cty_per_class</span></code></pre></div>
-<pre><code>#&gt; class
-#&gt; 2seater       15.400000
-#&gt; compact       20.127660
-#&gt; midsize       18.756098
-#&gt; minivan       15.818182
-#&gt; pickup        13.000000
-#&gt; subcompact    20.371429
-#&gt; suv           13.500000
-#&gt; Name: cty, dtype: float64</code></pre>
-<div class="sourceCode" id="cb2335"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># R 모듬 2</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="va">py</span><span class="op">$</span><span class="va">mean_cty_per_class</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="RandPython_files/figure-html/unnamed-chunk-25-3.png" width="60%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb2330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2330-1"><a href="ch-RandPython.html#cb2330-1" tabindex="-1"></a><span class="co"># R 모듬 1</span></span>
+<span id="cb2330-2"><a href="ch-RandPython.html#cb2330-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2330-3"><a href="ch-RandPython.html#cb2330-3" tabindex="-1"></a>mpg</span></code></pre></div>
+<pre><code># A tibble: 234 × 11
+   manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
+   &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+ 1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…
+ 2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…
+ 3 audi         a4           2    2008     4 manu… f        20    31 p     comp…
+ 4 audi         a4           2    2008     4 auto… f        21    30 p     comp…
+ 5 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…
+ 6 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…
+ 7 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…
+ 8 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…
+ 9 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…
+10 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…
+# ℹ 224 more rows</code></pre>
+<div class="sourceCode" id="cb2332"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2332-1"><a href="ch-RandPython.html#cb2332-1" tabindex="-1"></a><span class="co"># 파이썬 모듬 1</span></span>
+<span id="cb2332-2"><a href="ch-RandPython.html#cb2332-2" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2332-3"><a href="ch-RandPython.html#cb2332-3" tabindex="-1"></a>r.mpg.plot(x <span class="op">=</span> <span class="st">&quot;displ&quot;</span>, y <span class="op">=</span> <span class="st">&quot;hwy&quot;</span>, kind <span class="op">=</span> <span class="st">&quot;scatter&quot;</span>)  <span class="co"># 배기량 vs. 고속도로연비 산점도</span></span>
+<span id="cb2332-4"><a href="ch-RandPython.html#cb2332-4" tabindex="-1"></a>plt.show()  </span></code></pre></div>
+<p><img src="RandPython_files/figure-html/unnamed-chunk-24-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb2333"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2333-1"><a href="ch-RandPython.html#cb2333-1" tabindex="-1"></a>mean_cty_per_class <span class="op">=</span> r.mpg.groupby([<span class="st">&#39;class&#39;</span>])[<span class="st">&#39;cty&#39;</span>].mean() <span class="co"># 종류별 도심연비 평균 계산</span></span>
+<span id="cb2333-2"><a href="ch-RandPython.html#cb2333-2" tabindex="-1"></a>mean_cty_per_class</span></code></pre></div>
+<pre><code>class
+2seater       15.400000
+compact       20.127660
+midsize       18.756098
+minivan       15.818182
+pickup        13.000000
+subcompact    20.371429
+suv           13.500000
+Name: cty, dtype: float64</code></pre>
+<div class="sourceCode" id="cb2335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2335-1"><a href="ch-RandPython.html#cb2335-1" tabindex="-1"></a><span class="co"># R 모듬 2</span></span>
+<span id="cb2335-2"><a href="ch-RandPython.html#cb2335-2" tabindex="-1"></a><span class="fu">barplot</span>(py<span class="sc">$</span>mean_cty_per_class)</span></code></pre></div>
+<p><img src="RandPython_files/figure-html/unnamed-chunk-25-3.png" width="60%" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>
-  <div class="chapter-nav">
-<div class="prev"><a href="ch-R-OOP.html"><span class="header-section-number">11</span> R 객체 지향 프로그래밍</a></div>
-<div class="next"><a href="ch-RTips.html"><span class="header-section-number">B</span> R 관련 여러 주제들</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#ch-RandPython"><span class="header-section-number">A</span> R과 Python 연동하기</a></li>
-<li><a class="nav-link" href="#reticulate-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%82%AC%EC%9A%A9%ED%95%A0-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%B2%84%EC%A0%84-%EC%84%A4%EC%A0%95"><span class="header-section-number">A.1</span> reticulate 설치 및 사용할 파이썬 버전 설정</a></li>
-<li><a class="nav-link" href="#r%EA%B3%BC-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%97%B0%EB%8F%99%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95"><span class="header-section-number">A.2</span> R과 파이썬 연동하는 방법</a></li>
-<li>
-<a class="nav-link" href="#%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AA%A8%EB%93%88-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0"><span class="header-section-number">A.3</span> 파이썬 모듈 연동하기</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#r%EA%B3%BC-python%EC%9D%98-%ED%98%95%EC%8B%9D-%EB%B3%80%ED%99%98"><span class="header-section-number">A.3.1</span> R과 Python의 형식 변환</a></li>
-<li><a class="nav-link" href="#%ED%98%95%EB%B3%80%ED%99%98-%EC%A7%81%EC%A0%91-%ED%95%98%EA%B8%B0"><span class="header-section-number">A.3.2</span> 형변환 직접 하기</a></li>
-<li><a class="nav-link" href="#%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AA%A8%EB%93%88%EC%9D%98-%EB%8F%84%EC%9B%80%EB%A7%90-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0"><span class="header-section-number">A.3.3</span> 파이썬 모듈의 도움말 확인하기</a></li>
-<li><a class="nav-link" href="#pickle-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0"><span class="header-section-number">A.3.4</span> pickle 사용하기</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#r-%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EB%AC%B8%EC%84%9C%EC%97%90%EC%84%9C-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AA%85%EB%A0%B9-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0"><span class="header-section-number">A.4</span> R 마크다운 문서에서 파이썬 명령 실행하기</a></li>
-</ul>
+            </section>
 
-      <div class="book-extra">
-        <ul class="list-unstyled">
-          
-        </ul>
-</div>
-    </nav>
-</div>
-
-</div>
-</div> <!-- .container -->
-
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R 프로그래밍 (개정판)</strong>" was written by Kilhwan Kim. It was last built on 2023-09-06.</p>
+          </div>
+        </div>
+      </div>
+<a href="ch-R-OOP.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch-RTips.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
   </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["R-programming-2nd.pdf", "R-programming-2nd.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
 
-  <div class="col-12 col-md-6 mt-3">
-    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
-  </div>
-
-</div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -535,22 +923,7 @@ R 마크다운 문서에는 R 명령 모듬뿐 아니라 Python 명령 모듬도
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
-  }
-}
 </script>
 </body>
+
 </html>
