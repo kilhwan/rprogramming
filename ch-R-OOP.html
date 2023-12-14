@@ -23,7 +23,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2023-11-29" />
+<meta name="date" content="2023-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -495,7 +495,15 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="B" data-path="ch-RTips.html"><a href="ch-RTips.html"><i class="fa fa-check"></i><b>B</b> <strong>R</strong> 관련 여러 주제들</a>
 <ul>
-<li class="chapter" data-level="B.1" data-path="ch-RTips.html"><a href="ch-RTips.html#r에서-계산-정확도를-향상시키기"><i class="fa fa-check"></i><b>B.1</b> <strong>R</strong>에서 계산 정확도를 향상시키기</a></li>
+<li class="chapter" data-level="B.1" data-path="ch-RTips.html"><a href="ch-RTips.html#r의-파일-및-폴더-관련-명령어등"><i class="fa fa-check"></i><b>B.1</b> <strong>R</strong>의 파일 및 폴더 관련 명령어등</a>
+<ul>
+<li class="chapter" data-level="B.1.1" data-path="ch-RTips.html"><a href="ch-RTips.html#작업-디렉토리"><i class="fa fa-check"></i><b>B.1.1</b> 작업 디렉토리</a></li>
+<li class="chapter" data-level="B.1.2" data-path="ch-RTips.html"><a href="ch-RTips.html#폴더-내의-파일-목록-확인하기"><i class="fa fa-check"></i><b>B.1.2</b> 폴더 내의 파일 목록 확인하기</a></li>
+<li class="chapter" data-level="B.1.3" data-path="ch-RTips.html"><a href="ch-RTips.html#파일과-폴더-존재-확인"><i class="fa fa-check"></i><b>B.1.3</b> 파일과 폴더 존재 확인</a></li>
+<li class="chapter" data-level="B.1.4" data-path="ch-RTips.html"><a href="ch-RTips.html#폴더의-생성과-삭제"><i class="fa fa-check"></i><b>B.1.4</b> 폴더의 생성과 삭제</a></li>
+<li class="chapter" data-level="B.1.5" data-path="ch-RTips.html"><a href="ch-RTips.html#파일의-생성-복사-이동-삭제"><i class="fa fa-check"></i><b>B.1.5</b> 파일의 생성, 복사, 이동, 삭제</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="ch-RTips.html"><a href="ch-RTips.html#r에서-계산-정확도를-향상시키기"><i class="fa fa-check"></i><b>B.2</b> <strong>R</strong>에서 계산 정확도를 향상시키기</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -572,7 +580,7 @@ attr(,&quot;class&quot;)
 <div class="sourceCode" id="cb2232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2232-1"><a href="ch-R-OOP.html#cb2232-1" aria-hidden="true" tabindex="-1"></a>print</span></code></pre></div>
 <pre><code>function (x, ...) 
 UseMethod(&quot;print&quot;)
-&lt;bytecode: 0x5589a4fbb510&gt;
+&lt;bytecode: 0x55fd0335d950&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 <div id="methods" class="section level4 unnumbered hasAnchor">
@@ -635,7 +643,7 @@ UseMethod(&quot;print&quot;)
         missing(useSource))
     .Internal(print.default(x, args, missings))
 }
-&lt;bytecode: 0x5589a3a9ee40&gt;
+&lt;bytecode: 0x55fd018c8410&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>보통 default 메소드는 데이터가 가지는 기본적 타입에 대해 적절한 포괄 함수 관련 처리를 수행하도록 구현되어 있다. print.default는 기본적인 데이터의 타입에 따라 적절한 출력을 보여준다.</p>
 <p>앞서 우리는 student 클래스 객체를 만들었다. 그런나 print.student라는 메소드는 존재하지 않으므로 콘솔에서 해당 객체가 입력되었을 때, print.defualt가 student의 출력을 담당하였다. 따라서 student의 데이터 기본 타입인 list의 형식으로 데이터가 출력이 된것이다.</p>
