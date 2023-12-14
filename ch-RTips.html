@@ -537,7 +537,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb2364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2364-1"><a href="ch-RTips.html#cb2364-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>[1] &quot;/home/sys4ppl/Dropbox/Work/Writing/R-programming-2nd&quot;</code></pre>
 <p>어떤 폴더를 작업 디렉토리로 설정하려면 다음처럼 <code>setwd(폴더_절대경로)</code>로 설정한다. 다음은 현재의 작업 디렉토리 밑의 source라는 폴더를 작업 디렉토리로 설정한 예이다.</p>
-<div class="sourceCode" id="cb2366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2366-1"><a href="ch-RTips.html#cb2366-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">paste</span>(<span class="fu">getwd</span>(), <span class="st">&quot;src&quot;</span>, <span class="at">sep=</span><span class="st">&quot;/&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2366-1"><a href="ch-RTips.html#cb2366-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">file.path</span>(<span class="fu">getwd</span>(), <span class="st">&quot;src&quot;</span>))</span></code></pre></div>
 <div class="sourceCode" id="cb2367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2367-1"><a href="ch-RTips.html#cb2367-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>[1] &quot;/home/sys4ppl/Dropbox/Work/Writing/R-programming-2nd/src&quot;</code></pre>
 </div>
@@ -547,7 +547,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb2369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2369-1"><a href="ch-RTips.html#cb2369-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
 <pre><code>[1] &quot;README.txt&quot;  &quot;script-ex.R&quot; &quot;test&quot;       </code></pre>
 <p>작업 디렉토리 이외의 폴더의 파일과 하위폴더 목록을 확인하려면 <code>path=폴더_절대경로</code> 인수를 사용한다. 다음은 현재의 작업 디렉토리에 test 하위폴더가 있는 경우에 이 하위폴더의 파일 목록을 확인하는 예이다.</p>
-<div class="sourceCode" id="cb2371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2371-1"><a href="ch-RTips.html#cb2371-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">path=</span><span class="fu">paste</span>(<span class="fu">getwd</span>(), <span class="st">&quot;test&quot;</span>, <span class="at">sep=</span><span class="st">&quot;/&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2371-1"><a href="ch-RTips.html#cb2371-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">path=</span><span class="fu">file.path</span>(<span class="fu">getwd</span>(), <span class="st">&quot;test&quot;</span>))</span></code></pre></div>
 <pre><code>[1] &quot;script-ex-test.R&quot; &quot;test-result&quot;     </code></pre>
 <p><code>pattern</code> 인수를 사용하면 정규식 표현을 사용하여 특정 형식의 파일이름을 가진 파일의 목록만 확인할 수 있다.
 작업 디렉토리에서 파일의 확장자가 <code>.R</code>인 파일을 나열해 보자.</p>
