@@ -290,7 +290,6 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="6.6.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#텍스트-파일에서-데이터-읽어오기"><i class="fa fa-check"></i><b>6.6.1</b> 텍스트 파일에서 데이터 읽어오기</a></li>
 <li class="chapter" data-level="6.6.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#csv-파일에서-데이터-읽어오기"><i class="fa fa-check"></i><b>6.6.2</b> CSV 파일에서 데이터 읽어오기</a></li>
-<li class="chapter" data-level="6.6.3" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#excel-파일에서-데이터-읽기"><i class="fa fa-check"></i><b>6.6.3</b> Excel 파일에서 데이터 읽기</a></li>
 </ul></li>
 <li class="chapter" data-level="6.7" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#sec-write-file"><i class="fa fa-check"></i><b>6.7</b> 데이터 프레임을 파일로 쓰기</a>
 <ul>
@@ -560,28 +559,28 @@ div.csl-indent {
 <div id="reticulate-설치-및-사용할-파이썬-버전-설정" class="section level2 hasAnchor" number="13.1">
 <h2><span class="header-section-number">A.1</span> <code>reticulate</code> 설치 및 사용할 파이썬 버전 설정<a href="ch-RandPython.html#reticulate-설치-및-사용할-파이썬-버전-설정" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>다음 명령이나 RStudio 패키지 탭을 이용하여 <code>reticulate</code> 패키지를 설치한다.</p>
-<div class="sourceCode" id="cb2539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2539-1"><a href="ch-RandPython.html#cb2539-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;reticulate&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2532-1"><a href="ch-RandPython.html#cb2532-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;reticulate&#39;</span>)</span></code></pre></div>
 <p>설치가 잘 되었으면 <code>reticulate</code> 패키지를 적재해 보자.</p>
-<div class="sourceCode" id="cb2540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2540-1"><a href="ch-RandPython.html#cb2540-1" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span></code></pre></div>
+<div class="sourceCode" id="cb2533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2533-1"><a href="ch-RandPython.html#cb2533-1" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span></code></pre></div>
 <p>하나의 시스템에는 여러 버전의 파이썬이 설치되어 있는 경우가 자주 있다.
 그렇다면 <code>reticulate</code>는 시스템 내의 어떤 버전의 파이썬과 연동을 하게 될까?</p>
 <p><code>reticulate</code>는 다음처럼 파이썬에서 사용할 모듈을 <code>import()</code> 함수로 호출한다.</p>
-<div class="sourceCode" id="cb2541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2541-1"><a href="ch-RandPython.html#cb2541-1" tabindex="-1"></a>np <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;numpy&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2534-1"><a href="ch-RandPython.html#cb2534-1" tabindex="-1"></a>np <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;numpy&quot;</span>)</span></code></pre></div>
 <p><code>reticulate</code>는 맨 처음 <code>import</code> 되는 모듈을 시스템 내에 설치된 파이썬 버전들에서 차례로 검색하고, 해당 모듈이 맨 처음 발견된 파이썬 버전과 연동을 한다. 그리고 이후의 <strong>R</strong>에서의 파이썬 호출은 최초로 연동된 파이썬 버전에서 계속 수행하게 된다.
 만약 해당 모듈이 여러 곳의 파이썬 버전에 존재한다면 어떻게 될까?
 <code>reticulate</code>는 파이썬 모듈을 찾을 때 다음 순서로 파이썬 버전을 검색한다.</p>
 <ol style="list-style-type: decimal">
 <li>사용자가 만약 시스템에 <code>RETICULATE_PYTHON</code> 환경 변수를 설정해 두었다면, 환경 변수에 설정된 경로에 설치된 파이썬에서 가장 먼저 모듈을 검색한다. <code>.Rprofile</code>에 해당 환경 변수를 설정하려면 다음 명령처럼 설정을 한다. (그러나 이는 경직된 형태로 파이썬 검색 순서를 지정한 것이므로 일반적 상황에서는 권장되지 않는다.)</li>
 </ol>
-<div class="sourceCode" id="cb2542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2542-1"><a href="ch-RandPython.html#cb2542-1" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">RETICULATE_PYTHON =</span> <span class="st">&quot;경로&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2535-1"><a href="ch-RandPython.html#cb2535-1" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">RETICULATE_PYTHON =</span> <span class="st">&quot;경로&quot;</span>)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>사용자가 <code>use_python()</code>, <code>use_vertualenv()</code>, 또는 <code>use_condaenv()</code>를 사용하여 설정한 파이썬 버전을 그 다음으로 검색한다. <code>use_python()</code>은 파이썬이 설치된 경로를 지정할 때, <code>use_vertualenv()</code>나 <code>use_condaenv()</code>는 설치되어 있는 가상 환경이나 콘다 환경이 사용되도록 지정할 때 사용한다.</li>
 </ol>
-<div class="sourceCode" id="cb2543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2543-1"><a href="ch-RandPython.html#cb2543-1" tabindex="-1"></a><span class="fu">use_python</span>(<span class="st">&quot;경로&quot;</span>)</span>
-<span id="cb2543-2"><a href="ch-RandPython.html#cb2543-2" tabindex="-1"></a><span class="fu">use_virtualenv</span>(<span class="st">&quot;~/가상-환경-이름&quot;</span>)</span>
-<span id="cb2543-3"><a href="ch-RandPython.html#cb2543-3" tabindex="-1"></a><span class="fu">use_condaenv</span>(<span class="st">&quot;콘다-환경-이름&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2536-1"><a href="ch-RandPython.html#cb2536-1" tabindex="-1"></a><span class="fu">use_python</span>(<span class="st">&quot;경로&quot;</span>)</span>
+<span id="cb2536-2"><a href="ch-RandPython.html#cb2536-2" tabindex="-1"></a><span class="fu">use_virtualenv</span>(<span class="st">&quot;~/가상-환경-이름&quot;</span>)</span>
+<span id="cb2536-3"><a href="ch-RandPython.html#cb2536-3" tabindex="-1"></a><span class="fu">use_condaenv</span>(<span class="st">&quot;콘다-환경-이름&quot;</span>)</span></code></pre></div>
 <p><code>use_condaenv()</code>에서 콘다 설치가 여러 개인 경우에는 특정 콘다 설치 경로를 지정하여 원하는 콘다 환경을 찾을 수 있다.</p>
-<div class="sourceCode" id="cb2544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2544-1"><a href="ch-RandPython.html#cb2544-1" tabindex="-1"></a><span class="fu">use_condaenv</span>(<span class="st">&quot;콘다-환경-이름&quot;</span>, <span class="at">conda =</span> <span class="st">&quot;콘다-설치-경로&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2537-1"><a href="ch-RandPython.html#cb2537-1" tabindex="-1"></a><span class="fu">use_condaenv</span>(<span class="st">&quot;콘다-환경-이름&quot;</span>, <span class="at">conda =</span> <span class="st">&quot;콘다-설치-경로&quot;</span>)</span></code></pre></div>
 <p>그런데 <code>use</code> 함수들은 파이썬 버전을 찾을 힌트를 제공하는 것이지 실제 파이썬 버전을 찾는 작업을 수행하지는 않는다.
 그러므로 지정된 경로나 환경이 없어도 해당 명령은 오류가 발생하지 않는다.
 만약 해당 파이썬 버전이 있는지 확인하려면 <code>use</code> 함수에 <code>required=TRUE</code> 인수를 추가하여 실행한다. 그러면 해당 파이썬 버전이 실제 존재하지 않으면 오류가 발생한다.</p>
@@ -589,14 +588,14 @@ div.csl-indent {
 <li><p>사용자가 사용할 파이썬 버전을 환경 변수나 <code>use</code> 함수로 설정하지 않았으면, <code>reticulate</code>는 다음으로 사용자의 파이썬 가상 환경이나 콘다 환경을 검색한다. 가상 환경과 콘다 환경이 발견되면, 가상 환경과 콘다 환경에서 해당 모듈을 검색한다.</p></li>
 <li><p>다음으로 사용자 시스템 경로(<code>PATH</code>) 상의 파이썬 설치 위치를 검색한다. 시스템 경로에서 발견되는 파이썬이 어디에 설치되어 있는지를 확인하려면 다음 명령을 수행한다. 사용자의 시스템의 종류와 설치 방법에 따라 출력 결과는 서로 다를 수 있다.</p></li>
 </ol>
-<div class="sourceCode" id="cb2545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2545-1"><a href="ch-RandPython.html#cb2545-1" tabindex="-1"></a><span class="fu">Sys.which</span>(<span class="st">&quot;python&quot;</span>)</span></code></pre></div>
-<pre><code>                                                  python 
-&quot;/home/sys4ppl/miniforge3/envs/r-programming/bin/python&quot; </code></pre>
+<div class="sourceCode" id="cb2538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2538-1"><a href="ch-RandPython.html#cb2538-1" tabindex="-1"></a><span class="fu">Sys.which</span>(<span class="st">&quot;python&quot;</span>)</span></code></pre></div>
+<pre><code>                               python 
+&quot;/home/sys4ppl/miniforge3/bin/python&quot; </code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>마지막으로 사용자들이 파이썬을 주로 설치하는 일반적인 경로를 검색하여 파이썬 버전을 찾아 해당 모듈을 검색한다.</li>
 </ol>
 <p>파이썬 모듈을 <code>import</code> 할 때 어떤 버전의 파이썬이 먼저 검색는지를 확인하려면 다음 명령을 사용한다.</p>
-<div class="sourceCode" id="cb2547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2547-1"><a href="ch-RandPython.html#cb2547-1" tabindex="-1"></a><span class="fu">py_discover_config</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2540-1"><a href="ch-RandPython.html#cb2540-1" tabindex="-1"></a><span class="fu">py_discover_config</span>()</span></code></pre></div>
 <pre><code>python:         /home/sys4ppl/miniforge3/bin/python
 libpython:      /home/sys4ppl/miniforge3/lib/libpython3.12.so
 pythonhome:     /home/sys4ppl/miniforge3:/home/sys4ppl/miniforge3
@@ -605,7 +604,7 @@ numpy:           [NOT FOUND]
 
 NOTE: Python version was forced by RETICULATE_PYTHON_FALLBACK</code></pre>
 <p>시스템에 하나 이상의 파이썬이 설치되어 있다면, 실행의 일관성을 확보하기 위하여 <code>use</code> 함수들을 사용하여 사용할 파이썬 버전을 지정할 것을 권장한다. 다음은 <code>dm</code>이라는 콘다 환경에서 파이썬 모듈을 먼저 찾도록 하는 명령이다.</p>
-<div class="sourceCode" id="cb2549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2549-1"><a href="ch-RandPython.html#cb2549-1" tabindex="-1"></a><span class="fu">use_condaenv</span>(<span class="st">&quot;r-programming&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2542-1"><a href="ch-RandPython.html#cb2542-1" tabindex="-1"></a><span class="fu">use_condaenv</span>(<span class="st">&quot;r-programming&quot;</span>)</span></code></pre></div>
 </div>
 <div id="r과-파이썬-연동하는-방법" class="section level2 hasAnchor" number="13.2">
 <h2><span class="header-section-number">A.2</span> R과 파이썬 연동하는 방법<a href="ch-RandPython.html#r과-파이썬-연동하는-방법" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -622,11 +621,11 @@ NOTE: Python version was forced by RETICULATE_PYTHON_FALLBACK</code></pre>
 <p><code>import()</code> 함수를 사용하면 파이썬 모듈을 호출할 수 있다.
 호출된 모듈은 R 변수에 할당하여야 해당 파이썬 모듈을 사용할 수 있다.
 다음은 Numpy 모듈을 R에서 연동시킨 예이다.</p>
-<div class="sourceCode" id="cb2550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2550-1"><a href="ch-RandPython.html#cb2550-1" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
-<span id="cb2550-2"><a href="ch-RandPython.html#cb2550-2" tabindex="-1"></a>np <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;numpy&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2543-1"><a href="ch-RandPython.html#cb2543-1" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
+<span id="cb2543-2"><a href="ch-RandPython.html#cb2543-2" tabindex="-1"></a>np <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;numpy&quot;</span>)</span></code></pre></div>
 <p>연동된 모듈이 제공하는 함수나 객체는 <code>$</code> 연산자를 사용하여 이용할 수 있다.
 다음은 Numpy 모듈의 <code>full()</code> 함수를 이용하여 1로만 이루어진 <span class="math inline">\(3 \times 3\)</span> 배열을 만든 예이다.</p>
-<div class="sourceCode" id="cb2551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2551-1"><a href="ch-RandPython.html#cb2551-1" tabindex="-1"></a>np<span class="sc">$</span><span class="fu">full</span>(<span class="at">shape =</span> <span class="fu">c</span>(<span class="dv">3</span><span class="dt">L</span>,<span class="dv">3</span><span class="dt">L</span>), <span class="at">fill_value =</span> <span class="dv">1</span><span class="dt">L</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2544-1"><a href="ch-RandPython.html#cb2544-1" tabindex="-1"></a>np<span class="sc">$</span><span class="fu">full</span>(<span class="at">shape =</span> <span class="fu">c</span>(<span class="dv">3</span><span class="dt">L</span>,<span class="dv">3</span><span class="dt">L</span>), <span class="at">fill_value =</span> <span class="dv">1</span><span class="dt">L</span>)</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    1    1    1
 [2,]    1    1    1
@@ -643,8 +642,8 @@ Figure A.1: R에서 Python 함수의 호출
 <p>따라서 <code>np$full()</code> 함수를 호출할 때는 R 형식의 인수를 제공해야 하지, Python 형식의 데이터를 입력해서는 안 된다.
 원래 Numpy의 <code>full()</code> 함수는 <code>shape</code> 인수에 정수나 정수의 시퀀스(sequence) 형식의 데이터를 입력하여야 한다.
 다음은 파이썬에서의 원래 명령문과 실행 결과를 보여준다.</p>
-<div class="sourceCode" id="cb2553"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2553-1"><a href="ch-RandPython.html#cb2553-1" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2553-2"><a href="ch-RandPython.html#cb2553-2" tabindex="-1"></a>np.full(shape <span class="op">=</span> (<span class="dv">3</span>,<span class="dv">3</span>), fill_value <span class="op">=</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2546"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2546-1"><a href="ch-RandPython.html#cb2546-1" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2546-2"><a href="ch-RandPython.html#cb2546-2" tabindex="-1"></a>np.full(shape <span class="op">=</span> (<span class="dv">3</span>,<span class="dv">3</span>), fill_value <span class="op">=</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>array([[1, 1, 1],
        [1, 1, 1],
        [1, 1, 1]])</code></pre>
@@ -717,20 +716,20 @@ Figure A.1: R에서 Python 함수의 호출
 <p>그런데 이러한 자동 형 변환에서 주의해야 할 점이 있다.
 R에서는 숫자 데이터는 정수나 실수나 모두 double 형식으로 자동으로 변환되어 처리하는 경우가 많다.
 예를 들어 다음처럼 3이라는 정수 두 개로 이루어진 벡터는 정수로 처리되는 것이 아니라 부동소수점 형식인 double로 데이터가 처리된다.</p>
-<div class="sourceCode" id="cb2555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2555-1"><a href="ch-RandPython.html#cb2555-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>)</span>
-<span id="cb2555-2"><a href="ch-RandPython.html#cb2555-2" tabindex="-1"></a><span class="fu">typeof</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb2548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2548-1"><a href="ch-RandPython.html#cb2548-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb2548-2"><a href="ch-RandPython.html#cb2548-2" tabindex="-1"></a><span class="fu">typeof</span>(a)</span></code></pre></div>
 <pre><code>[1] &quot;double&quot;</code></pre>
 <p>그런데 파이썬에서는 정수 형식과 실수 형식의 데이터를 엄격하게 구별하여 처리한다.
 따라서 파이썬 함수에서 정수 값이 인수이여야 하는 곳에 무심코 다음 같이 R 데이터를 입력하면 파이썬에서 함수가 실행될 때 데이터 형식이 맞지 않아 오류가 발생한다.</p>
-<div class="sourceCode" id="cb2557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2557-1"><a href="ch-RandPython.html#cb2557-1" tabindex="-1"></a><span class="co"># 오류: 파이썬 함수의 integer 인수일 때 형변환에 주의</span></span>
-<span id="cb2557-2"><a href="ch-RandPython.html#cb2557-2" tabindex="-1"></a>np<span class="sc">$</span><span class="fu">full</span>(<span class="at">shape =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>), <span class="at">fill_value =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2550-1"><a href="ch-RandPython.html#cb2550-1" tabindex="-1"></a><span class="co"># 오류: 파이썬 함수의 integer 인수일 때 형변환에 주의</span></span>
+<span id="cb2550-2"><a href="ch-RandPython.html#cb2550-2" tabindex="-1"></a>np<span class="sc">$</span><span class="fu">full</span>(<span class="at">shape =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>), <span class="at">fill_value =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>&#39;float&#39; object cannot be interpreted as an integer</code></pre>
 <p>그렇기 때문에 앞에서 <code>np$full()</code> 함수의 <code>shape</code> 인수를 부여할 때, <code>3L</code>로 정수형 데이터임을 명시적으로 표현하였다.
 그러면 R도 형변환이 필요하기 전까지는 이 값을 double 형식이 아니라 integer 형식으로 저장하고 처리한다.</p>
-<div class="sourceCode" id="cb2559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2559-1"><a href="ch-RandPython.html#cb2559-1" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span><span class="dt">L</span>, <span class="dv">3</span><span class="dt">L</span>)</span>
-<span id="cb2559-2"><a href="ch-RandPython.html#cb2559-2" tabindex="-1"></a><span class="fu">typeof</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb2552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2552-1"><a href="ch-RandPython.html#cb2552-1" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span><span class="dt">L</span>, <span class="dv">3</span><span class="dt">L</span>)</span>
+<span id="cb2552-2"><a href="ch-RandPython.html#cb2552-2" tabindex="-1"></a><span class="fu">typeof</span>(b)</span></code></pre></div>
 <pre><code>[1] &quot;integer&quot;</code></pre>
-<div class="sourceCode" id="cb2561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2561-1"><a href="ch-RandPython.html#cb2561-1" tabindex="-1"></a>np<span class="sc">$</span><span class="fu">full</span>(<span class="at">shape =</span> b, <span class="at">fill_value =</span> <span class="dv">1</span><span class="dt">L</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2554-1"><a href="ch-RandPython.html#cb2554-1" tabindex="-1"></a>np<span class="sc">$</span><span class="fu">full</span>(<span class="at">shape =</span> b, <span class="at">fill_value =</span> <span class="dv">1</span><span class="dt">L</span>)</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    1    1    1
 [2,]    1    1    1
@@ -741,27 +740,27 @@ R에서는 숫자 데이터는 정수나 실수나 모두 double 형식으로 �
 <p>자동 형 변환에서 또 하나 주의할 점은 파이썬에서 리스트나 튜플을 인수로 원할 때이다.
 파이썬에 정수 하나로 이루어진 리스트나 튜플을 전달한다고 하자.
 파이썬에서는 정수 자체와, 정수 하나로 이루어진 리스트와 튜플은 서로 다른 형식의 데이터이다.</p>
-<div class="sourceCode" id="cb2563"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2563-1"><a href="ch-RandPython.html#cb2563-1" tabindex="-1"></a><span class="bu">type</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2556"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2556-1"><a href="ch-RandPython.html#cb2556-1" tabindex="-1"></a><span class="bu">type</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>&lt;class &#39;int&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb2565"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2565-1"><a href="ch-RandPython.html#cb2565-1" tabindex="-1"></a><span class="bu">type</span>([<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb2558"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2558-1"><a href="ch-RandPython.html#cb2558-1" tabindex="-1"></a><span class="bu">type</span>([<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>&lt;class &#39;list&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb2567"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2567-1"><a href="ch-RandPython.html#cb2567-1" tabindex="-1"></a><span class="bu">type</span>((<span class="dv">1</span>,))</span></code></pre></div>
+<div class="sourceCode" id="cb2560"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2560-1"><a href="ch-RandPython.html#cb2560-1" tabindex="-1"></a><span class="bu">type</span>((<span class="dv">1</span>,))</span></code></pre></div>
 <pre><code>&lt;class &#39;tuple&#39;&gt;</code></pre>
 <p>그러나 R에서는 스칼라 형식은 없으므로 정수 하나도 모두 벡터로 표현된다.
 그런데 파이썬에서는 스칼라 형식이 매우 자주 사용되므로 R의 요소 하나짜리 벡터는 모두 해당 형식의 스칼라로 자동 변환된다.
 그러므로 반드시 파이썬의 리스트나 튜플 형식으로 데이터를 전달하려면 다음처럼 R의 리스트와 <code>reticulate</code>의 <code>tuple()</code> 함수를 사용한다.
 다음에 사용된 <code>r_to_py()</code> 함수는 R 객체를 파이썬 객체로 변환하는 함수이다.</p>
-<div class="sourceCode" id="cb2569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2569-1"><a href="ch-RandPython.html#cb2569-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">r_to_py</span>(<span class="dv">1</span><span class="dt">L</span>); <span class="fu">class</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb2562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2562-1"><a href="ch-RandPython.html#cb2562-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">r_to_py</span>(<span class="dv">1</span><span class="dt">L</span>); <span class="fu">class</span>(a)</span></code></pre></div>
 <pre><code>[1] &quot;python.builtin.int&quot;    &quot;python.builtin.object&quot;</code></pre>
-<div class="sourceCode" id="cb2571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2571-1"><a href="ch-RandPython.html#cb2571-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">r_to_py</span>(<span class="fu">list</span>(<span class="dv">1</span><span class="dt">L</span>)); <span class="fu">class</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb2564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2564-1"><a href="ch-RandPython.html#cb2564-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">r_to_py</span>(<span class="fu">list</span>(<span class="dv">1</span><span class="dt">L</span>)); <span class="fu">class</span>(a)</span></code></pre></div>
 <pre><code>[1] &quot;python.builtin.list&quot;   &quot;python.builtin.object&quot;</code></pre>
-<div class="sourceCode" id="cb2573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2573-1"><a href="ch-RandPython.html#cb2573-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">r_to_py</span>(<span class="fu">tuple</span>(<span class="dv">1</span><span class="dt">L</span>)); <span class="fu">class</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb2566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2566-1"><a href="ch-RandPython.html#cb2566-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">r_to_py</span>(<span class="fu">tuple</span>(<span class="dv">1</span><span class="dt">L</span>)); <span class="fu">class</span>(a)</span></code></pre></div>
 <pre><code>[1] &quot;python.builtin.tuple&quot;  &quot;python.builtin.object&quot;</code></pre>
 <p>R의 이름 붙은 리스트는 파이썬의 딕셔너리로 잘 변환이 된다.
 그러나 R의 리스트는 요소의 이름으로 문자열만 사용할 수 있는 반면, 파이썬의 딕셔너리의 키 값은 더 복잡한 불변하는 객체가 될 수 있다. 따라서 R에서 좀 더 복잡한 파이썬 딕셔너리를 인수로 전달하고자 하면, <code>reticulate</code>의 <code>dict()</code> 함수를 사용한다.</p>
-<div class="sourceCode" id="cb2575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2575-1"><a href="ch-RandPython.html#cb2575-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">year=</span><span class="dv">3</span>, <span class="at">major=</span><span class="st">&quot;me&quot;</span>, <span class="at">name=</span><span class="st">&quot;홍길동&quot;</span>); <span class="fu">class</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb2568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2568-1"><a href="ch-RandPython.html#cb2568-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">year=</span><span class="dv">3</span>, <span class="at">major=</span><span class="st">&quot;me&quot;</span>, <span class="at">name=</span><span class="st">&quot;홍길동&quot;</span>); <span class="fu">class</span>(a)</span></code></pre></div>
 <pre><code>[1] &quot;list&quot;</code></pre>
-<div class="sourceCode" id="cb2577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2577-1"><a href="ch-RandPython.html#cb2577-1" tabindex="-1"></a>a</span></code></pre></div>
+<div class="sourceCode" id="cb2570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2570-1"><a href="ch-RandPython.html#cb2570-1" tabindex="-1"></a>a</span></code></pre></div>
 <pre><code>$year
 [1] 3
 
@@ -770,13 +769,13 @@ $major
 
 $name
 [1] &quot;홍길동&quot;</code></pre>
-<div class="sourceCode" id="cb2579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2579-1"><a href="ch-RandPython.html#cb2579-1" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">r_to_py</span>(a); <span class="fu">class</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb2572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2572-1"><a href="ch-RandPython.html#cb2572-1" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">r_to_py</span>(a); <span class="fu">class</span>(b)</span></code></pre></div>
 <pre><code>[1] &quot;python.builtin.dict&quot;   &quot;python.builtin.object&quot;</code></pre>
-<div class="sourceCode" id="cb2581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2581-1"><a href="ch-RandPython.html#cb2581-1" tabindex="-1"></a>b</span></code></pre></div>
+<div class="sourceCode" id="cb2574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2574-1"><a href="ch-RandPython.html#cb2574-1" tabindex="-1"></a>b</span></code></pre></div>
 <pre><code>{&#39;year&#39;: 3.0, &#39;major&#39;: &#39;me&#39;, &#39;name&#39;: &#39;홍길동&#39;}</code></pre>
-<div class="sourceCode" id="cb2583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2583-1"><a href="ch-RandPython.html#cb2583-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">dict</span>(<span class="at">name =</span> <span class="st">&quot;홍길동&quot;</span>); <span class="fu">class</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb2576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2576-1"><a href="ch-RandPython.html#cb2576-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">dict</span>(<span class="at">name =</span> <span class="st">&quot;홍길동&quot;</span>); <span class="fu">class</span>(a)</span></code></pre></div>
 <pre><code>[1] &quot;python.builtin.dict&quot;   &quot;python.builtin.object&quot;</code></pre>
-<div class="sourceCode" id="cb2585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2585-1"><a href="ch-RandPython.html#cb2585-1" tabindex="-1"></a>a</span></code></pre></div>
+<div class="sourceCode" id="cb2578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2578-1"><a href="ch-RandPython.html#cb2578-1" tabindex="-1"></a>a</span></code></pre></div>
 <pre><code>{&#39;name&#39;: &#39;홍길동&#39;}</code></pre>
 <p>아울러 R은 벡터와 리스트 등의 인덱싱이 1부터 시작하지만, 파이썬의 리스트, 튜플 등의 시퀀스 객체는 0부터 인덱싱이 시작하니 이러한 차이에 주의하여야 한다.</p>
 </div>
@@ -787,36 +786,36 @@ $name
 만약 파이썬 객체를 R 객체로 자동 변환하지 않고, 파이썬 객체의 R 참조자를 반환하게 하려면 <code>import()</code> 함수에 <code>convert=FALSE</code> 인수를 전달한다.
 그러면 파이썬의 결과는 모두 R 참조자로 전달되므로, R에서 전달된 참조자로 다시 파이썬 객체의 메쏘드 등을 실행할 수 있다.
 마지막에 R로서 결과를 확인하려면 <code>py_to_r()</code> 함수를 사용하여 R 참조자가 참조하는 파이썬 객체를 R 객체로 변환하여야 한다.</p>
-<div class="sourceCode" id="cb2587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2587-1"><a href="ch-RandPython.html#cb2587-1" tabindex="-1"></a>np <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;numpy&quot;</span>, <span class="at">convert=</span><span class="cn">FALSE</span>)</span>
-<span id="cb2587-2"><a href="ch-RandPython.html#cb2587-2" tabindex="-1"></a>a <span class="ot">&lt;-</span> np<span class="sc">$</span><span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
-<span id="cb2587-3"><a href="ch-RandPython.html#cb2587-3" tabindex="-1"></a>a <span class="co"># 파이썬 객체의 R 참조자</span></span></code></pre></div>
+<div class="sourceCode" id="cb2580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2580-1"><a href="ch-RandPython.html#cb2580-1" tabindex="-1"></a>np <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;numpy&quot;</span>, <span class="at">convert=</span><span class="cn">FALSE</span>)</span>
+<span id="cb2580-2"><a href="ch-RandPython.html#cb2580-2" tabindex="-1"></a>a <span class="ot">&lt;-</span> np<span class="sc">$</span><span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb2580-3"><a href="ch-RandPython.html#cb2580-3" tabindex="-1"></a>a <span class="co"># 파이썬 객체의 R 참조자</span></span></code></pre></div>
 <pre><code>array([1, 2, 3, 4])</code></pre>
-<div class="sourceCode" id="cb2589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2589-1"><a href="ch-RandPython.html#cb2589-1" tabindex="-1"></a><span class="fu">class</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb2582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2582-1"><a href="ch-RandPython.html#cb2582-1" tabindex="-1"></a><span class="fu">class</span>(a)</span></code></pre></div>
 <pre><code>[1] &quot;numpy.ndarray&quot;         &quot;python.builtin.object&quot;</code></pre>
-<div class="sourceCode" id="cb2591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2591-1"><a href="ch-RandPython.html#cb2591-1" tabindex="-1"></a>a_max <span class="ot">&lt;-</span> a<span class="sc">$</span><span class="fu">max</span>() <span class="co"># Numpy 배열의 max 메쏘드 호출</span></span>
-<span id="cb2591-2"><a href="ch-RandPython.html#cb2591-2" tabindex="-1"></a>a_max <span class="co"># 파이썬 객체의 R 참조자</span></span></code></pre></div>
+<div class="sourceCode" id="cb2584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2584-1"><a href="ch-RandPython.html#cb2584-1" tabindex="-1"></a>a_max <span class="ot">&lt;-</span> a<span class="sc">$</span><span class="fu">max</span>() <span class="co"># Numpy 배열의 max 메쏘드 호출</span></span>
+<span id="cb2584-2"><a href="ch-RandPython.html#cb2584-2" tabindex="-1"></a>a_max <span class="co"># 파이썬 객체의 R 참조자</span></span></code></pre></div>
 <pre><code>np.int64(4)</code></pre>
-<div class="sourceCode" id="cb2593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2593-1"><a href="ch-RandPython.html#cb2593-1" tabindex="-1"></a>a_max <span class="sc">+</span> <span class="dv">1</span>  <span class="co"># R 객체가 아니므로 R 연산은 오류 발생</span></span></code></pre></div>
+<div class="sourceCode" id="cb2586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2586-1"><a href="ch-RandPython.html#cb2586-1" tabindex="-1"></a>a_max <span class="sc">+</span> <span class="dv">1</span>  <span class="co"># R 객체가 아니므로 R 연산은 오류 발생</span></span></code></pre></div>
 <pre><code>np.float64(5.0)</code></pre>
-<div class="sourceCode" id="cb2595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2595-1"><a href="ch-RandPython.html#cb2595-1" tabindex="-1"></a><span class="fu">py_to_r</span>(a_max) <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb2588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2588-1"><a href="ch-RandPython.html#cb2588-1" tabindex="-1"></a><span class="fu">py_to_r</span>(a_max) <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>[1] 5</code></pre>
 </div>
 <div id="파이썬-모듈의-도움말-확인하기" class="section level3 hasAnchor" number="13.3.3">
 <h3><span class="header-section-number">A.3.3</span> 파이썬 모듈의 도움말 확인하기<a href="ch-RandPython.html#파이썬-모듈의-도움말-확인하기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>py_help()</code> 함수를 사용하면 파이썬 객체에 대한 도움말을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2597-1"><a href="ch-RandPython.html#cb2597-1" tabindex="-1"></a><span class="fu">py_help</span>(np<span class="sc">$</span>full)</span></code></pre></div>
+<div class="sourceCode" id="cb2590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2590-1"><a href="ch-RandPython.html#cb2590-1" tabindex="-1"></a><span class="fu">py_help</span>(np<span class="sc">$</span>full)</span></code></pre></div>
 </div>
 <div id="pickle-사용하기" class="section level3 hasAnchor" number="13.3.4">
 <h3><span class="header-section-number">A.3.4</span> <code>pickle</code> 사용하기<a href="ch-RandPython.html#pickle-사용하기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>파이썬에서는 객체들을 바이너리 형식으로 저장할 때 <code>pickle</code> 모듈을 자주 사용한다.
 파이썬 모듈의 결과를 파이썬 객체 형식으로 파일에 저장하거나, 이미 파이썬에서 작업하여 바이너리 형식으로 저장된 데이터를 읽어오려면 <code>py_save_object()</code>와 <code>py_load_object()</code> 함수를 사용한다.
 읽어들인 파이썬 객체가 자동으로 R 객체로 형변환된 것을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2598-1"><a href="ch-RandPython.html#cb2598-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">np_array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">dtype=</span><span class="st">&quot;int64&quot;</span>) <span class="co"># 파이썬 Numpy 배열의 R 참조자</span></span>
-<span id="cb2598-2"><a href="ch-RandPython.html#cb2598-2" tabindex="-1"></a>a</span></code></pre></div>
+<div class="sourceCode" id="cb2591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2591-1"><a href="ch-RandPython.html#cb2591-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">np_array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">dtype=</span><span class="st">&quot;int64&quot;</span>) <span class="co"># 파이썬 Numpy 배열의 R 참조자</span></span>
+<span id="cb2591-2"><a href="ch-RandPython.html#cb2591-2" tabindex="-1"></a>a</span></code></pre></div>
 <pre><code>array([1, 2, 3, 4])</code></pre>
-<div class="sourceCode" id="cb2600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2600-1"><a href="ch-RandPython.html#cb2600-1" tabindex="-1"></a><span class="fu">py_save_object</span>(a, <span class="at">filename =</span> <span class="st">&quot;a.p&quot;</span>) <span class="co"># 파이썬 객체 저장</span></span>
-<span id="cb2600-2"><a href="ch-RandPython.html#cb2600-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">py_load_object</span>(<span class="at">filename =</span> <span class="st">&quot;a.p&quot;</span>) <span class="co"># 저장된 파이썬 객체 읽어오기</span></span>
-<span id="cb2600-3"><a href="ch-RandPython.html#cb2600-3" tabindex="-1"></a>b</span></code></pre></div>
+<div class="sourceCode" id="cb2593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2593-1"><a href="ch-RandPython.html#cb2593-1" tabindex="-1"></a><span class="fu">py_save_object</span>(a, <span class="at">filename =</span> <span class="st">&quot;a.p&quot;</span>) <span class="co"># 파이썬 객체 저장</span></span>
+<span id="cb2593-2"><a href="ch-RandPython.html#cb2593-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">py_load_object</span>(<span class="at">filename =</span> <span class="st">&quot;a.p&quot;</span>) <span class="co"># 저장된 파이썬 객체 읽어오기</span></span>
+<span id="cb2593-3"><a href="ch-RandPython.html#cb2593-3" tabindex="-1"></a>b</span></code></pre></div>
 <pre><code>[1] 1 2 3 4</code></pre>
 </div>
 </div>
@@ -835,9 +834,9 @@ R 마크다운 문서에는 R 명령 모듬뿐 아니라 Python 명령 모듬도
 </ul>
 <p>아울러 파이썬 세션에 R 객체가 전달될 때, R 세션에 파이썬 객체가 전달될 때 상호 자동 변환이 이루어진다.</p>
 <p>다음은 R의 <code>ggplot</code> 패키지의 <code>mpg</code> 데이터를 파이썬 모듬에 전달하여 그래프를 그리고 통계 요약한 후, 그 결과를 다시 R로 보내서 출력한 예이다.</p>
-<div class="sourceCode" id="cb2602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2602-1"><a href="ch-RandPython.html#cb2602-1" tabindex="-1"></a><span class="co"># R 모듬 1</span></span>
-<span id="cb2602-2"><a href="ch-RandPython.html#cb2602-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb2602-3"><a href="ch-RandPython.html#cb2602-3" tabindex="-1"></a>mpg</span></code></pre></div>
+<div class="sourceCode" id="cb2595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2595-1"><a href="ch-RandPython.html#cb2595-1" tabindex="-1"></a><span class="co"># R 모듬 1</span></span>
+<span id="cb2595-2"><a href="ch-RandPython.html#cb2595-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2595-3"><a href="ch-RandPython.html#cb2595-3" tabindex="-1"></a>mpg</span></code></pre></div>
 <pre><code># A tibble: 234 × 11
    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
@@ -852,13 +851,13 @@ R 마크다운 문서에는 R 명령 모듬뿐 아니라 Python 명령 모듬도
  9 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…
 10 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…
 # ℹ 224 more rows</code></pre>
-<div class="sourceCode" id="cb2604"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2604-1"><a href="ch-RandPython.html#cb2604-1" tabindex="-1"></a><span class="co"># 파이썬 모듬 1</span></span>
-<span id="cb2604-2"><a href="ch-RandPython.html#cb2604-2" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2604-3"><a href="ch-RandPython.html#cb2604-3" tabindex="-1"></a>r.mpg.plot(x <span class="op">=</span> <span class="st">&quot;displ&quot;</span>, y <span class="op">=</span> <span class="st">&quot;hwy&quot;</span>, kind <span class="op">=</span> <span class="st">&quot;scatter&quot;</span>)  <span class="co"># 배기량 vs. 고속도로연비 산점도</span></span>
-<span id="cb2604-4"><a href="ch-RandPython.html#cb2604-4" tabindex="-1"></a>plt.show()  </span></code></pre></div>
+<div class="sourceCode" id="cb2597"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2597-1"><a href="ch-RandPython.html#cb2597-1" tabindex="-1"></a><span class="co"># 파이썬 모듬 1</span></span>
+<span id="cb2597-2"><a href="ch-RandPython.html#cb2597-2" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2597-3"><a href="ch-RandPython.html#cb2597-3" tabindex="-1"></a>r.mpg.plot(x <span class="op">=</span> <span class="st">&quot;displ&quot;</span>, y <span class="op">=</span> <span class="st">&quot;hwy&quot;</span>, kind <span class="op">=</span> <span class="st">&quot;scatter&quot;</span>)  <span class="co"># 배기량 vs. 고속도로연비 산점도</span></span>
+<span id="cb2597-4"><a href="ch-RandPython.html#cb2597-4" tabindex="-1"></a>plt.show()  </span></code></pre></div>
 <p><img src="RandPython_files/figure-html/unnamed-chunk-24-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb2605"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2605-1"><a href="ch-RandPython.html#cb2605-1" tabindex="-1"></a>mean_cty_per_class <span class="op">=</span> r.mpg.groupby([<span class="st">&#39;class&#39;</span>])[<span class="st">&#39;cty&#39;</span>].mean() <span class="co"># 종류별 도심연비 평균 계산</span></span>
-<span id="cb2605-2"><a href="ch-RandPython.html#cb2605-2" tabindex="-1"></a>mean_cty_per_class</span></code></pre></div>
+<div class="sourceCode" id="cb2598"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2598-1"><a href="ch-RandPython.html#cb2598-1" tabindex="-1"></a>mean_cty_per_class <span class="op">=</span> r.mpg.groupby([<span class="st">&#39;class&#39;</span>])[<span class="st">&#39;cty&#39;</span>].mean() <span class="co"># 종류별 도심연비 평균 계산</span></span>
+<span id="cb2598-2"><a href="ch-RandPython.html#cb2598-2" tabindex="-1"></a>mean_cty_per_class</span></code></pre></div>
 <pre><code>class
 2seater       15.400000
 compact       20.127660
@@ -868,8 +867,8 @@ pickup        13.000000
 subcompact    20.371429
 suv           13.500000
 Name: cty, dtype: float64</code></pre>
-<div class="sourceCode" id="cb2607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2607-1"><a href="ch-RandPython.html#cb2607-1" tabindex="-1"></a><span class="co"># R 모듬 2</span></span>
-<span id="cb2607-2"><a href="ch-RandPython.html#cb2607-2" tabindex="-1"></a><span class="fu">barplot</span>(py<span class="sc">$</span>mean_cty_per_class)</span></code></pre></div>
+<div class="sourceCode" id="cb2600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2600-1"><a href="ch-RandPython.html#cb2600-1" tabindex="-1"></a><span class="co"># R 모듬 2</span></span>
+<span id="cb2600-2"><a href="ch-RandPython.html#cb2600-2" tabindex="-1"></a><span class="fu">barplot</span>(py<span class="sc">$</span>mean_cty_per_class)</span></code></pre></div>
 <p><img src="RandPython_files/figure-html/unnamed-chunk-25-3.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>2024년 10월 현재 R 마크다운에서 파이썬의 matplotlib로 그래프를 그릴 때 다음과 같은 오류가 발생할 때가 있다.</p>
 <pre><code>libtiff.so.6: undefined symbol: jpeg12_write_raw_data, version LIBJPEG_8.0</code></pre>
