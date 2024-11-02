@@ -22,6 +22,7 @@ fig:unnamed-chunk-34
 fig:simple-if-block
 fig:compound-if-block
 tab:S3vsS4
+tab:unnamed-chunk-21
 fig:reticulate-call
 ch-intro
 sec-Rintro
@@ -248,6 +249,19 @@ sec-import-databse
 sec-web-scrapping
 텍스트-추출과-처리
 sec-public-api
+ch-R-documents
+quarto-설치
+sec-quarto-creation
+quarto의-출력-형식
+여러-출력-형식으로-문서-변환하기
+출력-옵션-조정하기
+마크다운-기초
+url-링크
+코드-모듬
+코드-모듬-옵션
+실행-옵션-excution-options
+데이터프레임과-행렬을-표로-출력하기
+인라인-코드
 ch-RandPython
 reticulate-설치-및-사용할-파이썬-버전-설정
 r과-파이썬-연동하는-방법

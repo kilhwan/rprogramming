@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 R 벡터 | R 프로그래밍 3판 (draft)</title>
   <meta name="description" content="이 책은 경영데이터분석기초의 주교재로 사용되기 위해 개발되었습니다." />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 R 벡터 | R 프로그래밍 3판 (draft)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2024-10-28" />
+<meta name="date" content="2024-11-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -75,7 +75,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -497,6 +497,34 @@ div.csl-indent {
 <li class="chapter" data-level="12.3" data-path="ch-R-import.html"><a href="ch-R-import.html#sec-import-databse"><i class="fa fa-check"></i><b>12.3</b> 데이터베이스에서 데이터 가져오기</a></li>
 <li class="chapter" data-level="12.4" data-path="ch-R-import.html"><a href="ch-R-import.html#sec-web-scrapping"><i class="fa fa-check"></i><b>12.4</b> 웹 스크래핑 (web scrapping): 웹 사이트에서 데이터 가져오기</a></li>
 <li class="chapter" data-level="12.5" data-path="ch-R-import.html"><a href="ch-R-import.html#sec-public-api"><i class="fa fa-check"></i><b>12.5</b> 공개 API에서 데이터 가져오기</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="ch-R-documents.html"><a href="ch-R-documents.html"><i class="fa fa-check"></i><b>13</b> <strong>R</strong> 동적 문서</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="ch-R-documents.html"><a href="ch-R-documents.html#quarto-설치"><i class="fa fa-check"></i><b>13.1</b> Quarto 설치</a></li>
+<li class="chapter" data-level="13.2" data-path="ch-R-documents.html"><a href="ch-R-documents.html#sec-quarto-creation"><i class="fa fa-check"></i><b>13.2</b> Quarto 문서 만들기</a></li>
+<li class="chapter" data-level="13.3" data-path="ch-R-documents.html"><a href="ch-R-documents.html#quarto의-출력-형식"><i class="fa fa-check"></i><b>13.3</b> Quarto의 출력 형식</a>
+<ul>
+<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#출력-형식-바꾸기"><i class="fa fa-check"></i>출력 형식 바꾸기</a></li>
+<li class="chapter" data-level="13.3.1" data-path="ch-R-documents.html"><a href="ch-R-documents.html#여러-출력-형식으로-문서-변환하기"><i class="fa fa-check"></i><b>13.3.1</b> 여러 출력 형식으로 문서 변환하기</a></li>
+<li class="chapter" data-level="13.3.2" data-path="ch-R-documents.html"><a href="ch-R-documents.html#출력-옵션-조정하기"><i class="fa fa-check"></i><b>13.3.2</b> 출력 옵션 조정하기</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="ch-R-documents.html"><a href="ch-R-documents.html#마크다운-기초"><i class="fa fa-check"></i><b>13.4</b> 마크다운 기초</a>
+<ul>
+<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#텍스트-서식"><i class="fa fa-check"></i>텍스트 서식</a></li>
+<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#장과-절의-제목"><i class="fa fa-check"></i>장과 절의 제목</a></li>
+<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#목록"><i class="fa fa-check"></i>목록</a></li>
+<li class="chapter" data-level="13.4.1" data-path="ch-R-documents.html"><a href="ch-R-documents.html#url-링크"><i class="fa fa-check"></i><b>13.4.1</b> URL 링크</a></li>
+<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#그림"><i class="fa fa-check"></i>그림</a></li>
+<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#표"><i class="fa fa-check"></i>표</a></li>
+<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#블록"><i class="fa fa-check"></i>블록</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="ch-R-documents.html"><a href="ch-R-documents.html#코드-모듬"><i class="fa fa-check"></i><b>13.5</b> 코드 모듬</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="ch-R-documents.html"><a href="ch-R-documents.html#코드-모듬-옵션"><i class="fa fa-check"></i><b>13.5.1</b> 코드 모듬 옵션</a></li>
+<li class="chapter" data-level="13.5.2" data-path="ch-R-documents.html"><a href="ch-R-documents.html#실행-옵션-excution-options"><i class="fa fa-check"></i><b>13.5.2</b> 실행 옵션 (Excution Options)</a></li>
+<li class="chapter" data-level="13.5.3" data-path="ch-R-documents.html"><a href="ch-R-documents.html#데이터프레임과-행렬을-표로-출력하기"><i class="fa fa-check"></i><b>13.5.3</b> 데이터프레임과 행렬을 표로 출력하기</a></li>
+<li class="chapter" data-level="13.5.4" data-path="ch-R-documents.html"><a href="ch-R-documents.html#인라인-코드"><i class="fa fa-check"></i><b>13.5.4</b> 인라인 코드</a></li>
+</ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="ch-RandPython.html"><a href="ch-RandPython.html"><i class="fa fa-check"></i><b>A</b> <strong>R</strong>과 <strong>Python</strong> 연동하기</a>
