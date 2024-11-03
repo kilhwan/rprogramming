@@ -247,7 +247,6 @@ sec-read-excel
 sec-read-google-sheets
 sec-import-databse
 sec-web-scrapping
-텍스트-추출과-처리
 sec-public-api
 ch-R-documents
 quarto-설치
