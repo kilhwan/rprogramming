@@ -23,7 +23,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2024-11-03" />
+<meta name="date" content="2024-11-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,19 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/threejs-111/three.min.js"></script>
+<script src="libs/threejs-111/Detector.js"></script>
+<script src="libs/threejs-111/Projector.js"></script>
+<script src="libs/threejs-111/CanvasRenderer.js"></script>
+<script src="libs/threejs-111/TrackballControls.js"></script>
+<script src="libs/threejs-111/StateOrbitControls.js"></script>
+<script src="libs/scatterplotThree-binding-0.3.3/scatterplotThree.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176754989-1"></script>
 <script>
@@ -212,7 +225,7 @@ div.csl-indent {
 <li class="chapter" data-level="2.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수와-할당"><i class="fa fa-check"></i><b>2.3</b> 변수와 할당</a></li>
 <li class="chapter" data-level="2.4" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#함수를-이용한-연산"><i class="fa fa-check"></i><b>2.4</b> 함수를 이용한 연산</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html"><i class="fa fa-check"></i><b>3</b> R 벡터</a>
+<li class="chapter" data-level="3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html"><i class="fa fa-check"></i><b>3</b> <strong>R</strong> 벡터</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#숫자-벡터"><i class="fa fa-check"></i><b>3.1</b> 숫자 벡터</a>
 <ul>
@@ -232,7 +245,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.5.5" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#인덱스-벡터를-이용해-벡터-요소에-값-할당하기"><i class="fa fa-check"></i><b>3.5.5</b> 인덱스 벡터를 이용해 벡터 요소에 값 할당하기</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html"><i class="fa fa-check"></i><b>4</b> R 행렬</a>
+<li class="chapter" data-level="4" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html"><i class="fa fa-check"></i><b>4</b> <strong>R</strong> 행렬</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬-만들기"><i class="fa fa-check"></i><b>4.1</b> 행렬 만들기</a></li>
 <li class="chapter" data-level="4.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#벡터를-결합하여-행렬-만들기"><i class="fa fa-check"></i><b>4.2</b> 벡터를 결합하여 행렬 만들기</a></li>
@@ -257,7 +270,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.7.4" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#고유치eigenvalues와-고유벡터eigenvectors"><i class="fa fa-check"></i><b>4.7.4</b> 고유치(eigenvalues)와 고유벡터(eigenvectors)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ch-R-List.html"><a href="ch-R-List.html"><i class="fa fa-check"></i><b>5</b> R 리스트</a>
+<li class="chapter" data-level="5" data-path="ch-R-List.html"><a href="ch-R-List.html"><i class="fa fa-check"></i><b>5</b> <strong>R</strong> 리스트</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="ch-R-List.html"><a href="ch-R-List.html#객체-객체의-타입-객체의-속성"><i class="fa fa-check"></i><b>5.1</b> 객체, 객체의 타입, 객체의 속성 *</a></li>
 <li class="chapter" data-level="5.2" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트의-생성-및-필터링"><i class="fa fa-check"></i><b>5.2</b> 리스트의 생성 및 필터링</a></li>
@@ -270,7 +283,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트-활용-분야"><i class="fa fa-check"></i><b>5.5</b> 리스트 활용 분야</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html"><i class="fa fa-check"></i><b>6</b> R 데이터 프레임</a>
+<li class="chapter" data-level="6" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html"><i class="fa fa-check"></i><b>6</b> <strong>R</strong> 데이터 프레임</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#범주형-데이터와-요인-factors"><i class="fa fa-check"></i><b>6.1</b> 범주형 데이터와 요인 (Factors)</a>
 <ul>
@@ -486,7 +499,7 @@ div.csl-indent {
 <li class="chapter" data-level="11.3" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s4-클래스"><i class="fa fa-check"></i><b>11.3</b> S4 클래스</a></li>
 </ul></li>
 <li class="part"><span><b>II R 프로그래밍 응용</b></span></li>
-<li class="chapter" data-level="12" data-path="ch-R-import.html"><a href="ch-R-import.html"><i class="fa fa-check"></i><b>12</b> R 데이터 수집</a>
+<li class="chapter" data-level="12" data-path="ch-R-import.html"><a href="ch-R-import.html"><i class="fa fa-check"></i><b>12</b> <strong>R</strong> 데이터 수집</a>
 <ul>
 <li class="chapter" data-level="12.1" data-path="ch-R-import.html"><a href="ch-R-import.html#sec-read-csv"><i class="fa fa-check"></i><b>12.1</b> 텍스트 파일에서 데이터 읽기</a></li>
 <li class="chapter" data-level="12.2" data-path="ch-R-import.html"><a href="ch-R-import.html#sec-read-spreadsheets"><i class="fa fa-check"></i><b>12.2</b> 스프레드시트 파일에서 데이터 읽기</a>
@@ -525,6 +538,11 @@ div.csl-indent {
 <li class="chapter" data-level="13.5.3" data-path="ch-R-documents.html"><a href="ch-R-documents.html#데이터프레임과-행렬을-표로-출력하기"><i class="fa fa-check"></i><b>13.5.3</b> 데이터프레임과 행렬을 표로 출력하기</a></li>
 <li class="chapter" data-level="13.5.4" data-path="ch-R-documents.html"><a href="ch-R-documents.html#인라인-코드"><i class="fa fa-check"></i><b>13.5.4</b> 인라인 코드</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html"><i class="fa fa-check"></i><b>14</b> <strong>R</strong> 차원 축소</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html#차원-축소-dimension-reduction"><i class="fa fa-check"></i><b>14.1</b> 차원 축소 (Dimension Reduction)</a></li>
+<li class="chapter" data-level="14.2" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html#주성분-분석-principal-components-analysis"><i class="fa fa-check"></i><b>14.2</b> 주성분 분석 (Principal Components Analysis)</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="ch-RandPython.html"><a href="ch-RandPython.html"><i class="fa fa-check"></i><b>A</b> <strong>R</strong>과 <strong>Python</strong> 연동하기</a>
@@ -573,7 +591,7 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="ch-R-Data-Frame" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Chapter 6</span> R 데이터 프레임<a href="ch-R-Data-Frame.html#ch-R-Data-Frame" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">Chapter 6</span> <strong>R</strong> 데이터 프레임<a href="ch-R-Data-Frame.html#ch-R-Data-Frame" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>이 장에서는 여러 타입의 데이터가 혼재된 데이터 프레임이란 데이터 구조를 다룬다. 보통 다른 통계 소프트웨어에서 데이터 분석의 기본 단위인 데이터 집합 또는 데이터 행렬이라고 불리는 것이다.</p>
 <div id="데이터-프레임의-두-측면-리스트적-측면-행렬적-측면" class="section level4 unnumbered hasAnchor">
 <h4>데이터 프레임의 두 측면: 리스트적 측면 행렬적 측면<a href="ch-R-Data-Frame.html#데이터-프레임의-두-측면-리스트적-측면-행렬적-측면" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -879,13 +897,13 @@ None    A    B    C
 Levels: A B C D E F</code></pre>
 <p>다음은 살충제 종류에 따른 해충의 수의 분포를 상자 그래프로 나타낸 것이다.</p>
 <div class="sourceCode" id="cb1107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1107-1"><a href="ch-R-Data-Frame.html#cb1107-1" tabindex="-1"></a><span class="fu">boxplot</span>(count <span class="sc">~</span> spray, <span class="at">data=</span>InsectSprays)</span></code></pre></div>
-<p><img src="RDataFrame_files/figure-html/unnamed-chunk-6-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="RDataFrame_files/figure-html/unnamed-chunk-6-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>그런데 이런 데이터는 살충력이 높은 것에서 낮은 것 순으로 배열되는 것이 더 이해하기가 쉽다.
 그러한 형태로 그래프를 그리려면 요인이 <code>spray</code> 열의 수준이 <code>count</code>의 중위수가 낮은 것부터 높은 것 순으로 정렬되어야 한다.
 <code>reorder()</code> 함수를 사용하면 이러한 수준의 변경을 손 쉽게 할 수 있다.
 <code>reorder()</code>는 첫 번째 인수로 요인을, 두 번째 인수로 요인의 수준을 결정할 다른 수치 벡터를, 세 번째 인수로 수치 벡터에 적용할 통계 함수를 지정한다. 그러면 수치 벡터를 요인의 수준 별로 나누어 통계 함수를 적용한 후, 가장 낮은 값에서 큰 값으로 수준의 순서를 재정렬한다.</p>
 <div class="sourceCode" id="cb1108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1108-1"><a href="ch-R-Data-Frame.html#cb1108-1" tabindex="-1"></a><span class="fu">boxplot</span>(count <span class="sc">~</span> <span class="fu">reorder</span>(spray, count, median), <span class="at">data=</span>InsectSprays)</span></code></pre></div>
-<p><img src="RDataFrame_files/figure-html/unnamed-chunk-7-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="RDataFrame_files/figure-html/unnamed-chunk-7-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="labels-인수" class="section level4 unnumbered hasAnchor">
 <h4>labels 인수<a href="ch-R-Data-Frame.html#labels-인수" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1416,7 +1434,7 @@ hw      &quot; 8&quot;     &quot; 9&quot;     &quot; 7&quot;     &quot; 8&quot; 
 <pre><code>[1] &quot;courses2.txt&quot;         &quot;scores_no_header.txt&quot; &quot;scores_rn.txt&quot;       
 [4] &quot;scores.txt&quot;           &quot;students.txt&quot;        </code></pre>
 <p>텍스트 파일을 읽어들이는 예제는 다음 파일을 사용하니 예제를 따라하고자 하는 분들은 내려받기를 하자.</p>
-<a href="data:application/zip;base64,UEsDBBQAAgAIAE8DW1kGxCl30AAAAFkBAAAMAAAAY291cnNlczIudHh0U6pMTSxSUlAqTs1NLS5JBTGTM1NAZF5ibiqILkpNySwpBrIy8kuLipV4uYwUDBWUvAKMjMwNgaKvNu19M6PxbdvWV5tbHrUuUFIwUjBGUmNqBFfzZsHU15u3vOme86ZrydvWOUoKxgomIJVGUNOMMExbCDcNqsbUGKjm9fKON3sa3va0Qk0whtllgjDh1eY9b6fORFdgboJmRbB++JvuJW+6toJUGoNUwiwyB6nc0fFmDlDZVmSjoArMjBH+6p7zet2a1ws63szd8qZ1BlQlAFBLAwQKAAIAAABPA1tZHMQCdCEAAAAhAAAAFAAAAHNjb3Jlc19ub19oZWFkZXIudHh07ISc7Jq4CTI1DQrrjIDsoIQJMzUNCuyynOyViAk0Mg0KUEsDBAoAAgAAAE8DW1leTF8oOwAAADsAAAANAAAAc2NvcmVzX3JuLnR4dCAgICBwcm92CXNjb3Jlcw0KMTAJ7ISc7Jq4CTI1DQoyMAnrjIDsoIQJMzUNCjMwCeyynOyViAk0Mg0KUEsDBAoAAgAAAE8DW1nO8koXMgAAADIAAAAKAAAAc2NvcmVzLnR4dHByb3YgIHNjb3Jlcw0K7ISc7Jq4ICAyNQ0K64yA7KCEICAzNQ0K7LKc7JWIICA0Mg0KUEsDBBQAAgAIAA0CY1nvZW+VpgAAANgAAAAMAAAAc3R1ZGVudHMudHh0U8pLzE1VUlBKL0pMAdOpeSmpRUBGbmZKSWpRLpCVlpmXmAOki1JLErNBajLKlbiUXu1seLNpwZuOGUoKhgpKCr5KCuYmCpaGCiFBoa4KFhD5GY1v565RUjBRUHJTUrAwUjA3V3Bz9Al2VbDkUnozdwtMv7GCElC7mbmChQVU3hwiD9VvBNFvqWBuATf+7czeVzt2vO6fCbYeqN3UQMHCDKrd0IALAFBLAQIeAxQAAgAIAE8DW1kGxCl30AAAAFkBAAAMAAAAAAAAAAEAAAD/gQAAAABjb3Vyc2VzMi50eHRQSwECHgMKAAIAAABPA1tZHMQCdCEAAAAhAAAAFAAAAAAAAAABAAAA/4H6AAAAc2NvcmVzX25vX2hlYWRlci50eHRQSwECHgMKAAIAAABPA1tZXkxfKDsAAAA7AAAADQAAAAAAAAABAAAA/4FNAQAAc2NvcmVzX3JuLnR4dFBLAQIeAwoAAgAAAE8DW1nO8koXMgAAADIAAAAKAAAAAAAAAAEAAAD/gbMBAABzY29yZXMudHh0UEsBAh4DFAACAAgADQJjWe9lb5WmAAAA2AAAAAwAAAAAAAAAAQAAAP+BDQIAAHN0dWRlbnRzLnR4dFBLBQYAAAAABQAFACkBAADdAgAAAAA=" download="courses2.zip">텍스트 파일 내려받기</a>
+<a href="data:application/zip;base64,UEsDBBQAAgAIAE8DW1kGxCl30AAAAFkBAAAMAAAAY291cnNlczIudHh0U6pMTSxSUlAqTs1NLS5JBTGTM1NAZF5ibiqILkpNySwpBrIy8kuLipV4uYwUDBWUvAKMjMwNgaKvNu19M6PxbdvWV5tbHrUuUFIwUjBGUmNqBFfzZsHU15u3vOme86ZrydvWOUoKxgomIJVGUNOMMExbCDcNqsbUGKjm9fKON3sa3va0Qk0whtllgjDh1eY9b6fORFdgboJmRbB++JvuJW+6toJUGoNUwiwyB6nc0fFmDlDZVmSjoArMjBH+6p7zet2a1ws63szd8qZ1BlQlAFBLAwQKAAIAAABPA1tZHMQCdCEAAAAhAAAAFAAAAHNjb3Jlc19ub19oZWFkZXIudHh07ISc7Jq4CTI1DQrrjIDsoIQJMzUNCuyynOyViAk0Mg0KUEsDBAoAAgAAAE8DW1leTF8oOwAAADsAAAANAAAAc2NvcmVzX3JuLnR4dCAgICBwcm92CXNjb3Jlcw0KMTAJ7ISc7Jq4CTI1DQoyMAnrjIDsoIQJMzUNCjMwCeyynOyViAk0Mg0KUEsDBAoAAgAAAE8DW1nO8koXMgAAADIAAAAKAAAAc2NvcmVzLnR4dHByb3YgIHNjb3Jlcw0K7ISc7Jq4ICAyNQ0K64yA7KCEICAzNQ0K7LKc7JWIICA0Mg0KUEsDBBQAAgAIAJkIalnvZW+VpgAAANgAAAAMAAAAc3R1ZGVudHMudHh0U8pLzE1VUlBKL0pMAdOpeSmpRUBGbmZKSWpRLpCVlpmXmAOki1JLErNBajLKlbiUXu1seLNpwZuOGUoKhgpKCr5KCuYmCpaGCiFBoa4KFhD5GY1v565RUjBRUHJTUrAwUjA3V3Bz9Al2VbDkUnozdwtMv7GCElC7mbmChQVU3hwiD9VvBNFvqWBuATf+7czeVzt2vO6fCbYeqN3UQMHCDKrd0IALAFBLAQIeAxQAAgAIAE8DW1kGxCl30AAAAFkBAAAMAAAAAAAAAAEAAAD/gQAAAABjb3Vyc2VzMi50eHRQSwECHgMKAAIAAABPA1tZHMQCdCEAAAAhAAAAFAAAAAAAAAABAAAA/4H6AAAAc2NvcmVzX25vX2hlYWRlci50eHRQSwECHgMKAAIAAABPA1tZXkxfKDsAAAA7AAAADQAAAAAAAAABAAAA/4FNAQAAc2NvcmVzX3JuLnR4dFBLAQIeAwoAAgAAAE8DW1nO8koXMgAAADIAAAAKAAAAAAAAAAEAAAD/gbMBAABzY29yZXMudHh0UEsBAh4DFAACAAgAmQhqWe9lb5WmAAAA2AAAAAwAAAAAAAAAAQAAAP+BDQIAAHN0dWRlbnRzLnR4dFBLBQYAAAAABQAFACkBAADdAgAAAAA=" download="courses2.zip">텍스트 파일 내려받기</a>
 </div>
 <div id="머리-행이-있는-텍스트-데이터-파일-읽기" class="section level4 unnumbered hasAnchor">
 <h4>머리 행이 있는 텍스트 데이터 파일 읽기<a href="ch-R-Data-Frame.html#머리-행이-있는-텍스트-데이터-파일-읽기" class="anchor-section" aria-label="Anchor link to header"></a></h4>

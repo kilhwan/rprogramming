@@ -23,7 +23,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2024-11-03" />
+<meta name="date" content="2024-11-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,19 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/threejs-111/three.min.js"></script>
+<script src="libs/threejs-111/Detector.js"></script>
+<script src="libs/threejs-111/Projector.js"></script>
+<script src="libs/threejs-111/CanvasRenderer.js"></script>
+<script src="libs/threejs-111/TrackballControls.js"></script>
+<script src="libs/threejs-111/StateOrbitControls.js"></script>
+<script src="libs/scatterplotThree-binding-0.3.3/scatterplotThree.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176754989-1"></script>
 <script>
@@ -212,7 +225,7 @@ div.csl-indent {
 <li class="chapter" data-level="2.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수와-할당"><i class="fa fa-check"></i><b>2.3</b> 변수와 할당</a></li>
 <li class="chapter" data-level="2.4" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#함수를-이용한-연산"><i class="fa fa-check"></i><b>2.4</b> 함수를 이용한 연산</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html"><i class="fa fa-check"></i><b>3</b> R 벡터</a>
+<li class="chapter" data-level="3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html"><i class="fa fa-check"></i><b>3</b> <strong>R</strong> 벡터</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#숫자-벡터"><i class="fa fa-check"></i><b>3.1</b> 숫자 벡터</a>
 <ul>
@@ -232,7 +245,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.5.5" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#인덱스-벡터를-이용해-벡터-요소에-값-할당하기"><i class="fa fa-check"></i><b>3.5.5</b> 인덱스 벡터를 이용해 벡터 요소에 값 할당하기</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html"><i class="fa fa-check"></i><b>4</b> R 행렬</a>
+<li class="chapter" data-level="4" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html"><i class="fa fa-check"></i><b>4</b> <strong>R</strong> 행렬</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬-만들기"><i class="fa fa-check"></i><b>4.1</b> 행렬 만들기</a></li>
 <li class="chapter" data-level="4.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#벡터를-결합하여-행렬-만들기"><i class="fa fa-check"></i><b>4.2</b> 벡터를 결합하여 행렬 만들기</a></li>
@@ -257,7 +270,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.7.4" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#고유치eigenvalues와-고유벡터eigenvectors"><i class="fa fa-check"></i><b>4.7.4</b> 고유치(eigenvalues)와 고유벡터(eigenvectors)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ch-R-List.html"><a href="ch-R-List.html"><i class="fa fa-check"></i><b>5</b> R 리스트</a>
+<li class="chapter" data-level="5" data-path="ch-R-List.html"><a href="ch-R-List.html"><i class="fa fa-check"></i><b>5</b> <strong>R</strong> 리스트</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="ch-R-List.html"><a href="ch-R-List.html#객체-객체의-타입-객체의-속성"><i class="fa fa-check"></i><b>5.1</b> 객체, 객체의 타입, 객체의 속성 *</a></li>
 <li class="chapter" data-level="5.2" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트의-생성-및-필터링"><i class="fa fa-check"></i><b>5.2</b> 리스트의 생성 및 필터링</a></li>
@@ -270,7 +283,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트-활용-분야"><i class="fa fa-check"></i><b>5.5</b> 리스트 활용 분야</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html"><i class="fa fa-check"></i><b>6</b> R 데이터 프레임</a>
+<li class="chapter" data-level="6" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html"><i class="fa fa-check"></i><b>6</b> <strong>R</strong> 데이터 프레임</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#범주형-데이터와-요인-factors"><i class="fa fa-check"></i><b>6.1</b> 범주형 데이터와 요인 (Factors)</a>
 <ul>
@@ -486,7 +499,7 @@ div.csl-indent {
 <li class="chapter" data-level="11.3" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s4-클래스"><i class="fa fa-check"></i><b>11.3</b> S4 클래스</a></li>
 </ul></li>
 <li class="part"><span><b>II R 프로그래밍 응용</b></span></li>
-<li class="chapter" data-level="12" data-path="ch-R-import.html"><a href="ch-R-import.html"><i class="fa fa-check"></i><b>12</b> R 데이터 수집</a>
+<li class="chapter" data-level="12" data-path="ch-R-import.html"><a href="ch-R-import.html"><i class="fa fa-check"></i><b>12</b> <strong>R</strong> 데이터 수집</a>
 <ul>
 <li class="chapter" data-level="12.1" data-path="ch-R-import.html"><a href="ch-R-import.html#sec-read-csv"><i class="fa fa-check"></i><b>12.1</b> 텍스트 파일에서 데이터 읽기</a></li>
 <li class="chapter" data-level="12.2" data-path="ch-R-import.html"><a href="ch-R-import.html#sec-read-spreadsheets"><i class="fa fa-check"></i><b>12.2</b> 스프레드시트 파일에서 데이터 읽기</a>
@@ -525,6 +538,11 @@ div.csl-indent {
 <li class="chapter" data-level="13.5.3" data-path="ch-R-documents.html"><a href="ch-R-documents.html#데이터프레임과-행렬을-표로-출력하기"><i class="fa fa-check"></i><b>13.5.3</b> 데이터프레임과 행렬을 표로 출력하기</a></li>
 <li class="chapter" data-level="13.5.4" data-path="ch-R-documents.html"><a href="ch-R-documents.html#인라인-코드"><i class="fa fa-check"></i><b>13.5.4</b> 인라인 코드</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html"><i class="fa fa-check"></i><b>14</b> <strong>R</strong> 차원 축소</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html#차원-축소-dimension-reduction"><i class="fa fa-check"></i><b>14.1</b> 차원 축소 (Dimension Reduction)</a></li>
+<li class="chapter" data-level="14.2" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html#주성분-분석-principal-components-analysis"><i class="fa fa-check"></i><b>14.2</b> 주성분 분석 (Principal Components Analysis)</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="ch-RandPython.html"><a href="ch-RandPython.html"><i class="fa fa-check"></i><b>A</b> <strong>R</strong>과 <strong>Python</strong> 연동하기</a>
@@ -573,7 +591,7 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="ch-R-Matrix" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Chapter 4</span> R 행렬<a href="ch-R-Matrix.html#ch-R-Matrix" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">Chapter 4</span> <strong>R</strong> 행렬<a href="ch-R-Matrix.html#ch-R-Matrix" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>벡터보다 조금 더 복잡한 데이터 구조가 행렬과 배열이다. 행렬과 배열은 벡터처럼 모든 요소가 동일한 데이터의 타입을 가져야 한다.</p>
 <div id="행렬과-배열은-다차원적-데이터-구조이다." class="section level4 unnumbered hasAnchor">
 <h4>행렬과 배열은 다차원적 데이터 구조이다.<a href="ch-R-Matrix.html#행렬과-배열은-다차원적-데이터-구조이다." class="anchor-section" aria-label="Anchor link to header"></a></h4>

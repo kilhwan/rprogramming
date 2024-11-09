@@ -261,6 +261,9 @@ url-링크
 실행-옵션-excution-options
 데이터프레임과-행렬을-표로-출력하기
 인라인-코드
+ch-R-dimension-reduction
+차원-축소-dimension-reduction
+주성분-분석-principal-components-analysis
 ch-RandPython
 reticulate-설치-및-사용할-파이썬-버전-설정
 r과-파이썬-연동하는-방법

@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 14 R 차원 축소 | R 프로그래밍 3판 (draft)</title>
+  <meta name="description" content="이 책은 경영데이터분석기초의 주교재로 사용되기 위해 개발되었습니다." />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 14 R 차원 축소 | R 프로그래밍 3판 (draft)" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="이 책은 경영데이터분석기초의 주교재로 사용되기 위해 개발되었습니다." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 14 R 차원 축소 | R 프로그래밍 3판 (draft)" />
+  
+  <meta name="twitter:description" content="이 책은 경영데이터분석기초의 주교재로 사용되기 위해 개발되었습니다." />
+  
+
+<meta name="author" content="Kilhwan Kim" />
+
+
+<meta name="date" content="2024-11-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ch-R-documents.html"/>
+<link rel="next" href="ch-RandPython.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/threejs-111/three.min.js"></script>
+<script src="libs/threejs-111/Detector.js"></script>
+<script src="libs/threejs-111/Projector.js"></script>
+<script src="libs/threejs-111/CanvasRenderer.js"></script>
+<script src="libs/threejs-111/TrackballControls.js"></script>
+<script src="libs/threejs-111/StateOrbitControls.js"></script>
+<script src="libs/scatterplotThree-binding-0.3.3/scatterplotThree.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176754989-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176754989-1');
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R 프로그래밍 3판</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#판-서문"><i class="fa fa-check"></i>1판 서문</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#판-서문-1"><i class="fa fa-check"></i>2판 서문</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#판의-주요-개정-2022년-7월-이후부터"><i class="fa fa-check"></i>2판의 주요 개정 (2022년 7월 이후부터)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#판-서문-2"><i class="fa fa-check"></i>3판 서문</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#일러두기"><i class="fa fa-check"></i>일러두기</a></li>
+</ul></li>
+<li class="part"><span><b>I R 프로그래밍 기초</b></span></li>
+<li class="chapter" data-level="1" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>1</b> <strong>R</strong> 설치 및 시작</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="ch-intro.html"><a href="ch-intro.html#sec-Rintro"><i class="fa fa-check"></i><b>1.1</b> <strong>R</strong> 소개</a></li>
+<li class="chapter" data-level="1.2" data-path="ch-intro.html"><a href="ch-intro.html#sec-installation"><i class="fa fa-check"></i><b>1.2</b> <strong>R</strong> 설치하기</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="ch-intro.html"><a href="ch-intro.html#r을-윈도우즈에-설치할-때-주의-사항"><i class="fa fa-check"></i><b>1.2.1</b> <strong>R</strong>을 윈도우즈에 설치할 때 주의 사항</a></li>
+<li class="chapter" data-level="1.2.2" data-path="ch-intro.html"><a href="ch-intro.html#winget"><i class="fa fa-check"></i><b>1.2.2</b> <code>winget</code> 명령어로 설치하기</a></li>
+<li class="chapter" data-level="1.2.3" data-path="ch-intro.html"><a href="ch-intro.html#r-배포판-내려받기"><i class="fa fa-check"></i><b>1.2.3</b> <strong>R</strong> 배포판 내려받기</a></li>
+<li class="chapter" data-level="1.2.4" data-path="ch-intro.html"><a href="ch-intro.html#r-설치하기"><i class="fa fa-check"></i><b>1.2.4</b> R 설치하기</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="ch-intro.html"><a href="ch-intro.html#sec-RStudio"><i class="fa fa-check"></i><b>1.3</b> RStudio</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="ch-intro.html"><a href="ch-intro.html#winget을-이용한-rstudio-설치"><i class="fa fa-check"></i><b>1.3.1</b> <code>winget</code>을 이용한 RStudio 설치</a></li>
+<li class="chapter" data-level="1.3.2" data-path="ch-intro.html"><a href="ch-intro.html#rstudio-설치"><i class="fa fa-check"></i><b>1.3.2</b> RStudio 설치</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="ch-intro.html"><a href="ch-intro.html#sec-R-start"><i class="fa fa-check"></i><b>1.4</b> RStudio로 R 시작하기</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔과-프롬프트"><i class="fa fa-check"></i><b>1.4.1</b> R 콘솔과 프롬프트</a></li>
+<li class="chapter" data-level="1.4.2" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔-사용과-관련된-몇-가지-팁"><i class="fa fa-check"></i><b>1.4.2</b> R 콘솔 사용과 관련된 몇 가지 팁</a></li>
+<li class="chapter" data-level="1.4.3" data-path="ch-intro.html"><a href="ch-intro.html#r-스크립트-파일-만들기"><i class="fa fa-check"></i><b>1.4.3</b> R 스크립트 파일 만들기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html"><i class="fa fa-check"></i><b>2</b> R 데이터 기초</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#단순한-데이터-형식-data-types"><i class="fa fa-check"></i><b>2.1</b> 단순한 데이터 형식 (data types)</a></li>
+<li class="chapter" data-level="2.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#단순-연산"><i class="fa fa-check"></i><b>2.2</b> 단순 연산</a></li>
+<li class="chapter" data-level="2.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수와-할당"><i class="fa fa-check"></i><b>2.3</b> 변수와 할당</a></li>
+<li class="chapter" data-level="2.4" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#함수를-이용한-연산"><i class="fa fa-check"></i><b>2.4</b> 함수를 이용한 연산</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html"><i class="fa fa-check"></i><b>3</b> <strong>R</strong> 벡터</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#숫자-벡터"><i class="fa fa-check"></i><b>3.1</b> 숫자 벡터</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#c-함수를-이용한-숫자-벡터-만들기"><i class="fa fa-check"></i><b>3.1.1</b> c() 함수를 이용한 숫자 벡터 만들기</a></li>
+<li class="chapter" data-level="3.1.2" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#패턴을-이용한-숫자-벡터-만들기"><i class="fa fa-check"></i><b>3.1.2</b> 패턴을 이용한 숫자 벡터 만들기</a></li>
+<li class="chapter" data-level="3.1.3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#숫자-벡터의-연산"><i class="fa fa-check"></i><b>3.1.3</b> 숫자 벡터의 연산</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#논리-벡터"><i class="fa fa-check"></i><b>3.2</b> 논리 벡터</a></li>
+<li class="chapter" data-level="3.3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#문자-벡터"><i class="fa fa-check"></i><b>3.3</b> 문자 벡터</a></li>
+<li class="chapter" data-level="3.4" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#결측치-missing-values"><i class="fa fa-check"></i><b>3.4</b> 결측치 (Missing Values)</a></li>
+<li class="chapter" data-level="3.5" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#인덱스-벡터와-필터링"><i class="fa fa-check"></i><b>3.5</b> 인덱스 벡터와 필터링</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#자연수-인덱스-벡터"><i class="fa fa-check"></i><b>3.5.1</b> 자연수 인덱스 벡터</a></li>
+<li class="chapter" data-level="3.5.2" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#음의-정수-인덱스-벡터"><i class="fa fa-check"></i><b>3.5.2</b> 음의 정수 인덱스 벡터</a></li>
+<li class="chapter" data-level="3.5.3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#논리-인덱스-벡터"><i class="fa fa-check"></i><b>3.5.3</b> 논리 인덱스 벡터</a></li>
+<li class="chapter" data-level="3.5.4" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#이름-인덱스-벡터"><i class="fa fa-check"></i><b>3.5.4</b> 이름 인덱스 벡터</a></li>
+<li class="chapter" data-level="3.5.5" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#인덱스-벡터를-이용해-벡터-요소에-값-할당하기"><i class="fa fa-check"></i><b>3.5.5</b> 인덱스 벡터를 이용해 벡터 요소에 값 할당하기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html"><i class="fa fa-check"></i><b>4</b> <strong>R</strong> 행렬</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬-만들기"><i class="fa fa-check"></i><b>4.1</b> 행렬 만들기</a></li>
+<li class="chapter" data-level="4.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#벡터를-결합하여-행렬-만들기"><i class="fa fa-check"></i><b>4.2</b> 벡터를 결합하여 행렬 만들기</a></li>
+<li class="chapter" data-level="4.3" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-필터링"><i class="fa fa-check"></i><b>4.3</b> 행렬의 필터링</a></li>
+<li class="chapter" data-level="4.4" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-연산"><i class="fa fa-check"></i><b>4.4</b> 행렬의 연산</a></li>
+<li class="chapter" data-level="4.5" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬과-함수"><i class="fa fa-check"></i><b>4.5</b> 행렬과 함수</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬을-인수로-하는-함수들"><i class="fa fa-check"></i><b>4.5.1</b> 행렬을 인수로 하는 함수들</a></li>
+<li class="chapter" data-level="4.5.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-행별-또는-열별로-함수를-적용하는-방법"><i class="fa fa-check"></i><b>4.5.2</b> 행렬의 행별 또는 열별로 함수를 적용하는 방법</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#sec-RMatrix-array"><i class="fa fa-check"></i><b>4.6</b> 배열 *</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#배열의-생성"><i class="fa fa-check"></i><b>4.6.1</b> 배열의 생성</a></li>
+<li class="chapter" data-level="4.6.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#배열도-결국-벡터"><i class="fa fa-check"></i><b>4.6.2</b> 배열도 결국 벡터</a></li>
+<li class="chapter" data-level="4.6.3" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#배열의-연산과-필터링"><i class="fa fa-check"></i><b>4.6.3</b> 배열의 연산과 필터링</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#sec-RMatrix-operation-advanced"><i class="fa fa-check"></i><b>4.7</b> 행렬과 배열의 고급 연산 *</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-곱"><i class="fa fa-check"></i><b>4.7.1</b> 행렬의 곱</a></li>
+<li class="chapter" data-level="4.7.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-주대각선-요소와-대각행렬"><i class="fa fa-check"></i><b>4.7.2</b> 행렬의 주대각선 요소와 대각행렬</a></li>
+<li class="chapter" data-level="4.7.3" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#연립-일차-방정식과-역행렬"><i class="fa fa-check"></i><b>4.7.3</b> 연립 일차 방정식과 역행렬</a></li>
+<li class="chapter" data-level="4.7.4" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#고유치eigenvalues와-고유벡터eigenvectors"><i class="fa fa-check"></i><b>4.7.4</b> 고유치(eigenvalues)와 고유벡터(eigenvectors)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ch-R-List.html"><a href="ch-R-List.html"><i class="fa fa-check"></i><b>5</b> <strong>R</strong> 리스트</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="ch-R-List.html"><a href="ch-R-List.html#객체-객체의-타입-객체의-속성"><i class="fa fa-check"></i><b>5.1</b> 객체, 객체의 타입, 객체의 속성 *</a></li>
+<li class="chapter" data-level="5.2" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트의-생성-및-필터링"><i class="fa fa-check"></i><b>5.2</b> 리스트의 생성 및 필터링</a></li>
+<li class="chapter" data-level="5.3" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트의-변경-및-연결"><i class="fa fa-check"></i><b>5.3</b> 리스트의 변경 및 연결</a></li>
+<li class="chapter" data-level="5.4" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트에-함수-적용하기"><i class="fa fa-check"></i><b>5.4</b> 리스트에 함수 적용하기</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="ch-R-List.html"><a href="ch-R-List.html#lapply-함수"><i class="fa fa-check"></i><b>5.4.1</b> lapply() 함수</a></li>
+<li class="chapter" data-level="5.4.2" data-path="ch-R-List.html"><a href="ch-R-List.html#sapply-함수"><i class="fa fa-check"></i><b>5.4.2</b> sapply() 함수</a></li>
+<li class="chapter" data-level="5.4.3" data-path="ch-R-List.html"><a href="ch-R-List.html#mapply-함수"><i class="fa fa-check"></i><b>5.4.3</b> mapply() 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트-활용-분야"><i class="fa fa-check"></i><b>5.5</b> 리스트 활용 분야</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html"><i class="fa fa-check"></i><b>6</b> <strong>R</strong> 데이터 프레임</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#범주형-데이터와-요인-factors"><i class="fa fa-check"></i><b>6.1</b> 범주형 데이터와 요인 (Factors)</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#명목형-변수와-요인"><i class="fa fa-check"></i><b>6.1.1</b> 명목형 변수와 요인</a></li>
+<li class="chapter" data-level="6.1.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#순서형-변수와-요인"><i class="fa fa-check"></i><b>6.1.2</b> 순서형 변수와 요인</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임-만들기"><i class="fa fa-check"></i><b>6.2</b> 데이터 프레임 만들기</a></li>
+<li class="chapter" data-level="6.3" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임-각-열의-지정"><i class="fa fa-check"></i><b>6.3</b> 데이터 프레임 각 열의 지정</a></li>
+<li class="chapter" data-level="6.4" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임의-필터링"><i class="fa fa-check"></i><b>6.4</b> 데이터 프레임의 필터링</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#리스트-형식으로-필터링"><i class="fa fa-check"></i><b>6.4.1</b> 리스트 형식으로 필터링</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#행렬-형식으로-필터링"><i class="fa fa-check"></i><b>6.4.2</b> 행렬 형식으로 필터링</a></li>
+<li class="chapter" data-level="6.4.3" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#subset을-이용한-필터링"><i class="fa fa-check"></i><b>6.4.3</b> subset()을 이용한 필터링</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임에-함수-적용하기"><i class="fa fa-check"></i><b>6.5</b> 데이터 프레임에 함수 적용하기</a></li>
+<li class="chapter" data-level="6.6" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#sec-read-file"><i class="fa fa-check"></i><b>6.6</b> 파일에서 데이터 읽어오기</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#텍스트-파일에서-데이터-읽어오기"><i class="fa fa-check"></i><b>6.6.1</b> 텍스트 파일에서 데이터 읽어오기</a></li>
+<li class="chapter" data-level="6.6.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#csv-파일에서-데이터-읽어오기"><i class="fa fa-check"></i><b>6.6.2</b> CSV 파일에서 데이터 읽어오기</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#sec-write-file"><i class="fa fa-check"></i><b>6.7</b> 데이터 프레임을 파일로 쓰기</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#바이너리-형식으로-데이터-객체-저장-및-복원"><i class="fa fa-check"></i><b>6.7.1</b> 바이너리 형식으로 데이터 객체 저장 및 복원</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임의-열을-변수처럼-이용하는-방법"><i class="fa fa-check"></i><b>6.8</b> 데이터 프레임의 열을 변수처럼 이용하는 방법 *</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html"><i class="fa fa-check"></i><b>7</b> dplyr을 이용한 데이터 변환</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-tidyData"><i class="fa fa-check"></i><b>7.1</b> 정돈 데이터 (tidy data)</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#정돈-데이터-형식의-조건"><i class="fa fa-check"></i><b>7.1.1</b> 정돈 데이터 형식의 조건</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#비정돈-데이터-형식"><i class="fa fa-check"></i><b>7.1.2</b> 비정돈 데이터 형식</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#정돈-데이터를-사용하는-이유"><i class="fa fa-check"></i><b>7.1.3</b> 정돈 데이터를 사용하는 이유</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#tidyverse-패키지"><i class="fa fa-check"></i><b>7.2</b> <code>tidyverse</code> 패키지</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#tidyverse-패키지-설치"><i class="fa fa-check"></i><b>7.2.1</b> <code>tidyverse</code> 패키지 설치</a></li>
+<li class="chapter" data-level="7.2.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#tidyverse-패키지-적재"><i class="fa fa-check"></i><b>7.2.2</b> <code>tidyverse</code> 패키지 적재</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-dplyr"><i class="fa fa-check"></i><b>7.3</b> <code>dplyr</code> 패키지와 정돈 데이터의 변환</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#dplyr-패키지"><i class="fa fa-check"></i><b>7.3.1</b> <code>dplyr</code> 패키지</a></li>
+<li class="chapter" data-level="7.3.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#정돈-데이터-변환의-종류"><i class="fa fa-check"></i><b>7.3.2</b> 정돈 데이터 변환의 종류</a></li>
+<li class="chapter" data-level="7.3.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#dplyr-패키지-vs.-r의-기본-기능"><i class="fa fa-check"></i><b>7.3.3</b> <code>dplyr</code> 패키지 vs. R의 기본 기능</a></li>
+<li class="chapter" data-level="7.3.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#mpg-데이터"><i class="fa fa-check"></i><b>7.3.4</b> <code>mpg</code> 데이터</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-filter"><i class="fa fa-check"></i><b>7.4</b> <code>filter()</code>로 행 선택하기</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#선택-조건이-하나인-경우"><i class="fa fa-check"></i><b>7.4.1</b> 선택 조건이 하나인 경우</a></li>
+<li class="chapter" data-level="7.4.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#여러-조건을-만족하는-행-추출하기"><i class="fa fa-check"></i><b>7.4.2</b> 여러 조건을 만족하는 행 추출하기</a></li>
+<li class="chapter" data-level="7.4.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#논리-연산자로-복합-조건-만들기"><i class="fa fa-check"></i><b>7.4.3</b> 논리 연산자로 복합 조건 만들기</a></li>
+<li class="chapter" data-level="7.4.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#in-연산자"><i class="fa fa-check"></i><b>7.4.4</b> <code>%in%</code> 연산자</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-slice"><i class="fa fa-check"></i><b>7.5</b> <code>slice()</code>로 행 선택하기</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#slice_sample로-표본-추출하기"><i class="fa fa-check"></i><b>7.5.1</b> <code>slice_sample()</code>로 표본 추출하기</a></li>
+<li class="chapter" data-level="7.5.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#slice_head와-slice_tail"><i class="fa fa-check"></i><b>7.5.2</b> <code>slice_head()</code>와 <code>slice_tail()</code></a></li>
+<li class="chapter" data-level="7.5.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#slice_min과-slice_max"><i class="fa fa-check"></i><b>7.5.3</b> <code>slice_min()</code>과 <code>slice_max()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-arrange"><i class="fa fa-check"></i><b>7.6</b> <code>arrange()</code>로 행 정렬하기</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#desc를-이용하여-내림차순으로-정렬하기"><i class="fa fa-check"></i><b>7.6.1</b> <code>desc()</code>를 이용하여 내림차순으로 정렬하기</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-select"><i class="fa fa-check"></i><b>7.7</b> <code>select()</code>를 이용하여 변수 이름으로 열 선택하기</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-이름을-나열하여-선택하기"><i class="fa fa-check"></i><b>7.7.1</b> 변수 이름을 나열하여 선택하기</a></li>
+<li class="chapter" data-level="7.7.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-이름으로-변수-범위를-선택하기"><i class="fa fa-check"></i><b>7.7.2</b> 변수 이름으로 변수 범위를 선택하기</a></li>
+<li class="chapter" data-level="7.7.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-위치로-매칭하여-선택하기"><i class="fa fa-check"></i><b>7.7.3</b> 변수 위치로 매칭하여 선택하기</a></li>
+<li class="chapter" data-level="7.7.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-select-match"><i class="fa fa-check"></i><b>7.7.4</b> 변수 이름을 매칭하여 선택하기</a></li>
+<li class="chapter" data-level="7.7.5" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수의-형식이나-조건으로-매칭하여-선택하기"><i class="fa fa-check"></i><b>7.7.5</b> 변수의 형식이나 조건으로 매칭하여 선택하기*</a></li>
+<li class="chapter" data-level="7.7.6" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-이름-바꾸기"><i class="fa fa-check"></i><b>7.7.6</b> 변수 이름 바꾸기</a></li>
+<li class="chapter" data-level="7.7.7" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-순서-바꾸기"><i class="fa fa-check"></i><b>7.7.7</b> 변수 순서 바꾸기</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-mutate"><i class="fa fa-check"></i><b>7.8</b> <code>mutate()</code>로 새로운 변수 만들기</a>
+<ul>
+<li class="chapter" data-level="7.8.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#transmute로-새로운-변수만-남기기"><i class="fa fa-check"></i><b>7.8.1</b> <code>transmute()</code>로 새로운 변수만 남기기</a></li>
+<li class="chapter" data-level="7.8.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#새로운-변수를-만들-때-사용할-수-있는-함수들"><i class="fa fa-check"></i><b>7.8.2</b> 새로운 변수를 만들 때 사용할 수 있는 함수들</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-summarize"><i class="fa fa-check"></i><b>7.9</b> <code>summarize()</code>로 변수 요약하기</a>
+<ul>
+<li class="chapter" data-level="7.9.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#across로-여려-변수를-요약하기"><i class="fa fa-check"></i><b>7.9.1</b> <code>across()</code>로 여려 변수를 요약하기*</a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-groupBy"><i class="fa fa-check"></i><b>7.10</b> <code>group_by()</code>로 그룹별로 요약하기</a>
+<ul>
+<li class="chapter" data-level="7.10.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#group_by로-그룹별로-새-변수-추가하기"><i class="fa fa-check"></i><b>7.10.1</b> <code>group_by()</code>로 그룹별로 새 변수 추가하기</a></li>
+<li class="chapter" data-level="7.10.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#count로-개수-세기"><i class="fa fa-check"></i><b>7.10.2</b> <code>count()</code>로 개수 세기</a></li>
+</ul></li>
+<li class="chapter" data-level="7.11" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-pipeOperator"><i class="fa fa-check"></i><b>7.11</b> <code>%&gt;%</code> 파이프 연산자</a>
+<ul>
+<li class="chapter" data-level="7.11.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#여러-단계를-거쳐-데이터를-변환할-때"><i class="fa fa-check"></i><b>7.11.1</b> 여러 단계를 거쳐 데이터를 변환할 때</a></li>
+<li class="chapter" data-level="7.11.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#파이프-연산자"><i class="fa fa-check"></i><b>7.11.2</b> 파이프 연산자</a></li>
+<li class="chapter" data-level="7.11.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#ungroup"><i class="fa fa-check"></i><b>7.11.3</b> <code>ungroup()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch-visualization.html"><a href="ch-visualization.html"><i class="fa fa-check"></i><b>8</b> ggplot2를 이용한 데이터 시각화</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-getStarted-ggplot2"><i class="fa fa-check"></i><b>8.1</b> ggplot2 시작하기</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec-tryGgplot"><i class="fa fa-check"></i><b>8.1.1</b> ggplot2 그래프 그려보기</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-aesMapping"><i class="fa fa-check"></i><b>8.2</b> 도형의 속성에 데이터 열을 대응시키기 (aesthetic mapping)</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="ch-visualization.html"><a href="ch-visualization.html#범주형-변수를-색상color-속성에-매핑하기"><i class="fa fa-check"></i><b>8.2.1</b> 범주형 변수를 색상(<code>color</code>) 속성에 매핑하기</a></li>
+<li class="chapter" data-level="8.2.2" data-path="ch-visualization.html"><a href="ch-visualization.html#범주형-변수를-모양shape-속성에-매핑하기"><i class="fa fa-check"></i><b>8.2.2</b> 범주형 변수를 모양(<code>shape</code>) 속성에 매핑하기</a></li>
+<li class="chapter" data-level="8.2.3" data-path="ch-visualization.html"><a href="ch-visualization.html#연속형-변수를-크기size-투명도alpha-색상color-속성에-매핑하기"><i class="fa fa-check"></i><b>8.2.3</b> 연속형 변수를 크기(<code>size</code>), 투명도(<code>alpha</code>), 색상(<code>color</code>) 속성에 매핑하기</a></li>
+<li class="chapter" data-level="8.2.4" data-path="ch-visualization.html"><a href="ch-visualization.html#도형의-여러-속성에-데이터-열을-매핑시키기"><i class="fa fa-check"></i><b>8.2.4</b> 도형의 여러 속성에 데이터 열을 매핑시키기</a></li>
+<li class="chapter" data-level="8.2.5" data-path="ch-visualization.html"><a href="ch-visualization.html#도형-속성에-데이터-열을-매핑하기---예제"><i class="fa fa-check"></i><b>8.2.5</b> 도형 속성에 데이터 열을 매핑하기 - 예제</a></li>
+<li class="chapter" data-level="8.2.6" data-path="ch-visualization.html"><a href="ch-visualization.html#도형의-속성에-대응시키기-vs.-도형의-속성-인수를-설정하기"><i class="fa fa-check"></i><b>8.2.6</b> 도형의 속성에 대응시키기 vs. 도형의 속성 인수를 설정하기</a></li>
+<li class="chapter" data-level="8.2.7" data-path="ch-visualization.html"><a href="ch-visualization.html#group-속성"><i class="fa fa-check"></i><b>8.2.7</b> <code>group</code> 속성</a></li>
+<li class="chapter" data-level="8.2.8" data-path="ch-visualization.html"><a href="ch-visualization.html#그룹으로-나누어-선-그래프-그리기"><i class="fa fa-check"></i><b>8.2.8</b> 그룹으로 나누어 선 그래프 그리기</a></li>
+<li class="chapter" data-level="8.2.9" data-path="ch-visualization.html"><a href="ch-visualization.html#이산형-변수는-group-속성으로-자동-매핑된다."><i class="fa fa-check"></i><b>8.2.9</b> 이산형 변수는 <code>group</code> 속성으로 자동 매핑된다.</a></li>
+<li class="chapter" data-level="8.2.10" data-path="ch-visualization.html"><a href="ch-visualization.html#geom_smooth-함수에서-group-속성"><i class="fa fa-check"></i><b>8.2.10</b> <code>geom_smooth()</code> 함수에서 <code>group</code> 속성</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-facets"><i class="fa fa-check"></i><b>8.3</b> 측면(facets)으로 나누어 그리기</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="ch-visualization.html"><a href="ch-visualization.html#facet_wrap로-일차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>8.3.1</b> <code>facet_wrap()</code>로 일차원 측면 그래프 그리기</a></li>
+<li class="chapter" data-level="8.3.2" data-path="ch-visualization.html"><a href="ch-visualization.html#facet_grid로-이차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>8.3.2</b> <code>facet_grid()</code>로 이차원 측면 그래프 그리기</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-layerAndGeom"><i class="fa fa-check"></i><b>8.4</b> 그래프 계층(layers)과 도형(geoms)</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="ch-visualization.html"><a href="ch-visualization.html#geom-함수의-순서와-그래프-계층"><i class="fa fa-check"></i><b>8.4.1</b> geom 함수의 순서와 그래프 계층</a></li>
+<li class="chapter" data-level="8.4.2" data-path="ch-visualization.html"><a href="ch-visualization.html#ggplot-함수는-좌표축을-자동-조정한다."><i class="fa fa-check"></i><b>8.4.2</b> <code>ggplot()</code> 함수는 좌표축을 자동 조정한다.</a></li>
+<li class="chapter" data-level="8.4.3" data-path="ch-visualization.html"><a href="ch-visualization.html#여러-데이터를-사용하여-그래프-계층-만들기"><i class="fa fa-check"></i><b>8.4.3</b> 여러 데이터를 사용하여 그래프 계층 만들기</a></li>
+<li class="chapter" data-level="8.4.4" data-path="ch-visualization.html"><a href="ch-visualization.html#다른-데이터-범위로-그래프-계층-만들기"><i class="fa fa-check"></i><b>8.4.4</b> 다른 데이터 범위로 그래프 계층 만들기</a></li>
+<li class="chapter" data-level="8.4.5" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec-commonDataMapping"><i class="fa fa-check"></i><b>8.4.5</b> 공통 <code>data</code>와 <code>mapping</code>의 설정</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-commonProblems"><i class="fa fa-check"></i><b>8.5</b> ggplot 명령문을 입력할 때 자주 발생하는 문제들</a></li>
+<li class="chapter" data-level="8.6" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-ggplotStat"><i class="fa fa-check"></i><b>8.6</b> 통계 변환</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec-statCategorical"><i class="fa fa-check"></i><b>8.6.1</b> 범주형 변수의 통계 요약</a></li>
+<li class="chapter" data-level="8.6.2" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec-statNumerical"><i class="fa fa-check"></i><b>8.6.2</b> 수치형 변수의 통계 요약</a></li>
+<li class="chapter" data-level="8.6.3" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec-statNumericalPerCategory"><i class="fa fa-check"></i><b>8.6.3</b> 수치형 변수의 범주별 통계요약</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-position"><i class="fa fa-check"></i><b>8.7</b> 위치 조정</a></li>
+<li class="chapter" data-level="8.8" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-typeofgraph"><i class="fa fa-check"></i><b>8.8</b> ggplot2 그래프의 종류</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="ch-visualization.html"><a href="ch-visualization.html#basic-graph"><i class="fa fa-check"></i><b>8.8.1</b> 직선을 그리는 그래픽 함수</a></li>
+<li class="chapter" data-level="8.8.2" data-path="ch-visualization.html"><a href="ch-visualization.html#onecategory"><i class="fa fa-check"></i><b>8.8.2</b> 한 범주형 변수의 그래프</a></li>
+<li class="chapter" data-level="8.8.3" data-path="ch-visualization.html"><a href="ch-visualization.html#onenumeric"><i class="fa fa-check"></i><b>8.8.3</b> 한 수치형 변수의 그래프</a></li>
+<li class="chapter" data-level="8.8.4" data-path="ch-visualization.html"><a href="ch-visualization.html#twocategories"><i class="fa fa-check"></i><b>8.8.4</b> 두 범주형 변수의 그래프</a></li>
+<li class="chapter" data-level="8.8.5" data-path="ch-visualization.html"><a href="ch-visualization.html#category-numeric"><i class="fa fa-check"></i><b>8.8.5</b> 범주형 변수와 수치형 변수의 그래프</a></li>
+<li class="chapter" data-level="8.8.6" data-path="ch-visualization.html"><a href="ch-visualization.html#twonumeric"><i class="fa fa-check"></i><b>8.8.6</b> 두 수치형 변수의 그래프</a></li>
+<li class="chapter" data-level="8.8.7" data-path="ch-visualization.html"><a href="ch-visualization.html#morethanthree"><i class="fa fa-check"></i><b>8.8.7</b> 세 변수 이상의 그래프</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="ch-visualization.html"><a href="ch-visualization.html#modification"><i class="fa fa-check"></i><b>8.9</b> 그래프의 외양 바꾸기</a>
+<ul>
+<li class="chapter" data-level="8.9.1" data-path="ch-visualization.html"><a href="ch-visualization.html#axes"><i class="fa fa-check"></i><b>8.9.1</b> 좌표축의 조정</a></li>
+<li class="chapter" data-level="8.9.2" data-path="ch-visualization.html"><a href="ch-visualization.html#좌표계의-변경"><i class="fa fa-check"></i><b>8.9.2</b> 좌표계의 변경</a></li>
+<li class="chapter" data-level="8.9.3" data-path="ch-visualization.html"><a href="ch-visualization.html#색상-척도color-scales의-변경"><i class="fa fa-check"></i><b>8.9.3</b> 색상 척도(color scales)의 변경</a></li>
+<li class="chapter" data-level="8.9.4" data-path="ch-visualization.html"><a href="ch-visualization.html#labelsmodification"><i class="fa fa-check"></i><b>8.9.4</b> 레이블 조정</a></li>
+<li class="chapter" data-level="8.9.5" data-path="ch-visualization.html"><a href="ch-visualization.html#themes"><i class="fa fa-check"></i><b>8.9.5</b> 테마 변경</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="ch-visualization.html"><a href="ch-visualization.html#misc"><i class="fa fa-check"></i><b>8.10</b> 기타 유용한 팁들</a>
+<ul>
+<li class="chapter" data-level="8.10.1" data-path="ch-visualization.html"><a href="ch-visualization.html#combinegraph"><i class="fa fa-check"></i><b>8.10.1</b> 여러 그래프를 한 도표에 넣기</a></li>
+<li class="chapter" data-level="8.10.2" data-path="ch-visualization.html"><a href="ch-visualization.html#savegraph"><i class="fa fa-check"></i><b>8.10.2</b> 그래프 저장하기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html"><i class="fa fa-check"></i><b>9</b> R 고급 데이터 변환</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#sec-bind-data"><i class="fa fa-check"></i><b>9.1</b> 데이터의 단순 결합</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#데이터를-행으로-결합하기"><i class="fa fa-check"></i><b>9.1.1</b> 데이터를 행으로 결합하기</a></li>
+<li class="chapter" data-level="9.1.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#데이터를-열로-결합하기"><i class="fa fa-check"></i><b>9.1.2</b> 데이터를 열로 결합하기</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#관계형-데이터베이스처럼-데이터-결합하기"><i class="fa fa-check"></i><b>9.2</b> 관계형 데이터베이스처럼 데이터 결합하기</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#inner-join과-outer-join"><i class="fa fa-check"></i><b>9.2.1</b> Inner join과 outer join</a></li>
+<li class="chapter" data-level="9.2.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#filtering-join"><i class="fa fa-check"></i><b>9.2.2</b> Filtering join</a></li>
+<li class="chapter" data-level="9.2.3" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#join을-수행하는-다른-방법들"><i class="fa fa-check"></i><b>9.2.3</b> Join을 수행하는 다른 방법들</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#sec-tidyr"><i class="fa fa-check"></i><b>9.3</b> <code>tidyr</code> 패키지를 이용하여 정돈 데이터 형식으로 바꾸기</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#pivot_longer-여러-열에-걸친-한-변수의-데이터를-하나의-열로-길게-모으기"><i class="fa fa-check"></i><b>9.3.1</b> <code>pivot_longer</code>: 여러 열에 걸친 한 변수의 데이터를 하나의 열로 길게 모으기</a></li>
+<li class="chapter" data-level="9.3.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#subsec-pivot-wider"><i class="fa fa-check"></i><b>9.3.2</b> <code>pivot_wider</code>: 한 열에 기술된 여러 변수의 데이터를 여러 열로 넓게 펼치기</a></li>
+<li class="chapter" data-level="9.3.3" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#seperate-한-셀을-여러-셀로-분리하기"><i class="fa fa-check"></i><b>9.3.3</b> <code>seperate</code>: 한 셀을 여러 셀로 분리하기</a></li>
+<li class="chapter" data-level="9.3.4" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#unite-여러-셀의-데이터를-하나의-셀로-병합하기"><i class="fa fa-check"></i><b>9.3.4</b> <code>unite</code>: 여러 셀의 데이터를 하나의 셀로 병합하기</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#데이터-열의-형식-바꾸기"><i class="fa fa-check"></i><b>9.4</b> 데이터 열의 형식 바꾸기</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html"><i class="fa fa-check"></i><b>10</b> R 프로그래밍 구조</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r-조건문"><i class="fa fa-check"></i><b>10.1</b> R 조건문</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#if-조건문"><i class="fa fa-check"></i><b>10.1.1</b> if 조건문</a></li>
+<li class="chapter" data-level="10.1.2" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#switch-함수"><i class="fa fa-check"></i><b>10.1.2</b> switch 함수</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r-반복문"><i class="fa fa-check"></i><b>10.2</b> R 반복문</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#for-반복문"><i class="fa fa-check"></i><b>10.2.1</b> for 반복문</a></li>
+<li class="chapter" data-level="10.2.2" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#while-반복문"><i class="fa fa-check"></i><b>10.2.2</b> while 반복문</a></li>
+<li class="chapter" data-level="10.2.3" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#repeat-반복문"><i class="fa fa-check"></i><b>10.2.3</b> repeat 반복문</a></li>
+<li class="chapter" data-level="10.2.4" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#반복문의-제어-명령"><i class="fa fa-check"></i><b>10.2.4</b> 반복문의 제어 명령</a></li>
+<li class="chapter" data-level="10.2.5" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r에서-반복문-사용의-주의점"><i class="fa fa-check"></i><b>10.2.5</b> R에서 반복문 사용의 주의점</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r-함수"><i class="fa fa-check"></i><b>10.3</b> R 함수</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#함수의-생성과-호출"><i class="fa fa-check"></i><b>10.3.1</b> 함수의 생성과 호출</a></li>
+<li class="chapter" data-level="10.3.2" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#함수-객체를-인수로-사용하기"><i class="fa fa-check"></i><b>10.3.2</b> 함수 객체를 인수로 사용하기</a></li>
+<li class="chapter" data-level="10.3.3" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r-연산자"><i class="fa fa-check"></i><b>10.3.3</b> R 연산자</a></li>
+<li class="chapter" data-level="10.3.4" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#변수-범위"><i class="fa fa-check"></i><b>10.3.4</b> 변수 범위</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html"><i class="fa fa-check"></i><b>11</b> R 객체 지향 프로그래밍</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#객체-지향-프로그래밍"><i class="fa fa-check"></i><b>11.1</b> 객체 지향 프로그래밍</a></li>
+<li class="chapter" data-level="11.2" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s3-클래스"><i class="fa fa-check"></i><b>11.2</b> S3 클래스</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s3-클래스-객체-만들기"><i class="fa fa-check"></i><b>11.2.1</b> S3 클래스 객체 만들기</a></li>
+<li class="chapter" data-level="11.2.2" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#포괄-함수generic-functions"><i class="fa fa-check"></i><b>11.2.2</b> 포괄 함수(generic functions)</a></li>
+<li class="chapter" data-level="11.2.3" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s3에서-상속성의-구현"><i class="fa fa-check"></i><b>11.2.3</b> S3에서 상속성의 구현</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s4-클래스"><i class="fa fa-check"></i><b>11.3</b> S4 클래스</a></li>
+</ul></li>
+<li class="part"><span><b>II R 프로그래밍 응용</b></span></li>
+<li class="chapter" data-level="12" data-path="ch-R-import.html"><a href="ch-R-import.html"><i class="fa fa-check"></i><b>12</b> <strong>R</strong> 데이터 수집</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="ch-R-import.html"><a href="ch-R-import.html#sec-read-csv"><i class="fa fa-check"></i><b>12.1</b> 텍스트 파일에서 데이터 읽기</a></li>
+<li class="chapter" data-level="12.2" data-path="ch-R-import.html"><a href="ch-R-import.html#sec-read-spreadsheets"><i class="fa fa-check"></i><b>12.2</b> 스프레드시트 파일에서 데이터 읽기</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="ch-R-import.html"><a href="ch-R-import.html#sec-read-excel"><i class="fa fa-check"></i><b>12.2.1</b> Excel 파일에서 데이터 읽기</a></li>
+<li class="chapter" data-level="12.2.2" data-path="ch-R-import.html"><a href="ch-R-import.html#sec-read-google-sheets"><i class="fa fa-check"></i><b>12.2.2</b> Google Sheets에서 데이터 읽기</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="ch-R-import.html"><a href="ch-R-import.html#sec-import-databse"><i class="fa fa-check"></i><b>12.3</b> 데이터베이스에서 데이터 가져오기</a></li>
+<li class="chapter" data-level="12.4" data-path="ch-R-import.html"><a href="ch-R-import.html#sec-web-scrapping"><i class="fa fa-check"></i><b>12.4</b> 웹 스크래핑 (web scrapping): 웹 사이트에서 데이터 가져오기</a></li>
+<li class="chapter" data-level="12.5" data-path="ch-R-import.html"><a href="ch-R-import.html#sec-public-api"><i class="fa fa-check"></i><b>12.5</b> 공개 API에서 데이터 가져오기</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="ch-R-documents.html"><a href="ch-R-documents.html"><i class="fa fa-check"></i><b>13</b> <strong>R</strong> 동적 문서</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="ch-R-documents.html"><a href="ch-R-documents.html#quarto-설치"><i class="fa fa-check"></i><b>13.1</b> Quarto 설치</a></li>
+<li class="chapter" data-level="13.2" data-path="ch-R-documents.html"><a href="ch-R-documents.html#sec-quarto-creation"><i class="fa fa-check"></i><b>13.2</b> Quarto 문서 만들기</a></li>
+<li class="chapter" data-level="13.3" data-path="ch-R-documents.html"><a href="ch-R-documents.html#quarto의-출력-형식"><i class="fa fa-check"></i><b>13.3</b> Quarto의 출력 형식</a>
+<ul>
+<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#출력-형식-바꾸기"><i class="fa fa-check"></i>출력 형식 바꾸기</a></li>
+<li class="chapter" data-level="13.3.1" data-path="ch-R-documents.html"><a href="ch-R-documents.html#여러-출력-형식으로-문서-변환하기"><i class="fa fa-check"></i><b>13.3.1</b> 여러 출력 형식으로 문서 변환하기</a></li>
+<li class="chapter" data-level="13.3.2" data-path="ch-R-documents.html"><a href="ch-R-documents.html#출력-옵션-조정하기"><i class="fa fa-check"></i><b>13.3.2</b> 출력 옵션 조정하기</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="ch-R-documents.html"><a href="ch-R-documents.html#마크다운-기초"><i class="fa fa-check"></i><b>13.4</b> 마크다운 기초</a>
+<ul>
+<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#텍스트-서식"><i class="fa fa-check"></i>텍스트 서식</a></li>
+<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#장과-절의-제목"><i class="fa fa-check"></i>장과 절의 제목</a></li>
+<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#목록"><i class="fa fa-check"></i>목록</a></li>
+<li class="chapter" data-level="13.4.1" data-path="ch-R-documents.html"><a href="ch-R-documents.html#url-링크"><i class="fa fa-check"></i><b>13.4.1</b> URL 링크</a></li>
+<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#그림"><i class="fa fa-check"></i>그림</a></li>
+<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#표"><i class="fa fa-check"></i>표</a></li>
+<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#블록"><i class="fa fa-check"></i>블록</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="ch-R-documents.html"><a href="ch-R-documents.html#코드-모듬"><i class="fa fa-check"></i><b>13.5</b> 코드 모듬</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="ch-R-documents.html"><a href="ch-R-documents.html#코드-모듬-옵션"><i class="fa fa-check"></i><b>13.5.1</b> 코드 모듬 옵션</a></li>
+<li class="chapter" data-level="13.5.2" data-path="ch-R-documents.html"><a href="ch-R-documents.html#실행-옵션-excution-options"><i class="fa fa-check"></i><b>13.5.2</b> 실행 옵션 (Excution Options)</a></li>
+<li class="chapter" data-level="13.5.3" data-path="ch-R-documents.html"><a href="ch-R-documents.html#데이터프레임과-행렬을-표로-출력하기"><i class="fa fa-check"></i><b>13.5.3</b> 데이터프레임과 행렬을 표로 출력하기</a></li>
+<li class="chapter" data-level="13.5.4" data-path="ch-R-documents.html"><a href="ch-R-documents.html#인라인-코드"><i class="fa fa-check"></i><b>13.5.4</b> 인라인 코드</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html"><i class="fa fa-check"></i><b>14</b> <strong>R</strong> 차원 축소</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html#차원-축소-dimension-reduction"><i class="fa fa-check"></i><b>14.1</b> 차원 축소 (Dimension Reduction)</a></li>
+<li class="chapter" data-level="14.2" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html#주성분-분석-principal-components-analysis"><i class="fa fa-check"></i><b>14.2</b> 주성분 분석 (Principal Components Analysis)</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="ch-RandPython.html"><a href="ch-RandPython.html"><i class="fa fa-check"></i><b>A</b> <strong>R</strong>과 <strong>Python</strong> 연동하기</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="ch-RandPython.html"><a href="ch-RandPython.html#reticulate-설치-및-사용할-파이썬-버전-설정"><i class="fa fa-check"></i><b>A.1</b> <code>reticulate</code> 설치 및 사용할 파이썬 버전 설정</a></li>
+<li class="chapter" data-level="A.2" data-path="ch-RandPython.html"><a href="ch-RandPython.html#r과-파이썬-연동하는-방법"><i class="fa fa-check"></i><b>A.2</b> R과 파이썬 연동하는 방법</a></li>
+<li class="chapter" data-level="A.3" data-path="ch-RandPython.html"><a href="ch-RandPython.html#파이썬-모듈-연동하기"><i class="fa fa-check"></i><b>A.3</b> 파이썬 모듈 연동하기</a>
+<ul>
+<li class="chapter" data-level="A.3.1" data-path="ch-RandPython.html"><a href="ch-RandPython.html#r과-python의-형식-변환"><i class="fa fa-check"></i><b>A.3.1</b> <strong>R</strong>과 <strong>Python</strong>의 형식 변환</a></li>
+<li class="chapter" data-level="A.3.2" data-path="ch-RandPython.html"><a href="ch-RandPython.html#형변환-직접-하기"><i class="fa fa-check"></i><b>A.3.2</b> 형변환 직접 하기</a></li>
+<li class="chapter" data-level="A.3.3" data-path="ch-RandPython.html"><a href="ch-RandPython.html#파이썬-모듈의-도움말-확인하기"><i class="fa fa-check"></i><b>A.3.3</b> 파이썬 모듈의 도움말 확인하기</a></li>
+<li class="chapter" data-level="A.3.4" data-path="ch-RandPython.html"><a href="ch-RandPython.html#pickle-사용하기"><i class="fa fa-check"></i><b>A.3.4</b> <code>pickle</code> 사용하기</a></li>
+</ul></li>
+<li class="chapter" data-level="A.4" data-path="ch-RandPython.html"><a href="ch-RandPython.html#r-마크다운-문서에서-파이썬-명령-실행하기"><i class="fa fa-check"></i><b>A.4</b> R 마크다운 문서에서 파이썬 명령 실행하기</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="ch-RTips.html"><a href="ch-RTips.html"><i class="fa fa-check"></i><b>B</b> <strong>R</strong> 관련 여러 주제들</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="ch-RTips.html"><a href="ch-RTips.html#r의-파일-및-폴더-관련-명령어등"><i class="fa fa-check"></i><b>B.1</b> <strong>R</strong>의 파일 및 폴더 관련 명령어등</a>
+<ul>
+<li class="chapter" data-level="B.1.1" data-path="ch-RTips.html"><a href="ch-RTips.html#작업-디렉토리"><i class="fa fa-check"></i><b>B.1.1</b> 작업 디렉토리</a></li>
+<li class="chapter" data-level="B.1.2" data-path="ch-RTips.html"><a href="ch-RTips.html#폴더-내의-파일-목록-확인하기"><i class="fa fa-check"></i><b>B.1.2</b> 폴더 내의 파일 목록 확인하기</a></li>
+<li class="chapter" data-level="B.1.3" data-path="ch-RTips.html"><a href="ch-RTips.html#파일과-폴더-존재-확인"><i class="fa fa-check"></i><b>B.1.3</b> 파일과 폴더 존재 확인</a></li>
+<li class="chapter" data-level="B.1.4" data-path="ch-RTips.html"><a href="ch-RTips.html#폴더의-생성과-삭제"><i class="fa fa-check"></i><b>B.1.4</b> 폴더의 생성과 삭제</a></li>
+<li class="chapter" data-level="B.1.5" data-path="ch-RTips.html"><a href="ch-RTips.html#파일의-생성-복사-이동-삭제"><i class="fa fa-check"></i><b>B.1.5</b> 파일의 생성, 복사, 이동, 삭제</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="ch-RTips.html"><a href="ch-RTips.html#r에서-계산-정확도를-향상시키기"><i class="fa fa-check"></i><b>B.2</b> <strong>R</strong>에서 계산 정확도를 향상시키기</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R 프로그래밍 3판 (draft)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch-R-dimension-reduction" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">Chapter 14</span> <strong>R</strong> 차원 축소<a href="ch-R-dimension-reduction.html#ch-R-dimension-reduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>이 장에서는 다음 내용을 다룬다.</p>
+<ol style="list-style-type: decimal">
+<li>데이터 분석에서 차원 축소의 개념</li>
+<li>대표적인 차원 축소 방법인 주성분 분석을 R을 이용하여 수행하는 방법</li>
+</ol>
+<div id="차원-축소-dimension-reduction" class="section level2 hasAnchor" number="14.1">
+<h2><span class="header-section-number">14.1</span> 차원 축소 (Dimension Reduction)<a href="ch-R-dimension-reduction.html#차원-축소-dimension-reduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="데이터의-차원" class="section level4 unnumbered hasAnchor">
+<h4>데이터의 차원<a href="ch-R-dimension-reduction.html#데이터의-차원" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>일반적으로 데이터는 다음의 5 명의 고객 데이터베이스처럼 행과 열로 구성된다.
+행은 관측대상인 각각의 고객을, 열은 나이, 거래기간, 소득처럼 관측대상의 특징을 나타낸다.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">나이</th>
+<th align="right">거래기간</th>
+<th align="right">소득</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">35</td>
+<td align="right">10</td>
+<td align="right">45</td>
+</tr>
+<tr class="even">
+<td align="right">45</td>
+<td align="right">15</td>
+<td align="right">55</td>
+</tr>
+<tr class="odd">
+<td align="right">30</td>
+<td align="right">5</td>
+<td align="right">70</td>
+</tr>
+<tr class="even">
+<td align="right">25</td>
+<td align="right">20</td>
+<td align="right">30</td>
+</tr>
+<tr class="odd">
+<td align="right">50</td>
+<td align="right">25</td>
+<td align="right">60</td>
+</tr>
+</tbody>
+</table>
+<p>그리고 관측대상의 특징을 나타내는 각각의 열을 특성(features) 또는 변수(variables)라고 한다.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a>
+우리는 데이터프레임의 열을 변수라고 부르도록 한다.
+그러므로 앞의 고객 정보는 3 개의 변수로 구성된 데이터이다.</p>
+<p>데이터에서 변수의 수를 차원이라고 한다.
+앞의 고객 데이터베이스는 3 개의 변수가 있으므로 3차원 데이터라 할 수 있다.
+변수의 수를 차원이라 부르는 이유는, 관측대상을 변수의 수만큼의 차원으로 이루어진 공간에서 한 점으로 표현할 수 있기 때문이다.
+다음은 5 명의 고객을 3차원 공간의 한 점으로 표시한 예이다.</p>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-3-1.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="고차원-데이터" class="section level4 unnumbered hasAnchor">
+<h4>고차원 데이터<a href="ch-R-dimension-reduction.html#고차원-데이터" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>데이터 분석에서 변수의 수가 매우 큰 고차원 데이터를 다루어야 하는 경우가 자주 있다.
+고차원 데이터가 생성되는 이유는 크게 두 가지이다.</p>
+<ul>
+<li><p>원래 데이터에 측정치가 많은 경우: 종양의 유전자 분석 데이터에서 유전자의 수가 수만에서 수십만 개일 수 있으며, 생산 공정 데이터에서 측정센서의 수가 수백에서 수천 개일 수 있다.</p></li>
+<li><p>원래 데이터에 변수가 많지 않더라도 새로운 변수가 추가되는 경우:</p>
+<ul>
+<li>유도 변수(derived variables)의 추가: 데이터 분석을 할 때 이미 측정된 변수뿐 아니라, 분석의 정확성을 높이기 위하여 측정된 변수를 조합한 새로운 변수를 추가하는 경우가 많다. 예를 들어, 기업의 재무 데이터를 분석할 때, 기본적인 매출, 손익 등의 변수를 사용하여, 수익률, 유동성 비율, 전년 동월 매출 증가율 등의 변수들의 추가하여 기업의 수익성, 안전성, 성장성 등을 측정할 수 있다.</li>
+<li>범주가 많은 범주형 변수의 변환: 데이터에는 수치형 변수뿐 아니라, 남, 녀의 성별처럼 범주를 나타내는 범주형 변수가 자주 포함된다. 일반적으로 회귀 모형 같은 데이터 분석 모형은 수학 함수로 모델링 되므로, 분석 모형에 입력되지 전에 범주형 변수는 수치형 변수로 변환되어야 한다. 범주형 변수는 범주의 수만큼의 지시변수 또는 가변수<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a>로 변환된다. 그러므로 범주가 100 개인 하나의 범주형 변수가 있으면 100개의 새로운 변수가 추가된다.</li>
+</ul></li>
+</ul>
+<p>다음은 한국프로야구(KBO) 2024 정규 시즌의 타자 기록에 대한 데이터이다.<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a></p>
+<a href="data:application/zip;base64,UEsDBBQAAgAIABenZln4amjsNR0AAL5AAAAMAAAAa2JvLTIwMjQuY3N2bZvNjhzXkYX3/R7eZZfz/t+7lDzA2PBgLIwGmCeY9QCz8ZaSWwZh0WMKFq2WRco0REOyQcAtUbIpgHohVvU7THwnblb/EaK6i82urMi4ESdOnIg8nD093D/f/+2D5fLBPX373fPDl/cOH5wvr7/54fXLi+XyV/cOZ0/07f75cnh0314t+w+/4lvcf6HvaX6//PT+/k8Xy/73Tw5PH+ot9m3/4tX+7J/L6xdP8/LTt99ZDu+/Onx5tlw+eX758QN944IvPjq8/+2y/92ZXYpvhw+f6QKPv1refuvtn70zL/Oj+fYf8fcf2+vlZ+/+Yhr34/nxv3jn3eU/fmJ/fhzb8kt79e47/7L88t23l1/+4u237AdvvbX811v/cfL6+3t8zvl7y89/9tayf//bw6NX3GLIYamxLCXnJfSxhBCXaN/WJXX7x2SvxlLr0uy/YD9tS+cfs/1Z1l3Kja+t2M92dQnNvqz6396YdykuYbdWe2epu9XeGHaBq+adva/vxljybo322znHpYzd6MvYpXSy//Pjy0fnh988W37+n8vh05dHW/NS27qUZtftXK4uyWxd+BxdPi72Y7PXXhYzMGOq/Rv22E3Z12o/SruApXxuw9TINdrO3rmaBQOX7GoxS4q/XtuSdtxt5LdzDEtZd2Vpu5BPXn/3/PD5w8Mfv9ZJnX193Vr7xFL7kof5oo5lbMamZUQZWLDRbG7JLO5YnaZXk75Ws8F8F3dYZj42C3rGryPjV04spR23ZPbYEcSOycVdGnhTtkMsYdftjHe9nBx+/Wezcf/85fLT//7f/7kRBXGp9rZiMRSaWWnfzXy78sCjYTXHZ/NkWrq52P4rS1yXVVbKrWMGQNLhNz472NfYdo1fGFw3hp25YuyC7n5XMSrj20gQZfv4lO0w7Kehnhy+e3x4+mh5991/vW4mLi0WeubWkCwo7XQbZrUFJ9tB4QZMCyF7yFq0yM44FAVrVUiYiXxk148SLq64dzSCaN11u89dUcDv1mBB2hoO51csXZLZ3szKNZ4cPnm4f3p///HHh0dnsvXa8Zt9xT602DvCKHJxClgXcGKw84ndHGpnbudv4UEk5EUnrwSyX8p+/HLx0aXFo3akJjfa0fQdgWW+L5FILcvpysvpUzsSC6tdHyeXn/72cCGY+7ebllrG2NVKtPO2awfzcMC0QsxiXMXOiI+z/VAAEOROt9TS1gwJRGbFT9zD2gjLrNDtuNJeW/40d+sghPOu5OU08dUvYqZ2ftz7yf63F4cn3+6/Pzv85qvl339yPQbMicX8X+zGg73V3BQ5dLIFswZZZj9o8rhiwFyxbKeP0RbMu8G7SChhA/bthownHELdFYWAvGouiZy7eTUMhYDFgGU/gdHbiQWAmXo4vw9e7f/8dzP9NmYZPhXzR7Tj4O8GnvYhRZkVZDkYpaDQnzpjNukQk0Vj2ylQ7Fi5g1DMV93TZuAG8z54pCuYm/Eh17FflGct5joYYMfTTg7nz8zQyw+/JQiuI8BqCJAdAUivVbCa+GI4HewbCesIEPRHESv/yS0CYaJgYoAQ0w4oKMvN0sLtNmK17zgeM9UA0JJuOQ1Av3nWPs2iZSFUTvYXj/Z/f3X448Wt8wd/7dgygVQ80yMe7ItBpP2ggPtjacAXQJWIAszrnkZmZFzkmaqcslAvdppJgWp3FcidhqeHkKxaxJgvky7SSeYdDl7t5J+/3L/41pjDbVdmB1NzS+Ay5jUzY4lm4yrHVv1V9SpQHBahlYJz9bxSQJqtXb4sGBotemMC4e1f7O5GB8DqrgJplnAW+DtLVvNl9aJceXsDRdZw8vofD4x87H/3Kd68XqQszYlBjLCMsPIXCUYzi6Lf+BPI9+o1Kqjuq77j0jwTPxKfu6i6AwjxoltR6IXjNGcadoCkyX2uw05WBe1+DAj4AkG5PH9MCb1dmywiPeHNndXNtAMn7Ml4O/RMDTCfe7qbt1f3peq1ub5jnX3qVvAJ5lw9f7ol9ihYYTFQOf21q1ja/ejt4IjxEzPSEPS1YvLy/OVW7iGQE+yz3XhWMbFzTlROYmWxMzIfmhVEqP1Kpc43cH4WH77iIzJip7DErmBgawUzBnkyWKnj5GV0gxBEonLleN3GsKOStoAfobQXzzcTr0OnJYj9n0tyahcFNgk0olKYadClAUApBOxXozOSIF9QyswmHajbugIVJajm23EncLPuml5aYjcqp3ggVQ1aRqE1O08gowbtOuurcBx8ogWyMKYCNYb2wkULJkt4ww7OtsBFopM7XdqrZoBcqJhvnqFgGqloSUhJNFMv8XVfcWWCVp3CkxSQFkeRkmBFtIM/5r7LR49vkxBKpbGhLKqI6+2kSArYscVOgyqR3p2jHkL05HXdkxvPh51SJ25ASQp2j1CD664UKRDkHoGj7JxA95GM49SjlYdfP7h87/n+yavLDx6IMBu7v159Vociu0ZoQYiTqD7mXEs/u2E7UuGlgar91/zUOXB3a93N2r7CKyYIBVgaIATtT2BqI7lH43CLqvpGDPnM6p7ODZe+/vrbCelXVpojUwU1kuohlTLNADQvJBizmIefetsQKE9eNJx64LwalDqWHpkUpugE5Uuk3Via1Rmqi+6uO0MagBDRbxc82b9vXcf3h09+2Ar5zbrDkee1CZI6RHABt4saJCgwFceK9SLm7EaGeAQRuo5F5BKUtPdZGeQWjAb0yu80KEgfQHlWdimxhJORWEj0RofHzwzFDcvfxDUsT/AapbhQFpLbaB9jR20OoRVTIwePExVuquBxpNnNCSe3soNLAQiROMvLETlcO8/CYYv/xOU00oKQf7R2hIbb+YePDk/ODYqW/UcPD+9fHKFSmGhWWRwCSFa7YJsrzjGnDNEju77lmGNl2jo4OStRpCjgDs8tuInGitXgdQuXJm5WCYbWYUNxp1CZR+EIQUSmKLQ8e7r//v7tttiume1UM5EIu7ZTJ+gXATpIRPtTHJBm1lxrMzP9AcScz21t0gzRoA6CK8EqBbNl+orkPVs5+pG22X4arMX49UOrNzTud0PSXJcBApgr5LrPwtjpjKjcTXBOVoKanjr20d0btyMEqVDGSJxhIay/7EQ7uVTEzsrLU+BJTtRRp83Ez/9iSElaW7t+rIgzXYL35U295MoXqHWg1NAN9ckq+tanVY/HySlcUJAD+2Ye1TLAzwr5UodTiCytIU7anDDfvGpNzyf3jaFZ1d7i8Pohwx3AwKbW0q4DSYRDDNgumIszY1Ek9u2M1zEzG+vwYJgBBpUcdDhmZRDwJAVC4ZiV1DrlslVD1ASsVLGxrD589hAqeXShHa9hWU5Z7SJ9CK2MtbeGi0YlC6RidfdSaDbQic4KxLGBDvWtymXoXdi5fUThilxQCBfqkbMj4XxSTAI5azp5/eKpoaJceBcVV8FNhhhnbxsiHAxGa9VLBYaTbl26gfpxBeGqIFTtEDpiVBE0VtVsFbxut94NtJUsibpon4PHTzcSaccEshvEp5P9By8PHz6+/PR8sap9+enHN4o25IbOoYr6UOrFHjJdmLmlrrNUS/aQcFRvONOFA2c9uW4BabZF92afdNxC0FgvSg5A6pxY3uzTSiDn8+dYOQPylmZAuSdb7NYtNhWQZpP5zz6pUgmrGjQUg64Uoot1AtScWKT1SjKI5EX1atyRXwrWo34ZIy/wyIozPXGaoH/Q77YuQ794RUzeasDNP1b6U6cKLKBVd5ixjLd4ksZRVMlRPfhSxcejt7NRgQ+cykr3pcVMjq4b2aWNDBScVmV4pUxC0lwbw2aKgiXTCY23+fL87A1klyqqRnl4zzVmmTG3Bgo27SgxmUSA+6wyDoXoNZG47KI+wh/oR3P8a/a1osuUnZlaC5JHmtGr46bTIfcs7U4OTx8hOluJeeN51xWJDrvwWUMeguwMtTVt9e6r0TyE7h2EWlWUQO+81TXYFzVWTdKLGIoitSWYCu12AWvsZaLXWNWuyZ3Kpa4iWaUS09+8d0t4DVQ6yAQJQnIowSFpCHgZlsGx56LwJIM87J1WD6WoQnNqg2utupjTihqgs1XNdlFzHWSVa0z0sREKaWhq3vzwKarA589v9dwoApY1qUsVk2QRVFLsopBgsLEgtSSVR0nGOm+5DE0I/cwFVyQKsxEeq3gk71CBi7qbQbfQ4ECns1eDkRcAyy18+nj/p+f73z++e96oD8QhGpAACFQRrki1otlb0ubMY6cdtz6UiJvS5SZk0Zsu6lmzpAH7HQRLUccK95km5iLNu8rGenL56V8RgonJOyTSbixDPtSuNTqD4MxhSGiBO9vpQi9xo/LdzZzcpbkO3LdKR3kajpvdnFghRlItqspmEBWZIqf9kDfR3KrXvviaXtti8Za6Aqyg/XDHdCQNm7ylQXWVjioNe/GGWySnq2wjv5uFmwQs9EEhm2qZZcJAL6hk9siiSd4vOJJXNW+yOHap1J89PDy7d7vvAsh1KF2hSTMPygxpVPzbAuUBhRDR6KmWoWh0iMTG7onuigXh3f0oaRCNWQxizqw1ZlHzpGfBTzw5NyJjYrF4PDMDYWd3zxqMNAAUy42q2JLSnIojQA+x3D7bhaCUP7YLLpsqsPKmUgW6lezDlG4Z1CqdS4WuGRkvMLXkQxcFNWhGKpml4eTy/86tkT18/nCr39ejkuGEGaQ5R1FlJD0wugCTFQYeVb790Jv62KixSSLbrWpgWdvIUKTaq9phKY22xL4ilEQ34CZOtwru4gUU2Tytc//y3uVn92+L/pqkJTk1EGlS/cTD4MLDDz5SgeImTl4zc+Xco0+oZtXhYmmn4UWze2xqGgqp3kTG+0RG79eHujEKTwgSMC6eK4Fu9jYWvcUcWCzgkZIJruj4iGQBb3c0z95+DSGVCxhtyn6kSHO1X1gJc5CW1ewmmzT9AmRaH0F9A8pP09QELCfMSuIEfg7LOH/v8NkHbyjhsUr1y8UHelANAJxiUSTwlsWl9KLBBCQkXhGNgJl9Y0NqzCJSbp2t4qo2B3VRA7JOTJadUMILl/n+dHWSZIYinNuZG2+7WXlIc5owC0JDyCJfSpuqkgaKI7lKpnhG8C4serMXVRiHcmYbSSEOSG5ulVmHD/WILHruaaG33F69G/mzCjGNp3Pgd1sdmmrgBsnPQK+rbDdxiiAtI0rLIB6yK711uRqQcCuAZpPKImUNlthpvfCkWDqX38mnSBlKmyl4OcewsJTAYoXnm49vA6YR0GyOSxobDRGf5sOygh6m0kkN6tJ4IXLXpnoJzhE9a1S70bAbn4h42lWzRTDsTHadfNHEQgLwnF2CK4ZUJ4Y8oKWZhIFHzcIyFZXB3tvp8bwRkx6ZZST5zEcIeOZk1JNFxW5rtL1NzHqXl8NcnZzZZXP2+uwy+vC+QYpVQCAHc4zrGuZMdDwaZzkBK+7iiUVNFiEHL2uIZ6vc2L0r0z/Kd+pTk53dgEBW78DazObGrzRG33N0RFuSUVWDK2vuPPuA0+gDki4TL88fSQi4ebqoKfSC6gsGZkZkHXSFpvPm6o4/Rf9tfc1UTdUwhHakPhHeO3ZzzmBQ4EWGplbMLGEjbU27ElQQry2jmNqgVnzx6uYUlCkNPf/qU08lAIdsRC13L4SJKEzeHiYfKvmErczJN3EEsRYkGkSdznJdovgO52k53EnnTGlxiXSR4ocyfnJ4dP/w/fnlp799Qwcb0ULt01vSZBPcEWFkVJOhEhkFUkNxNV2SeY+TmnansiDKVm8SG1J9Bel8EtJpg0R5Tz3bucPKMMKstGM+e4yMe/HDrcICQSQQrRAwcm6uSEBHRRyruzCoR4iTSnjhwoFIniHKgZo2rFxONYUxAEiuviVTgL24bJKeYZimYAaUGiM9Pj98+dHNplUSM+Q1q8atGgCqRcj4DbRd1G4BfW3O4WPLs444zRlynrd5hTLkBLcxtJYKVYCZoqmNhcMQNjsCcr5Am/lYJv7q8eGTizcdsh0jIzvGglZ16cs0WohSmYNXvCwywQkPVb0jDlpYKJd9kqD+irYyZXo/jnkAgFRVcR1NB5NzYEdqvAHZMDuzmus//vX1Px/fntIwJYL7GckpVXqommfteHh/MIAdnyzMCY2P3sn25HqP1Pk8e8EgAaNr5sx5Ki7TQJbI+HRbaGD+2h1uSpKBZ19j4BuWb8wSO520ar0mazqDGCb23dxK+A8al7jipA45Tn7bGah5qgiGIsCafATTWTFgBIzeYzGksWbxSU72G6UUDjfTOO3+b19pO+B2Q0hhs9tLjDILScP6goascEh5lGxZJ5/dxkhljj8aTYJvMkm1C0wag6K0s1Elfb6CfJjI5KN6KW6zlZFIHmbnf/jVe6p7N7othCwLRK+ScdFQWedqRhFazQdyQ1oKx+9uVNeCOkHeSrivShsYLl2JD7MYeXVqC7qGGv+ipEmzUTvN6nut4Rb7evyM3bwb9tlFIvXBXI/ogjwh9m9vVoQqWyjRUr/X691LHmK2LkLljdL4EEGsMQa/kFx3OvU0CIq0cbNKAfjFKyt5tzNE211musCaxjTMk9X6BK7TdDirGgoiN7WxemevoRbDSF85YmZdr+Cavkqcv4BA1gigV0MZ5sA4qbrw14S0fHF4+mj/4N5tTcdrSdYCiQRa7dE0tSnqVIKG7E4LlSHtqlUpc+MrZh8Ouv7NkNYhjz6gyofqAKrqtHZTsKxu3CFpLRBJ4vD12eHJPc3U7zZ/eQrh1YXwiYoWl8i/yb0pKa94Qz3pQ/Pj9mZ6EpyxNamumHXpgU6x6SSjr/tEYY4nmtQd1DmZefaYccw3T2+JonluJfHhucptWy5DQIMPjKQiBwkBgI9XmV6mN4pPPPos2mH1YqJcYXYH4GTtzQ3sSZw4QrjrGtZhtRkDzbcpzrDs1qoXY0dEG840qitJvjyjy6poc9AaXK+ugrsT85SiulZ8SGjR1MhmoCd3M/91rVEVyrGRMgqWE0UX0QVSnHfM6k5/8z2bk3eHCtBqNifXIgtpLodCk6mpmIUcS4VMc6wlSlq38Q+SWnGRbEzYgXj5xLAKu6ujYSlwXo2LToNvAUKWzJXV5Xvpt8+Q7G/tAXQ6Pah1kY4T53woS5QIzhc32rh1U7Mn0LbJEXxcbWRoLTbZWtUiJAHZ9IoAXgVBYbs/X1AJWUre+Xv759+9iUwkqd9iH9BaJCeYDfOx4iWw+MYk8JOd0a4bYek+s547Z6u2B+rcOhG0cbJZbFZcI3Pyp3FKot7kK7lDnpTn9XcXN7oqsymywpmk+LMoIxYW1br41l5wZUJZtfUtNc85YdaIVVRnok9K3sE03ljRGATeaTbWnvyuYVi6VB97DGeNnzx4/eLZG5gEyzpcDuqhCXpXiliFRgWMOmCBZdFoy9lOnOsydOzmtSuIZKduakptqKVCy1QxzGSvlmVON32sSMrRBm3ZBkdvau+1C5dVaiBOEpW2Rdg5d/Wdir7kY3saNxyPvq09tuWEtXrVkvjIuhvQhDCoXZTgUwan3mqbfbuPEs0hmxNviWJMNZQtmhZlZcM6XVjnhg+VPPnkYOojs84E34SLxQu1b/VoFJM37SFr16gqp2UzDg/OLtVC666GMbEX6KCXd5bgNRvyvceitY4hwoDaF9zYuIlifVvsWPNcGWJXgqXcbQ+JHbXkO5DwxNhcGEEKHOBgdPoVt9Y0O3fr3Qn3BeF3u30mUBgRDDELJlpVQVi0C4UjkJaGQ412XlVY+sZzAN3hApNSICjcPJcBwUYmFECmro6Hvg95pYLpuK3Fp3s2nmj17yab0NSAlGiapmqR1Xc6NK3ORZs7vap/7ltVKXU2L1ors5KsHVc/Y8dHXy2rwunoExh7mZhMa9mnzk35dQ5itSAD3/n+/t1c1jlDBbR06xsQAE7VMNhTOfvUIByrsy8Rdl+xE3PVHkeovhFiH6n9Wvg75N8OmT1pg6TTuSflh6y7UvP3+uUFzd/NtRh7O1NcpMumyX6YCyZitT7398InYXuybN9e9j6gyheybR0CZY3bQp49VcY6e8kmy25KcvEKCiU4dc3XXrxkR/wGz+a5A3Kftir74vrqo7QwPEMky8aj7CDztoGL6yK+DeMKE2xujqZaVnBSotFBorS45D3A2Pa8xHqVIBc/8DzNXfUQdGGQY/GmfR1hXvJ2xR3GjqYeDpndvbMFDQHitrsej0uNLrnjewdA1v7JQYDwdD6OQSmOrqh4N/olWrbgb6txEf3ePnv4rvfQ2qpGkVpWDr5vkjw9tAcTjq6LWpKPiw+h1c4jqQ9/yAa2JsUwaalNwZb9t8YcJpwamwxOv7Sk8+UZ2HeHX7NaxhShi/iVsOEzzX1WS0TYRalL0hCVtTXN4NH+hRqVKW6m6KPbhnamjlgrmHn1FE7jqgel2M2lYGz87vHhyUsq3B0bWbbAGBjpuujRF4muqQmmy6Ytqfmb27UzdzWw3kWf6K+uCgexD46RDXfJNnp6InkchuP6m28Z6nfrONl/+ZfL95/tzx7cHVYgpQQIjba8q+/rL54revIn+bM/c4NjytfHIT7t75QPtZ61su0ht1StRogkUOm6nkYo234H8kFwhaJWLd2dPbm2W3LzEZ8ykjRElrOab2mQziT32ryLahIak3bDpDigifj2xtDUJ8696ONySfHjoxBbaKpZIkq7P9vjQOOLjDxDEeDVbus/PjawwbSbdIHRG/nMJp/U/zBn96vk7Cav0lNpZ6PMUhc2NkLPPHeeim/9RbCwTmZtHtRO1ipnapamDMnxmM9CnVroUC4ffcva080eKjN8RryImjGP4QsuVeo7a4NOXGn0hq9J5Pn0xsyZMFfSu0DO5Tc2PyeBqKP4lFzZXcUFOwX5dPXAZLPrFAlNv23I8w1783cm5YyFGKYzgtD2dPeNDe2h+i6MLDuKI7744nLsJK5jc82K0pKOFUUrJSL/Bo+aP7dNtyXfTrNzrtIYStGJ3lwOVE7EuhEB35ydU53gI9L1yFNFW6rvZkOn+mQm2sjxR6G0dI74SeT5NosiQvIxG+XRSStqHGvdL8FBa+CnPX1uRyPFcUfLZMxabQjOruQppy9XXQhry1SP6OMdHd86V+F4voTnFP2ZJq8zSdvHbdvKIBJOsy+IlqglwBcfXXu64NpZMnyys8zbYmJx/UPP7Xkrl9A/og5zwp9vbLe51Btdvtanx6otWCeedNuJpRaJmVn8PvlsxSGwVH+sbDOSdph91NsQY51WpFND6dFq3VBVY7zft+UWbV3FK47g+1ad8YS4ct6ef0MSthbO2zlB/NyLLtocmy3J7KARQooDJyY+t/M9gwHe7YnXpDoXq4ZlefiYp+hpx+bNZkRjiOpG0rK50B8gup626jmZ6MS5JGTFY1DqwL3iToxCvHHUM5OPy4sP541H/+HlrWke42hGof6AlQ7SF/QVkWHLi3CtwPHUHsA8ZztlduunvmzV/GFFwJsd+7lPMrbHdv2IWVPTA5d3tv1q0XidipEkm3tnSRHJ2mf3QaOPc9qkzPG4jagNydmgrzXqOpynpimUikiX6utfxR/FOG4ybKtLDGXP2UTkwezbB8piFzUCRWL11IVfheoQ7MRPYuHiU9rjko2k8brViug6UdSVoC5JpFRrDFmjn+F4fDoXulMqx+2QzJbNI0azb9jRhg8VZS/lp/mDswNXKlB0nNWfrEybcOnosI75FNhw5qyTQ86Yj3ghuEEBi/dFOfrOT9e2pMsc/tjiqNPID5/TYD67d7NQ8DgQjyRXbVQk1wi0uRK7n3FwFljUfoQrnXptLvD7EyJlzO3DMnWi2rVXRe+RdMzR9cv5oEaiphUfqWR/sOGMXc5bzbme8fUdGt931jOongfjRj5kyWuFvpdsdBgEjjRIqXwSy1u04734VsosqVlbNL4Ey8bU/sNn11bGr4o/s2VJFIjhcatXYQ79+w1rknyQ9eDnzp/d86c9/OnYUz1C0/1ZnkGVra6djqNKlYN24fxxvpP/B1BLAQIeAxQAAgAIABenZln4amjsNR0AAL5AAAAMAAAAAAAAAAEAAAD/gQAAAABrYm8tMjAyNC5jc3ZQSwUGAAAAAAEAAQA6AAAAXx0AAAAA" download="kbo-2024.zip">KBO 2024 타자 기록 내려받기</a>
+<p>앞의 CSV 파일을 내려받은 후, 데이터를 읽어보자.</p>
+<div class="sourceCode" id="cb2558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2558-1"><a href="ch-R-dimension-reduction.html#cb2558-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2558-2"><a href="ch-R-dimension-reduction.html#cb2558-2" tabindex="-1"></a>batters <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;kbo-2024.csv&quot;</span>, <span class="at">na =</span> <span class="fu">c</span>(<span class="st">&quot;-&quot;</span>))</span></code></pre></div>
+<pre><code>Rows: 100 Columns: 38
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: &quot;,&quot;
+chr  (3): 선수명, 팀명, 포지션
+dbl (35): 경기, 타석, 타수, 안타, 단타, 2루타, 3루타, 홈런, 득점, 타점, 볼넷, 고4, HBP, 삼진, 희플, 희타,...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="sourceCode" id="cb2560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2560-1"><a href="ch-R-dimension-reduction.html#cb2560-1" tabindex="-1"></a>batters</span></code></pre></div>
+<pre><code># A tibble: 100 × 38
+   선수명 팀명  포지션  경기  타석  타수  안타  단타 `2루타` `3루타`  홈런  득점
+   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 김도영 KIA   내야수   141   625   544   189   112      29      10    38   143
+ 2 로하스 KT    외야수   144   670   572   188   116      39       1    32   108
+ 3 구자욱 삼성  외야수   129   568   493   169    96      39       1    33    92
+ 4 송성문 Hero  내야수   142   602   527   179   127      29       4    19    88
+ 5 최정   SSG   내야수   129   550   468   136    70      27       2    37    93
+ 6 에레…  SSG   외야수   136   591   541   195   142      31       1    21    82
+ 7 홍창기 LG    외야수   139   637   524   176   150      18       3     5    96
+ 8 데이…  NC    내야수   131   567   504   154    82      25       1    46    90
+ 9 레이…  롯데  외야수   144   632   574   202   144      40       3    15    88
+10 오스틴 LG    내야수   140   604   527   168   101      32       3    32    99
+# ℹ 90 more rows
+# ℹ 26 more variables: 타점 &lt;dbl&gt;, 볼넷 &lt;dbl&gt;, 고4 &lt;dbl&gt;, HBP &lt;dbl&gt;,
+#   삼진 &lt;dbl&gt;, 희플 &lt;dbl&gt;, 희타 &lt;dbl&gt;, 병살 &lt;dbl&gt;, 도루 &lt;dbl&gt;, 도실 &lt;dbl&gt;,
+#   타율 &lt;dbl&gt;, BABIP &lt;dbl&gt;, `볼넷%` &lt;dbl&gt;, `삼진%` &lt;dbl&gt;, `볼/삼` &lt;dbl&gt;,
+#   ISO &lt;dbl&gt;, `타수/홈런` &lt;dbl&gt;, OPS &lt;dbl&gt;, RC &lt;dbl&gt;, `RC/27` &lt;dbl&gt;,
+#   wRC &lt;dbl&gt;, SPD &lt;dbl&gt;, wSB &lt;dbl&gt;, wOBA &lt;dbl&gt;, wRAA &lt;dbl&gt;, WAR &lt;dbl&gt;</code></pre>
+<p>이 데이터는 총 100 명의 타자에 대한 정보인데, 38 개의 열, 즉, 변수로 구성되어 있다.</p>
+<ul>
+<li><code>선수명</code>, <code>팀명</code>, <code>포지션</code> 변수: 문자열 데이터로 타자의 소속팀과 포지션 정보를 나타낸다.</li>
+<li><code>경기</code>부터 <code>도실</code>까지의 19 개 변수: 경기의 기록원들에 의해 직접 기록되는 타자의 기본통계 정보를 나타낸다.</li>
+<li><code>타율</code>부터 <code>WAR</code>까지의 16 개 변수: 타자의 기본통계를 사용하여 타자에 대한 유용한 정보를 만들어 내는 유도변수이다.</li>
+</ul>
+<p>타자 기록에 대한 통계의 의미를 자세히 알고자 하는 독자는 <a href="http://www.kbreport.com/statDic/main?page=4&amp;contentsType=a301">KBReport의 타자 스탯</a> 등을 참조하기 바란다.
+다음은 <code>batters</code> 데이터를 쉽게 살펴볼 수 있도록 표 형식으로 제공한 것이다.
+웹 브라우저에서 이 책을 보는 독자는 네비게이션 메뉴를 이용하여 100 명의 타자에 대한 38 개 열을 차례로 살펴볼 수 있을 것이다. 타자는 WAR라는 기록의 내림차순으로 정렬되어 있다.</p>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["선수명"],"name":[1],"type":["chr"],"align":["left"]},{"label":["팀명"],"name":[2],"type":["chr"],"align":["left"]},{"label":["포지션"],"name":[3],"type":["chr"],"align":["left"]},{"label":["경기"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["타석"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["타수"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["안타"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["단타"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["2루타"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["3루타"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["홈런"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["득점"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["타점"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["볼넷"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["고4"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["HBP"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["삼진"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["희플"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["희타"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["병살"],"name":[20],"type":["dbl"],"align":["right"]},{"label":["도루"],"name":[21],"type":["dbl"],"align":["right"]},{"label":["도실"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["타율"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["BABIP"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["볼넷%"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["삼진%"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["볼/삼"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["ISO"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["타수/홈런"],"name":[29],"type":["dbl"],"align":["right"]},{"label":["OPS"],"name":[30],"type":["dbl"],"align":["right"]},{"label":["RC"],"name":[31],"type":["dbl"],"align":["right"]},{"label":["RC/27"],"name":[32],"type":["dbl"],"align":["right"]},{"label":["wRC"],"name":[33],"type":["dbl"],"align":["right"]},{"label":["SPD"],"name":[34],"type":["dbl"],"align":["right"]},{"label":["wSB"],"name":[35],"type":["dbl"],"align":["right"]},{"label":["wOBA"],"name":[36],"type":["dbl"],"align":["right"]},{"label":["wRAA"],"name":[37],"type":["dbl"],"align":["right"]},{"label":["WAR"],"name":[38],"type":["dbl"],"align":["right"]}],"data":[{"1":"김도영","2":"KIA","3":"내야수","4":"141","5":"625","6":"544","7":"189","8":"112","9":"29","10":"10","11":"38","12":"143","13":"109","14":"66","15":"7","16":"7","17":"110","18":"7","19":"8","20":"10","21":"40","22":"4","23":"0.347","24":"0.375","25":"10.6","26":"17.6","27":"0.60","28":"0.300","29":"14.32","30":"1.067","31":"156.08","32":"11.18","33":"144.47","34":"8.99","35":"4.02","36":"0.442","37":"59.98","38":"9.33"},{"1":"로하스","2":"KT","3":"외야수","4":"144","5":"670","6":"572","7":"188","8":"116","9":"39","10":"1","11":"32","12":"108","13":"112","14":"88","15":"9","16":"6","17":"115","18":"4","19":"4","20":"10","21":"2","22":"1","23":"0.329","24":"0.364","25":"13.1","26":"17.2","27":"0.76","28":"0.239","29":"17.88","30":"0.989","31":"141.65","32":"9.59","33":"141.07","34":"3.40","35":"0.26","36":"0.421","37":"50.50","38":"7.14"},{"1":"구자욱","2":"삼성","3":"외야수","4":"129","5":"568","6":"493","7":"169","8":"96","9":"39","10":"1","11":"33","12":"92","13":"115","14":"55","15":"4","16":"12","17":"73","18":"6","19":"8","20":"6","21":"13","22":"4","23":"0.343","24":"0.346","25":"9.7","26":"12.8","27":"0.75","28":"0.284","29":"14.94","30":"1.044","31":"133.64","32":"10.55","33":"128.59","34":"5.02","35":"0.18","36":"0.438","37":"51.81","38":"6.85"},{"1":"송성문","2":"Hero","3":"내야수","4":"142","5":"602","6":"527","7":"179","8":"127","9":"29","10":"4","11":"19","12":"88","13":"104","14":"64","15":"2","16":"3","17":"82","18":"8","19":"8","20":"5","21":"20","22":"0","23":"0.340","24":"0.369","25":"10.6","26":"13.6","27":"0.78","28":"0.178","29":"27.74","30":"0.927","31":"121.93","32":"9.12","33":"115.61","34":"6.47","35":"3.27","36":"0.402","37":"34.23","38":"6.16"},{"1":"최정","2":"SSG","3":"내야수","4":"129","5":"550","6":"468","7":"136","8":"70","9":"27","10":"2","11":"37","12":"93","13":"107","14":"55","15":"1","16":"20","17":"114","18":"7","19":"7","20":"10","21":"5","22":"0","23":"0.291","24":"0.306","25":"10.0","26":"20.7","27":"0.48","28":"0.303","29":"12.65","30":"0.978","31":"110.83","32":"8.57","33":"110.01","34":"4.77","35":"1.05","36":"0.410","37":"35.67","38":"6.02"},{"1":"에레디아","2":"SSG","3":"외야수","4":"136","5":"591","6":"541","7":"195","8":"142","9":"31","10":"1","11":"21","12":"82","13":"118","14":"28","15":"3","16":"13","17":"73","18":"9","19":"9","20":"12","21":"4","22":"3","23":"0.360","24":"0.382","25":"4.7","26":"12.4","27":"0.38","28":"0.178","29":"25.76","30":"0.937","31":"115.04","32":"8.39","33":"113.52","34":"3.45","35":"-0.52","36":"0.402","37":"33.63","38":"4.89"},{"1":"홍창기","2":"LG","3":"외야수","4":"139","5":"637","6":"524","7":"176","8":"150","9":"18","10":"3","11":"5","12":"96","13":"73","14":"96","15":"3","16":"12","17":"93","18":"4","19":"5","20":"8","21":"10","22":"11","23":"0.336","24":"0.398","25":"15.1","26":"14.6","27":"1.03","28":"0.074","29":"104.80","30":"0.857","31":"104.26","32":"7.57","33":"119.94","34":"4.54","35":"-3.54","36":"0.398","37":"33.84","38":"4.88"},{"1":"데이비슨","2":"NC","3":"내야수","4":"131","5":"567","6":"504","7":"154","8":"82","9":"25","10":"1","11":"46","12":"90","13":"119","14":"39","15":"5","16":"17","17":"142","18":"7","19":"7","20":"12","21":"0","22":"1","23":"0.306","24":"0.334","25":"6.9","26":"25.0","27":"0.28","28":"0.327","29":"10.96","30":"1.003","31":"116.53","32":"8.50","33":"113.76","34":"2.41","35":"-0.19","36":"0.411","37":"37.11","38":"4.87"},{"1":"레이예스","2":"롯데","3":"외야수","4":"144","5":"632","6":"574","7":"202","8":"144","9":"40","10":"3","11":"15","12":"88","13":"111","14":"46","15":"2","16":"1","17":"82","18":"11","19":"11","20":"16","21":"5","22":"0","23":"0.352","24":"0.383","25":"7.3","26":"13.0","27":"0.56","28":"0.158","29":"38.27","30":"0.904","31":"115.50","32":"7.82","33":"114.24","34":"4.11","35":"1.15","36":"0.391","37":"28.81","38":"4.67"},{"1":"오스틴","2":"LG","3":"내야수","4":"140","5":"604","6":"527","7":"168","8":"101","9":"32","10":"3","11":"32","12":"99","13":"132","14":"61","15":"6","16":"3","17":"82","18":"12","19":"12","20":"9","21":"12","22":"8","23":"0.319","24":"0.320","25":"10.1","26":"13.6","27":"0.74","28":"0.254","29":"16.47","30":"0.958","31":"117.39","32":"8.17","33":"114.50","34":"4.97","35":"-1.98","36":"0.400","37":"32.85","38":"4.26"},{"1":"박민우","2":"NC","3":"내야수","4":"121","5":"528","6":"457","7":"150","8":"114","9":"26","10":"2","11":"8","12":"75","13":"50","14":"54","15":"4","16":"9","17":"79","18":"4","19":"8","20":"5","21":"32","22":"7","23":"0.328","24":"0.380","25":"10.2","26":"15.0","27":"0.68","28":"0.118","29":"57.13","30":"0.852","31":"91.52","32":"7.56","33":"90.78","34":"6.33","35":"1.37","36":"0.381","37":"19.40","38":"4.07"},{"1":"문보경","2":"LG","3":"내야수","4":"144","5":"602","6":"519","7":"156","8":"96","9":"35","10":"3","11":"22","12":"80","13":"101","14":"65","15":"3","16":"2","17":"112","18":"13","19":"16","20":"14","21":"7","22":"6","23":"0.301","24":"0.337","25":"10.8","26":"18.6","27":"0.58","28":"0.206","29":"23.59","30":"0.879","31":"98.48","32":"6.66","33":"100.09","34":"3.73","35":"-1.67","36":"0.376","37":"18.72","38":"4.01"},{"1":"권희동","2":"NC","3":"외야수","4":"123","5":"511","6":"416","7":"125","8":"89","9":"22","10":"1","11":"13","12":"66","13":"77","14":"77","15":"1","16":"10","17":"63","18":"6","19":"8","20":"10","21":"4","22":"0","23":"0.300","24":"0.324","25":"15.1","26":"12.3","27":"1.22","28":"0.152","29":"32.00","30":"0.869","31":"85.85","32":"7.50","33":"93.01","34":"3.68","35":"0.98","36":"0.392","37":"23.94","38":"3.94"},{"1":"김혜성","2":"Hero","3":"내야수","4":"127","5":"567","6":"509","7":"166","8":"125","9":"26","10":"4","11":"11","12":"90","13":"75","14":"47","15":"2","16":"4","17":"62","18":"7","19":"7","20":"6","21":"30","22":"6","23":"0.326","24":"0.350","25":"8.3","26":"10.9","27":"0.76","28":"0.132","29":"46.27","30":"0.841","31":"95.94","32":"7.16","33":"91.08","34":"6.85","35":"1.60","36":"0.370","37":"14.44","38":"3.89"},{"1":"강민호","2":"삼성","3":"포수","4":"136","5":"452","6":"403","7":"122","8":"83","9":"19","10":"1","11":"19","12":"48","13":"77","14":"35","15":"2","16":"8","17":"52","18":"6","19":"6","20":"17","21":"3","22":"0","23":"0.303","24":"0.305","25":"7.7","26":"11.5","27":"0.67","28":"0.193","29":"21.21","30":"0.861","31":"70.59","32":"6.27","33":"72.80","34":"2.33","35":"0.72","36":"0.370","37":"11.70","38":"3.71"},{"1":"김지찬","2":"삼성","3":"내야수","4":"135","5":"535","6":"453","7":"143","8":"121","9":"16","10":"3","11":"3","12":"102","13":"36","14":"60","15":"2","16":"9","17":"40","18":"1","19":"13","20":"5","21":"42","22":"4","23":"0.316","24":"0.341","25":"11.2","26":"7.5","27":"1.50","28":"0.068","29":"151.00","30":"0.789","31":"83.53","32":"6.79","33":"83.97","34":"7.77","35":"4.32","36":"0.366","37":"11.65","38":"3.70"},{"1":"도슨","2":"Hero","3":"외야수","4":"95","5":"429","6":"382","7":"126","8":"82","9":"31","10":"2","11":"11","12":"69","13":"57","14":"39","15":"0","16":"6","17":"54","18":"2","19":"2","20":"10","21":"2","22":"2","23":"0.330","24":"0.361","25":"9.1","26":"12.6","27":"0.72","28":"0.178","29":"34.73","30":"0.907","31":"77.04","32":"7.70","33":"80.27","34":"3.75","35":"-0.43","36":"0.397","37":"22.28","38":"3.48"},{"1":"박성한","2":"SSG","3":"내야수","4":"137","5":"564","6":"489","7":"147","8":"113","9":"24","10":"0","11":"10","12":"78","13":"67","14":"64","15":"3","16":"2","17":"86","18":"6","19":"9","20":"11","21":"13","22":"3","23":"0.301","24":"0.343","25":"11.4","26":"15.2","27":"0.74","28":"0.110","29":"48.90","30":"0.791","31":"80.98","32":"5.99","33":"82.52","34":"4.36","35":"0.73","36":"0.355","37":"6.28","38":"3.48"},{"1":"소크라테스","2":"KIA","3":"외야수","4":"140","5":"602","6":"552","7":"171","8":"112","9":"30","10":"3","11":"26","12":"92","13":"97","14":"41","15":"4","16":"4","17":"91","18":"5","19":"5","20":"7","21":"13","22":"5","23":"0.310","24":"0.330","25":"6.8","26":"15.1","27":"0.45","28":"0.206","29":"21.23","30":"0.875","31":"103.38","32":"7.01","33":"97.65","34":"5.54","35":"-0.34","36":"0.371","37":"16.27","38":"3.47"},{"1":"박건우","2":"NC","3":"외야수","4":"89","5":"362","6":"323","7":"111","8":"74","9":"23","10":"1","11":"13","12":"58","13":"53","14":"33","15":"3","16":"4","17":"54","18":"2","19":"2","20":"7","21":"4","22":"0","23":"0.344","24":"0.380","25":"9.1","26":"14.9","27":"0.61","28":"0.198","29":"24.85","30":"0.951","31":"72.82","32":"8.90","33":"71.95","34":"4.31","35":"0.82","36":"0.409","37":"23.02","38":"3.34"},{"1":"나승엽","2":"롯데","3":"내야수","4":"121","5":"489","6":"407","7":"127","8":"81","9":"35","10":"4","11":"7","12":"59","13":"66","14":"69","15":"1","16":"4","17":"83","18":"7","19":"9","20":"4","21":"1","22":"0","23":"0.312","24":"0.370","25":"14.1","26":"17.0","27":"0.83","28":"0.157","29":"58.14","30":"0.880","31":"86.37","32":"7.96","33":"89.09","34":"4.50","35":"0.51","36":"0.392","37":"22.99","38":"3.33"},{"1":"윤동희","2":"롯데","3":"외야수","4":"141","5":"613","6":"532","7":"156","8":"103","9":"35","10":"4","11":"14","12":"97","13":"85","14":"67","15":"1","16":"7","17":"114","18":"5","19":"6","20":"10","21":"7","22":"8","23":"0.293","24":"0.347","25":"10.9","26":"18.6","27":"0.59","28":"0.160","29":"38.00","30":"0.829","31":"92.54","32":"6.25","33":"97.10","34":"4.82","35":"-2.64","36":"0.368","37":"14.23","38":"3.33"},{"1":"양의지","2":"두산","3":"포수","4":"119","5":"485","6":"430","7":"135","8":"100","9":"18","10":"0","11":"17","12":"57","13":"94","14":"40","15":"5","16":"9","17":"56","18":"6","19":"6","20":"13","21":"2","22":"1","23":"0.314","24":"0.325","25":"8.2","26":"11.6","27":"0.71","28":"0.160","29":"25.29","30":"0.853","31":"77.11","32":"6.61","33":"78.24","34":"2.44","35":"0.12","36":"0.371","37":"12.67","38":"3.32"},{"1":"김선빈","2":"KIA","3":"내야수","4":"116","5":"466","6":"423","7":"139","8":"107","9":"23","10":"0","11":"9","12":"48","13":"57","14":"30","15":"0","16":"5","17":"39","18":"0","19":"7","20":"13","21":"5","22":"1","23":"0.329","24":"0.347","25":"6.4","26":"8.4","27":"0.77","28":"0.118","29":"47.00","30":"0.827","31":"70.31","32":"6.22","33":"74.05","34":"3.02","35":"0.54","36":"0.368","37":"11.06","38":"3.12"},{"1":"손호영","2":"롯데","3":"내야수","4":"100","5":"428","6":"396","7":"126","8":"78","9":"26","10":"4","11":"18","12":"70","13":"77","14":"17","15":"2","16":"9","17":"65","18":"5","19":"6","20":"5","21":"7","22":"4","23":"0.318","24":"0.340","25":"4.0","26":"15.2","27":"0.26","28":"0.222","29":"22.00","30":"0.896","31":"75.83","32":"7.18","33":"72.22","34":"6.18","35":"-0.79","36":"0.378","37":"14.36","38":"3.12"},{"1":"장성우","2":"KT","3":"포수","4":"131","5":"489","6":"418","7":"112","8":"74","9":"19","10":"0","11":"19","12":"53","13":"81","14":"60","15":"1","16":"1","17":"86","18":"8","19":"10","20":"8","21":"5","22":"0","23":"0.268","24":"0.290","25":"12.3","26":"17.6","27":"0.70","28":"0.182","29":"22.00","30":"0.805","31":"71.56","32":"5.96","33":"69.94","34":"3.42","35":"1.02","36":"0.352","37":"3.83","38":"3.09"},{"1":"허경민","2":"두산","3":"내야수","4":"115","5":"477","6":"417","7":"129","8":"94","9":"28","10":"0","11":"7","12":"69","13":"61","14":"36","15":"0","16":"18","17":"25","18":"6","19":"6","20":"8","21":"5","22":"1","23":"0.309","24":"0.312","25":"7.6","26":"5.2","27":"1.44","28":"0.118","29":"59.57","30":"0.811","31":"72.37","32":"6.45","33":"74.90","34":"4.52","35":"0.55","36":"0.366","37":"10.42","38":"3.08"},{"1":"박동원","2":"LG","3":"포수","4":"130","5":"498","6":"434","7":"118","8":"76","9":"22","10":"0","11":"20","12":"58","13":"80","14":"55","15":"2","16":"0","17":"112","18":"7","19":"9","20":"14","21":"1","22":"0","23":"0.272","24":"0.317","25":"11.0","26":"22.5","27":"0.49","28":"0.189","29":"21.70","30":"0.810","31":"70.09","32":"5.58","33":"70.40","34":"1.76","35":"0.45","36":"0.350","37":"3.09","38":"3.03"},{"1":"고승민","2":"롯데","3":"내야수","4":"120","5":"532","6":"481","7":"148","8":"101","9":"27","10":"6","11":"14","12":"79","13":"87","14":"41","15":"0","16":"1","17":"78","18":"8","19":"8","20":"10","21":"5","22":"4","23":"0.308","24":"0.338","25":"7.7","26":"14.7","27":"0.53","28":"0.168","29":"34.36","30":"0.834","31":"81.91","32":"6.23","33":"80.81","34":"5.20","35":"-0.98","36":"0.361","37":"8.90","38":"2.83"},{"1":"노시환","2":"한화","3":"내야수","4":"136","5":"601","6":"526","7":"143","8":"97","9":"20","10":"2","11":"24","12":"88","13":"89","14":"60","15":"9","16":"11","17":"129","18":"4","19":"4","20":"10","21":"6","22":"0","23":"0.272","24":"0.316","25":"10.0","26":"21.5","27":"0.46","28":"0.182","29":"21.92","30":"0.810","31":"88.48","32":"6.02","33":"85.13","34":"4.90","35":"1.22","36":"0.350","37":"3.89","38":"2.83"},{"1":"김재환","2":"두산","3":"외야수","4":"136","5":"552","6":"474","7":"134","8":"77","9":"28","10":"0","11":"29","12":"78","13":"92","14":"63","15":"3","16":"6","17":"168","18":"9","19":"9","20":"8","21":"1","22":"1","23":"0.283","24":"0.367","25":"11.4","26":"30.4","27":"0.38","28":"0.242","29":"16.34","30":"0.893","31":"95.46","32":"7.20","33":"93.58","34":"2.60","35":"-0.02","36":"0.379","37":"18.96","38":"2.78"},{"1":"김주원","2":"NC","3":"내야수","4":"134","5":"475","6":"385","7":"97","8":"68","9":"18","10":"2","11":"9","12":"61","13":"49","14":"51","15":"1","16":"25","17":"111","18":"5","19":"14","20":"5","21":"16","22":"6","23":"0.252","24":"0.326","25":"10.7","26":"23.4","27":"0.46","28":"0.127","29":"42.78","30":"0.750","31":"62.00","32":"5.35","33":"66.34","34":"6.14","35":"-0.44","36":"0.348","37":"2.13","38":"2.52"},{"1":"이재현","2":"삼성","3":"내야수","4":"109","5":"458","6":"389","7":"101","8":"69","9":"18","10":"0","11":"14","12":"71","13":"66","14":"58","15":"1","16":"8","17":"83","18":"3","19":"3","20":"8","21":"2","22":"1","23":"0.260","24":"0.295","25":"12.7","26":"18.1","27":"0.70","28":"0.154","29":"27.79","30":"0.779","31":"62.40","32":"5.62","33":"65.03","34":"3.53","35":"0.10","36":"0.351","37":"3.11","38":"2.49"},{"1":"정수빈","2":"두산","3":"외야수","4":"136","5":"608","6":"510","7":"145","8":"117","9":"21","10":"3","11":"4","12":"95","13":"47","14":"70","15":"1","16":"10","17":"72","18":"8","19":"18","20":"8","21":"52","22":"13","23":"0.284","24":"0.319","25":"11.5","26":"11.8","27":"0.97","28":"0.077","29":"127.50","30":"0.737","31":"81.17","32":"5.42","33":"81.35","34":"7.03","35":"1.20","36":"0.342","37":"-0.84","38":"2.46"},{"1":"김민혁","2":"KT","3":"외야수","4":"115","5":"393","6":"351","7":"124","8":"106","9":"14","10":"3","11":"1","12":"47","13":"34","14":"35","15":"1","16":"1","17":"45","18":"3","19":"6","20":"9","21":"4","22":"2","23":"0.353","24":"0.399","25":"8.9","26":"11.4","27":"0.78","28":"0.066","29":"351.00","30":"0.829","31":"61.28","32":"6.78","33":"65.40","34":"4.12","35":"-0.11","36":"0.376","37":"12.27","38":"2.39"},{"1":"신민재","2":"LG","3":"내야수","4":"128","5":"474","6":"387","7":"115","8":"99","9":"11","10":"5","11":"0","12":"78","13":"40","14":"64","15":"1","16":"5","17":"46","18":"3","19":"18","20":"7","21":"32","22":"11","23":"0.297","24":"0.334","25":"13.5","26":"9.7","27":"1.39","28":"0.054","29":"NA","30":"0.752","31":"63.07","32":"5.53","33":"69.43","34":"7.25","35":"-0.67","36":"0.355","37":"5.36","38":"2.39"},{"1":"제러드","2":"두산","3":"외야수","4":"38","5":"169","6":"144","7":"47","8":"20","9":"16","10":"1","11":"10","12":"29","13":"39","14":"21","15":"0","16":"3","17":"35","18":"1","19":"1","20":"0","21":"4","22":"0","23":"0.326","24":"0.370","25":"12.4","26":"20.7","27":"0.60","28":"0.334","29":"14.40","30":"1.080","31":"43.59","32":"12.01","33":"40.51","34":"6.24","35":"0.67","36":"0.451","37":"17.66","38":"2.36"},{"1":"황성빈","2":"롯데","3":"외야수","4":"125","5":"406","6":"366","7":"117","8":"91","9":"15","10":"7","11":"4","12":"94","13":"26","14":"31","15":"0","16":"2","17":"56","18":"1","19":"7","20":"3","21":"51","22":"10","23":"0.320","24":"0.368","25":"7.6","26":"13.8","27":"0.55","28":"0.112","29":"91.50","30":"0.807","31":"66.40","32":"6.66","33":"61.44","34":"10.34","35":"2.40","36":"0.360","37":"6.55","38":"2.33"},{"1":"강백호","2":"KT","3":"내야수","4":"144","5":"614","6":"550","7":"159","8":"106","9":"27","10":"0","11":"26","12":"92","13":"96","14":"59","15":"4","16":"3","17":"127","18":"2","19":"2","20":"6","21":"6","22":"2","23":"0.289","24":"0.333","25":"9.6","26":"20.7","27":"0.46","28":"0.191","29":"21.15","30":"0.840","31":"98.30","32":"6.62","33":"94.34","34":"4.31","35":"0.22","36":"0.363","37":"11.34","38":"2.28"},{"1":"최원준","2":"KIA","3":"외야수","4":"136","5":"508","6":"438","7":"128","8":"93","9":"23","10":"3","11":"9","12":"75","13":"56","14":"50","15":"0","16":"8","17":"66","18":"5","19":"12","20":"6","21":"21","22":"9","23":"0.292","24":"0.323","25":"9.8","26":"13.0","27":"0.76","28":"0.128","29":"48.67","30":"0.791","31":"72.95","32":"5.84","33":"74.64","34":"6.18","35":"-1.24","36":"0.356","37":"5.97","38":"2.25"},{"1":"전준우","2":"롯데","3":"외야수","4":"109","5":"483","6":"423","7":"124","8":"79","9":"26","10":"2","11":"17","12":"57","13":"82","14":"49","15":"0","16":"5","17":"84","18":"5","19":"6","20":"11","21":"3","22":"1","23":"0.293","24":"0.327","25":"10.1","26":"17.4","27":"0.58","28":"0.192","29":"24.88","30":"0.854","31":"76.99","32":"6.56","33":"78.54","34":"3.36","35":"0.23","36":"0.372","37":"13.25","38":"2.21"},{"1":"페라자","2":"한화","3":"외야수","4":"122","5":"522","6":"455","7":"125","8":"77","9":"24","10":"0","11":"24","12":"75","13":"70","14":"63","15":"5","16":"2","17":"129","18":"2","19":"2","20":"6","21":"7","22":"5","23":"0.275","24":"0.332","25":"12.1","26":"24.7","27":"0.49","28":"0.211","29":"18.96","30":"0.850","31":"82.78","32":"6.52","33":"81.78","34":"3.88","35":"-1.22","36":"0.366","37":"11.22","38":"2.18"},{"1":"최지훈","2":"SSG","3":"외야수","4":"125","5":"543","6":"483","7":"133","8":"93","9":"22","10":"7","11":"11","12":"89","13":"49","14":"50","15":"0","16":"2","17":"71","18":"2","19":"8","20":"5","21":"32","22":"5","23":"0.275","24":"0.303","25":"9.2","26":"13.1","27":"0.70","28":"0.143","29":"43.91","30":"0.763","31":"76.22","32":"5.59","33":"70.79","34":"8.27","35":"2.31","36":"0.339","37":"-2.61","38":"2.11"},{"1":"박찬호","2":"KIA","3":"내야수","4":"134","5":"577","6":"515","7":"158","8":"128","9":"24","10":"1","11":"5","12":"86","13":"61","14":"48","15":"1","16":"1","17":"44","18":"6","19":"13","20":"9","21":"20","22":"13","23":"0.307","24":"0.324","25":"8.3","26":"7.6","27":"1.09","28":"0.079","29":"103.00","30":"0.749","31":"73.54","32":"5.07","33":"75.08","34":"5.11","35":"-3.34","36":"0.338","37":"-2.92","38":"2.09"},{"1":"김영웅","2":"삼성","3":"내야수","4":"126","5":"509","6":"456","7":"115","8":"68","9":"16","10":"3","11":"28","12":"65","13":"79","14":"45","15":"0","16":"3","17":"155","18":"4","19":"5","20":"2","21":"9","22":"2","23":"0.252","24":"0.314","25":"8.8","26":"30.4","27":"0.29","28":"0.233","29":"16.29","30":"0.806","31":"75.27","32":"5.81","33":"68.23","34":"5.89","35":"0.53","36":"0.343","37":"-0.58","38":"2.09"},{"1":"오지환","2":"LG","3":"내야수","4":"108","5":"428","6":"370","7":"94","8":"58","9":"24","10":"2","11":"10","12":"67","13":"59","14":"51","15":"0","16":"4","17":"106","18":"1","19":"3","20":"8","21":"17","22":"4","23":"0.254","24":"0.329","25":"11.9","26":"24.8","27":"0.48","28":"0.157","29":"37.00","30":"0.761","31":"56.59","32":"5.25","33":"57.10","34":"5.89","35":"0.64","36":"0.342","37":"-0.75","38":"2.03"},{"1":"강승호","2":"두산","3":"내야수","4":"140","5":"566","6":"521","7":"146","8":"87","9":"34","10":"7","11":"18","12":"81","13":"81","14":"32","15":"4","16":"7","17":"158","18":"4","19":"6","20":"8","21":"16","22":"5","23":"0.280","24":"0.367","25":"5.6","26":"27.9","27":"0.20","28":"0.196","29":"28.94","30":"0.804","31":"81.66","32":"5.60","33":"75.70","34":"7.22","35":"0.01","36":"0.342","37":"-0.81","38":"2.00"},{"1":"나성범","2":"KIA","3":"외야수","4":"102","5":"424","6":"374","7":"109","8":"70","9":"17","10":"1","11":"21","12":"51","13":"80","14":"38","15":"1","16":"4","17":"98","18":"7","19":"7","20":"8","21":"0","22":"0","23":"0.291","24":"0.336","25":"9.0","26":"23.1","27":"0.39","28":"0.220","29":"17.81","30":"0.868","31":"69.48","32":"6.70","33":"67.87","34":"2.19","35":"0.27","36":"0.369","37":"10.55","38":"1.99"},{"1":"한준수","2":"KIA","3":"포수","4":"115","5":"316","6":"287","7":"88","8":"59","9":"22","10":"0","11":"7","12":"39","13":"41","14":"21","15":"1","16":"2","17":"48","18":"6","19":"6","20":"7","21":"0","22":"0","23":"0.307","24":"0.340","25":"6.6","26":"15.2","27":"0.44","28":"0.149","29":"41.00","30":"0.807","31":"46.17","32":"5.88","33":"44.66","34":"2.22","35":"0.19","36":"0.350","37":"1.95","38":"1.94"},{"1":"최재훈","2":"한화","3":"포수","4":"116","5":"348","6":"280","7":"72","8":"58","9":"10","10":"0","11":"4","12":"34","13":"37","14":"33","15":"0","16":"21","17":"58","18":"6","19":"14","20":"10","21":"0","22":"0","23":"0.257","24":"0.304","25":"9.5","26":"16.7","27":"0.57","28":"0.079","29":"70.00","30":"0.707","31":"38.81","32":"4.52","33":"44.72","34":"1.85","35":"0.27","36":"0.337","37":"-2.33","38":"1.84"},{"1":"최형우","2":"KIA","3":"외야수","4":"116","5":"487","6":"425","7":"119","8":"72","9":"23","10":"2","11":"22","12":"67","13":"109","14":"52","15":"4","16":"5","17":"86","18":"5","19":"5","20":"5","21":"1","22":"1","23":"0.280","24":"0.301","25":"10.7","26":"17.7","27":"0.60","28":"0.219","29":"19.32","30":"0.860","31":"79.99","32":"6.81","33":"77.25","34":"3.85","35":"-0.07","36":"0.368","37":"11.41","38":"1.76"},{"1":"문성주","2":"LG","3":"외야수","4":"96","5":"361","6":"305","7":"96","8":"78","9":"16","10":"2","11":"0","12":"47","13":"48","14":"49","15":"0","16":"3","17":"38","18":"3","19":"4","20":"4","21":"13","22":"7","23":"0.315","24":"0.356","25":"13.6","26":"10.5","27":"1.29","28":"0.065","29":"NA","30":"0.791","31":"52.66","32":"6.35","33":"57.89","34":"5.40","35":"-1.40","36":"0.370","37":"9.09","38":"1.65"},{"1":"안치홍","2":"한화","3":"내야수","4":"128","5":"533","6":"473","7":"142","8":"108","9":"21","10":"0","11":"13","12":"64","13":"66","14":"49","15":"1","16":"6","17":"70","18":"4","19":"5","20":"10","21":"3","22":"2","23":"0.300","24":"0.327","25":"9.2","26":"13.1","27":"0.70","28":"0.127","29":"36.38","30":"0.797","31":"76.58","32":"5.94","33":"78.26","34":"3.07","35":"-0.20","36":"0.356","37":"6.21","38":"1.64"},{"1":"서건창","2":"KIA","3":"내야수","4":"94","5":"248","6":"203","7":"63","8":"47","9":"14","10":"1","11":"1","12":"40","13":"26","14":"36","15":"0","16":"3","17":"31","18":"3","19":"6","20":"2","21":"3","22":"1","23":"0.310","24":"0.356","25":"14.5","26":"12.5","27":"1.16","28":"0.094","29":"203.00","30":"0.820","31":"38.80","32":"7.03","33":"42.18","34":"5.07","35":"0.12","36":"0.380","37":"8.66","38":"1.59"},{"1":"김휘집","2":"NC","3":"내야수","4":"89","5":"366","6":"314","7":"86","8":"60","9":"15","10":"0","11":"11","12":"54","13":"49","14":"37","15":"0","16":"7","17":"70","18":"6","19":"8","20":"7","21":"4","22":"3","23":"0.274","24":"0.314","25":"10.1","26":"19.1","27":"0.53","28":"0.153","29":"28.55","30":"0.784","31":"49.94","32":"5.48","33":"51.21","34":"3.69","35":"-0.71","36":"0.349","37":"1.74","38":"1.58"},{"1":"김태연","2":"한화","3":"내야수","4":"126","5":"472","6":"413","7":"120","8":"84","9":"24","10":"0","11":"12","12":"59","13":"61","14":"45","15":"0","16":"4","17":"89","18":"4","19":"10","20":"9","21":"5","22":"2","23":"0.291","24":"0.342","25":"9.5","26":"18.9","27":"0.51","28":"0.145","29":"34.42","30":"0.799","31":"67.26","32":"5.78","33":"68.72","34":"3.46","35":"0.01","36":"0.354","37":"4.91","38":"1.54"},{"1":"이용규","2":"Hero","3":"외야수","4":"60","5":"227","6":"183","7":"56","8":"48","9":"5","10":"2","11":"1","12":"27","13":"12","14":"31","15":"0","16":"9","17":"33","18":"1","19":"4","20":"4","21":"2","22":"2","23":"0.306","24":"0.367","25":"13.7","26":"14.5","27":"0.94","28":"0.066","29":"183.00","30":"0.801","31":"32.38","32":"6.38","33":"39.02","34":"4.48","35":"-0.52","36":"0.381","37":"8.33","38":"1.53"},{"1":"이성규","2":"삼성","3":"외야수","4":"122","5":"355","6":"302","7":"73","8":"40","9":"10","10":"1","11":"22","12":"56","13":"57","14":"31","15":"0","16":"15","17":"109","18":"3","19":"7","20":"5","21":"9","22":"2","23":"0.242","24":"0.293","25":"8.7","26":"30.7","27":"0.28","28":"0.258","29":"13.73","30":"0.839","31":"54.07","32":"6.01","33":"53.68","34":"5.74","35":"0.46","36":"0.360","37":"5.69","38":"1.53"},{"1":"라모스","2":"두산","3":"외야수","4":"80","5":"348","6":"311","7":"95","8":"63","9":"19","10":"3","11":"10","12":"43","13":"48","14":"27","15":"1","16":"3","17":"60","18":"6","19":"7","20":"5","21":"3","22":"3","23":"0.305","24":"0.344","25":"7.8","26":"17.2","27":"0.45","28":"0.177","29":"31.10","30":"0.842","31":"54.82","32":"6.41","33":"53.65","34":"4.62","35":"-0.87","36":"0.363","37":"6.61","38":"1.46"},{"1":"김상수","2":"KT","3":"내야수","4":"113","5":"420","6":"369","7":"102","8":"76","9":"18","10":"4","11":"4","12":"60","13":"45","14":"37","15":"0","16":"6","17":"59","18":"1","19":"8","20":"12","21":"3","22":"2","23":"0.276","24":"0.319","25":"8.8","26":"14.0","27":"0.63","28":"0.103","29":"92.25","30":"0.730","31":"48.98","32":"4.58","33":"52.40","34":"4.59","35":"-0.30","36":"0.333","37":"-4.37","38":"1.43"},{"1":"오윤석","2":"KT","3":"내야수","4":"73","5":"201","6":"174","7":"51","8":"31","9":"12","10":"2","11":"6","12":"33","13":"27","14":"18","15":"0","16":"4","17":"41","18":"2","19":"5","20":"7","21":"0","22":"1","23":"0.293","24":"0.349","25":"9.0","26":"20.4","27":"0.44","28":"0.196","29":"29.00","30":"0.858","31":"30.21","32":"6.00","33":"33.00","34":"3.65","35":"-0.38","36":"0.374","37":"5.83","38":"1.40"},{"1":"이주형","2":"Hero","3":"외야수","4":"115","5":"537","6":"473","7":"126","8":"91","9":"19","10":"3","11":"13","12":"82","13":"60","14":"49","15":"1","16":"14","17":"119","18":"1","19":"1","20":"4","21":"6","22":"0","23":"0.266","24":"0.330","25":"9.1","26":"22.2","27":"0.41","28":"0.136","29":"36.38","30":"0.754","31":"72.31","32":"5.55","33":"70.69","34":"6.19","35":"1.21","36":"0.340","37":"-1.90","38":"1.38"},{"1":"배정대","2":"KT","3":"외야수","4":"113","5":"473","6":"404","7":"111","8":"78","9":"25","10":"1","11":"7","12":"49","13":"59","14":"50","15":"1","16":"4","17":"114","18":"7","19":"15","20":"5","21":"9","22":"7","23":"0.275","24":"0.359","25":"10.6","26":"24.1","27":"0.44","28":"0.119","29":"57.71","30":"0.749","31":"60.21","32":"5.08","33":"60.86","34":"4.24","35":"-1.96","36":"0.337","37":"-3.08","38":"1.36"},{"1":"채은성","2":"한화","3":"외야수","4":"124","5":"498","6":"436","7":"118","8":"74","9":"24","10":"0","11":"20","12":"61","13":"83","14":"49","15":"1","16":"8","17":"83","18":"5","19":"5","20":"12","21":"1","22":"1","23":"0.271","24":"0.290","25":"9.8","26":"16.7","27":"0.59","28":"0.192","29":"21.80","30":"0.814","31":"71.59","32":"5.75","33":"72.76","34":"2.28","35":"-0.05","36":"0.355","37":"5.45","38":"1.36"},{"1":"서호철","2":"NC","3":"내야수","4":"141","5":"567","6":"512","7":"146","8":"114","9":"19","10":"3","11":"10","12":"68","13":"61","14":"30","15":"0","16":"16","17":"101","18":"3","19":"9","20":"15","21":"1","22":"3","23":"0.285","24":"0.337","25":"5.3","26":"17.8","27":"0.30","28":"0.108","29":"51.20","30":"0.735","31":"67.07","32":"4.61","33":"69.45","34":"3.19","35":"-0.99","36":"0.331","37":"-7.19","38":"1.27"},{"1":"김현수","2":"LG","3":"외야수","4":"137","5":"583","6":"517","7":"152","8":"106","9":"36","10":"2","11":"8","12":"61","13":"69","14":"47","15":"1","16":"9","17":"76","18":"9","19":"10","20":"10","21":"6","22":"1","23":"0.294","24":"0.326","25":"8.1","26":"13.0","27":"0.62","28":"0.124","29":"64.63","30":"0.775","31":"80.96","32":"5.66","33":"79.61","34":"4.27","35":"0.72","36":"0.345","37":"0.80","38":"1.24"},{"1":"박승욱","2":"롯데","3":"내야수","4":"139","5":"468","6":"405","7":"106","8":"79","9":"19","10":"1","11":"7","12":"57","13":"53","14":"47","15":"3","16":"10","17":"120","18":"3","19":"5","20":"7","21":"4","22":"5","23":"0.262","24":"0.352","25":"10.0","26":"25.6","27":"0.39","28":"0.103","29":"57.86","30":"0.716","31":"54.06","32":"4.62","33":"55.57","34":"3.83","35":"-1.65","36":"0.327","37":"-7.69","38":"1.22"},{"1":"정준재","2":"SSG","3":"내야수","4":"88","5":"240","6":"215","7":"66","8":"52","9":"8","10":"5","11":"1","12":"40","13":"24","14":"19","15":"0","16":"3","17":"49","18":"0","19":"3","20":"3","21":"16","22":"5","23":"0.307","24":"0.394","25":"7.9","26":"20.4","27":"0.39","28":"0.098","29":"215.00","30":"0.776","31":"34.20","32":"5.77","33":"34.29","34":"9.05","35":"-0.10","36":"0.352","37":"1.85","38":"1.14"},{"1":"황영묵","2":"한화","3":"내야수","4":"123","5":"389","6":"349","7":"105","8":"90","9":"8","10":"4","11":"3","12":"52","13":"35","14":"31","15":"0","16":"5","17":"55","18":"1","19":"4","20":"6","21":"4","22":"7","23":"0.301","24":"0.349","25":"8.0","26":"14.1","27":"0.56","28":"0.071","29":"116.33","30":"0.737","31":"47.27","32":"4.89","33":"50.51","34":"4.96","35":"-2.67","36":"0.338","37":"-2.08","38":"1.14"},{"1":"김태군","2":"KIA","3":"포수","4":"105","5":"270","6":"235","7":"62","8":"48","9":"7","10":"0","11":"7","12":"24","13":"34","14":"12","15":"0","16":"11","17":"24","18":"1","19":"12","20":"14","21":"0","22":"0","23":"0.264","24":"0.268","25":"4.4","26":"8.9","27":"0.50","28":"0.119","29":"33.57","30":"0.711","31":"26.92","32":"3.65","33":"30.48","34":"0.59","35":"0.17","36":"0.321","37":"-6.02","38":"0.99"},{"1":"김헌곤","2":"삼성","3":"외야수","4":"117","5":"311","6":"281","7":"85","8":"67","9":"8","10":"1","11":"9","12":"43","13":"34","14":"22","15":"0","16":"3","17":"50","18":"1","19":"5","20":"5","21":"4","22":"2","23":"0.302","24":"0.341","25":"7.1","26":"16.1","27":"0.44","28":"0.132","29":"31.22","30":"0.792","31":"44.14","32":"5.73","33":"44.19","34":"4.32","35":"-0.23","36":"0.351","37":"2.14","38":"0.95"},{"1":"김재호","2":"두산","3":"내야수","4":"57","5":"154","6":"126","7":"38","8":"32","9":"5","10":"0","11":"1","12":"20","13":"11","14":"19","15":"0","16":"1","17":"23","18":"1","19":"8","20":"4","21":"0","22":"0","23":"0.302","24":"0.359","25":"12.3","26":"14.9","27":"0.83","28":"0.063","29":"126.00","30":"0.760","31":"19.47","32":"5.26","33":"22.52","34":"1.97","35":"0.12","36":"0.355","37":"1.70","38":"0.95"},{"1":"오태곤","2":"SSG","3":"외야수","4":"117","5":"288","6":"247","7":"68","8":"43","9":"16","10":"0","11":"9","12":"43","13":"36","14":"31","15":"2","16":"1","17":"73","18":"3","19":"9","20":"4","21":"27","22":"4","23":"0.275","24":"0.351","25":"10.8","26":"25.4","27":"0.42","28":"0.174","29":"27.44","30":"0.804","31":"43.97","32":"6.06","33":"40.76","34":"6.10","35":"1.94","36":"0.350","37":"1.83","38":"0.93"},{"1":"변우혁","2":"KIA","3":"내야수","4":"69","5":"187","6":"168","7":"51","8":"35","9":"9","10":"2","11":"5","12":"22","13":"21","14":"16","15":"0","16":"2","17":"48","18":"1","19":"1","20":"8","21":"1","22":"0","23":"0.304","24":"0.397","25":"8.6","26":"25.7","27":"0.33","28":"0.166","29":"33.60","30":"0.839","31":"27.66","32":"5.93","33":"29.72","34":"2.87","35":"0.27","36":"0.368","37":"4.45","38":"0.88"},{"1":"이우성","2":"KIA","3":"외야수","4":"112","5":"449","6":"399","7":"115","8":"89","9":"16","10":"1","11":"9","12":"56","13":"54","14":"44","15":"0","16":"3","17":"89","18":"3","19":"3","20":"17","21":"7","22":"1","23":"0.288","24":"0.349","25":"9.8","26":"19.8","27":"0.49","28":"0.113","29":"44.33","30":"0.762","31":"57.02","32":"5.05","33":"60.57","34":"3.13","35":"0.80","36":"0.343","37":"-0.12","38":"0.84"},{"1":"문상철","2":"KT","3":"외야수","4":"125","5":"403","6":"347","7":"89","8":"61","9":"11","10":"0","11":"17","12":"50","13":"58","14":"45","15":"2","16":"7","17":"86","18":"3","19":"4","20":"8","21":"6","22":"1","23":"0.256","24":"0.291","25":"11.2","26":"21.3","27":"0.52","28":"0.179","29":"20.41","30":"0.786","31":"55.52","32":"5.53","33":"55.39","34":"3.61","35":"0.60","36":"0.346","37":"0.92","38":"0.83"},{"1":"윤정빈","2":"삼성","3":"외야수","4":"69","5":"188","6":"161","7":"46","8":"34","9":"4","10":"1","11":"7","12":"26","13":"20","14":"22","15":"0","16":"3","17":"47","18":"2","19":"2","20":"1","21":"1","22":"3","23":"0.286","24":"0.358","25":"11.7","26":"25.0","27":"0.47","28":"0.167","29":"23.00","30":"0.831","31":"28.95","32":"6.46","33":"29.93","34":"4.50","35":"-1.23","36":"0.368","37":"4.52","38":"0.80"},{"1":"김기연","2":"두산","3":"포수","4":"95","5":"283","6":"252","7":"70","8":"55","9":"10","10":"0","11":"5","12":"31","13":"31","14":"22","15":"0","16":"2","17":"47","18":"3","19":"7","20":"5","21":"0","22":"2","23":"0.278","24":"0.320","25":"7.8","26":"16.6","27":"0.47","28":"0.099","29":"50.40","30":"0.714","31":"32.38","32":"4.46","33":"32.07","34":"2.42","35":"-0.82","36":"0.321","37":"-6.19","38":"0.80"},{"1":"신본기","2":"KT","3":"내야수","4":"84","5":"152","6":"122","7":"34","8":"28","9":"3","10":"0","11":"3","12":"18","13":"19","14":"16","15":"0","16":"3","17":"28","18":"2","19":"10","20":"3","21":"2","22":"0","23":"0.279","24":"0.333","25":"10.5","26":"18.4","27":"0.57","28":"0.098","29":"40.67","30":"0.748","31":"19.03","32":"5.09","33":"20.55","34":"3.30","35":"0.39","36":"0.344","37":"0.00","38":"0.75"},{"1":"이창진","2":"KIA","3":"외야수","4":"102","5":"247","6":"191","7":"50","8":"39","9":"10","10":"0","11":"1","12":"36","13":"18","14":"45","15":"0","16":"2","17":"36","18":"4","19":"9","20":"6","21":"4","22":"3","23":"0.262","24":"0.310","25":"18.2","26":"14.6","27":"1.25","28":"0.068","29":"191.00","30":"0.731","31":"29.47","32":"5.00","33":"35.49","34":"3.26","35":"-0.75","36":"0.352","37":"2.10","38":"0.73"},{"1":"이지영","2":"SSG","3":"포수","4":"123","5":"432","6":"398","7":"111","8":"94","9":"11","10":"1","11":"5","12":"45","13":"50","14":"18","15":"0","16":"7","17":"35","18":"2","19":"7","20":"10","21":"8","22":"1","23":"0.279","24":"0.294","25":"4.2","26":"8.1","27":"0.51","28":"0.070","29":"79.60","30":"0.669","31":"44.66","32":"3.95","33":"41.23","34":"4.51","35":"0.90","36":"0.303","37":"-17.17","38":"0.72"},{"1":"장진혁","2":"한화","3":"외야수","4":"99","5":"327","6":"289","7":"76","8":"51","9":"16","10":"0","11":"9","12":"56","13":"44","14":"29","15":"0","16":"3","17":"72","18":"1","19":"6","20":"6","21":"14","22":"6","23":"0.263","24":"0.321","25":"8.9","26":"22.0","27":"0.40","28":"0.149","29":"32.11","30":"0.747","31":"40.46","32":"4.73","33":"40.52","34":"5.39","35":"-0.87","36":"0.332","37":"-3.68","38":"0.72"},{"1":"최인호","2":"한화","3":"외야수","4":"82","5":"244","6":"210","7":"60","8":"44","9":"13","10":"1","11":"2","12":"37","13":"22","14":"25","15":"0","16":"3","17":"31","18":"2","19":"6","20":"3","21":"3","22":"0","23":"0.286","24":"0.324","25":"10.2","26":"12.7","27":"0.81","28":"0.100","29":"105.00","30":"0.753","31":"32.48","32":"5.52","33":"33.03","34":"5.16","35":"0.59","36":"0.344","37":"0.05","38":"0.69"},{"1":"맥키넌","2":"삼성","3":"내야수","4":"72","5":"315","6":"272","7":"80","8":"63","9":"13","10":"0","11":"4","12":"28","13":"36","14":"39","15":"3","16":"1","17":"33","18":"3","19":"3","20":"6","21":"1","22":"0","23":"0.294","24":"0.319","25":"12.4","26":"10.5","27":"1.18","28":"0.092","29":"68.00","30":"0.767","31":"42.40","32":"5.70","33":"43.86","34":"2.45","35":"0.38","36":"0.348","37":"1.28","38":"0.66"},{"1":"양석환","2":"두산","3":"내야수","4":"142","5":"593","6":"533","7":"131","8":"71","9":"25","10":"1","11":"34","12":"84","13":"107","14":"49","15":"1","16":"7","17":"128","18":"3","19":"4","20":"15","21":"5","22":"3","23":"0.246","24":"0.259","25":"8.3","26":"21.6","27":"0.38","28":"0.242","29":"15.68","30":"0.804","31":"79.55","32":"5.07","33":"78.47","34":"3.42","35":"-0.51","36":"0.341","37":"-1.69","38":"0.66"},{"1":"추신수","2":"SSG","3":"외야수","4":"78","5":"302","6":"253","7":"71","8":"51","9":"14","10":"1","11":"5","12":"40","13":"37","14":"37","15":"0","16":"4","17":"68","18":"6","19":"8","20":"2","21":"5","22":"1","23":"0.281","24":"0.355","25":"12.2","26":"22.5","27":"0.54","28":"0.122","29":"50.60","30":"0.776","31":"43.37","32":"6.07","33":"43.22","34":"5.17","35":"0.42","36":"0.352","37":"2.39","38":"0.65"},{"1":"박해민","2":"LG","3":"외야수","4":"144","5":"553","6":"482","7":"127","8":"99","9":"16","10":"6","11":"6","12":"72","13":"56","14":"46","15":"0","16":"11","17":"101","18":"9","19":"14","20":"3","21":"43","22":"13","23":"0.263","24":"0.315","25":"8.3","26":"18.3","27":"0.46","28":"0.096","29":"80.33","30":"0.695","31":"66.40","32":"4.66","33":"60.23","34":"8.13","35":"-0.16","36":"0.317","37":"-14.53","38":"0.63"},{"1":"천성호","2":"KT","3":"내야수","4":"75","5":"255","6":"234","7":"69","8":"57","9":"8","10":"3","11":"1","12":"41","13":"17","14":"18","15":"0","16":"1","17":"43","18":"1","19":"2","20":"5","21":"7","22":"0","23":"0.295","24":"0.356","25":"7.1","26":"16.9","27":"0.42","28":"0.073","29":"234.00","30":"0.714","31":"31.17","32":"4.89","33":"29.64","34":"6.70","35":"1.16","36":"0.324","37":"-4.83","38":"0.57"},{"1":"강현우","2":"KT","3":"포수","4":"18","5":"36","6":"26","7":"8","8":"6","9":"1","10":"0","11":"1","12":"4","13":"8","14":"8","15":"0","16":"0","17":"10","18":"0","19":"2","20":"0","21":"0","22":"0","23":"0.308","24":"0.467","25":"22.2","26":"27.8","27":"0.80","28":"0.154","29":"26.00","30":"0.933","31":"6.72","32":"9.07","33":"7.84","34":"2.81","35":"0.03","36":"0.429","37":"2.97","38":"0.53"},{"1":"박세혁","2":"NC","3":"포수","4":"82","5":"171","6":"148","7":"39","8":"29","9":"9","10":"0","11":"1","12":"21","13":"10","14":"14","15":"0","16":"3","17":"43","18":"1","19":"6","20":"3","21":"4","22":"0","23":"0.264","24":"0.362","25":"8.2","26":"25.2","27":"0.33","28":"0.081","29":"148.00","30":"0.682","31":"18.84","32":"4.31","33":"18.35","34":"4.37","35":"0.67","36":"0.315","37":"-4.77","38":"0.52"},{"1":"박병호","2":"삼성","3":"내야수","4":"76","5":"285","6":"249","7":"61","8":"36","9":"5","10":"0","11":"20","12":"42","13":"60","14":"31","15":"0","16":"3","17":"83","18":"2","19":"2","20":"5","21":"3","22":"0","23":"0.245","24":"0.277","25":"10.9","26":"29.1","27":"0.37","28":"0.261","29":"12.45","30":"0.839","31":"43.43","32":"6.01","33":"41.97","34":"3.32","35":"0.59","36":"0.356","37":"3.45","38":"0.52"},{"1":"박준영","2":"두산","3":"내야수","4":"65","5":"212","6":"186","7":"42","8":"24","9":"9","10":"2","11":"7","12":"25","13":"28","14":"21","15":"0","16":"3","17":"58","18":"1","19":"2","20":"3","21":"2","22":"0","23":"0.226","24":"0.287","25":"9.9","26":"27.4","27":"0.36","28":"0.183","29":"26.57","30":"0.722","31":"25.09","32":"4.55","33":"23.47","34":"5.26","35":"0.40","36":"0.319","37":"-5.18","38":"0.52"},{"1":"문현빈","2":"한화","3":"내야수","4":"103","5":"289","6":"260","7":"72","8":"49","9":"16","10":"2","11":"5","12":"29","13":"47","14":"24","15":"1","16":"2","17":"53","18":"2","19":"3","20":"9","21":"3","22":"5","23":"0.277","24":"0.328","25":"8.3","26":"18.3","27":"0.45","28":"0.135","29":"52.00","30":"0.752","31":"33.96","32":"4.47","33":"35.97","34":"3.21","35":"-1.93","36":"0.333","37":"-3.09","38":"0.51"},{"1":"박상언","2":"한화","3":"포수","4":"27","5":"52","6":"42","7":"12","8":"9","9":"3","10":"0","11":"0","12":"4","13":"4","14":"9","15":"0","16":"1","17":"12","18":"0","19":"0","20":"0","21":"1","22":"0","23":"0.286","24":"0.400","25":"17.3","26":"23.1","27":"0.75","28":"0.071","29":"NA","30":"0.780","31":"7.67","32":"6.90","33":"8.62","34":"3.76","35":"0.19","36":"0.375","37":"1.59","38":"0.49"},{"1":"최정원","2":"NC","3":"내야수","4":"65","5":"155","6":"131","7":"37","8":"31","9":"5","10":"0","11":"1","12":"33","13":"14","14":"17","15":"0","16":"4","17":"34","18":"2","19":"3","20":"1","21":"7","22":"3","23":"0.282","24":"0.367","25":"11.0","26":"21.9","27":"0.50","28":"0.062","29":"131.00","30":"0.721","31":"19.50","32":"5.21","33":"20.28","34":"6.55","35":"-0.41","36":"0.339","37":"-0.67","38":"0.49"},{"1":"하주석","2":"한화","3":"내야수","4":"64","5":"151","6":"137","7":"40","8":"29","9":"9","10":"1","11":"1","12":"16","13":"11","14":"10","15":"0","16":"2","17":"34","18":"0","19":"2","20":"1","21":"1","22":"2","23":"0.292","24":"0.382","25":"6.6","26":"22.5","27":"0.29","28":"0.102","29":"137.00","30":"0.743","31":"19.04","32":"5.04","33":"19.19","34":"4.66","35":"-0.77","36":"0.335","37":"-1.22","38":"0.45"},{"1":"정훈","2":"롯데","3":"내야수","4":"109","5":"325","6":"285","7":"76","8":"47","9":"20","10":"0","11":"9","12":"31","13":"47","14":"35","15":"0","16":"0","17":"63","18":"4","19":"5","20":"3","21":"1","22":"1","23":"0.267","24":"0.309","25":"10.8","26":"19.4","27":"0.56","28":"0.165","29":"31.67","30":"0.775","31":"44.65","32":"5.53","33":"42.97","34":"2.84","35":"-0.17","36":"0.341","37":"-0.96","38":"0.45"},{"1":"심우준","2":"KT","3":"내야수","4":"53","5":"192","6":"169","7":"45","8":"38","9":"4","10":"0","11":"3","12":"22","13":"28","14":"17","15":"0","16":"1","17":"29","18":"0","19":"5","20":"3","21":"7","22":"1","23":"0.266","24":"0.307","25":"8.8","26":"15.1","27":"0.59","28":"0.077","29":"56.33","30":"0.680","31":"21.18","32":"4.30","33":"20.22","34":"4.61","35":"0.61","36":"0.313","37":"-5.73","38":"0.40"},{"1":"윤도현","2":"KIA","3":"내야수","4":"6","5":"27","6":"27","7":"11","8":"8","9":"2","10":"0","11":"1","12":"5","13":"8","14":"0","15":"0","16":"0","17":"9","18":"0","19":"0","20":"0","21":"1","22":"0","23":"0.407","24":"0.588","25":"0.0","26":"33.3","27":"0.00","28":"0.186","29":"27.00","30":"1.000","31":"6.73","32":"11.36","33":"5.85","34":"5.11","35":"0.16","36":"0.427","37":"2.20","38":"0.37"},{"1":"전다민","2":"두산","3":"외야수","4":"25","5":"34","6":"27","7":"9","8":"7","9":"2","10":"0","11":"0","12":"10","13":"1","14":"7","15":"0","16":"0","17":"8","18":"0","19":"0","20":"0","21":"1","22":"0","23":"0.333","24":"0.474","25":"20.6","26":"23.5","27":"0.88","28":"0.074","29":"NA","30":"0.878","31":"6.28","32":"9.42","33":"6.96","34":"5.99","35":"0.17","36":"0.415","37":"2.37","38":"0.37"}],"options":{"columns":{"min":{},"max":[8]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>한 가지 주의 사항으로, 열 이름을 보면 <strong>R</strong>의 변수 이름에 사용할 수 없는 <code>%</code>나 <code>/</code> 등의 특수문자가 사용된 것을 볼 수 있다.
+이러한 열을 <strong>R</strong>에서 사용하려면 열 이름을 다음처럼 <code>`</code>으로 감싸주어야 한다.</p>
+<div class="sourceCode" id="cb2562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2562-1"><a href="ch-R-dimension-reduction.html#cb2562-1" tabindex="-1"></a><span class="fu">mean</span>(batters<span class="sc">$</span><span class="st">`</span><span class="at">삼진%</span><span class="st">`</span>) <span class="co"># 삼진율의 평균</span></span></code></pre></div>
+<pre><code>[1] 17.887</code></pre>
+<div class="sourceCode" id="cb2564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2564-1"><a href="ch-R-dimension-reduction.html#cb2564-1" tabindex="-1"></a><span class="fu">mean</span>(batters<span class="sc">$</span><span class="st">`</span><span class="at">타수/홈런</span><span class="st">`</span>, <span class="at">na.rm=</span>T) <span class="co"># 홈런 하나 당 경기수의 평균</span></span></code></pre></div>
+<pre><code>[1] 56.91917</code></pre>
+<p>우리는 이 장에서 <code>batters</code> 데이터를 사용하여 고차원 데이터를 차원축소하는 방법을 살펴볼 것이다.</p>
+</div>
+<div id="고차원-데이터의-문제점" class="section level4 unnumbered hasAnchor">
+<h4>고차원 데이터의 문제점<a href="ch-R-dimension-reduction.html#고차원-데이터의-문제점" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>데이터 분석에서 고차원 데이터를 다룰 때는 다음과 같은 어려움이 있다.</p>
+<ol style="list-style-type: decimal">
+<li>시각적인 탐색이 어렵다.</li>
+</ol>
+<ul>
+<li>데이터를 탐색하는 가장 중요한 방법은 그래프 등을 이용하여 시각화하는 것이다.
+변수들이 너무 많으면 변수들의 분포나 변수들의 관계를 모두 시각적으로 파악하기 어렵다.</li>
+<li>아울러 관측대상의 특징을 시각적으로나 통계적인 방법으로 비교하기 어렵다. <code>batters</code> 데이터에 있는 100 명의 타자의 특징을 비교하고자 할 때 35 개나 되는 통계치가 있기 때문에 어떤 변수를 기준으로 유사점과 차이점을 비교해야 하는지 어렵다.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>변수들이 서로 중복된 정보를 가지거나 상관성이 높아질 가능성이 커진다.</li>
+</ol>
+<ul>
+<li><code>batters</code> 데이터에서 <code>안타</code> 열은 <code>단타</code>, <code>2루타</code>, <code>3루타</code>, <code>홈런</code>의 합이기 때문에 이 5 개의 변수는 서로 독립적이지 않다. 이렇게 서로 독립적이지 않은 열들이 있으면 선형 회귀 등의 데이터 분석에서 문제가 발생한다.</li>
+<li><code>batters</code>는 기본 통계에서 유도된 다양한 유도 변수들이 있다보니, 관점이 다른 유도 변수들과 기본 통계치 사이에 높은 중복성이 발생할 수 있다. 데이터가 충분하지 않은 경우에 이렇게 중복된 변수로 예측 모형 등을 만들면 모형의 안전성이 저하된다.</li>
+<li>유사한 변수들의 효과가 중첩되어 나타나 특정 변수의 효과가 무엇인지 인지하기 어려워진다.</li>
+<li>다음은 <code>batters</code>의 변수들 간의 Pearson 상관성을 시각화한 그림이다. 변수들은 상관계수의 유사성으로 계층적 군집화되어 나열되어 있다. 상관성은 [-1, 1] 사이의 값을 가지는데, 1에 가깝거나 -1에 가까우면 양과 음의 상관성이 매우 크다는 것을 의미한다. 그래프에서 보듯이 상관성이 큰 변수들이 꽤 있음을 확인할 수 있다.</li>
+</ul>
+<div class="sourceCode" id="cb2566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2566-1"><a href="ch-R-dimension-reduction.html#cb2566-1" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb2566-2"><a href="ch-R-dimension-reduction.html#cb2566-2" tabindex="-1"></a><span class="fu">select</span>(batters, <span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)) <span class="sc">%&gt;%</span>     <span class="co"># 수치형 열만 선택</span></span>
+<span id="cb2566-3"><a href="ch-R-dimension-reduction.html#cb2566-3" tabindex="-1"></a>  <span class="fu">cor</span>(<span class="at">use=</span><span class="st">&quot;complete.obs&quot;</span>) <span class="sc">%&gt;%</span>   <span class="co"># 상관계수 행렬 계산</span></span>
+<span id="cb2566-4"><a href="ch-R-dimension-reduction.html#cb2566-4" tabindex="-1"></a>  <span class="fu">corrplot</span>(<span class="at">order=</span><span class="st">&quot;hclust&quot;</span>)      <span class="co"># 상관계수 행렬 시각화</span></span></code></pre></div>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-9-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>변수가 많아지면 관심있는 이슈와 상관없는 변수들이 포함될 가능성이 커진다.</li>
+</ol>
+<ul>
+<li>불필요한 변수가 많아지면 데이터에 있는 우연적 패턴을 모형이 과적합되는 현상이 발생하여 모형의 예측력이 낮아진다. 예를 들어, 어떤 종양에 대한 유전자 분석을 한다고 가정해 보자. 수많은 유전자 중에서 종양의 발생과 관련된 유전자는 한정된 수일 것이고, 대부분의 유전자는 종양 발생과 관련성이 없을 것이다. 그러나 관측치 수가 충분하지 않을 때, 모든 유전자를 변수에 포함하여 종양 발생을 예측하는 모형을 만들면 관련 없는 유전자 중 일부의 패턴과 종양 발생 패턴이 우연히 일치하거나 유사할 확률이 높아지게 된다. 이런 현상이 발생하면 모형은 우연한 패턴을 실제적 패턴으로 오인하여 학습될 수 있다.</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>변수의 처리 비용이 증가한다.</li>
+</ol>
+<ul>
+<li>데이터 분석을 할 때 계산량이 늘어나 처리 시간이 길어진다.</li>
+<li>향후에 새로운 데이터를 수집할 때에도 모든 변수를 수집해야 하므로 수집 비용이 증가한다.</li>
+</ul>
+</div>
+<div id="차원의-저주-the-cusrse-of-dimension" class="section level4 unnumbered hasAnchor">
+<h4>차원의 저주 (The cusrse of dimension)<a href="ch-R-dimension-reduction.html#차원의-저주-the-cusrse-of-dimension" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>차원의 저주란 데이터의 차원이 증가하면 변수 공간에 관측치가 기하급수적으로 희박해지는 현상을 말한다.</p>
+<p>10,000 명의 고객에 대한 마케팅 데이터베이스가 있다고 하자.
+고객이 마케팅 캠페인에 반응할지를 예측하는 반응예측 모형을 만드는데, 예측하려는 고객과 유사한 과거 사례로 예측을 하려고 한다.
+즉, A라는 고객이 캠페인에 반응할지를 예측하려면, A와 유사한 고객을 10명을 선택하여 이 10 명이 과거에 수행한 유사한 마케팅 캠페인에 반응할지를 조사한다. 만약 A와 유사한 고객 중에 마케팅에 반응한 고객이 더 많다면 A 고객은 반응할 것으로 예측하고, 그렇지 않으면 반응하지 않는다고 예측한다.
+이러한 예측 방법을 k-최근접이웃(k-nearest neighbors) 방법이라고 하는데, 이 방법의 핵심은 예측하고자 하는 사례와 유사한 과거의 사례를 찾는 것이다.</p>
+<p>그런데 데이터의 차원이 커지면 유사한 사례들이 희박해지는 현상이 발생한다.</p>
+<ul>
+<li>고객데이터베이스에 고객의 특징을 나타내는 변수가 ‘소득’ 한 개인 경우를 고려해 보자. 소득을 10 분위로 나누어 동일 분위의 과거 고객의 반응률을 측정하여 예측을 할 수 있다. 그러한 하나의 고객 그룹에 평균적으로 1,000 명의 관측치가 존재하므로 반응률의 신뢰성이 매우 높게 된다.</li>
+<li>이번에는 고객을 나타내는 변수가 ’소득’과 ’나이’로 두 개인 경우를 고려해 보자. 소득과 나이를 각각 10 분위로 나누면, 소득과 나이가 동일한 분위인 한 그룹에는 평균 100 개의 관측치가 존재한다.</li>
+<li>다시 변수가 ‘소득’, ‘나이’, ’거래기간’인 세 개인 경우를 고려해 보자. 각각 10 분위로 나누면, 한 그룹에 평균적으로 오직 10 개 관측치만 존재한다. 그러므로 10 명의 과거 고객의 우연적 특성이 예측에 반영될 가능성이 매우 커진다.</li>
+<li>예측 변수가 p 개이고, 각 변수를 10 개의 분위로 나눠진다면, 한 그룹에 평균적으로 <span class="math inline">\(10,000 / 10^p\)</span> 개의 관측치가 존재한다.</li>
+</ul>
+<p>따라서 데이터에서 변수의 수가 증가하면, 근처의 사례 수가 기하급수적으로 감소하여 신뢰성있는 예측이 어려워지는 차원의 저주가 발생하게 된다.</p>
+</div>
+<div id="차원-축소-방법" class="section level4 unnumbered hasAnchor">
+<h4>차원 축소 방법<a href="ch-R-dimension-reduction.html#차원-축소-방법" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>차원 축소란 데이터에 포함된 정보의 손실을 최소화 하면서 데이터에서 변수의 수를 줄이는 작업이다.</p>
+<p>차원 축소를 하는 방법은 다음과 같다.</p>
+<ul>
+<li>투영법(projection techniques): 고차원의 데이터를 더 낮은 차원의 초평면으로 투영한다. 대표적인 방법이 이 장에서 살펴볼 주성분 분석이다.</li>
+<li>다양체법(manifold techniques): 고차원의 데이터를 저차원의 다양체로 투영한다. 다양체란 지역적으로 보면 평면에 가까우나 전체적으로 보면 비선형적인 모양을 의미한다. 대표적인 방법으로 LLE(locally linear embedding)이나 MDS(multidimensional scaling) 등이 있다.</li>
+</ul>
+</div>
+</div>
+<div id="주성분-분석-principal-components-analysis" class="section level2 hasAnchor" number="14.2">
+<h2><span class="header-section-number">14.2</span> 주성분 분석 (Principal Components Analysis)<a href="ch-R-dimension-reduction.html#주성분-분석-principal-components-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>주성분 분석은 다수의 수치형 변수를 소수의 주성분으로 차원을 축소하는 방법으로, 데이터의 변동을 가장 잘 설명하면서 서로 독립인 주성분을 찾는다.
+주성분 분석은 PCA(principal components analysis)라는 영어 약자로 자주 지칭된다.</p>
+<div id="주성분-분석에-대한-직관적-이해" class="section level4 unnumbered hasAnchor">
+<h4>주성분 분석에 대한 직관적 이해<a href="ch-R-dimension-reduction.html#주성분-분석에-대한-직관적-이해" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>다음은 <a href="https://sizekorea.kr/">한국인 인체지수조사 (사이즈코리아)</a>에 게재된 8차 인체치수조사(2020-23)에서 1-2차년도 직접측정 데이터에서 남자의 신체 치수 데이터 중 100 개를 임의 추출한 것이다.
+이 예에서는 키, 몸무게, 가슴둘레, 허리둘레만 살펴보지만 원 데이터에는 관측대상에 대한 150 여개의 신체 측정치를 가지고 있다.
+이 데이터를 사용하여 주성분 분석이 무엇인지에 대한 직관적 이해를 도모해 보자.</p>
+<div class="float">
+<img src="img/men-sizes.png" style="width:100.0%" fig-align="center" alt="출처: 사이즈코리아 측정 항목 검색의 이미지" />
+<div class="figcaption">출처: 사이즈코리아 측정 항목 검색의 이미지</div>
+</div>
+<p>다음은 100 명의 성인 남자의 키와 몸무게의 산점도이다.</p>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-11-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>키와 몸무게의 두 측정항목이 있으므로 2차원 좌표공간에서 점으로 관측대상을 표현할 수 있다.
+만약 관측대상의 이러한 2차원적 특징을 하나의 특징-즉, 변수로 요약한다면 어떻게 요약하면 좋을까?
+앞의 산점도를 살펴보면, 같은 키인 사람도 몸무게의 차이가 꽤 나긴 하지만 전반적으로 키가 클수록 몸무게가 커지는 양의 상관성이 있다.
+그러므로 우리는 키와 몸무게를 아우르는 ’체격’이라는 종합적 개념을 상정할 수 있을 것이다. 체격이 큰 사람은 키와 몸무게가 크고, 체격이 왜소한 사람은 키와 몸무게가 작다고 할 수 있다.</p>
+<p>그렇다면 키와 몸무게처럼 측정될 수 있는 일차적 요인이 아닌, 체격 같은 이차적, 잠재적 요인을 수치화하려면 어떻게 해야 할까?
+우리는 키와 몸무게라는 정보를 체격이라는 하나의 요인으로 종합했을 때, 원래의 2차원 정보가 최대한 손실되지 않는 것을 원할 것이다.
+주성분 분석은 고차원 데이터-이 예에서는 2차원의 키와 몸무게-를 저차원의 주성분-이 예에서는 1차원의 체격-으로 요약할 때 기존의 데이터의 정보의 손실이 가장 작아지는 주성분을 찾는다.</p>
+<p>다음은 키와 몸무게 데이터의 변동을 가장 잘 설명하는 축으로 주성분을 설정한 예이다.
+각각의 점은 주성분 축에 직교투영(orthogonal projection) 되고, 해당 관측치는 주성분 축의 한 점으로 요약된다.
+관측대상을 원래의 2차원으로 설명하는 것과 1차원인 주성분만으로 설명하는 것은 정보의 차이가 있으므로 오차가 발생한다. 오차는 원래의 관측점과 주성분에 투영된 점 사이에는 거리로 평가되며, 주성분 분석은 오차의 제곱의 합이 최소화되는 주성분 축을 찾는다.</p>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-13-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>다음은 주성분을 다른 방향의 축으로 설정했을 때의 오차를 보여준다.
+주성분의 방향이 데이터의 변동과는 무관한 방향으로 설정되었기 때문에 주성분 축으로 직교투영된 후의 오차가 커지는 것을 볼 수 있다.
+따라서 주성분 분석이란 원래의 데이터가 저차원의 주성분 공간으로 직교투영되었을 때 오차가가 최소화되는 주성분 방향을 찾는 것이라고 할 수 있다.</p>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-14-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>마찬가지로 관측대상의 몸무게와 허리둘레라는 2차원 데이터를 하나의 주성분으로 요약하는 것도 생각해 볼 수 있을 것이다.
+몸무게와 허리둘레를 공통적으로 설명하는 비만이라는 잠재요인으로 주성분을 설명할 수도 있을 것이다.</p>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-15-1.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="차원-이상의-데이터로의-주성분-분석의-확장" class="section level4 unnumbered hasAnchor">
+<h4>3차원 이상의 데이터로의 주성분 분석의 확장<a href="ch-R-dimension-reduction.html#차원-이상의-데이터로의-주성분-분석의-확장" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>주성분 분석은 지금까지 본 2차원 데이터를 주성분으로 요약하는 것뿐 아니라, 3차원 이상의 데이터에도 적용할 수 있다.
+다음은 100 명의 남자의 키, 몸무게, 허리둘레 데이터를 3차원 공간에 시각화한 것이다.</p>
+<div class="sourceCode" id="cb2567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2567-1"><a href="ch-R-dimension-reduction.html#cb2567-1" tabindex="-1"></a>threejs<span class="sc">::</span><span class="fu">scatterplot3js</span>(<span class="fu">as.matrix</span>(men_sizes[<span class="fu">c</span>(<span class="st">&quot;키&quot;</span>, <span class="st">&quot;몸무게&quot;</span>, <span class="st">&quot;허리둘레&quot;</span>)]), <span class="at">size=</span><span class="fl">0.5</span>)</span></code></pre></div>
+<div class="scatterplotThree html-widget html-fill-item" id="IMCYeVP9QM" style="width:100%;height:403.2px;"></div>
+<script type="application/json" data-for="IMCYeVP9QM">{"x":{"NROW":100,"height":null,"width":null,"axis":true,"numticks":[6,6,6],"xticklabs":null,"yticklabs":null,"zticklabs":null,"color":["#4682B4"],"size":0.5,"stroke":"black","flipy":true,"grid":true,"renderer":"auto","signif":8,"bg":"#ffffff","cexsymbols":1,"xlim":{},"ylim":{},"zlim":{},"axisscale":[1,1,1],"pch":["@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@"],"elementId":"IMCYeVP9QM","axisLabels":["키","허리둘레","몸무게"],"linealpha":1,"alpha":[1],"vertices":[[0.63141994,0.062388592,0.87864078,0.3836858,0.36720143,0.76213592,0.32930514,0.48841355,0.66990291,0.47734139,0.40285205,0.6003236199999999,0.58006042,0.49197861,0.53559871,0.66465257,0.23351159,0.72977346,0.44108761,0.41889483,0.67961165,0.23867069,0.23351159,0.77669903,0.13595166,0.35472371,0.75566343,0,0.24420677,0.9077669900000001,0.50151057,1,0.17961165,0.08761329299999999,0.42245989,0.81067961,0.4592145,0.3600713,0.63915858,0.57703927,0.20499109,0.62297735,0.18126888,0.40819964,0.75404531,0.43504532,0.46345811,0.65048544,0.28096677,0.33868093,0.71682848,0.46223565,0.21568627,0.78802589,0.1510574,0.25668449,0.98543689,0.35045317,0.33868093,0.6957928799999999,0.6102719,0.47058824,0.6100323600000001,0.55589124,0.48484848,0.37702265,0.51057402,0.74688057,0.32524272,0.6012084599999999,0.25846702,0.81553398,0.67069486,0.59358289,0.27508091,0.64652568,0.21925134,0.68446602,0.89123867,0.26024955,0.51618123,0.44410876,0.28877005,0.8236246,0.51359517,0.39037433,0.48705502,0.75226586,0.33333333,0.64724919,0.6163142,0.49019608,0.51779935,0.49244713,0.41889483,0.5420712,0.78549849,0.32976827,0.55339806,0.56495468,0.50445633,0.52588997,0.17220544,0.021390374,1,0.29909366,0.17290553,0.8899676399999999,0.35951662,0.15151515,0.8980582499999999,0.27492447,0.47950089,0.76860841,0.20845921,0.48841355,0.59546926,0.27794562,0.47593583,0.61650485,0.20241692,0.34759358,0.79773463,0.50453172,0.32263815,0.72491909,0.40181269,0.3083779,0.84789644,0.17824773,0.8057041,0.38834951,0.5347432,0.49910873,0.4789644,0.51057402,0.38324421,0.5970873799999999,0.29305136,0.40641711,0.65372168,0.3081571,0.25846702,0.92394822,0.59214502,0.5775401100000001,0.4223301,0.74924471,0.1942959,0.7993527499999999,0.47432024,0.39572193,0.6019417500000001,0.64652568,0.53297683,0.53074434,0.68277946,0.3885918,0.50970874,0.51057402,0.24777184,0.80906149,0.33534743,0.54723708,0.49514563,0.26888218,0.36363636,0.8236246,0.26888218,0.36185383,0.82200647,0.45619335,0.40641711,0.57605178,0.4592145,0.49019608,0.55501618,0.28700906,0.43850267,0.77184466,0.35347432,0.42602496,0.78964401,0.42598187,0.41354724,0.57605178,0.43202417,0.42959002,0.59546926,0.26888218,0.31194296,0.9223301,0.3897281,0.5311943,0.6407767,0.6918429,0.39928699,0.62459547,0.21450151,0.092691622,0.99190939,0.61933535,0,0.93203883,0.6012084599999999,0.70231729,0.20226537,0.16314199,0.26916221,0.97734628,0.63444109,0.3315508,0.58899676,0.60725076,0.45454545,0.39482201,0.5407855,0.5311943,0.44174757,0.045317221,0.46167558,0.78317152,0.48640483,0.56506239,0.42556634,0.4652568,0.70231729,0.38349515,0.021148036,0.21925134,0.8948220099999999,0.19033233,0.25846702,0.9935275099999999,0.55589124,0.53297683,0.4789644,0.37462236,0.49376114,0.71521036,0.39274924,0.30124777,0.7184466,0.37462236,0.25846702,0.84951456,0.29909366,0.50089127,0.58414239,0.49244713,0.39037433,0.54692557,0.44410876,0.22638146,0.76860841,0.73716012,0.78253119,0.26375405,0.25075529,0.29055258,0.69902913,0.16616314,0.4171123,0.75404531,0.45619335,0.3885918,0.71359223,0.62537764,0.12477718,0.8171521,0.47129909,0.6595365399999999,0.37540453,0.49546828,0.40641711,0.65210356,0.57401813,0.25490196,0.69093851,0.52265861,0.32442068,0.6407767,1,0.75222816,0,0.58610272,0.48484848,0.45631068,0.51661631,0.10338681,0.88511327,0.56193353,0.37789661,0.6100323600000001,0.6767371599999999,0.55258467,0.45631068,0.5347432,0.45454545,0.56634304]],"xticklab":["158.10","164.72","171.34","177.96","184.58","191.20"],"yticklab":["65.50","76.72","87.94","99.16","110.38","121.60"],"zticklab":["114.90","102.54","90.18","77.82","65.46","53.10"],"xtick":[0,0.2000000000000002,0.4000000000000004,0.5999999999999996,0.7999999999999998,1],"ytick":[0,0.2,0.4,0.6,0.8,1],"ztick":[0,0.2000000000000001,0.4000000000000001,0.6000000000000001,0.8,1],"axislength":[1,1,1]},"evals":[],"jsHooks":[]}</script>
+<p>웹 브라우저에서 이 책을 보는 독자는 여러 각도로 축을 변화시키며 그래프를 살펴보자.
+키와 몸무게의 데이터와 마찬가지로, 키, 몸무게, 허리둘레도 공간 상에 무작위적으로 분포하는 것이 아니라 상관관계를 가지고 있기 때문에 특정한 평면 상에 데이터가 몰려서 분포해 있음을 확인할 수 있다.
+따라서 이 데이터의 변동을 가장 잘 설명하는 2차원의 평면을 찾으면 정보의 손실을 최소화하면서 3차원 데이터를 2차원 데이터로 요약할 수 있을 것이다.
+다음은 두 개의 주성분으로 요약한 결과이다.</p>
+<p>다음은 100 명 남자의 몸무게, 허리둘레, 가슴둘레 데이터를 시각화한 결과이다.
+이 세 변수는 상관성이 매우 높아 하나의 직선으로도 요약해도 정보의 손실이 적을 것으로 보인다.
+이 경우에는 3차원 데이터를 하나의 주성분-즉, 1차원 데이터로도 요약하는 것을 시도해 볼 수 있을 것이다.</p>
+<div class="sourceCode" id="cb2568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2568-1"><a href="ch-R-dimension-reduction.html#cb2568-1" tabindex="-1"></a>threejs<span class="sc">::</span><span class="fu">scatterplot3js</span>(<span class="fu">as.matrix</span>(men_sizes[<span class="fu">c</span>(<span class="st">&quot;가슴둘레&quot;</span>, <span class="st">&quot;몸무게&quot;</span>, <span class="st">&quot;허리둘레&quot;</span>)]), <span class="at">size=</span><span class="fl">0.5</span>)</span></code></pre></div>
+<div class="scatterplotThree html-widget html-fill-item" id="DxhysXIGcL" style="width:100%;height:403.2px;"></div>
+<script type="application/json" data-for="DxhysXIGcL">{"x":{"NROW":100,"height":null,"width":null,"axis":true,"numticks":[6,6,6],"xticklabs":null,"yticklabs":null,"zticklabs":null,"color":["#4682B4"],"size":0.5,"stroke":"black","flipy":true,"grid":true,"renderer":"auto","signif":8,"bg":"#ffffff","cexsymbols":1,"xlim":{},"ylim":{},"zlim":{},"axisscale":[1,1,1],"pch":["@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@","@"],"elementId":"DxhysXIGcL","axisLabels":["가슴둘레","허리둘레","몸무게"],"linealpha":1,"alpha":[1],"vertices":[[0.12292359,0.062388592,0.87864078,0.56146179,0.36720143,0.76213592,0.56146179,0.48841355,0.66990291,0.83056478,0.40285205,0.6003236199999999,0.74750831,0.49197861,0.53559871,0.5083056500000001,0.23351159,0.72977346,0.66445183,0.41889483,0.67961165,0.6179402000000001,0.23351159,0.77669903,0.65448505,0.35472371,0.75566343,0.32890365,0.24420677,0.9077669900000001,0.84717608,1,0.17961165,0.29900332,0.42245989,0.81067961,0.6611295700000001,0.3600713,0.63915858,0.93687708,0.20499109,0.62297735,0.35215947,0.40819964,0.75404531,0.5083056500000001,0.46345811,0.65048544,0.43521595,0.33868093,0.71682848,0.40863787,0.21568627,0.78802589,0.13621262,0.25668449,0.98543689,0.46843854,0.33868093,0.6957928799999999,0.72425249,0.47058824,0.6100323600000001,0.80730897,0.48484848,0.37702265,1,0.74688057,0.32524272,0.32890365,0.25846702,0.81553398,0.95016611,0.59358289,0.27508091,0.38538206,0.21925134,0.68446602,0.71428571,0.26024955,0.51618123,0.33554817,0.28877005,0.8236246,0.74086379,0.39037433,0.48705502,0.40863787,0.33333333,0.64724919,0.7043189399999999,0.49019608,0.51779935,0.80398671,0.41889483,0.5420712,0.71096346,0.32976827,0.55339806,0.60797342,0.50445633,0.52588997,0,0.021390374,1,0.19269103,0.17290553,0.8899676399999999,0.20265781,0.15151515,0.8980582499999999,0.28239203,0.47950089,0.76860841,0.61461794,0.48841355,0.59546926,0.37873754,0.47593583,0.61650485,0.35880399,0.34759358,0.79773463,0.35548173,0.32263815,0.72491909,0.31893688,0.3083779,0.84789644,0.97342193,0.8057041,0.38834951,0.66777409,0.49910873,0.4789644,0.63787375,0.38324421,0.5970873799999999,0.65780731,0.40641711,0.65372168,0.25913621,0.25846702,0.92394822,0.8139534899999999,0.5775401100000001,0.4223301,0.52159468,0.1942959,0.7993527499999999,0.81063123,0.39572193,0.6019417500000001,0.65780731,0.53297683,0.53074434,0.60465116,0.3885918,0.50970874,0.54817276,0.24777184,0.80906149,0.58139535,0.54723708,0.49514563,0.39534884,0.36363636,0.8236246,0.34551495,0.36185383,0.82200647,0.6611295700000001,0.40641711,0.57605178,0.7043189399999999,0.49019608,0.55501618,0.50498339,0.43850267,0.77184466,0.40863787,0.42602496,0.78964401,0.81727575,0.41354724,0.57605178,0.56478405,0.42959002,0.59546926,0.22591362,0.31194296,0.9223301,0.62790698,0.5311943,0.6407767,0.61461794,0.39928699,0.62459547,0.13953488,0.092691622,0.99190939,0.20930233,0,0.93203883,0.85049834,0.70231729,0.20226537,0.12624585,0.26916221,0.97734628,0.5581395300000001,0.3315508,0.58899676,0.70099668,0.45454545,0.39482201,0.81727575,0.5311943,0.44174757,0.4717608,0.46167558,0.78317152,0.83388704,0.56506239,0.42556634,0.79734219,0.70231729,0.38349515,0.31561462,0.21925134,0.8948220099999999,0.056478405,0.25846702,0.9935275099999999,0.71428571,0.53297683,0.4789644,0.51495017,0.49376114,0.71521036,0.52491694,0.30124777,0.7184466,0.41528239,0.25846702,0.84951456,0.71428571,0.50089127,0.58414239,0.93023256,0.39037433,0.54692557,0.45847176,0.22638146,0.76860841,0.96013289,0.78253119,0.26375405,0.51827243,0.29055258,0.69902913,0.50166113,0.4171123,0.75404531,0.30564784,0.3885918,0.71359223,0.44186047,0.12477718,0.8171521,0.95681063,0.6595365399999999,0.37540453,0.39202658,0.40641711,0.65210356,0.53820598,0.25490196,0.69093851,0.68438538,0.32442068,0.6407767,1,0.75222816,0,0.80730897,0.48484848,0.45631068,0.28903654,0.10338681,0.88511327,0.5581395300000001,0.37789661,0.6100323600000001,0.72425249,0.55258467,0.45631068,0.7807309,0.45454545,0.56634304]],"xticklab":["84.20","90.22","96.24","102.26","108.28","114.30"],"yticklab":["65.50","76.72","87.94","99.16","110.38","121.60"],"zticklab":["114.90","102.54","90.18","77.82","65.46","53.10"],"xtick":[0,0.1999999999999999,0.3999999999999998,0.5999999999999998,0.8,1],"ytick":[0,0.2,0.4,0.6,0.8,1],"ztick":[0,0.2000000000000001,0.4000000000000001,0.6000000000000001,0.8,1],"axislength":[1,1,1]},"evals":[],"jsHooks":[]}</script>
+<p>다음은 하나의 주성분으로 3차원 데이터를 요약한 결과이다.</p>
+<p>3차원보다 차원이 더 큰 데이터도 요약할 수 있다.</p>
+<ul>
+<li>150 개의 측정치로 이루어진 신체 측정 데이터를 중요한 5 개의 주성분으로 요약하여, 옷의 사이즈를 타나내는 기준으로 사용할 수도 있다.</li>
+<li>35 개의 통계치로 이루어진 타자의 기록을 주요한 2 개의 주성분으로 요약하여 이차원 좌표에 타자를 시각화할 수도 있다.</li>
+<li>20~30 개의 문항으로 이루어진 고객만족도에 대한 점수를 유형성, 신뢰성, 대응성, 확신성, 공감성 등의 주성분으로 변환하여 고객만족도의 개선 방안을 탐색할 수도 있다.</li>
+</ul>
+<p>지금까지는 수치형 변수로만 이루어진 데이터를 차원축소하는 것을 보여주었다.
+범주형 변수로 이루어진 데이터를 차원축소하는 <a href="https://en.wikipedia.org/wiki/Correspondence_analysishttps://en.wikipedia.org/wiki/Correspondence_analysis">대응분석(correspondance analysis)</a>이라는 방법도 있다.
+여기서는 수치형 변수로만 이루어진 데이터를 PCA를 이용하여 차원축소하는 방법만을 다룬다.</p>
+</div>
+<div id="주성분-분석의-간략한-이론" class="section level4 unnumbered hasAnchor">
+<h4>주성분 분석의 간략한 이론<a href="ch-R-dimension-reduction.html#주성분-분석의-간략한-이론" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>수치형 변수 <span class="math inline">\(X_1, X_2, \dots, X_p\)</span>로 이루어진 <span class="math inline">\(p\)</span>-차원의 데이터를 고려해 보자.
+주성분 분석은 <span class="math inline">\(Z_1, Z_2, \dots, Z_q\)</span> 개의 <span class="math inline">\(q\)</span> 개의 주성분을 찾는다. <span class="math inline">\(q \le p\)</span>로, 일반적으로 주성분의 차원 <span class="math inline">\(q\)</span>는 <span class="math inline">\(p\)</span>보다 매우 작다.</p>
+<p>주성분 <span class="math inline">\(Z_k\)</span>는 원 변수 <span class="math inline">\(X_1, X_2, \dots, X_p\)</span>의 다음과 같은 선형변환이다.
+<span class="math display">\[
+Z_k = a_{1k} (X_1 - \bar{X}_1) + a_{2k} (X_2 - \bar{X}_2) + \cdots + a_{pk} (X_p - \bar{X}_p) \quad k=1,2,\dots,q.
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\bar{X}_j\)</span>는 원 변수 <span class="math inline">\(X_j\)</span>의 평균이다.</li>
+<li><span class="math inline">\(a_{jk}\)</span>는 <span class="math inline">\(k\)</span>-번째 주성분 <span class="math inline">\(Z_k\)</span>의 방향과 원 변수의 축 <span class="math inline">\(X_j\)</span>의 일치 정도를 나타내는 계수로서, 주성분 분석은 주성분이 데이터의 변동을 최대한 설명하도록 주성분 방향, 즉, 계수를 계산해 낸다. 한 주성분의 계수의 제곱의 합은 1이다. 즉,
+<span class="math display">\[
+a_{1k}^2 + a_{2k}^2+ \cdots + a_{pk}^2 = 1, \quad k=1, 2, \dots, q.
+\]</span></li>
+</ul>
+<p>주성분 <span class="math inline">\(Z_1, Z_2, \dots, Z_q\)</span>가 원래 데이터의 변동성을 가장 잘 설명하면서, 주성분이 서로 독립이도록-즉, 정보가 중복되지 않도록-다음과 같은 절차로 주성분을 도출한다.</p>
+<ul>
+<li>첫 번째 주성분 <span class="math inline">\(Z_1\)</span>은 데이터의 변동성을 최대로 하는 방향으로 설정된다.</li>
+<li>두 번째 주성분 <span class="math inline">\(Z_2\)</span>는 <span class="math inline">\(Z_1\)</span>과 직교하면서, <span class="math inline">\(Z_1\)</span>이 설명하지 못한 데이터의 나머지 변동성을 최대로 설명하는 방향으로 설정된다.</li>
+<li><span class="math inline">\(k\)</span>-번째 주성분은 이전의 주성분 <span class="math inline">\(Z_1, Z_2, \dots, Z_{k-1}\)</span>과 직교하면서, 데이터의 나머지 변동성을 최대로 설명하는 방향으로 설정된다. 이러한 과정을 <span class="math inline">\(q\)</span> 개의 주성분이 모두 찾아질 때까지 수행한다.</li>
+</ul>
+<p>주성분 <span class="math inline">\(Z_k\)</span>의 계수 <span class="math inline">\(a_{jk}\)</span>를 주성분 <span class="math inline">\(Z_k\)</span>의 변수 <span class="math inline">\(X_j\)</span>에 대한 적재량 또는 로딩(loading)이라한다.</p>
+<ul>
+<li>로딩 <span class="math inline">\(a_{jk}\)</span>는 원래 변수 <span class="math inline">\(X_j\)</span>가 한 단위 변할 때 주성분 <span class="math inline">\(Z_k\)</span>의 변화량을 의미한다.</li>
+<li><span class="math inline">\(X_j\)</span>에 대한 로딩 <span class="math inline">\(a_{jk}\)</span>의 절대값이 크다면, 주성분 <span class="math inline">\(Z_k\)</span>와 <span class="math inline">\(X_j\)</span> 상관성이 크다는 것을 의미한다. 다시 말하면, 주성분 <span class="math inline">\(Z_k\)</span>의 방향이 <span class="math inline">\(X_j\)</span>의 축 방향에 가깝다는 것을 의미한다.</li>
+<li>주성분의 의미를 해석하려면 로딩 값을 확인하여야 한다. 어떤 원래 변수와 연관된 성분인지를 파악하여 주성분의 의미를 해석한다.</li>
+</ul>
+</div>
+<div id="r로-주성분-분석하기" class="section level4 unnumbered hasAnchor">
+<h4><strong>R</strong>로 주성분 분석하기<a href="ch-R-dimension-reduction.html#r로-주성분-분석하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>다음은 <code>batters</code> 데이터에서 타자의 삼진과 타점 수를 산점도로 시각화한 것이다.
+삼진과 타점의 양의 상관성을 확인할 수 있다.</p>
+<div class="sourceCode" id="cb2569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2569-1"><a href="ch-R-dimension-reduction.html#cb2569-1" tabindex="-1"></a><span class="fu">ggplot</span>(batters, <span class="fu">aes</span>(삼진, 타점)) <span class="sc">+</span></span>
+<span id="cb2569-2"><a href="ch-R-dimension-reduction.html#cb2569-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-18-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>삼진과 타점으로만 되어 있는 타자의 데이터를 한 점으로 요약한다면 어떤 점으로 요약하여야 할까?
+삼진과 타점의 평균점으로 요약하는 것이 좋은 방법일 것이다.
+왜냐하면 평균점으로 요약하면 요약한 점과 데이터의 거리(오차)의 제곱의 합이 최소가 되기 때문이다.
+다음은 타자의 삼진과 타점의 평균점을 계산한 결과이다.</p>
+<div class="sourceCode" id="cb2570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2570-1"><a href="ch-R-dimension-reduction.html#cb2570-1" tabindex="-1"></a>mean_point <span class="ot">&lt;-</span> batters <span class="sc">%&gt;%</span> </span>
+<span id="cb2570-2"><a href="ch-R-dimension-reduction.html#cb2570-2" tabindex="-1"></a>  <span class="fu">summarise</span>(삼진<span class="ot">=</span><span class="fu">mean</span>(삼진), 타점<span class="ot">=</span><span class="fu">mean</span>(타점))</span>
+<span id="cb2570-3"><a href="ch-R-dimension-reduction.html#cb2570-3" tabindex="-1"></a>mean_point</span></code></pre></div>
+<pre><code># A tibble: 1 × 2
+   삼진  타점
+  &lt;dbl&gt; &lt;dbl&gt;
+1  71.1  57.1</code></pre>
+<p>다음은 삼진과 타점 데이터와 함께 평균점을 시각화한 것이다.</p>
+<div class="sourceCode" id="cb2572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2572-1"><a href="ch-R-dimension-reduction.html#cb2572-1" tabindex="-1"></a><span class="fu">ggplot</span>(batters, <span class="fu">aes</span>(삼진, 타점)) <span class="sc">+</span></span>
+<span id="cb2572-2"><a href="ch-R-dimension-reduction.html#cb2572-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2572-3"><a href="ch-R-dimension-reduction.html#cb2572-3" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">xend=</span>mean_point<span class="sc">$</span>삼진, <span class="at">yend=</span>mean_point<span class="sc">$</span>타점), </span>
+<span id="cb2572-4"><a href="ch-R-dimension-reduction.html#cb2572-4" tabindex="-1"></a>               <span class="at">alpha=</span><span class="fl">0.1</span>, <span class="at">linetype=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb2572-5"><a href="ch-R-dimension-reduction.html#cb2572-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>mean_point, </span>
+<span id="cb2572-6"><a href="ch-R-dimension-reduction.html#cb2572-6" tabindex="-1"></a>             <span class="at">size=</span><span class="dv">10</span>, <span class="at">shape=</span><span class="st">&quot;*&quot;</span>, <span class="at">color=</span><span class="st">&quot;red&quot;</span>) </span></code></pre></div>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-20-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>데이터를 평균점으로 요약하게 되면 정보의 손실이 발생한다.
+파선은 실제 데이터와 평균점의 거리를 보여준다.
+실제 데이터와 평균점의 거리의 평균은 분산으로 측정될 수 있다.</p>
+<div class="sourceCode" id="cb2573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2573-1"><a href="ch-R-dimension-reduction.html#cb2573-1" tabindex="-1"></a>variance_from_point <span class="ot">&lt;-</span> batters <span class="sc">%&gt;%</span> </span>
+<span id="cb2573-2"><a href="ch-R-dimension-reduction.html#cb2573-2" tabindex="-1"></a>  <span class="fu">summarise</span>(삼진<span class="ot">=</span><span class="fu">var</span>(삼진), 타점<span class="ot">=</span><span class="fu">var</span>(타점))</span>
+<span id="cb2573-3"><a href="ch-R-dimension-reduction.html#cb2573-3" tabindex="-1"></a>variance_from_point</span></code></pre></div>
+<pre><code># A tibble: 1 × 2
+   삼진  타점
+  &lt;dbl&gt; &lt;dbl&gt;
+1 1224.  949.</code></pre>
+<div class="sourceCode" id="cb2575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2575-1"><a href="ch-R-dimension-reduction.html#cb2575-1" tabindex="-1"></a>total_variance <span class="ot">&lt;-</span> <span class="fu">sum</span>(variance_from_point)</span>
+<span id="cb2575-2"><a href="ch-R-dimension-reduction.html#cb2575-2" tabindex="-1"></a>total_variance</span></code></pre></div>
+<pre><code>[1] 2173.298</code></pre>
+<p>결과에서 보듯이 평균점으로 데이터를 요약하는 것은 큰 분산을 보인다.
+데이터를 하나의 주성분으로 요약하면 분산이 얼만큼 감소하는지 살펴보자.</p>
+<p><strong>R</strong>에서 주성분 분석은 <strong>R</strong>의 기본 패키지인 <code>stat</code> 패키지의 <code>prcomp()</code> 함수를 사용한다.
+다음처럼 차원을 축소할 원 데이터를 함수의 인수로 주면 주성분 분석을 한다.
+주성분 분석의 결과는 여러 요소로 구성되어 있으므로 변수에 저장하자.</p>
+<div class="sourceCode" id="cb2577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2577-1"><a href="ch-R-dimension-reduction.html#cb2577-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">select</span>(batters, 삼진, 타점) <span class="sc">%&gt;%</span> <span class="fu">prcomp</span>()</span>
+<span id="cb2577-2"><a href="ch-R-dimension-reduction.html#cb2577-2" tabindex="-1"></a>result</span></code></pre></div>
+<pre><code>Standard deviations (1, .., p=2):
+[1] 43.12096 17.71670
+
+Rotation (n x k) = (2 x 2):
+            PC1        PC2
+삼진 -0.7675167  0.6410290
+타점 -0.6410290 -0.7675167</code></pre>
+<p>주성분 분석 결과를 출력하면 다음 두 가지 정보를 제공한다.</p>
+<ul>
+<li>standard deviations: 주성분의 표준편차를 보여준다. 주성분의 표준편차는 주성분이 데이터의 변동성을 얼만큼 설명하는지를 보여준다. 이 예에서는 첫 번재 주성분이 두 번째 주성분보다 훨씬 더 많은 데이터의 변동을 설명하는 것을 확인할 수 있다.</li>
+<li>rotation: 주성분의 로딩을 보여준다. 열의 PC1, PC2는 첫 번째 주성분과 두 번째 주성분을 의미하며, 행은 원래 변수를 보여준다. 따라서 PC1 열의 값이 첫 번째 주성분의 로딩 값이다. 이 예에서는 첫 번째 주성분은 삼진의 로딩의 절대값이 타점보다 더 크므로 삼진의 좌표축에 더 가깝게 주성분의 방향이 설정되었다.</li>
+</ul>
+<p>주성분이 데이터의 변동을 어느 정도나 설명하고 있는지는 주로 분산을 사용하여 계산한다.
+<code>summary()</code> 함수로 주성분 결과를 출력하면 각 주성분이 설명하는 데이터 분산의 비중을 출력한다.</p>
+<div class="sourceCode" id="cb2579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2579-1"><a href="ch-R-dimension-reduction.html#cb2579-1" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
+<pre><code>Importance of components:
+                           PC1     PC2
+Standard deviation     43.1210 17.7167
+Proportion of Variance  0.8556  0.1444
+Cumulative Proportion   0.8556  1.0000</code></pre>
+<ul>
+<li>Standard deviation은 주성분 분석의 결과를 출력했을 때와 같은 내용이다.</li>
+<li>Proportion of Variance는 각각의 주성분이 전체 데이터의 변동을 나타내는 분산을 설명하는 비율을 나타낸다. 이 예에서는 첫 번째 주성분(PC1)이 전체 데이터 변동의 85.6%를 설명하는 것을 볼 수 있다.</li>
+<li>Cumulative Proportion은 첫 번째부터 지금의 주성분까지 모두 합하여 전체 데이터 변동을 설명하는 누적 비율을 나타낸다. 이 에에서 보듯이 2차원 데이터는 두 개의 주성분을 사용하면 원래의 데이터와 마찬가지의 2차원 데이터가 되므로 전체 데이터의 100%를 설명한다. 이 수치는 데이터의 차원이 클 때 데이터의 변동을 충분히 설명하도록 주성분의 수를 결정할 때 유용하게 사용된다.</li>
+</ul>
+<p>주성분 분석 결과는 리스트라는 형식의 데이터이다.
+리스트는 여러 요소로 구성되어 있다.
+리스트의 요소는 데이터프레임의 열을 지정하듯이 <code>$</code> 연산자를 사용하여 지정할 수 있다.</p>
+<div class="sourceCode" id="cb2581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2581-1"><a href="ch-R-dimension-reduction.html#cb2581-1" tabindex="-1"></a>result<span class="sc">$</span>rotation  <span class="co"># 주성분의 로딩 행렬</span></span></code></pre></div>
+<pre><code>            PC1        PC2
+삼진 -0.7675167  0.6410290
+타점 -0.6410290 -0.7675167</code></pre>
+<div class="sourceCode" id="cb2583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2583-1"><a href="ch-R-dimension-reduction.html#cb2583-1" tabindex="-1"></a>result<span class="sc">$</span>center <span class="co"># 원 데이터의 평균점 </span></span></code></pre></div>
+<pre><code> 삼진  타점 
+71.07 57.14 </code></pre>
+<div class="sourceCode" id="cb2585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2585-1"><a href="ch-R-dimension-reduction.html#cb2585-1" tabindex="-1"></a>result<span class="sc">$</span>x <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="co"># 관측치의 주성분 좌표 (Z_1, Z_2). 6 개만 출력</span></span></code></pre></div>
+<pre><code>           PC1       PC2
+[1,] -63.12319 -14.84816
+[2,] -68.88386 -13.94556
+[3,] -38.57124 -43.17133
+[4,] -38.42758 -28.95938
+[5,] -64.91120 -10.74901
+[6,] -40.49433 -45.47388</code></pre>
+<p>다음은 주성분 결과를 사용하여 원래 데이터와 평균점, 그리고 첫 번째 주성분을 시각화한 것이다.</p>
+<p><span class="math display">\[
+\begin{split}
+Z_1
+  &amp;= a_{11} (X_{삼진} - \bar{X}_{삼진})  + a_{21} (X_{타점} - \bar{X}_{타점})\\
+  &amp;= (-0.641) (X_{삼진} - 71.07)
+  + (-0.768) (X_{타점} - 57.14)
+\end{split}
+\]</span></p>
+<div class="sourceCode" id="cb2587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2587-1"><a href="ch-R-dimension-reduction.html#cb2587-1" tabindex="-1"></a><span class="fu">ggplot</span>(batters, <span class="fu">aes</span>(삼진, 타점)) <span class="sc">+</span></span>
+<span id="cb2587-2"><a href="ch-R-dimension-reduction.html#cb2587-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb2587-3"><a href="ch-R-dimension-reduction.html#cb2587-3" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> result<span class="sc">$</span>rotation[<span class="dv">2</span>,<span class="dv">1</span>] <span class="sc">/</span> result<span class="sc">$</span>rotation[<span class="dv">1</span>,<span class="dv">1</span>], </span>
+<span id="cb2587-4"><a href="ch-R-dimension-reduction.html#cb2587-4" tabindex="-1"></a>          <span class="at">intercept =</span> result<span class="sc">$</span>center[<span class="dv">2</span>] <span class="sc">-</span> result<span class="sc">$</span>center[<span class="dv">1</span>] <span class="sc">*</span> result<span class="sc">$</span>rotation[<span class="dv">2</span>,<span class="dv">1</span>] <span class="sc">/</span> result<span class="sc">$</span>rotation[<span class="dv">1</span>,<span class="dv">1</span>] , </span>
+<span id="cb2587-5"><a href="ch-R-dimension-reduction.html#cb2587-5" tabindex="-1"></a>          <span class="at">color =</span><span class="st">&quot;blue&quot;</span>, <span class="at">linewidth=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb2587-6"><a href="ch-R-dimension-reduction.html#cb2587-6" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">x =</span> result<span class="sc">$</span>center[<span class="dv">1</span>], <span class="at">y =</span> result<span class="sc">$</span>center[<span class="dv">2</span>], </span>
+<span id="cb2587-7"><a href="ch-R-dimension-reduction.html#cb2587-7" tabindex="-1"></a>         <span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="dv">10</span>, <span class="at">shape=</span><span class="st">&quot;*&quot;</span>) <span class="sc">+</span></span>
+<span id="cb2587-8"><a href="ch-R-dimension-reduction.html#cb2587-8" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> result<span class="sc">$</span>center[<span class="dv">1</span>], <span class="at">linetype=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb2587-9"><a href="ch-R-dimension-reduction.html#cb2587-9" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> result<span class="sc">$</span>center[<span class="dv">2</span>], <span class="at">linetype=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-28-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>첫 번째 주성분 <span class="math inline">\(Z_1\)</span>의 분산을 구해보자.</p>
+<div class="sourceCode" id="cb2588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2588-1"><a href="ch-R-dimension-reduction.html#cb2588-1" tabindex="-1"></a><span class="fu">var</span>(result<span class="sc">$</span>x[,<span class="dv">1</span>])</span></code></pre></div>
+<pre><code>[1] 1859.417</code></pre>
+<p>우리가 데이터를 첫 번째 주성분으로 표현하면 전체 데이터의 변동 중에 다음의 비율을 설명하게 된다.</p>
+<div class="sourceCode" id="cb2590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2590-1"><a href="ch-R-dimension-reduction.html#cb2590-1" tabindex="-1"></a><span class="fu">var</span>(result<span class="sc">$</span>x[,<span class="dv">1</span>]) <span class="sc">/</span> total_variance</span></code></pre></div>
+<pre><code>[1] 0.8555737</code></pre>
+<p>이 수치는 <code>summary(result)</code>의 <code>Proportion of Variance</code>의 값과 같다.
+만약 우리가 첫 번째 주성분을 타점의 축과 동일하게 설정하였다면 타점의 분산만큼의 설명력을 가질 것이다. 분산이 더 큰 삼진과 동일하게 첫 번재 주성분을 설정하였다면 삼진의 분산만큼을 설명할 수 있다.
+이 두 방향보다는 PCA가 찾은 주성분 방향의 분산이 더 크다는 것을 확인할 수 있다.
+왜냐하면 첫 번째 주성분이 삼진과 타점의 변동성을 종합적으로 아울르면 데이터의 변동성을 설명하기 때문이다.</p>
+<p>두 번째 주성분 <span class="math inline">\(Z_2\)</span>는 평균점을 관통하며 <span class="math inline">\(Z_1\)</span>과 직교하는 성분으로서, <span class="math inline">\(Z_1\)</span>이 설명하지 못하는 나머지 데이터의 변동성을 가장 잘 설명하는 방향으로 설정된다.
+우리는 삼진과 타점이라는 2차원 데이터에 대하여 주성분 분석을 하였으므로, 두 개의 주성분을 사용하면 원래의 데이터와 차원이 같아져서 원래 데이터의 변동성의 100%를 설명하게 된다.</p>
+<p>다음은 주성분 결과를 사용하여 원래 데이터, 평균점, 첫 번째 주성분과 함께, 두 번째 주성분을 시각화한 것이다.</p>
+<p><span class="math display">\[
+\begin{split}
+Z_2
+  &amp;= a_{12} (X_{삼진} - \bar{X}_{삼진}) + a_{22} (X_{타점} - \bar{X}_{타점}) \\
+  &amp;= (-0.768) (X_{삼진} - 71.07)
+  + (0.641) (X_{타점} - 57.14)
+\end{split}
+\]</span></p>
+<div class="sourceCode" id="cb2592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2592-1"><a href="ch-R-dimension-reduction.html#cb2592-1" tabindex="-1"></a><span class="fu">ggplot</span>(batters, <span class="fu">aes</span>(삼진, 타점)) <span class="sc">+</span></span>
+<span id="cb2592-2"><a href="ch-R-dimension-reduction.html#cb2592-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb2592-3"><a href="ch-R-dimension-reduction.html#cb2592-3" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> result<span class="sc">$</span>rotation[<span class="dv">2</span>,<span class="dv">1</span>] <span class="sc">/</span> result<span class="sc">$</span>rotation[<span class="dv">1</span>,<span class="dv">1</span>], </span>
+<span id="cb2592-4"><a href="ch-R-dimension-reduction.html#cb2592-4" tabindex="-1"></a>          <span class="at">intercept =</span> result<span class="sc">$</span>center[<span class="dv">2</span>] <span class="sc">-</span> result<span class="sc">$</span>center[<span class="dv">1</span>] <span class="sc">*</span> result<span class="sc">$</span>rotation[<span class="dv">2</span>,<span class="dv">1</span>] <span class="sc">/</span> result<span class="sc">$</span>rotation[<span class="dv">1</span>,<span class="dv">1</span>] , </span>
+<span id="cb2592-5"><a href="ch-R-dimension-reduction.html#cb2592-5" tabindex="-1"></a>          <span class="at">color =</span><span class="st">&quot;blue&quot;</span>, <span class="at">linewidth=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb2592-6"><a href="ch-R-dimension-reduction.html#cb2592-6" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> result<span class="sc">$</span>rotation[<span class="dv">2</span>,<span class="dv">2</span>] <span class="sc">/</span> result<span class="sc">$</span>rotation[<span class="dv">1</span>,<span class="dv">2</span>], </span>
+<span id="cb2592-7"><a href="ch-R-dimension-reduction.html#cb2592-7" tabindex="-1"></a>          <span class="at">intercept =</span> result<span class="sc">$</span>center[<span class="dv">2</span>] <span class="sc">-</span> result<span class="sc">$</span>center[<span class="dv">1</span>] <span class="sc">*</span> result<span class="sc">$</span>rotation[<span class="dv">2</span>,<span class="dv">2</span>] <span class="sc">/</span> result<span class="sc">$</span>rotation[<span class="dv">1</span>,<span class="dv">2</span>] , </span>
+<span id="cb2592-8"><a href="ch-R-dimension-reduction.html#cb2592-8" tabindex="-1"></a>          <span class="at">color =</span><span class="st">&quot;orange&quot;</span>, <span class="at">linewidth=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb2592-9"><a href="ch-R-dimension-reduction.html#cb2592-9" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">x =</span> result<span class="sc">$</span>center[<span class="dv">1</span>], <span class="at">y =</span> result<span class="sc">$</span>center[<span class="dv">2</span>], </span>
+<span id="cb2592-10"><a href="ch-R-dimension-reduction.html#cb2592-10" tabindex="-1"></a>         <span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">size=</span><span class="dv">10</span>, <span class="at">shape=</span><span class="st">&quot;*&quot;</span>) <span class="sc">+</span></span>
+<span id="cb2592-11"><a href="ch-R-dimension-reduction.html#cb2592-11" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> result<span class="sc">$</span>center[<span class="dv">1</span>], <span class="at">linetype=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb2592-12"><a href="ch-R-dimension-reduction.html#cb2592-12" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> result<span class="sc">$</span>center[<span class="dv">2</span>], <span class="at">linetype=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-31-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>두 번째 주성분 <span class="math inline">\(Z_1\)</span>의 분산을 구해보자.</p>
+<div class="sourceCode" id="cb2593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2593-1"><a href="ch-R-dimension-reduction.html#cb2593-1" tabindex="-1"></a><span class="fu">var</span>(result<span class="sc">$</span>x[,<span class="dv">2</span>])</span></code></pre></div>
+<pre><code>[1] 313.8814</code></pre>
+<p>우리가 데이터를 첫 번째와 두 번째 주성분으로 모두 사용하여 표현하면 전체 데이터의 변동을 모두 설명하게 된다.</p>
+<div class="sourceCode" id="cb2595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2595-1"><a href="ch-R-dimension-reduction.html#cb2595-1" tabindex="-1"></a>(<span class="fu">var</span>(result<span class="sc">$</span>x[,<span class="dv">1</span>]) <span class="sc">+</span> <span class="fu">var</span>(result<span class="sc">$</span>x[,<span class="dv">2</span>])) <span class="sc">/</span> total_variance</span></code></pre></div>
+<pre><code>[1] 1</code></pre>
+<p>이번에는 <code>batters</code>에서 기본 통계치를 사용하여 주성분 분석을 수행해 보자.</p>
+<div class="sourceCode" id="cb2597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2597-1"><a href="ch-R-dimension-reduction.html#cb2597-1" tabindex="-1"></a>basic_stat <span class="ot">&lt;-</span> <span class="fu">select</span>(batters, 경기<span class="sc">:</span>도실)</span>
+<span id="cb2597-2"><a href="ch-R-dimension-reduction.html#cb2597-2" tabindex="-1"></a>result <span class="ot">&lt;-</span>  <span class="fu">prcomp</span>(basic_stat)</span></code></pre></div>
+<div class="sourceCode" id="cb2598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2598-1"><a href="ch-R-dimension-reduction.html#cb2598-1" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
+<pre><code>Importance of components:
+                            PC1      PC2      PC3      PC4     PC5      PC6
+Standard deviation     227.6116 28.88217 18.90857 14.39375 12.9006 11.28303
+Proportion of Variance   0.9646  0.01553  0.00666  0.00386  0.0031  0.00237
+Cumulative Proportion    0.9646  0.98010  0.98676  0.99061  0.9937  0.99608
+                           PC7     PC8    PC9    PC10   PC11    PC12    PC13
+Standard deviation     9.13151 5.99410 5.6753 5.04602 3.2435 2.84558 2.39047
+Proportion of Variance 0.00155 0.00067 0.0006 0.00047 0.0002 0.00015 0.00011
+Cumulative Proportion  0.99764 0.99830 0.9989 0.99938 0.9996 0.99972 0.99983
+                          PC14    PC15    PC16    PC17   PC18      PC19
+Standard deviation     1.91996 1.52211 1.24551 1.22170 0.1335 4.264e-15
+Proportion of Variance 0.00007 0.00004 0.00003 0.00003 0.0000 0.000e+00
+Cumulative Proportion  0.99990 0.99994 0.99997 1.00000 1.0000 1.000e+00</code></pre>
+<p><code>plot()</code> 함수를 사용하면 PCA의 주성분이 데이터의 변동을 설명하는 비중을 그래프로 시각화해 준다.</p>
+<div class="sourceCode" id="cb2600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2600-1"><a href="ch-R-dimension-reduction.html#cb2600-1" tabindex="-1"></a><span class="fu">plot</span>(result, <span class="at">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-36-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><code>summary()</code> 결과를 보면 처음 세 개의 주성분(PC1, PC2, PC3)이 데이터 변동의 98.68%를 설명하고 있다.</p>
+<p>이 세 주성분의 로딩을 확인해 보자.</p>
+<div class="sourceCode" id="cb2601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2601-1"><a href="ch-R-dimension-reduction.html#cb2601-1" tabindex="-1"></a>loading <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">variable=</span><span class="fu">rownames</span>(result<span class="sc">$</span>rotation),</span>
+<span id="cb2601-2"><a href="ch-R-dimension-reduction.html#cb2601-2" tabindex="-1"></a>                      result<span class="sc">$</span>rotation[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="at">row.names =</span> <span class="cn">NULL</span>) </span>
+<span id="cb2601-3"><a href="ch-R-dimension-reduction.html#cb2601-3" tabindex="-1"></a>loading</span></code></pre></div>
+<pre><code>   variable          PC1          PC2         PC3
+1      경기 -0.125983774 -0.013544269 -0.33194698
+2      타석 -0.704644447  0.003368865 -0.19191550
+3      타수 -0.623752796  0.032913208  0.12185395
+4      안타 -0.194600279  0.236792796  0.31571466
+5      단타 -0.129040730  0.415025349 -0.02651686
+6     2루타 -0.034525170 -0.010192594  0.12910632
+7     3루타 -0.003342892  0.010972214 -0.01774042
+8      홈런 -0.027691486 -0.179012173  0.23086562
+9      득점 -0.107494823  0.029021018 -0.04003317
+10     타점 -0.115939578 -0.250816175  0.68806952
+11     볼넷 -0.065314415 -0.042563889 -0.21406433
+12      고4 -0.004787537 -0.010953884  0.02603029
+13      HBP -0.008193194 -0.016966541 -0.03257435
+14     삼진 -0.110173671 -0.809192507 -0.21746615
+15     희플 -0.008178617 -0.005321719  0.03185580
+16     희타 -0.007265888  0.029155389 -0.06875657
+17     병살 -0.010816449  0.006844707  0.04062143
+18     도루 -0.017027679  0.124889703 -0.28989259
+19     도실 -0.005289567  0.029150508 -0.07838461</code></pre>
+<div class="sourceCode" id="cb2603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2603-1"><a href="ch-R-dimension-reduction.html#cb2603-1" tabindex="-1"></a><span class="fu">pivot_longer</span>(loading, <span class="at">cols=</span>PC1<span class="sc">:</span>PC3, </span>
+<span id="cb2603-2"><a href="ch-R-dimension-reduction.html#cb2603-2" tabindex="-1"></a>             <span class="at">names_to=</span><span class="st">&quot;component&quot;</span>, <span class="at">values_to=</span><span class="st">&quot;loading&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2603-3"><a href="ch-R-dimension-reduction.html#cb2603-3" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb2603-4"><a href="ch-R-dimension-reduction.html#cb2603-4" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x=</span>variable, <span class="at">y=</span>loading)) <span class="sc">+</span></span>
+<span id="cb2603-5"><a href="ch-R-dimension-reduction.html#cb2603-5" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb2603-6"><a href="ch-R-dimension-reduction.html#cb2603-6" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>component)</span></code></pre></div>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-38-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<ul>
+<li>첫 번째 주성분과 가장 상관성이 높은 변수는 타석, 타수, 안타 등이다.</li>
+<li>두 번째 주성분과 가장 상관성이 높은 변수는 삼진, 단타, 타점 등이다.</li>
+<li>세 번째 주성분과 가장 상관성이 높은 변수는 타점, 경기, 안타 등이다.</li>
+</ul>
+</div>
+<div id="데이터-정규화-후-주성분-분석하기" class="section level4 unnumbered hasAnchor">
+<h4>데이터 정규화 후 주성분 분석하기<a href="ch-R-dimension-reduction.html#데이터-정규화-후-주성분-분석하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>다음은 <code>basic_stat</code>의 모든 변수의 표준편차를 구한 결과이다.</p>
+<div class="sourceCode" id="cb2604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2604-1"><a href="ch-R-dimension-reduction.html#cb2604-1" tabindex="-1"></a><span class="fu">summarise</span>(basic_stat, <span class="fu">across</span>(<span class="fu">everything</span>(), sd)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2604-2"><a href="ch-R-dimension-reduction.html#cb2604-2" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), <span class="at">names_to=</span><span class="st">&quot;variable&quot;</span>, <span class="at">values_to=</span><span class="st">&quot;sd&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2604-3"><a href="ch-R-dimension-reduction.html#cb2604-3" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(sd))</span></code></pre></div>
+<pre><code># A tibble: 19 × 2
+   variable     sd
+   &lt;chr&gt;     &lt;dbl&gt;
+ 1 타석     161.  
+ 2 타수     142.  
+ 3 안타      45.6 
+ 4 삼진      35.0 
+ 5 단타      32.3 
+ 6 경기      31.3 
+ 7 타점      30.8 
+ 8 득점      26.8 
+ 9 볼넷      18.6 
+10 도루      11.3 
+11 홈런       9.99
+12 2루타      9.38
+13 HBP        4.97
+14 병살       4.01
+15 희타       3.89
+16 도실       3.25
+17 희플       2.88
+18 3루타      1.97
+19 고4        1.93</code></pre>
+<p>위의 결과에서 보듯이 변수들의 표준편차의 차이가 크며, 주성분은 표준편차가 큰 변수에 강한 영향을 받는 것을 볼 수 있다.
+또한 변수의 표준편차는 변수의 측정 단위가 바뀌면 크게 변동하고, 변수의 표준편차는 다시 주성분 분석의 결과에 영향을 준다.
+그러므로 변수의 스케일에 무관하게 주성분 분석 결과를 얻으려면 변수의 스케일이 일치하도록 조정할 필요가 있다.</p>
+<p>변수의 스케일을 일치시키는 방법 중 하나가 정규화이다.
+정규화는 변수의 평균을 0, 표준편차를 1로 일치시킨다.
+정규화가 수행된 변수는 대부분의 값이 <span class="math inline">\(\pm 2, 3\)</span> 사이의 값을 가진다.
+정규화를 하는 방법은 변수 <span class="math inline">\(X_j\)</span>를 변수의 평균 <span class="math inline">\(\bar{X}_j\)</span>로 빼준 후, 변수의 표준편차 <span class="math inline">\(sd(X_j)\)</span>로 나누는 것이다.
+<span class="math display">\[
+\frac{X_j - \bar{X}_j}{sd(X_j)}
+\]</span></p>
+<p>데이터를 정규화한 후 주성분 분석을 하는 것은 매우 간단하다.
+<code>precomp()</code> 함수의 <code>scale.=TRUE</code> 인수를 설정하면 된다.</p>
+<div class="sourceCode" id="cb2606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2606-1"><a href="ch-R-dimension-reduction.html#cb2606-1" tabindex="-1"></a>result_scaled <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(basic_stat, <span class="at">scale.=</span>T)</span></code></pre></div>
+<p>정규화한 후에 주성분이 데이터의 변동성을 얼만큼 설명하고 있는지를 살펴보자.</p>
+<div class="sourceCode" id="cb2607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2607-1"><a href="ch-R-dimension-reduction.html#cb2607-1" tabindex="-1"></a><span class="fu">summary</span>(result_scaled)</span></code></pre></div>
+<pre><code>Importance of components:
+                          PC1    PC2     PC3     PC4    PC5     PC6     PC7
+Standard deviation     3.2495 1.5816 1.13714 0.95805 0.8954 0.79789 0.72791
+Proportion of Variance 0.5558 0.1316 0.06806 0.04831 0.0422 0.03351 0.02789
+Cumulative Proportion  0.5558 0.6874 0.75548 0.80378 0.8460 0.87949 0.90737
+                           PC8     PC9    PC10    PC11   PC12    PC13    PC14
+Standard deviation     0.64978 0.57198 0.54130 0.46935 0.4249 0.36803 0.30069
+Proportion of Variance 0.02222 0.01722 0.01542 0.01159 0.0095 0.00713 0.00476
+Cumulative Proportion  0.92960 0.94681 0.96224 0.97383 0.9833 0.99046 0.99522
+                          PC15    PC16    PC17     PC18     PC19
+Standard deviation     0.21916 0.15362 0.13853 0.001388 2.28e-16
+Proportion of Variance 0.00253 0.00124 0.00101 0.000000 0.00e+00
+Cumulative Proportion  0.99775 0.99899 1.00000 1.000000 1.00e+00</code></pre>
+<div class="sourceCode" id="cb2609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2609-1"><a href="ch-R-dimension-reduction.html#cb2609-1" tabindex="-1"></a><span class="fu">plot</span>(result_scaled, <span class="at">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-42-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>정규화한 후에는 데이터 변동의 90% 이상을 설명하려면 7 개의 주성분이 필요하다.
+정규화 전에는 1 개의 주성분만 필요하였는데, 크게 증가하였다.
+그 이유는, 정규화 전에는 분산이 큰 몇몇 변수의 영향력이 크기 때문에 주성분이 해당 변수를 중심으로 데이터를 설명하면 데이터의 분산을 대부분 설명할 수 있는데, 정규화하면 그럴 수 없기 때문이다.</p>
+<p>다음은 처음 3 개의 주성분의 로딩을 보여준다.</p>
+<div class="sourceCode" id="cb2610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2610-1"><a href="ch-R-dimension-reduction.html#cb2610-1" tabindex="-1"></a>loading_scaled <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">variable=</span><span class="fu">rownames</span>(result_scaled<span class="sc">$</span>rotation),</span>
+<span id="cb2610-2"><a href="ch-R-dimension-reduction.html#cb2610-2" tabindex="-1"></a>                      result_scaled<span class="sc">$</span>rotation[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="at">row.names =</span> <span class="cn">NULL</span>) </span>
+<span id="cb2610-3"><a href="ch-R-dimension-reduction.html#cb2610-3" tabindex="-1"></a>loading_scaled</span></code></pre></div>
+<pre><code>   variable        PC1          PC2          PC3
+1      경기 -0.2800935 -0.045186016 -0.141002475
+2      타석 -0.3030404 -0.004139004 -0.022100118
+3      타수 -0.3013726  0.005585644 -0.005310627
+4      안타 -0.2967228 -0.006587956  0.015430763
+5      단타 -0.2702148 -0.119734976 -0.076104818
+6     2루타 -0.2626432  0.100127238  0.028607937
+7     3루타 -0.1272447 -0.351821093  0.327414547
+8      홈런 -0.2085227  0.332607513  0.225431963
+9      득점 -0.2866023 -0.090381468  0.187380225
+10     타점 -0.2716886  0.232076568  0.059991127
+11     볼넷 -0.2494994 -0.030115442  0.042671442
+12      고4 -0.1912357  0.184422744  0.337767290
+13      HBP -0.1193420  0.041191592 -0.305565503
+14     삼진 -0.2232255  0.159903458  0.184074665
+15     희플 -0.2179240  0.045466163 -0.287964541
+16     희타 -0.1455764 -0.285000087 -0.524113965
+17     병살 -0.1859317  0.198930703 -0.373169154
+18     도루 -0.1134233 -0.507951407  0.184552428
+19     도실 -0.1191901 -0.483741204  0.043907677</code></pre>
+<div class="sourceCode" id="cb2612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2612-1"><a href="ch-R-dimension-reduction.html#cb2612-1" tabindex="-1"></a><span class="fu">pivot_longer</span>(loading_scaled, <span class="at">cols=</span>PC1<span class="sc">:</span>PC3, </span>
+<span id="cb2612-2"><a href="ch-R-dimension-reduction.html#cb2612-2" tabindex="-1"></a>             <span class="at">names_to=</span><span class="st">&quot;component&quot;</span>, <span class="at">values_to=</span><span class="st">&quot;loading&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2612-3"><a href="ch-R-dimension-reduction.html#cb2612-3" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb2612-4"><a href="ch-R-dimension-reduction.html#cb2612-4" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x=</span>variable, <span class="at">y=</span>loading)) <span class="sc">+</span></span>
+<span id="cb2612-5"><a href="ch-R-dimension-reduction.html#cb2612-5" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb2612-6"><a href="ch-R-dimension-reduction.html#cb2612-6" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>component)</span></code></pre></div>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-45-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<ul>
+<li>첫 번째 주성분은 타자의 모든 기본 통계치와 음의 상관성을 가진다. 따라서 첫 번째 주성분의 크기가 크면 모든 통계치의 값이 전반적으로 낮은 타자이고, 주성분의 크기가 작으면 모든 통계치의 값이 전반적으로 높은 타자이다. 이러한 특성을 고려해 보건데, 첫 번째 주성분은 타자가 주전 선수인지 비주전 선수인지와 관련된 성분으로 보인다. 주전 선수는 이 주성분의 값이 낮을 것이고, 비주전 선수는 이 성분의 값이 높을 것이다.</li>
+<li>두 번째 주성분은 홈런, 타점, 삼진, 병살, 고의사구, 2루타와 양의 상관성을, 희생타, 도실, 도루, 3루타와는 음의 상관성을 가진다. 이러한 특서을 보건데 발은 빠르지 않지만 힘이 있는 거포형 타자와 관련된 성분으로 보인다. 따라서 이 성분이 높으면 거포형 타자, 이 성분이 낮으면 발이 빠른 타자일 가능성이 있다.</li>
+<li>세 번째 주성분은 홈런, 득점, 도루, 고의4구, 3루타 등과 양의 상관성을, 희생플라이, 희생타, 병살, HBP와는 음의 상관성을 보인다. 이 타자는 발도 빠르면서 홈런 등도 때려낼 수 있는 중거리형 타자로 보인다. 주로 팀의 테이블 세터로서 상위 타선에 배치될 만한 타자들이다.</li>
+</ul>
+</div>
+<div id="주성분-분석의-시각화" class="section level4 unnumbered hasAnchor">
+<h4>주성분 분석의 시각화<a href="ch-R-dimension-reduction.html#주성분-분석의-시각화" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><code>biplot()</code> 함수를 사용하면 주성분 분석의 결과를 시각화할 수 있다.</p>
+<ul>
+<li>첫 번째 인수로 주성분 분석의 결과를 전달한다.</li>
+<li><code>choice</code> 인수에 시각화할 두 개의 주성분을 지정한다. 디폴트 값을 <code>1:2</code>로 처음 두 개의 주성분으로 시각화를 수행한다.</li>
+<li><code>scale</code> 인수는 시각화할 때 주성분의 표준편차의 크기를 어느 정도 고려하여 그릴지를 지정한다. 주성분 <span class="math inline">\(Z_k\)</span>의 표준편차는 특이값 <span class="math inline">\(\lambda_k\)</span>에 의해 결정되는데, 관측치를 시각화할 때 주성분을 <span class="math inline">\(\lambda_k^{1-scale}\)</span> 스케일로 표현한다. <code>scale=1</code>이 디폴트 값으로 모든 주성분이 동일한 스케일로 그려진다. 0부터 1 사이로 지정되는데 <code>scale=1</code>이면 주성분의 표준편차에 비례하는 스케일로 관측치가 표현된다. <code>scale</code>이 0에서 1로 증가할수록 주성부 사이의 스케일이 비슷해진다.</li>
+<li><code>scale</code> 인수는 변수의 로딩값을 시각화하는 스케일도 지정한다. 변수의 로딩값은 <code>\lambda^{scale}</code> 스케일로 표현되며, <code>scale=0</code>이면 주성분이 동일한 스케일로, <code>scale=1</code>이면 주성분이 표준편차에 비례하는 스케일로 시각화 된다.</li>
+</ul>
+<p>다음은 처음 두 주성분을 동일한 스케일로 하여 관측치를 시각화한 것이다.</p>
+<div class="sourceCode" id="cb2613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2613-1"><a href="ch-R-dimension-reduction.html#cb2613-1" tabindex="-1"></a><span class="fu">biplot</span>(result_scaled, <span class="at">choice=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">scale=</span><span class="dv">1</span>)</span></code></pre></div>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-46-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>번호로 표시된 것은 관측대상인 타자들이고, 빨간 선분은 원래 변수를 주성분으로 표현한 벡터이다.
+변수 벡터에서 보듯이 PC1이 줄어드는 방향이 모든 변수가 증가하는 방향임을 보여준다.
+PC2가 증가하는 방향으로는 홈런, 병살, 타점, 병살이 증가하는 방향이고, PC2가 감소하는 방향이 도루, 도실, 3루타, 희생타가 증가하는 방향임을 확인할 수 있다.</p>
+<p>그런데 타자들이 번호로만 표시되고 이름으로 표시되지 않아서 그래프를 해석하는데 한계가 있다.
+<code>biplot()</code>에서 관측대상이 이름으로 표시되게 하려면, <code>prcomp()</code>에 전달되는 데이터프레임의 행이름(<code>row.names</code>)이 설정되어 있어야 한다.</p>
+<div class="sourceCode" id="cb2614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2614-1"><a href="ch-R-dimension-reduction.html#cb2614-1" tabindex="-1"></a><span class="fu">row.names</span>(basic_stat) <span class="co"># 현재의 행 이름</span></span></code></pre></div>
+<pre><code>  [1] &quot;1&quot;   &quot;2&quot;   &quot;3&quot;   &quot;4&quot;   &quot;5&quot;   &quot;6&quot;   &quot;7&quot;   &quot;8&quot;   &quot;9&quot;   &quot;10&quot;  &quot;11&quot;  &quot;12&quot; 
+ [13] &quot;13&quot;  &quot;14&quot;  &quot;15&quot;  &quot;16&quot;  &quot;17&quot;  &quot;18&quot;  &quot;19&quot;  &quot;20&quot;  &quot;21&quot;  &quot;22&quot;  &quot;23&quot;  &quot;24&quot; 
+ [25] &quot;25&quot;  &quot;26&quot;  &quot;27&quot;  &quot;28&quot;  &quot;29&quot;  &quot;30&quot;  &quot;31&quot;  &quot;32&quot;  &quot;33&quot;  &quot;34&quot;  &quot;35&quot;  &quot;36&quot; 
+ [37] &quot;37&quot;  &quot;38&quot;  &quot;39&quot;  &quot;40&quot;  &quot;41&quot;  &quot;42&quot;  &quot;43&quot;  &quot;44&quot;  &quot;45&quot;  &quot;46&quot;  &quot;47&quot;  &quot;48&quot; 
+ [49] &quot;49&quot;  &quot;50&quot;  &quot;51&quot;  &quot;52&quot;  &quot;53&quot;  &quot;54&quot;  &quot;55&quot;  &quot;56&quot;  &quot;57&quot;  &quot;58&quot;  &quot;59&quot;  &quot;60&quot; 
+ [61] &quot;61&quot;  &quot;62&quot;  &quot;63&quot;  &quot;64&quot;  &quot;65&quot;  &quot;66&quot;  &quot;67&quot;  &quot;68&quot;  &quot;69&quot;  &quot;70&quot;  &quot;71&quot;  &quot;72&quot; 
+ [73] &quot;73&quot;  &quot;74&quot;  &quot;75&quot;  &quot;76&quot;  &quot;77&quot;  &quot;78&quot;  &quot;79&quot;  &quot;80&quot;  &quot;81&quot;  &quot;82&quot;  &quot;83&quot;  &quot;84&quot; 
+ [85] &quot;85&quot;  &quot;86&quot;  &quot;87&quot;  &quot;88&quot;  &quot;89&quot;  &quot;90&quot;  &quot;91&quot;  &quot;92&quot;  &quot;93&quot;  &quot;94&quot;  &quot;95&quot;  &quot;96&quot; 
+ [97] &quot;97&quot;  &quot;98&quot;  &quot;99&quot;  &quot;100&quot;</code></pre>
+<div class="sourceCode" id="cb2616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2616-1"><a href="ch-R-dimension-reduction.html#cb2616-1" tabindex="-1"></a><span class="fu">row.names</span>(basic_stat) <span class="ot">&lt;-</span> batters<span class="sc">$</span>선수명       <span class="co"># 행 이름 부여</span></span></code></pre></div>
+<pre><code>Warning: Setting row names on a tibble is deprecated.</code></pre>
+<div class="sourceCode" id="cb2618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2618-1"><a href="ch-R-dimension-reduction.html#cb2618-1" tabindex="-1"></a>result_scaled <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(basic_stat, <span class="at">scale.=</span>T) <span class="co"># 주성분 분석</span></span>
+<span id="cb2618-2"><a href="ch-R-dimension-reduction.html#cb2618-2" tabindex="-1"></a><span class="fu">biplot</span>(result_scaled, <span class="at">scale=</span><span class="dv">1</span>)                <span class="co"># 주성분 시각화 </span></span></code></pre></div>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-48-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>다음으로 두 번째와 세 번째 주성분으로 타자들을 시각화해 보자.</p>
+<div class="sourceCode" id="cb2619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2619-1"><a href="ch-R-dimension-reduction.html#cb2619-1" tabindex="-1"></a><span class="fu">biplot</span>(result_scaled, <span class="at">choice=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">scale=</span><span class="dv">1</span>)  </span></code></pre></div>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-49-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>다음처럼 PCA 결과를 데이터프레임으로 변환한 후, <code>ggplot2</code>를 이용하여 직접 시각화를 수행할 수도 있다.</p>
+<div class="sourceCode" id="cb2620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2620-1"><a href="ch-R-dimension-reduction.html#cb2620-1" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(선수명<span class="ot">=</span><span class="fu">rownames</span>(result_scaled<span class="sc">$</span>x), result_scaled<span class="sc">$</span>x)</span>
+<span id="cb2620-2"><a href="ch-R-dimension-reduction.html#cb2620-2" tabindex="-1"></a><span class="fu">ggplot</span>(Z, <span class="fu">aes</span>(PC1, PC2)) <span class="sc">+</span></span>
+<span id="cb2620-3"><a href="ch-R-dimension-reduction.html#cb2620-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>선수명, <span class="at">color=</span>batters<span class="sc">$</span>팀명)) <span class="sc">+</span></span>
+<span id="cb2620-4"><a href="ch-R-dimension-reduction.html#cb2620-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color=</span><span class="st">&quot;팀명&quot;</span>) <span class="sc">+</span></span>
+<span id="cb2620-5"><a href="ch-R-dimension-reduction.html#cb2620-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-50-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><code>ggbiplot</code> 등의 패키지를 사용하면 <code>ggplot2</code> 형식으로 여러 가지 형태의 biplot을 좀 더 쉽게 그릴 수 있다.
+<code>ggbiplot</code>이 설치되어 있지 않다면 먼저 설치하자.</p>
+<div class="sourceCode" id="cb2621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2621-1"><a href="ch-R-dimension-reduction.html#cb2621-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggbiplot&quot;</span>)</span></code></pre></div>
+<p><code>ggbiplot()</code> 함수는 PCA 결과를 첫 번째 인수로 받아서 biplot을 <code>ggplot2</code> 형식으로 그려준다.
+<code>choices</code> 인수와 <code>scale</code> 인수는 <code>biplot()</code> 함수와 동일하다.</p>
+<div class="sourceCode" id="cb2622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2622-1"><a href="ch-R-dimension-reduction.html#cb2622-1" tabindex="-1"></a><span class="fu">library</span>(ggbiplot)</span>
+<span id="cb2622-2"><a href="ch-R-dimension-reduction.html#cb2622-2" tabindex="-1"></a><span class="fu">ggbiplot</span>(result_scaled)</span></code></pre></div>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-52-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><code>varname.color</code>는 변수 벡터의 색상을 지정한다.
+<code>labels</code> 인수를 설정하면 관측대상이 점 대신 <code>lables</code>에 설정된 값으로 그래프에 표시된다.</p>
+<div class="sourceCode" id="cb2623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2623-1"><a href="ch-R-dimension-reduction.html#cb2623-1" tabindex="-1"></a><span class="fu">ggbiplot</span>(result_scaled,</span>
+<span id="cb2623-2"><a href="ch-R-dimension-reduction.html#cb2623-2" tabindex="-1"></a>         <span class="at">varname.color=</span><span class="st">&quot;magenta&quot;</span>,</span>
+<span id="cb2623-3"><a href="ch-R-dimension-reduction.html#cb2623-3" tabindex="-1"></a>         <span class="at">labels=</span>batters<span class="sc">$</span>선수명, <span class="at">labels.size=</span><span class="dv">3</span>)</span></code></pre></div>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-53-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><code>groups</code> 인수를 설정하면 이 인수에 설정된 값에 따라 관측치가 다른 색상으로 표시된다.
+다음은 선수의 소속팀에 따라 다른 색상으로 선수를 표현한다.</p>
+<div class="sourceCode" id="cb2624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2624-1"><a href="ch-R-dimension-reduction.html#cb2624-1" tabindex="-1"></a><span class="fu">ggbiplot</span>(result_scaled,</span>
+<span id="cb2624-2"><a href="ch-R-dimension-reduction.html#cb2624-2" tabindex="-1"></a>         <span class="at">labels=</span>batters<span class="sc">$</span>선수명,</span>
+<span id="cb2624-3"><a href="ch-R-dimension-reduction.html#cb2624-3" tabindex="-1"></a>         <span class="at">groups=</span>batters<span class="sc">$</span>팀명)</span></code></pre></div>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-54-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><code>groups</code>이 설정되어 있고 <code>ellipse=TRUE</code>이면 동일 그룹의 데이터의 분포를 타원으로 표시한다. <code>ellipse.alpha</code>는 타원의 채우기 색의 투명도를 조정하고, <code>ellipse.linewidth</code>는 타원의 선 굵기를 지정한다.</p>
+<div class="sourceCode" id="cb2625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2625-1"><a href="ch-R-dimension-reduction.html#cb2625-1" tabindex="-1"></a><span class="fu">ggbiplot</span>(result_scaled,</span>
+<span id="cb2625-2"><a href="ch-R-dimension-reduction.html#cb2625-2" tabindex="-1"></a>         <span class="at">labels=</span>batters<span class="sc">$</span>선수명,</span>
+<span id="cb2625-3"><a href="ch-R-dimension-reduction.html#cb2625-3" tabindex="-1"></a>         <span class="at">groups=</span>batters<span class="sc">$</span>팀명,</span>
+<span id="cb2625-4"><a href="ch-R-dimension-reduction.html#cb2625-4" tabindex="-1"></a>         <span class="at">ellipse=</span>T, <span class="at">ellipse.alpha=</span><span class="fl">0.1</span>, <span class="at">ellipse.linewidth=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb2625-5"><a href="ch-R-dimension-reduction.html#cb2625-5" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-55-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>다음은 선수의 포지션으로 그룹화하여 색상을 달리 표현하고 분포를 나타내는 타원을 그린다.</p>
+<div class="sourceCode" id="cb2626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2626-1"><a href="ch-R-dimension-reduction.html#cb2626-1" tabindex="-1"></a><span class="fu">ggbiplot</span>(result_scaled,  </span>
+<span id="cb2626-2"><a href="ch-R-dimension-reduction.html#cb2626-2" tabindex="-1"></a>         <span class="at">labels=</span>batters<span class="sc">$</span>선수명,</span>
+<span id="cb2626-3"><a href="ch-R-dimension-reduction.html#cb2626-3" tabindex="-1"></a>         <span class="at">groups=</span>batters<span class="sc">$</span>포지션,</span>
+<span id="cb2626-4"><a href="ch-R-dimension-reduction.html#cb2626-4" tabindex="-1"></a>         <span class="at">ellipse=</span>T, <span class="at">ellipse.alpha=</span><span class="fl">0.1</span>, <span class="at">ellipse.linewidth=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb2626-5"><a href="ch-R-dimension-reduction.html#cb2626-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p><img src="RdimensionReduction_files/figure-html/unnamed-chunk-56-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<!--
+
+#### **R**로 주성분 분석하기 {-}
+
+
+```{=html}
+<a href="data:application/zip;base64,UEsDBBQAAgAIAOuJaVk2/KzFdwMAAGkHAAARAAAAbWVuLXNpemVzLTEwMC5jc3ZNVbtuVUEM7PMtq6v1Pvz4O0QVIRoqKCkQBUqBUAq+iUv+gZnZk4gij+usx+Px2Hl5/639+fnu74fn+6cv96+P7eXz4/370/Xh/uP3/en5z6+PDxbVW0Y1x0/vN0ekZ7Nu1tKtedzywfhHhWpUi3nbeDULoRot01roVcREyKPVRLIxlB05tVuko4IejcCjhTxgxrgV0J3oI88rV2g4QiiRezXP23iwjTq1UAs1dwpqEarwbZiei6p11Cf8aL70bJIWMnNHi31bZDqa2VggDhLOkC/CJ9pRwUmmW9zLwH/dAm9itUKTuRA5Wk1EHJ9CzEHT2XtO0Ky2iQt+lVeOsbdIyQSaVlQOSQEI64laUKdMyBui2OJTVj2dZJcE2Tt729R3spFECXyF4El5Q8xI6guoDKqD5jmNVGd4DOi0AA5rGRltGGGBqAY3uxpLTArNizY5YhyFP6UGF2uR9tIsMXBA5SLUdiQi1KlaOP1EMWcykaLwNyA7zLLnzRBha2grNqZbAu+MQEgAIcIsTE0CYXDwJSNbzonjyxQQ5lOoX2NwsnQEplp4mPjyLW0ZWTDXdM4RWWHropfNB5X1Rf0nesYAQESUNjuBcIV4bplEDOCCpJNYLfSmHxNoSI7fanSNbV+bQucmcLF5KTMnOih4JnyRpTaMSFiJxGv4JM5sBV6YA6Q0OoBQgwQw0Cl3ixPiUYs+4T5hG7DAKOiDE54kyglzK0om0OeFamgSSRRljmtx5Ge1q116NYFWwOGuQqHquhZcgcrjHZZ3IQ0iJbcrXpEGvWNcVH8bHXcCuFM6UXCTutjMPbm6yEu7Rs6jhQGzkz20ttHlJg4YqlXfEHITaZ7Vwa3QbHi4LhuCZLIRx65K86J9yYGXJhVKckd9UoMPGNLB4sYhnMGKG10UOJSpZz5azCvkBemda6E1H4cE9lxnDTAztK6wOQXFVnEossu5tToPWGCN/fiu8ziFTl2cNTNS79xNSqE8PvI49+J0LBmINKV6XktsGJCW3864eFDo53EtWg4uwmQFjlrdOJxaUDQtedl4HyetAEmyXm8o6NU85gQn3TAeKtxCIMJmtCu6B3a/joSQYpH52xJRu1B7aK1013g1Ny3Emz3jckfZeLuaRD2XK/67runC3+PcDJv8r6cTHNfkPa6rnH1fh5pmvvLyQNMMwTv1D1BLAQIeAxQAAgAIAOuJaVk2/KzFdwMAAGkHAAARAAAAAAAAAAEAAAD/gQAAAABtZW4tc2l6ZXMtMTAwLmNzdlBLBQYAAAAAAQABAD8AAACmAwAAAAA=" download="men-sizes-100.zip">남자 신체 측정 데이터</a>
+```
+
+앞의 CSV 파일을 내려받은 후, 데이터를 읽어보자.
+
+
+``` r
+men_sizes <- read_csv("data/men-sizes-100.csv")
+```
+
+```
+Rows: 100 Columns: 4
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (4): 키, 가슴둘레, 허리둘레, 몸무게
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+``` r
+men_sizes
+```
+
+```
+# A tibble: 100 × 4
+      키 가슴둘레 허리둘레 몸무게
+   <dbl>    <dbl>    <dbl>  <dbl>
+ 1  1790      879      690   60.6
+ 2  1708     1011      861   67.8
+ 3  1690     1011      929   73.5
+ 4  1739     1092      881   77.8
+ 5  1773     1067      931   81.8
+ 6  1801      995      786   69.8
+ 7  1727     1042      890   72.9
+ 8  1660     1028      786   66.9
+ 9  1626     1039      854   68.2
+10  1581      941      792   58.8
+# ℹ 90 more rows
+```
+
+카, 가슴둘레, 허리둘레는 cm 단위로 측정된 것이며, 몸무게는 kg 단위로 측정되었다.
+
+키와 몸무게로만 되어 있는 데이터를 한 점으로 요약한다면 어떤 점으로 요약하여야 할까?
+키와 몸무게의 평균점으로 요약하는 것이 좋은 방법일 것이다.
+왜냐하면 평균점으로 요약하면 요약한 점과 데이터의 거리(오차)의 제곱의 합이 최소가 되기 때문이다.
+다음은 키와 몸무게 데이터의 평균점을 계산한 결과이다.
+
+
+``` r
+mean_point <- men_sizes %>%
+  summarise(키=mean(키), 몸무게=mean(몸무게))
+mean_point
+```
+
+```
+# A tibble: 1 × 2
+     키 몸무게
+  <dbl>  <dbl>
+1 1728.   74.6
+```
+
+다음은 키와 몸무게 데이터와 함께 평균점을 시각화한 것이다.
+
+
+``` r
+ggplot(men_sizes) +
+  geom_point(aes(키, 몸무게)) +
+  geom_point(aes(키, 몸무게), data=mean_point,
+             size=10, shape="*", color="red")
+```
+
+<img src="RdimensionReduction_files/figure-html/unnamed-chunk-60-1.png" width="70%" style="display: block; margin: auto;" />
+
+데이터를 평균점으로 요약하게 되면 정보의 손실이 발생한다.
+실제 데이터와 평균점의 차이는 분산으로 측정된다.
+
+
+``` r
+variance_from_mean <- men_sizes %>%
+  summarise(키=var(키), 몸무게=var(몸무게))
+variance_from_mean
+```
+
+```
+# A tibble: 1 × 2
+     키 몸무게
+  <dbl>  <dbl>
+1 4010.   146.
+```
+
+
+``` r
+total_variance <- sum(variance_from_mean)
+total_variance
+```
+
+```
+[1] 4155.498
+```
+
+앞의 오차 제곱의 합에서 보듯이 평균점으로 데이터를 요약하는 것은 큰 분산을 보인다.
+데이터를 하나의 주성분으로 요약하면 분산이 얼만큼 감소하는지 살펴보자.
+
+**R**에서 주성분 분석은 **R**의 기본 패키지인 `stat` 패키지의 `prcomp()` 함수를 사용한다.
+다음처럼 차원을 축소할 원 데이터를 함수의 인수로 주면 주성분 분석을 한다.
+주성분 분석의 결과는 여러 요소로 구성되어 있으므로 변수에 저장하자.
+
+
+``` r
+result <- select(men_sizes, 키, 몸무게) %>% prcomp()
+result
+```
+
+```
+Standard deviations (1, .., p=2):
+[1] 63.693271  9.933013
+
+Rotation (n x k) = (2 x 2):
+              PC1        PC2
+키     -0.9940029 -0.1093537
+몸무게 -0.1093537  0.9940029
+```
+
+주성분 분석 결과를 출력하면 다음 두 가지 정보를 제공한다.
+
+- standard deviations: 주성분의 표준편차를 보여준다. 주성분의 표준편차는 주성분이 데이터의 변동성을 얼만큼 설명하는지를 보여준다. 이 예에서는 첫 번재 주성분이 두 번째 주성분보다 훨씬 더 많은 데이터의 변동을 설명하는 것을 확인할 수 있다.
+- rotation: 주성분의 로딩을 보여준다. 열의 PC1, PC2는 첫 번째 주성분과 두 번째 주성분을 의미하며, 행은 원래 변수를 보여준다. 따라서 PC1 열의 값이 첫 번째 주성분의 로딩 값이다. 이 예에서는 첫 번째 주성분은홈런의 좌표축과 거의 같은 방향을, 두 번째 중성분은 몸무게의 좌표축과 거의 반대 방향으로 구성되었음을 확인할 수 있다.
+
+주성분이 데이터의 변동을 어느 정도나 설명하고 있는지는 주로 분산을 사용하여 계산한다.
+`summary()` 함수로 주성분 결과를 출력하면 각 주성분이 설명하는 데이터 분산의 비중을 출력한다.
+
+
+``` r
+summary(result)
+```
+
+```
+Importance of components:
+                           PC1     PC2
+Standard deviation     63.6933 9.93301
+Proportion of Variance  0.9763 0.02374
+Cumulative Proportion   0.9763 1.00000
+```
+
+- Standard deviation은 주성분 분석의 결과를 출력했을 때와 같은 내용이다.
+- Proportion of Variance는 각각의 주성분이 전체 데이터의 변동을 나타내는 분산을 설명하는 비율을 나타낸다. 이 예에서는 첫 번째 주성분(PC1)이 전체 데이터 변동의 97.6%를 설명하는 것을 볼 수 있다.
+- Cumulative Proportion은 첫 번째부터 지금의 주성분까지 모두 합하여 전체 데이터 변동을 설명하는 누적 비율을 나타낸다. 이 에에서 보듯이 2차원 데이터는 두 개의 주성분을 사용하면 원래의 데이터와 마찬가지의 2차원 데이터가 되므로 전체 데이터의 100%를 설명한다. 이 수치는 데이터의 차원이 클 때 데이터의 변동을 충분히 설명하도록 주성분의 수를 결정할 때 유용하게 사용된다.
+
+주성분 분석 결과는 리스트라는 형식의 데이터이다.
+리스트는 여러 요소로 구성되어 있다.
+리스트의 요소는 데이터프레임의 열을 지정하듯이 `$` 연산자를 사용하여 지정할 수 있다.
+
+
+``` r
+result$rotation  # 주성분의 로딩 행렬
+```
+
+```
+              PC1        PC2
+키     -0.9940029 -0.1093537
+몸무게 -0.1093537  0.9940029
+```
+
+
+``` r
+result$center # 원 데이터의 평균점
+```
+
+```
+      키   몸무게 
+1728.430   74.644 
+```
+
+
+``` r
+result$x %>% head() # 관측치의 주성분 좌표 (Z_1, Z_2). 6 개만 출력
+```
+
+```
+           PC1        PC2
+[1,] -59.66500 -20.692684
+[2,]  21.05590  -4.568860
+[3,]  38.32463   3.065323
+[4,] -10.85173   1.981205
+[5,] -45.08524   2.239190
+[6,] -71.60508 -12.750748
+```
+
+다음은 주성분 결과를 사용하여 원래 데이터와 평균점, 그리고 첫 번째 주성분을 시각화한 것이다.
+
+$$
+\begin{split}
+Z_1
+  &= a_{11} (X_{키} - \bar{X}_{키}) + a_{21} (X_{몸무게} - \bar{X}_{몸무게}) \\
+  &= (-0.994) (X_{키} - 1728.43)
+   + (-0.109) (X_{몸무게} - 74.644)
+\end{split}
+$$
+
+
+``` r
+ggplot(men_sizes, aes(키, 몸무게)) +
+  geom_point() +
+  geom_abline(slope = result$rotation[2,1] / result$rotation[1,1],
+          intercept = result$center[2] - result$center[1] * result$rotation[2,1] / result$rotation[1,1] ,
+          color ="blue", linewidth=1) +
+  geom_point(x = result$center[1], y = result$center[2],
+         color="red", size=10, shape="*") +
+  geom_vline(xintercept = result$center[1], linetype=2) +
+  geom_hline(yintercept = result$center[2], linetype=2)
+```
+
+<img src="RdimensionReduction_files/figure-html/unnamed-chunk-68-1.png" width="70%" style="display: block; margin: auto;" />
+
+첫 번째 주성분 $Z_1$의 분산을 구해보자.
+
+
+``` r
+var(result$x[,1])
+```
+
+```
+[1] 4056.833
+```
+
+
+
+``` r
+pca_predict <- function(result, n_start=1, n_end=1) {
+  Z <- result$x[,(n_start:n_end),drop=F]
+  A <- result$rotation[,(n_start:n_end)]
+  X <- Z %*% t(A)
+  for (i in seq(along=result$center))
+    X[,i] <- X[,i] + result$center[i]
+  X
+}
+
+X <- as.matrix(select(men_sizes, 키, 몸무게))
+X_projected <- pca_predict(result)
+sum((X - X_projected)^2)
+```
+
+```
+[1] 9767.81
+```
+
+-->
+
+</div>
+</div>
+</div>
+
+
+
+</div>
+<div class="footnotes">
+<hr />
+<ol start="16">
+<li id="fn16"><p>데이터베이스에서는 필드(fields)라고도 한다.<a href="ch-R-dimension-reduction.html#fnref16" class="footnote-back">↩︎</a></p></li>
+<li id="fn17"><p>특정 범주이면 1, 아니면 0의 값을 가지는 변수이다.<a href="ch-R-dimension-reduction.html#fnref17" class="footnote-back">↩︎</a></p></li>
+<li id="fn18"><p>데이터 출처: <a href="http://www.kbreport.com">야구기록실 케이비리포트</a><a href="ch-R-dimension-reduction.html#fnref18" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch-R-documents.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch-RandPython.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["R-programming-3rd.pdf", "R-programming-3rd.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
