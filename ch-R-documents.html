@@ -1184,17 +1184,17 @@ RStudio의<code>[Help]-[Markdwon Quick Reference]</code> 메뉴에서 마크다�
 <li><code>fig-show: hide</code>로 지정되면 코드 모듬이 생성한 그래프가 문서에 나타나지 않는다.</li>
 </ul>
 <p>다음 코드 모듬의 코드는 문서에 나타나지만 문서 변환 시에는 실행되지 않는다.</p>
-<div class="sourceCode" id="cb2550"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2550-1"><a href="ch-R-documents.html#cb2550-1" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2550-2"><a href="ch-R-documents.html#cb2550-2" tabindex="-1"></a><span class="in">#| eval: false</span></span>
-<span id="cb2550-3"><a href="ch-R-documents.html#cb2550-3" tabindex="-1"></a><span class="in">1:10</span></span>
-<span id="cb2550-4"><a href="ch-R-documents.html#cb2550-4" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
-<p>다음 코드 모듬은 코드는 실행되 결과는 문서에 포함되지만, 코드와 실행 중에 출력되는 메시지는 문서에 포함되지 않는다. 메시지란 코드의 실행 결과가 아니지만 사용자게 정보를 주기 위해서 출려되는 정보이다. <code>geom_smooth()</code> 함수는 추세선을 추정한 방법에 대하여 메시지를 출력한다.</p>
 <div class="sourceCode" id="cb2551"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2551-1"><a href="ch-R-documents.html#cb2551-1" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2551-2"><a href="ch-R-documents.html#cb2551-2" tabindex="-1"></a><span class="in">#| echo: false</span></span>
-<span id="cb2551-3"><a href="ch-R-documents.html#cb2551-3" tabindex="-1"></a><span class="in">#| message: false</span></span>
-<span id="cb2551-4"><a href="ch-R-documents.html#cb2551-4" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
-<span id="cb2551-5"><a href="ch-R-documents.html#cb2551-5" tabindex="-1"></a><span class="in">ggplot(mpg) + geom_smooth(aes(displ, hwy))</span></span>
-<span id="cb2551-6"><a href="ch-R-documents.html#cb2551-6" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<span id="cb2551-2"><a href="ch-R-documents.html#cb2551-2" tabindex="-1"></a><span class="in">#| eval: false</span></span>
+<span id="cb2551-3"><a href="ch-R-documents.html#cb2551-3" tabindex="-1"></a><span class="in">1:10</span></span>
+<span id="cb2551-4"><a href="ch-R-documents.html#cb2551-4" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<p>다음 코드 모듬은 코드는 실행되 결과는 문서에 포함되지만, 코드와 실행 중에 출력되는 메시지는 문서에 포함되지 않는다. 메시지란 코드의 실행 결과가 아니지만 사용자게 정보를 주기 위해서 출려되는 정보이다. <code>geom_smooth()</code> 함수는 추세선을 추정한 방법에 대하여 메시지를 출력한다.</p>
+<div class="sourceCode" id="cb2552"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2552-1"><a href="ch-R-documents.html#cb2552-1" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2552-2"><a href="ch-R-documents.html#cb2552-2" tabindex="-1"></a><span class="in">#| echo: false</span></span>
+<span id="cb2552-3"><a href="ch-R-documents.html#cb2552-3" tabindex="-1"></a><span class="in">#| message: false</span></span>
+<span id="cb2552-4"><a href="ch-R-documents.html#cb2552-4" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
+<span id="cb2552-5"><a href="ch-R-documents.html#cb2552-5" tabindex="-1"></a><span class="in">ggplot(mpg) + geom_smooth(aes(displ, hwy))</span></span>
+<span id="cb2552-6"><a href="ch-R-documents.html#cb2552-6" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <p>코드 모듬 옵션으로 코드가 생성한 그래프의 크기를 지정할 수 있다.
 그런데 그래프의 크기에는 두 가지 기준이 있다.</p>
 <ul>
@@ -1282,9 +1282,9 @@ execute:
 <div id="데이터프레임과-행렬을-표로-출력하기" class="section level3 hasAnchor" number="13.5.3">
 <h3><span class="header-section-number">13.5.3</span> 데이터프레임과 행렬을 표로 출력하기<a href="ch-R-documents.html#데이터프레임과-행렬을-표로-출력하기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Quarto 문서의 코드 모듬에서 데이터프레임이나 행렬을 출력하면 <strong>R</strong> 콘솔에서 출력되는 형태대로 출력 문서에 나타난다.</p>
-<div class="sourceCode" id="cb2553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2553-1"><a href="ch-R-documents.html#cb2553-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> <span class="fu">filter</span>(manufacturer<span class="sc">==</span><span class="st">&quot;hyundai&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2553-2"><a href="ch-R-documents.html#cb2553-2" tabindex="-1"></a>  <span class="fu">select</span>(, model, manufacturer, year, displ, cty, hwy)</span>
-<span id="cb2553-3"><a href="ch-R-documents.html#cb2553-3" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb2554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2554-1"><a href="ch-R-documents.html#cb2554-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> <span class="fu">filter</span>(manufacturer<span class="sc">==</span><span class="st">&quot;hyundai&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2554-2"><a href="ch-R-documents.html#cb2554-2" tabindex="-1"></a>  <span class="fu">select</span>(, model, manufacturer, year, displ, cty, hwy)</span>
+<span id="cb2554-3"><a href="ch-R-documents.html#cb2554-3" tabindex="-1"></a>df</span></code></pre></div>
 <pre><code># A tibble: 14 × 6
    model   manufacturer  year displ   cty   hwy
    &lt;chr&gt;   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;
@@ -1303,7 +1303,7 @@ execute:
 13 tiburon hyundai       2008   2.7    16    24
 14 tiburon hyundai       2008   2.7    17    24</code></pre>
 <p>이를 표 형식으로 출력하려면 <code>knitr::kable()</code> 함수를 사용한다.</p>
-<div class="sourceCode" id="cb2555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2555-1"><a href="ch-R-documents.html#cb2555-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df, <span class="at">caption=</span><span class="st">&quot;현대자동차 모델의 연비&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2556-1"><a href="ch-R-documents.html#cb2556-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df, <span class="at">caption=</span><span class="st">&quot;현대자동차 모델의 연비&quot;</span>)</span></code></pre></div>
 <table>
 <caption><span id="tab:unnamed-chunk-21">Table 13.1: </span>현대자동차 모델의 연비</caption>
 <thead>
@@ -1438,15 +1438,15 @@ execute:
 텍스트 내부에 포함된 인라인 코드는 문서 변환 시에 실행되어 실행 결과가 텍스트 안에 포함된다.
 인라인 코드와 코드 모듬은 문서 변환 시에 순서대로 실행된다.</p>
 <p>인라인 코드를 포함시키는 방법은 다음과 같다.</p>
-<div class="sourceCode" id="cb2556"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2556-1"><a href="ch-R-documents.html#cb2556-1" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2556-2"><a href="ch-R-documents.html#cb2556-2" tabindex="-1"></a><span class="in">radius &lt;- 5</span></span>
-<span id="cb2556-3"><a href="ch-R-documents.html#cb2556-3" tabindex="-1"></a><span class="in">area &lt;- round(pi * radius^2, digits=2) </span></span>
-<span id="cb2556-4"><a href="ch-R-documents.html#cb2556-4" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2556-5"><a href="ch-R-documents.html#cb2556-5" tabindex="-1"></a></span>
-<span id="cb2556-6"><a href="ch-R-documents.html#cb2556-6" tabindex="-1"></a>원의 반지름은 <span class="in">`{r} radius`</span>이고 면적은 <span class="in">`{r} area`</span>입니다.</span></code></pre></div>
+<div class="sourceCode" id="cb2557"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2557-1"><a href="ch-R-documents.html#cb2557-1" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2557-2"><a href="ch-R-documents.html#cb2557-2" tabindex="-1"></a><span class="in">radius &lt;- 5</span></span>
+<span id="cb2557-3"><a href="ch-R-documents.html#cb2557-3" tabindex="-1"></a><span class="in">area &lt;- round(pi * radius^2, digits=2) </span></span>
+<span id="cb2557-4"><a href="ch-R-documents.html#cb2557-4" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2557-5"><a href="ch-R-documents.html#cb2557-5" tabindex="-1"></a></span>
+<span id="cb2557-6"><a href="ch-R-documents.html#cb2557-6" tabindex="-1"></a>원의 반지름은 <span class="in">`{r} radius`</span>이고 면적은 <span class="in">`{r} area`</span>입니다.</span></code></pre></div>
 <hr />
-<div class="sourceCode" id="cb2557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2557-1"><a href="ch-R-documents.html#cb2557-1" tabindex="-1"></a>radius <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb2557-2"><a href="ch-R-documents.html#cb2557-2" tabindex="-1"></a>area <span class="ot">&lt;-</span> <span class="fu">round</span>(pi <span class="sc">*</span> radius<span class="sc">^</span><span class="dv">2</span>, <span class="at">digits=</span><span class="dv">2</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb2558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2558-1"><a href="ch-R-documents.html#cb2558-1" tabindex="-1"></a>radius <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb2558-2"><a href="ch-R-documents.html#cb2558-2" tabindex="-1"></a>area <span class="ot">&lt;-</span> <span class="fu">round</span>(pi <span class="sc">*</span> radius<span class="sc">^</span><span class="dv">2</span>, <span class="at">digits=</span><span class="dv">2</span>) </span></code></pre></div>
 <p>원의 반지름은 5이고 면적은 78.54입니다.</p>
 <hr />
 
