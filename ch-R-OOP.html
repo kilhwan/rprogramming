@@ -574,6 +574,9 @@ div.csl-indent {
 <li class="chapter" data-level="15.3.1" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#sec-agglomorative-clustering-algorithm"><i class="fa fa-check"></i><b>15.3.1</b> 병합 군집화 알고리즘</a></li>
 <li class="chapter" data-level="15.3.2" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#sec-distance-between-clusters"><i class="fa fa-check"></i><b>15.3.2</b> 군집 사이의 거리 계산</a></li>
 <li class="chapter" data-level="15.3.3" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#sec-hclust"><i class="fa fa-check"></i><b>15.3.3</b> <code>hclust()</code> 함수를 이용한 병합 군집화</a></li>
+<li class="chapter" data-level="15.3.4" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#병합-군집화에-대한-계통도-그리기"><i class="fa fa-check"></i><b>15.3.4</b> 병합 군집화에 대한 계통도 그리기</a></li>
+<li class="chapter" data-level="15.3.5" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#군집-나누기"><i class="fa fa-check"></i><b>15.3.5</b> 군집 나누기</a></li>
+<li class="chapter" data-level="15.3.6" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#최적-군집-수의-결정"><i class="fa fa-check"></i><b>15.3.6</b> 최적 군집 수의 결정</a></li>
 </ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
@@ -677,7 +680,7 @@ attr(,&quot;class&quot;)
 <div class="sourceCode" id="cb2223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2223-1"><a href="ch-R-OOP.html#cb2223-1" tabindex="-1"></a>print</span></code></pre></div>
 <pre><code>function (x, ...) 
 UseMethod(&quot;print&quot;)
-&lt;bytecode: 0x56533ec68020&gt;
+&lt;bytecode: 0x5589994c4020&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 <div id="methods" class="section level4 unnumbered hasAnchor">
@@ -740,7 +743,7 @@ UseMethod(&quot;print&quot;)
         missing(useSource))
     .Internal(print.default(x, args, missings))
 }
-&lt;bytecode: 0x56533d86e768&gt;
+&lt;bytecode: 0x5589980ca768&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>보통 default 메소드는 데이터가 가지는 기본적 타입에 대해 적절한 포괄 함수 관련 처리를 수행하도록 구현되어 있다. print.default는 기본적인 데이터의 타입에 따라 적절한 출력을 보여준다.</p>
 <p>앞서 우리는 student 클래스 객체를 만들었다. 그런나 print.student라는 메소드는 존재하지 않으므로 콘솔에서 해당 객체가 입력되었을 때, print.defualt가 student의 출력을 담당하였다. 따라서 student의 데이터 기본 타입인 list의 형식으로 데이터가 출력이 된것이다.</p>

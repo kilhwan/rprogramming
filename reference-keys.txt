@@ -280,11 +280,13 @@ sec-k-means
 알고리즘
 k-평균-군집화의-장점-및-단점
 r을-이용한-k-평균-군집-분석
-dist-함수
 sec-agglomorative-clustering
 sec-agglomorative-clustering-algorithm
 sec-distance-between-clusters
 sec-hclust
+병합-군집화에-대한-계통도-그리기
+군집-나누기
+최적-군집-수의-결정
 ch-RandPython
 reticulate-설치-및-사용할-파이썬-버전-설정
 r과-파이썬-연동하는-방법
