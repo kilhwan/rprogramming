@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 R 데이터 프레임 | R 프로그래밍 3판 (draft)</title>
   <meta name="description" content="이 책은 경영데이터분석기초의 주교재로 사용되기 위해 개발되었습니다." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 R 데이터 프레임 | R 프로그래밍 3판 (draft)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2024-11-17" />
+<meta name="date" content="2024-11-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -88,7 +88,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -579,6 +579,23 @@ div.csl-indent {
 <li class="chapter" data-level="15.3.6" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#최적-군집-수의-결정"><i class="fa fa-check"></i><b>15.3.6</b> 최적 군집 수의 결정</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="16" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html"><i class="fa fa-check"></i><b>16</b> <strong>R</strong> 통계적 가설검정</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#sec-hypothesis"><i class="fa fa-check"></i><b>16.1</b> 가설검정이란?</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#가설의-설정"><i class="fa fa-check"></i><b>16.1.1</b> 가설의 설정</a></li>
+<li class="chapter" data-level="16.1.2" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#검정통계량과-표본-분포"><i class="fa fa-check"></i><b>16.1.2</b> 검정통계량과 표본 분포</a></li>
+<li class="chapter" data-level="16.1.3" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#기각역과-유의수준"><i class="fa fa-check"></i><b>16.1.3</b> 기각역과 유의수준</a></li>
+<li class="chapter" data-level="16.1.4" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#유의확률-p-값p-value"><i class="fa fa-check"></i><b>16.1.4</b> 유의확률 p-값(p-value)</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#r을-이용한-범주형-변수의-가설검점"><i class="fa fa-check"></i><b>16.2</b> <strong>R</strong>을 이용한 범주형 변수의 가설검점</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#관절염-치료-임상시험-데이터-분석"><i class="fa fa-check"></i><b>16.2.1</b> 관절염 치료 임상시험 데이터 분석</a></li>
+<li class="chapter" data-level="16.2.2" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#기술-통계-분석"><i class="fa fa-check"></i><b>16.2.2</b> 기술 통계 분석</a></li>
+<li class="chapter" data-level="16.2.3" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#독립성-검정"><i class="fa fa-check"></i><b>16.2.3</b> 독립성 검정</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#수치형-변수에-대한-가설검정"><i class="fa fa-check"></i><b>16.3</b> 수치형 변수에 대한 가설검정</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="ch-RandPython.html"><a href="ch-RandPython.html"><i class="fa fa-check"></i><b>A</b> <strong>R</strong>과 <strong>Python</strong> 연동하기</a>
 <ul>
@@ -932,13 +949,13 @@ None    A    B    C
 Levels: A B C D E F</code></pre>
 <p>다음은 살충제 종류에 따른 해충의 수의 분포를 상자 그래프로 나타낸 것이다.</p>
 <div class="sourceCode" id="cb1107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1107-1"><a href="ch-R-Data-Frame.html#cb1107-1" tabindex="-1"></a><span class="fu">boxplot</span>(count <span class="sc">~</span> spray, <span class="at">data=</span>InsectSprays)</span></code></pre></div>
-<p><img src="RDataFrame_files/figure-html/unnamed-chunk-6-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="R-dataframe_files/figure-html/unnamed-chunk-6-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>그런데 이런 데이터는 살충력이 높은 것에서 낮은 것 순으로 배열되는 것이 더 이해하기가 쉽다.
 그러한 형태로 그래프를 그리려면 요인이 <code>spray</code> 열의 수준이 <code>count</code>의 중위수가 낮은 것부터 높은 것 순으로 정렬되어야 한다.
 <code>reorder()</code> 함수를 사용하면 이러한 수준의 변경을 손 쉽게 할 수 있다.
 <code>reorder()</code>는 첫 번째 인수로 요인을, 두 번째 인수로 요인의 수준을 결정할 다른 수치 벡터를, 세 번째 인수로 수치 벡터에 적용할 통계 함수를 지정한다. 그러면 수치 벡터를 요인의 수준 별로 나누어 통계 함수를 적용한 후, 가장 낮은 값에서 큰 값으로 수준의 순서를 재정렬한다.</p>
 <div class="sourceCode" id="cb1108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1108-1"><a href="ch-R-Data-Frame.html#cb1108-1" tabindex="-1"></a><span class="fu">boxplot</span>(count <span class="sc">~</span> <span class="fu">reorder</span>(spray, count, median), <span class="at">data=</span>InsectSprays)</span></code></pre></div>
-<p><img src="RDataFrame_files/figure-html/unnamed-chunk-7-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="R-dataframe_files/figure-html/unnamed-chunk-7-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="labels-인수" class="section level4 unnumbered hasAnchor">
 <h4>labels 인수<a href="ch-R-Data-Frame.html#labels-인수" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1469,7 +1486,7 @@ hw      &quot; 8&quot;     &quot; 9&quot;     &quot; 7&quot;     &quot; 8&quot; 
 <pre><code>[1] &quot;courses2.txt&quot;         &quot;scores_no_header.txt&quot; &quot;scores_rn.txt&quot;       
 [4] &quot;scores.txt&quot;           &quot;students.txt&quot;        </code></pre>
 <p>텍스트 파일을 읽어들이는 예제는 다음 파일을 사용하니 예제를 따라하고자 하는 분들은 내려받기를 하자.</p>
-<a href="data:application/zip;base64,UEsDBBQAAgAIAE8DW1kGxCl30AAAAFkBAAAMAAAAY291cnNlczIudHh0U6pMTSxSUlAqTs1NLS5JBTGTM1NAZF5ibiqILkpNySwpBrIy8kuLipV4uYwUDBWUvAKMjMwNgaKvNu19M6PxbdvWV5tbHrUuUFIwUjBGUmNqBFfzZsHU15u3vOme86ZrydvWOUoKxgomIJVGUNOMMExbCDcNqsbUGKjm9fKON3sa3va0Qk0whtllgjDh1eY9b6fORFdgboJmRbB++JvuJW+6toJUGoNUwiwyB6nc0fFmDlDZVmSjoArMjBH+6p7zet2a1ws63szd8qZ1BlQlAFBLAwQKAAIAAABPA1tZHMQCdCEAAAAhAAAAFAAAAHNjb3Jlc19ub19oZWFkZXIudHh07ISc7Jq4CTI1DQrrjIDsoIQJMzUNCuyynOyViAk0Mg0KUEsDBAoAAgAAAE8DW1leTF8oOwAAADsAAAANAAAAc2NvcmVzX3JuLnR4dCAgICBwcm92CXNjb3Jlcw0KMTAJ7ISc7Jq4CTI1DQoyMAnrjIDsoIQJMzUNCjMwCeyynOyViAk0Mg0KUEsDBAoAAgAAAE8DW1nO8koXMgAAADIAAAAKAAAAc2NvcmVzLnR4dHByb3YgIHNjb3Jlcw0K7ISc7Jq4ICAyNQ0K64yA7KCEICAzNQ0K7LKc7JWIICA0Mg0KUEsDBBQAAgAIAPGqcVnvZW+VpgAAANgAAAAMAAAAc3R1ZGVudHMudHh0U8pLzE1VUlBKL0pMAdOpeSmpRUBGbmZKSWpRLpCVlpmXmAOki1JLErNBajLKlbiUXu1seLNpwZuOGUoKhgpKCr5KCuYmCpaGCiFBoa4KFhD5GY1v565RUjBRUHJTUrAwUjA3V3Bz9Al2VbDkUnozdwtMv7GCElC7mbmChQVU3hwiD9VvBNFvqWBuATf+7czeVzt2vO6fCbYeqN3UQMHCDKrd0IALAFBLAQIeAxQAAgAIAE8DW1kGxCl30AAAAFkBAAAMAAAAAAAAAAEAAAD/gQAAAABjb3Vyc2VzMi50eHRQSwECHgMKAAIAAABPA1tZHMQCdCEAAAAhAAAAFAAAAAAAAAABAAAA/4H6AAAAc2NvcmVzX25vX2hlYWRlci50eHRQSwECHgMKAAIAAABPA1tZXkxfKDsAAAA7AAAADQAAAAAAAAABAAAA/4FNAQAAc2NvcmVzX3JuLnR4dFBLAQIeAwoAAgAAAE8DW1nO8koXMgAAADIAAAAKAAAAAAAAAAEAAAD/gbMBAABzY29yZXMudHh0UEsBAh4DFAACAAgA8apxWe9lb5WmAAAA2AAAAAwAAAAAAAAAAQAAAP+BDQIAAHN0dWRlbnRzLnR4dFBLBQYAAAAABQAFACkBAADdAgAAAAA=" download="courses2.zip">텍스트 파일 내려받기</a>
+<a href="data:application/zip;base64,UEsDBBQAAgAIAMqMN0kGxCl30AAAAFkBAAAMAAAAY291cnNlczIudHh0U6pMTSxSUlAqTs1NLS5JBTGTM1NAZF5ibiqILkpNySwpBrIy8kuLipV4uYwUDBWUvAKMjMwNgaKvNu19M6PxbdvWV5tbHrUuUFIwUjBGUmNqBFfzZsHU15u3vOme86ZrydvWOUoKxgomIJVGUNOMMExbCDcNqsbUGKjm9fKON3sa3va0Qk0whtllgjDh1eY9b6fORFdgboJmRbB++JvuJW+6toJUGoNUwiwyB6nc0fFmDlDZVmSjoArMjBH+6p7zet2a1ws63szd8qZ1BlQlAFBLAwQKAAIAAAAkkxtRHMQCdCEAAAAhAAAAFAAAAHNjb3Jlc19ub19oZWFkZXIudHh07ISc7Jq4CTI1DQrrjIDsoIQJMzUNCuyynOyViAk0Mg0KUEsDBAoAAgAAACSTG1FeTF8oOwAAADsAAAANAAAAc2NvcmVzX3JuLnR4dCAgICBwcm92CXNjb3Jlcw0KMTAJ7ISc7Jq4CTI1DQoyMAnrjIDsoIQJMzUNCjMwCeyynOyViAk0Mg0KUEsDBAoAAgAAABSkG1HO8koXMgAAADIAAAAKAAAAc2NvcmVzLnR4dHByb3YgIHNjb3Jlcw0K7ISc7Jq4ICAyNQ0K64yA7KCEICAzNQ0K7LKc7JWIICA0Mg0KUEsDBBQAAgAIAA2qdVnvZW+VpgAAANgAAAAMAAAAc3R1ZGVudHMudHh0U8pLzE1VUlBKL0pMAdOpeSmpRUBGbmZKSWpRLpCVlpmXmAOki1JLErNBajLKlbiUXu1seLNpwZuOGUoKhgpKCr5KCuYmCpaGCiFBoa4KFhD5GY1v565RUjBRUHJTUrAwUjA3V3Bz9Al2VbDkUnozdwtMv7GCElC7mbmChQVU3hwiD9VvBNFvqWBuATf+7czeVzt2vO6fCbYeqN3UQMHCDKrd0IALAFBLAQIeAxQAAgAIAMqMN0kGxCl30AAAAFkBAAAMAAAAAAAAAAEAAAC0gQAAAABjb3Vyc2VzMi50eHRQSwECHgMKAAIAAAAkkxtRHMQCdCEAAAAhAAAAFAAAAAAAAAABAAAApIH6AAAAc2NvcmVzX25vX2hlYWRlci50eHRQSwECHgMKAAIAAAAkkxtRXkxfKDsAAAA7AAAADQAAAAAAAAABAAAApIFNAQAAc2NvcmVzX3JuLnR4dFBLAQIeAwoAAgAAABSkG1HO8koXMgAAADIAAAAKAAAAAAAAAAEAAACkgbMBAABzY29yZXMudHh0UEsBAh4DFAACAAgADap1We9lb5WmAAAA2AAAAAwAAAAAAAAAAQAAAKSBDQIAAHN0dWRlbnRzLnR4dFBLBQYAAAAABQAFACkBAADdAgAAAAA=" download="courses2.zip">텍스트 파일 내려받기</a>
 </div>
 <div id="머리-행이-있는-텍스트-데이터-파일-읽기" class="section level4 unnumbered hasAnchor">
 <h4>머리 행이 있는 텍스트 데이터 파일 읽기<a href="ch-R-Data-Frame.html#머리-행이-있는-텍스트-데이터-파일-읽기" class="anchor-section" aria-label="Anchor link to header"></a></h4>

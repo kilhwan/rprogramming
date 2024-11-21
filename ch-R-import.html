@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 12 R 데이터 수집 | R 프로그래밍 3판 (draft)</title>
   <meta name="description" content="이 책은 경영데이터분석기초의 주교재로 사용되기 위해 개발되었습니다." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 12 R 데이터 수집 | R 프로그래밍 3판 (draft)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2024-11-17" />
+<meta name="date" content="2024-11-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -88,7 +88,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -579,6 +579,23 @@ div.csl-indent {
 <li class="chapter" data-level="15.3.6" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#최적-군집-수의-결정"><i class="fa fa-check"></i><b>15.3.6</b> 최적 군집 수의 결정</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="16" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html"><i class="fa fa-check"></i><b>16</b> <strong>R</strong> 통계적 가설검정</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#sec-hypothesis"><i class="fa fa-check"></i><b>16.1</b> 가설검정이란?</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#가설의-설정"><i class="fa fa-check"></i><b>16.1.1</b> 가설의 설정</a></li>
+<li class="chapter" data-level="16.1.2" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#검정통계량과-표본-분포"><i class="fa fa-check"></i><b>16.1.2</b> 검정통계량과 표본 분포</a></li>
+<li class="chapter" data-level="16.1.3" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#기각역과-유의수준"><i class="fa fa-check"></i><b>16.1.3</b> 기각역과 유의수준</a></li>
+<li class="chapter" data-level="16.1.4" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#유의확률-p-값p-value"><i class="fa fa-check"></i><b>16.1.4</b> 유의확률 p-값(p-value)</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#r을-이용한-범주형-변수의-가설검점"><i class="fa fa-check"></i><b>16.2</b> <strong>R</strong>을 이용한 범주형 변수의 가설검점</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#관절염-치료-임상시험-데이터-분석"><i class="fa fa-check"></i><b>16.2.1</b> 관절염 치료 임상시험 데이터 분석</a></li>
+<li class="chapter" data-level="16.2.2" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#기술-통계-분석"><i class="fa fa-check"></i><b>16.2.2</b> 기술 통계 분석</a></li>
+<li class="chapter" data-level="16.2.3" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#독립성-검정"><i class="fa fa-check"></i><b>16.2.3</b> 독립성 검정</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#수치형-변수에-대한-가설검정"><i class="fa fa-check"></i><b>16.3</b> 수치형 변수에 대한 가설검정</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="ch-RandPython.html"><a href="ch-RandPython.html"><i class="fa fa-check"></i><b>A</b> <strong>R</strong>과 <strong>Python</strong> 연동하기</a>
 <ul>
@@ -649,7 +666,7 @@ div.csl-indent {
 <h4>CSV 파일<a href="ch-R-import.html#csv-파일-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>CSV 파일은 데이터의 각 필드가 쉼표로 분리되어 있는 파일이다. 대부분의 통계 패키지뿐 아니라 다수의 SW에서 지원하는 파일 형식이다. Excel 등의 스프레드시트 파일도 CSV 파일로 저장할 수 있다. Excel의 버전에 따라 저장방식이 조금 차이가 있을 수 있으나, 대부분 ’다른 이름으로 저장’에서 파일 형식을 CSV 형식으로 지정해 주면 된다.</p>
 <p>CSV 파일을 읽어들이는 예제는 다음 파일을 사용하니 예제를 따라하고자 하는 독자는 내려받도록 하자.</p>
-<a href="data:application/zip;base64,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" download="students_all.zip">텍스트 파일 내려받기</a>
+<a href="data:application/zip;base64,UEsDBBQAAgAIAC6qdVkX2EaYxwAAAE8BAAAQAAAAc3R1ZGVudHNfYWxsLmNzdm2POw6CQBRFe9dyY/jJzJQWUGnjZwFERiUKBaC22tkYKxMoSFyAhTEWuiWFPTjohESxedXJOe+OvTlH4Pgck9BxxeWBy0P4nhvz0MfYC5w5Qh47M47pqhHFC5cHcdQcRUs87uv8csy3CVR0QQwwFYPe0AKtc8mmyE4wYINqIAR2u9O3wL7BPLtKoS6EJgGlEiR18GPUSiMDoX/LRbp73G7Pffr+sKWAmlKoKhWpfZ48H2RbK8cIVJUo/SGFVMZ1EWdiDqvmvABQSwMEFAACAAgA8YhYWd7cG4+eAAAAyQAAABIAAABzdHVkZW50cy1jcDk0OS5jc3ZTykvMTVXSUUovSkwB06l5KalFQEZuZkpJalEukJWWmZeYA6SLUksSs0FqMsqVuJQ2vji8bc83JR1DHSUFXyUdcxMdS0OdkKBQVx0LkOT+rSc+KumY6Ci5KelYGOmYm+u4OfoEu+pYcikdOAPRaayjBNRoZq5jYQGVNAdJQnQaQXRa6phbwE09sXrjs637wVYCNZoa6FiYQTUaGnABAFBLAwQUAAIACAA9kFhZ34xqGlIBAADVAQAAGgAAAHN0dWRlbnRzLXdpdGgtY29tbWVudHMuY3N2PZDPTsJAEIfvfYrJcp0YQKTl6AFOevHPAzShClE4NCRcK9SEKEaMFkpCTQ9Vo+kBLTE14Ym623dwuq2edvKbfL/5siUQ3gbS6VR4W+FZIOYbPg8gibb84114NoiJm6yd1HH5zROkzlKMPf4YiMUM+NRKnRUI3+HRhlr4bbCjlKCv9wzZRMmrjXBu6m2jgPl1Fhj9tmFmibA/eUQJUb1ue2CYPboLZ92+fikbgodkbWdREq/52yyJfDEK6eCMpIgxjYF+IavFc5h7gliE/NtC6Axlw2Qp/FVB8Jct8JGbji0+iqUsy1wZMqmYvdKMhsKGJilDb36Lhs6QKSz5scSXT50MK8jgkKFaw0YFT45Om6jle/cq9UKGNWQthloVVRVb+wfHTWwojP7mj99FRnhdRU0r9mq+L/hqzjdQ1f7r0+VdEsf8finPE75XRq1e4JWy8gtQSwMEFAACAAgAU5hYWVrI3kR6AQAAFAIAABsAAABzdHVkZW50cy13aXRoLWNvbW1lbnRzMi5jc3ZNkc9Kw0AQxu99imF7HcRqNenRg5704p8HKDRq0fZQBK+xjVC0xYpGGzBSsSpKD9EWidAnysy+g5NNBPeyw8d+3/djtggczkD3ehzOOXSB72Z0N4ZkOqePdw494O4wiXztD+niFrQfcCekmzHfD4B6rvYfgEc+TWeSQpfjhUIRmtWGY5JEefUQDlrVmpOb6TwVnGbNaaUKe580FUVcjXrtxGk1pBf2683qsUkYXyeRl0pJHNHbIJmOuD2RwoFAiaflnFSPTDQ/TjJO4PsJfbsIh6cmoRvw6CF30MscqD3UHZfasYFVKatCZRDT25DJkNPIZGDkzrpkODxVBZX8uPw1kkyFJVSwpdAqY6WEu9t762iDnOzN8EyHE4VlVBsK7SW0LNxY29xZx0r6pgjUj2RN2otABz6HMXDg0XOvoET9K1hGJfmrFtp2brYg3Rh/3yaRC3TzSU9h/jOZMW9dyloraNn/wIRMB/0kjukqMPQSvrKI9moeXlos/AJQSwMEFAACAAgA65hYWYbBccOjAAAA1QAAABoAAABzdHVkZW50cy13aXRoLXByb2JsZW1zLmNzdlPKS8xNVdJRSi9KTAHTqXkpqUVARm5mSklqUS6QlZaZl5gDpItSSxKzQWoyypW4lF7tbHizacGbjhlKOoY6Sgq+SjrmJjqWhjohQaGuOhYQ+RmNb+euUdIx0VFyU9KxMNIxN9dxc/QJdtWx5FJ6M3cLTL+xjhJQu46FBVTWHCIL1W0E0W2pows3++3M3lc7drzunwm2G6jX1EDHwgyq29CACwBQSwMEFAACAAgAS5BYWYEBL/ymAAAA2AAAAAwAAABzdHVkZW50cy5jc3ZTykvMTVXSUUovSkwB06l5KalFQEZuZkpJalEukJWWmZeYA6SLUksSs0FqMsqVuJRe7Wx4s2nBm44ZSjqGOkoKvko65iY6loY6IUGhrjoWEPkZjW/nrlHSMdFRclPSsTDSMTfXcXP0CXbVseRSejN3C0y/sY4SULuZuY6FBVTeHCIP1W8E0W+pY24BN/7tzN5XO3a87p8Jth6o3dRAx8IMqt3QgAsAUEsDBBQAAgAIAC+gWFmoeVyAbgAAAHkAAAANAAAAc3R1ZGVudHMyLmNzdlPKS8xNVdJRSi9KTAHTqXkpqUVARm5mSklqUS6QlZaZl5gDpItSSxKzQWoyypW4lF5tmPpm04I3HTOUdIx0lBR8lXTMDXQsDHXcHH2CXXUsuJTezux9M6Px7dw1SjrGOkpuSjqWRjrmllB5Sy4AUEsDBBQAAgAIACSTG1E+bkfj2AQAAOQIAAARAAAAc3VpY2lkZV9yYXRlcy5jc3ZNVk1v3DYUvAfIf9CpaAFisfralY6URGtpSaRAkXa0N7dd9OI6gJMc+u87Q66bXhLs6PHxzbx5j+6//nj7/v6P2G8v72J5eb19Ew+3v/n/509y7qTRUpSiOpxFeSgBGa/HIDNphqyTrguDFG0tjuKIb25U+GykaEReHE6C8W5RTNGI4gD0kAMKm3dyBnhiWIPEpzsKrBVFCewcI6/KdVI/SiPOIhdHFtDJi1zkJmokawGdIuSkNkhXIVdNAMcGuwE5H0qW1qlZurAhTdWASnNoIjbqsCBT0bC2lF7N+qpQ7gn1Hw9nIHYDgUj4otxVjfaJFNtcFDiRVOmcvOpZsOyzKPA7zKN0kXbO3KcDwF4aCbUqkbOo+lABuuhZkVtzKKBxEREjs1+32+vtj++3P7P3H+8vr9kv2Y/331/espf328u330TbirwUeUUW9wOXr29/ZRP/2aRDhMhbMkL9vZ3t0qGWM6prWV1vNy8zp3uqjaCCUgJ2VvrUgQaBZyrZhy6SaFEvf+4rVSRP0IjZr6q/ZE6toZt1n7rXggrIDcos0k3sMnJBA2J20QYXm59HalHGRiKZ6gPa5lJVdfKFGvfVCwbkbKSaQXB+imHRZe09bPM2+ayEJ9j2z58etJnRNhbFjACcND31LqpoAjAalXVjJA3HJUqjcos0e6q7FUg+OqVwriUUf8VGNsn1mAavFjkTqHF1yhF2dBvxJVtF5hepvcYkxTMXa4bg4OLzPcklGBhmxxXVkeRxqe5VrB4sTxADSbUZYqXo/Zmt16BDH9KGR86LdupOOGcPeGRzUs1sPeoCXe3lvPPHkfP4+dMjZin64JiyEFmZVZQn+qKkJx+tG4ChVEAImeRVThd4iFhVipb8pvAMhrz60CYNpt2N+zWGtTRrnjo1S/8UaYBpw/Sz9pcQ9wwEzlEF+CPhHL6opbPBjUkCHkc0lB70k+ICgGdYDhCfxG/ZnkUGB6mjTfM8Lh2Ye1FfdG/p3CSEUR7TTLW2qCjS1wl/zq5KRhnjXH7gUMlJ9Bo9hZ9IxFj3LNmyOM8nRkE6CIpb2nTrms7ssbqcs7cqF2INsdYV86/XVRvwaUukrZN0q723vsDUoJMMtc6HUc5MTZtBoTUo5y0H2XIdQh7e8DFYmX3IJusUZS1bTn7BPP//vNh5sE/3oSFRsHJ2ufeiyNM2xcRvGhP7oAblsCEsN23NoW35ecPq9dmkvd/ikjTqSW//vQnp6xx6pKzBpP0JYo32eC/iITQjS3MVtaBcVZJwkzbzdlExbHU4o1fsZ3Qe3+HgDU/Ex9LK45Rvau8vap5jnuZ+o8Z8QUKV3hxOO2TeZrCfYmUQh7u8SqBKCpQVhI7u3mzwl0w+xKXJ9lUimnRb+fBEo7X3405naN4UX4iKCeBd1glXwhyKd6UVSfAZmpr0SpxFinvW/pqcmRZVTM7Eu2MX4Kju5/Js6o+h9PJRTzpOG4zGdnMFeqydmAqzXKBAXOAfdpctsleDTW87ukg34fU1epBD6oft5Gg/VmA6F9zEtzwNdEO/NckgYeLzy/1Ynvl0AzHaqwGmMCM2ftrnLf8cuH9ADq82WhCKRE1r3oTXOeZzIQ5NBftDFB67dupOrqYqxNAkdQ1YeABqbg1uh6teOtk9Ky40rlF8AfovUEsBAh4DFAACAAgALqp1WRfYRpjHAAAATwEAABAAAAAAAAAAAQAAALSBAAAAAHN0dWRlbnRzX2FsbC5jc3ZQSwECHgMUAAIACADxiFhZ3twbj54AAADJAAAAEgAAAAAAAAABAAAAtIH1AAAAc3R1ZGVudHMtY3A5NDkuY3N2UEsBAh4DFAACAAgAPZBYWd+MahpSAQAA1QEAABoAAAAAAAAAAQAAALSBwwEAAHN0dWRlbnRzLXdpdGgtY29tbWVudHMuY3N2UEsBAh4DFAACAAgAU5hYWVrI3kR6AQAAFAIAABsAAAAAAAAAAQAAALSBTQMAAHN0dWRlbnRzLXdpdGgtY29tbWVudHMyLmNzdlBLAQIeAxQAAgAIAOuYWFmGwXHDowAAANUAAAAaAAAAAAAAAAEAAAC0gQAFAABzdHVkZW50cy13aXRoLXByb2JsZW1zLmNzdlBLAQIeAxQAAgAIAEuQWFmBAS/8pgAAANgAAAAMAAAAAAAAAAEAAACkgdsFAABzdHVkZW50cy5jc3ZQSwECHgMUAAIACAAvoFhZqHlcgG4AAAB5AAAADQAAAAAAAAABAAAAtIGrBgAAc3R1ZGVudHMyLmNzdlBLAQIeAxQAAgAIACSTG1E+bkfj2AQAAOQIAAARAAAAAAAAAAEAAACkgUQHAABzdWljaWRlX3JhdGVzLmNzdlBLBQYAAAAACAAIAAsCAABLDAAAAAA=" download="students_all.zip">텍스트 파일 내려받기</a>
 </div>
 <div id="작업-디렉토리-설정-1" class="section level4 unnumbered hasAnchor">
 <h4>작업 디렉토리 설정<a href="ch-R-import.html#작업-디렉토리-설정-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -718,7 +735,7 @@ dbl (3): Year, Males, Females
 <span id="cb2296-2"><a href="ch-R-import.html#cb2296-2" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(Males, Females, <span class="at">label=</span>Country), </span>
 <span id="cb2296-3"><a href="ch-R-import.html#cb2296-3" tabindex="-1"></a>            <span class="at">size=</span><span class="dv">2</span>, <span class="at">check_overlap =</span> T) <span class="sc">+</span></span>
 <span id="cb2296-4"><a href="ch-R-import.html#cb2296-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="Rimport_files/figure-html/unnamed-chunk-9-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="R-import_files/figure-html/unnamed-chunk-9-1.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="한글-파일-인코딩" class="section level4 unnumbered hasAnchor">
 <h4>한글 파일 인코딩<a href="ch-R-import.html#한글-파일-인코딩" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1193,7 +1210,7 @@ e.g.:
 <pre><code># A tibble: 1 × 5
     row   col expected actual file                                              
   &lt;int&gt; &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;                                             
-1     5     5 a number -      /mnt/c/Users/kilhwan/Dropbox/Work/Writing/R-progr…</code></pre>
+1     5     5 a number -      /home/sys4ppl/Dropbox/Work/Writing/R-programming-…</code></pre>
 <p>5행의 5열의 데이터로 숫자(number)가 예상되었는데(exptected) 실제(actual)은 <code>-</code>가 입력되었다는 것이다.
 <code>col_number()</code>로 지정된 열은 숫자 이외의 문자는 모두 무시되므로 이 셀의 데이터는 결측치(NA)로 처리되었다.
 특정 문자를 결측치로 처리하려면 다음처럼 <code>na</code> 인수를 사용하여 결측치로 간주할 문자열을 지정한다.
@@ -1588,7 +1605,7 @@ Excel 파일의 데이터를 읽어들일 때 다음 세 가지 사항을 주의
 <span id="cb2429-5"><a href="ch-R-import.html#cb2429-5" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">&quot;log10&quot;</span>) <span class="sc">+</span></span>
 <span id="cb2429-6"><a href="ch-R-import.html#cb2429-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;일인당 GDP&quot;</span>, <span class="at">y=</span><span class="st">&quot;기대수명&quot;</span>, <span class="at">size=</span><span class="st">&quot;인구&quot;</span>, <span class="at">color=</span><span class="st">&quot;대륙&quot;</span>) <span class="sc">+</span></span>
 <span id="cb2429-7"><a href="ch-R-import.html#cb2429-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="Rimport_files/figure-html/unnamed-chunk-60-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="R-import_files/figure-html/unnamed-chunk-60-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>마지막으로 한국 데이터만 필터링 하여 시간에 따라 어떻게 변화하였는지를 시각화해 보자.</p>
 <div class="sourceCode" id="cb2430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2430-1"><a href="ch-R-import.html#cb2430-1" tabindex="-1"></a>life_exp_korea <span class="ot">&lt;-</span> life_exp_all <span class="sc">%&gt;%</span> </span>
 <span id="cb2430-2"><a href="ch-R-import.html#cb2430-2" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">&quot;Korea, Rep.&quot;</span>)</span>
@@ -1613,7 +1630,7 @@ Excel 파일의 데이터를 읽어들일 때 다음 세 가지 사항을 주의
 <span id="cb2432-3"><a href="ch-R-import.html#cb2432-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size=</span>pop, <span class="at">color=</span>year)) <span class="sc">+</span></span>
 <span id="cb2432-4"><a href="ch-R-import.html#cb2432-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;일인당 GDP&quot;</span>, <span class="at">y=</span><span class="st">&quot;기대수명&quot;</span>, <span class="at">size=</span><span class="st">&quot;인구&quot;</span>, <span class="at">color=</span><span class="st">&quot;조사년도&quot;</span>) <span class="sc">+</span></span>
 <span id="cb2432-5"><a href="ch-R-import.html#cb2432-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="Rimport_files/figure-html/unnamed-chunk-62-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="R-import_files/figure-html/unnamed-chunk-62-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="google-sheets에-데이터-쓰기" class="section level4 unnumbered hasAnchor">
 <h4>Google Sheets에 데이터 쓰기<a href="ch-R-import.html#google-sheets에-데이터-쓰기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1627,7 +1644,7 @@ Excel 파일의 데이터를 읽어들일 때 다음 세 가지 사항을 주의
   the use of a cached token.</code></pre>
 <pre><code>  See gargle&#39;s &quot;Non-interactive auth&quot; vignette for more details:</code></pre>
 <pre><code>  &lt;https://gargle.r-lib.org/articles/non-interactive-auth.html&gt;</code></pre>
-<pre><code>ℹ The googlesheets4 package is using a cached token for &#39;mgmthw@gmail.com&#39;.</code></pre>
+<pre><code>ℹ The googlesheets4 package is using a cached token for &#39;mexrcise@gmail.com&#39;.</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li><code>gs4_auth()</code>를 실행하면 다음과 같은 메시지가 출력된다. (메시지는 버전에 따라 조금씩 다를 수 있다.)
 OAuth 인증을 캐시 폴더에 저장하여 다음 번 실행 시에는 인증을 생략할지를 묻는 질문이다.</li>
@@ -1654,13 +1671,13 @@ Selection:</code></pre>
 Gapmider의 데이터 중에서 한국 데이터만 새로운 Google Sheets 문서에 저장해보자.
 가장 단순한 방법은 임의의 이름으로 새로운 Google Sheets 문서를 만들어 저장하는 것이다.</p>
 <div class="sourceCode" id="cb2440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2440-1"><a href="ch-R-import.html#cb2440-1" tabindex="-1"></a>ss <span class="ot">&lt;-</span> <span class="fu">write_sheet</span>(life_exp_korea)</span></code></pre></div>
-<pre><code>✔ Creating new Sheet: &quot;ornamental-barb&quot;.</code></pre>
+<pre><code>✔ Creating new Sheet: &quot;kimberlite-toad&quot;.</code></pre>
 <p>저장된 문서의 메타정보를 확인해 보자.</p>
 <div class="sourceCode" id="cb2442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2442-1"><a href="ch-R-import.html#cb2442-1" tabindex="-1"></a><span class="fu">gs4_get</span>(ss)</span></code></pre></div>
 <pre><code>
 ── &lt;googlesheets4_spreadsheet&gt; ─────────────────────────────────────────────────
-Spreadsheet name: &quot;ornamental-barb&quot;                           
-              ID: 1yEryvVwtmxxxeqD6mE7FcghU_TOTy7mnYdTNs7uYnb4
+Spreadsheet name: &quot;kimberlite-toad&quot;                           
+              ID: 1MButhx4JALykA4NRtAFHnED4XNAF6zCQc1aZIig5YiI
           Locale: ko_KR                                       
        Time zone: Etc/GMT                                     
      # of sheets: 1                                           
@@ -1672,7 +1689,7 @@ Spreadsheet name: &quot;ornamental-barb&quot;
 여러분의 구글 드라이브에 가보면 이 Google Sheets 문서를 확인할 수 있다.
 여기서는 워크시트를 읽어서 데이터가 제대로 저장되었는지 확인해 보자.</p>
 <div class="sourceCode" id="cb2444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2444-1"><a href="ch-R-import.html#cb2444-1" tabindex="-1"></a><span class="fu">read_sheet</span>(ss)</span></code></pre></div>
-<pre><code>✔ Reading from &quot;ornamental-barb&quot;.</code></pre>
+<pre><code>✔ Reading from &quot;kimberlite-toad&quot;.</code></pre>
 <pre><code>✔ Range &#39;life_exp_korea&#39;.</code></pre>
 <pre><code># A tibble: 12 × 6
    country     continent  year lifeExp      pop gdpPercap
@@ -2288,11 +2305,11 @@ HTML 요소에서 태그를 제외하고 텍스트만 추출하고자 하면 <co
 <p>개봉일과 관객수의 분포를 시각화해 보자.</p>
 <div class="sourceCode" id="cb2518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2518-1"><a href="ch-R-import.html#cb2518-1" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
 <span id="cb2518-2"><a href="ch-R-import.html#cb2518-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(release), <span class="at">bins=</span><span class="dv">12</span>)</span></code></pre></div>
-<p><img src="Rimport_files/figure-html/unnamed-chunk-107-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="R-import_files/figure-html/unnamed-chunk-107-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb2519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2519-1"><a href="ch-R-import.html#cb2519-1" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
 <span id="cb2519-2"><a href="ch-R-import.html#cb2519-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(audience), <span class="at">bins=</span><span class="dv">10</span>) <span class="sc">+</span></span>
 <span id="cb2519-3"><a href="ch-R-import.html#cb2519-3" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">&quot;log10&quot;</span>)</span></code></pre></div>
-<p><img src="Rimport_files/figure-html/unnamed-chunk-108-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="R-import_files/figure-html/unnamed-chunk-108-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>상영 기간이 서로 다른 영화들이므로 일일 평균 영화 관객수로 영화의 흥행도를 분석해 보자.</p>
 <div class="sourceCode" id="cb2520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2520-1"><a href="ch-R-import.html#cb2520-1" tabindex="-1"></a>movies <span class="sc">%&gt;%</span> </span>
 <span id="cb2520-2"><a href="ch-R-import.html#cb2520-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
