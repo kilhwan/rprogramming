@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>B R 관련 여러 주제들 | R 프로그래밍 3판 (draft)</title>
   <meta name="description" content="이 책은 경영데이터분석기초의 주교재로 사용되기 위해 개발되었습니다." />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="B R 관련 여러 주제들 | R 프로그래밍 3판 (draft)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2024-11-21" />
+<meta name="date" content="2024-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -88,7 +88,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -651,84 +651,84 @@ div.csl-indent {
 <h3><span class="header-section-number">B.1.1</span> 작업 디렉토리<a href="ch-RTips.html#작업-디렉토리" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><a href="ch-R-Data-Frame.html#sec-read-file">6.6</a> 절에서 설명한 바와 같이 <strong>R</strong>은 파일을 읽거나 쓸 때 상대 경로를 제공하면 작업 디렉토리(working directory)로 설정된 폴더를 기준으로 파일의 위치를 결정한다.</p>
 <p>현재의 작업 디렉토리를 확인하려면 다음 명령을 수행한다.</p>
-<div class="sourceCode" id="cb2842"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2842-1"><a href="ch-RTips.html#cb2842-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
-<pre><code>[1] &quot;/home/sys4ppl/Dropbox/Work/Writing/R-programming-3rd&quot;</code></pre>
+<div class="sourceCode" id="cb2856"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2856-1"><a href="ch-RTips.html#cb2856-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<pre><code>[1] &quot;/mnt/c/Users/kilhwan/Dropbox/Work/Writing/R-programming-3rd&quot;</code></pre>
 <p>어떤 폴더를 작업 디렉토리로 설정하려면 다음처럼 <code>setwd(폴더_절대경로)</code>로 설정한다. 다음은 현재의 작업 디렉토리 밑의 source라는 폴더를 작업 디렉토리로 설정한 예이다.</p>
-<div class="sourceCode" id="cb2844"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2844-1"><a href="ch-RTips.html#cb2844-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">file.path</span>(<span class="fu">getwd</span>(), <span class="st">&quot;src&quot;</span>))</span></code></pre></div>
-<div class="sourceCode" id="cb2845"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2845-1"><a href="ch-RTips.html#cb2845-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
-<pre><code>[1] &quot;/home/sys4ppl/Dropbox/Work/Writing/R-programming-3rd/src&quot;</code></pre>
+<div class="sourceCode" id="cb2858"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2858-1"><a href="ch-RTips.html#cb2858-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">file.path</span>(<span class="fu">getwd</span>(), <span class="st">&quot;src&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2859"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2859-1"><a href="ch-RTips.html#cb2859-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<pre><code>[1] &quot;/mnt/c/Users/kilhwan/Dropbox/Work/Writing/R-programming-3rd/src&quot;</code></pre>
 </div>
 <div id="폴더-내의-파일-목록-확인하기" class="section level3 hasAnchor" number="18.1.2">
 <h3><span class="header-section-number">B.1.2</span> 폴더 내의 파일 목록 확인하기<a href="ch-RTips.html#폴더-내의-파일-목록-확인하기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>현재의 작업 디렉토리 안에 있는 파일과 하위폴더 목록은 다음처럼 확인한다.</p>
-<div class="sourceCode" id="cb2847"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2847-1"><a href="ch-RTips.html#cb2847-1" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2861"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2861-1"><a href="ch-RTips.html#cb2861-1" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
 <pre><code>[1] &quot;README.txt&quot;  &quot;script-ex.R&quot; &quot;test&quot;       </code></pre>
 <p>작업 디렉토리 이외의 폴더의 파일과 하위폴더 목록을 확인하려면 <code>path=폴더_절대경로</code> 인수를 사용한다. 다음은 현재의 작업 디렉토리에 test 하위폴더가 있는 경우에 이 하위폴더의 파일 목록을 확인하는 예이다.</p>
-<div class="sourceCode" id="cb2849"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2849-1"><a href="ch-RTips.html#cb2849-1" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">path=</span><span class="fu">file.path</span>(<span class="fu">getwd</span>(), <span class="st">&quot;test&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2863"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2863-1"><a href="ch-RTips.html#cb2863-1" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">path=</span><span class="fu">file.path</span>(<span class="fu">getwd</span>(), <span class="st">&quot;test&quot;</span>))</span></code></pre></div>
 <pre><code>[1] &quot;script-ex-test.R&quot; &quot;test-result&quot;     </code></pre>
 <p><code>pattern</code> 인수를 사용하면 정규식 표현을 사용하여 특정 형식의 파일이름을 가진 파일의 목록만 확인할 수 있다.
 작업 디렉토리에서 파일의 확장자가 <code>.R</code>인 파일을 나열해 보자.</p>
-<div class="sourceCode" id="cb2851"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2851-1"><a href="ch-RTips.html#cb2851-1" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.R$&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2865"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2865-1"><a href="ch-RTips.html#cb2865-1" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.R$&quot;</span>)</span></code></pre></div>
 <pre><code>[1] &quot;script-ex.R&quot;</code></pre>
 <p>현재 폴더뿐 아니라 그 아래의 하위폴더를 순환적으로 접근하여 모든 파일을 나열하려면 <code>recursive=TRUE</code> 인수를 사용한다.</p>
-<div class="sourceCode" id="cb2853"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2853-1"><a href="ch-RTips.html#cb2853-1" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.R$&quot;</span>, <span class="at">recursive =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb2867"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2867-1"><a href="ch-RTips.html#cb2867-1" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.R$&quot;</span>, <span class="at">recursive =</span> T)</span></code></pre></div>
 <pre><code>[1] &quot;script-ex.R&quot;           &quot;test/script-ex-test.R&quot;</code></pre>
 <p>순환적으로 하위폴더의 파일도 나열할 때 하위폴더의 이름도 포함하여 파일명을 나열하려면 <code>include.dir=TRUE</code> 인수를 사용한다.</p>
-<div class="sourceCode" id="cb2855"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2855-1"><a href="ch-RTips.html#cb2855-1" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.R$&quot;</span>, <span class="at">recursive =</span> T, <span class="at">include.dirs =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb2869"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2869-1"><a href="ch-RTips.html#cb2869-1" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.R$&quot;</span>, <span class="at">recursive =</span> T, <span class="at">include.dirs =</span> T)</span></code></pre></div>
 <pre><code>[1] &quot;script-ex.R&quot;           &quot;test/script-ex-test.R&quot;</code></pre>
 <p>파일을 나열할 때 절대경로로 나열하렴 <code>full.names=TRUE</code> 인수를 사용한다.</p>
-<div class="sourceCode" id="cb2857"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2857-1"><a href="ch-RTips.html#cb2857-1" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.R$&quot;</span>, <span class="at">recursive =</span> T, <span class="at">full.names =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb2871"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2871-1"><a href="ch-RTips.html#cb2871-1" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.R$&quot;</span>, <span class="at">recursive =</span> T, <span class="at">full.names =</span> T)</span></code></pre></div>
 <pre><code>[1] &quot;./script-ex.R&quot;           &quot;./test/script-ex-test.R&quot;</code></pre>
 <p>파일은 제외하고 하위폴더만 나열하려면 <code>list.dirs()</code> 함수를 사용한다.</p>
-<div class="sourceCode" id="cb2859"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2859-1"><a href="ch-RTips.html#cb2859-1" tabindex="-1"></a><span class="fu">list.dirs</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2873"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2873-1"><a href="ch-RTips.html#cb2873-1" tabindex="-1"></a><span class="fu">list.dirs</span>()</span></code></pre></div>
 <pre><code>[1] &quot;.&quot;                  &quot;./test&quot;             &quot;./test/test-result&quot;</code></pre>
 <p><code>list.dirs()</code> 함수는 순환적으로 하위폴더 아래의 하위폴더들을 모두 나열한다. 만약 현재의 작업 디렉토리 아래의 하위폴더만 나열하려면 <code>recursive=FALSE</code> 인수를 사용한다.</p>
-<div class="sourceCode" id="cb2861"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2861-1"><a href="ch-RTips.html#cb2861-1" tabindex="-1"></a><span class="fu">list.dirs</span>(<span class="at">recursive=</span>F)</span></code></pre></div>
+<div class="sourceCode" id="cb2875"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2875-1"><a href="ch-RTips.html#cb2875-1" tabindex="-1"></a><span class="fu">list.dirs</span>(<span class="at">recursive=</span>F)</span></code></pre></div>
 <pre><code>[1] &quot;./test&quot;</code></pre>
 </div>
 <div id="파일과-폴더-존재-확인" class="section level3 hasAnchor" number="18.1.3">
 <h3><span class="header-section-number">B.1.3</span> 파일과 폴더 존재 확인<a href="ch-RTips.html#파일과-폴더-존재-확인" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>파일이 있는지 확인하려면 <code>file.exists()</code> 함수를 사용한다.</p>
-<div class="sourceCode" id="cb2863"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2863-1"><a href="ch-RTips.html#cb2863-1" tabindex="-1"></a><span class="fu">file.exists</span>(<span class="fu">c</span>(<span class="st">&quot;script-ex.R&quot;</span>, <span class="st">&quot;script.R&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2877"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2877-1"><a href="ch-RTips.html#cb2877-1" tabindex="-1"></a><span class="fu">file.exists</span>(<span class="fu">c</span>(<span class="st">&quot;script-ex.R&quot;</span>, <span class="st">&quot;script.R&quot;</span>))</span></code></pre></div>
 <pre><code>[1]  TRUE FALSE</code></pre>
 <p>폴더가 있는지를 확인하려면 <code>dir.exists()</code> 함수를 사용한다.</p>
 </div>
 <div id="폴더의-생성과-삭제" class="section level3 hasAnchor" number="18.1.4">
 <h3><span class="header-section-number">B.1.4</span> 폴더의 생성과 삭제<a href="ch-RTips.html#폴더의-생성과-삭제" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>다음은 현재 폴더에 test2 폴더가 없으면 생성하는 예이다.</p>
-<div class="sourceCode" id="cb2865"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2865-1"><a href="ch-RTips.html#cb2865-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">dir.exists</span>(<span class="st">&quot;test2&quot;</span>)) <span class="fu">dir.create</span>(<span class="st">&quot;test2&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb2866"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2866-1"><a href="ch-RTips.html#cb2866-1" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2879-1"><a href="ch-RTips.html#cb2879-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">dir.exists</span>(<span class="st">&quot;test2&quot;</span>)) <span class="fu">dir.create</span>(<span class="st">&quot;test2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2880"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2880-1"><a href="ch-RTips.html#cb2880-1" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
 <pre><code>[1] &quot;README.txt&quot;  &quot;script-ex.R&quot; &quot;test&quot;        &quot;test2&quot;      </code></pre>
 <p>빈 폴더의 삭제는 다음과 같이 수행한다.</p>
-<div class="sourceCode" id="cb2868"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2868-1"><a href="ch-RTips.html#cb2868-1" tabindex="-1"></a><span class="fu">unlink</span>(<span class="st">&quot;test2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2882"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2882-1"><a href="ch-RTips.html#cb2882-1" tabindex="-1"></a><span class="fu">unlink</span>(<span class="st">&quot;test2&quot;</span>)</span></code></pre></div>
 <p>폴더에 파일이나 하위폴더가 있어도 삭제하려면 다음과 같이 수행한다.</p>
-<div class="sourceCode" id="cb2869"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2869-1"><a href="ch-RTips.html#cb2869-1" tabindex="-1"></a><span class="fu">unlink</span>(<span class="st">&quot;test2&quot;</span>, <span class="at">recursive=</span>T)</span></code></pre></div>
-<div class="sourceCode" id="cb2870"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2870-1"><a href="ch-RTips.html#cb2870-1" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2883"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2883-1"><a href="ch-RTips.html#cb2883-1" tabindex="-1"></a><span class="fu">unlink</span>(<span class="st">&quot;test2&quot;</span>, <span class="at">recursive=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb2884"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2884-1"><a href="ch-RTips.html#cb2884-1" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
 <pre><code>[1] &quot;README.txt&quot;  &quot;script-ex.R&quot; &quot;test&quot;       </code></pre>
 </div>
 <div id="파일의-생성-복사-이동-삭제" class="section level3 hasAnchor" number="18.1.5">
 <h3><span class="header-section-number">B.1.5</span> 파일의 생성, 복사, 이동, 삭제<a href="ch-RTips.html#파일의-생성-복사-이동-삭제" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>다음은 빈 파일을 생성한다.</p>
-<div class="sourceCode" id="cb2872"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2872-1"><a href="ch-RTips.html#cb2872-1" tabindex="-1"></a><span class="fu">file.create</span>(<span class="st">&quot;new_file.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2886-1"><a href="ch-RTips.html#cb2886-1" tabindex="-1"></a><span class="fu">file.create</span>(<span class="st">&quot;new_file.csv&quot;</span>)</span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb2874"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2874-1"><a href="ch-RTips.html#cb2874-1" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2888"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2888-1"><a href="ch-RTips.html#cb2888-1" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
 <pre><code>[1] &quot;new_file.csv&quot; &quot;README.txt&quot;   &quot;script-ex.R&quot;  &quot;test&quot;        </code></pre>
 <p>파일의 복사는 다음과 같이 한다.</p>
-<div class="sourceCode" id="cb2876"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2876-1"><a href="ch-RTips.html#cb2876-1" tabindex="-1"></a><span class="fu">file.copy</span>(<span class="st">&quot;new_file.csv&quot;</span>, <span class="st">&quot;newer_file.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2890"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2890-1"><a href="ch-RTips.html#cb2890-1" tabindex="-1"></a><span class="fu">file.copy</span>(<span class="st">&quot;new_file.csv&quot;</span>, <span class="st">&quot;newer_file.csv&quot;</span>)</span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb2878"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2878-1"><a href="ch-RTips.html#cb2878-1" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2892"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2892-1"><a href="ch-RTips.html#cb2892-1" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
 <pre><code>[1] &quot;new_file.csv&quot;   &quot;newer_file.csv&quot; &quot;README.txt&quot;     &quot;script-ex.R&quot;   
 [5] &quot;test&quot;          </code></pre>
 <p>기존 파일을 이동하려면 다음과 같이 한다.</p>
-<div class="sourceCode" id="cb2880"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2880-1"><a href="ch-RTips.html#cb2880-1" tabindex="-1"></a><span class="fu">file.rename</span>(<span class="st">&quot;newer_file.csv&quot;</span>, <span class="st">&quot;test/newer_file.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2894"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2894-1"><a href="ch-RTips.html#cb2894-1" tabindex="-1"></a><span class="fu">file.rename</span>(<span class="st">&quot;newer_file.csv&quot;</span>, <span class="st">&quot;test/newer_file.csv&quot;</span>)</span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb2882"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2882-1"><a href="ch-RTips.html#cb2882-1" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">recursive=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb2896"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2896-1"><a href="ch-RTips.html#cb2896-1" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">recursive=</span>T)</span></code></pre></div>
 <pre><code>[1] &quot;new_file.csv&quot;          &quot;README.txt&quot;            &quot;script-ex.R&quot;          
 [4] &quot;test/newer_file.csv&quot;   &quot;test/script-ex-test.R&quot;</code></pre>
 <p>파일의 삭제는 다음과 같이 한다.</p>
-<div class="sourceCode" id="cb2884"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2884-1"><a href="ch-RTips.html#cb2884-1" tabindex="-1"></a><span class="fu">file.remove</span>(<span class="fu">c</span>(<span class="st">&quot;new_file.csv&quot;</span>, <span class="st">&quot;test/newer_file.csv&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2898"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2898-1"><a href="ch-RTips.html#cb2898-1" tabindex="-1"></a><span class="fu">file.remove</span>(<span class="fu">c</span>(<span class="st">&quot;new_file.csv&quot;</span>, <span class="st">&quot;test/newer_file.csv&quot;</span>))</span></code></pre></div>
 <pre><code>[1] TRUE TRUE</code></pre>
-<div class="sourceCode" id="cb2886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2886-1"><a href="ch-RTips.html#cb2886-1" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">recursive=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb2900"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2900-1"><a href="ch-RTips.html#cb2900-1" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">recursive=</span>T)</span></code></pre></div>
 <pre><code>[1] &quot;README.txt&quot;            &quot;script-ex.R&quot;           &quot;test/script-ex-test.R&quot;</code></pre>
 </div>
 </div>
@@ -737,7 +737,7 @@ div.csl-indent {
 <p>현재 <strong>R</strong>은 IEC 60559 부동소수점 계산을 사용하고 있다.
 부동소수점 숫자를 저장하기 위해 64 비트를 사용하고 있고, 이중 53 비트는 유효숫자를 저장하고 11 비트는 지수부 정보를 저장한다.
 위와 관련된 정보는 <code>base</code> 패키지의 <code>.Machine</code> 변수를 출력해 보면 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2888"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2888-1"><a href="ch-RTips.html#cb2888-1" tabindex="-1"></a>.Machine[<span class="fu">grep</span>(<span class="st">&quot;^double[.](digits|exponent)&quot;</span>, <span class="fu">names</span>(.Machine))]</span></code></pre></div>
+<div class="sourceCode" id="cb2902"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2902-1"><a href="ch-RTips.html#cb2902-1" tabindex="-1"></a>.Machine[<span class="fu">grep</span>(<span class="st">&quot;^double[.](digits|exponent)&quot;</span>, <span class="fu">names</span>(.Machine))]</span></code></pre></div>
 <pre><code>$double.digits
 [1] 53
 
@@ -746,59 +746,59 @@ $double.exponent
 <p>컴퓨터는 이진수로 숫자를 저장하기 때문에, 숫자의 유효숫자와 지수가 표현 범위에 있는 숫자라면 이진수로 표현할 수 있는 정수와 분모가 2의 거듭제곱으로 표현된 유리수에 대해서만 정확하게 표현할 수 있다.
 그 외의 숫자는 정수나 2의 거듭제곱을 분모로 가진 유리수로 근사하여 저장하므로 숫자를 저장할 수 있는 정밀도는 제한된다.
 그렇기 때문에 다음처럼 수학적으로 같아야할 숫자가 다른 숫자로 간주된다.</p>
-<div class="sourceCode" id="cb2890"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2890-1"><a href="ch-RTips.html#cb2890-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">2</span>)</span>
-<span id="cb2890-2"><a href="ch-RTips.html#cb2890-2" tabindex="-1"></a>a<span class="sc">^</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb2904"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2904-1"><a href="ch-RTips.html#cb2904-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">2</span>)</span>
+<span id="cb2904-2"><a href="ch-RTips.html#cb2904-2" tabindex="-1"></a>a<span class="sc">^</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
-<div class="sourceCode" id="cb2892"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2892-1"><a href="ch-RTips.html#cb2892-1" tabindex="-1"></a>a<span class="sc">^</span><span class="dv">2</span> </span></code></pre></div>
+<div class="sourceCode" id="cb2906"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2906-1"><a href="ch-RTips.html#cb2906-1" tabindex="-1"></a>a<span class="sc">^</span><span class="dv">2</span> </span></code></pre></div>
 <pre><code>[1] 2</code></pre>
-<div class="sourceCode" id="cb2894"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2894-1"><a href="ch-RTips.html#cb2894-1" tabindex="-1"></a>a<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb2908"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2908-1"><a href="ch-RTips.html#cb2908-1" tabindex="-1"></a>a<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>[1] 4.440892e-16</code></pre>
 <p><span class="math inline">\(\sqrt{2}\)</span>를 제곱하면 2가 되어야 할 것이다. 그러나 <span class="math inline">\(\sqrt{2}\)</span>는 근사적인 값으로 저장되기 때문에 제곱의 결과가 정확히 2가 되지 않는다.
 위의 예에서 <span class="math inline">\(\sqrt{2}\)</span>의 제곱을 출력하면 2로 표현되는 것은 <strong>R</strong>의 출력에서 유효숫자의 크기가 제한되어 있기 때문이다. 숫자 출력의 유효숫자의 자리수를 늘리면 정확히 2는 아님을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2896"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2896-1"><a href="ch-RTips.html#cb2896-1" tabindex="-1"></a><span class="fu">options</span>(<span class="st">&quot;digits&quot;</span>)  <span class="co"># 현재의 유효숫자 자리수 출력</span></span></code></pre></div>
+<div class="sourceCode" id="cb2910"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2910-1"><a href="ch-RTips.html#cb2910-1" tabindex="-1"></a><span class="fu">options</span>(<span class="st">&quot;digits&quot;</span>)  <span class="co"># 현재의 유효숫자 자리수 출력</span></span></code></pre></div>
 <pre><code>$digits
 [1] 7</code></pre>
-<div class="sourceCode" id="cb2898"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2898-1"><a href="ch-RTips.html#cb2898-1" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">22</span>) <span class="co"># 유효숫자 자리수를 22로 조정</span></span>
-<span id="cb2898-2"><a href="ch-RTips.html#cb2898-2" tabindex="-1"></a>a<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb2912"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2912-1"><a href="ch-RTips.html#cb2912-1" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">22</span>) <span class="co"># 유효숫자 자리수를 22로 조정</span></span>
+<span id="cb2912-2"><a href="ch-RTips.html#cb2912-2" tabindex="-1"></a>a<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>[1] 2.000000000000000444089</code></pre>
 <p>일반적인 상황에서는 근사적인 이진수 표현으로 숫자를 저장하기 때문에 발생하는 오차는 큰 문제가 되지 않는다.
 그러나 정밀한 계산을 하거나 매우 작은 확률 값을 곱하는 계산을 하는 경우에는 이러한 오차가 문제가 될 수 있다.</p>
 <p><strong>R</strong>에서는 <code>Rmpfr</code> 패키지를 사용하면 부동소수점의 정밀도를 증가시킬 수 있다.
 다음 명령으로 <code>Rmpfr</code> 패키지를 설치해 보자.<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a></p>
-<div class="sourceCode" id="cb2900"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2900-1"><a href="ch-RTips.html#cb2900-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;Rmpfr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2914"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2914-1"><a href="ch-RTips.html#cb2914-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;Rmpfr&quot;</span>)</span></code></pre></div>
 <p><code>Rmpfr</code> 패키지 설치가 완료되었으면 이 패키지를 메모리로 적재한다.
 그리고 정밀한 계산이 필요한 변수를 <code>mpfr()</code> 함수를 이용하여 높은 정밀도의 숫자를 생성할 수 있다.
 <code>mpfr()</code> 함수의 첫 번째 인수는 높은 정밀도를 필요로 하는 숫자를, 두 번째 인수는 유효숫자의 비트 수를 지정한다.</p>
-<div class="sourceCode" id="cb2901"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2901-1"><a href="ch-RTips.html#cb2901-1" tabindex="-1"></a><span class="fu">library</span>(Rmpfr)</span>
-<span id="cb2901-2"><a href="ch-RTips.html#cb2901-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">mpfr</span>(<span class="dv">2</span>, <span class="at">precBits =</span> <span class="dv">200</span>)</span>
-<span id="cb2901-3"><a href="ch-RTips.html#cb2901-3" tabindex="-1"></a>a_hp <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(b)</span>
-<span id="cb2901-4"><a href="ch-RTips.html#cb2901-4" tabindex="-1"></a>a_hp<span class="sc">^</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb2915"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2915-1"><a href="ch-RTips.html#cb2915-1" tabindex="-1"></a><span class="fu">library</span>(Rmpfr)</span>
+<span id="cb2915-2"><a href="ch-RTips.html#cb2915-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">mpfr</span>(<span class="dv">2</span>, <span class="at">precBits =</span> <span class="dv">200</span>)</span>
+<span id="cb2915-3"><a href="ch-RTips.html#cb2915-3" tabindex="-1"></a>a_hp <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(b)</span>
+<span id="cb2915-4"><a href="ch-RTips.html#cb2915-4" tabindex="-1"></a>a_hp<span class="sc">^</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb2903"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2903-1"><a href="ch-RTips.html#cb2903-1" tabindex="-1"></a>a_hp<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb2917"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2917-1"><a href="ch-RTips.html#cb2917-1" tabindex="-1"></a>a_hp<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>1 &#39;mpfr&#39; number of precision  200   bits 
 [1] 0</code></pre>
-<div class="sourceCode" id="cb2905"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2905-1"><a href="ch-RTips.html#cb2905-1" tabindex="-1"></a>a_hp<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb2919"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2919-1"><a href="ch-RTips.html#cb2919-1" tabindex="-1"></a>a_hp<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>1 &#39;mpfr&#39; number of precision  200   bits 
 [1] 2</code></pre>
 <p>200 비트로 유효숫자를 표현하자 2와 <span class="math inline">\(\sqrt{2}\)</span>의 제곱이 같다고 표현된다.
 다음 예처럼 <code>mpfr()</code> 함수로 생성된 높은 정밀도의 숫자는 더 정확한 정밀도로 계산이 수행되는 것을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2907"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2907-1"><a href="ch-RTips.html#cb2907-1" tabindex="-1"></a>b</span></code></pre></div>
+<div class="sourceCode" id="cb2921"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2921-1"><a href="ch-RTips.html#cb2921-1" tabindex="-1"></a>b</span></code></pre></div>
 <pre><code>1 &#39;mpfr&#39; number of precision  200   bits 
 [1] 2</code></pre>
-<div class="sourceCode" id="cb2909"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2909-1"><a href="ch-RTips.html#cb2909-1" tabindex="-1"></a><span class="fu">log</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb2923"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2923-1"><a href="ch-RTips.html#cb2923-1" tabindex="-1"></a><span class="fu">log</span>(b)</span></code></pre></div>
 <pre><code>1 &#39;mpfr&#39; number of precision  200   bits 
 [1] 0.69314718055994530941723212145817656807550013436025525412067998</code></pre>
-<div class="sourceCode" id="cb2911"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2911-1"><a href="ch-RTips.html#cb2911-1" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2925"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2925-1"><a href="ch-RTips.html#cb2925-1" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>[1] 0.6931471805599452862268</code></pre>
-<div class="sourceCode" id="cb2913"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2913-1"><a href="ch-RTips.html#cb2913-1" tabindex="-1"></a><span class="fu">sin</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb2927"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2927-1"><a href="ch-RTips.html#cb2927-1" tabindex="-1"></a><span class="fu">sin</span>(b)</span></code></pre></div>
 <pre><code>1 &#39;mpfr&#39; number of precision  200   bits 
 [1] 0.90929742682568169539601986591174484270225497144789026837897305</code></pre>
-<div class="sourceCode" id="cb2915"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2915-1"><a href="ch-RTips.html#cb2915-1" tabindex="-1"></a><span class="fu">sin</span>(<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2929"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2929-1"><a href="ch-RTips.html#cb2929-1" tabindex="-1"></a><span class="fu">sin</span>(<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>[1] 0.9092974268256817094169</code></pre>
 <p>다음은 1부터 24까지의 계승(factorials)을 일반적인 숫자와 mpfr 숫자로 구한 결과이다 <span class="citation">(<a href="#ref-machler2015arbitrarily">Mächler 2015</a>)</span>
 일반적인 숫자로 계승을 구하면 22까지는 정확한 결과를 주지만, 23과 24의 계승은 정확한 결과가 아니다. 왜냐하면 이 계승은 1의 자리가 0이어야 하기 때문이다. 반면 mpfr 숫자로 구한 계승은 정확한 결과를 반환하는 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb2917"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2917-1"><a href="ch-RTips.html#cb2917-1" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">10</span>)</span>
-<span id="cb2917-2"><a href="ch-RTips.html#cb2917-2" tabindex="-1"></a><span class="fu">factorial</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2931"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2931-1"><a href="ch-RTips.html#cb2931-1" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">10</span>)</span>
+<span id="cb2931-2"><a href="ch-RTips.html#cb2931-2" tabindex="-1"></a><span class="fu">factorial</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>)</span></code></pre></div>
 <pre><code> [1]                        1                        2                        6
  [4]                       24                      120                      720
  [7]                     5040                    40320                   362880
@@ -807,7 +807,7 @@ $double.exponent
 [16]           20922789888000          355687428096000         6402373705728000
 [19]       121645100408832000      2432902008176640000     51090942171709440000
 [22]   1124000727777607680000  25852016738884978212864 620448401733239409999872</code></pre>
-<div class="sourceCode" id="cb2919"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2919-1"><a href="ch-RTips.html#cb2919-1" tabindex="-1"></a><span class="fu">factorial</span>(<span class="fu">mpfr</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>, <span class="dv">120</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2933"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2933-1"><a href="ch-RTips.html#cb2933-1" tabindex="-1"></a><span class="fu">factorial</span>(<span class="fu">mpfr</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>, <span class="dv">120</span>))</span></code></pre></div>
 <pre><code>24 &#39;mpfr&#39; numbers of precision  120   bits 
  [1]                        1                        2                        6
  [4]                       24                      120                      720
@@ -818,8 +818,8 @@ $double.exponent
 [19]       121645100408832000      2432902008176640000     51090942171709440000
 [22]   1124000727777607680000  25852016738884976640000 620448401733239439360000</code></pre>
 <p>마찬가지로 <code>Rmpfr</code> 패키지의 <code>chooseMpfr.all()</code> 함수를 사용하면 더 정확한 조합의 값을 얻을 수 있다.</p>
-<div class="sourceCode" id="cb2921"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2921-1"><a href="ch-RTips.html#cb2921-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">60</span></span>
-<span id="cb2921-2"><a href="ch-RTips.html#cb2921-2" tabindex="-1"></a><span class="fu">choose</span>(n, <span class="dv">1</span><span class="sc">:</span>n)</span></code></pre></div>
+<div class="sourceCode" id="cb2935"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2935-1"><a href="ch-RTips.html#cb2935-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">60</span></span>
+<span id="cb2935-2"><a href="ch-RTips.html#cb2935-2" tabindex="-1"></a><span class="fu">choose</span>(n, <span class="dv">1</span><span class="sc">:</span>n)</span></code></pre></div>
 <pre><code> [1]                 60               1770              34220             487635
  [5]            5461512           50063860          386206920         2558620845
  [9]        14783142660        75394027566       342700125300      1399358844975
@@ -835,7 +835,7 @@ $double.exponent
 [49]       342700125300        75394027566        14783142660         2558620845
 [53]          386206920           50063860            5461512             487635
 [57]              34220               1770                 60                  1</code></pre>
-<div class="sourceCode" id="cb2923"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2923-1"><a href="ch-RTips.html#cb2923-1" tabindex="-1"></a><span class="fu">chooseMpfr.all</span>(n)</span></code></pre></div>
+<div class="sourceCode" id="cb2937"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2937-1"><a href="ch-RTips.html#cb2937-1" tabindex="-1"></a><span class="fu">chooseMpfr.all</span>(n)</span></code></pre></div>
 <pre><code>60 &#39;mpfr&#39; numbers of precision  57   bits 
  [1]                 60               1770              34220             487635
  [5]            5461512           50063860          386206920         2558620845
