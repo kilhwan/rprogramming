@@ -687,7 +687,7 @@ Figure 10.1: 단순한 형태의 if 조건문에서의 제어 흐름
 <span id="cb1933-9"><a href="ch-R-Programming-Structure.html#cb1933-9" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;주사위 눈금:&quot;</span>, x, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb1933-10"><a href="ch-R-Programming-Structure.html#cb1933-10" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;손익:&quot;</span>, y, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 <pre><code>딜러가 이겼습니다.
-주사위 눈금: 3 
+주사위 눈금: 1 
 손익: -1 </code></pre>
 </div>
 <div id="단순-if-조건문" class="section level4 unnumbered hasAnchor">
@@ -1144,7 +1144,7 @@ while ( num != &quot;0&quot;) {
 <span id="cb2023-4"><a href="ch-R-Programming-Structure.html#cb2023-4" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
 <span id="cb2023-5"><a href="ch-R-Programming-Structure.html#cb2023-5" tabindex="-1"></a><span class="fu">system.time</span>(<span class="fu">sum</span>(<span class="fu">ifelse</span>(x <span class="sc">&gt;</span> y, x, y)))</span></code></pre></div>
 <pre><code> 사용자  시스템 elapsed 
-  0.014   0.010   0.024 </code></pre>
+  0.019   0.005   0.025 </code></pre>
 <p>앞의 문제를 for 문을 이용하여 구현한 후, 실행 시간을 측정해 보자. 쉽게 두 방식의 시간 차이를 확인할 수 있을 것이다.</p>
 <div class="sourceCode" id="cb2025"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2025-1"><a href="ch-R-Programming-Structure.html#cb2025-1" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb2025-2"><a href="ch-R-Programming-Structure.html#cb2025-2" tabindex="-1"></a><span class="fu">system.time</span>({</span>
@@ -1153,7 +1153,7 @@ while ( num != &quot;0&quot;) {
 <span id="cb2025-5"><a href="ch-R-Programming-Structure.html#cb2025-5" tabindex="-1"></a>  }</span>
 <span id="cb2025-6"><a href="ch-R-Programming-Structure.html#cb2025-6" tabindex="-1"></a>})</span></code></pre></div>
 <pre><code> 사용자  시스템 elapsed 
-   0.05    0.00    0.05 </code></pre>
+  0.046   0.000   0.048 </code></pre>
 <p>다음은 -1000부터 1000사이의 정수에서 복원 추출로 1,000,000 개의 수를 뽑은 후, 그 중 3의 배수가 되는 원소만 뽑아서 합을 구한 예이다. 첫번째 방식은 벡터 인덱싱과 sum() 함수를 이용했고, 두번째 방식은 for() 문을 이용해 각 원소별로 반복 작업을 하였다 그리고 이 두 방식의 실행 시간을 비교하였다. 마찬가지로 큰 시간 차이를 보임을 알 수 있다.</p>
 <div class="sourceCode" id="cb2027"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2027-1"><a href="ch-R-Programming-Structure.html#cb2027-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">111</span>)</span>
 <span id="cb2027-2"><a href="ch-R-Programming-Structure.html#cb2027-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000000</span></span>
@@ -1163,7 +1163,7 @@ while ( num != &quot;0&quot;) {
 <span id="cb2027-6"><a href="ch-R-Programming-Structure.html#cb2027-6" tabindex="-1"></a>  <span class="fu">sum</span>( x[x <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">==</span> <span class="dv">0</span>] ) </span>
 <span id="cb2027-7"><a href="ch-R-Programming-Structure.html#cb2027-7" tabindex="-1"></a>})</span></code></pre></div>
 <pre><code> 사용자  시스템 elapsed 
-  0.015   0.000   0.016 </code></pre>
+  0.006   0.009   0.015 </code></pre>
 <div class="sourceCode" id="cb2029"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2029-1"><a href="ch-R-Programming-Structure.html#cb2029-1" tabindex="-1"></a><span class="fu">system.time</span>({</span>
 <span id="cb2029-2"><a href="ch-R-Programming-Structure.html#cb2029-2" tabindex="-1"></a>  s <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb2029-3"><a href="ch-R-Programming-Structure.html#cb2029-3" tabindex="-1"></a>  <span class="cf">for</span> (a <span class="cf">in</span> x) {</span>
@@ -1174,7 +1174,7 @@ while ( num != &quot;0&quot;) {
 <span id="cb2029-8"><a href="ch-R-Programming-Structure.html#cb2029-8" tabindex="-1"></a>})</span></code></pre></div>
 <pre><code>[1] 198993</code></pre>
 <pre><code> 사용자  시스템 elapsed 
-  0.104   0.000   0.106 </code></pre>
+  0.103   0.001   0.106 </code></pre>
 </div>
 <div id="apply-계열-함수로-암시적인-반복을-수행하라." class="section level4 unnumbered hasAnchor">
 <h4>apply 계열 함수로 암시적인 반복을 수행하라.<a href="ch-R-Programming-Structure.html#apply-계열-함수로-암시적인-반복을-수행하라." class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1192,7 +1192,7 @@ while ( num != &quot;0&quot;) {
 <span id="cb2032-8"><a href="ch-R-Programming-Structure.html#cb2032-8" tabindex="-1"></a>})</span></code></pre></div>
 <pre><code>[1] 285816</code></pre>
 <pre><code> 사용자  시스템 elapsed 
-  0.144   0.000   0.146 </code></pre>
+  0.141   0.009   0.155 </code></pre>
 <p>다음은 for 문을 이용하여 x의 요소에 대하여 같은 작업을 반복하였다.
 계산 시간의 차이를 비교해 보자. 결과에서 보듯이 두 방법 모두 벡터화된 함수를 적절히 이용하면 속도의 차이는 거의 나지 않는다.</p>
 <div class="sourceCode" id="cb2035"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2035-1"><a href="ch-R-Programming-Structure.html#cb2035-1" tabindex="-1"></a><span class="fu">system.time</span>({</span>
@@ -1205,7 +1205,7 @@ while ( num != &quot;0&quot;) {
 <span id="cb2035-8"><a href="ch-R-Programming-Structure.html#cb2035-8" tabindex="-1"></a>})</span></code></pre></div>
 <pre><code>[1] 285816</code></pre>
 <pre><code> 사용자  시스템 elapsed 
-  0.146   0.000   0.148 </code></pre>
+  0.147   0.000   0.153 </code></pre>
 <p>그렇다면 두 방법 중 어느 것을 선택해도 될까? 일반적으로 이 두 방법 중 어느 것이 더 좋다고 확언하기는 어렵지만 다음의 두 가지 이유 때문에 apply 계열 함수를 이용하는 것이 더 선호된다. 첫째, apply 계열 함수를 이용하면 코드를 더 간단하게 작성할 수 있어 코드의 가독성이 증가한다. 둘째, apply 계열 함수는 데이터 요소에 적용할 함수를 인수로 전달하는 방식으로 암시적 반복이 이루어진다. 따라서 함수 프로그래밍의 특징인 반복 실행의 부수적인 효과(side effect)가 반복문 바깥으로 전달되지 않는다. 따라서 동일한 프로그램을 병렬 프로그램으로 전환하기가 더 용이하다. 그러므로 처리해야 할 데이터가 커지면 병렬 프로그래밍 기법을 이용하여 추가적인 속도 향상을 꾀할 수 있는 가능성이 커진다.</p>
 </div>
 </div>
@@ -1342,7 +1342,7 @@ g() 함수의 정의에서 형식 인수가 x, y, z 순으로 정의되었으므
     fill = TRUE, comment.char = &quot;&quot;, ...) 
 read.table(file = file, header = header, sep = sep, quote = quote, 
     dec = dec, fill = fill, comment.char = comment.char, ...)
-&lt;bytecode: 0x55568c075c18&gt;
+&lt;bytecode: 0x5608a34f7ea8&gt;
 &lt;environment: namespace:utils&gt;</code></pre>
 <p>첫번째 형식 인수가 file로서 초기값이 없으므로 항상 read.csv() 호출시에는 파일 이름이 제공되어야 함을 알 수 있다. 두번째 형식 인수는 header인데 TRUE로 초기값을 가지고 있다. 따라서 header 인수를 지정하지 않고 호출하면 파일에 header가 있는 것으로 생각하고 파일을 읽어들인다. 그리고 sep 형식 인수는 파일이 데이터의 필드(열)를 무엇으로 분리하고 있는지를 전달하는 인수이다. 초기값이 ’,’로 되어 있어서 함수 호출시 특별한 지정이 없으면 쉼표로 데이터를 분리하여 인식한다는 것을 알 수 있다.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a></p>
 </div>
@@ -1384,7 +1384,7 @@ plot()의 주요한 형식 인수는 그래프 상에서의 점을 그릴 x 축�
 <div class="sourceCode" id="cb2117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2117-1"><a href="ch-R-Programming-Structure.html#cb2117-1" tabindex="-1"></a>plot</span></code></pre></div>
 <pre><code>function (x, y, ...) 
 UseMethod(&quot;plot&quot;)
-&lt;bytecode: 0x55568bfd7d78&gt;
+&lt;bytecode: 0x5608a345a008&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <div class="sourceCode" id="cb2119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2119-1"><a href="ch-R-Programming-Structure.html#cb2119-1" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type=</span><span class="st">&quot;o&quot;</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>, <span class="at">pch=</span><span class="st">&quot;*&quot;</span>, <span class="at">lty=</span><span class="dv">1</span>, <span class="at">lwd=</span><span class="fl">1.5</span>)</span></code></pre></div>
 <p><img src="R-programming-structure_files/figure-html/unnamed-chunk-65-1.png" width="60%" style="display: block; margin: auto;" /></p>
@@ -1455,7 +1455,7 @@ R의 기본 함수 중에는 자신이 받은 인수를 다른 함수에 전달�
 <div class="sourceCode" id="cb2135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2135-1"><a href="ch-R-Programming-Structure.html#cb2135-1" tabindex="-1"></a>mean</span></code></pre></div>
 <pre><code>function (x, ...) 
 UseMethod(&quot;mean&quot;)
-&lt;bytecode: 0x555688ec1ff0&gt;
+&lt;bytecode: 0x5608a03657c0&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 <div id="apply-계열-함수에-사용자-함수-적용하기" class="section level4 unnumbered hasAnchor">
@@ -1649,10 +1649,10 @@ b(300) 호출이 이루어지면, f.in() 함수가 실행되는데, x는 지역 
 <div class="sourceCode" id="cb2201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2201-1"><a href="ch-R-Programming-Structure.html#cb2201-1" tabindex="-1"></a><span class="fu">environment</span>(f.out)</span></code></pre></div>
 <pre><code>&lt;environment: R_GlobalEnv&gt;</code></pre>
 <div class="sourceCode" id="cb2203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2203-1"><a href="ch-R-Programming-Structure.html#cb2203-1" tabindex="-1"></a><span class="fu">environment</span>(a); <span class="fu">parent.env</span>(<span class="fu">environment</span>(a))</span></code></pre></div>
-<pre><code>&lt;environment: 0x55568c1f7cd8&gt;</code></pre>
+<pre><code>&lt;environment: 0x5608a3679f68&gt;</code></pre>
 <pre><code>&lt;environment: R_GlobalEnv&gt;</code></pre>
 <div class="sourceCode" id="cb2206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2206-1"><a href="ch-R-Programming-Structure.html#cb2206-1" tabindex="-1"></a><span class="fu">environment</span>(b); <span class="fu">parent.env</span>(<span class="fu">environment</span>(b))</span></code></pre></div>
-<pre><code>&lt;environment: 0x55568b60bf90&gt;</code></pre>
+<pre><code>&lt;environment: 0x5608a2a8f3c0&gt;</code></pre>
 <pre><code>&lt;environment: R_GlobalEnv&gt;</code></pre>
 <div class="sourceCode" id="cb2209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2209-1"><a href="ch-R-Programming-Structure.html#cb2209-1" tabindex="-1"></a><span class="fu">environment</span>(f.in)</span></code></pre></div>
 <pre><code>Error in eval(expr, envir, enclos): 객체 &#39;f.in&#39;를 찾을 수 없습니다</code></pre>
