@@ -683,17 +683,17 @@ div.csl-indent {
 <p>컴퓨터가 보편화된 현대에는 더 이상 구간으로 나눈 빈도표에 의존하지 않고, 원 데이터를 직접적으로 이용하여 관계를 탐색할 수 있다.
 그리고 남자와 여자의 키를 모두 남자의 키로 환원시키지 않고도 분석할 수 있다.
 다음은 부모의 키와 자신의 키를 산점도로 시각화한 것이다.
-<code>childHeight</code>는 자식의 키(인치)이고, <code>midparentHeight</code>는 부모의 키(인치)의 평균이다. 어머니의 키가 아버지의 키보다 평균적으로 작기 때문에 어머니의 키에 1.08을 곱하여 남자의 키로 환산한 후 부모의 키의 평균을 계산하였다.
-전반적으로 부모의 키가 크면 자식의 키도 큰 경향이 보인다.
+<code>childHeight</code>는 자식의 키(인치)이고, <code>midparentHeight</code>는 부모의 키(인치)의 평균이다. 어머니의 키가 아버지의 키보다 평균적으로 작기 때문에 어머니의 키에 1.08을 곱하여 남자의 키로 환산한 후 부모의 중간키(<code>midparentHeight</code>)을 계산하였다.
+전반적으로 부모의 중간키가 크면 자식의 키도 큰 경향이 보인다.
 산점도에서 아들과 딸의 키는 구별될 수 있도록 다른 색과 모양의 점으로 표현하였다.</p>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-5-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<p>갈톤은 부모의 키로 자식의 키를 설명하기 위하여 부모와 자식의 키 사이의 관계를 설명하기 위하여 다음처럼 교차표에서 동일한 빈도를 가지는 등고선을 그렸다.
-그리고 빈도의 크기가 달라져도 모두 동일한 방향으로 축을 가지는 타원이라는 것을 관찰하였다.</p>
+<p>갈톤은 부모와 자식의 키 사이의 관계를 설명하기 위하여 다음처럼 교차표에서 동일한 빈도를 가지는 영역에 대한 등고선을 그렸다.
+그리고 빈도의 크기가 달라져도 모두 동일한 방향으로 축을 가지는 타원으로 등고선이 그려지는 것을 관찰하였다.</p>
 <p><img src="img/galton-regression-3.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>이러한 관찰을 통하여 자식의 키에 대한 부모의 키의 설명력이 <span class="math inline">\(2/3\)</span> 정도이고, 부모의 키가 크거나 작더라도 자식의 키는 어느 정도 평균으로 회귀(regression) 하는 성질이 있다는 것을 주장하였다.
-갈톤의 논문이 발표된 후에 두 수치형 변수의 선형적 관계를 추정하는 분석을 회귀 분석이라고 불리게 되었다.</p>
+갈톤의 논문이 발표된 후부터 수치형 변수의 선형적 관계를 추정하는 분석을 회귀 분석이라고 불리게 되었다.</p>
 <p><img src="img/galton-regression-2.png" width="90%" style="display: block; margin: auto;" /></p>
-<p>우리는 현대적 컴퓨터와 <strong>R</strong>을 이용하여 갈톤의 원 데이터를 이용하여 부모의 키와 자식의 키의 관계에 대하여 다음과 같은 관계식을 도출할 수 잇다.</p>
+<p>우리는 현대적 컴퓨터와 <strong>R</strong>을 이용하여 갈톤의 원 데이터를 이용하여 부모의 중간키와 자식의 키의 관계에 대하여 다음과 같은 관계식을 도출할 수 잇다.</p>
 <p><span class="math display">\[
 childHeight = 16.514
   + 0.687 \times midparentHeight
@@ -705,7 +705,7 @@ childHeight = 16.514
 </ul>
 <p>부모의 키와 자식의 키의 관계를 나타내는 위의 직선의 방정식은 다음과 같이 시각화 할 수 있다.</p>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-9-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<p>선형 회귀(Linear Regression)는 설명하고자 하는 종속변수(자식의 키)를 독립변수(부모의 키)로 설명하는 모형으로 독립변수와 종속변수 사이의 선형적 관계를 가정한다.<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a>
+<p>선형 회귀(Linear Regression)는 설명하고자 하는 종속변수(자식의 키)를 독립변수(부모의 중간키)로 설명하는 모형으로 독립변수와 종속변수 사이의 선형적 관계를 가정한다.<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a>
 그러므로 선형 회귀는 종속변수와 독립변수 사이의 복잡한 비선형 관계를 가정하는 모형에 비하여 단순한 모형처럼 보인다.
 그러나 아직도 많이 사용되는 기법의 하나이며, 현대적 통계 분석 기법들은 선형 회귀를 일반화하거나 확장시킨 모형들이 많다.
 그러므로 선형 회귀에 대해 명확한 이해하는 것이 복잡한 통계 분석 기법을 이해하는 데 큰 길라잡이가 될 수 있다.</p>
@@ -719,7 +719,7 @@ childHeight = 16.514
 <li><code>dist</code>는 제동거리를 ft로 측정한 열</li>
 </ul>
 <p>데이터에 대한 기본 통계치를 구해보자.</p>
-<div class="sourceCode" id="cb2782"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2782-1"><a href="ch-R-linear-regression.html#cb2782-1" tabindex="-1"></a><span class="fu">summary</span>(cars)</span></code></pre></div>
+<div class="sourceCode" id="cb2783"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2783-1"><a href="ch-R-linear-regression.html#cb2783-1" tabindex="-1"></a><span class="fu">summary</span>(cars)</span></code></pre></div>
 <pre><code>     speed           dist       
  Min.   : 4.0   Min.   :  2.00  
  1st Qu.:12.0   1st Qu.: 26.00  
@@ -729,8 +729,8 @@ childHeight = 16.514
  Max.   :25.0   Max.   :120.00  </code></pre>
 <p>자동차의 속도와 제동거리의 관계를 탐색하기 위하여 두 열을 사용하여 산점도를 그려보자.
 산점도에서 보듯이 자동차의 속도가 증가하면 제동거리도 증가하는 관계가 있다는 것을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2784"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2784-1"><a href="ch-R-linear-regression.html#cb2784-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2784-2"><a href="ch-R-linear-regression.html#cb2784-2" tabindex="-1"></a><span class="fu">ggplot</span>(cars) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(speed, dist))</span></code></pre></div>
+<div class="sourceCode" id="cb2785"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2785-1"><a href="ch-R-linear-regression.html#cb2785-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2785-2"><a href="ch-R-linear-regression.html#cb2785-2" tabindex="-1"></a><span class="fu">ggplot</span>(cars) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(speed, dist))</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-11-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="sec-simple-linear-regression-theory" class="section level3 hasAnchor" number="17.1.2">
@@ -792,8 +792,8 @@ RSS &amp;= e_1^2 + e_2^2 + \cdots + e_n^2  \\
 <li><code>data</code> 인수: 선형 회귀 모형을 적합할 때 사용할 데이터를 설정한다.</li>
 </ul>
 <p>다음은 <code>cars</code> 데디터에서 <code>dist</code> 열을 종속변수로 <code>speed</code> 열을 독립변수로 하는 선형 회귀 모형을 적합한 결과이다.</p>
-<div class="sourceCode" id="cb2785"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2785-1"><a href="ch-R-linear-regression.html#cb2785-1" tabindex="-1"></a>lm_cars <span class="ot">&lt;-</span> <span class="fu">lm</span>(dist <span class="sc">~</span> speed, <span class="at">data=</span>cars)</span>
-<span id="cb2785-2"><a href="ch-R-linear-regression.html#cb2785-2" tabindex="-1"></a>lm_cars</span></code></pre></div>
+<div class="sourceCode" id="cb2786"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2786-1"><a href="ch-R-linear-regression.html#cb2786-1" tabindex="-1"></a>lm_cars <span class="ot">&lt;-</span> <span class="fu">lm</span>(dist <span class="sc">~</span> speed, <span class="at">data=</span>cars)</span>
+<span id="cb2786-2"><a href="ch-R-linear-regression.html#cb2786-2" tabindex="-1"></a>lm_cars</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = dist ~ speed, data = cars)
@@ -815,10 +815,10 @@ dist = -17.579
 <li><code>$residuals</code>: 관측 사례별 모형의 잔차</li>
 <li><code>$fitted.values</code>: 관측 사례별 모형의 예측값</li>
 </ul>
-<div class="sourceCode" id="cb2787"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2787-1"><a href="ch-R-linear-regression.html#cb2787-1" tabindex="-1"></a>lm_cars<span class="sc">$</span>coefficients </span></code></pre></div>
+<div class="sourceCode" id="cb2788"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2788-1"><a href="ch-R-linear-regression.html#cb2788-1" tabindex="-1"></a>lm_cars<span class="sc">$</span>coefficients </span></code></pre></div>
 <pre><code>(Intercept)       speed 
  -17.579095    3.932409 </code></pre>
-<div class="sourceCode" id="cb2789"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2789-1"><a href="ch-R-linear-regression.html#cb2789-1" tabindex="-1"></a>lm_cars<span class="sc">$</span>residuals</span></code></pre></div>
+<div class="sourceCode" id="cb2790"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2790-1"><a href="ch-R-linear-regression.html#cb2790-1" tabindex="-1"></a>lm_cars<span class="sc">$</span>residuals</span></code></pre></div>
 <pre><code>         1          2          3          4          5          6          7 
   3.849460  11.849460  -5.947766  12.052234   2.119825  -7.812584  -3.744993 
          8          9         10         11         12         13         14 
@@ -835,7 +835,7 @@ dist = -17.579
   2.930920  -2.933898 -18.866307  -6.798715  15.201285  16.201285  43.201285 
         50 
   4.268876 </code></pre>
-<div class="sourceCode" id="cb2791"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2791-1"><a href="ch-R-linear-regression.html#cb2791-1" tabindex="-1"></a>lm_cars<span class="sc">$</span>fitted.values</span></code></pre></div>
+<div class="sourceCode" id="cb2792"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2792-1"><a href="ch-R-linear-regression.html#cb2792-1" tabindex="-1"></a>lm_cars<span class="sc">$</span>fitted.values</span></code></pre></div>
 <pre><code>        1         2         3         4         5         6         7         8 
 -1.849460 -1.849460  9.947766  9.947766 13.880175 17.812584 21.744993 21.744993 
         9        10        11        12        13        14        15        16 
@@ -860,25 +860,25 @@ dist = -17.579
 <p>다음은 <code>geom_smooth()</code>로 회귀적합선을 그린 예이다.
 <code>geom_smooth()</code>는 회귀적합선뿐 아니라 95% 신뢰구간도 함께 표시해 준다.
 신뢰구간을 표시하지 않으려면 <code>se=FALSE</code> 인수를 설정한다.</p>
-<div class="sourceCode" id="cb2793"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2793-1"><a href="ch-R-linear-regression.html#cb2793-1" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist)) <span class="sc">+</span></span>
-<span id="cb2793-2"><a href="ch-R-linear-regression.html#cb2793-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb2793-3"><a href="ch-R-linear-regression.html#cb2793-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2794"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2794-1"><a href="ch-R-linear-regression.html#cb2794-1" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist)) <span class="sc">+</span></span>
+<span id="cb2794-2"><a href="ch-R-linear-regression.html#cb2794-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2794-3"><a href="ch-R-linear-regression.html#cb2794-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
 <pre><code>`geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-18-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p><code>geom_abline()</code>은 절편(intercept)과 기울기(slope)를 지정하여 직선을 그린다.
 <code>lm()</code>의 결과의 <code>$coefficients</code> 요소는 모형의 절편과 기울기를 벡터로 가지고 있으므로 이를 사용하여 <code>geom_abline()</code>으로 직선을 그린다.</p>
-<div class="sourceCode" id="cb2795"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2795-1"><a href="ch-R-linear-regression.html#cb2795-1" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist)) <span class="sc">+</span></span>
-<span id="cb2795-2"><a href="ch-R-linear-regression.html#cb2795-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb2795-3"><a href="ch-R-linear-regression.html#cb2795-3" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept=</span>lm_cars<span class="sc">$</span>coefficients[<span class="dv">1</span>], <span class="at">slope=</span>lm_cars<span class="sc">$</span>coefficients[<span class="dv">2</span>],</span>
-<span id="cb2795-4"><a href="ch-R-linear-regression.html#cb2795-4" tabindex="-1"></a>              <span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2796"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2796-1"><a href="ch-R-linear-regression.html#cb2796-1" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist)) <span class="sc">+</span></span>
+<span id="cb2796-2"><a href="ch-R-linear-regression.html#cb2796-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2796-3"><a href="ch-R-linear-regression.html#cb2796-3" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept=</span>lm_cars<span class="sc">$</span>coefficients[<span class="dv">1</span>], <span class="at">slope=</span>lm_cars<span class="sc">$</span>coefficients[<span class="dv">2</span>],</span>
+<span id="cb2796-4"><a href="ch-R-linear-regression.html#cb2796-4" tabindex="-1"></a>              <span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-19-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p><code>geom_line()</code> 함수는 관측점 사이를 직선으로 연결해 준다.
 다음에서 <code>geom_point()</code>는 원래의 독립변수와 종속변수 값을 <code>x</code>와 <code>y</code>로 매핑하여 관측점을 표시하였고, <code>geom_line()</code>은 독립변수는 원래의 값을 <code>x</code>에, 모형의 예측값을 <code>y</code>에 매핑하여 선을 그렸다. 모형이 직선이므로 예측값을 이은 선분도 하나의 직선 위에 표시된다.
 <code>geom_abline()</code>은 직선의 절편과 기울기로 직선을 그린 것이므로 좌표평면을 모두 가로질러 그려졌지만, <code>geom_line()</code>은 관측사례의 에측값을 선분으로 이어 그린 것이기 때문에 데이터의 범위 안에서만 직선이 그려진다.
 <code>geom_smooth()</code>로 그린 직선도 데이터의 범위 안에서만 그려졌는데, <code>geom_line()</code>과 마찬가지로 모형의 예측값을 선분으로 이어 그리기 때문이다.</p>
-<div class="sourceCode" id="cb2796"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2796-1"><a href="ch-R-linear-regression.html#cb2796-1" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist)) <span class="sc">+</span></span>
-<span id="cb2796-2"><a href="ch-R-linear-regression.html#cb2796-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb2796-3"><a href="ch-R-linear-regression.html#cb2796-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>lm_cars<span class="sc">$</span>fitted.values), <span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2797"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2797-1"><a href="ch-R-linear-regression.html#cb2797-1" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(speed, dist)) <span class="sc">+</span></span>
+<span id="cb2797-2"><a href="ch-R-linear-regression.html#cb2797-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2797-3"><a href="ch-R-linear-regression.html#cb2797-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>lm_cars<span class="sc">$</span>fitted.values), <span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-20-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="sec-linear-regression-evaluation" class="section level3 hasAnchor" number="17.1.4">
@@ -921,7 +921,7 @@ F = \frac{(TSS - RSS) / p }{RSS/ (n-p-1)}
 <p>모형의 유의성에 대한 가설검정 결과는 <code>lm()</code>의 결과를 <code>summary()</code> 함수로 출력하면 알 수 있다.
 이에 대해서는 후술하기로 한다.
 단순 선형 회귀 모형에서는 <code>lm()</code>의 결과를 <code>anova()</code> 함수에 전달하여 F-검정의 결과를 쉽게 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2797"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2797-1"><a href="ch-R-linear-regression.html#cb2797-1" tabindex="-1"></a><span class="fu">anova</span>(lm_cars)</span></code></pre></div>
+<div class="sourceCode" id="cb2798"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2798-1"><a href="ch-R-linear-regression.html#cb2798-1" tabindex="-1"></a><span class="fu">anova</span>(lm_cars)</span></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: dist
@@ -995,7 +995,7 @@ E[RSE] = \sigma
 RSE/(\text{종속변수 평균})
 \]</span></p>
 <p><code>lm()</code> 결과를 <code>summary()</code> 함수로 요약하면 <span class="math inline">\(R^2\)</span>와 RSE 값을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2801"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2801-1"><a href="ch-R-linear-regression.html#cb2801-1" tabindex="-1"></a><span class="fu">summary</span>(lm_cars)</span></code></pre></div>
+<div class="sourceCode" id="cb2802"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2802-1"><a href="ch-R-linear-regression.html#cb2802-1" tabindex="-1"></a><span class="fu">summary</span>(lm_cars)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = dist ~ speed, data = cars)
@@ -1027,7 +1027,7 @@ F-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12</code></pre>
 </ul>
 <p><code>speed</code>로 <code>dist</code>를 설명하는 선형 회귀 모형은 <code>dist</code>의 변동성 중 65.1% 설명하고 있으며, 모형의 RSE는 15.38였다.
 <code>dist</code>의 평균 대비 RSE의 크기는 약 0.36이다.</p>
-<div class="sourceCode" id="cb2803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2803-1"><a href="ch-R-linear-regression.html#cb2803-1" tabindex="-1"></a><span class="fl">15.38</span> <span class="sc">/</span> <span class="fu">mean</span>(cars<span class="sc">$</span>dist)</span></code></pre></div>
+<div class="sourceCode" id="cb2804"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2804-1"><a href="ch-R-linear-regression.html#cb2804-1" tabindex="-1"></a><span class="fl">15.38</span> <span class="sc">/</span> <span class="fu">mean</span>(cars<span class="sc">$</span>dist)</span></code></pre></div>
 <pre><code>[1] 0.3578409</code></pre>
 </div>
 <div id="모형의-예측력에-대한-평가" class="section level4 unnumbered hasAnchor">
@@ -1046,12 +1046,12 @@ F-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12</code></pre>
 <li><code>prob</code>는 벡터의 각 요소가 추출될 확률을 나타낸다. 기본값은 <code>NULL</code>로 모든 요소가 동일한 확률로 추출된다.</li>
 </ul>
 <p><code>cars</code>의 행의 수는 <code>nrow(cars)</code>이므로 1부터 시작하여 <code>nrow(cars)</code>까지의 자연수에서 15 개를 무작위 추출하여 평가집합으로 할당하자.</p>
-<div class="sourceCode" id="cb2805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2805-1"><a href="ch-R-linear-regression.html#cb2805-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># 무작위 추출이 동일해지도록 랜덤시드 설정</span></span>
-<span id="cb2805-2"><a href="ch-R-linear-regression.html#cb2805-2" tabindex="-1"></a>test_idx <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(cars), <span class="dv">15</span>)</span>
-<span id="cb2805-3"><a href="ch-R-linear-regression.html#cb2805-3" tabindex="-1"></a>test_idx</span></code></pre></div>
+<div class="sourceCode" id="cb2806"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2806-1"><a href="ch-R-linear-regression.html#cb2806-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># 무작위 추출이 동일해지도록 랜덤시드 설정</span></span>
+<span id="cb2806-2"><a href="ch-R-linear-regression.html#cb2806-2" tabindex="-1"></a>test_idx <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(cars), <span class="dv">15</span>)</span>
+<span id="cb2806-3"><a href="ch-R-linear-regression.html#cb2806-3" tabindex="-1"></a>test_idx</span></code></pre></div>
 <pre><code> [1] 31 15 14  3 42 43 37 48 25 26 27  5 40 28  9</code></pre>
-<div class="sourceCode" id="cb2807"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2807-1"><a href="ch-R-linear-regression.html#cb2807-1" tabindex="-1"></a>test_df <span class="ot">&lt;-</span> cars[test_idx, ]  <span class="co"># 추출된 인덱스의 행으로 평가집합 할당</span></span>
-<span id="cb2807-2"><a href="ch-R-linear-regression.html#cb2807-2" tabindex="-1"></a>test_df</span></code></pre></div>
+<div class="sourceCode" id="cb2808"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2808-1"><a href="ch-R-linear-regression.html#cb2808-1" tabindex="-1"></a>test_df <span class="ot">&lt;-</span> cars[test_idx, ]  <span class="co"># 추출된 인덱스의 행으로 평가집합 할당</span></span>
+<span id="cb2808-2"><a href="ch-R-linear-regression.html#cb2808-2" tabindex="-1"></a>test_df</span></code></pre></div>
 <pre><code>   speed dist
 31    17   50
 15    12   28
@@ -1068,8 +1068,8 @@ F-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12</code></pre>
 40    20   48
 28    16   40
 9     10   34</code></pre>
-<div class="sourceCode" id="cb2809"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2809-1"><a href="ch-R-linear-regression.html#cb2809-1" tabindex="-1"></a>train_df <span class="ot">&lt;-</span> cars[<span class="sc">-</span>test_idx, ]  <span class="co"># 추출된 인덱스 이외의 행으로 훈련집합 할당</span></span>
-<span id="cb2809-2"><a href="ch-R-linear-regression.html#cb2809-2" tabindex="-1"></a>train_df</span></code></pre></div>
+<div class="sourceCode" id="cb2810"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2810-1"><a href="ch-R-linear-regression.html#cb2810-1" tabindex="-1"></a>train_df <span class="ot">&lt;-</span> cars[<span class="sc">-</span>test_idx, ]  <span class="co"># 추출된 인덱스 이외의 행으로 훈련집합 할당</span></span>
+<span id="cb2810-2"><a href="ch-R-linear-regression.html#cb2810-2" tabindex="-1"></a>train_df</span></code></pre></div>
 <pre><code>   speed dist
 1      4    2
 2      4   10
@@ -1107,8 +1107,8 @@ F-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12</code></pre>
 49    24  120
 50    25   85</code></pre>
 <p>그런 다음 훈련집합으로 선형 회귀 모형을 적합한다.</p>
-<div class="sourceCode" id="cb2811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2811-1"><a href="ch-R-linear-regression.html#cb2811-1" tabindex="-1"></a>lm_train <span class="ot">&lt;-</span> <span class="fu">lm</span>(dist <span class="sc">~</span> speed, <span class="at">data=</span>train_df)</span>
-<span id="cb2811-2"><a href="ch-R-linear-regression.html#cb2811-2" tabindex="-1"></a>lm_train</span></code></pre></div>
+<div class="sourceCode" id="cb2812"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2812-1"><a href="ch-R-linear-regression.html#cb2812-1" tabindex="-1"></a>lm_train <span class="ot">&lt;-</span> <span class="fu">lm</span>(dist <span class="sc">~</span> speed, <span class="at">data=</span>train_df)</span>
+<span id="cb2812-2"><a href="ch-R-linear-regression.html#cb2812-2" tabindex="-1"></a>lm_train</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = dist ~ speed, data = train_df)
@@ -1118,25 +1118,25 @@ Coefficients:
      -16.54         3.92  </code></pre>
 <p>이 모형으로 평가집합을 예측한 후, 모형의 예측값과 실제 관측값을 비교해 보자.
 <code>predict()</code> 함수에 모형과 예측할 데이터를 지정하면 독립변수만 사용하여 모형으로 종속변수를 예측한다.</p>
-<div class="sourceCode" id="cb2813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2813-1"><a href="ch-R-linear-regression.html#cb2813-1" tabindex="-1"></a>y_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(lm_train, test_df)</span>
-<span id="cb2813-2"><a href="ch-R-linear-regression.html#cb2813-2" tabindex="-1"></a>y_pred</span></code></pre></div>
+<div class="sourceCode" id="cb2814"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2814-1"><a href="ch-R-linear-regression.html#cb2814-1" tabindex="-1"></a>y_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(lm_train, test_df)</span>
+<span id="cb2814-2"><a href="ch-R-linear-regression.html#cb2814-2" tabindex="-1"></a>y_pred</span></code></pre></div>
 <pre><code>      31       15       14        3       42       43       37       48 
 50.10037 30.50099 30.50099 10.90161 61.86000 61.86000 57.94013 77.53951 
       25       26       27        5       40       28        9 
 42.26062 42.26062 46.18050 14.82148 61.86000 46.18050 22.66124 </code></pre>
 <p><code>forecast</code> 패키지의 <code>accuracy()</code> 함수는 다양한 지표로 예측성능을 평가해 준다.
 먼저 <code>forecast</code> 패키지를 설치하자.</p>
-<div class="sourceCode" id="cb2815"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2815-1"><a href="ch-R-linear-regression.html#cb2815-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;forecast&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2816"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2816-1"><a href="ch-R-linear-regression.html#cb2816-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;forecast&quot;</span>)</span></code></pre></div>
 <p><code>accuracy()</code> 함수는 다음 두 인수를 입력 받는다.</p>
 <ul>
 <li>첫 번째 인수는 예측한 값</li>
 <li>두 번째 인수는 실제 관측값</li>
 </ul>
-<div class="sourceCode" id="cb2816"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2816-1"><a href="ch-R-linear-regression.html#cb2816-1" tabindex="-1"></a><span class="fu">library</span>(forecast)</span></code></pre></div>
+<div class="sourceCode" id="cb2817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2817-1"><a href="ch-R-linear-regression.html#cb2817-1" tabindex="-1"></a><span class="fu">library</span>(forecast)</span></code></pre></div>
 <pre><code>Registered S3 method overwritten by &#39;quantmod&#39;:
   method            from
   as.zoo.data.frame zoo </code></pre>
-<div class="sourceCode" id="cb2818"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2818-1"><a href="ch-R-linear-regression.html#cb2818-1" tabindex="-1"></a><span class="fu">accuracy</span>(y_pred, test_df<span class="sc">$</span>dist)</span></code></pre></div>
+<div class="sourceCode" id="cb2819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2819-1"><a href="ch-R-linear-regression.html#cb2819-1" tabindex="-1"></a><span class="fu">accuracy</span>(y_pred, test_df<span class="sc">$</span>dist)</span></code></pre></div>
 <pre><code>                ME     RMSE      MAE       MPE     MAPE
 Test set -2.828571 9.933897 8.409524 -20.92935 31.91902</code></pre>
 <ul>
@@ -1150,10 +1150,10 @@ Test set -2.828571 9.933897 8.409524 -20.92935 31.91902</code></pre>
 <li>MAPE(mean absolute percentage errors)는 관측값 대비 오차의 백분율을 절대값을 취한 후 평균한 것이다.</li>
 </ul>
 <p>다음은 평가집합에서 모형의 회귀적합선과 실제 관측값을 보여준다.</p>
-<div class="sourceCode" id="cb2820"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2820-1"><a href="ch-R-linear-regression.html#cb2820-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2820-2"><a href="ch-R-linear-regression.html#cb2820-2" tabindex="-1"></a><span class="fu">ggplot</span>(test_df, <span class="fu">aes</span>(speed, dist)) <span class="sc">+</span></span>
-<span id="cb2820-3"><a href="ch-R-linear-regression.html#cb2820-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb2820-4"><a href="ch-R-linear-regression.html#cb2820-4" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>y_pred), <span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2821-1"><a href="ch-R-linear-regression.html#cb2821-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2821-2"><a href="ch-R-linear-regression.html#cb2821-2" tabindex="-1"></a><span class="fu">ggplot</span>(test_df, <span class="fu">aes</span>(speed, dist)) <span class="sc">+</span></span>
+<span id="cb2821-3"><a href="ch-R-linear-regression.html#cb2821-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2821-4"><a href="ch-R-linear-regression.html#cb2821-4" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>y_pred), <span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-34-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="모형의-기본-가정의-확인" class="section level4 unnumbered hasAnchor">
@@ -1192,7 +1192,7 @@ Cook 거리는 관측치의 유무에 따라 회귀계수의 변화 정도를 �
 <li>잔차가 종속변수의 예측값에 따라 일정한 분산을 가지고 있으면 어느 정도 등분산성이 만족되는 것으로 판단한다.</li>
 <li><code>cars</code> 데이터에 대한 단순 선형 회귀 모형의 잔차 그래프에서 아주 약한 비선형성이 감지된다. 그리고 종속변수의 예측값이 커질수록 잔차의 분포가 점차 커지는 경향이 나타난다.</li>
 </ul>
-<div class="sourceCode" id="cb2821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2821-1"><a href="ch-R-linear-regression.html#cb2821-1" tabindex="-1"></a><span class="fu">plot</span>(lm_cars, <span class="at">which=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2822"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2822-1"><a href="ch-R-linear-regression.html#cb2822-1" tabindex="-1"></a><span class="fu">plot</span>(lm_cars, <span class="at">which=</span><span class="dv">1</span>)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-35-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <ol start="2" style="list-style-type: decimal">
 <li>“Residual Q-Q” plot:</li>
@@ -1203,9 +1203,9 @@ Cook 거리는 관측치의 유무에 따라 회귀계수의 변화 정도를 �
 <li><code>cars</code> 데이터에 대한 단순 선형 회귀 모형은, 잔차가 큰 양수일 때 정규분포에서 약간 벗어나는 경향을 보인다.</li>
 <li>잔차의 정규성은 Q-Q 도표뿐 아니라 Shapiro 검정을 이용해서도 파악해 볼 수 있다. Shapiro 검정은 데이터가 정규분포를 따른다는 귀무가설을 가설검정한다. 다음 예에서는 p-값이 0.05보다 작아서 유의수준 5%에서 표준화 잔차가 정규분포를 따른다는 귀무가설이 기각된다.</li>
 </ul>
-<div class="sourceCode" id="cb2822"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2822-1"><a href="ch-R-linear-regression.html#cb2822-1" tabindex="-1"></a><span class="fu">plot</span>(lm_cars, <span class="at">which=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2823-1"><a href="ch-R-linear-regression.html#cb2823-1" tabindex="-1"></a><span class="fu">plot</span>(lm_cars, <span class="at">which=</span><span class="dv">2</span>)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-36-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb2823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2823-1"><a href="ch-R-linear-regression.html#cb2823-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">rstandard</span>(lm_cars))</span></code></pre></div>
+<div class="sourceCode" id="cb2824"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2824-1"><a href="ch-R-linear-regression.html#cb2824-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">rstandard</span>(lm_cars))</span></code></pre></div>
 <pre><code>
     Shapiro-Wilk normality test
 
@@ -1219,12 +1219,12 @@ W = 0.94518, p-value = 0.0217</code></pre>
 <li>잔차의 등분산성을 확인하기 위하여 모형의 예측값에 무관하게 잔차의 분산이 일정한지 확인한다.</li>
 <li><code>cars</code> 데이터에 대한 단순 선형 회귀 모형은 예측값이 커지면 잔차의 분산이 약간 증가하는 경향을 보인다.</li>
 </ul>
-<div class="sourceCode" id="cb2825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2825-1"><a href="ch-R-linear-regression.html#cb2825-1" tabindex="-1"></a><span class="fu">plot</span>(lm_cars, <span class="at">which=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2826"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2826-1"><a href="ch-R-linear-regression.html#cb2826-1" tabindex="-1"></a><span class="fu">plot</span>(lm_cars, <span class="at">which=</span><span class="dv">3</span>)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-38-1.png" width="70%" style="display: block; margin: auto;" />
 4. “Cook’s distance” plot:
 - 관측 사례의 순서대로 Cook 거리를 시각화 한다.
 - 다음은 <code>cars</code> 데이터의 단순 선형 회귀 모형의 Cook 거리 도표이다. Cook 거리가 1에 근접하는 영향점은 보이지 않는다.</p>
-<div class="sourceCode" id="cb2826"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2826-1"><a href="ch-R-linear-regression.html#cb2826-1" tabindex="-1"></a><span class="fu">plot</span>(lm_cars, <span class="at">which=</span><span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2827-1"><a href="ch-R-linear-regression.html#cb2827-1" tabindex="-1"></a><span class="fu">plot</span>(lm_cars, <span class="at">which=</span><span class="dv">4</span>)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-39-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <ol start="5" style="list-style-type: decimal">
 <li>“Residuals vs Leverage” plot:</li>
@@ -1233,7 +1233,7 @@ W = 0.94518, p-value = 0.0217</code></pre>
 <li>가로축은 레버리지, 세로축은 표준화된 잔차를 시각화하여 독립변수와 종속변수 측면의 특이치가 있는지를 살펴볼 수 있다.</li>
 <li><code>cars</code> 데이터의 그래프에서 표준화된 잔차의 절대값이 2보다 큰 관측치는 23, 39, 49 번 관측치로서 종속변수 측면에서 특이치라 할 수 있다. <span class="math inline">\(p=1\)</span>이고 <span class="math inline">\(n=50\)</span>이므로 레버리지의 평균은 0.02인데 23과 39 번은 레버리지가 평균의 2 배 이내이므로 독립변수 측면에서 특이치라 보기 어렵다. 반면 49 번은 레버리지도 평균의 3 배 정도로 독립변수 측면에서도 어느 정도 특이치라 할 수 있다. 그러므로 49 번은 모형의 계수에 영향을 주는 관측치이다. 그렇기 때문에 4 번째 그래프에서도 Cook 거리가 가장 크게 나왔다.</li>
 </ul>
-<div class="sourceCode" id="cb2827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2827-1"><a href="ch-R-linear-regression.html#cb2827-1" tabindex="-1"></a><span class="fu">plot</span>(lm_cars, <span class="at">which=</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2828-1"><a href="ch-R-linear-regression.html#cb2828-1" tabindex="-1"></a><span class="fu">plot</span>(lm_cars, <span class="at">which=</span><span class="dv">5</span>)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-40-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <ol start="6" style="list-style-type: decimal">
 <li>“Cook’s dist vs Lev./(1-Lev.)” plot:</li>
@@ -1242,10 +1242,10 @@ W = 0.94518, p-value = 0.0217</code></pre>
 <li>Cook 거리, 레버리지, 표준화된 잔차를 한 그래프에서 시각화한다. 가로축은 레버리지, 세로축은 Cook 거리이다. 점선의 등고선은 표준화된 잔차이고 그래프의 오른편과 상단에 등고선이 나타내는 표준화된 잔차의 크기를 보여준다.</li>
 <li><code>cars</code> 데이터의 예에서는 49 번 데이터는 가장 높은 Cook 거리를 보여주고 있고 표준화된 잔차의 등고선 3 근처에 있다.</li>
 </ul>
-<div class="sourceCode" id="cb2828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2828-1"><a href="ch-R-linear-regression.html#cb2828-1" tabindex="-1"></a><span class="fu">plot</span>(lm_cars, <span class="at">which=</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2829-1"><a href="ch-R-linear-regression.html#cb2829-1" tabindex="-1"></a><span class="fu">plot</span>(lm_cars, <span class="at">which=</span><span class="dv">6</span>)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-41-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>다음처럼 <code>which</code> 인수를 지정하지 않으면 1, 2, 3, 5 번 그래프가 차례로 출력된다.</p>
-<div class="sourceCode" id="cb2829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2829-1"><a href="ch-R-linear-regression.html#cb2829-1" tabindex="-1"></a><span class="fu">plot</span>(lm_cars)</span></code></pre></div>
+<div class="sourceCode" id="cb2830"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2830-1"><a href="ch-R-linear-regression.html#cb2830-1" tabindex="-1"></a><span class="fu">plot</span>(lm_cars)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-42-1.png" width="50%" style="display: block; margin: auto;" /><img src="R-linear-regression_files/figure-html/unnamed-chunk-42-2.png" width="50%" style="display: block; margin: auto;" /><img src="R-linear-regression_files/figure-html/unnamed-chunk-42-3.png" width="50%" style="display: block; margin: auto;" /><img src="R-linear-regression_files/figure-html/unnamed-chunk-42-4.png" width="50%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -1265,8 +1265,8 @@ W = 0.94518, p-value = 0.0217</code></pre>
 \sqrt{dist} = \beta_0 + \beta_1 \, speed + \varepsilon
 \]</span></p>
 <p>다음은 <code>dist</code>를 제곱근 변환한 선형 모형을 적합한 결과이다.</p>
-<div class="sourceCode" id="cb2830"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2830-1"><a href="ch-R-linear-regression.html#cb2830-1" tabindex="-1"></a>lm_cars_trans <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">sqrt</span>(dist) <span class="sc">~</span> speed, <span class="at">data=</span>cars)</span>
-<span id="cb2830-2"><a href="ch-R-linear-regression.html#cb2830-2" tabindex="-1"></a>lm_cars_trans</span></code></pre></div>
+<div class="sourceCode" id="cb2831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2831-1"><a href="ch-R-linear-regression.html#cb2831-1" tabindex="-1"></a>lm_cars_trans <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">sqrt</span>(dist) <span class="sc">~</span> speed, <span class="at">data=</span>cars)</span>
+<span id="cb2831-2"><a href="ch-R-linear-regression.html#cb2831-2" tabindex="-1"></a>lm_cars_trans</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = sqrt(dist) ~ speed, data = cars)
@@ -1275,7 +1275,7 @@ Coefficients:
 (Intercept)        speed  
      1.2771       0.3224  </code></pre>
 <p>모형의 통계적 유의성과 설명력을 파악하기 위하여 <code>summary()</code> 함수로 모형을 요약해 보자.</p>
-<div class="sourceCode" id="cb2832"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2832-1"><a href="ch-R-linear-regression.html#cb2832-1" tabindex="-1"></a><span class="fu">summary</span>(lm_cars_trans)</span></code></pre></div>
+<div class="sourceCode" id="cb2833"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2833-1"><a href="ch-R-linear-regression.html#cb2833-1" tabindex="-1"></a><span class="fu">summary</span>(lm_cars_trans)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = sqrt(dist) ~ speed, data = cars)
@@ -1297,11 +1297,11 @@ F-statistic: 117.2 on 1 and 48 DF,  p-value: 1.773e-14</code></pre>
 <p>F-검정의 p-값이 매우 작아서 독립변수가 종속변수에 대해 통계적으로 유의한 영향을 주고있음을 확인할 수 있다.
 아울러 <span class="math inline">\(R^2\)</span>의 값도 0.651에서 0.709로 증가하여 모형의 설명력도 증가하였다.</p>
 <p>잔차 분석을 위하여 잔차 그래프를 그려보면, 잔차에 있던 비선형적 패턴과 잔차의 분산이 종속변수의 예측값이 커지는 경향이 거의 사라진 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb2834"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2834-1"><a href="ch-R-linear-regression.html#cb2834-1" tabindex="-1"></a><span class="fu">plot</span>(lm_cars_trans)</span></code></pre></div>
+<div class="sourceCode" id="cb2835"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2835-1"><a href="ch-R-linear-regression.html#cb2835-1" tabindex="-1"></a><span class="fu">plot</span>(lm_cars_trans)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-45-1.png" width="70%" style="display: block; margin: auto;" /><img src="R-linear-regression_files/figure-html/unnamed-chunk-45-2.png" width="70%" style="display: block; margin: auto;" /><img src="R-linear-regression_files/figure-html/unnamed-chunk-45-3.png" width="70%" style="display: block; margin: auto;" /><img src="R-linear-regression_files/figure-html/unnamed-chunk-45-4.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>아울러 표준화 잔차의 Q-Q 도표도 점선에 더 가까워진 것을 볼 수 있다.
 Shapiro 검정을 한 결과도 p-값이 커서 표준화 잔차가 정규분포를 따른다는 귀무가설이 채택된다.</p>
-<div class="sourceCode" id="cb2835"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2835-1"><a href="ch-R-linear-regression.html#cb2835-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">rstandard</span>(lm_cars_trans))</span></code></pre></div>
+<div class="sourceCode" id="cb2836"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2836-1"><a href="ch-R-linear-regression.html#cb2836-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">rstandard</span>(lm_cars_trans))</span></code></pre></div>
 <pre><code>
     Shapiro-Wilk normality test
 
@@ -1311,10 +1311,10 @@ W = 0.97386, p-value = 0.3298</code></pre>
 이 모형을 산점도에 표시해 보자.
 이 때 주의할 점은 제곱근 변환한 모형으로 종속변수를 예측값을 구하려면 모형의 예측값을 제곱해야 한다는 것이다.
 다음 그래프에서 보듯이 직선 형태의 원래의 모형보다 데이터에 더 자연스럽게 적합되는 것을 확인할 수 있다. 비교를 위해 원래의 직선 모형을 점선으로 나타내었다.</p>
-<div class="sourceCode" id="cb2837"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2837-1"><a href="ch-R-linear-regression.html#cb2837-1" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(<span class="at">x=</span>speed, <span class="at">y=</span>dist)) <span class="sc">+</span></span>
-<span id="cb2837-2"><a href="ch-R-linear-regression.html#cb2837-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb2837-3"><a href="ch-R-linear-regression.html#cb2837-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>lm_cars_trans<span class="sc">$</span>fitted.values<span class="sc">^</span><span class="dv">2</span>), <span class="at">color=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
-<span id="cb2837-4"><a href="ch-R-linear-regression.html#cb2837-4" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>lm_cars<span class="sc">$</span>fitted.values), <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">linetype=</span><span class="dv">3</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb2838"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2838-1"><a href="ch-R-linear-regression.html#cb2838-1" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(<span class="at">x=</span>speed, <span class="at">y=</span>dist)) <span class="sc">+</span></span>
+<span id="cb2838-2"><a href="ch-R-linear-regression.html#cb2838-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2838-3"><a href="ch-R-linear-regression.html#cb2838-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>lm_cars_trans<span class="sc">$</span>fitted.values<span class="sc">^</span><span class="dv">2</span>), <span class="at">color=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb2838-4"><a href="ch-R-linear-regression.html#cb2838-4" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>lm_cars<span class="sc">$</span>fitted.values), <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">linetype=</span><span class="dv">3</span>) </span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-47-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -1325,9 +1325,9 @@ W = 0.97386, p-value = 0.3298</code></pre>
 <p>다중 선형 회귀를 설명하기 위하여 이 장의 서두에서 설명한 부모의 키와 자신의 키를 수집한 갈톤의 데이터를 이용해 보자.
 이 데이터는 <code>HistData</code> 패키지에 포함되어 있다.
 <code>HistData</code> 패키지를 설치하고 적재한 후, <code>GaltonFamilies</code> 데이터의 처음 6 줄을 출력해 보자.</p>
-<div class="sourceCode" id="cb2838"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2838-1"><a href="ch-R-linear-regression.html#cb2838-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;HistData&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb2839"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2839-1"><a href="ch-R-linear-regression.html#cb2839-1" tabindex="-1"></a><span class="fu">library</span>(HistData)</span>
-<span id="cb2839-2"><a href="ch-R-linear-regression.html#cb2839-2" tabindex="-1"></a><span class="fu">head</span>(GaltonFamilies)</span></code></pre></div>
+<div class="sourceCode" id="cb2839"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2839-1"><a href="ch-R-linear-regression.html#cb2839-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;HistData&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2840"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2840-1"><a href="ch-R-linear-regression.html#cb2840-1" tabindex="-1"></a><span class="fu">library</span>(HistData)</span>
+<span id="cb2840-2"><a href="ch-R-linear-regression.html#cb2840-2" tabindex="-1"></a><span class="fu">head</span>(GaltonFamilies)</span></code></pre></div>
 <pre><code>  family father mother midparentHeight children childNum gender childHeight
 1    001   78.5   67.0           75.43        4        1   male        73.2
 2    001   78.5   67.0           75.43        4        2 female        69.2
@@ -1348,7 +1348,7 @@ midparentHeight = \frac{father + 1.08 \times mother}{2}
 <li><code>childHeight</code>는 자식의 키</li>
 </ul>
 <p>본격적으로 종속변수인 <code>childHeight</code>와 이에 영향을 미칠 것으로 예상되는 독립변수들의 관계를 살펴보기 전에, 변수들의 기본 통계치와 분포를 확인해 보자.</p>
-<div class="sourceCode" id="cb2841"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2841-1"><a href="ch-R-linear-regression.html#cb2841-1" tabindex="-1"></a><span class="fu">summary</span>(GaltonFamilies)</span></code></pre></div>
+<div class="sourceCode" id="cb2842"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2842-1"><a href="ch-R-linear-regression.html#cb2842-1" tabindex="-1"></a><span class="fu">summary</span>(GaltonFamilies)</span></code></pre></div>
 <pre><code>     family        father         mother      midparentHeight    children     
  185    : 15   Min.   :62.0   Min.   :58.00   Min.   :64.40   Min.   : 1.000  
  066    : 11   1st Qu.:68.0   1st Qu.:63.00   1st Qu.:68.14   1st Qu.: 4.000  
@@ -1365,49 +1365,49 @@ midparentHeight = \frac{father + 1.08 \times mother}{2}
  3rd Qu.: 5.000                3rd Qu.:69.70  
  Max.   :15.000                Max.   :79.00  
                                               </code></pre>
-<div class="sourceCode" id="cb2843"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2843-1"><a href="ch-R-linear-regression.html#cb2843-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2843-2"><a href="ch-R-linear-regression.html#cb2843-2" tabindex="-1"></a>bins <span class="ot">&lt;-</span> <span class="dv">15</span></span>
-<span id="cb2843-3"><a href="ch-R-linear-regression.html#cb2843-3" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(father)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins=</span>bins)</span></code></pre></div>
+<div class="sourceCode" id="cb2844"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2844-1"><a href="ch-R-linear-regression.html#cb2844-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2844-2"><a href="ch-R-linear-regression.html#cb2844-2" tabindex="-1"></a>bins <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb2844-3"><a href="ch-R-linear-regression.html#cb2844-3" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(father)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins=</span>bins)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-51-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb2844"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2844-1"><a href="ch-R-linear-regression.html#cb2844-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(mother)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins=</span>bins)</span></code></pre></div>
+<div class="sourceCode" id="cb2845"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2845-1"><a href="ch-R-linear-regression.html#cb2845-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(mother)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins=</span>bins)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-51-2.png" width="70%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb2845"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2845-1"><a href="ch-R-linear-regression.html#cb2845-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(midparentHeight)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins=</span>bins)</span></code></pre></div>
+<div class="sourceCode" id="cb2846"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2846-1"><a href="ch-R-linear-regression.html#cb2846-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(midparentHeight)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins=</span>bins)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-51-3.png" width="70%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb2846"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2846-1"><a href="ch-R-linear-regression.html#cb2846-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(children)) <span class="sc">+</span> <span class="fu">geom_bar</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2847"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2847-1"><a href="ch-R-linear-regression.html#cb2847-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(children)) <span class="sc">+</span> <span class="fu">geom_bar</span>()</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-51-4.png" width="70%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb2847"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2847-1"><a href="ch-R-linear-regression.html#cb2847-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(childHeight, <span class="at">fill=</span>gender)) <span class="sc">+</span> </span>
-<span id="cb2847-2"><a href="ch-R-linear-regression.html#cb2847-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span>bins) </span></code></pre></div>
+<div class="sourceCode" id="cb2848"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2848-1"><a href="ch-R-linear-regression.html#cb2848-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(childHeight, <span class="at">fill=</span>gender)) <span class="sc">+</span> </span>
+<span id="cb2848-2"><a href="ch-R-linear-regression.html#cb2848-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span>bins) </span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-51-5.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>변수 사이의 상관성을 분석하기 위하여 산점도를 그려보자.
 부모의 키가 커지면 자식의 키가 커지는 양의 상관성이 있음을 확인할 수 있다.
 반면 자식의 수가 많아지면 자식의 키가 작아지는 약한 음의 상관성도 보인다.
 특히 자식의 수가 많은 가구에서 이러한 현상이 두드러지는데, 식구의 수가 늘어남에 따라 영양공급이 제한되기 때문인 것으로 보인다.
 자식의 성별에 따른 키의 차이도 뚜렷이 나타난다.</p>
-<div class="sourceCode" id="cb2848"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2848-1"><a href="ch-R-linear-regression.html#cb2848-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(father, childHeight, <span class="at">color=</span>gender)) <span class="sc">+</span> </span>
-<span id="cb2848-2"><a href="ch-R-linear-regression.html#cb2848-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span></code></pre></div>
-<p><img src="R-linear-regression_files/figure-html/unnamed-chunk-52-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb2849"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2849-1"><a href="ch-R-linear-regression.html#cb2849-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(mother, childHeight, <span class="at">color=</span>gender)) <span class="sc">+</span> </span>
+<div class="sourceCode" id="cb2849"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2849-1"><a href="ch-R-linear-regression.html#cb2849-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(father, childHeight, <span class="at">color=</span>gender)) <span class="sc">+</span> </span>
 <span id="cb2849-2"><a href="ch-R-linear-regression.html#cb2849-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span></code></pre></div>
-<p><img src="R-linear-regression_files/figure-html/unnamed-chunk-52-2.png" width="70%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb2850"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2850-1"><a href="ch-R-linear-regression.html#cb2850-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(midparentHeight, childHeight, <span class="at">color=</span>gender)) <span class="sc">+</span> </span>
+<p><img src="R-linear-regression_files/figure-html/unnamed-chunk-52-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb2850"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2850-1"><a href="ch-R-linear-regression.html#cb2850-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(mother, childHeight, <span class="at">color=</span>gender)) <span class="sc">+</span> </span>
 <span id="cb2850-2"><a href="ch-R-linear-regression.html#cb2850-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span></code></pre></div>
-<p><img src="R-linear-regression_files/figure-html/unnamed-chunk-52-3.png" width="70%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb2851"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2851-1"><a href="ch-R-linear-regression.html#cb2851-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(children, childHeight, <span class="at">color=</span>gender)) <span class="sc">+</span> </span>
+<p><img src="R-linear-regression_files/figure-html/unnamed-chunk-52-2.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb2851"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2851-1"><a href="ch-R-linear-regression.html#cb2851-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(midparentHeight, childHeight, <span class="at">color=</span>gender)) <span class="sc">+</span> </span>
 <span id="cb2851-2"><a href="ch-R-linear-regression.html#cb2851-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span></code></pre></div>
+<p><img src="R-linear-regression_files/figure-html/unnamed-chunk-52-3.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb2852"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2852-1"><a href="ch-R-linear-regression.html#cb2852-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(children, childHeight, <span class="at">color=</span>gender)) <span class="sc">+</span> </span>
+<span id="cb2852-2"><a href="ch-R-linear-regression.html#cb2852-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-52-4.png" width="70%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb2852"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2852-1"><a href="ch-R-linear-regression.html#cb2852-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(gender, childHeight)) <span class="sc">+</span></span>
-<span id="cb2852-2"><a href="ch-R-linear-regression.html#cb2852-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">notch=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb2853"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2853-1"><a href="ch-R-linear-regression.html#cb2853-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(gender, childHeight)) <span class="sc">+</span></span>
+<span id="cb2853-2"><a href="ch-R-linear-regression.html#cb2853-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">notch=</span>T)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-52-5.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>상관계수를 그려보면 <code>childHeigt</code>와 <code>midparentHeight</code>가 가장 높은 상관성을 보이이고, <code>father</code>가 <code>mother</code>에 비해 더 높은 양으 상관성을 보이고, 자식의 수는 약한 음의 상관성을 보인다.
 아버지와 어머니 키로 이루어진 <code>midparentHeight</code>는 <code>father</code>와 <code>mother</code>와 강한 양의 상관성을 보인다. 반면 아버지와 어머니의 키의 상관성은 그리 높지는 않았다.</p>
-<div class="sourceCode" id="cb2853"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2853-1"><a href="ch-R-linear-regression.html#cb2853-1" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code></pre></div>
+<div class="sourceCode" id="cb2854"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2854-1"><a href="ch-R-linear-regression.html#cb2854-1" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code></pre></div>
 <pre><code>corrplot 0.95 loaded</code></pre>
-<div class="sourceCode" id="cb2855"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2855-1"><a href="ch-R-linear-regression.html#cb2855-1" tabindex="-1"></a>cor_matrix <span class="ot">&lt;-</span> <span class="fu">cor</span>(<span class="fu">select</span>(GaltonFamilies, <span class="sc">-</span>family, <span class="sc">-</span>childNum, <span class="sc">-</span>gender))</span>
-<span id="cb2855-2"><a href="ch-R-linear-regression.html#cb2855-2" tabindex="-1"></a><span class="fu">corrplot.mixed</span>(cor_matrix)</span></code></pre></div>
+<div class="sourceCode" id="cb2856"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2856-1"><a href="ch-R-linear-regression.html#cb2856-1" tabindex="-1"></a>cor_matrix <span class="ot">&lt;-</span> <span class="fu">cor</span>(<span class="fu">select</span>(GaltonFamilies, <span class="sc">-</span>family, <span class="sc">-</span>childNum, <span class="sc">-</span>gender))</span>
+<span id="cb2856-2"><a href="ch-R-linear-regression.html#cb2856-2" tabindex="-1"></a><span class="fu">corrplot.mixed</span>(cor_matrix)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-53-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>다중 선형 회귀 모형을 수립하기 전에 독립변수를 <code>midparentHeight</code>만 사용하여 <code>childHeight</code>에 대한 단순 선형 회귀를 수행해 보자.</p>
-<div class="sourceCode" id="cb2856"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2856-1"><a href="ch-R-linear-regression.html#cb2856-1" tabindex="-1"></a>lm_galton_simple <span class="ot">&lt;-</span> <span class="fu">lm</span>(childHeight <span class="sc">~</span> midparentHeight, <span class="at">data=</span>GaltonFamilies)</span>
-<span id="cb2856-2"><a href="ch-R-linear-regression.html#cb2856-2" tabindex="-1"></a>lm_galton_simple</span></code></pre></div>
+<div class="sourceCode" id="cb2857"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2857-1"><a href="ch-R-linear-regression.html#cb2857-1" tabindex="-1"></a>lm_galton_simple <span class="ot">&lt;-</span> <span class="fu">lm</span>(childHeight <span class="sc">~</span> midparentHeight, <span class="at">data=</span>GaltonFamilies)</span>
+<span id="cb2857-2"><a href="ch-R-linear-regression.html#cb2857-2" tabindex="-1"></a>lm_galton_simple</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ midparentHeight, data = GaltonFamilies)
@@ -1417,12 +1417,12 @@ Coefficients:
         22.6362           0.6374  </code></pre>
 <p>부모의 중간키(midparentHeight)가 1인치 커지면 자식의 키는 평균적으로 0.6374 커진다.
 이러한 선형 관계를 그래프로 그려보면 다음과 같다.</p>
-<div class="sourceCode" id="cb2858"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2858-1"><a href="ch-R-linear-regression.html#cb2858-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(midparentHeight, childHeight)) <span class="sc">+</span></span>
-<span id="cb2858-2"><a href="ch-R-linear-regression.html#cb2858-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb2858-3"><a href="ch-R-linear-regression.html#cb2858-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>lm_galton_simple<span class="sc">$</span>fitted.values), <span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2859"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2859-1"><a href="ch-R-linear-regression.html#cb2859-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(midparentHeight, childHeight)) <span class="sc">+</span></span>
+<span id="cb2859-2"><a href="ch-R-linear-regression.html#cb2859-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2859-3"><a href="ch-R-linear-regression.html#cb2859-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>lm_galton_simple<span class="sc">$</span>fitted.values), <span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-55-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p><code>summary()</code> 함수로 모형의 통계적 유의성과 설명력을 확인해 보자.</p>
-<div class="sourceCode" id="cb2859"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2859-1"><a href="ch-R-linear-regression.html#cb2859-1" tabindex="-1"></a><span class="fu">summary</span>(lm_galton_simple)</span></code></pre></div>
+<div class="sourceCode" id="cb2860"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2860-1"><a href="ch-R-linear-regression.html#cb2860-1" tabindex="-1"></a><span class="fu">summary</span>(lm_galton_simple)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ midparentHeight, data = GaltonFamilies)
@@ -1446,7 +1446,7 @@ F-statistic:   107 on 1 and 932 DF,  p-value: &lt; 2.2e-16</code></pre>
 앞으로 부모의 중간키뿐 아니라 다른 변수들을 더 사용하는 다중 선형 회귀 모형을 만들어 자식 키의 설명력을 높여 보자.</p>
 <p>마지막으로 잔차 그래프를 보면 모형의 선형성이나 등분산성에는 큰 문제가 없어 보인다.
 다만 정규 분포보다는 꼬리가 약간 짧은 분포를 보인다.</p>
-<div class="sourceCode" id="cb2861"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2861-1"><a href="ch-R-linear-regression.html#cb2861-1" tabindex="-1"></a><span class="fu">plot</span>(lm_galton_simple)</span></code></pre></div>
+<div class="sourceCode" id="cb2862"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2862-1"><a href="ch-R-linear-regression.html#cb2862-1" tabindex="-1"></a><span class="fu">plot</span>(lm_galton_simple)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-57-1.png" width="70%" style="display: block; margin: auto;" /><img src="R-linear-regression_files/figure-html/unnamed-chunk-57-2.png" width="70%" style="display: block; margin: auto;" /><img src="R-linear-regression_files/figure-html/unnamed-chunk-57-3.png" width="70%" style="display: block; margin: auto;" /><img src="R-linear-regression_files/figure-html/unnamed-chunk-57-4.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="sec-multiple-linear-regression-theory" class="section level3 hasAnchor" number="17.2.2">
@@ -1500,9 +1500,9 @@ childHeight =
 오직 다른 점은 첫 번째 인수인 <code>formula</code>에서 다음처럼 독립변수로 사용할 열을 <code>+</code>를 사용하여 모두 기술한다는 점만 다르다.</p>
 <pre><code>lm(종속변수_열 ~ 독립변수_열1 + 독립변수_열2 + ... + 독립변수_열p, data=데이터) </code></pre>
 <p>다음은 <code>midparentHeight</code>와 <code>gender</code>를 독립변수로 하는 다중 선형 회귀를 수행한 결과이다.</p>
-<div class="sourceCode" id="cb2863"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2863-1"><a href="ch-R-linear-regression.html#cb2863-1" tabindex="-1"></a>lm_galton_multiple <span class="ot">&lt;-</span> <span class="fu">lm</span>(childHeight <span class="sc">~</span> midparentHeight <span class="sc">+</span> gender,</span>
-<span id="cb2863-2"><a href="ch-R-linear-regression.html#cb2863-2" tabindex="-1"></a>                         <span class="at">data=</span>GaltonFamilies)</span>
-<span id="cb2863-3"><a href="ch-R-linear-regression.html#cb2863-3" tabindex="-1"></a>lm_galton_multiple</span></code></pre></div>
+<div class="sourceCode" id="cb2864"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2864-1"><a href="ch-R-linear-regression.html#cb2864-1" tabindex="-1"></a>lm_galton_multiple <span class="ot">&lt;-</span> <span class="fu">lm</span>(childHeight <span class="sc">~</span> midparentHeight <span class="sc">+</span> gender,</span>
+<span id="cb2864-2"><a href="ch-R-linear-regression.html#cb2864-2" tabindex="-1"></a>                         <span class="at">data=</span>GaltonFamilies)</span>
+<span id="cb2864-3"><a href="ch-R-linear-regression.html#cb2864-3" tabindex="-1"></a>lm_galton_multiple</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ midparentHeight + gender, data = GaltonFamilies)
@@ -1519,7 +1519,7 @@ childHeight = 16.514
 \]</span></p>
 <p>따라서 부모의 중간키가 1인치 커지면 자식의 키는 평균적으로 0.687 인치 커지고, 아들이 딸보다 평균적으로 5.215 인치 더 크다.</p>
 <p>단순 선형 회귀 모형에 <code>gender</code> 변수를 더 도입한 모형의 설명력과 통계적 유의성을 확인해 보자.</p>
-<div class="sourceCode" id="cb2865"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2865-1"><a href="ch-R-linear-regression.html#cb2865-1" tabindex="-1"></a><span class="fu">summary</span>(lm_galton_multiple)</span></code></pre></div>
+<div class="sourceCode" id="cb2866"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2866-1"><a href="ch-R-linear-regression.html#cb2866-1" tabindex="-1"></a><span class="fu">summary</span>(lm_galton_multiple)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ midparentHeight + gender, data = GaltonFamilies)
@@ -1542,19 +1542,19 @@ F-statistic: 803.6 on 2 and 931 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>F-검정의 p-값이 매우 작아서 독립변수들이 종속변수를 유의미하게 영향을 준다는 대립가설이 채택되며, <span class="math inline">\(R^2\)</span> 값도 0.633으로 크게 개선되는 것을 확인할 수 있다.</p>
 <p>이 모형을 시각화하면 다음과 같다.
 자식의 성별 차이를 모형에 도입하자 모형의 오차가 크게 감소하는 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb2867"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2867-1"><a href="ch-R-linear-regression.html#cb2867-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(midparentHeight, childHeight, <span class="at">color=</span>gender)) <span class="sc">+</span></span>
-<span id="cb2867-2"><a href="ch-R-linear-regression.html#cb2867-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">shape=</span>gender)) <span class="sc">+</span></span>
-<span id="cb2867-3"><a href="ch-R-linear-regression.html#cb2867-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>lm_galton_multiple<span class="sc">$</span>fitted.values))</span></code></pre></div>
+<div class="sourceCode" id="cb2868"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2868-1"><a href="ch-R-linear-regression.html#cb2868-1" tabindex="-1"></a><span class="fu">ggplot</span>(GaltonFamilies, <span class="fu">aes</span>(midparentHeight, childHeight, <span class="at">color=</span>gender)) <span class="sc">+</span></span>
+<span id="cb2868-2"><a href="ch-R-linear-regression.html#cb2868-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">shape=</span>gender)) <span class="sc">+</span></span>
+<span id="cb2868-3"><a href="ch-R-linear-regression.html#cb2868-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>lm_galton_multiple<span class="sc">$</span>fitted.values))</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-60-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>이 모형의 잔차 그래프를 그려보자.
 모형의 선형성, 등분산성뿐 아니라 정규성도 더 개선된 것을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2868"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2868-1"><a href="ch-R-linear-regression.html#cb2868-1" tabindex="-1"></a><span class="fu">plot</span>(lm_galton_multiple)</span></code></pre></div>
+<div class="sourceCode" id="cb2869"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2869-1"><a href="ch-R-linear-regression.html#cb2869-1" tabindex="-1"></a><span class="fu">plot</span>(lm_galton_multiple)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-61-1.png" width="70%" style="display: block; margin: auto;" /><img src="R-linear-regression_files/figure-html/unnamed-chunk-61-2.png" width="70%" style="display: block; margin: auto;" /><img src="R-linear-regression_files/figure-html/unnamed-chunk-61-3.png" width="70%" style="display: block; margin: auto;" /><img src="R-linear-regression_files/figure-html/unnamed-chunk-61-4.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>마지막으로 부모의 중간키 대신 아버지와 어머니의 키를 사용하여 자식의 키를 설명해 보자.
 그러면 아버지와 어머니 중 누가 더 자식의 키에 영향을 주는지를 확인해 볼 수 있다.</p>
-<div class="sourceCode" id="cb2869"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2869-1"><a href="ch-R-linear-regression.html#cb2869-1" tabindex="-1"></a>lm_galton_fm <span class="ot">&lt;-</span> <span class="fu">lm</span>(childHeight <span class="sc">~</span> father <span class="sc">+</span> mother <span class="sc">+</span> gender, </span>
-<span id="cb2869-2"><a href="ch-R-linear-regression.html#cb2869-2" tabindex="-1"></a>                   <span class="at">data=</span>GaltonFamilies)</span>
-<span id="cb2869-3"><a href="ch-R-linear-regression.html#cb2869-3" tabindex="-1"></a>lm_galton_fm</span></code></pre></div>
+<div class="sourceCode" id="cb2870"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2870-1"><a href="ch-R-linear-regression.html#cb2870-1" tabindex="-1"></a>lm_galton_fm <span class="ot">&lt;-</span> <span class="fu">lm</span>(childHeight <span class="sc">~</span> father <span class="sc">+</span> mother <span class="sc">+</span> gender, </span>
+<span id="cb2870-2"><a href="ch-R-linear-regression.html#cb2870-2" tabindex="-1"></a>                   <span class="at">data=</span>GaltonFamilies)</span>
+<span id="cb2870-3"><a href="ch-R-linear-regression.html#cb2870-3" tabindex="-1"></a>lm_galton_fm</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ father + mother + gender, data = GaltonFamilies)
@@ -1563,7 +1563,7 @@ Coefficients:
 (Intercept)       father       mother   gendermale  
     16.5212       0.3928       0.3176       5.2150  </code></pre>
 <p>회귀 결과에서 보듯이 아버지의 키의 계수가 어머니 키의 계수보다 커서 아버지 키의 영향력이 더 큰 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb2871"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2871-1"><a href="ch-R-linear-regression.html#cb2871-1" tabindex="-1"></a><span class="fu">summary</span>(lm_galton_fm)</span></code></pre></div>
+<div class="sourceCode" id="cb2872"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2872-1"><a href="ch-R-linear-regression.html#cb2872-1" tabindex="-1"></a><span class="fu">summary</span>(lm_galton_fm)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ father + mother + gender, data = GaltonFamilies)
@@ -1602,12 +1602,12 @@ F-statistic: 540.3 on 3 and 930 DF,  p-value: &lt; 2.2e-16</code></pre>
 아버지와 어머니 키가 모두 들어간 다중 선형 회귀 모형에서는 <code>father</code>, <code>mother</code>, <code>gendermale</code> 모두 T-검정의 p-값이 매우 작아서 다른 변수가 모형에 있더라도 독자적으로 유의미한 영향력을 가지고 있다는 대립가설이 채택된다.</p>
 <p>이 모형의 잔차 그래프를 그려보자.
 앞의 모형과 마찬가지로 잔차에서 모형의 문제점은 크게 발견되지 않는다.</p>
-<div class="sourceCode" id="cb2873"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2873-1"><a href="ch-R-linear-regression.html#cb2873-1" tabindex="-1"></a><span class="fu">plot</span>(lm_galton_fm)</span></code></pre></div>
+<div class="sourceCode" id="cb2874"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2874-1"><a href="ch-R-linear-regression.html#cb2874-1" tabindex="-1"></a><span class="fu">plot</span>(lm_galton_fm)</span></code></pre></div>
 <p><img src="R-linear-regression_files/figure-html/unnamed-chunk-64-1.png" width="70%" style="display: block; margin: auto;" /><img src="R-linear-regression_files/figure-html/unnamed-chunk-64-2.png" width="70%" style="display: block; margin: auto;" /><img src="R-linear-regression_files/figure-html/unnamed-chunk-64-3.png" width="70%" style="display: block; margin: auto;" /><img src="R-linear-regression_files/figure-html/unnamed-chunk-64-4.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>마지막으로 자식의 수(<code>children</code>) 변수를 도입하면 모형의 설명력이 더 향상되는지 확인해 보자.</p>
-<div class="sourceCode" id="cb2874"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2874-1"><a href="ch-R-linear-regression.html#cb2874-1" tabindex="-1"></a>lm_galton_fmc <span class="ot">&lt;-</span> <span class="fu">lm</span>(childHeight <span class="sc">~</span> father <span class="sc">+</span> mother <span class="sc">+</span> gender <span class="sc">+</span> children,</span>
-<span id="cb2874-2"><a href="ch-R-linear-regression.html#cb2874-2" tabindex="-1"></a>                    <span class="at">data=</span>GaltonFamilies) </span>
-<span id="cb2874-3"><a href="ch-R-linear-regression.html#cb2874-3" tabindex="-1"></a><span class="fu">summary</span>(lm_galton_fmc)</span></code></pre></div>
+<div class="sourceCode" id="cb2875"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2875-1"><a href="ch-R-linear-regression.html#cb2875-1" tabindex="-1"></a>lm_galton_fmc <span class="ot">&lt;-</span> <span class="fu">lm</span>(childHeight <span class="sc">~</span> father <span class="sc">+</span> mother <span class="sc">+</span> gender <span class="sc">+</span> children,</span>
+<span id="cb2875-2"><a href="ch-R-linear-regression.html#cb2875-2" tabindex="-1"></a>                    <span class="at">data=</span>GaltonFamilies) </span>
+<span id="cb2875-3"><a href="ch-R-linear-regression.html#cb2875-3" tabindex="-1"></a><span class="fu">summary</span>(lm_galton_fmc)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ father + mother + gender + children, 
@@ -1645,7 +1645,7 @@ F-statistic: 406.8 on 4 and 929 DF,  p-value: &lt; 2.2e-16</code></pre>
 모형 1 \subset 모형 2 \subset 모형 3
 \]</span></p>
 <p>그러므로 다음과 같은 ANOVA 분석을 사용하며 더 많은 정보를 사용하는 모형이 자식의 키에 대하여 통계적으로 더 유의미한 정보를 가지고 있는지를 가설검정해 볼 수 있다.</p>
-<div class="sourceCode" id="cb2876"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2876-1"><a href="ch-R-linear-regression.html#cb2876-1" tabindex="-1"></a><span class="fu">anova</span>(lm_galton_multiple, lm_galton_fm, lm_galton_fmc)</span></code></pre></div>
+<div class="sourceCode" id="cb2877"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2877-1"><a href="ch-R-linear-regression.html#cb2877-1" tabindex="-1"></a><span class="fu">anova</span>(lm_galton_multiple, lm_galton_fm, lm_galton_fmc)</span></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Model 1: childHeight ~ midparentHeight + gender
@@ -1671,7 +1671,7 @@ childHeight = \beta_0 + \beta_1 \times midparentHeight
               + \varepsilon
 \]</span>
 그리고 <code>GaltonFamilies</code> 데이터를 사용하여 <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span>, <span class="math inline">\(\beta_2\)</span>를 추정한 결과는 다음과 같다.</p>
-<div class="sourceCode" id="cb2878"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2878-1"><a href="ch-R-linear-regression.html#cb2878-1" tabindex="-1"></a>lm_galton_multiple</span></code></pre></div>
+<div class="sourceCode" id="cb2879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2879-1"><a href="ch-R-linear-regression.html#cb2879-1" tabindex="-1"></a>lm_galton_multiple</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ midparentHeight + gender, data = GaltonFamilies)
@@ -1741,9 +1741,9 @@ childHeight =
 <h4>교차항으로 회귀식 적합하기<a href="ch-R-linear-regression.html#교차항으로-회귀식-적합하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>데이터의 두 열의 교차항을 모형에 도입하려면 <code>lm()</code> 함수의 <code>formula</code> 인수에 <code>열이름_1:열이름_2</code> 형식으로 도입한다.
 다음은 부모의 중간키와 자식의 성별의 교차항을 도입하여 모형을 적합한 결과이다.</p>
-<div class="sourceCode" id="cb2880"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2880-1"><a href="ch-R-linear-regression.html#cb2880-1" tabindex="-1"></a>lm_galton_inter <span class="ot">&lt;-</span> <span class="fu">lm</span>(childHeight <span class="sc">~</span> midparentHeight <span class="sc">+</span> gender <span class="sc">+</span> midparentHeight<span class="sc">:</span>gender, </span>
-<span id="cb2880-2"><a href="ch-R-linear-regression.html#cb2880-2" tabindex="-1"></a>                      <span class="at">data=</span>GaltonFamilies)</span>
-<span id="cb2880-3"><a href="ch-R-linear-regression.html#cb2880-3" tabindex="-1"></a>lm_galton_inter</span></code></pre></div>
+<div class="sourceCode" id="cb2881"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2881-1"><a href="ch-R-linear-regression.html#cb2881-1" tabindex="-1"></a>lm_galton_inter <span class="ot">&lt;-</span> <span class="fu">lm</span>(childHeight <span class="sc">~</span> midparentHeight <span class="sc">+</span> gender <span class="sc">+</span> midparentHeight<span class="sc">:</span>gender, </span>
+<span id="cb2881-2"><a href="ch-R-linear-regression.html#cb2881-2" tabindex="-1"></a>                      <span class="at">data=</span>GaltonFamilies)</span>
+<span id="cb2881-3"><a href="ch-R-linear-regression.html#cb2881-3" tabindex="-1"></a>lm_galton_inter</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ midparentHeight + gender + midparentHeight:gender, 
@@ -1768,7 +1768,7 @@ childHeight =
 따라서 아들이 동일한 부모의 중간키에서 더 크고, 부모의 중간키의 효과더 더 컸다.
 그러나 이러한 효과가 통계적으로 유의미한 것인지 확인해 보아야 한다.
 이에 대한 통계적 확인은 이 계수들이 0이라는 귀무가설 하에 수행되는 T-검정으로 수행된다.</p>
-<div class="sourceCode" id="cb2882"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2882-1"><a href="ch-R-linear-regression.html#cb2882-1" tabindex="-1"></a><span class="fu">summary</span>(lm_galton_inter)</span></code></pre></div>
+<div class="sourceCode" id="cb2883"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2883-1"><a href="ch-R-linear-regression.html#cb2883-1" tabindex="-1"></a><span class="fu">summary</span>(lm_galton_inter)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ midparentHeight + gender + midparentHeight:gender, 
@@ -1804,7 +1804,7 @@ T-검정은 나머지 독립변수가 모형에 있을 때 검정 대상인 독�
 그러나 이렇게 원래 변수와 교차항이 중복되는 경우에는, 일차항인 원래 변수가 모형에 없는데 이차항인 교차항을 모형에 넣는 것은 부자연스러우므로 교차항을 제거한다.
 그러면 원래의 회귀식이 되므로 교차항이 도입되는 것은 통계적으로 의미가 없다는 것이다.
 교차항이 없는 모형과 교차항이 도입된 모형 사이의 통계적 유의성을 확인하는 ANOVA의 결과에서도 F-검정의 p-값이 커서 교차항이 도입된 모형이 종속변수를 더 설명하는 유의한 차이를 가지지 못하는 것을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2884"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2884-1"><a href="ch-R-linear-regression.html#cb2884-1" tabindex="-1"></a><span class="fu">anova</span>(lm_galton_multiple, lm_galton_inter)</span></code></pre></div>
+<div class="sourceCode" id="cb2885"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2885-1"><a href="ch-R-linear-regression.html#cb2885-1" tabindex="-1"></a><span class="fu">anova</span>(lm_galton_multiple, lm_galton_inter)</span></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Model 1: childHeight ~ midparentHeight + gender
@@ -1813,7 +1813,7 @@ Model 2: childHeight ~ midparentHeight + gender + midparentHeight:gender
 1    931 4384.1                           
 2    930 4382.0  1    2.0879 0.4431 0.5058</code></pre>
 <p>다음으로 부모의 중간키 대신에 아버지와 어머니의 키를 사용한 다음과 같은 회귀 모형에 자식의 성별의 교차항을 도입해 보자.</p>
-<div class="sourceCode" id="cb2886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2886-1"><a href="ch-R-linear-regression.html#cb2886-1" tabindex="-1"></a>lm_galton_fm</span></code></pre></div>
+<div class="sourceCode" id="cb2887"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2887-1"><a href="ch-R-linear-regression.html#cb2887-1" tabindex="-1"></a>lm_galton_fm</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ father + mother + gender, data = GaltonFamilies)
@@ -1825,7 +1825,7 @@ Coefficients:
 그런데 만약 수치형 변수가 두 개가 아니라 더 많으면 교차항을 일일이 기술하는 것은 귀찮은 일이 된다.
 <code>lm()</code>의 <code>formula</code> 인수는 교차항을 나타내는 <code>:</code> 연산자뿐 아니라 <code>*</code> 연산자도 가지고 있는데, <code>*</code> 연산자는 곱해지는 두 변수들의 원래의 일차항뿐 아니라 두 변수의 교차항을 모형에 포함시킨다.
 따라서 다음과 같은 선형 회귀 모형은 바로 앞서서 부모의 중간키와 성별의 일차항과 교차항을 도입한 모형과 동일하다.</p>
-<div class="sourceCode" id="cb2888"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2888-1"><a href="ch-R-linear-regression.html#cb2888-1" tabindex="-1"></a><span class="fu">lm</span>(childHeight <span class="sc">~</span> midparentHeight <span class="sc">*</span> gender, <span class="at">data=</span>GaltonFamilies)</span></code></pre></div>
+<div class="sourceCode" id="cb2889"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2889-1"><a href="ch-R-linear-regression.html#cb2889-1" tabindex="-1"></a><span class="fu">lm</span>(childHeight <span class="sc">~</span> midparentHeight <span class="sc">*</span> gender, <span class="at">data=</span>GaltonFamilies)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ midparentHeight * gender, data = GaltonFamilies)
@@ -1836,9 +1836,9 @@ Coefficients:
                 gendermale  midparentHeight:gendermale  
                    1.57998                     0.05252  </code></pre>
 <p>따라서 다음과 같이 표현하면 각 독립변수의 일차항뿐 아니라 <code>father</code>와 <code>mother</code>는 <code>gender</code>에 대한 교차항이 생성되어 모형에 추가된다.</p>
-<div class="sourceCode" id="cb2890"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2890-1"><a href="ch-R-linear-regression.html#cb2890-1" tabindex="-1"></a>lm_galton_fm_inter <span class="ot">&lt;-</span> <span class="fu">lm</span>(childHeight <span class="sc">~</span> (father <span class="sc">+</span> mother) <span class="sc">*</span> gender,</span>
-<span id="cb2890-2"><a href="ch-R-linear-regression.html#cb2890-2" tabindex="-1"></a>                         <span class="at">data=</span>GaltonFamilies)</span>
-<span id="cb2890-3"><a href="ch-R-linear-regression.html#cb2890-3" tabindex="-1"></a>lm_galton_fm_inter</span></code></pre></div>
+<div class="sourceCode" id="cb2891"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2891-1"><a href="ch-R-linear-regression.html#cb2891-1" tabindex="-1"></a>lm_galton_fm_inter <span class="ot">&lt;-</span> <span class="fu">lm</span>(childHeight <span class="sc">~</span> (father <span class="sc">+</span> mother) <span class="sc">*</span> gender,</span>
+<span id="cb2891-2"><a href="ch-R-linear-regression.html#cb2891-2" tabindex="-1"></a>                         <span class="at">data=</span>GaltonFamilies)</span>
+<span id="cb2891-3"><a href="ch-R-linear-regression.html#cb2891-3" tabindex="-1"></a>lm_galton_fm_inter</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ (father + mother) * gender, data = GaltonFamilies)
@@ -1848,7 +1848,7 @@ Coefficients:
          18.83358            0.37254            0.30348            0.47923  
 father:gendermale  mother:gendermale  
           0.04501            0.02529  </code></pre>
-<div class="sourceCode" id="cb2892"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2892-1"><a href="ch-R-linear-regression.html#cb2892-1" tabindex="-1"></a><span class="fu">summary</span>(lm_galton_fm_inter)</span></code></pre></div>
+<div class="sourceCode" id="cb2893"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2893-1"><a href="ch-R-linear-regression.html#cb2893-1" tabindex="-1"></a><span class="fu">summary</span>(lm_galton_fm_inter)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ (father + mother) * gender, data = GaltonFamilies)
@@ -1877,7 +1877,7 @@ F-statistic: 323.9 on 5 and 928 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p><code>stat</code> 기본 패키지의 <code>step()</code> 함수는 현재의 모형에서 가장 덜 유의미한 변수들을 하나씩 제거하면서 최적의 모형을 탐색해 준다.
 이렇게 독립변수를 하나씩 제거하면 최적 모형을 탐색하는 방법을 ’후진법(backward selection)’이라고 한다.</p>
 <p>다음은 앞의 모형을 후진법으로 변수를 제거하면서 최적의 모형을 선택한 결과이다.</p>
-<div class="sourceCode" id="cb2894"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2894-1"><a href="ch-R-linear-regression.html#cb2894-1" tabindex="-1"></a>best_model <span class="ot">&lt;-</span> <span class="fu">step</span>(lm_galton_fm_inter, <span class="at">direction=</span><span class="st">&quot;backward&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2895"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2895-1"><a href="ch-R-linear-regression.html#cb2895-1" tabindex="-1"></a>best_model <span class="ot">&lt;-</span> <span class="fu">step</span>(lm_galton_fm_inter, <span class="at">direction=</span><span class="st">&quot;backward&quot;</span>)</span></code></pre></div>
 <pre><code>Start:  AIC=1449.79
 childHeight ~ (father + mother) * gender
 
@@ -1915,7 +1915,7 @@ AIC는 모형의 예측 오차와 관련된 추정치이다. 그러므로 AIC가
 아무것도 제거되지 않은 모형의 AIC가 가장 낮으므로, 변수 제거 작업은 여기서 종료되고 현재 모형이 최적 모형으로 선택된다.</p>
 <p><code>step()</code> 함수는 단계적 선택의 결과로 최종적으로 선택된 최적 모형을 반환한다.
 성별과 부모 키의 교차항은 통계적 유의성이 없어서 일차항므로만 구성된 모형이 최적 모형이 되었다.</p>
-<div class="sourceCode" id="cb2896"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2896-1"><a href="ch-R-linear-regression.html#cb2896-1" tabindex="-1"></a>best_model</span></code></pre></div>
+<div class="sourceCode" id="cb2897"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2897-1"><a href="ch-R-linear-regression.html#cb2897-1" tabindex="-1"></a>best_model</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ father + mother + gender, data = GaltonFamilies)
@@ -1927,8 +1927,8 @@ Coefficients:
 아버지와 어머니의 키는 자식의 키에 시너지 효과를 발생시킬 수도 있다.
 이를 살펴보기 위하여 아버지와 어머니의 교차항을 모형에 도입해 보자.
 다음처럼 <code>*</code> 연산자를 사용하여 아버지 키, 어머니 키, 성별의 모든 가능한 교차항을 모형에 도입할 수 있다.</p>
-<div class="sourceCode" id="cb2898"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2898-1"><a href="ch-R-linear-regression.html#cb2898-1" tabindex="-1"></a><span class="fu">lm</span>(childHeight <span class="sc">~</span> (father <span class="sc">+</span> mother <span class="sc">+</span> gender) <span class="sc">*</span> (father <span class="sc">+</span> mother <span class="sc">+</span> gender),</span>
-<span id="cb2898-2"><a href="ch-R-linear-regression.html#cb2898-2" tabindex="-1"></a>   <span class="at">data=</span>GaltonFamilies)</span></code></pre></div>
+<div class="sourceCode" id="cb2899"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2899-1"><a href="ch-R-linear-regression.html#cb2899-1" tabindex="-1"></a><span class="fu">lm</span>(childHeight <span class="sc">~</span> (father <span class="sc">+</span> mother <span class="sc">+</span> gender) <span class="sc">*</span> (father <span class="sc">+</span> mother <span class="sc">+</span> gender),</span>
+<span id="cb2899-2"><a href="ch-R-linear-regression.html#cb2899-2" tabindex="-1"></a>   <span class="at">data=</span>GaltonFamilies)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ (father + mother + gender) * (father + 
@@ -1940,9 +1940,9 @@ Coefficients:
     father:mother  father:gendermale  mother:gendermale  
           0.01178            0.04769            0.02797  </code></pre>
 <p>그런데 이러한 수식 표현은 중복된 입력을 두 번이나 해야 하므로 <code>^</code> 연산자를 사용하면 위의 표현을 더 간략하게 표현할 수 있다.</p>
-<div class="sourceCode" id="cb2900"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2900-1"><a href="ch-R-linear-regression.html#cb2900-1" tabindex="-1"></a>lm_galton_inter_all <span class="ot">&lt;-</span> <span class="fu">lm</span>(childHeight <span class="sc">~</span> (father <span class="sc">+</span> mother <span class="sc">+</span> gender)<span class="sc">^</span><span class="dv">2</span>,</span>
-<span id="cb2900-2"><a href="ch-R-linear-regression.html#cb2900-2" tabindex="-1"></a>   <span class="at">data=</span>GaltonFamilies)</span>
-<span id="cb2900-3"><a href="ch-R-linear-regression.html#cb2900-3" tabindex="-1"></a>lm_galton_inter_all </span></code></pre></div>
+<div class="sourceCode" id="cb2901"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2901-1"><a href="ch-R-linear-regression.html#cb2901-1" tabindex="-1"></a>lm_galton_inter_all <span class="ot">&lt;-</span> <span class="fu">lm</span>(childHeight <span class="sc">~</span> (father <span class="sc">+</span> mother <span class="sc">+</span> gender)<span class="sc">^</span><span class="dv">2</span>,</span>
+<span id="cb2901-2"><a href="ch-R-linear-regression.html#cb2901-2" tabindex="-1"></a>   <span class="at">data=</span>GaltonFamilies)</span>
+<span id="cb2901-3"><a href="ch-R-linear-regression.html#cb2901-3" tabindex="-1"></a>lm_galton_inter_all </span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ (father + mother + gender)^2, data = GaltonFamilies)
@@ -1952,9 +1952,9 @@ Coefficients:
          71.54265           -0.38594           -0.51490            0.11844  
     father:mother  father:gendermale  mother:gendermale  
           0.01178            0.04769            0.02797  </code></pre>
-<p>아버니와 어머니 키의 교차항(<code>father:mother</code>)는 양의 값이 나와서 양의 시너지 효과를 보여준다.
+<p>아버지와 어머니 키의 교차항(<code>father:mother</code>)는 양의 값이 나와서 양의 시너지 효과를 보여준다.
 그러나 이 값이 과연 통계적으로 유의한 것인지 T-검정 결과를 살펴보자.</p>
-<div class="sourceCode" id="cb2902"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2902-1"><a href="ch-R-linear-regression.html#cb2902-1" tabindex="-1"></a><span class="fu">summary</span>(lm_galton_inter_all)</span></code></pre></div>
+<div class="sourceCode" id="cb2903"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2903-1"><a href="ch-R-linear-regression.html#cb2903-1" tabindex="-1"></a><span class="fu">summary</span>(lm_galton_inter_all)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ (father + mother + gender)^2, data = GaltonFamilies)
@@ -1984,7 +1984,7 @@ F-statistic: 270.1 on 6 and 927 DF,  p-value: &lt; 2.2e-16</code></pre>
 앞서 설명한 것처럼 T-검정은 나머지 다른 변수가 모형에 도입되어 있을 때, 해당 변수가 과연 통계적으로 유의미한지를 판단하는 것이다.
 <code>father:mother</code>의 교차항이 도입되자 <code>father</code>와 <code>mother</code>는 부모의 교차항과 나머지 한 부모의 키가 도입되면 정보가 중복된 것뿐이다.</p>
 <p>이 모형도 후진법을 사용하여 통게적인 유의성이 적은 변수들을 제거해 보자.</p>
-<div class="sourceCode" id="cb2904"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2904-1"><a href="ch-R-linear-regression.html#cb2904-1" tabindex="-1"></a>best_model <span class="ot">&lt;-</span> <span class="fu">step</span>(lm_galton_inter_all, <span class="at">direction=</span><span class="st">&quot;backward&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2905"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2905-1"><a href="ch-R-linear-regression.html#cb2905-1" tabindex="-1"></a>best_model <span class="ot">&lt;-</span> <span class="fu">step</span>(lm_galton_inter_all, <span class="at">direction=</span><span class="st">&quot;backward&quot;</span>)</span></code></pre></div>
 <pre><code>Start:  AIC=1450.79
 childHeight ~ (father + mother + gender)^2
 
@@ -2019,7 +2019,7 @@ childHeight ~ father + mother + gender
 - father  1     879.4  5237.2 1616.3
 - gender  1    6337.1 10695.0 2283.1</code></pre>
 <p>후진번으로 통계적 유의성이 적은 변수들이 제거된자, 앞의 예들과 마찬가지로 일차항만으로 이루어진 원래의 모형이 최적 모형으로 선택되었다.</p>
-<div class="sourceCode" id="cb2906"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2906-1"><a href="ch-R-linear-regression.html#cb2906-1" tabindex="-1"></a>best_model</span></code></pre></div>
+<div class="sourceCode" id="cb2907"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2907-1"><a href="ch-R-linear-regression.html#cb2907-1" tabindex="-1"></a>best_model</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ father + mother + gender, data = GaltonFamilies)
@@ -2114,8 +2114,8 @@ R_{adjusted}^2 = 1 - \frac{(n-1)(1 - R^2)}{n - p -1}
 전진법을 하려면 독립변수가 하나도 없이 절편만 있는 모형을 만들자.
 이 모형은 결과적으로 종속변수의 평균값으로 종속변수를 예측힌다.
 수식에서 절편을 나타낼 때는 <code>1</code>을 사용한다.</p>
-<div class="sourceCode" id="cb2908"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2908-1"><a href="ch-R-linear-regression.html#cb2908-1" tabindex="-1"></a>minimal_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(childHeight <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data=</span>GaltonFamilies)</span>
-<span id="cb2908-2"><a href="ch-R-linear-regression.html#cb2908-2" tabindex="-1"></a>minimal_model</span></code></pre></div>
+<div class="sourceCode" id="cb2909"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2909-1"><a href="ch-R-linear-regression.html#cb2909-1" tabindex="-1"></a>minimal_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(childHeight <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data=</span>GaltonFamilies)</span>
+<span id="cb2909-2"><a href="ch-R-linear-regression.html#cb2909-2" tabindex="-1"></a>minimal_model</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ 1, data = GaltonFamilies)
@@ -2124,8 +2124,8 @@ Coefficients:
 (Intercept)  
       66.75  </code></pre>
 <p><code>scope</code>의 수식에는 종속변수를 기술하는 좌변은 사용하지 않는다.</p>
-<div class="sourceCode" id="cb2910"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2910-1"><a href="ch-R-linear-regression.html#cb2910-1" tabindex="-1"></a>best_model <span class="ot">&lt;-</span> <span class="fu">step</span>(minimal_model, <span class="at">direction=</span><span class="st">&quot;forward&quot;</span>,</span>
-<span id="cb2910-2"><a href="ch-R-linear-regression.html#cb2910-2" tabindex="-1"></a>                   <span class="at">scope=</span>(<span class="sc">~</span> father <span class="sc">+</span> mother <span class="sc">+</span> children <span class="sc">+</span> gender))</span></code></pre></div>
+<div class="sourceCode" id="cb2911"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2911-1"><a href="ch-R-linear-regression.html#cb2911-1" tabindex="-1"></a>best_model <span class="ot">&lt;-</span> <span class="fu">step</span>(minimal_model, <span class="at">direction=</span><span class="st">&quot;forward&quot;</span>,</span>
+<span id="cb2911-2"><a href="ch-R-linear-regression.html#cb2911-2" tabindex="-1"></a>                   <span class="at">scope=</span>(<span class="sc">~</span> father <span class="sc">+</span> mother <span class="sc">+</span> children <span class="sc">+</span> gender))</span></code></pre></div>
 <pre><code>Start:  AIC=2382.99
 childHeight ~ 1
 
@@ -2165,8 +2165,8 @@ childHeight ~ gender + father + mother + children</code></pre>
 <p><code>step()</code> 함수의 결과를 보면, <code>gender</code>, <code>father</code>, <code>mother</code>, <code>children</code> 순으로 변수가 단계적으로 모형에 추가되었다.
 결론적으로 범위로 선택한 모든 변수가 선택되었다.</p>
 <p>이번에는 교차항을 포함하여 전진법으로 변수 선택을 수행해 보자.</p>
-<div class="sourceCode" id="cb2912"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2912-1"><a href="ch-R-linear-regression.html#cb2912-1" tabindex="-1"></a>best_model <span class="ot">&lt;-</span> <span class="fu">step</span>(minimal_model, <span class="at">direction=</span><span class="st">&quot;forward&quot;</span>,</span>
-<span id="cb2912-2"><a href="ch-R-linear-regression.html#cb2912-2" tabindex="-1"></a>                   <span class="at">scope=</span>(<span class="sc">~</span> (father <span class="sc">+</span> mother <span class="sc">+</span> children <span class="sc">+</span> gender)<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2913"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2913-1"><a href="ch-R-linear-regression.html#cb2913-1" tabindex="-1"></a>best_model <span class="ot">&lt;-</span> <span class="fu">step</span>(minimal_model, <span class="at">direction=</span><span class="st">&quot;forward&quot;</span>,</span>
+<span id="cb2913-2"><a href="ch-R-linear-regression.html#cb2913-2" tabindex="-1"></a>                   <span class="at">scope=</span>(<span class="sc">~</span> (father <span class="sc">+</span> mother <span class="sc">+</span> children <span class="sc">+</span> gender)<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div>
 <pre><code>Start:  AIC=2382.99
 childHeight ~ 1
 
@@ -2217,7 +2217,7 @@ childHeight ~ gender + father + mother + children
 + father:gender    1    3.6761 4340.1 1446.8
 + mother:gender    1    1.2350 4342.5 1447.3</code></pre>
 <p>마지막 단계의 출력을 보면 어떠한 교차항의 추가도 일차항만 있는 모형보다 AIC가 더 작지 않으므로 일차항만의 모형이 최종 모형으로 선택되는 것을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2914"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2914-1"><a href="ch-R-linear-regression.html#cb2914-1" tabindex="-1"></a><span class="fu">summary</span>(best_model)</span></code></pre></div>
+<div class="sourceCode" id="cb2915"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2915-1"><a href="ch-R-linear-regression.html#cb2915-1" tabindex="-1"></a><span class="fu">summary</span>(best_model)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = childHeight ~ gender + father + mother + children, 
@@ -2244,8 +2244,8 @@ F-statistic: 406.8 on 4 and 929 DF,  p-value: &lt; 2.2e-16</code></pre>
 그러므로 이 변수를 모형에 포함시킬지 말지는 분석자가 도메인 지식과 분석의 목적을 고려하여 선택해야 할 것이다.</p>
 <p>다음은 혼합법으로 변수 선택을 한 결과이다.
 혼합법은 어떠한 모형에서도 시작할 수 있으므로 아버지의 키, 어머니의 키, 성별이 들어간 모형에서 시작해 보자.</p>
-<div class="sourceCode" id="cb2916"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2916-1"><a href="ch-R-linear-regression.html#cb2916-1" tabindex="-1"></a>best_model <span class="ot">&lt;-</span> <span class="fu">step</span>(lm_galton_fm, <span class="at">direction=</span><span class="st">&quot;both&quot;</span>,</span>
-<span id="cb2916-2"><a href="ch-R-linear-regression.html#cb2916-2" tabindex="-1"></a>                   <span class="at">scope=</span>(<span class="sc">~</span> (father <span class="sc">+</span> mother <span class="sc">+</span> children <span class="sc">+</span> gender)<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2917"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2917-1"><a href="ch-R-linear-regression.html#cb2917-1" tabindex="-1"></a>best_model <span class="ot">&lt;-</span> <span class="fu">step</span>(lm_galton_fm, <span class="at">direction=</span><span class="st">&quot;both&quot;</span>,</span>
+<span id="cb2917-2"><a href="ch-R-linear-regression.html#cb2917-2" tabindex="-1"></a>                   <span class="at">scope=</span>(<span class="sc">~</span> (father <span class="sc">+</span> mother <span class="sc">+</span> children <span class="sc">+</span> gender)<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div>
 <pre><code>Start:  AIC=1446.61
 childHeight ~ father + mother + gender
 

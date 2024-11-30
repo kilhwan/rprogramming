@@ -816,7 +816,7 @@ Figure 16.1: 가설검정의 절차
 \text{p-value} = P(N \ge 2) = 0.9892578
 \]</span></p>
 <p>실제 가설검정에서 그러한 결과가 나오는지 <code>binom.test()</code> 함수를 사용하여 확인해 보자. 결과에서 p-value로 표시된 값이 앞에서 계산한 확률값에 수렴하는 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb2723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2723-1"><a href="ch-R-hypothesis-tests.html#cb2723-1" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="dv">2</span>, <span class="at">n =</span> <span class="dv">10</span>, <span class="at">p =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2724-1"><a href="ch-R-hypothesis-tests.html#cb2724-1" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="dv">2</span>, <span class="at">n =</span> <span class="dv">10</span>, <span class="at">p =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
 <pre><code>
     Exact binomial test
 
@@ -828,7 +828,7 @@ alternative hypothesis: true probability of success is not equal to 0.5
 sample estimates:
 probability of success 
                    0.2 </code></pre>
-<div class="sourceCode" id="cb2725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2725-1"><a href="ch-R-hypothesis-tests.html#cb2725-1" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="dv">2</span>, <span class="at">n =</span> <span class="dv">10</span>, <span class="at">p =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2726-1"><a href="ch-R-hypothesis-tests.html#cb2726-1" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="dv">2</span>, <span class="at">n =</span> <span class="dv">10</span>, <span class="at">p =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>)</span></code></pre></div>
 <pre><code>
     Exact binomial test
 
@@ -840,7 +840,7 @@ alternative hypothesis: true probability of success is less than 0.5
 sample estimates:
 probability of success 
                    0.2 </code></pre>
-<div class="sourceCode" id="cb2727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2727-1"><a href="ch-R-hypothesis-tests.html#cb2727-1" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="dv">2</span>, <span class="at">n =</span> <span class="dv">10</span>, <span class="at">p =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2728-1"><a href="ch-R-hypothesis-tests.html#cb2728-1" tabindex="-1"></a><span class="fu">binom.test</span>(<span class="dv">2</span>, <span class="at">n =</span> <span class="dv">10</span>, <span class="at">p =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
 <pre><code>
     Exact binomial test
 
@@ -863,11 +863,11 @@ probability of success
 <h3><span class="header-section-number">16.2.1</span> 관절염 치료 임상시험 데이터 분석<a href="ch-R-hypothesis-tests.html#관절염-치료-임상시험-데이터-분석" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>다음 데이터는 Koch and Edwards(1988)가 새로운 관절염 치료법의 효과를 측정한 데이터이다.
 이 데이터는 <code>vcd</code>라는 패키지에 <code>Arthritis</code>라는 이름으로 포함되어 있으므로, 먼저 <code>Arthritis</code> 데이터를 사용하기 위하여 <code>vcd</code> 패키지를 설치하자.</p>
-<div class="sourceCode" id="cb2729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2729-1"><a href="ch-R-hypothesis-tests.html#cb2729-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;vcd&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2730-1"><a href="ch-R-hypothesis-tests.html#cb2730-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;vcd&quot;</span>)</span></code></pre></div>
 <p><code>vcd</code> 패키지가 적재한 후 다음 명령으로 <code>Arthritis</code> 데이터를 살펴보자.</p>
-<div class="sourceCode" id="cb2730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2730-1"><a href="ch-R-hypothesis-tests.html#cb2730-1" tabindex="-1"></a><span class="fu">library</span>(vcd)  </span></code></pre></div>
+<div class="sourceCode" id="cb2731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2731-1"><a href="ch-R-hypothesis-tests.html#cb2731-1" tabindex="-1"></a><span class="fu">library</span>(vcd)  </span></code></pre></div>
 <pre><code>필요한 패키지를 로딩중입니다: grid</code></pre>
-<div class="sourceCode" id="cb2732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2732-1"><a href="ch-R-hypothesis-tests.html#cb2732-1" tabindex="-1"></a>Arthritis</span></code></pre></div>
+<div class="sourceCode" id="cb2733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2733-1"><a href="ch-R-hypothesis-tests.html#cb2733-1" tabindex="-1"></a>Arthritis</span></code></pre></div>
 <pre><code>   ID Treatment    Sex Age Improved
 1  57   Treated   Male  27     Some
 2  46   Treated   Male  29     None
@@ -893,7 +893,7 @@ probability of success
 <li>새로운 치료법의 효과는 성별로 차이가 있는가?</li>
 </ul>
 <p>본격적으로 질문에 답하기에 전에 <code>summary()</code> 함수로 전체 데이터에 대한 통계 요약을 해보자. 아래 결과를 보면, 이 임상시험에서 새로운 치료법을 받은(Treated) 환자와 플라시보(Placebo) 치료를 받은 환자의 수가 거의 비슷하였다. 또한 여자 환자의 수가 남자 환자의 수보다 2배 이상 많았고, 환자의 연령대는 23세부터 74세까지 있었다. 치료(플라시보 치료 포함) 후에 차도가 거의 없었던(None) 환자의 수는 약간(Some) 또는 확실히(Marked) 효과가 있었던 환자를 합친 수와 같았다.</p>
-<div class="sourceCode" id="cb2734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2734-1"><a href="ch-R-hypothesis-tests.html#cb2734-1" tabindex="-1"></a><span class="fu">summary</span>(Arthritis)</span></code></pre></div>
+<div class="sourceCode" id="cb2735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2735-1"><a href="ch-R-hypothesis-tests.html#cb2735-1" tabindex="-1"></a><span class="fu">summary</span>(Arthritis)</span></code></pre></div>
 <pre><code>       ID          Treatment      Sex          Age          Improved 
  Min.   : 1.00   Placebo:43   Female:59   Min.   :23.00   None  :42  
  1st Qu.:21.75   Treated:41   Male  :25   1st Qu.:46.00   Some  :14  
@@ -920,8 +920,8 @@ probability of success
 절대빈도 교차표에서 두 변수의 범주가 교차하는 셀은 두 범주를 모두 만족하는 관측치의 수가 된다.
 다음은 <code>Treatment</code>를 행으로, <code>Improved</code>를 열로 하여 교차표를 생성한 것이다.
 뒤의 가설검정에서 교차표를 사용할 것이므로 변수에 할당하도록 하자.</p>
-<div class="sourceCode" id="cb2737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2737-1"><a href="ch-R-hypothesis-tests.html#cb2737-1" tabindex="-1"></a>tti <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span> Treatment <span class="sc">+</span> Improved, <span class="at">data =</span> Arthritis)</span>
-<span id="cb2737-2"><a href="ch-R-hypothesis-tests.html#cb2737-2" tabindex="-1"></a>tti</span></code></pre></div>
+<div class="sourceCode" id="cb2738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2738-1"><a href="ch-R-hypothesis-tests.html#cb2738-1" tabindex="-1"></a>tti <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span> Treatment <span class="sc">+</span> Improved, <span class="at">data =</span> Arthritis)</span>
+<span id="cb2738-2"><a href="ch-R-hypothesis-tests.html#cb2738-2" tabindex="-1"></a>tti</span></code></pre></div>
 <pre><code>         Improved
 Treatment None Some Marked
   Placebo   29    7      7
@@ -937,7 +937,7 @@ Treatment None Some Marked
 <li><code>margi</code>이 설정되지 않으면 전체 관측도수를 1로 하여 상대 빈도를 구한다.</li>
 </ul>
 <p>우리의 관심은 치료법에 따른 증상 개선의 상대적 비율이므로 다음처럼 행 별 상대 빈도를 구한다.</p>
-<div class="sourceCode" id="cb2740"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2740-1"><a href="ch-R-hypothesis-tests.html#cb2740-1" tabindex="-1"></a><span class="fu">proportions</span>(tti, <span class="at">margin =</span> <span class="dv">1</span>)  </span></code></pre></div>
+<div class="sourceCode" id="cb2741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2741-1"><a href="ch-R-hypothesis-tests.html#cb2741-1" tabindex="-1"></a><span class="fu">proportions</span>(tti, <span class="at">margin =</span> <span class="dv">1</span>)  </span></code></pre></div>
 <pre><code>         Improved
 Treatment      None      Some    Marked
   Placebo 0.6744186 0.1627907 0.1627907
@@ -947,36 +947,36 @@ Treatment      None      Some    Marked
 가설검정 방법에 대해서는 뒤에 자세히 살펴보도록 하고, 치료법과 증상 개선에 대하여 막대그래프로 시각화해 보자.
 치료법을 가로축으로 하여 막대 그래프 그리는데, 증상 개선을 나란한 막대 그래프로 그려 절대 빈도도 살펴보고 막대의 크기가 1로 되게 하여 상대적 빈도로도 그렸다.
 상대적 빈도로 그린 두 막대를 비교해 보면 Marked인 환자의 비율이 Treated에서 더 많았음을 쉽게 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2742-1"><a href="ch-R-hypothesis-tests.html#cb2742-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2742-2"><a href="ch-R-hypothesis-tests.html#cb2742-2" tabindex="-1"></a><span class="fu">ggplot</span>(Arthritis, <span class="fu">aes</span>(<span class="at">x =</span> Treatment, <span class="at">fill =</span> Improved)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2743-1"><a href="ch-R-hypothesis-tests.html#cb2743-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2743-2"><a href="ch-R-hypothesis-tests.html#cb2743-2" tabindex="-1"></a><span class="fu">ggplot</span>(Arthritis, <span class="fu">aes</span>(<span class="at">x =</span> Treatment, <span class="at">fill =</span> Improved)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
 <p><img src="R-hypothesis-tests_files/figure-html/unnamed-chunk-18-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb2743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2743-1"><a href="ch-R-hypothesis-tests.html#cb2743-1" tabindex="-1"></a><span class="fu">ggplot</span>(Arthritis, <span class="fu">aes</span>(<span class="at">x =</span> Treatment, <span class="at">fill =</span> Improved)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;fill&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2744-1"><a href="ch-R-hypothesis-tests.html#cb2744-1" tabindex="-1"></a><span class="fu">ggplot</span>(Arthritis, <span class="fu">aes</span>(<span class="at">x =</span> Treatment, <span class="at">fill =</span> Improved)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;fill&quot;</span>)</span></code></pre></div>
 <p><img src="R-hypothesis-tests_files/figure-html/unnamed-chunk-18-2.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>새로운 치료법이 성별로 차이가 있었는지를 살펴보기 위하여, 새로운 치료법을 처방받은 환자들에 한정하여 성별에 따른 증상 개선의 차이가 있었는지 분석해 보자.
 <code>xtabs()</code> 함수는 <code>subset</code> 인수가 있어서 논리값 벡터를 설정하면 논리값 벡터가 <code>TURE</code> 인 행만 사용하여 빈도표나 교차표를 만든다.
 다음은 <code>Treatment</code>가 Treated인 관측대상만으로 <code>Sex</code>를 행으로, <code>Improved</code>를 열로 교차표를 만드는 예이다.</p>
-<div class="sourceCode" id="cb2744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2744-1"><a href="ch-R-hypothesis-tests.html#cb2744-1" tabindex="-1"></a>tsi_treated <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span> Sex <span class="sc">+</span> Improved, <span class="at">data =</span> Arthritis, </span>
-<span id="cb2744-2"><a href="ch-R-hypothesis-tests.html#cb2744-2" tabindex="-1"></a>                     <span class="at">subset =</span> Treatment <span class="sc">==</span> <span class="st">&quot;Treated&quot;</span>) </span>
-<span id="cb2744-3"><a href="ch-R-hypothesis-tests.html#cb2744-3" tabindex="-1"></a>tsi_treated</span></code></pre></div>
+<div class="sourceCode" id="cb2745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2745-1"><a href="ch-R-hypothesis-tests.html#cb2745-1" tabindex="-1"></a>tsi_treated <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span> Sex <span class="sc">+</span> Improved, <span class="at">data =</span> Arthritis, </span>
+<span id="cb2745-2"><a href="ch-R-hypothesis-tests.html#cb2745-2" tabindex="-1"></a>                     <span class="at">subset =</span> Treatment <span class="sc">==</span> <span class="st">&quot;Treated&quot;</span>) </span>
+<span id="cb2745-3"><a href="ch-R-hypothesis-tests.html#cb2745-3" tabindex="-1"></a>tsi_treated</span></code></pre></div>
 <pre><code>        Improved
 Sex      None Some Marked
   Female    6    5     16
   Male      7    2      5</code></pre>
 <p>성별로 증상 개선의 상대적 빈도를 계산해 보자.</p>
-<div class="sourceCode" id="cb2746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2746-1"><a href="ch-R-hypothesis-tests.html#cb2746-1" tabindex="-1"></a><span class="fu">proportions</span>(tsi_treated, <span class="at">margin =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2747-1"><a href="ch-R-hypothesis-tests.html#cb2747-1" tabindex="-1"></a><span class="fu">proportions</span>(tsi_treated, <span class="at">margin =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>        Improved
 Sex           None      Some    Marked
   Female 0.2222222 0.1851852 0.5925926
   Male   0.5000000 0.1428571 0.3571429</code></pre>
 <p>여성이 남성보다 뚜렷한 증상 개선의 비율이 높은 것을 확인할 수 있다.
 이를 막대그래프로 시각화해 보자. 성별 변수로 가로축으로하여 증상 개선을 나란한 막대 그래프와 상대적 빈도를 나타내는 막대 그래프로 나타내었다. Placebo와 Treated를 나누어 살펴보기 위하여 <code>facet_wrap()</code> 함수를 이용하여 <code>Treatment</code>로 측면 그래프를 그렸다.</p>
-<div class="sourceCode" id="cb2748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2748-1"><a href="ch-R-hypothesis-tests.html#cb2748-1" tabindex="-1"></a><span class="fu">ggplot</span>(Arthritis, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">fill =</span> Improved)) <span class="sc">+</span> </span>
-<span id="cb2748-2"><a href="ch-R-hypothesis-tests.html#cb2748-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
-<span id="cb2748-3"><a href="ch-R-hypothesis-tests.html#cb2748-3" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Treatment)</span></code></pre></div>
-<p><img src="R-hypothesis-tests_files/figure-html/unnamed-chunk-21-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb2749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2749-1"><a href="ch-R-hypothesis-tests.html#cb2749-1" tabindex="-1"></a><span class="fu">ggplot</span>(Arthritis, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">fill =</span> Improved)) <span class="sc">+</span> </span>
-<span id="cb2749-2"><a href="ch-R-hypothesis-tests.html#cb2749-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;fill&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb2749-2"><a href="ch-R-hypothesis-tests.html#cb2749-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
 <span id="cb2749-3"><a href="ch-R-hypothesis-tests.html#cb2749-3" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Treatment)</span></code></pre></div>
+<p><img src="R-hypothesis-tests_files/figure-html/unnamed-chunk-21-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb2750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2750-1"><a href="ch-R-hypothesis-tests.html#cb2750-1" tabindex="-1"></a><span class="fu">ggplot</span>(Arthritis, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">fill =</span> Improved)) <span class="sc">+</span> </span>
+<span id="cb2750-2"><a href="ch-R-hypothesis-tests.html#cb2750-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;fill&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb2750-3"><a href="ch-R-hypothesis-tests.html#cb2750-3" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Treatment)</span></code></pre></div>
 <p><img src="R-hypothesis-tests_files/figure-html/unnamed-chunk-21-2.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>막대 그래프에서 새로운 치료법을 적용하든 플라시보 치료법이든 여성이 남성에 비해 관절염의 증상 개선 효과가 더 좋은 경향을 보인다는 것을 볼 수 있다.</p>
 </div>
@@ -992,8 +992,8 @@ Sex           None      Some    Marked
 </div>
 <p>독립성 검정에는 Pearson이 카이제곱 검정이 주로 사용된다.
 <code>stat</code> 패키지의 <code>chisq.test(절대빈도_교차표)</code> 함수는 카이제곱 검정을 수행한다.</p>
-<div class="sourceCode" id="cb2750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2750-1"><a href="ch-R-hypothesis-tests.html#cb2750-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tti)</span>
-<span id="cb2750-2"><a href="ch-R-hypothesis-tests.html#cb2750-2" tabindex="-1"></a>result</span></code></pre></div>
+<div class="sourceCode" id="cb2751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2751-1"><a href="ch-R-hypothesis-tests.html#cb2751-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tti)</span>
+<span id="cb2751-2"><a href="ch-R-hypothesis-tests.html#cb2751-2" tabindex="-1"></a>result</span></code></pre></div>
 <pre><code>
     Pearson&#39;s Chi-squared test
 
@@ -1051,20 +1051,20 @@ X-squared = 13.055, df = 2, p-value = 0.001463</code></pre>
 Example <a href="ch-R-hypothesis-tests.html#exm:arthritis">16.4</a>의 귀무가설이 맞다면 Treated나 Placebo에 무관하게 증상 개선의 분포는 동일해야 하고, 이는 전체 데이터에서 증상 개선 비율과 유사해야 할 것이다.
 카이제곱 검정 결과의 <code>$expected</code> 요소는 귀무가설 하에 셀 <span class="math inline">\((i, j)\)</span> 의 기대도수 <span class="math inline">\(E[X_{ij}]\)</span>를 제공한다.
 단, <span class="math inline">\(i\)</span>는 행 인덱스, <span class="math inline">\(j\)</span>는 열 인덱스를 의미한다.</p>
-<div class="sourceCode" id="cb2752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2752-1"><a href="ch-R-hypothesis-tests.html#cb2752-1" tabindex="-1"></a>result<span class="sc">$</span>expected</span></code></pre></div>
+<div class="sourceCode" id="cb2753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2753-1"><a href="ch-R-hypothesis-tests.html#cb2753-1" tabindex="-1"></a>result<span class="sc">$</span>expected</span></code></pre></div>
 <pre><code>         Improved
 Treatment None     Some   Marked
   Placebo 21.5 7.166667 14.33333
   Treated 20.5 6.833333 13.66667</code></pre>
 <p>각 셀의 기대도수의 행렬 상대 빈도를 계산해 보면 Treadted와 Placebo 모두 동일한 값이라는 것을 확인할 수 있고, 이는 전체 데이터의 <code>Improved</code>의 상대 빈도와 동일하다.</p>
-<div class="sourceCode" id="cb2754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2754-1"><a href="ch-R-hypothesis-tests.html#cb2754-1" tabindex="-1"></a>result<span class="sc">$</span>expected <span class="sc">%&gt;%</span> <span class="fu">proportions</span>(<span class="at">margin=</span><span class="dv">1</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb2755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2755-1"><a href="ch-R-hypothesis-tests.html#cb2755-1" tabindex="-1"></a>result<span class="sc">$</span>expected <span class="sc">%&gt;%</span> <span class="fu">proportions</span>(<span class="at">margin=</span><span class="dv">1</span>) </span></code></pre></div>
 <pre><code>         Improved
 Treatment None      Some    Marked
   Placebo  0.5 0.1666667 0.3333333
   Treated  0.5 0.1666667 0.3333333</code></pre>
 <p>그러나 실제 관측치는 기대도수와 다르게 발생하였다.
 카이제곱 검정은 <code>$observed</code> 요소는 셀 <span class="math inline">\((i,j)\)</span>의 관측도수 <span class="math inline">\(x_{ij}\)</span>를 제공한다.</p>
-<div class="sourceCode" id="cb2756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2756-1"><a href="ch-R-hypothesis-tests.html#cb2756-1" tabindex="-1"></a>result<span class="sc">$</span>observed</span></code></pre></div>
+<div class="sourceCode" id="cb2757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2757-1"><a href="ch-R-hypothesis-tests.html#cb2757-1" tabindex="-1"></a>result<span class="sc">$</span>observed</span></code></pre></div>
 <pre><code>         Improved
 Treatment None Some Marked
   Placebo   29    7      7
@@ -1074,13 +1074,13 @@ Treatment None Some Marked
 \frac{ x_{ij} - E[x_{ij}] }{ \sqrt{ E[x_{ij}] } }
 \]</span></p>
 <p>그리고 카이제곱 검정 결과의 <code>$residuals</code> 요소는 이 값을 계산한 결과이다.</p>
-<div class="sourceCode" id="cb2758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2758-1"><a href="ch-R-hypothesis-tests.html#cb2758-1" tabindex="-1"></a>result<span class="sc">$</span>residuals</span></code></pre></div>
+<div class="sourceCode" id="cb2759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2759-1"><a href="ch-R-hypothesis-tests.html#cb2759-1" tabindex="-1"></a>result<span class="sc">$</span>residuals</span></code></pre></div>
 <pre><code>         Improved
 Treatment        None        Some      Marked
   Placebo  1.61749160 -0.06225728 -1.93699199
   Treated -1.65647289  0.06375767  1.98367320</code></pre>
 <p>다음은 <code>$residuals</code> 결과가 앞서 소개한 수식의 결과와 같은지를 확인하기 위하여 기대도수와 관측도수를 이용하여 Pearson 잔차를 직접 계산한 결과이다.</p>
-<div class="sourceCode" id="cb2760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2760-1"><a href="ch-R-hypothesis-tests.html#cb2760-1" tabindex="-1"></a>(result<span class="sc">$</span>observed <span class="sc">-</span> result<span class="sc">$</span>expected) <span class="sc">/</span> <span class="fu">sqrt</span>(result<span class="sc">$</span>expected)</span></code></pre></div>
+<div class="sourceCode" id="cb2761"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2761-1"><a href="ch-R-hypothesis-tests.html#cb2761-1" tabindex="-1"></a>(result<span class="sc">$</span>observed <span class="sc">-</span> result<span class="sc">$</span>expected) <span class="sc">/</span> <span class="fu">sqrt</span>(result<span class="sc">$</span>expected)</span></code></pre></div>
 <pre><code>         Improved
 Treatment        None        Some      Marked
   Placebo  1.61749160 -0.06225728 -1.93699199
@@ -1091,24 +1091,24 @@ Treatment        None        Some      Marked
 X^2 = \sum_{i=1}^{R} \sum_{j=1}^{C} \frac{[x_{ij} - E(x_{ij})]^2}{E(x_{ij})} \sim \chi^2_{(R-1)(C-1)}.
 \]</span></p>
 <p>카이제곱 검정은 <code>$statistics</code> 요소는 검정통계량 <span class="math inline">\(X^2\)</span>을 계산한 것이다.</p>
-<div class="sourceCode" id="cb2762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2762-1"><a href="ch-R-hypothesis-tests.html#cb2762-1" tabindex="-1"></a>result<span class="sc">$</span>statistic</span></code></pre></div>
+<div class="sourceCode" id="cb2763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2763-1"><a href="ch-R-hypothesis-tests.html#cb2763-1" tabindex="-1"></a>result<span class="sc">$</span>statistic</span></code></pre></div>
 <pre><code>X-squared 
  13.05502 </code></pre>
 <p>이를 <code>$residuals</code>를 이용하여 직접 계산해도 동일한 결과를 얻는 것을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2764"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2764-1"><a href="ch-R-hypothesis-tests.html#cb2764-1" tabindex="-1"></a><span class="fu">sum</span>(result<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2765"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2765-1"><a href="ch-R-hypothesis-tests.html#cb2765-1" tabindex="-1"></a><span class="fu">sum</span>(result<span class="sc">$</span>residuals<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>[1] 13.05502</code></pre>
 <p>그리고 <code>$p.value</code>는 카이제곱 분포를 따를 때 검정통계량이 얼만큼 예외적인 확률인지에 대한 p-값을 보여준다.
 p-값이 매우 작다는 것은 귀무가설 하에서 매우 예외적인 확률의 사건이 발생한 것이므로 귀무가설을 기각하게 된다.</p>
-<div class="sourceCode" id="cb2766"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2766-1"><a href="ch-R-hypothesis-tests.html#cb2766-1" tabindex="-1"></a>result<span class="sc">$</span>p.value</span></code></pre></div>
+<div class="sourceCode" id="cb2767"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2767-1"><a href="ch-R-hypothesis-tests.html#cb2767-1" tabindex="-1"></a>result<span class="sc">$</span>p.value</span></code></pre></div>
 <pre><code>[1] 0.001462643</code></pre>
 <p>이 값은 실제 카이제곱 분포를 사용하여도 계산할 수 있다.
 관절염 치료법의 교차표는 <span class="math inline">\(R=2\)</span>, <span class="math inline">\(C=3\)</span>이므로 검정통계량의 카이제곱 분포의 자유도는 <span class="math inline">\(2\)</span>이다.
 카이제곱 검정 결과의 <code>$parameter</code>는 검정통계량이 따르는 카이제곱 분포의 자유도 정보를 제공한다.</p>
-<div class="sourceCode" id="cb2768"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2768-1"><a href="ch-R-hypothesis-tests.html#cb2768-1" tabindex="-1"></a>result<span class="sc">$</span>parameter</span></code></pre></div>
+<div class="sourceCode" id="cb2769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2769-1"><a href="ch-R-hypothesis-tests.html#cb2769-1" tabindex="-1"></a>result<span class="sc">$</span>parameter</span></code></pre></div>
 <pre><code>df 
  2 </code></pre>
 <p>그리고 카이제곱 분포에서 검정통계량보다 같거나 큰 오른쪽 꼬리 부분의 확률은 앞의 p-값과 동일하다.</p>
-<div class="sourceCode" id="cb2770"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2770-1"><a href="ch-R-hypothesis-tests.html#cb2770-1" tabindex="-1"></a><span class="fu">pchisq</span>(result<span class="sc">$</span>statistic, <span class="at">df=</span>result<span class="sc">$</span>parameter, <span class="at">lower.tail=</span>F)</span></code></pre></div>
+<div class="sourceCode" id="cb2771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2771-1"><a href="ch-R-hypothesis-tests.html#cb2771-1" tabindex="-1"></a><span class="fu">pchisq</span>(result<span class="sc">$</span>statistic, <span class="at">df=</span>result<span class="sc">$</span>parameter, <span class="at">lower.tail=</span>F)</span></code></pre></div>
 <pre><code>  X-squared 
 0.001462643 </code></pre>
 <p>독립성 검정에서 귀무가설이 기각된 후에는, 과연 어떤 셀이 기대도수에 비해 크게 벗어나서 귀무가설이 기각되었는지를 탐색해 볼 수 있다.
@@ -1118,7 +1118,7 @@ p-값이 매우 작다는 것은 귀무가설 하에서 매우 예외적인 확�
 \]</span></p>
 <p>그러면 표준화된 잔차는 표본이 커지면 근사적으로 표준정규분포를 따르므로 셀들의 관측도수가 기대도수 대비 얼만큼 벗어났는지를 동일한 스케일로 비교할 수 있다.
 카이제곱 검정 결과의 <code>$stres</code> 요소는 각 셀의 표준화된 잔차 정보를 제공한다.</p>
-<div class="sourceCode" id="cb2772"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2772-1"><a href="ch-R-hypothesis-tests.html#cb2772-1" tabindex="-1"></a>result<span class="sc">$</span>stdres</span></code></pre></div>
+<div class="sourceCode" id="cb2773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2773-1"><a href="ch-R-hypothesis-tests.html#cb2773-1" tabindex="-1"></a>result<span class="sc">$</span>stdres</span></code></pre></div>
 <pre><code>         Improved
 Treatment        None        Some      Marked
   Placebo  3.27419655 -0.09761768 -3.39563632
@@ -1130,10 +1130,10 @@ Treatment        None        Some      Marked
 <p><span class="math inline">\(H_1\)</span>: 관절염 치료법은 성별에 따라 증상 개선에 차이가 있다.</p>
 </div>
 <p>첫 번째 질문과 마찬가지로 두 범주형 변수의 독립성에 대한 검정이므로 Pearson이 카이제곱 검정을 사용해 보자.</p>
-<div class="sourceCode" id="cb2774"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2774-1"><a href="ch-R-hypothesis-tests.html#cb2774-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tsi_treated)</span></code></pre></div>
+<div class="sourceCode" id="cb2775"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2775-1"><a href="ch-R-hypothesis-tests.html#cb2775-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tsi_treated)</span></code></pre></div>
 <pre><code>Warning in chisq.test(tsi_treated): 카이제곱 approximation은 정확하지 않을수도
 있습니다</code></pre>
-<div class="sourceCode" id="cb2776"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2776-1"><a href="ch-R-hypothesis-tests.html#cb2776-1" tabindex="-1"></a>result</span></code></pre></div>
+<div class="sourceCode" id="cb2777"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2777-1"><a href="ch-R-hypothesis-tests.html#cb2777-1" tabindex="-1"></a>result</span></code></pre></div>
 <pre><code>
     Pearson&#39;s Chi-squared test
 
@@ -1142,7 +1142,7 @@ X-squared = 3.3382, df = 2, p-value = 0.1884</code></pre>
 <p>검정을 할 때 경고가 출력되는 것을 볼 수 있다.
 카이제곱 검정은 셀의 기대도수가 5 이상이어야 검정통계량이 근사적으로 카이제곱분포를 따르는데, 이 문제에서는 셀의 기대도수가 5가 아닌 셀이 있다는 경고이다.</p>
 <p>귀무가설 하에 각 셀의 기대도수를 출력해 보면, 5 이하인 셀이 세 개나 있는 것을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2778"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2778-1"><a href="ch-R-hypothesis-tests.html#cb2778-1" tabindex="-1"></a>result<span class="sc">$</span>expected</span></code></pre></div>
+<div class="sourceCode" id="cb2779"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2779-1"><a href="ch-R-hypothesis-tests.html#cb2779-1" tabindex="-1"></a>result<span class="sc">$</span>expected</span></code></pre></div>
 <pre><code>        Improved
 Sex          None     Some    Marked
   Female 8.560976 4.609756 13.829268
@@ -1150,7 +1150,7 @@ Sex          None     Some    Marked
 <p>기대도수가 5 미만인 셀이 있으면 초기하분포를 사용하는 Fisher의 Exact Test를 하여 가설검정하는 것이 좋다.
 Fisher의 Exact Tests는 초기하분포를 사용하여 근사가 아니라 정확한 분포를 사용하여 독립성에 대한 가설검정을 수행한다.
 <code>stat</code>의 <code>fisher.test()</code> 함수는 Fisher Test를 수행해 준다.</p>
-<div class="sourceCode" id="cb2780"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2780-1"><a href="ch-R-hypothesis-tests.html#cb2780-1" tabindex="-1"></a><span class="fu">fisher.test</span>(tsi_treated)</span></code></pre></div>
+<div class="sourceCode" id="cb2781"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2781-1"><a href="ch-R-hypothesis-tests.html#cb2781-1" tabindex="-1"></a><span class="fu">fisher.test</span>(tsi_treated)</span></code></pre></div>
 <pre><code>
     Fisher&#39;s Exact Test for Count Data
 
