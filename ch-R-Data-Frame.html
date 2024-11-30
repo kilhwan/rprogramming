@@ -23,7 +23,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2024-11-23" />
+<meta name="date" content="2024-11-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -595,6 +595,25 @@ div.csl-indent {
 <li class="chapter" data-level="16.2.3" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#독립성-검정"><i class="fa fa-check"></i><b>16.2.3</b> 독립성 검정</a></li>
 </ul></li>
 <li class="chapter" data-level="16.3" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#수치형-변수에-대한-가설검정"><i class="fa fa-check"></i><b>16.3</b> 수치형 변수에 대한 가설검정</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html"><i class="fa fa-check"></i><b>17</b> <strong>R</strong> 선형 회귀</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-simple-linear-regression"><i class="fa fa-check"></i><b>17.1</b> 단순 선형 회귀</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-cars"><i class="fa fa-check"></i><b>17.1.1</b> <code>cars</code> 데이터</a></li>
+<li class="chapter" data-level="17.1.2" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-simple-linear-regression-theory"><i class="fa fa-check"></i><b>17.1.2</b> 단순 선형 회귀 모형</a></li>
+<li class="chapter" data-level="17.1.3" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-lm"><i class="fa fa-check"></i><b>17.1.3</b> <code>lm()</code> 함수</a></li>
+<li class="chapter" data-level="17.1.4" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-linear-regression-evaluation"><i class="fa fa-check"></i><b>17.1.4</b> 선형 회귀 모형의 평가</a></li>
+<li class="chapter" data-level="17.1.5" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#모형의-개선"><i class="fa fa-check"></i><b>17.1.5</b> 모형의 개선</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-multiple-linear-regression"><i class="fa fa-check"></i><b>17.2</b> 다중 선형 회귀</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#galtonfamilies-데이터"><i class="fa fa-check"></i><b>17.2.1</b> <code>GaltonFamilies</code> 데이터</a></li>
+<li class="chapter" data-level="17.2.2" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-multiple-linear-regression-theory"><i class="fa fa-check"></i><b>17.2.2</b> 다중 선형 회귀 모형</a></li>
+<li class="chapter" data-level="17.2.3" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#lm을-이용한-다중-선형-회귀"><i class="fa fa-check"></i><b>17.2.3</b> <code>lm()</code>을 이용한 다중 선형 회귀</a></li>
+<li class="chapter" data-level="17.2.4" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-interaction-terms"><i class="fa fa-check"></i><b>17.2.4</b> 교차항의 도입</a></li>
+<li class="chapter" data-level="17.2.5" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-variable-selections"><i class="fa fa-check"></i><b>17.2.5</b> 변수 선택</a></li>
+</ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="ch-RandPython.html"><a href="ch-RandPython.html"><i class="fa fa-check"></i><b>A</b> <strong>R</strong>과 <strong>Python</strong> 연동하기</a>
@@ -1486,7 +1505,7 @@ hw      &quot; 8&quot;     &quot; 9&quot;     &quot; 7&quot;     &quot; 8&quot; 
 <pre><code>[1] &quot;courses2.txt&quot;         &quot;scores_no_header.txt&quot; &quot;scores_rn.txt&quot;       
 [4] &quot;scores.txt&quot;           &quot;students.txt&quot;        </code></pre>
 <p>텍스트 파일을 읽어들이는 예제는 다음 파일을 사용하니 예제를 따라하고자 하는 분들은 내려받기를 하자.</p>
-<a href="data:application/zip;base64,UEsDBBQAAgAIAE8DW1kGxCl30AAAAFkBAAAMAAAAY291cnNlczIudHh0U6pMTSxSUlAqTs1NLS5JBTGTM1NAZF5ibiqILkpNySwpBrIy8kuLipV4uYwUDBWUvAKMjMwNgaKvNu19M6PxbdvWV5tbHrUuUFIwUjBGUmNqBFfzZsHU15u3vOme86ZrydvWOUoKxgomIJVGUNOMMExbCDcNqsbUGKjm9fKON3sa3va0Qk0whtllgjDh1eY9b6fORFdgboJmRbB++JvuJW+6toJUGoNUwiwyB6nc0fFmDlDZVmSjoArMjBH+6p7zet2a1ws63szd8qZ1BlQlAFBLAwQKAAIAAABPA1tZHMQCdCEAAAAhAAAAFAAAAHNjb3Jlc19ub19oZWFkZXIudHh07ISc7Jq4CTI1DQrrjIDsoIQJMzUNCuyynOyViAk0Mg0KUEsDBAoAAgAAAE8DW1leTF8oOwAAADsAAAANAAAAc2NvcmVzX3JuLnR4dCAgICBwcm92CXNjb3Jlcw0KMTAJ7ISc7Jq4CTI1DQoyMAnrjIDsoIQJMzUNCjMwCeyynOyViAk0Mg0KUEsDBAoAAgAAAE8DW1nO8koXMgAAADIAAAAKAAAAc2NvcmVzLnR4dHByb3YgIHNjb3Jlcw0K7ISc7Jq4ICAyNQ0K64yA7KCEICAzNQ0K7LKc7JWIICA0Mg0KUEsDBBQAAgAIACuAd1nvZW+VpgAAANgAAAAMAAAAc3R1ZGVudHMudHh0U8pLzE1VUlBKL0pMAdOpeSmpRUBGbmZKSWpRLpCVlpmXmAOki1JLErNBajLKlbiUXu1seLNpwZuOGUoKhgpKCr5KCuYmCpaGCiFBoa4KFhD5GY1v565RUjBRUHJTUrAwUjA3V3Bz9Al2VbDkUnozdwtMv7GCElC7mbmChQVU3hwiD9VvBNFvqWBuATf+7czeVzt2vO6fCbYeqN3UQMHCDKrd0IALAFBLAQIeAxQAAgAIAE8DW1kGxCl30AAAAFkBAAAMAAAAAAAAAAEAAAD/gQAAAABjb3Vyc2VzMi50eHRQSwECHgMKAAIAAABPA1tZHMQCdCEAAAAhAAAAFAAAAAAAAAABAAAA/4H6AAAAc2NvcmVzX25vX2hlYWRlci50eHRQSwECHgMKAAIAAABPA1tZXkxfKDsAAAA7AAAADQAAAAAAAAABAAAA/4FNAQAAc2NvcmVzX3JuLnR4dFBLAQIeAwoAAgAAAE8DW1nO8koXMgAAADIAAAAKAAAAAAAAAAEAAAD/gbMBAABzY29yZXMudHh0UEsBAh4DFAACAAgAK4B3We9lb5WmAAAA2AAAAAwAAAAAAAAAAQAAAP+BDQIAAHN0dWRlbnRzLnR4dFBLBQYAAAAABQAFACkBAADdAgAAAAA=" download="courses2.zip">텍스트 파일 내려받기</a>
+<a href="data:application/zip;base64,UEsDBBQAAgAIAMqMN0kGxCl30AAAAFkBAAAMAAAAY291cnNlczIudHh0U6pMTSxSUlAqTs1NLS5JBTGTM1NAZF5ibiqILkpNySwpBrIy8kuLipV4uYwUDBWUvAKMjMwNgaKvNu19M6PxbdvWV5tbHrUuUFIwUjBGUmNqBFfzZsHU15u3vOme86ZrydvWOUoKxgomIJVGUNOMMExbCDcNqsbUGKjm9fKON3sa3va0Qk0whtllgjDh1eY9b6fORFdgboJmRbB++JvuJW+6toJUGoNUwiwyB6nc0fFmDlDZVmSjoArMjBH+6p7zet2a1ws63szd8qZ1BlQlAFBLAwQKAAIAAAAkkxtRHMQCdCEAAAAhAAAAFAAAAHNjb3Jlc19ub19oZWFkZXIudHh07ISc7Jq4CTI1DQrrjIDsoIQJMzUNCuyynOyViAk0Mg0KUEsDBAoAAgAAACSTG1FeTF8oOwAAADsAAAANAAAAc2NvcmVzX3JuLnR4dCAgICBwcm92CXNjb3Jlcw0KMTAJ7ISc7Jq4CTI1DQoyMAnrjIDsoIQJMzUNCjMwCeyynOyViAk0Mg0KUEsDBAoAAgAAABSkG1HO8koXMgAAADIAAAAKAAAAc2NvcmVzLnR4dHByb3YgIHNjb3Jlcw0K7ISc7Jq4ICAyNQ0K64yA7KCEICAzNQ0K7LKc7JWIICA0Mg0KUEsDBBQAAgAIAIJ+flnvZW+VpgAAANgAAAAMAAAAc3R1ZGVudHMudHh0U8pLzE1VUlBKL0pMAdOpeSmpRUBGbmZKSWpRLpCVlpmXmAOki1JLErNBajLKlbiUXu1seLNpwZuOGUoKhgpKCr5KCuYmCpaGCiFBoa4KFhD5GY1v565RUjBRUHJTUrAwUjA3V3Bz9Al2VbDkUnozdwtMv7GCElC7mbmChQVU3hwiD9VvBNFvqWBuATf+7czeVzt2vO6fCbYeqN3UQMHCDKrd0IALAFBLAQIeAxQAAgAIAMqMN0kGxCl30AAAAFkBAAAMAAAAAAAAAAEAAAD/gQAAAABjb3Vyc2VzMi50eHRQSwECHgMKAAIAAAAkkxtRHMQCdCEAAAAhAAAAFAAAAAAAAAABAAAA/4H6AAAAc2NvcmVzX25vX2hlYWRlci50eHRQSwECHgMKAAIAAAAkkxtRXkxfKDsAAAA7AAAADQAAAAAAAAABAAAA/4FNAQAAc2NvcmVzX3JuLnR4dFBLAQIeAwoAAgAAABSkG1HO8koXMgAAADIAAAAKAAAAAAAAAAEAAAD/gbMBAABzY29yZXMudHh0UEsBAh4DFAACAAgAgn5+We9lb5WmAAAA2AAAAAwAAAAAAAAAAQAAAP+BDQIAAHN0dWRlbnRzLnR4dFBLBQYAAAAABQAFACkBAADdAgAAAAA=" download="courses2.zip">텍스트 파일 내려받기</a>
 </div>
 <div id="머리-행이-있는-텍스트-데이터-파일-읽기" class="section level4 unnumbered hasAnchor">
 <h4>머리 행이 있는 텍스트 데이터 파일 읽기<a href="ch-R-Data-Frame.html#머리-행이-있는-텍스트-데이터-파일-읽기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1728,14 +1747,12 @@ $row.names
 <p>파일에 데이터가 잘 저장되었고 이를 다시 <code>load()</code> 함수로 <strong>R</strong> 세션에 잘 복원할 수 있는지를 확인하기 위하여, 현재 <strong>R</strong> 세션에 있는, <code>x</code>, <code>y</code>, <code>z</code> 객체를 환경에서 제거해 보자. 다음 명령을 사용하거나 <strong>RStudio</strong>의 Environment 패널에 이 객체를 제거할 수 있다.</p>
 <div class="sourceCode" id="cb1329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1329-1"><a href="ch-R-Data-Frame.html#cb1329-1" tabindex="-1"></a><span class="fu">rm</span>(x, y, z)</span>
 <span id="cb1329-2"><a href="ch-R-Data-Frame.html#cb1329-2" tabindex="-1"></a>x; y; z</span></code></pre></div>
-<pre><code>Error in eval(expr, envir, enclos): 객체 &#39;x&#39;를 찾을 수 없습니다</code></pre>
-<pre><code>Error in eval(expr, envir, enclos): 객체 &#39;y&#39;를 찾을 수 없습니다</code></pre>
-<pre><code>Error in eval(expr, envir, enclos): 객체 &#39;z&#39;를 찾을 수 없습니다</code></pre>
+<pre><code>Error: 객체 &#39;x&#39;를 찾을 수 없습니다</code></pre>
 <p>세 객체가 모두 제거되었기 때문에 객체를 출력하려고 하면 오류가 발생한다.</p>
 <p>다음으로 작업 디렉토리의 <code>xyz.RData</code>를 이용하여 <strong>R</strong> 세션에 복원해 보자.
 이를 위해 다음처럼 데이터 파일이 있는 폴더를 작업 디렉토리로 설정하고 <code>load()</code> 함수를 사용할 수도 있고, 파일 탐색기에서 해당 파일의 컨텍스트 메뉴에서 연결 프로그램을 <strong>RStudio</strong>로 하여 파일을 열어도 된다.</p>
-<div class="sourceCode" id="cb1333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1333-1"><a href="ch-R-Data-Frame.html#cb1333-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;xyz.RData&quot;</span>)</span>
-<span id="cb1333-2"><a href="ch-R-Data-Frame.html#cb1333-2" tabindex="-1"></a>x; y; z</span></code></pre></div>
+<div class="sourceCode" id="cb1331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1331-1"><a href="ch-R-Data-Frame.html#cb1331-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;xyz.RData&quot;</span>)</span>
+<span id="cb1331-2"><a href="ch-R-Data-Frame.html#cb1331-2" tabindex="-1"></a>x; y; z</span></code></pre></div>
 <pre><code>[1] 1 2 3</code></pre>
 <pre><code>     [,1] [,2] [,3]
 [1,]    4    7   10
@@ -1754,7 +1771,7 @@ $row.names
 <div id="변수-검색-경로" class="section level4 unnumbered hasAnchor">
 <h4>변수 검색 경로<a href="ch-R-Data-Frame.html#변수-검색-경로" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><code>$</code> 기호를 이용하는 방법보다 좀 더 간편하게 데이터 프레임의 열에 접근할 수 있는 방법이 있다. attach() 함수를 이용하면 데이터 프레임의 각 열을 변수로 등록할 수 있다. attach() 함수가 실행되면 해당 데이터 프레임의 각 열을 변수로 검색 경로(search path)에 등록한다. 검색 경로란 R이 어떤 변수를 참조할 때 변수에 대한 정보를 검색하는 경로를 의미한다. 현재의 검색 경로를 파악하기 위해서는 search() 함수를 이용하면 된다.</p>
-<div class="sourceCode" id="cb1337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1337-1"><a href="ch-R-Data-Frame.html#cb1337-1" tabindex="-1"></a><span class="fu">search</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1335-1"><a href="ch-R-Data-Frame.html#cb1335-1" tabindex="-1"></a><span class="fu">search</span>()</span></code></pre></div>
 <pre><code>[1] &quot;.GlobalEnv&quot;        &quot;package:stats&quot;     &quot;package:graphics&quot; 
 [4] &quot;package:grDevices&quot; &quot;package:utils&quot;     &quot;package:datasets&quot; 
 [7] &quot;package:methods&quot;   &quot;Autoloads&quot;         &quot;package:base&quot;     </code></pre>
@@ -1763,20 +1780,20 @@ $row.names
 <div id="attach로-데이터-프레임을-검색-경로에-등록하기" class="section level4 unnumbered hasAnchor">
 <h4>attach()로 데이터 프레임을 검색 경로에 등록하기<a href="ch-R-Data-Frame.html#attach로-데이터-프레임을-검색-경로에-등록하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>본격적으로 attach() 함수의 작동을 보기 전에 students 데이터 프레임을 제외하고 다른 데이터 객체를 .GlobalEnv에서 삭제하도록 하겠다. .GlobalEnv 작업공간에 있는 변수를 보기 위해서는 ls() 또는 objects() 함수를 사용한다. rm() 함수를 이용하면 작업공간의 변수를 삭제할 수 있다. 이들 함수의 자세한 사용방법은 도움말을 참조한다.</p>
-<div class="sourceCode" id="cb1339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1339-1"><a href="ch-R-Data-Frame.html#cb1339-1" tabindex="-1"></a>obj <span class="ot">&lt;-</span> <span class="fu">ls</span>()</span>
-<span id="cb1339-2"><a href="ch-R-Data-Frame.html#cb1339-2" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span>obj[<span class="fu">which</span>(obj <span class="sc">!=</span> <span class="st">&quot;students&quot;</span>)])</span>
-<span id="cb1339-3"><a href="ch-R-Data-Frame.html#cb1339-3" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1337-1"><a href="ch-R-Data-Frame.html#cb1337-1" tabindex="-1"></a>obj <span class="ot">&lt;-</span> <span class="fu">ls</span>()</span>
+<span id="cb1337-2"><a href="ch-R-Data-Frame.html#cb1337-2" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span>obj[<span class="fu">which</span>(obj <span class="sc">!=</span> <span class="st">&quot;students&quot;</span>)])</span>
+<span id="cb1337-3"><a href="ch-R-Data-Frame.html#cb1337-3" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
 <pre><code>[1] &quot;obj&quot;      &quot;students&quot;</code></pre>
-<div class="sourceCode" id="cb1341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1341-1"><a href="ch-R-Data-Frame.html#cb1341-1" tabindex="-1"></a><span class="fu">rm</span>(obj)</span>
-<span id="cb1341-2"><a href="ch-R-Data-Frame.html#cb1341-2" tabindex="-1"></a><span class="fu">objects</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1339-1"><a href="ch-R-Data-Frame.html#cb1339-1" tabindex="-1"></a><span class="fu">rm</span>(obj)</span>
+<span id="cb1339-2"><a href="ch-R-Data-Frame.html#cb1339-2" tabindex="-1"></a><span class="fu">objects</span>()</span></code></pre></div>
 <pre><code>[1] &quot;students&quot;</code></pre>
 <p>아래는 attach() 함수를 이용하여 students 데이터 프레임을 검색 경로에 등록한 예이다. 아래 예에서 보듯이 students를 검색 경로에 등록하기 전에는 retake 변수가 검색 경로에 없으므로 찾을 수 없다고 나온다. 그러나 students 데이터 프레임을 검색 경로에 등록하면 데이터 프레임의 열인 retake를 변수처럼 이용할 수 있음을 알 수 있다.</p>
-<div class="sourceCode" id="cb1343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1343-1"><a href="ch-R-Data-Frame.html#cb1343-1" tabindex="-1"></a>retake</span></code></pre></div>
-<pre><code>Error in eval(expr, envir, enclos): 객체 &#39;retake&#39;를 찾을 수 없습니다</code></pre>
-<div class="sourceCode" id="cb1345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1345-1"><a href="ch-R-Data-Frame.html#cb1345-1" tabindex="-1"></a><span class="fu">attach</span>(students)</span>
-<span id="cb1345-2"><a href="ch-R-Data-Frame.html#cb1345-2" tabindex="-1"></a>retake</span></code></pre></div>
+<div class="sourceCode" id="cb1341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1341-1"><a href="ch-R-Data-Frame.html#cb1341-1" tabindex="-1"></a>retake</span></code></pre></div>
+<pre><code>Error: 객체 &#39;retake&#39;를 찾을 수 없습니다</code></pre>
+<div class="sourceCode" id="cb1343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1343-1"><a href="ch-R-Data-Frame.html#cb1343-1" tabindex="-1"></a><span class="fu">attach</span>(students)</span>
+<span id="cb1343-2"><a href="ch-R-Data-Frame.html#cb1343-2" tabindex="-1"></a>retake</span></code></pre></div>
 <pre><code>[1]  TRUE FALSE FALSE  TRUE FALSE</code></pre>
-<div class="sourceCode" id="cb1347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1347-1"><a href="ch-R-Data-Frame.html#cb1347-1" tabindex="-1"></a><span class="fu">search</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1345-1"><a href="ch-R-Data-Frame.html#cb1345-1" tabindex="-1"></a><span class="fu">search</span>()</span></code></pre></div>
 <pre><code> [1] &quot;.GlobalEnv&quot;        &quot;students&quot;          &quot;package:stats&quot;    
  [4] &quot;package:graphics&quot;  &quot;package:grDevices&quot; &quot;package:utils&quot;    
  [7] &quot;package:datasets&quot;  &quot;package:methods&quot;   &quot;Autoloads&quot;        
@@ -1785,23 +1802,23 @@ $row.names
 <div id="attach로-등록된-변수는-데이터-프레임과-독립적인-복사본이다." class="section level4 unnumbered hasAnchor">
 <h4>attach()로 등록된 변수는 데이터 프레임과 독립적인 복사본이다.<a href="ch-R-Data-Frame.html#attach로-등록된-변수는-데이터-프레임과-독립적인-복사본이다." class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>여기서 주의할 점은 attach 된 변수가 변경되더라도 원래 데이터 프레임의 데이터가 변경되지는 않는다는 것이다. attach를 통해 등록된 변수는 데이터 프레임의 데이터가 복사되어 생성되지만 데이터 프레임과는 무관한 별도의 변수처럼 작동한다.</p>
-<div class="sourceCode" id="cb1349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1349-1"><a href="ch-R-Data-Frame.html#cb1349-1" tabindex="-1"></a>retake[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb1349-2"><a href="ch-R-Data-Frame.html#cb1349-2" tabindex="-1"></a>retake</span></code></pre></div>
+<div class="sourceCode" id="cb1347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1347-1"><a href="ch-R-Data-Frame.html#cb1347-1" tabindex="-1"></a>retake[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb1347-2"><a href="ch-R-Data-Frame.html#cb1347-2" tabindex="-1"></a>retake</span></code></pre></div>
 <pre><code>[1]    NA FALSE FALSE  TRUE FALSE</code></pre>
-<div class="sourceCode" id="cb1351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1351-1"><a href="ch-R-Data-Frame.html#cb1351-1" tabindex="-1"></a>students<span class="sc">$</span>retake</span></code></pre></div>
+<div class="sourceCode" id="cb1349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1349-1"><a href="ch-R-Data-Frame.html#cb1349-1" tabindex="-1"></a>students<span class="sc">$</span>retake</span></code></pre></div>
 <pre><code>[1]  TRUE FALSE FALSE  TRUE FALSE</code></pre>
 <p>데이터 프레임의 데이터를 변경하려면 <code>$</code> 기호를 써서 직접 변경하여야 한다. 마찬가지로 원래 데이터 프레임의 데이터가 변경되어도 검색 경로에 추가된 retake 변수의 데이터는 변경되지 않음을 알 수 있다.</p>
-<div class="sourceCode" id="cb1353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1353-1"><a href="ch-R-Data-Frame.html#cb1353-1" tabindex="-1"></a>students<span class="sc">$</span>retake[<span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb1353-2"><a href="ch-R-Data-Frame.html#cb1353-2" tabindex="-1"></a>students<span class="sc">$</span>retake</span></code></pre></div>
+<div class="sourceCode" id="cb1351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1351-1"><a href="ch-R-Data-Frame.html#cb1351-1" tabindex="-1"></a>students<span class="sc">$</span>retake[<span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb1351-2"><a href="ch-R-Data-Frame.html#cb1351-2" tabindex="-1"></a>students<span class="sc">$</span>retake</span></code></pre></div>
 <pre><code>[1]  TRUE FALSE FALSE  TRUE    NA</code></pre>
-<div class="sourceCode" id="cb1355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1355-1"><a href="ch-R-Data-Frame.html#cb1355-1" tabindex="-1"></a>retake</span></code></pre></div>
+<div class="sourceCode" id="cb1353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1353-1"><a href="ch-R-Data-Frame.html#cb1353-1" tabindex="-1"></a>retake</span></code></pre></div>
 <pre><code>[1]    NA FALSE FALSE  TRUE FALSE</code></pre>
 </div>
 <div id="detach" class="section level4 unnumbered hasAnchor">
 <h4>detach()<a href="ch-R-Data-Frame.html#detach" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>데이터 프레임을 검색 경로에서 제거하려면 detach() 함수를 이용한다.</p>
-<div class="sourceCode" id="cb1357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1357-1"><a href="ch-R-Data-Frame.html#cb1357-1" tabindex="-1"></a><span class="fu">detach</span>(students)</span>
-<span id="cb1357-2"><a href="ch-R-Data-Frame.html#cb1357-2" tabindex="-1"></a><span class="fu">search</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1355-1"><a href="ch-R-Data-Frame.html#cb1355-1" tabindex="-1"></a><span class="fu">detach</span>(students)</span>
+<span id="cb1355-2"><a href="ch-R-Data-Frame.html#cb1355-2" tabindex="-1"></a><span class="fu">search</span>()</span></code></pre></div>
 <pre><code>[1] &quot;.GlobalEnv&quot;        &quot;package:stats&quot;     &quot;package:graphics&quot; 
 [4] &quot;package:grDevices&quot; &quot;package:utils&quot;     &quot;package:datasets&quot; 
 [7] &quot;package:methods&quot;   &quot;Autoloads&quot;         &quot;package:base&quot;     </code></pre>

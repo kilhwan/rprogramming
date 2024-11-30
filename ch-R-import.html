@@ -23,7 +23,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2024-11-23" />
+<meta name="date" content="2024-11-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -596,6 +596,25 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="16.3" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#수치형-변수에-대한-가설검정"><i class="fa fa-check"></i><b>16.3</b> 수치형 변수에 대한 가설검정</a></li>
 </ul></li>
+<li class="chapter" data-level="17" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html"><i class="fa fa-check"></i><b>17</b> <strong>R</strong> 선형 회귀</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-simple-linear-regression"><i class="fa fa-check"></i><b>17.1</b> 단순 선형 회귀</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-cars"><i class="fa fa-check"></i><b>17.1.1</b> <code>cars</code> 데이터</a></li>
+<li class="chapter" data-level="17.1.2" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-simple-linear-regression-theory"><i class="fa fa-check"></i><b>17.1.2</b> 단순 선형 회귀 모형</a></li>
+<li class="chapter" data-level="17.1.3" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-lm"><i class="fa fa-check"></i><b>17.1.3</b> <code>lm()</code> 함수</a></li>
+<li class="chapter" data-level="17.1.4" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-linear-regression-evaluation"><i class="fa fa-check"></i><b>17.1.4</b> 선형 회귀 모형의 평가</a></li>
+<li class="chapter" data-level="17.1.5" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#모형의-개선"><i class="fa fa-check"></i><b>17.1.5</b> 모형의 개선</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-multiple-linear-regression"><i class="fa fa-check"></i><b>17.2</b> 다중 선형 회귀</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#galtonfamilies-데이터"><i class="fa fa-check"></i><b>17.2.1</b> <code>GaltonFamilies</code> 데이터</a></li>
+<li class="chapter" data-level="17.2.2" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-multiple-linear-regression-theory"><i class="fa fa-check"></i><b>17.2.2</b> 다중 선형 회귀 모형</a></li>
+<li class="chapter" data-level="17.2.3" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#lm을-이용한-다중-선형-회귀"><i class="fa fa-check"></i><b>17.2.3</b> <code>lm()</code>을 이용한 다중 선형 회귀</a></li>
+<li class="chapter" data-level="17.2.4" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-interaction-terms"><i class="fa fa-check"></i><b>17.2.4</b> 교차항의 도입</a></li>
+<li class="chapter" data-level="17.2.5" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-variable-selections"><i class="fa fa-check"></i><b>17.2.5</b> 변수 선택</a></li>
+</ul></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="ch-RandPython.html"><a href="ch-RandPython.html"><i class="fa fa-check"></i><b>A</b> <strong>R</strong>과 <strong>Python</strong> 연동하기</a>
 <ul>
@@ -652,7 +671,7 @@ div.csl-indent {
 <li>웹 스크래핑 (web scrapping): 웹 사이트에서 데이터 가져오기</li>
 <li>공개 API에서 데이터 가져오기</li>
 </ul>
-<div class="sourceCode" id="cb2286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2286-1"><a href="ch-R-import.html#cb2286-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb2284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2284-1"><a href="ch-R-import.html#cb2284-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <div id="sec-read-csv" class="section level2 hasAnchor" number="12.1">
 <h2><span class="header-section-number">12.1</span> 텍스트 파일에서 데이터 읽기<a href="ch-R-import.html#sec-read-csv" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>R</strong>의 기본 기능을 사용하여 텍스트 파일을 읽고 쓰는 방법에 대해서는 <a href="ch-R-Data-Frame.html#sec-read-file">6.6</a>과 <a href="ch-R-Data-Frame.html#sec-write-file">6.7</a> 절에서 설명을 하였다.
@@ -666,25 +685,26 @@ div.csl-indent {
 <h4>CSV 파일<a href="ch-R-import.html#csv-파일-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>CSV 파일은 데이터의 각 필드가 쉼표로 분리되어 있는 파일이다. 대부분의 통계 패키지뿐 아니라 다수의 SW에서 지원하는 파일 형식이다. Excel 등의 스프레드시트 파일도 CSV 파일로 저장할 수 있다. Excel의 버전에 따라 저장방식이 조금 차이가 있을 수 있으나, 대부분 ’다른 이름으로 저장’에서 파일 형식을 CSV 형식으로 지정해 주면 된다.</p>
 <p>CSV 파일을 읽어들이는 예제는 다음 파일을 사용하니 예제를 따라하고자 하는 독자는 내려받도록 하자.</p>
-<a href="data:application/zip;base64,UEsDBBQAAgAIAEKAd1kX2EaYxwAAAE8BAAAQAAAAc3R1ZGVudHNfYWxsLmNzdm2POw6CQBRFe9dyY/jJzJQWUGnjZwFERiUKBaC22tkYKxMoSFyAhTEWuiWFPTjohESxedXJOe+OvTlH4Pgck9BxxeWBy0P4nhvz0MfYC5w5Qh47M47pqhHFC5cHcdQcRUs87uv8csy3CVR0QQwwFYPe0AKtc8mmyE4wYINqIAR2u9O3wL7BPLtKoS6EJgGlEiR18GPUSiMDoX/LRbp73G7Pffr+sKWAmlKoKhWpfZ48H2RbK8cIVJUo/SGFVMZ1EWdiDqvmvABQSwMEFAACAAgATwNbWd7cG4+eAAAAyQAAABIAAABzdHVkZW50cy1jcDk0OS5jc3ZTykvMTVXSUUovSkwB06l5KalFQEZuZkpJalEukJWWmZeYA6SLUksSs0FqMsqVuJQ2vji8bc83JR1DHSUFXyUdcxMdS0OdkKBQVx0LkOT+rSc+KumY6Ci5KelYGOmYm+u4OfoEu+pYcikdOAPRaayjBNRoZq5jYQGVNAdJQnQaQXRa6phbwE09sXrjs637wVYCNZoa6FiYQTUaGnABAFBLAwQUAAIACABPA1tZ34xqGlIBAADVAQAAGgAAAHN0dWRlbnRzLXdpdGgtY29tbWVudHMuY3N2PZDPTsJAEIfvfYrJcp0YQKTl6AFOevHPAzShClE4NCRcK9SEKEaMFkpCTQ9Vo+kBLTE14Ym623dwuq2edvKbfL/5siUQ3gbS6VR4W+FZIOYbPg8gibb84114NoiJm6yd1HH5zROkzlKMPf4YiMUM+NRKnRUI3+HRhlr4bbCjlKCv9wzZRMmrjXBu6m2jgPl1Fhj9tmFmibA/eUQJUb1ue2CYPboLZ92+fikbgodkbWdREq/52yyJfDEK6eCMpIgxjYF+IavFc5h7gliE/NtC6Axlw2Qp/FVB8Jct8JGbji0+iqUsy1wZMqmYvdKMhsKGJilDb36Lhs6QKSz5scSXT50MK8jgkKFaw0YFT45Om6jle/cq9UKGNWQthloVVRVb+wfHTWwojP7mj99FRnhdRU0r9mq+L/hqzjdQ1f7r0+VdEsf8finPE75XRq1e4JWy8gtQSwMEFAACAAgATwNbWVrI3kR6AQAAFAIAABsAAABzdHVkZW50cy13aXRoLWNvbW1lbnRzMi5jc3ZNkc9Kw0AQxu99imF7HcRqNenRg5704p8HKDRq0fZQBK+xjVC0xYpGGzBSsSpKD9EWidAnysy+g5NNBPeyw8d+3/djtggczkD3ehzOOXSB72Z0N4ZkOqePdw494O4wiXztD+niFrQfcCekmzHfD4B6rvYfgEc+TWeSQpfjhUIRmtWGY5JEefUQDlrVmpOb6TwVnGbNaaUKe580FUVcjXrtxGk1pBf2683qsUkYXyeRl0pJHNHbIJmOuD2RwoFAiaflnFSPTDQ/TjJO4PsJfbsIh6cmoRvw6CF30MscqD3UHZfasYFVKatCZRDT25DJkNPIZGDkzrpkODxVBZX8uPw1kkyFJVSwpdAqY6WEu9t762iDnOzN8EyHE4VlVBsK7SW0LNxY29xZx0r6pgjUj2RN2otABz6HMXDg0XOvoET9K1hGJfmrFtp2brYg3Rh/3yaRC3TzSU9h/jOZMW9dyloraNn/wIRMB/0kjukqMPQSvrKI9moeXlos/AJQSwMEFAACAAgATwNbWYbBccOjAAAA1QAAABoAAABzdHVkZW50cy13aXRoLXByb2JsZW1zLmNzdlPKS8xNVdJRSi9KTAHTqXkpqUVARm5mSklqUS6QlZaZl5gDpItSSxKzQWoyypW4lF7tbHizacGbjhlKOoY6Sgq+SjrmJjqWhjohQaGuOhYQ+RmNb+euUdIx0VFyU9KxMNIxN9dxc/QJdtWx5FJ6M3cLTL+xjhJQu46FBVTWHCIL1W0E0W2pows3++3M3lc7drzunwm2G6jX1EDHwgyq29CACwBQSwMEFAACAAgATwNbWYEBL/ymAAAA2AAAAAwAAABzdHVkZW50cy5jc3ZTykvMTVXSUUovSkwB06l5KalFQEZuZkpJalEukJWWmZeYA6SLUksSs0FqMsqVuJRe7Wx4s2nBm44ZSjqGOkoKvko65iY6loY6IUGhrjoWEPkZjW/nrlHSMdFRclPSsTDSMTfXcXP0CXbVseRSejN3C0y/sY4SULuZuY6FBVTeHCIP1W8E0W+pY24BN/7tzN5XO3a87p8Jth6o3dRAx8IMqt3QgAsAUEsDBBQAAgAIAE8DW1moeVyAbgAAAHkAAAANAAAAc3R1ZGVudHMyLmNzdlPKS8xNVdJRSi9KTAHTqXkpqUVARm5mSklqUS6QlZaZl5gDpItSSxKzQWoyypW4lF5tmPpm04I3HTOUdIx0lBR8lXTMDXQsDHXcHH2CXXUsuJTezux9M6Px7dw1SjrGOkpuSjqWRjrmllB5Sy4AUEsDBBQAAgAIAE8DW1k+bkfj2AQAAOQIAAARAAAAc3VpY2lkZV9yYXRlcy5jc3ZNVk1v3DYUvAfIf9CpaAFisfralY6URGtpSaRAkXa0N7dd9OI6gJMc+u87Q66bXhLs6PHxzbx5j+6//nj7/v6P2G8v72J5eb19Ew+3v/n/509y7qTRUpSiOpxFeSgBGa/HIDNphqyTrguDFG0tjuKIb25U+GykaEReHE6C8W5RTNGI4gD0kAMKm3dyBnhiWIPEpzsKrBVFCewcI6/KdVI/SiPOIhdHFtDJi1zkJmokawGdIuSkNkhXIVdNAMcGuwE5H0qW1qlZurAhTdWASnNoIjbqsCBT0bC2lF7N+qpQ7gn1Hw9nIHYDgUj4otxVjfaJFNtcFDiRVOmcvOpZsOyzKPA7zKN0kXbO3KcDwF4aCbUqkbOo+lABuuhZkVtzKKBxEREjs1+32+vtj++3P7P3H+8vr9kv2Y/331/espf328u330TbirwUeUUW9wOXr29/ZRP/2aRDhMhbMkL9vZ3t0qGWM6prWV1vNy8zp3uqjaCCUgJ2VvrUgQaBZyrZhy6SaFEvf+4rVSRP0IjZr6q/ZE6toZt1n7rXggrIDcos0k3sMnJBA2J20QYXm59HalHGRiKZ6gPa5lJVdfKFGvfVCwbkbKSaQXB+imHRZe09bPM2+ayEJ9j2z58etJnRNhbFjACcND31LqpoAjAalXVjJA3HJUqjcos0e6q7FUg+OqVwriUUf8VGNsn1mAavFjkTqHF1yhF2dBvxJVtF5hepvcYkxTMXa4bg4OLzPcklGBhmxxXVkeRxqe5VrB4sTxADSbUZYqXo/Zmt16BDH9KGR86LdupOOGcPeGRzUs1sPeoCXe3lvPPHkfP4+dMjZin64JiyEFmZVZQn+qKkJx+tG4ChVEAImeRVThd4iFhVipb8pvAMhrz60CYNpt2N+zWGtTRrnjo1S/8UaYBpw/Sz9pcQ9wwEzlEF+CPhHL6opbPBjUkCHkc0lB70k+ICgGdYDhCfxG/ZnkUGB6mjTfM8Lh2Ye1FfdG/p3CSEUR7TTLW2qCjS1wl/zq5KRhnjXH7gUMlJ9Bo9hZ9IxFj3LNmyOM8nRkE6CIpb2nTrms7ssbqcs7cqF2INsdYV86/XVRvwaUukrZN0q723vsDUoJMMtc6HUc5MTZtBoTUo5y0H2XIdQh7e8DFYmX3IJusUZS1bTn7BPP//vNh5sE/3oSFRsHJ2ufeiyNM2xcRvGhP7oAblsCEsN23NoW35ecPq9dmkvd/ikjTqSW//vQnp6xx6pKzBpP0JYo32eC/iITQjS3MVtaBcVZJwkzbzdlExbHU4o1fsZ3Qe3+HgDU/Ex9LK45Rvau8vap5jnuZ+o8Z8QUKV3hxOO2TeZrCfYmUQh7u8SqBKCpQVhI7u3mzwl0w+xKXJ9lUimnRb+fBEo7X3405naN4UX4iKCeBd1glXwhyKd6UVSfAZmpr0SpxFinvW/pqcmRZVTM7Eu2MX4Kju5/Js6o+h9PJRTzpOG4zGdnMFeqydmAqzXKBAXOAfdpctsleDTW87ukg34fU1epBD6oft5Gg/VmA6F9zEtzwNdEO/NckgYeLzy/1Ynvl0AzHaqwGmMCM2ftrnLf8cuH9ADq82WhCKRE1r3oTXOeZzIQ5NBftDFB67dupOrqYqxNAkdQ1YeABqbg1uh6teOtk9Ky40rlF8AfovUEsBAh4DFAACAAgAQoB3WRfYRpjHAAAATwEAABAAAAAAAAAAAQAAAP+BAAAAAHN0dWRlbnRzX2FsbC5jc3ZQSwECHgMUAAIACABPA1tZ3twbj54AAADJAAAAEgAAAAAAAAABAAAA/4H1AAAAc3R1ZGVudHMtY3A5NDkuY3N2UEsBAh4DFAACAAgATwNbWd+MahpSAQAA1QEAABoAAAAAAAAAAQAAAP+BwwEAAHN0dWRlbnRzLXdpdGgtY29tbWVudHMuY3N2UEsBAh4DFAACAAgATwNbWVrI3kR6AQAAFAIAABsAAAAAAAAAAQAAAP+BTQMAAHN0dWRlbnRzLXdpdGgtY29tbWVudHMyLmNzdlBLAQIeAxQAAgAIAE8DW1mGwXHDowAAANUAAAAaAAAAAAAAAAEAAAD/gQAFAABzdHVkZW50cy13aXRoLXByb2JsZW1zLmNzdlBLAQIeAxQAAgAIAE8DW1mBAS/8pgAAANgAAAAMAAAAAAAAAAEAAAD/gdsFAABzdHVkZW50cy5jc3ZQSwECHgMUAAIACABPA1tZqHlcgG4AAAB5AAAADQAAAAAAAAABAAAA/4GrBgAAc3R1ZGVudHMyLmNzdlBLAQIeAxQAAgAIAE8DW1k+bkfj2AQAAOQIAAARAAAAAAAAAAEAAAD/gUQHAABzdWljaWRlX3JhdGVzLmNzdlBLBQYAAAAACAAIAAsCAABLDAAAAAA=" download="students_all.zip">텍스트 파일 내려받기</a>
+<a href="data:application/zip;base64,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" download="hw.zip">텍스트 파일 내려받기</a>
 </div>
 <div id="작업-디렉토리-설정-1" class="section level4 unnumbered hasAnchor">
 <h4>작업 디렉토리 설정<a href="ch-R-import.html#작업-디렉토리-설정-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>파일을 불러오기 전에 주의할 점은 파일의 이름만으로 파일을 읽어오고 싶으면 현재의 작업 디렉토리(폴더)에 파일이 있어야 한다는 것이다. 그렇지 않은 경우에는 파일의 절대 경로를 모두 써 주어야만 읽어올 수 있다.</p>
 <p>R 윈도우 버전에서 작업 디렉터리의 변경은 [파일]-[작업디렉토리변경] 메뉴를 이용하면 된다. RStudio에서는 [Session]-[Set Working Directory]-[Choose Directory] 메뉴를 이용하면 된다. 현재의 작업 디렉터리가 어디인지를 알기 위해서는 getwd() 명령을 이용하면 된다. 현재 작업 디렉터리의 파일을 보고 싶으면 list.files() 명령을 이용한다.</p>
 <p>R 명령으로 작업 디렉터리를 변경하려면 setwd()를 이용한다. 다음은 getwd()로 현재 작업 디렉토리를 얻은 후 setwd()로 data라는 하위 디렉토리(폴더)로 작업 디렉토리를 변경하고, 그 안에 있는 파일이름에 <code>csv</code> 확장자가 있는 파일 목록을 확인하는 예이다.</p>
-<div class="sourceCode" id="cb2287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2287-1"><a href="ch-R-import.html#cb2287-1" tabindex="-1"></a>WD <span class="ot">&lt;-</span> <span class="fu">getwd</span>()</span>
-<span id="cb2287-2"><a href="ch-R-import.html#cb2287-2" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">file.path</span>(WD, <span class="st">&quot;data/import&quot;</span>))</span>
-<span id="cb2287-3"><a href="ch-R-import.html#cb2287-3" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;csv&quot;</span>)</span></code></pre></div>
-<pre><code>[1] &quot;students_all.csv&quot;            &quot;students-cp949.csv&quot;         
-[3] &quot;students-with-comments.csv&quot;  &quot;students-with-comments2.csv&quot;
-[5] &quot;students-with-problems.csv&quot;  &quot;students.csv&quot;               
-[7] &quot;students2.csv&quot;               &quot;suicide_rates.csv&quot;          </code></pre>
+<div class="sourceCode" id="cb2285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2285-1"><a href="ch-R-import.html#cb2285-1" tabindex="-1"></a>WD <span class="ot">&lt;-</span> <span class="fu">getwd</span>()</span>
+<span id="cb2285-2"><a href="ch-R-import.html#cb2285-2" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">file.path</span>(WD, <span class="st">&quot;data/import&quot;</span>))</span>
+<span id="cb2285-3"><a href="ch-R-import.html#cb2285-3" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;csv&quot;</span>)</span></code></pre></div>
+<pre><code> [1] &quot;hw.csv&quot;                      &quot;song.chart.csv&quot;             
+ [3] &quot;students_all.csv&quot;            &quot;students-cp949.csv&quot;         
+ [5] &quot;students-with-comments.csv&quot;  &quot;students-with-comments2.csv&quot;
+ [7] &quot;students-with-problems.csv&quot;  &quot;students.csv&quot;               
+ [9] &quot;students2.csv&quot;               &quot;suicide_rates.csv&quot;          </code></pre>
 </div>
 <div id="read_csv" class="section level4 unnumbered hasAnchor">
 <h4>read_csv()<a href="ch-R-import.html#read_csv" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>다음은 <code>suicide_rates.csv</code>이라는 파일에 저장된 데이터를 읽어서 <code>sr</code>이라는 변수에 할당하는 예이다.</p>
-<div class="sourceCode" id="cb2289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2289-1"><a href="ch-R-import.html#cb2289-1" tabindex="-1"></a>sr <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;suicide_rates.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2287-1"><a href="ch-R-import.html#cb2287-1" tabindex="-1"></a>sr <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;suicide_rates.csv&quot;</span>)</span></code></pre></div>
 <pre><code>Rows: 105 Columns: 4
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
@@ -704,18 +724,18 @@ dbl (3): Year, Males, Females
 <li><code>read_csv()</code>의 <code>show_col_types=FALSE</code>로 설정하면 출력은 생략된다.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb2291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2291-1"><a href="ch-R-import.html#cb2291-1" tabindex="-1"></a><span class="fu">spec</span>(sr)</span></code></pre></div>
+<div class="sourceCode" id="cb2289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2289-1"><a href="ch-R-import.html#cb2289-1" tabindex="-1"></a><span class="fu">spec</span>(sr)</span></code></pre></div>
 <pre><code>cols(
   Country = col_character(),
   Year = col_double(),
   Males = col_double(),
   Females = col_double()
 )</code></pre>
-<div class="sourceCode" id="cb2293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2293-1"><a href="ch-R-import.html#cb2293-1" tabindex="-1"></a>sr <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;suicide_rates.csv&quot;</span>, <span class="at">show_col_types =</span>F)</span></code></pre></div>
+<div class="sourceCode" id="cb2291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2291-1"><a href="ch-R-import.html#cb2291-1" tabindex="-1"></a>sr <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;suicide_rates.csv&quot;</span>, <span class="at">show_col_types =</span>F)</span></code></pre></div>
 <p><code>sr</code> 변수를 출력해 보면 읽어들인 데이터를 확인할 수 있다.
 <code>suicide_rates.csv</code>는 총 105개 국(Country)의 남여 자살률(Males, Females)과 조사년도(Year)에 대한 데이터이다.
 <code>read_csv()</code>는 tibble` 형식으로 데이터를 반환하므로 처음 10 개 행만 출력하고, 열도 사용자의 콘솔의 폭이 충분하지 않으면 처음 몇 개의 열만 출력할 수 있다.</p>
-<div class="sourceCode" id="cb2294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2294-1"><a href="ch-R-import.html#cb2294-1" tabindex="-1"></a>sr</span></code></pre></div>
+<div class="sourceCode" id="cb2292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2292-1"><a href="ch-R-import.html#cb2292-1" tabindex="-1"></a>sr</span></code></pre></div>
 <pre><code># A tibble: 105 × 4
    Country              Year Males Females
    &lt;chr&gt;               &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
@@ -731,10 +751,10 @@ dbl (3): Year, Males, Females
 10 BARBADOS                6   7.3     0  
 # ℹ 95 more rows</code></pre>
 <p>읽어들인 각 국의 성별 자살률 데이터를 시각화해 보자.</p>
-<div class="sourceCode" id="cb2296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2296-1"><a href="ch-R-import.html#cb2296-1" tabindex="-1"></a><span class="fu">ggplot</span>(sr) <span class="sc">+</span></span>
-<span id="cb2296-2"><a href="ch-R-import.html#cb2296-2" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(Males, Females, <span class="at">label=</span>Country), </span>
-<span id="cb2296-3"><a href="ch-R-import.html#cb2296-3" tabindex="-1"></a>            <span class="at">size=</span><span class="dv">2</span>, <span class="at">check_overlap =</span> T) <span class="sc">+</span></span>
-<span id="cb2296-4"><a href="ch-R-import.html#cb2296-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2294-1"><a href="ch-R-import.html#cb2294-1" tabindex="-1"></a><span class="fu">ggplot</span>(sr) <span class="sc">+</span></span>
+<span id="cb2294-2"><a href="ch-R-import.html#cb2294-2" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(Males, Females, <span class="at">label=</span>Country), </span>
+<span id="cb2294-3"><a href="ch-R-import.html#cb2294-3" tabindex="-1"></a>            <span class="at">size=</span><span class="dv">2</span>, <span class="at">check_overlap =</span> T) <span class="sc">+</span></span>
+<span id="cb2294-4"><a href="ch-R-import.html#cb2294-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <p><img src="R-import_files/figure-html/unnamed-chunk-9-1.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="한글-파일-인코딩" class="section level4 unnumbered hasAnchor">
@@ -744,7 +764,7 @@ dbl (3): Year, Males, Females
 이러한 현상이 발생하는 이유는, 윈도우즈는 CP949라는 인코딩 방식으로 한글을 처리하기 때문이다.</p>
 <p><img src="img/file-encoding-excel.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>이번엔 이 두 파일을 <strong>R</strong>로 읽어들여 보자.</p>
-<div class="sourceCode" id="cb2297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2297-1"><a href="ch-R-import.html#cb2297-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2295-1"><a href="ch-R-import.html#cb2295-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students.csv&quot;</span>)</span></code></pre></div>
 <pre><code>Rows: 5 Columns: 7
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
@@ -762,7 +782,7 @@ lgl (1): retake
 3 이철수     3 M           67    88 FALSE      7
 4 이영희     2 F           89    78 TRUE       8
 5 홍길동     1 M           50    86 FALSE     10</code></pre>
-<div class="sourceCode" id="cb2300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2300-1"><a href="ch-R-import.html#cb2300-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students-cp949.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2298-1"><a href="ch-R-import.html#cb2298-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students-cp949.csv&quot;</span>)</span></code></pre></div>
 <pre><code>Rows: 5 Columns: 7
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
@@ -787,7 +807,7 @@ Windows를 제외하고 Mac, Linux, 그리고 많은 웹 문서들은 UTF-8을 �
 <p>그러면 윈도우즈의 Excel에서 데이터를 CSV 파일로 저장하면 CP949로 인코딩되는데 <strong>R</strong>에서는 이 CSV 파일을 어떻게 읽어와야 할까?
 가장 쉬운 방법은 Excel 파일의 데이터를 CSV 파일로 저장하지 않고 Excel 파일 그 자체로 읽어들이는 것이다. 이에 대해서는 <a href="ch-R-import.html#sec-read-excel">12.2.1</a>에서 설명한다.
 다른 한 방법은 <code>read_csv()</code>의 <code>locale</code> 인수에 인코딩을 CP949로 지정하는 것이다.</p>
-<div class="sourceCode" id="cb2303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2303-1"><a href="ch-R-import.html#cb2303-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students-cp949.csv&quot;</span>, <span class="at">locale=</span><span class="fu">locale</span>(<span class="at">encoding=</span><span class="st">&quot;CP949&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2301-1"><a href="ch-R-import.html#cb2301-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students-cp949.csv&quot;</span>, <span class="at">locale=</span><span class="fu">locale</span>(<span class="at">encoding=</span><span class="st">&quot;CP949&quot;</span>))</span></code></pre></div>
 <pre><code>Rows: 5 Columns: 7
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
@@ -810,7 +830,7 @@ lgl (1): retake
 <div id="파일의-주석문-생략하기" class="section level4 unnumbered hasAnchor">
 <h4>파일의 주석문 생략하기<a href="ch-R-import.html#파일의-주석문-생략하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><code>students-with-comments.csv</code> 파일을 <code>read_csv()</code> 파일로 읽어보자.</p>
-<div class="sourceCode" id="cb2306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2306-1"><a href="ch-R-import.html#cb2306-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students-with-comments.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2304-1"><a href="ch-R-import.html#cb2304-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students-with-comments.csv&quot;</span>)</span></code></pre></div>
 <pre><code>Warning: One or more parsing issues, call `problems()` on your data frame for details,
 e.g.:
   dat &lt;- vroom(...)
@@ -840,7 +860,7 @@ chr (1): # 이 파일은 어떤 과목을 수강하는 학생들에 대한 정�
 이러한 현상이 발생한 이유는, 파일의 첫 줄에 쉼표(<code>,</code>)나 Tab이 사용되지 않았기 때문에 이 데이터는 오직 하나의 열로 구성된 데이터로 파악했기 때문이다.
 그러므로 열의 자료형도 문자와 숫자를 모두 저장할 수 있는 문자열로 추정되었다.</p>
 <p>파일의 앞부분에 주석문이 있는 경우에는 <code>skip</code> 인수를 사용하여 생략할 줄의 수를 지정하면, 열 이름이 시작되는 부분부터 데이터를 읽어들일 수 있다.</p>
-<div class="sourceCode" id="cb2310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2310-1"><a href="ch-R-import.html#cb2310-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students-with-comments.csv&quot;</span>, <span class="at">skip=</span><span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2308-1"><a href="ch-R-import.html#cb2308-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students-with-comments.csv&quot;</span>, <span class="at">skip=</span><span class="dv">4</span>)</span></code></pre></div>
 <pre><code>Rows: 5 Columns: 7
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
@@ -860,7 +880,7 @@ lgl (1): retake
 5 홍길동     1 M           50    86 FALSE     10</code></pre>
 <p>원래의 7 개의 열로 잘 분리되어 읽어졌음을 확인할 수 있다.</p>
 <p>데이터 파일의 주석문이 파일의 앞부분뿐 아니라 파일 중간에 나오는 경우도 발생할 수 있다.</p>
-<div class="sourceCode" id="cb2313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2313-1"><a href="ch-R-import.html#cb2313-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students-with-comments2.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2311-1"><a href="ch-R-import.html#cb2311-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students-with-comments2.csv&quot;</span>)</span></code></pre></div>
 <pre><code>Warning: One or more parsing issues, call `problems()` on your data frame for details,
 e.g.:
   dat &lt;- vroom(...)
@@ -887,7 +907,7 @@ chr (1): # 이 파일은 어떤 과목을 수강하는 학생들에 대한 정�
 10 홍길동,1,M,50,86,FALSE,10                                 </code></pre>
 <p>이 파일은 앞 부분의 4줄뿐 아니라 데이터 중간에도 주석문이 포함되어 있다.
 그러므로 다음처럼 앞의 4 줄을 제외하여도 데이터가 올바르게 처리되지 않는다.</p>
-<div class="sourceCode" id="cb2317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2317-1"><a href="ch-R-import.html#cb2317-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students-with-comments2.csv&quot;</span>, <span class="at">skip=</span><span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2315-1"><a href="ch-R-import.html#cb2315-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students-with-comments2.csv&quot;</span>, <span class="at">skip=</span><span class="dv">4</span>)</span></code></pre></div>
 <pre><code>Warning: One or more parsing issues, call `problems()` on your data frame for details,
 e.g.:
   dat &lt;- vroom(...)
@@ -912,7 +932,7 @@ lgl (1): retake
 6 홍길동               1 M           50    86 FALSE  10                     </code></pre>
 <p>일반적으로 주석문은 특수한 문자로 주석을 시작하는데, <code>#</code>를 사용하는 경우가 많다.
 <code>read_csv()</code>는 <code>comment</code> 인수를 사용하여 특수한 문자열 다음에 있는 모든 텍스트를 주석문으로 간주하여 데이터에서 제외할 수 있다.</p>
-<div class="sourceCode" id="cb2321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2321-1"><a href="ch-R-import.html#cb2321-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students-with-comments2.csv&quot;</span>, <span class="at">comment=</span><span class="st">&quot;#&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2319-1"><a href="ch-R-import.html#cb2319-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students-with-comments2.csv&quot;</span>, <span class="at">comment=</span><span class="st">&quot;#&quot;</span>)</span></code></pre></div>
 <pre><code>Rows: 5 Columns: 7
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
@@ -938,7 +958,7 @@ lgl (1): retake
 그러나 데이터가 매우 크면 불필요한 데이터를 위한 처리시간과 저장공간의 낭비가 너무 크게 발생할 수 있다.</p>
 <p><code>read_csv()</code>는 <code>col_select</code> 인수로 읽어들일 열을 지정할 수 있다.
 열을 지정하는 방식은 열의 위치, 열의 이름, 그리고 <code>select()</code>에서 열을 매칭하는 방식(<a href="ch-dataTransformation.html#sec-select-match">7.7.4</a> 참조)을 사용할 수 있다. 열을 지정하는 표현이 하나 이상이면 <code>c()</code>로 연결한다.</p>
-<div class="sourceCode" id="cb2324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2324-1"><a href="ch-R-import.html#cb2324-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students.csv&quot;</span>, <span class="at">col_select=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>) <span class="co"># 2에서 4번째 열</span></span></code></pre></div>
+<div class="sourceCode" id="cb2322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2322-1"><a href="ch-R-import.html#cb2322-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students.csv&quot;</span>, <span class="at">col_select=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>) <span class="co"># 2에서 4번째 열</span></span></code></pre></div>
 <pre><code>Rows: 5 Columns: 3
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
@@ -955,7 +975,7 @@ dbl (2): grade, midterm
 3     3 M           67
 4     2 F           89
 5     1 M           50</code></pre>
-<div class="sourceCode" id="cb2327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2327-1"><a href="ch-R-import.html#cb2327-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students.csv&quot;</span>, <span class="at">col_select=</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">6</span>)) <span class="co"># 2에서 4번째 열과 6번재 열</span></span></code></pre></div>
+<div class="sourceCode" id="cb2325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2325-1"><a href="ch-R-import.html#cb2325-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students.csv&quot;</span>, <span class="at">col_select=</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">6</span>)) <span class="co"># 2에서 4번째 열과 6번재 열</span></span></code></pre></div>
 <pre><code>Rows: 5 Columns: 4
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
@@ -973,7 +993,7 @@ lgl (1): retake
 3     3 M           67 FALSE 
 4     2 F           89 TRUE  
 5     1 M           50 FALSE </code></pre>
-<div class="sourceCode" id="cb2330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2330-1"><a href="ch-R-import.html#cb2330-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students.csv&quot;</span>, <span class="at">col_select=</span><span class="sc">-</span><span class="dv">1</span>) <span class="co"># 첫 번째 열 제외</span></span></code></pre></div>
+<div class="sourceCode" id="cb2328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2328-1"><a href="ch-R-import.html#cb2328-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students.csv&quot;</span>, <span class="at">col_select=</span><span class="sc">-</span><span class="dv">1</span>) <span class="co"># 첫 번째 열 제외</span></span></code></pre></div>
 <pre><code>Rows: 5 Columns: 6
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
@@ -991,7 +1011,7 @@ lgl (1): retake
 3     3 M           67    88 FALSE      7
 4     2 F           89    78 TRUE       8
 5     1 M           50    86 FALSE     10</code></pre>
-<div class="sourceCode" id="cb2333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2333-1"><a href="ch-R-import.html#cb2333-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students.csv&quot;</span>, <span class="at">col_select=</span><span class="fu">c</span>(midterm, final, hw)) <span class="co"># 열 이름으로</span></span></code></pre></div>
+<div class="sourceCode" id="cb2331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2331-1"><a href="ch-R-import.html#cb2331-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students.csv&quot;</span>, <span class="at">col_select=</span><span class="fu">c</span>(midterm, final, hw)) <span class="co"># 열 이름으로</span></span></code></pre></div>
 <pre><code>Rows: 5 Columns: 3
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
@@ -1007,7 +1027,7 @@ dbl (3): midterm, final, hw
 3      67    88     7
 4      89    78     8
 5      50    86    10</code></pre>
-<div class="sourceCode" id="cb2336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2336-1"><a href="ch-R-import.html#cb2336-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students.csv&quot;</span>, <span class="at">col_select=</span><span class="fu">c</span>(name<span class="sc">:</span>grade, midterm<span class="sc">:</span>hw)) <span class="co"># 열 이름 범위로</span></span></code></pre></div>
+<div class="sourceCode" id="cb2334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2334-1"><a href="ch-R-import.html#cb2334-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students.csv&quot;</span>, <span class="at">col_select=</span><span class="fu">c</span>(name<span class="sc">:</span>grade, midterm<span class="sc">:</span>hw)) <span class="co"># 열 이름 범위로</span></span></code></pre></div>
 <pre><code>Rows: 5 Columns: 6
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
@@ -1025,7 +1045,7 @@ lgl (1): retake
 3 이철수     3      67    88 FALSE      7
 4 이영희     2      89    78 TRUE       8
 5 홍길동     1      50    86 FALSE     10</code></pre>
-<div class="sourceCode" id="cb2339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2339-1"><a href="ch-R-import.html#cb2339-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students.csv&quot;</span>, <span class="at">col_select=</span><span class="fu">starts_with</span>(<span class="st">&quot;g&quot;</span>)) <span class="co"># 이름이 g로 시작하는 열만</span></span></code></pre></div>
+<div class="sourceCode" id="cb2337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2337-1"><a href="ch-R-import.html#cb2337-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students.csv&quot;</span>, <span class="at">col_select=</span><span class="fu">starts_with</span>(<span class="st">&quot;g&quot;</span>)) <span class="co"># 이름이 g로 시작하는 열만</span></span></code></pre></div>
 <pre><code>Rows: 5 Columns: 2
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
@@ -1046,7 +1066,7 @@ dbl (1): grade
 <div id="열의-자료형-지정하기" class="section level4 unnumbered hasAnchor">
 <h4>열의 자료형 지정하기<a href="ch-R-import.html#열의-자료형-지정하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><code>read_csv()</code>는 앞에서 설명한 바와 같이 대부분의 경우에 열의 데이터를 파악하여 적절한 자료형으로 읽어들인다.</p>
-<div class="sourceCode" id="cb2342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2342-1"><a href="ch-R-import.html#cb2342-1" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;students.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2340-1"><a href="ch-R-import.html#cb2340-1" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;students.csv&quot;</span>)</span></code></pre></div>
 <pre><code>Rows: 5 Columns: 7
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
@@ -1056,7 +1076,7 @@ lgl (1): retake
 
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb2344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2344-1"><a href="ch-R-import.html#cb2344-1" tabindex="-1"></a>students</span></code></pre></div>
+<div class="sourceCode" id="cb2342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2342-1"><a href="ch-R-import.html#cb2342-1" tabindex="-1"></a>students</span></code></pre></div>
 <pre><code># A tibble: 5 × 7
   name   grade gender midterm final retake    hw
   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;  &lt;dbl&gt;
@@ -1066,7 +1086,7 @@ lgl (1): retake
 4 이영희     2 F           89    78 TRUE       8
 5 홍길동     1 M           50    86 FALSE     10</code></pre>
 <p>midterm과 final, hw 등의 열은 모두 숫자로 잘 처리되었기 때문에 <code>summary()</code>를 해보면 평균 등이 잘 계산된다.</p>
-<div class="sourceCode" id="cb2346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2346-1"><a href="ch-R-import.html#cb2346-1" tabindex="-1"></a><span class="fu">summary</span>(students)</span></code></pre></div>
+<div class="sourceCode" id="cb2344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2344-1"><a href="ch-R-import.html#cb2344-1" tabindex="-1"></a><span class="fu">summary</span>(students)</span></code></pre></div>
 <pre><code>     name               grade        gender             midterm    
  Length:5           Min.   :1.0   Length:5           Min.   :50.0  
  Class :character   1st Qu.:1.0   Class :character   1st Qu.:67.0  
@@ -1083,7 +1103,7 @@ lgl (1): retake
  Max.   :91                   Max.   :10.0  </code></pre>
 <p>그러나 데이터가 깔끔하게 정리되어 있지 않으면 <code>read_csv()</code>가 추정하는 열의 자료형이 부정확할 수 있다.
 이러한 경우에는 직접 열의 자료형을 지정하여야 한다.</p>
-<div class="sourceCode" id="cb2348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2348-1"><a href="ch-R-import.html#cb2348-1" tabindex="-1"></a>students_prob <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;students-with-problems.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2346-1"><a href="ch-R-import.html#cb2346-1" tabindex="-1"></a>students_prob <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;students-with-problems.csv&quot;</span>)</span></code></pre></div>
 <pre><code>Rows: 5 Columns: 7
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
@@ -1093,7 +1113,7 @@ lgl (1): retake
 
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb2350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2350-1"><a href="ch-R-import.html#cb2350-1" tabindex="-1"></a>students_prob</span></code></pre></div>
+<div class="sourceCode" id="cb2348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2348-1"><a href="ch-R-import.html#cb2348-1" tabindex="-1"></a>students_prob</span></code></pre></div>
 <pre><code># A tibble: 5 × 7
   name   grade gender midterm final retake    hw
   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;  &lt;dbl&gt;
@@ -1104,7 +1124,7 @@ lgl (1): retake
 5 홍길동     1 M           50 86    FALSE     10</code></pre>
 <p>위의 예를 보면 midterm과 final에 결측치가 있지만 데이터가 잘 읽어들여진 것으로 보인다.
 그러나 <code>summary()</code>를 해보면 midterm은 평균들이 적절히 구해지지만, final은 문자열로 처리되어 평균이 구해지지 않는 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb2352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2352-1"><a href="ch-R-import.html#cb2352-1" tabindex="-1"></a><span class="fu">summary</span>(students_prob)</span></code></pre></div>
+<div class="sourceCode" id="cb2350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2350-1"><a href="ch-R-import.html#cb2350-1" tabindex="-1"></a><span class="fu">summary</span>(students_prob)</span></code></pre></div>
 <pre><code>     name               grade        gender             midterm     
  Length:5           Min.   :1.0   Length:5           Min.   :50.00  
  Class :character   1st Qu.:1.0   Class :character   1st Qu.:68.00  
@@ -1189,13 +1209,13 @@ lgl (1): retake
 </tbody>
 </table>
 <p><code>final</code> 열을 숫자로 지정하여 데이터를 다시 읽어보자.</p>
-<div class="sourceCode" id="cb2354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2354-1"><a href="ch-R-import.html#cb2354-1" tabindex="-1"></a>students_prob <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;students-with-problems.csv&quot;</span>, </span>
-<span id="cb2354-2"><a href="ch-R-import.html#cb2354-2" tabindex="-1"></a>                      <span class="at">col_types=</span><span class="fu">list</span>(<span class="at">final=</span><span class="fu">col_number</span>()))</span></code></pre></div>
+<div class="sourceCode" id="cb2352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2352-1"><a href="ch-R-import.html#cb2352-1" tabindex="-1"></a>students_prob <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;students-with-problems.csv&quot;</span>, </span>
+<span id="cb2352-2"><a href="ch-R-import.html#cb2352-2" tabindex="-1"></a>                      <span class="at">col_types=</span><span class="fu">list</span>(<span class="at">final=</span><span class="fu">col_number</span>()))</span></code></pre></div>
 <pre><code>Warning: One or more parsing issues, call `problems()` on your data frame for details,
 e.g.:
   dat &lt;- vroom(...)
   problems(dat)</code></pre>
-<div class="sourceCode" id="cb2356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2356-1"><a href="ch-R-import.html#cb2356-1" tabindex="-1"></a>students_prob</span></code></pre></div>
+<div class="sourceCode" id="cb2354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2354-1"><a href="ch-R-import.html#cb2354-1" tabindex="-1"></a>students_prob</span></code></pre></div>
 <pre><code># A tibble: 5 × 7
   name   grade gender midterm final retake    hw
   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;  &lt;dbl&gt;
@@ -1206,20 +1226,20 @@ e.g.:
 5 홍길동     1 M           50    86 FALSE     10</code></pre>
 <p>final을 숫자로 인식하여 처리는 하였지만 데이터에 문제가 있다고 경고한다.
 경고에서 제시한 것처럼 어떤 문제인지 <code>problems()</code> 함수로 살펴보자.</p>
-<div class="sourceCode" id="cb2358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2358-1"><a href="ch-R-import.html#cb2358-1" tabindex="-1"></a><span class="fu">problems</span>(students_prob)</span></code></pre></div>
+<div class="sourceCode" id="cb2356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2356-1"><a href="ch-R-import.html#cb2356-1" tabindex="-1"></a><span class="fu">problems</span>(students_prob)</span></code></pre></div>
 <pre><code># A tibble: 1 × 5
     row   col expected actual file                                              
   &lt;int&gt; &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;                                             
-1     5     5 a number -      /mnt/c/Users/kilhwan/Dropbox/Work/Writing/R-progr…</code></pre>
+1     5     5 a number -      /mnt/c/Users/user/Dropbox/Work/Writing/R-programm…</code></pre>
 <p>5행의 5열의 데이터로 숫자(number)가 예상되었는데(exptected) 실제(actual)은 <code>-</code>가 입력되었다는 것이다.
 <code>col_number()</code>로 지정된 열은 숫자 이외의 문자는 모두 무시되므로 이 셀의 데이터는 결측치(NA)로 처리되었다.
 특정 문자를 결측치로 처리하려면 다음처럼 <code>na</code> 인수를 사용하여 결측치로 간주할 문자열을 지정한다.
 midterm에 있는 빈 문자열과 final의 “-”로 표시된 문자열을 모두 결측치로 지정해 보자.
 그러면 앞에서 본 경고는 사라진다.</p>
-<div class="sourceCode" id="cb2360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2360-1"><a href="ch-R-import.html#cb2360-1" tabindex="-1"></a>students_prob <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;students-with-problems.csv&quot;</span>,  </span>
-<span id="cb2360-2"><a href="ch-R-import.html#cb2360-2" tabindex="-1"></a>                      <span class="at">col_types=</span><span class="fu">list</span>(<span class="at">final=</span><span class="fu">col_number</span>()), </span>
-<span id="cb2360-3"><a href="ch-R-import.html#cb2360-3" tabindex="-1"></a>                      <span class="at">na=</span><span class="fu">c</span>(<span class="st">&quot;-&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
-<span id="cb2360-4"><a href="ch-R-import.html#cb2360-4" tabindex="-1"></a>students_prob</span></code></pre></div>
+<div class="sourceCode" id="cb2358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2358-1"><a href="ch-R-import.html#cb2358-1" tabindex="-1"></a>students_prob <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;students-with-problems.csv&quot;</span>,  </span>
+<span id="cb2358-2"><a href="ch-R-import.html#cb2358-2" tabindex="-1"></a>                      <span class="at">col_types=</span><span class="fu">list</span>(<span class="at">final=</span><span class="fu">col_number</span>()), </span>
+<span id="cb2358-3"><a href="ch-R-import.html#cb2358-3" tabindex="-1"></a>                      <span class="at">na=</span><span class="fu">c</span>(<span class="st">&quot;-&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
+<span id="cb2358-4"><a href="ch-R-import.html#cb2358-4" tabindex="-1"></a>students_prob</span></code></pre></div>
 <pre><code># A tibble: 5 × 7
   name   grade gender midterm final retake    hw
   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;  &lt;dbl&gt;
@@ -1232,16 +1252,16 @@ midterm에 있는 빈 문자열과 final의 “-”로 표시된 문자열을 �
 <div id="동일한-형식의-파일을-한번에-읽어들이기" class="section level4 unnumbered hasAnchor">
 <h4>동일한 형식의 파일을 한번에 읽어들이기<a href="ch-R-import.html#동일한-형식의-파일을-한번에-읽어들이기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><code>students2.csv</code> 파일은 <code>students.csv</code>와 동일한 형식의 데이터인데 다른 분반의 학생들에 대한 정보이다.</p>
-<div class="sourceCode" id="cb2362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2362-1"><a href="ch-R-import.html#cb2362-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students2.csv&quot;</span>, <span class="at">show_col_types=</span>F)</span></code></pre></div>
+<div class="sourceCode" id="cb2360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2360-1"><a href="ch-R-import.html#cb2360-1" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;students2.csv&quot;</span>, <span class="at">show_col_types=</span>F)</span></code></pre></div>
 <pre><code># A tibble: 2 × 7
   name   grade gender midterm final retake    hw
   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;  &lt;dbl&gt;
 1 강철수     2 M           70    81 FALSE      8
 2 홍영희     3 F           92    79 FALSE      9</code></pre>
 <p>만약 이 두 분반의 데이터를 합쳐서 분석한다면 두 파일을 각각 읽어들인 후, <a href="ch-R-Advanced-Data-Mgmt.html#sec-bind-data">9.1</a>에서 설명한 <code>bind_rows()</code> 함수로 병합을 하면 된다.</p>
-<div class="sourceCode" id="cb2364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2364-1"><a href="ch-R-import.html#cb2364-1" tabindex="-1"></a>file_list <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;students.csv&quot;</span>, <span class="st">&quot;students2.csv&quot;</span>)</span>
-<span id="cb2364-2"><a href="ch-R-import.html#cb2364-2" tabindex="-1"></a><span class="fu">lapply</span>(file_list, read_csv, <span class="at">show_col_types=</span>F) <span class="sc">%&gt;%</span>  </span>
-<span id="cb2364-3"><a href="ch-R-import.html#cb2364-3" tabindex="-1"></a>  <span class="fu">bind_rows</span>(<span class="at">.id=</span><span class="st">&quot;cls&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2362-1"><a href="ch-R-import.html#cb2362-1" tabindex="-1"></a>file_list <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;students.csv&quot;</span>, <span class="st">&quot;students2.csv&quot;</span>)</span>
+<span id="cb2362-2"><a href="ch-R-import.html#cb2362-2" tabindex="-1"></a><span class="fu">lapply</span>(file_list, read_csv, <span class="at">show_col_types=</span>F) <span class="sc">%&gt;%</span>  </span>
+<span id="cb2362-3"><a href="ch-R-import.html#cb2362-3" tabindex="-1"></a>  <span class="fu">bind_rows</span>(<span class="at">.id=</span><span class="st">&quot;cls&quot;</span>)</span></code></pre></div>
 <pre><code># A tibble: 7 × 8
   cls   name   grade gender midterm final retake    hw
   &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;  &lt;dbl&gt;
@@ -1253,7 +1273,7 @@ midterm에 있는 빈 문자열과 final의 “-”로 표시된 문자열을 �
 6 2     강철수     2 M           70    81 FALSE      8
 7 2     홍영희     3 F           92    79 FALSE      9</code></pre>
 <p><code>read_csv()</code>는 여러 개의 파일명을 받아서 병합시키는 기능이 있으므로 위의 과정을 다음과 같이 처리할 수 있다. <code>id</code> 인수는 여러 개의 파일을 읽을 때 파일의 경로를 저장할 열 이름을 지정한다.</p>
-<div class="sourceCode" id="cb2366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2366-1"><a href="ch-R-import.html#cb2366-1" tabindex="-1"></a><span class="fu">read_csv</span>(file_list, <span class="at">id=</span><span class="st">&quot;file&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2364-1"><a href="ch-R-import.html#cb2364-1" tabindex="-1"></a><span class="fu">read_csv</span>(file_list, <span class="at">id=</span><span class="st">&quot;file&quot;</span>)</span></code></pre></div>
 <pre><code>Rows: 7 Columns: 8
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
@@ -1276,9 +1296,9 @@ lgl (1): retake
 <p>한번에 처리해야 할 파일이 매우 많은 경우에는 <code>list.files()</code> 함수에 <code>pattern</code>을 정의하여 패턴에 맞는 모든 파일을 한번에 처리하는 것이 편리하다. (<code>pattern</code> 인수에는 정규표현식으로 파일 이름의 패턴을 지정할 수 있다.)
 만약 월별로 저장된 24 개의 파일이 있으면 파일을 일일이 나열하는 것보다 이러한 방법이 매우 편리할 것이다.
 다음은 “students”로 시작하여 숫자 패턴 후에 “.csv”로 끝나는 모든 파일을 지정하여 데이터를 읽는 예이다.</p>
-<div class="sourceCode" id="cb2369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2369-1"><a href="ch-R-import.html#cb2369-1" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">pattern=</span><span class="st">&quot;students</span><span class="sc">\\</span><span class="st">d*[.]csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2367-1"><a href="ch-R-import.html#cb2367-1" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">pattern=</span><span class="st">&quot;students</span><span class="sc">\\</span><span class="st">d*[.]csv&quot;</span>)</span></code></pre></div>
 <pre><code>[1] &quot;students.csv&quot;  &quot;students2.csv&quot;</code></pre>
-<div class="sourceCode" id="cb2371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2371-1"><a href="ch-R-import.html#cb2371-1" tabindex="-1"></a>students_all <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">list.files</span>(<span class="at">pattern=</span><span class="st">&quot;students</span><span class="sc">\\</span><span class="st">d*[.]csv&quot;</span>), <span class="at">id=</span><span class="st">&quot;file&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2369-1"><a href="ch-R-import.html#cb2369-1" tabindex="-1"></a>students_all <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">list.files</span>(<span class="at">pattern=</span><span class="st">&quot;students</span><span class="sc">\\</span><span class="st">d*[.]csv&quot;</span>), <span class="at">id=</span><span class="st">&quot;file&quot;</span>)</span></code></pre></div>
 <pre><code>Rows: 7 Columns: 8
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
@@ -1288,7 +1308,7 @@ lgl (1): retake
 
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb2373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2373-1"><a href="ch-R-import.html#cb2373-1" tabindex="-1"></a>students_all</span></code></pre></div>
+<div class="sourceCode" id="cb2371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2371-1"><a href="ch-R-import.html#cb2371-1" tabindex="-1"></a>students_all</span></code></pre></div>
 <pre><code># A tibble: 7 × 8
   file          name   grade gender midterm final retake    hw
   &lt;chr&gt;         &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;  &lt;dbl&gt;
@@ -1304,7 +1324,7 @@ lgl (1): retake
 <h4>데이터를 파일에 쓰기<a href="ch-R-import.html#데이터를-파일에-쓰기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>데이터프레임 형식의 데이터를 CSV 형식의 파일로 저장하려면 <strong>R</strong>의 기본 기능이 제공하는 <code>write.csv()</code> 함수나 <code>readr</code>에서 제공하는 <code>write_csv()</code> 함수를 사용한다.
 여기서는 <code>write_csv()</code> 함수를 설명하는데, 두 함수의 차이는 그리 크지 않다.</p>
-<div class="sourceCode" id="cb2375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2375-1"><a href="ch-R-import.html#cb2375-1" tabindex="-1"></a><span class="fu">write_csv</span>(students_all, <span class="st">&quot;students_all.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2373-1"><a href="ch-R-import.html#cb2373-1" tabindex="-1"></a><span class="fu">write_csv</span>(students_all, <span class="st">&quot;students_all.csv&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="sec-read-spreadsheets" class="section level2 hasAnchor" number="12.2">
@@ -1316,7 +1336,7 @@ lgl (1): retake
 이 기능을 사용하여 CSV 파일로 변환을 하면 앞에서 설명한 <code>read_csv()</code> 함수를 이용하여 데이터를 읽어들일 수 있다.
 만약 Excel 데이터를 변환 없이 그대로 읽어들이고 싶으면, <code>readxl</code> 패키지의 <code>read_excel()</code> 함수를 사용한다.
 <code>readxl</code> 패키지는 <code>tidyverse</code> 패키지가 설치되면 자동으로 설치된다. 만약 설치되어 있지 않다면 다음 명령이나 RStudio의 Packages 패널의 기능을 사용하여 설치한다.</p>
-<div class="sourceCode" id="cb2376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2376-1"><a href="ch-R-import.html#cb2376-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2374-1"><a href="ch-R-import.html#cb2374-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span></code></pre></div>
 <a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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" download="dataMerge.xlsx">Download dataMerge.xlsx</a>
 <p>위의 파일을 내려받으면, 다음과 같이, 4 개의 워크시트가 있는 Excel 파일에서 project라는 이름의 워크시트를 데이터프레임으로 읽어들이는 예를 살펴보자.</p>
 <p><img src="img/dataMerge.png" width="90%" style="display: block; margin: auto;" /></p>
@@ -1334,9 +1354,9 @@ lgl (1): retake
 <h4>워크시트의 데이터 읽기<a href="ch-R-import.html#워크시트의-데이터-읽기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>한 파일에 여러 워크시트를 저장할 수 있는 것이 Excel 파일과 텍스트 파일의 가장 큰 차이라 할 수 있다.<br />
 그렇기 때문에 read_excel()<code>함수는 첫 번째 인수로 파일명을, 두 번째</code>sheet<code>인수로 읽어들일 워크시트를 지정한다.</code>read_excel()<code>함수는 데이터를</code>tibble`이라는 일종의 개량된 data.frame 형식으로 데이터를 반환한다.</p>
-<div class="sourceCode" id="cb2377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2377-1"><a href="ch-R-import.html#cb2377-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb2377-2"><a href="ch-R-import.html#cb2377-2" tabindex="-1"></a>project <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;dataMerge.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;project&quot;</span>) </span>
-<span id="cb2377-3"><a href="ch-R-import.html#cb2377-3" tabindex="-1"></a>project</span></code></pre></div>
+<div class="sourceCode" id="cb2375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2375-1"><a href="ch-R-import.html#cb2375-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb2375-2"><a href="ch-R-import.html#cb2375-2" tabindex="-1"></a>project <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;dataMerge.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;project&quot;</span>) </span>
+<span id="cb2375-3"><a href="ch-R-import.html#cb2375-3" tabindex="-1"></a>project</span></code></pre></div>
 <pre><code># A tibble: 4 × 2
   Team  Project
   &lt;chr&gt;   &lt;dbl&gt;
@@ -1345,8 +1365,8 @@ lgl (1): retake
 3 C          85
 4 D          75</code></pre>
 <p><code>sheet</code> 인수에 아무것도 지정하지 않으면, 맨 처음 워크시트의 데이터를 읽어들인다.</p>
-<div class="sourceCode" id="cb2379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2379-1"><a href="ch-R-import.html#cb2379-1" tabindex="-1"></a>class1 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;dataMerge.xlsx&quot;</span>) </span>
-<span id="cb2379-2"><a href="ch-R-import.html#cb2379-2" tabindex="-1"></a>class1</span></code></pre></div>
+<div class="sourceCode" id="cb2377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2377-1"><a href="ch-R-import.html#cb2377-1" tabindex="-1"></a>class1 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;dataMerge.xlsx&quot;</span>) </span>
+<span id="cb2377-2"><a href="ch-R-import.html#cb2377-2" tabindex="-1"></a>class1</span></code></pre></div>
 <pre><code># A tibble: 5 × 6
   ID    Name   Adress Midterm Final Team 
   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
@@ -1356,7 +1376,7 @@ lgl (1): retake
 4 034   이영희 대전        92    89 B    
 5 151   홍길동 세종        58    66 B    </code></pre>
 <p>Excel 파일에 있는 모든 워크시트 정보를 확인하려면 <code>excel_sheets()</code> 함수를 사용한다.</p>
-<div class="sourceCode" id="cb2381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2381-1"><a href="ch-R-import.html#cb2381-1" tabindex="-1"></a><span class="fu">excel_sheets</span>(<span class="st">&quot;dataMerge.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2379-1"><a href="ch-R-import.html#cb2379-1" tabindex="-1"></a><span class="fu">excel_sheets</span>(<span class="st">&quot;dataMerge.xlsx&quot;</span>)</span></code></pre></div>
 <pre><code>[1] &quot;class1&quot;     &quot;class2&quot;     &quot;project&quot;    &quot;attendance&quot;</code></pre>
 </div>
 <div id="워크시트의-특정-범위의-데이터-읽기" class="section level4 unnumbered hasAnchor">
@@ -1367,8 +1387,8 @@ lgl (1): retake
 그러나 대부분의 워크시트는 데이터 저장의 용도뿐 아니라 문서로서 역할도 하기 때문에 위의 그림처럼 데이터와 무관한 내용들이 있을 수 있다.
 이런 경우에는 워크시트의 특정 범위를 지정하여 데이터를 읽어와야 한다.
 <code>read_excel()</code>의 <code>range</code> 인수는 Excel의 범위 지정 문법을 사용하여 특정 범위를 지정한다.</p>
-<div class="sourceCode" id="cb2383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2383-1"><a href="ch-R-import.html#cb2383-1" tabindex="-1"></a>att <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;dataMerge.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;attendance&quot;</span>, <span class="at">range=</span><span class="st">&quot;B3:C12&quot;</span>) </span>
-<span id="cb2383-2"><a href="ch-R-import.html#cb2383-2" tabindex="-1"></a>att</span></code></pre></div>
+<div class="sourceCode" id="cb2381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2381-1"><a href="ch-R-import.html#cb2381-1" tabindex="-1"></a>att <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;dataMerge.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;attendance&quot;</span>, <span class="at">range=</span><span class="st">&quot;B3:C12&quot;</span>) </span>
+<span id="cb2381-2"><a href="ch-R-import.html#cb2381-2" tabindex="-1"></a>att</span></code></pre></div>
 <pre><code># A tibble: 9 × 2
   ID    Attendance
   &lt;chr&gt;      &lt;dbl&gt;
@@ -1382,7 +1402,7 @@ lgl (1): retake
 8 045          100
 9 151           95</code></pre>
 <p>다음처럼 <code>range</code>에 워크시트가 포함된 범위를 지정하면 <code>sheet</code> 인수는 무시되므로 이를 지정하지 않는다.</p>
-<div class="sourceCode" id="cb2385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2385-1"><a href="ch-R-import.html#cb2385-1" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="st">&quot;dataMerge.xlsx&quot;</span>, <span class="at">range=</span><span class="st">&quot;attendance!B3:C12&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb2383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2383-1"><a href="ch-R-import.html#cb2383-1" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="st">&quot;dataMerge.xlsx&quot;</span>, <span class="at">range=</span><span class="st">&quot;attendance!B3:C12&quot;</span>) </span></code></pre></div>
 <pre><code># A tibble: 9 × 2
   ID    Attendance
   &lt;chr&gt;      &lt;dbl&gt;
@@ -1409,7 +1429,7 @@ Excel 파일의 데이터를 읽어들일 때 다음 세 가지 사항을 주의
 <div id="데이터를-excel-파일에-쓰기" class="section level4 hasAnchor" number="12.2.1.1">
 <h4><span class="header-section-number">12.2.1.1</span> 데이터를 Excel 파일에 쓰기<a href="ch-R-import.html#데이터를-excel-파일에-쓰기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Excel 파일에 데이터를 저장하려면 <code>writexl</code> 패키지가 필요하다.</p>
-<div class="sourceCode" id="cb2387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2387-1"><a href="ch-R-import.html#cb2387-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;writexl&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2385-1"><a href="ch-R-import.html#cb2385-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;writexl&quot;</span>)</span></code></pre></div>
 <p><code>write_xlsx()</code> 파일은 <strong>R</strong>의 데이터프레임(들)을 xlsx 형식의 Excel 파일에 저장한다.</p>
 <ul>
 <li>첫 번째 인수에 데이터프레임 또는 데이터프레임을 요소로 하는 리스트를 제공한다. 리스트로 제공하는 경우 요소의 이름이 워크시트의 이름이 된다.</li>
@@ -1419,16 +1439,16 @@ Excel 파일의 데이터를 읽어들일 때 다음 세 가지 사항을 주의
 </ul>
 <p>다음은 데이터프레임 하나만 제공하는 경우이다.
 보통의 Excel 파일처럼 Sheet1라는 이름의 워크시트에 데이터가 저장된다.</p>
-<div class="sourceCode" id="cb2388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2388-1"><a href="ch-R-import.html#cb2388-1" tabindex="-1"></a><span class="fu">library</span>(writexl)</span>
-<span id="cb2388-2"><a href="ch-R-import.html#cb2388-2" tabindex="-1"></a><span class="fu">write_xlsx</span>(students_all, <span class="at">path=</span><span class="st">&quot;students_all.xlsx&quot;</span>)</span>
-<span id="cb2388-3"><a href="ch-R-import.html#cb2388-3" tabindex="-1"></a><span class="fu">excel_sheets</span>(<span class="st">&quot;students_all.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2386-1"><a href="ch-R-import.html#cb2386-1" tabindex="-1"></a><span class="fu">library</span>(writexl)</span>
+<span id="cb2386-2"><a href="ch-R-import.html#cb2386-2" tabindex="-1"></a><span class="fu">write_xlsx</span>(students_all, <span class="at">path=</span><span class="st">&quot;students_all.xlsx&quot;</span>)</span>
+<span id="cb2386-3"><a href="ch-R-import.html#cb2386-3" tabindex="-1"></a><span class="fu">excel_sheets</span>(<span class="st">&quot;students_all.xlsx&quot;</span>)</span></code></pre></div>
 <pre><code>[1] &quot;Sheet1&quot;</code></pre>
 <p>다음처럼 요소에 이름을 부여한 리스트를 인수로 제공하면 요소 이름을 워크시트 이름으로 하여 데이터가 저장된다.</p>
-<div class="sourceCode" id="cb2390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2390-1"><a href="ch-R-import.html#cb2390-1" tabindex="-1"></a><span class="fu">write_xlsx</span>(</span>
-<span id="cb2390-2"><a href="ch-R-import.html#cb2390-2" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">students=</span>students_all, <span class="at">project=</span>project, <span class="at">attendance=</span>att), </span>
-<span id="cb2390-3"><a href="ch-R-import.html#cb2390-3" tabindex="-1"></a>  <span class="at">path=</span><span class="st">&quot;students_all.xlsx&quot;</span></span>
-<span id="cb2390-4"><a href="ch-R-import.html#cb2390-4" tabindex="-1"></a>)</span>
-<span id="cb2390-5"><a href="ch-R-import.html#cb2390-5" tabindex="-1"></a><span class="fu">excel_sheets</span>(<span class="st">&quot;students_all.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2388-1"><a href="ch-R-import.html#cb2388-1" tabindex="-1"></a><span class="fu">write_xlsx</span>(</span>
+<span id="cb2388-2"><a href="ch-R-import.html#cb2388-2" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">students=</span>students_all, <span class="at">project=</span>project, <span class="at">attendance=</span>att), </span>
+<span id="cb2388-3"><a href="ch-R-import.html#cb2388-3" tabindex="-1"></a>  <span class="at">path=</span><span class="st">&quot;students_all.xlsx&quot;</span></span>
+<span id="cb2388-4"><a href="ch-R-import.html#cb2388-4" tabindex="-1"></a>)</span>
+<span id="cb2388-5"><a href="ch-R-import.html#cb2388-5" tabindex="-1"></a><span class="fu">excel_sheets</span>(<span class="st">&quot;students_all.xlsx&quot;</span>)</span></code></pre></div>
 <pre><code>[1] &quot;students&quot;   &quot;project&quot;    &quot;attendance&quot;</code></pre>
 <p><code>writexl</code> 패키지는 Excel 파일에 데이터를 저장하는 기능만을 제공한다. 만약 Excel 파일에 데이터와 함께 다양한 스타일을 같이 지정하고자 하면 <a href="https://ycphs.github.io/openxlsx/articles/Formatting.html"><code>openxlsx</code> 패키지</a>를 참고하지 바란다.</p>
 </div>
@@ -1448,15 +1468,15 @@ Excel 파일의 데이터를 읽어들일 때 다음 세 가지 사항을 주의
 </ul>
 <p>이 패키지는 <code>tidyverse</code> 패키지를 설치하였으면 설치가 되어 있을 것이다.
 그렇지 않다면 다음 명령으로 설치를 한다.</p>
-<div class="sourceCode" id="cb2392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2392-1"><a href="ch-R-import.html#cb2392-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;googlesheets4&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb2393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2393-1"><a href="ch-R-import.html#cb2393-1" tabindex="-1"></a><span class="fu">library</span>(googlesheets4)</span></code></pre></div>
+<div class="sourceCode" id="cb2390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2390-1"><a href="ch-R-import.html#cb2390-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;googlesheets4&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2391-1"><a href="ch-R-import.html#cb2391-1" tabindex="-1"></a><span class="fu">library</span>(googlesheets4)</span></code></pre></div>
 </div>
 <div id="워크시트-읽기" class="section level4 unnumbered hasAnchor">
 <h4>워크시트 읽기<a href="ch-R-import.html#워크시트-읽기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><code>googlesheets4</code>로 Google Sheets의 시트에 접근하려면 디폴트로 사용자 인증을 진행한다.
 만약 공개되어 있는 시트를 읽는 경우에는 Oauth를 사용하여 인증 과정을 거치지 않아도 된다.
 <strong>R</strong>에서 불필요한 인증을 하지 않으려면 먼저 <code>gs4_deauth()</code> 함수를 호출한다.</p>
-<div class="sourceCode" id="cb2394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2394-1"><a href="ch-R-import.html#cb2394-1" tabindex="-1"></a><span class="fu">gs4_deauth</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2392-1"><a href="ch-R-import.html#cb2392-1" tabindex="-1"></a><span class="fu">gs4_deauth</span>()</span></code></pre></div>
 <p><a href="https://docs.google.com/spreadsheets/d/1U6Cf_qEOhiR9AZqTqS3mbMF3zt2db48ZP5v3rkrAEJY/">Gapminder에서 제공하는 기대 수명과 1인당 GDP 데이터</a>에 접근해 보자.</p>
 <p><code>read_sheet()</code> 함수는 Google Sheets 문서에서 데이터를 읽어들인다.
 <code>read_sheet()</code>는 <code>range_read()</code>라고도 불리는데 두 함수는 동일한 함수이다.</p>
@@ -1466,11 +1486,11 @@ Excel 파일의 데이터를 읽어들일 때 다음 세 가지 사항을 주의
 <li><code>range</code> 인수는 Excel과 마찬가지로 셀 범위로 워크시트에서 읽어들일 데이터 범위를 지정한다. 디폴트 값은 비어있지 않은 모든 셀을 읽어들인다.</li>
 <li><code>read_csv()</code>와 <code>read_excel()</code>처럼 <code>col_names</code>, <code>col_types</code>, <code>na</code>, <code>skip</code> 등의 인수를 가지고 있다. 자세한 정보는 <code>read_sheet()</code>에 대한 도움말을 참조한다.</li>
 </ul>
-<div class="sourceCode" id="cb2395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2395-1"><a href="ch-R-import.html#cb2395-1" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;https://docs.google.com/spreadsheets/d/1U6Cf_qEOhiR9AZqTqS3mbMF3zt2db48ZP5v3rkrAEJY/&quot;</span></span>
-<span id="cb2395-2"><a href="ch-R-import.html#cb2395-2" tabindex="-1"></a>life_exp_africa <span class="ot">&lt;-</span> <span class="fu">read_sheet</span>(url)</span></code></pre></div>
+<div class="sourceCode" id="cb2393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2393-1"><a href="ch-R-import.html#cb2393-1" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;https://docs.google.com/spreadsheets/d/1U6Cf_qEOhiR9AZqTqS3mbMF3zt2db48ZP5v3rkrAEJY/&quot;</span></span>
+<span id="cb2393-2"><a href="ch-R-import.html#cb2393-2" tabindex="-1"></a>life_exp_africa <span class="ot">&lt;-</span> <span class="fu">read_sheet</span>(url)</span></code></pre></div>
 <pre><code>✔ Reading from &quot;gapminder&quot;.</code></pre>
 <pre><code>✔ Range &#39;Africa&#39;.</code></pre>
-<div class="sourceCode" id="cb2398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2398-1"><a href="ch-R-import.html#cb2398-1" tabindex="-1"></a>life_exp_africa</span></code></pre></div>
+<div class="sourceCode" id="cb2396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2396-1"><a href="ch-R-import.html#cb2396-1" tabindex="-1"></a>life_exp_africa</span></code></pre></div>
 <pre><code># A tibble: 624 × 6
    country continent  year lifeExp      pop gdpPercap
    &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
@@ -1489,11 +1509,11 @@ Excel 파일의 데이터를 읽어들일 때 다음 세 가지 사항을 주의
 <p>Google Sheets 문서의 URL은 다음의 구조로 되어 있다.</p>
 <pre><code>https://docs.google.com/spreadsheets/d/문서ID/edit#gid=워크시트ID</code></pre>
 <p>그러므로 다음처럼 URL을 참조하여 문서 ID로 데이터를 읽어올 수도 있다.</p>
-<div class="sourceCode" id="cb2401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2401-1"><a href="ch-R-import.html#cb2401-1" tabindex="-1"></a>sheet_id <span class="ot">&lt;-</span> <span class="st">&quot;1U6Cf_qEOhiR9AZqTqS3mbMF3zt2db48ZP5v3rkrAEJY&quot;</span></span>
-<span id="cb2401-2"><a href="ch-R-import.html#cb2401-2" tabindex="-1"></a>life_exp_asia <span class="ot">&lt;-</span> <span class="fu">read_sheet</span>(sheet_id, <span class="at">sheet=</span><span class="st">&quot;Asia&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2399-1"><a href="ch-R-import.html#cb2399-1" tabindex="-1"></a>sheet_id <span class="ot">&lt;-</span> <span class="st">&quot;1U6Cf_qEOhiR9AZqTqS3mbMF3zt2db48ZP5v3rkrAEJY&quot;</span></span>
+<span id="cb2399-2"><a href="ch-R-import.html#cb2399-2" tabindex="-1"></a>life_exp_asia <span class="ot">&lt;-</span> <span class="fu">read_sheet</span>(sheet_id, <span class="at">sheet=</span><span class="st">&quot;Asia&quot;</span>)</span></code></pre></div>
 <pre><code>✔ Reading from &quot;gapminder&quot;.</code></pre>
 <pre><code>✔ Range &#39;&#39;Asia&#39;&#39;.</code></pre>
-<div class="sourceCode" id="cb2404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2404-1"><a href="ch-R-import.html#cb2404-1" tabindex="-1"></a>life_exp_asia</span></code></pre></div>
+<div class="sourceCode" id="cb2402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2402-1"><a href="ch-R-import.html#cb2402-1" tabindex="-1"></a>life_exp_asia</span></code></pre></div>
 <pre><code># A tibble: 396 × 6
    country     continent  year lifeExp      pop gdpPercap
    &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
@@ -1510,7 +1530,7 @@ Excel 파일의 데이터를 읽어들일 때 다음 세 가지 사항을 주의
 # ℹ 386 more rows</code></pre>
 <p>Google Sheets에 대한 메타정보를 확인하려면 <code>gs4_get()</code> 함수를 사용한다.
 이 함수는 Google Sheets 문서에 대한 정보, 워크시트에 대한 정보, 그리고 이름이 부여된 범위에 대한 정보를 제공한다.</p>
-<div class="sourceCode" id="cb2406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2406-1"><a href="ch-R-import.html#cb2406-1" tabindex="-1"></a><span class="fu">gs4_get</span>(sheet_id)</span></code></pre></div>
+<div class="sourceCode" id="cb2404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2404-1"><a href="ch-R-import.html#cb2404-1" tabindex="-1"></a><span class="fu">gs4_get</span>(sheet_id)</span></code></pre></div>
 <pre><code>
 ── &lt;googlesheets4_spreadsheet&gt; ─────────────────────────────────────────────────
  Spreadsheet name: &quot;gapminder&quot;                                 
@@ -1532,10 +1552,10 @@ Excel 파일의 데이터를 읽어들일 때 다음 세 가지 사항을 주의
 (Named range): (A1 range)        
      &#39;canada&#39;: &#39;Americas&#39;!A38:F49</code></pre>
 <p>Google Sheets의 모든 워크시트의 이름만 확인하려면 <code>sheet_names()</code> 함수를 사용한다.</p>
-<div class="sourceCode" id="cb2408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2408-1"><a href="ch-R-import.html#cb2408-1" tabindex="-1"></a><span class="fu">sheet_names</span>(sheet_id)</span></code></pre></div>
+<div class="sourceCode" id="cb2406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2406-1"><a href="ch-R-import.html#cb2406-1" tabindex="-1"></a><span class="fu">sheet_names</span>(sheet_id)</span></code></pre></div>
 <pre><code>[1] &quot;Africa&quot;   &quot;Americas&quot; &quot;Asia&quot;     &quot;Europe&quot;   &quot;Oceania&quot; </code></pre>
 <p><code>sheet_properties()</code> 함수를 사용하면 모든 워크시트의 속성을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2410-1"><a href="ch-R-import.html#cb2410-1" tabindex="-1"></a><span class="fu">sheet_properties</span>(sheet_id)</span></code></pre></div>
+<div class="sourceCode" id="cb2408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2408-1"><a href="ch-R-import.html#cb2408-1" tabindex="-1"></a><span class="fu">sheet_properties</span>(sheet_id)</span></code></pre></div>
 <pre><code># A tibble: 5 × 8
   name     index         id type  visible grid_rows grid_columns data  
   &lt;chr&gt;    &lt;int&gt;      &lt;int&gt; &lt;chr&gt; &lt;lgl&gt;       &lt;int&gt;        &lt;int&gt; &lt;list&gt;
@@ -1548,8 +1568,8 @@ Excel 파일의 데이터를 읽어들일 때 다음 세 가지 사항을 주의
 이 범위는 캐나다와 관련 데이터의 셀 범위를 가리키고 있다.
 문서에 이미 정의된 범위는 <code>range</code> 인수에 해당 이름을 지정하여 가져올 수 있다.
 이 범위에는 열 이름을 나타내는 머리행이 없으므로, <code>col_names</code> 인수에 열 이름을 지정해야 한다.</p>
-<div class="sourceCode" id="cb2412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2412-1"><a href="ch-R-import.html#cb2412-1" tabindex="-1"></a><span class="fu">read_sheet</span>(sheet_id, <span class="at">range=</span><span class="st">&quot;canada&quot;</span>,</span>
-<span id="cb2412-2"><a href="ch-R-import.html#cb2412-2" tabindex="-1"></a>           <span class="at">col_names=</span><span class="fu">names</span>(life_exp_africa))</span></code></pre></div>
+<div class="sourceCode" id="cb2410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2410-1"><a href="ch-R-import.html#cb2410-1" tabindex="-1"></a><span class="fu">read_sheet</span>(sheet_id, <span class="at">range=</span><span class="st">&quot;canada&quot;</span>,</span>
+<span id="cb2410-2"><a href="ch-R-import.html#cb2410-2" tabindex="-1"></a>           <span class="at">col_names=</span><span class="fu">names</span>(life_exp_africa))</span></code></pre></div>
 <pre><code>✔ Reading from &quot;gapminder&quot;.</code></pre>
 <pre><code>✔ Range &#39;canada&#39;.</code></pre>
 <pre><code># A tibble: 12 × 6
@@ -1569,9 +1589,9 @@ Excel 파일의 데이터를 읽어들일 때 다음 세 가지 사항을 주의
 12 Canada  Americas   2007    80.7 33390141    36319.</code></pre>
 <p>Gapminder의 문서는 모든 워크시트가 동일한 구조로 되어 있다. 그러므로 하나의 데이터로 모두 통합할 수 있다.
 다음은 <code>sheet_names()</code>로 모든 워크시트의 이름 받은 후, 차례대로 워크시트를 읽어와 하나의 데이터프레임으로 병합한 예이다.</p>
-<div class="sourceCode" id="cb2416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2416-1"><a href="ch-R-import.html#cb2416-1" tabindex="-1"></a>life_exp_all <span class="ot">&lt;-</span> <span class="fu">sheet_names</span>(sheet_id) <span class="sc">%&gt;%</span> </span>
-<span id="cb2416-2"><a href="ch-R-import.html#cb2416-2" tabindex="-1"></a>  <span class="fu">lapply</span>(<span class="cf">function</span>(sheet) <span class="fu">read_sheet</span>(sheet_id, <span class="at">sheet=</span>sheet)) <span class="sc">%&gt;%</span> </span>
-<span id="cb2416-3"><a href="ch-R-import.html#cb2416-3" tabindex="-1"></a>  <span class="fu">bind_rows</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2414-1"><a href="ch-R-import.html#cb2414-1" tabindex="-1"></a>life_exp_all <span class="ot">&lt;-</span> <span class="fu">sheet_names</span>(sheet_id) <span class="sc">%&gt;%</span> </span>
+<span id="cb2414-2"><a href="ch-R-import.html#cb2414-2" tabindex="-1"></a>  <span class="fu">lapply</span>(<span class="cf">function</span>(sheet) <span class="fu">read_sheet</span>(sheet_id, <span class="at">sheet=</span>sheet)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2414-3"><a href="ch-R-import.html#cb2414-3" tabindex="-1"></a>  <span class="fu">bind_rows</span>()</span></code></pre></div>
 <pre><code>✔ Reading from &quot;gapminder&quot;.</code></pre>
 <pre><code>✔ Range &#39;&#39;Africa&#39;&#39;.</code></pre>
 <pre><code>✔ Reading from &quot;gapminder&quot;.</code></pre>
@@ -1582,7 +1602,7 @@ Excel 파일의 데이터를 읽어들일 때 다음 세 가지 사항을 주의
 <pre><code>✔ Range &#39;&#39;Europe&#39;&#39;.</code></pre>
 <pre><code>✔ Reading from &quot;gapminder&quot;.</code></pre>
 <pre><code>✔ Range &#39;&#39;Oceania&#39;&#39;.</code></pre>
-<div class="sourceCode" id="cb2427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2427-1"><a href="ch-R-import.html#cb2427-1" tabindex="-1"></a>life_exp_all</span></code></pre></div>
+<div class="sourceCode" id="cb2425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2425-1"><a href="ch-R-import.html#cb2425-1" tabindex="-1"></a>life_exp_all</span></code></pre></div>
 <pre><code># A tibble: 1,704 × 6
    country continent  year lifeExp      pop gdpPercap
    &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
@@ -1598,18 +1618,18 @@ Excel 파일의 데이터를 읽어들일 때 다음 세 가지 사항을 주의
 10 Algeria Africa     1997    69.2 29072015     4797.
 # ℹ 1,694 more rows</code></pre>
 <p>이 데이터에서 2007 년도 데이터만 추출하여 일인당GDP, 기대수명, 인구수(pop)을 이용하여 버블 차트를 그려보자. 대륙별로 다른 색상의 버블이 되도록 하였고, 일인당GDP는 로그 스케일로 변환하였다.</p>
-<div class="sourceCode" id="cb2429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2429-1"><a href="ch-R-import.html#cb2429-1" tabindex="-1"></a><span class="fu">filter</span>(life_exp_all, year<span class="sc">==</span><span class="dv">2007</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2429-2"><a href="ch-R-import.html#cb2429-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(gdpPercap, lifeExp)) <span class="sc">+</span></span>
-<span id="cb2429-3"><a href="ch-R-import.html#cb2429-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size=</span>pop, <span class="at">color=</span>continent)) <span class="sc">+</span></span>
-<span id="cb2429-4"><a href="ch-R-import.html#cb2429-4" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>country), <span class="at">size=</span><span class="dv">2</span>, <span class="at">nudge_y=</span><span class="dv">1</span>, <span class="at">check_overlap=</span>T) <span class="sc">+</span> </span>
-<span id="cb2429-5"><a href="ch-R-import.html#cb2429-5" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">&quot;log10&quot;</span>) <span class="sc">+</span></span>
-<span id="cb2429-6"><a href="ch-R-import.html#cb2429-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;일인당 GDP&quot;</span>, <span class="at">y=</span><span class="st">&quot;기대수명&quot;</span>, <span class="at">size=</span><span class="st">&quot;인구&quot;</span>, <span class="at">color=</span><span class="st">&quot;대륙&quot;</span>) <span class="sc">+</span></span>
-<span id="cb2429-7"><a href="ch-R-import.html#cb2429-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2427-1"><a href="ch-R-import.html#cb2427-1" tabindex="-1"></a><span class="fu">filter</span>(life_exp_all, year<span class="sc">==</span><span class="dv">2007</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2427-2"><a href="ch-R-import.html#cb2427-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(gdpPercap, lifeExp)) <span class="sc">+</span></span>
+<span id="cb2427-3"><a href="ch-R-import.html#cb2427-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size=</span>pop, <span class="at">color=</span>continent)) <span class="sc">+</span></span>
+<span id="cb2427-4"><a href="ch-R-import.html#cb2427-4" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>country), <span class="at">size=</span><span class="dv">2</span>, <span class="at">nudge_y=</span><span class="dv">1</span>, <span class="at">check_overlap=</span>T) <span class="sc">+</span> </span>
+<span id="cb2427-5"><a href="ch-R-import.html#cb2427-5" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">&quot;log10&quot;</span>) <span class="sc">+</span></span>
+<span id="cb2427-6"><a href="ch-R-import.html#cb2427-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;일인당 GDP&quot;</span>, <span class="at">y=</span><span class="st">&quot;기대수명&quot;</span>, <span class="at">size=</span><span class="st">&quot;인구&quot;</span>, <span class="at">color=</span><span class="st">&quot;대륙&quot;</span>) <span class="sc">+</span></span>
+<span id="cb2427-7"><a href="ch-R-import.html#cb2427-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <p><img src="R-import_files/figure-html/unnamed-chunk-60-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>마지막으로 한국 데이터만 필터링 하여 시간에 따라 어떻게 변화하였는지를 시각화해 보자.</p>
-<div class="sourceCode" id="cb2430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2430-1"><a href="ch-R-import.html#cb2430-1" tabindex="-1"></a>life_exp_korea <span class="ot">&lt;-</span> life_exp_all <span class="sc">%&gt;%</span> </span>
-<span id="cb2430-2"><a href="ch-R-import.html#cb2430-2" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">&quot;Korea, Rep.&quot;</span>)</span>
-<span id="cb2430-3"><a href="ch-R-import.html#cb2430-3" tabindex="-1"></a>life_exp_korea</span></code></pre></div>
+<div class="sourceCode" id="cb2428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2428-1"><a href="ch-R-import.html#cb2428-1" tabindex="-1"></a>life_exp_korea <span class="ot">&lt;-</span> life_exp_all <span class="sc">%&gt;%</span> </span>
+<span id="cb2428-2"><a href="ch-R-import.html#cb2428-2" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">&quot;Korea, Rep.&quot;</span>)</span>
+<span id="cb2428-3"><a href="ch-R-import.html#cb2428-3" tabindex="-1"></a>life_exp_korea</span></code></pre></div>
 <pre><code># A tibble: 12 × 6
    country     continent  year lifeExp      pop gdpPercap
    &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
@@ -1625,11 +1645,11 @@ Excel 파일의 데이터를 읽어들일 때 다음 세 가지 사항을 주의
 10 Korea, Rep. Asia       1997    74.6 46173816    15994.
 11 Korea, Rep. Asia       2002    77.0 47969150    19234.
 12 Korea, Rep. Asia       2007    78.6 49044790    23348.</code></pre>
-<div class="sourceCode" id="cb2432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2432-1"><a href="ch-R-import.html#cb2432-1" tabindex="-1"></a><span class="fu">ggplot</span>(life_exp_korea, <span class="fu">aes</span>(gdpPercap, lifeExp)) <span class="sc">+</span></span>
-<span id="cb2432-2"><a href="ch-R-import.html#cb2432-2" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>year)) <span class="sc">+</span></span>
-<span id="cb2432-3"><a href="ch-R-import.html#cb2432-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size=</span>pop, <span class="at">color=</span>year)) <span class="sc">+</span></span>
-<span id="cb2432-4"><a href="ch-R-import.html#cb2432-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;일인당 GDP&quot;</span>, <span class="at">y=</span><span class="st">&quot;기대수명&quot;</span>, <span class="at">size=</span><span class="st">&quot;인구&quot;</span>, <span class="at">color=</span><span class="st">&quot;조사년도&quot;</span>) <span class="sc">+</span></span>
-<span id="cb2432-5"><a href="ch-R-import.html#cb2432-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2430-1"><a href="ch-R-import.html#cb2430-1" tabindex="-1"></a><span class="fu">ggplot</span>(life_exp_korea, <span class="fu">aes</span>(gdpPercap, lifeExp)) <span class="sc">+</span></span>
+<span id="cb2430-2"><a href="ch-R-import.html#cb2430-2" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>year)) <span class="sc">+</span></span>
+<span id="cb2430-3"><a href="ch-R-import.html#cb2430-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size=</span>pop, <span class="at">color=</span>year)) <span class="sc">+</span></span>
+<span id="cb2430-4"><a href="ch-R-import.html#cb2430-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;일인당 GDP&quot;</span>, <span class="at">y=</span><span class="st">&quot;기대수명&quot;</span>, <span class="at">size=</span><span class="st">&quot;인구&quot;</span>, <span class="at">color=</span><span class="st">&quot;조사년도&quot;</span>) <span class="sc">+</span></span>
+<span id="cb2430-5"><a href="ch-R-import.html#cb2430-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <p><img src="R-import_files/figure-html/unnamed-chunk-62-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="google-sheets에-데이터-쓰기" class="section level4 unnumbered hasAnchor">
@@ -1638,7 +1658,7 @@ Excel 파일의 데이터를 읽어들일 때 다음 세 가지 사항을 주의
 <ol style="list-style-type: decimal">
 <li><code>gs4_auth()</code> 함수를 사용하여 인증을 시작한다.</li>
 </ol>
-<div class="sourceCode" id="cb2433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2433-1"><a href="ch-R-import.html#cb2433-1" tabindex="-1"></a><span class="fu">gs4_auth</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2431-1"><a href="ch-R-import.html#cb2431-1" tabindex="-1"></a><span class="fu">gs4_auth</span>()</span></code></pre></div>
 <pre><code>! Using an auto-discovered, cached token.</code></pre>
 <pre><code>  To suppress this message, modify your code or options to clearly consent to
   the use of a cached token.</code></pre>
@@ -1670,14 +1690,14 @@ Selection:</code></pre>
 <p><code>write_sheet()</code> 함수는 자신이 데이터를 저장한 문서의 ID를 반환한다.
 Gapmider의 데이터 중에서 한국 데이터만 새로운 Google Sheets 문서에 저장해보자.
 가장 단순한 방법은 임의의 이름으로 새로운 Google Sheets 문서를 만들어 저장하는 것이다.</p>
-<div class="sourceCode" id="cb2440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2440-1"><a href="ch-R-import.html#cb2440-1" tabindex="-1"></a>ss <span class="ot">&lt;-</span> <span class="fu">write_sheet</span>(life_exp_korea)</span></code></pre></div>
-<pre><code>✔ Creating new Sheet: &quot;influenzal-pupa&quot;.</code></pre>
+<div class="sourceCode" id="cb2438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2438-1"><a href="ch-R-import.html#cb2438-1" tabindex="-1"></a>ss <span class="ot">&lt;-</span> <span class="fu">write_sheet</span>(life_exp_korea)</span></code></pre></div>
+<pre><code>✔ Creating new Sheet: &quot;scarecrowy-queenant&quot;.</code></pre>
 <p>저장된 문서의 메타정보를 확인해 보자.</p>
-<div class="sourceCode" id="cb2442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2442-1"><a href="ch-R-import.html#cb2442-1" tabindex="-1"></a><span class="fu">gs4_get</span>(ss)</span></code></pre></div>
+<div class="sourceCode" id="cb2440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2440-1"><a href="ch-R-import.html#cb2440-1" tabindex="-1"></a><span class="fu">gs4_get</span>(ss)</span></code></pre></div>
 <pre><code>
 ── &lt;googlesheets4_spreadsheet&gt; ─────────────────────────────────────────────────
-Spreadsheet name: &quot;influenzal-pupa&quot;                           
-              ID: 1HW41yd01witnaJKaw8Dh1R4ZFZNg1Rs9ry0XU0Swaw4
+Spreadsheet name: &quot;scarecrowy-queenant&quot;                       
+              ID: 1ECMUT9-LBeu56SkuZLGb9T_xz5eWbjLjMVbUtubIX8E
           Locale: ko_KR                                       
        Time zone: Etc/GMT                                     
      # of sheets: 1                                           
@@ -1688,8 +1708,8 @@ Spreadsheet name: &quot;influenzal-pupa&quot;
 <p>임의의 문서 이름이 부여되어 있고, 워크시트의 이름으로 데이터프레임의 변수명이 사용되었음을 볼 수 있다.
 여러분의 구글 드라이브에 가보면 이 Google Sheets 문서를 확인할 수 있다.
 여기서는 워크시트를 읽어서 데이터가 제대로 저장되었는지 확인해 보자.</p>
-<div class="sourceCode" id="cb2444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2444-1"><a href="ch-R-import.html#cb2444-1" tabindex="-1"></a><span class="fu">read_sheet</span>(ss)</span></code></pre></div>
-<pre><code>✔ Reading from &quot;influenzal-pupa&quot;.</code></pre>
+<div class="sourceCode" id="cb2442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2442-1"><a href="ch-R-import.html#cb2442-1" tabindex="-1"></a><span class="fu">read_sheet</span>(ss)</span></code></pre></div>
+<pre><code>✔ Reading from &quot;scarecrowy-queenant&quot;.</code></pre>
 <pre><code>✔ Range &#39;life_exp_korea&#39;.</code></pre>
 <pre><code># A tibble: 12 × 6
    country     continent  year lifeExp      pop gdpPercap
@@ -1709,10 +1729,10 @@ Spreadsheet name: &quot;influenzal-pupa&quot;
 <p>임의의 문서명과 워크시트명이 아니라 원하는 이름으로 Google Sheets 문서를 만드려면 <code>gs4_create()</code> 함수를 사용한다.
 <code>name</code> 인수에 문서명을 <code>sheets</code> 인수에 워크시트명을 지정한다.
 (워크시트의 이름을 지정하는 인수가 지금까지 사용했던 <code>sheet</code>가 아니라 <code>sheets</code>임에 주의한다. 여러 워크시트 명을 전달할 수 있기 때문에 복수형으로 인수 이름이 지어졌다.)</p>
-<div class="sourceCode" id="cb2448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2448-1"><a href="ch-R-import.html#cb2448-1" tabindex="-1"></a>ss <span class="ot">&lt;-</span> <span class="fu">gs4_create</span>(<span class="at">name=</span><span class="st">&quot;기대수명&quot;</span>, <span class="at">sheets=</span><span class="st">&quot;Korea&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2446-1"><a href="ch-R-import.html#cb2446-1" tabindex="-1"></a>ss <span class="ot">&lt;-</span> <span class="fu">gs4_create</span>(<span class="at">name=</span><span class="st">&quot;기대수명&quot;</span>, <span class="at">sheets=</span><span class="st">&quot;Korea&quot;</span>)</span></code></pre></div>
 <pre><code>✔ Creating new Sheet: &quot;기대수명&quot;.</code></pre>
 <p>새로 만들어진 문서에 한국 데이터를 저장해 보자.</p>
-<div class="sourceCode" id="cb2450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2450-1"><a href="ch-R-import.html#cb2450-1" tabindex="-1"></a><span class="fu">write_sheet</span>(life_exp_korea, <span class="at">ss=</span>ss, <span class="at">sheet=</span><span class="st">&quot;Korea&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2448-1"><a href="ch-R-import.html#cb2448-1" tabindex="-1"></a><span class="fu">write_sheet</span>(life_exp_korea, <span class="at">ss=</span>ss, <span class="at">sheet=</span><span class="st">&quot;Korea&quot;</span>)</span></code></pre></div>
 <pre><code>✔ Writing to &quot;기대수명&quot;.</code></pre>
 <pre><code>✔ Writing to sheet &#39;Korea&#39;.</code></pre>
 <p>이 외에도 워크시트에 행을 추가하거나 복사할 수 있으며, 워크시트와 범위를 지우는 등의 다양한 작업을 할 수 있다.
@@ -1747,9 +1767,9 @@ Spreadsheet name: &quot;influenzal-pupa&quot;
 <p><code>rvest</code> 패키지는 웹페이지에서 데이터를 스크래핑하게 도와준다.
 <code>tidyverse</code> 패키지를 설치하였으면 이 패키지가 이미 설치되었을 것이다.
 만약 설치되어 있지 않다면 다음 명령으로 설치를 한다.</p>
-<div class="sourceCode" id="cb2453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2453-1"><a href="ch-R-import.html#cb2453-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rvest&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2451-1"><a href="ch-R-import.html#cb2451-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rvest&quot;</span>)</span></code></pre></div>
 <p><code>rvest</code> 패키지는 <code>tidyverse</code>의 핵심 패키지가 아니므로 <code>tidyverse</code> 패키지와는 별도로 메모리에 적재해야 한다.</p>
-<div class="sourceCode" id="cb2454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2454-1"><a href="ch-R-import.html#cb2454-1" tabindex="-1"></a><span class="fu">library</span>(rvest)</span></code></pre></div>
+<div class="sourceCode" id="cb2452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2452-1"><a href="ch-R-import.html#cb2452-1" tabindex="-1"></a><span class="fu">library</span>(rvest)</span></code></pre></div>
 <pre><code>
 다음의 패키지를 부착합니다: &#39;rvest&#39;</code></pre>
 <pre><code>The following object is masked from &#39;package:readr&#39;:
@@ -1810,8 +1830,8 @@ Spreadsheet name: &quot;influenzal-pupa&quot;
 첫 번째 인수로 웹 페이지의 유일한 주소인 URL을 지정해 준다.
 URL은 웹 브라우저의 주소창에 나타나는 문자열이다.
 앞의 단순한 웹 페이지의 URL로 페이지를 가져오자.</p>
-<div class="sourceCode" id="cb2458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2458-1"><a href="ch-R-import.html#cb2458-1" tabindex="-1"></a>html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;https://scrap-examples.netlify.app/simple.html&quot;</span>)</span>
-<span id="cb2458-2"><a href="ch-R-import.html#cb2458-2" tabindex="-1"></a>html</span></code></pre></div>
+<div class="sourceCode" id="cb2456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2456-1"><a href="ch-R-import.html#cb2456-1" tabindex="-1"></a>html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;https://scrap-examples.netlify.app/simple.html&quot;</span>)</span>
+<span id="cb2456-2"><a href="ch-R-import.html#cb2456-2" tabindex="-1"></a>html</span></code></pre></div>
 <pre><code>{html_document}
 &lt;html&gt;
 [1] &lt;head&gt;\n&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8 ...
@@ -1836,36 +1856,36 @@ CSS 선택자는 원래 웹 페이지의 특정 요소를 지정하여 스타일
 이에 대해서는 나중에 논의하기로 한다.</p>
 <p><code>html_elements()</code>는 CSS 선택자와 매칭되는 모든 요소를 반환한다.
 다음은 최상위의 <code>&lt;html&gt;</code> 요소 아래에 있는 모든 <code>&lt;p&gt;</code> 요소를 찾는 예이다.</p>
-<div class="sourceCode" id="cb2460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2460-1"><a href="ch-R-import.html#cb2460-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;p&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2458-1"><a href="ch-R-import.html#cb2458-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;p&quot;</span>)</span></code></pre></div>
 <pre><code>{xml_nodeset (1)}
 [1] &lt;p class=&quot;plain&quot;&gt;\r\n      요즘에는 이렇게 간단한 웹 페이지는 &lt;b&gt;실습&lt;/b&gt; 아니면 만들지 않는다.\r\n ...</code></pre>
 <p>다음은 최상위의 <code>&lt;html&gt;</code> 요소 아래에 있는 모든 <code>&lt;b&gt;</code> 요소를 찾는 예이다.</p>
-<div class="sourceCode" id="cb2462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2462-1"><a href="ch-R-import.html#cb2462-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;b&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2460-1"><a href="ch-R-import.html#cb2460-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;b&quot;</span>)</span></code></pre></div>
 <pre><code>{xml_nodeset (2)}
 [1] &lt;b&gt;실습&lt;/b&gt;
 [2] &lt;b&gt;HTML&lt;/b&gt;</code></pre>
 <p>이번에는 <code>class</code> 속성이 <code>"plain"</code>인 모든 요소를 찾는 예이다.</p>
-<div class="sourceCode" id="cb2464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2464-1"><a href="ch-R-import.html#cb2464-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;.plain&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2462-1"><a href="ch-R-import.html#cb2462-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;.plain&quot;</span>)</span></code></pre></div>
 <pre><code>{xml_nodeset (1)}
 [1] &lt;p class=&quot;plain&quot;&gt;\r\n      요즘에는 이렇게 간단한 웹 페이지는 &lt;b&gt;실습&lt;/b&gt; 아니면 만들지 않는다.\r\n ...</code></pre>
 <p>마지막으로 <code>id</code> 속성이 <code>"first"</code>인 모든 요소를 찾는 예이다.</p>
-<div class="sourceCode" id="cb2466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2466-1"><a href="ch-R-import.html#cb2466-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;#first&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2464-1"><a href="ch-R-import.html#cb2464-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;#first&quot;</span>)</span></code></pre></div>
 <pre><code>{xml_nodeset (1)}
 [1] &lt;h1 id=&quot;first&quot;&gt;단순한 웹 페이지&lt;/h1&gt;</code></pre>
 <p><code>html_elements()</code>와는 조금 다른 기능을 하는 <code>html_element()</code>라는 함수도 있다. (복수를 의미하는 s가 없다.)
 이 함수는 최상위 노드에서 매칭되는 요소를 오직 하나만 반환한다.
 만약 매칭되는 요소가 여러 개 있으면 첫 번째로 매칭되는 요소를 반환한다.</p>
-<div class="sourceCode" id="cb2468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2468-1"><a href="ch-R-import.html#cb2468-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_element</span>(<span class="st">&quot;b&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2466-1"><a href="ch-R-import.html#cb2466-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_element</span>(<span class="st">&quot;b&quot;</span>)</span></code></pre></div>
 <pre><code>{html_node}
 &lt;b&gt;</code></pre>
 <p>만약 최상위 요소가 여러 개이면 <code>html_element()</code>는 입력된 최상위 요소별로 매칭되는 하나의 요소를 반환하다.
 만약 매칭되는 요소가 없으면 <code>NA</code>라는 결측치를 반환한다.
 다음은 단순한 웹 페이지에는 포함되지 않은 순서 없는 목록을 나타내는 <code>&lt;ul&gt;</code> 요소를 <code>html_element()</code>로 찾는 예이다.</p>
-<div class="sourceCode" id="cb2470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2470-1"><a href="ch-R-import.html#cb2470-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_element</span>(<span class="st">&quot;ul&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2468-1"><a href="ch-R-import.html#cb2468-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_element</span>(<span class="st">&quot;ul&quot;</span>)</span></code></pre></div>
 <pre><code>{xml_missing}
 &lt;NA&gt;</code></pre>
 <p><code>html_elements()</code>는 어떠한 요소도 매칭이 되지 않으면 무엇을 반환할까?</p>
-<div class="sourceCode" id="cb2472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2472-1"><a href="ch-R-import.html#cb2472-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;ul&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2470-1"><a href="ch-R-import.html#cb2470-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;ul&quot;</span>)</span></code></pre></div>
 <pre><code>{xml_nodeset (0)}</code></pre>
 <p>해당되는 요소가 없으면 <code>html_elements()</code> 함수는 길이가 0인 벡터를 반환한다.
 두 함수의 이러한 차이는 여러 요소에서 데이터를 추출할 때 매우 중요한 차이를 만든다.
@@ -1894,9 +1914,9 @@ CSS 선택자는 원래 웹 페이지의 특정 요소를 지정하여 스타일
   background-color: lightyellow;
 }</code></pre>
 <p>먼저 이 웹 페이지를 가져온 후 목록의 항목을 나타내는 <code>&lt;li&gt;</code> 요소를 모두 추출해 보자.</p>
-<div class="sourceCode" id="cb2476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2476-1"><a href="ch-R-import.html#cb2476-1" tabindex="-1"></a>html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;http://scrap-examples.netlify.app/list.html&quot;</span>)  </span>
-<span id="cb2476-2"><a href="ch-R-import.html#cb2476-2" tabindex="-1"></a>presidents <span class="ot">&lt;-</span> html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;li&quot;</span>)</span>
-<span id="cb2476-3"><a href="ch-R-import.html#cb2476-3" tabindex="-1"></a>presidents</span></code></pre></div>
+<div class="sourceCode" id="cb2474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2474-1"><a href="ch-R-import.html#cb2474-1" tabindex="-1"></a>html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">&quot;http://scrap-examples.netlify.app/list.html&quot;</span>)  </span>
+<span id="cb2474-2"><a href="ch-R-import.html#cb2474-2" tabindex="-1"></a>presidents <span class="ot">&lt;-</span> html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;li&quot;</span>)</span>
+<span id="cb2474-3"><a href="ch-R-import.html#cb2474-3" tabindex="-1"></a>presidents</span></code></pre></div>
 <pre><code>{xml_nodeset (4)}
 [1] &lt;li&gt;\n&lt;b&gt;이명박&lt;/b&gt; &lt;i&gt;17대&lt;/i&gt; 대통령의 재임기간은 &lt;span class=&quot;period&quot;&gt;1827일&lt;/span&gt;이 ...
 [2] &lt;li&gt;\n&lt;b&gt;박근혜&lt;/b&gt; &lt;i&gt;18대&lt;/i&gt; 대통령의 재임기간은 &lt;span class=&quot;period&quot;&gt;1475일&lt;/span&gt;이 ...
@@ -1904,23 +1924,23 @@ CSS 선택자는 원래 웹 페이지의 특정 요소를 지정하여 스타일
 [4] &lt;li&gt;\n&lt;b&gt;윤석렬&lt;/b&gt; &lt;i&gt;20대&lt;/i&gt; 대통령은 현재 재임 중이다.&lt;/li&gt;</code></pre>
 <p>목록 항목에서 대통령의 이름을 추출해 보자.
 항목이 여러 개이고 항목별로 대통령의 이름을 하나씩 추출해야 하므로 <code>html_element()</code> 함수의 사용이 적절하다.</p>
-<div class="sourceCode" id="cb2478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2478-1"><a href="ch-R-import.html#cb2478-1" tabindex="-1"></a>name <span class="ot">&lt;-</span> presidents <span class="sc">%&gt;%</span> <span class="fu">html_element</span>(<span class="st">&quot;b&quot;</span>)</span>
-<span id="cb2478-2"><a href="ch-R-import.html#cb2478-2" tabindex="-1"></a>name</span></code></pre></div>
+<div class="sourceCode" id="cb2476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2476-1"><a href="ch-R-import.html#cb2476-1" tabindex="-1"></a>name <span class="ot">&lt;-</span> presidents <span class="sc">%&gt;%</span> <span class="fu">html_element</span>(<span class="st">&quot;b&quot;</span>)</span>
+<span id="cb2476-2"><a href="ch-R-import.html#cb2476-2" tabindex="-1"></a>name</span></code></pre></div>
 <pre><code>{xml_nodeset (4)}
 [1] &lt;b&gt;이명박&lt;/b&gt;
 [2] &lt;b&gt;박근혜&lt;/b&gt;
 [3] &lt;b&gt;문재인&lt;/b&gt;
 [4] &lt;b&gt;윤석렬&lt;/b&gt;</code></pre>
 <p>다음으로 대통령의 취임 순서와 재임기간 데이터를 추출해 보자.</p>
-<div class="sourceCode" id="cb2480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2480-1"><a href="ch-R-import.html#cb2480-1" tabindex="-1"></a>orders <span class="ot">&lt;-</span> presidents <span class="sc">%&gt;%</span> <span class="fu">html_element</span>(<span class="st">&quot;i&quot;</span>)</span>
-<span id="cb2480-2"><a href="ch-R-import.html#cb2480-2" tabindex="-1"></a>orders</span></code></pre></div>
+<div class="sourceCode" id="cb2478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2478-1"><a href="ch-R-import.html#cb2478-1" tabindex="-1"></a>orders <span class="ot">&lt;-</span> presidents <span class="sc">%&gt;%</span> <span class="fu">html_element</span>(<span class="st">&quot;i&quot;</span>)</span>
+<span id="cb2478-2"><a href="ch-R-import.html#cb2478-2" tabindex="-1"></a>orders</span></code></pre></div>
 <pre><code>{xml_nodeset (4)}
 [1] &lt;i&gt;17대&lt;/i&gt;
 [2] &lt;i&gt;18대&lt;/i&gt;
 [3] &lt;i&gt;19대&lt;/i&gt;
 [4] &lt;i&gt;20대&lt;/i&gt;</code></pre>
-<div class="sourceCode" id="cb2482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2482-1"><a href="ch-R-import.html#cb2482-1" tabindex="-1"></a>periods <span class="ot">&lt;-</span> presidents <span class="sc">%&gt;%</span> <span class="fu">html_element</span>(<span class="st">&quot;.period&quot;</span>)</span>
-<span id="cb2482-2"><a href="ch-R-import.html#cb2482-2" tabindex="-1"></a>periods</span></code></pre></div>
+<div class="sourceCode" id="cb2480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2480-1"><a href="ch-R-import.html#cb2480-1" tabindex="-1"></a>periods <span class="ot">&lt;-</span> presidents <span class="sc">%&gt;%</span> <span class="fu">html_element</span>(<span class="st">&quot;.period&quot;</span>)</span>
+<span id="cb2480-2"><a href="ch-R-import.html#cb2480-2" tabindex="-1"></a>periods</span></code></pre></div>
 <pre><code>{xml_nodeset (4)}
 [1] &lt;span class=&quot;period&quot;&gt;1827일&lt;/span&gt;
 [2] &lt;span class=&quot;period&quot;&gt;1475일&lt;/span&gt;
@@ -1928,7 +1948,7 @@ CSS 선택자는 원래 웹 페이지의 특정 요소를 지정하여 스타일
 [4] NA</code></pre>
 <p>현 대통령은 재임 중이므로 재임기간 정보가 없다. 그러므로 해당 요소가 없는 항목은 결측치(<code>NA</code>)로 처리되었다.
 만약 이 경우에서 <code>html_elements()</code>를 사용하면 어떻게 될까?</p>
-<div class="sourceCode" id="cb2484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2484-1"><a href="ch-R-import.html#cb2484-1" tabindex="-1"></a>presidents <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;.period&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2482-1"><a href="ch-R-import.html#cb2482-1" tabindex="-1"></a>presidents <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;.period&quot;</span>)</span></code></pre></div>
 <pre><code>{xml_nodeset (3)}
 [1] &lt;span class=&quot;period&quot;&gt;1827일&lt;/span&gt;
 [2] &lt;span class=&quot;period&quot;&gt;1475일&lt;/span&gt;
@@ -1943,18 +1963,18 @@ CSS 선택자는 원래 웹 페이지의 특정 요소를 지정하여 스타일
 HTML 요소에서 태그를 제외하고 텍스트만 추출하고자 하면 <code>html_text2()</code> 함수를 사용한다.
 <code>html_text()</code> 함수도 텍스트를 추출하지만, 이 함수는 태그 안의 텍스트를 그대로 추출하는 반면, <code>html_text2()</code>는 태그 안의 하위 태그들을 고려하여 적절한 텍스트 형식으로 변환하여 추출해 준다.
 그렇기 때문에 <code>html_text2()</code>는 <code>html_text()</code>보다 처리시간이 더 길지만 일반적으로 사용자가 원하는 형태로 텍스트를 추출해 준다.</p>
-<div class="sourceCode" id="cb2486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2486-1"><a href="ch-R-import.html#cb2486-1" tabindex="-1"></a>name <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2484-1"><a href="ch-R-import.html#cb2484-1" tabindex="-1"></a>name <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>()</span></code></pre></div>
 <pre><code>[1] &quot;이명박&quot; &quot;박근혜&quot; &quot;문재인&quot; &quot;윤석렬&quot;</code></pre>
-<div class="sourceCode" id="cb2488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2488-1"><a href="ch-R-import.html#cb2488-1" tabindex="-1"></a>orders <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2486-1"><a href="ch-R-import.html#cb2486-1" tabindex="-1"></a>orders <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>()</span></code></pre></div>
 <pre><code>[1] &quot;17대&quot; &quot;18대&quot; &quot;19대&quot; &quot;20대&quot;</code></pre>
-<div class="sourceCode" id="cb2490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2490-1"><a href="ch-R-import.html#cb2490-1" tabindex="-1"></a>periods <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2488-1"><a href="ch-R-import.html#cb2488-1" tabindex="-1"></a>periods <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>()</span></code></pre></div>
 <pre><code>[1] &quot;1827일&quot; &quot;1475일&quot; &quot;1827일&quot; NA      </code></pre>
 <p>추출된 텍스트로 <code>tibble</code> 형식의 데이터프레임을 만들어 보자.</p>
-<div class="sourceCode" id="cb2492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2492-1"><a href="ch-R-import.html#cb2492-1" tabindex="-1"></a><span class="fu">tibble</span>(</span>
-<span id="cb2492-2"><a href="ch-R-import.html#cb2492-2" tabindex="-1"></a>  <span class="at">name=</span>name <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>(),</span>
-<span id="cb2492-3"><a href="ch-R-import.html#cb2492-3" tabindex="-1"></a>  <span class="at">n=</span>orders <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>(),</span>
-<span id="cb2492-4"><a href="ch-R-import.html#cb2492-4" tabindex="-1"></a>  <span class="at">period=</span>periods <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>()</span>
-<span id="cb2492-5"><a href="ch-R-import.html#cb2492-5" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb2490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2490-1"><a href="ch-R-import.html#cb2490-1" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb2490-2"><a href="ch-R-import.html#cb2490-2" tabindex="-1"></a>  <span class="at">name=</span>name <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>(),</span>
+<span id="cb2490-3"><a href="ch-R-import.html#cb2490-3" tabindex="-1"></a>  <span class="at">n=</span>orders <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>(),</span>
+<span id="cb2490-4"><a href="ch-R-import.html#cb2490-4" tabindex="-1"></a>  <span class="at">period=</span>periods <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>()</span>
+<span id="cb2490-5"><a href="ch-R-import.html#cb2490-5" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code># A tibble: 4 × 3
   name   n     period
   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; 
@@ -1972,15 +1992,15 @@ HTML 요소에서 태그를 제외하고 텍스트만 추출하고자 하면 <co
 <li><code>parse_factor()</code>: 텍스트에서 유일한 값만 추출하여 요소(factors)로 변환한다.</li>
 <li><code>parse_date(), parse_time(), parse_datetime()</code>: 텍스트를 날짜, 시간, 날짜와 시간 형식으로 변환한다. 텍스트에 표현된 날짜와 시간 형식을 지정할 수 있다.</li>
 </ul>
-<div class="sourceCode" id="cb2494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2494-1"><a href="ch-R-import.html#cb2494-1" tabindex="-1"></a>orders <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>() <span class="sc">%&gt;%</span> <span class="fu">parse_number</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2492-1"><a href="ch-R-import.html#cb2492-1" tabindex="-1"></a>orders <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>() <span class="sc">%&gt;%</span> <span class="fu">parse_number</span>()</span></code></pre></div>
 <pre><code>[1] 17 18 19 20</code></pre>
 <p>그러므로 다음처럼 텍스트를 수치로 변환하여 데이터프레임을 만들 수 있다.</p>
-<div class="sourceCode" id="cb2496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2496-1"><a href="ch-R-import.html#cb2496-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb2496-2"><a href="ch-R-import.html#cb2496-2" tabindex="-1"></a>  <span class="at">name=</span>name <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>(),</span>
-<span id="cb2496-3"><a href="ch-R-import.html#cb2496-3" tabindex="-1"></a>  <span class="at">n=</span>orders <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>() <span class="sc">%&gt;%</span> <span class="fu">parse_number</span>(),</span>
-<span id="cb2496-4"><a href="ch-R-import.html#cb2496-4" tabindex="-1"></a>  <span class="at">period=</span>periods <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>() <span class="sc">%&gt;%</span> <span class="fu">parse_number</span>()</span>
-<span id="cb2496-5"><a href="ch-R-import.html#cb2496-5" tabindex="-1"></a>)</span>
-<span id="cb2496-6"><a href="ch-R-import.html#cb2496-6" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb2494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2494-1"><a href="ch-R-import.html#cb2494-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb2494-2"><a href="ch-R-import.html#cb2494-2" tabindex="-1"></a>  <span class="at">name=</span>name <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>(),</span>
+<span id="cb2494-3"><a href="ch-R-import.html#cb2494-3" tabindex="-1"></a>  <span class="at">n=</span>orders <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>() <span class="sc">%&gt;%</span> <span class="fu">parse_number</span>(),</span>
+<span id="cb2494-4"><a href="ch-R-import.html#cb2494-4" tabindex="-1"></a>  <span class="at">period=</span>periods <span class="sc">%&gt;%</span> <span class="fu">html_text2</span>() <span class="sc">%&gt;%</span> <span class="fu">parse_number</span>()</span>
+<span id="cb2494-5"><a href="ch-R-import.html#cb2494-5" tabindex="-1"></a>)</span>
+<span id="cb2494-6"><a href="ch-R-import.html#cb2494-6" tabindex="-1"></a>df</span></code></pre></div>
 <pre><code># A tibble: 4 × 3
   name       n period
   &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -1989,7 +2009,7 @@ HTML 요소에서 태그를 제외하고 텍스트만 추출하고자 하면 <co
 3 문재인    19   1827
 4 윤석렬    20     NA</code></pre>
 <p>재임기간이 수치로 저장되었기 때문에 다음처럼 재임기간의 평균을 구할 수 있다.</p>
-<div class="sourceCode" id="cb2498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2498-1"><a href="ch-R-import.html#cb2498-1" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>period, <span class="at">na.rm=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb2496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2496-1"><a href="ch-R-import.html#cb2496-1" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>period, <span class="at">na.rm=</span>T)</span></code></pre></div>
 <pre><code>[1] 1709.667</code></pre>
 </div>
 <div id="조합-선택자로-웹-문서에서-요소-지정하기" class="section level4 unnumbered hasAnchor">
@@ -2106,7 +2126,7 @@ HTML 요소에서 태그를 제외하고 텍스트만 추출하고자 하면 <co
 <p><img src="img/chrome-inspect.png" width="100%" style="display: block; margin: auto;" />
 툴팁의 CSS 실렉터로 요소를 추출해 보자.
 결과에서 보듯이 선택된 요소가 추출되지만, 동일한 CSS 선택자에 매칭되는 다른 요소들도 선택되는 경우가 자주 있다.</p>
-<div class="sourceCode" id="cb2500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2500-1"><a href="ch-R-import.html#cb2500-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;span.period&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2498-1"><a href="ch-R-import.html#cb2498-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;span.period&quot;</span>)</span></code></pre></div>
 <pre><code>{xml_nodeset (3)}
 [1] &lt;span class=&quot;period&quot;&gt;1827일&lt;/span&gt;
 [2] &lt;span class=&quot;period&quot;&gt;1475일&lt;/span&gt;
@@ -2155,7 +2175,7 @@ HTML 요소에서 태그를 제외하고 텍스트만 추출하고자 하면 <co
 <p>SelectorGadget에 대한 자세한 사용법은 <a href="https://rvest.tidyverse.org/articles/selectorgadget.html">rvest 홈페이지의 SelectorGadget 글</a>을 참조한다.</p>
 <p>다음은 SelectorGadget을 사용하여 목록의 첫 번째 재임기간만 선택하는 CSS 선택자를 얻은 후 실행한 결과이다.</p>
 <p><img src="img/selectorGadget2.png" width="100%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb2502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2502-1"><a href="ch-R-import.html#cb2502-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;li:nth-child(1) .period&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2500-1"><a href="ch-R-import.html#cb2500-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;li:nth-child(1) .period&quot;</span>)</span></code></pre></div>
 <pre><code>{xml_nodeset (1)}
 [1] &lt;span class=&quot;period&quot;&gt;1827일&lt;/span&gt;</code></pre>
 <p>일반적으로 웹 페이지의 동일한 요소들을 여러 개의 다른 CSS 선택자로 추출할 수 있다.
@@ -2166,9 +2186,9 @@ HTML 요소에서 태그를 제외하고 텍스트만 추출하고자 하면 <co
 <p>현재 다음과 네이버는 영화 서비스를 중단한 상태이다.
 여기서는 과거 웹 페이지를 저장하는 web.archive.org에서 <a href="https://web.archive.org/web/20230208141058/https://movie.daum.net/ranking/boxoffice/yearly" target="_blank">2023년 다음 영화 페이지</a>를 가져오도록 한다.
 이 페이지는 2023년 2월 중의 박스오피스 순위 정보 페이지이다.</p>
-<div class="sourceCode" id="cb2504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2504-1"><a href="ch-R-import.html#cb2504-1" tabindex="-1"></a>target <span class="ot">&lt;-</span> <span class="st">&quot;https://web.archive.org/web/20230208141058/https://movie.daum.net/ranking/boxoffice/yearly&quot;</span></span>
-<span id="cb2504-2"><a href="ch-R-import.html#cb2504-2" tabindex="-1"></a>html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(target)</span>
-<span id="cb2504-3"><a href="ch-R-import.html#cb2504-3" tabindex="-1"></a>html</span></code></pre></div>
+<div class="sourceCode" id="cb2502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2502-1"><a href="ch-R-import.html#cb2502-1" tabindex="-1"></a>target <span class="ot">&lt;-</span> <span class="st">&quot;https://web.archive.org/web/20230208141058/https://movie.daum.net/ranking/boxoffice/yearly&quot;</span></span>
+<span id="cb2502-2"><a href="ch-R-import.html#cb2502-2" tabindex="-1"></a>html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(target)</span>
+<span id="cb2502-3"><a href="ch-R-import.html#cb2502-3" tabindex="-1"></a>html</span></code></pre></div>
 <pre><code>{html_document}
 &lt;html lang=&quot;ko&quot;&gt;
 [1] &lt;head&gt;\n&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8 ...
@@ -2180,8 +2200,8 @@ HTML 요소에서 태그를 제외하고 텍스트만 추출하고자 하면 <co
 <li>페이지의 영화 이름만 노란색으로 선택되고 다른 요소는 선택되지 않았는지를 확인한다.</li>
 <li>SelectGadget에 나타난 정보를 <code>html_elements()</code>에 문자열 인수로 제공하여 영화 이름을 추출한다.</li>
 </ul>
-<div class="sourceCode" id="cb2506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2506-1"><a href="ch-R-import.html#cb2506-1" tabindex="-1"></a>title <span class="ot">&lt;-</span> html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;#mainContent .link_txt&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>()</span>
-<span id="cb2506-2"><a href="ch-R-import.html#cb2506-2" tabindex="-1"></a>title</span></code></pre></div>
+<div class="sourceCode" id="cb2504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2504-1"><a href="ch-R-import.html#cb2504-1" tabindex="-1"></a>title <span class="ot">&lt;-</span> html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;#mainContent .link_txt&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>()</span>
+<span id="cb2504-2"><a href="ch-R-import.html#cb2504-2" tabindex="-1"></a>title</span></code></pre></div>
 <pre><code> [1] &quot;범죄도시2&quot;                                           
  [2] &quot;탑건: 매버릭&quot;                                        
  [3] &quot;아바타: 물의 길&quot;                                     
@@ -2239,16 +2259,16 @@ HTML 요소에서 태그를 제외하고 텍스트만 추출하고자 하면 <co
 <li>원하는 요소만 선택되었는지 확인한다.</li>
 <li>SelectGadget에 나타난 정보를 <code>html_elements()</code>에 문자열 인수로 제공하여 정보를 추출한다.</li>
 </ul>
-<div class="sourceCode" id="cb2508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2508-1"><a href="ch-R-import.html#cb2508-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;.txt_num&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2508-2"><a href="ch-R-import.html#cb2508-2" tabindex="-1"></a>  <span class="fu">html_text</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb2508-3"><a href="ch-R-import.html#cb2508-3" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2506-1"><a href="ch-R-import.html#cb2506-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;.txt_num&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2506-2"><a href="ch-R-import.html#cb2506-2" tabindex="-1"></a>  <span class="fu">html_text</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2506-3"><a href="ch-R-import.html#cb2506-3" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>[1] &quot;22.05.18&quot; &quot;22.06.22&quot; &quot;22.12.14&quot; &quot;22.07.27&quot; &quot;22.09.07&quot; &quot;22.05.04&quot;</code></pre>
 <p>개봉일은 날짜 정보이므로 <code>parse_date()</code>로 이를 날짜 형식으로 변환한다.
 날짜 형식에 사용되는 포맷 문자는 <code>parse_date</code>의 도움말에서 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2510-1"><a href="ch-R-import.html#cb2510-1" tabindex="-1"></a>release <span class="ot">&lt;-</span> html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;.txt_num&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2510-2"><a href="ch-R-import.html#cb2510-2" tabindex="-1"></a>  <span class="fu">html_text</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb2510-3"><a href="ch-R-import.html#cb2510-3" tabindex="-1"></a>  <span class="fu">parse_date</span>(<span class="at">format=</span><span class="st">&quot;%y.%m.%d&quot;</span>)</span>
-<span id="cb2510-4"><a href="ch-R-import.html#cb2510-4" tabindex="-1"></a>release</span></code></pre></div>
+<div class="sourceCode" id="cb2508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2508-1"><a href="ch-R-import.html#cb2508-1" tabindex="-1"></a>release <span class="ot">&lt;-</span> html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;.txt_num&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2508-2"><a href="ch-R-import.html#cb2508-2" tabindex="-1"></a>  <span class="fu">html_text</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2508-3"><a href="ch-R-import.html#cb2508-3" tabindex="-1"></a>  <span class="fu">parse_date</span>(<span class="at">format=</span><span class="st">&quot;%y.%m.%d&quot;</span>)</span>
+<span id="cb2508-4"><a href="ch-R-import.html#cb2508-4" tabindex="-1"></a>release</span></code></pre></div>
 <pre><code> [1] &quot;2022-05-18&quot; &quot;2022-06-22&quot; &quot;2022-12-14&quot; &quot;2022-07-27&quot; &quot;2022-09-07&quot;
  [6] &quot;2022-05-04&quot; &quot;2022-08-10&quot; &quot;2022-11-23&quot; &quot;2022-06-01&quot; &quot;2022-06-15&quot;
 [11] &quot;2022-07-06&quot; &quot;2022-07-20&quot; &quot;2022-11-09&quot; &quot;2022-08-03&quot; &quot;2021-12-15&quot;
@@ -2266,8 +2286,8 @@ HTML 요소에서 태그를 제외하고 텍스트만 추출하고자 하면 <co
 <li>개봉일을 클릭하면 빨간 색으로 바뀌면서 관객수 정보만 선택되는 것을 확인한다.</li>
 <li>SelectGadget에 나타난 정보를 <code>html_elements()</code>에 문자열 인수로 제공하여 정보를 추출한다.</li>
 </ul>
-<div class="sourceCode" id="cb2512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2512-1"><a href="ch-R-import.html#cb2512-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;.info_txt+ .info_txt&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb2512-2"><a href="ch-R-import.html#cb2512-2" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2510-1"><a href="ch-R-import.html#cb2510-1" tabindex="-1"></a>html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;.info_txt+ .info_txt&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb2510-2"><a href="ch-R-import.html#cb2510-2" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>[1] &quot;관객수12,693,415명&quot; &quot;관객수8,177,452명&quot;  &quot;관객수10,581,515명&quot;
 [4] &quot;관객수7,264,934명&quot;  &quot;관객수6,982,940명&quot;  &quot;관객수5,884,595명&quot; </code></pre>
 <p>관객수는 수치이므로 텍스트에서 숫자만 추출한다.</p>
@@ -2275,9 +2295,9 @@ HTML 요소에서 태그를 제외하고 텍스트만 추출하고자 하면 <co
 <li><code>parse_number()</code> 함수로 문자를 숫자로 변환</li>
 <li>숫자의 자릿수 형식을 지정하기 위해 <code>locale()</code> 함수 사용</li>
 </ul>
-<div class="sourceCode" id="cb2514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2514-1"><a href="ch-R-import.html#cb2514-1" tabindex="-1"></a>audience <span class="ot">&lt;-</span> html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;.info_txt+ .info_txt&quot;</span>) <span class="sc">%&gt;%</span>  <span class="fu">html_text</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb2514-2"><a href="ch-R-import.html#cb2514-2" tabindex="-1"></a>  <span class="fu">parse_number</span>(<span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">grouping_mark =</span> <span class="st">&quot;,&quot;</span>))</span>
-<span id="cb2514-3"><a href="ch-R-import.html#cb2514-3" tabindex="-1"></a>audience</span></code></pre></div>
+<div class="sourceCode" id="cb2512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2512-1"><a href="ch-R-import.html#cb2512-1" tabindex="-1"></a>audience <span class="ot">&lt;-</span> html <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">&quot;.info_txt+ .info_txt&quot;</span>) <span class="sc">%&gt;%</span>  <span class="fu">html_text</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb2512-2"><a href="ch-R-import.html#cb2512-2" tabindex="-1"></a>  <span class="fu">parse_number</span>(<span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">grouping_mark =</span> <span class="st">&quot;,&quot;</span>))</span>
+<span id="cb2512-3"><a href="ch-R-import.html#cb2512-3" tabindex="-1"></a>audience</span></code></pre></div>
 <pre><code> [1] 12693415  8177452 10581515  7264934  6982940  5884595  4352407  3327105
  [9]  2837413  2806501  2716306  2269033  2105834  2058869  7551990  1980773
 [17]  1895856  1539364  3154410  1339242  1261131  1195443  1171648   904238
@@ -2286,8 +2306,8 @@ HTML 요소에서 태그를 제외하고 텍스트만 추출하고자 하면 <co
 [41]   475928   458720   447777   444417   416524   415969   412836  1029365
 [49]   400329   398105</code></pre>
 <p>지금까지 추출된 정보를 이용하여 데이터프레임을 생성한다.</p>
-<div class="sourceCode" id="cb2516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2516-1"><a href="ch-R-import.html#cb2516-1" tabindex="-1"></a>movies <span class="ot">&lt;-</span> <span class="fu">tibble</span>(title, release, audience)</span>
-<span id="cb2516-2"><a href="ch-R-import.html#cb2516-2" tabindex="-1"></a>movies</span></code></pre></div>
+<div class="sourceCode" id="cb2514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2514-1"><a href="ch-R-import.html#cb2514-1" tabindex="-1"></a>movies <span class="ot">&lt;-</span> <span class="fu">tibble</span>(title, release, audience)</span>
+<span id="cb2514-2"><a href="ch-R-import.html#cb2514-2" tabindex="-1"></a>movies</span></code></pre></div>
 <pre><code># A tibble: 50 × 3
    title                              release    audience
    &lt;chr&gt;                              &lt;date&gt;        &lt;dbl&gt;
@@ -2303,20 +2323,20 @@ HTML 요소에서 태그를 제외하고 텍스트만 추출하고자 하면 <co
 10 마녀(魔女) Part2. The Other One    2022-06-15  2806501
 # ℹ 40 more rows</code></pre>
 <p>개봉일과 관객수의 분포를 시각화해 보자.</p>
-<div class="sourceCode" id="cb2518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2518-1"><a href="ch-R-import.html#cb2518-1" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
-<span id="cb2518-2"><a href="ch-R-import.html#cb2518-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(release), <span class="at">bins=</span><span class="dv">12</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2516-1"><a href="ch-R-import.html#cb2516-1" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
+<span id="cb2516-2"><a href="ch-R-import.html#cb2516-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(release), <span class="at">bins=</span><span class="dv">12</span>)</span></code></pre></div>
 <p><img src="R-import_files/figure-html/unnamed-chunk-107-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb2519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2519-1"><a href="ch-R-import.html#cb2519-1" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
-<span id="cb2519-2"><a href="ch-R-import.html#cb2519-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(audience), <span class="at">bins=</span><span class="dv">10</span>) <span class="sc">+</span></span>
-<span id="cb2519-3"><a href="ch-R-import.html#cb2519-3" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">&quot;log10&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2517-1"><a href="ch-R-import.html#cb2517-1" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
+<span id="cb2517-2"><a href="ch-R-import.html#cb2517-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(audience), <span class="at">bins=</span><span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb2517-3"><a href="ch-R-import.html#cb2517-3" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">&quot;log10&quot;</span>)</span></code></pre></div>
 <p><img src="R-import_files/figure-html/unnamed-chunk-108-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>상영 기간이 서로 다른 영화들이므로 일일 평균 영화 관객수로 영화의 흥행도를 분석해 보자.</p>
-<div class="sourceCode" id="cb2520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2520-1"><a href="ch-R-import.html#cb2520-1" tabindex="-1"></a>movies <span class="sc">%&gt;%</span> </span>
-<span id="cb2520-2"><a href="ch-R-import.html#cb2520-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2520-3"><a href="ch-R-import.html#cb2520-3" tabindex="-1"></a>    <span class="at">days =</span> <span class="fu">as.Date</span>(<span class="st">&quot;20230206&quot;</span>, <span class="st">&quot;%Y%m%d&quot;</span>) <span class="sc">-</span> release,</span>
-<span id="cb2520-4"><a href="ch-R-import.html#cb2520-4" tabindex="-1"></a>    <span class="at">aud_per_day =</span> audience <span class="sc">/</span> <span class="fu">as.numeric</span>(days, <span class="at">units=</span><span class="st">&quot;days&quot;</span>)</span>
-<span id="cb2520-5"><a href="ch-R-import.html#cb2520-5" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb2520-6"><a href="ch-R-import.html#cb2520-6" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(aud_per_day))</span></code></pre></div>
+<div class="sourceCode" id="cb2518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2518-1"><a href="ch-R-import.html#cb2518-1" tabindex="-1"></a>movies <span class="sc">%&gt;%</span> </span>
+<span id="cb2518-2"><a href="ch-R-import.html#cb2518-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2518-3"><a href="ch-R-import.html#cb2518-3" tabindex="-1"></a>    <span class="at">days =</span> <span class="fu">as.Date</span>(<span class="st">&quot;20230206&quot;</span>, <span class="st">&quot;%Y%m%d&quot;</span>) <span class="sc">-</span> release,</span>
+<span id="cb2518-4"><a href="ch-R-import.html#cb2518-4" tabindex="-1"></a>    <span class="at">aud_per_day =</span> audience <span class="sc">/</span> <span class="fu">as.numeric</span>(days, <span class="at">units=</span><span class="st">&quot;days&quot;</span>)</span>
+<span id="cb2518-5"><a href="ch-R-import.html#cb2518-5" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb2518-6"><a href="ch-R-import.html#cb2518-6" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(aud_per_day))</span></code></pre></div>
 <pre><code># A tibble: 50 × 5
    title                              release    audience days     aud_per_day
    &lt;chr&gt;                              &lt;date&gt;        &lt;dbl&gt; &lt;drtn&gt;         &lt;dbl&gt;
@@ -2340,8 +2360,8 @@ HTML 요소에서 태그를 제외하고 텍스트만 추출하고자 하면 <co
 <li>기록을 가져올 시즌을 선택한다. [2023-2024] 시즌을 선택해 보자.</li>
 <li>페이지의 URL 브라우저에서 확인 후 R 스크립트에 복사한다.</li>
 </ul>
-<div class="sourceCode" id="cb2522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2522-1"><a href="ch-R-import.html#cb2522-1" tabindex="-1"></a>target <span class="ot">&lt;-</span> <span class="st">&quot;https://sports.news.naver.com/volleyball/record/index?category=wkovo&amp;year=2022&quot;</span></span>
-<span id="cb2522-2"><a href="ch-R-import.html#cb2522-2" tabindex="-1"></a>html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(target)</span></code></pre></div>
+<div class="sourceCode" id="cb2520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2520-1"><a href="ch-R-import.html#cb2520-1" tabindex="-1"></a>target <span class="ot">&lt;-</span> <span class="st">&quot;https://sports.news.naver.com/volleyball/record/index?category=wkovo&amp;year=2022&quot;</span></span>
+<span id="cb2520-2"><a href="ch-R-import.html#cb2520-2" tabindex="-1"></a>html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(target)</span></code></pre></div>
 <p>웹 페이지의 표는 <code>&lt;table&gt;</code> 태그로 되어 있고, rvest는 웹 문서의 표를 데이터프레임으로 추출할 수 있다.</p>
 <p><img src="img/kovo-stats1.png" width="100%" style="display: block; margin: auto;" /></p>
 <ol start="4" style="list-style-type: decimal">
@@ -2351,12 +2371,12 @@ HTML 요소에서 태그를 제외하고 텍스트만 추출하고자 하면 <co
 <li>각 table은 tibble로 저장된다.</li>
 <li>여러 개의 table이 있는 경우 리스트로 저장된다.</li>
 </ul>
-<div class="sourceCode" id="cb2523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2523-1"><a href="ch-R-import.html#cb2523-1" tabindex="-1"></a>tables <span class="ot">&lt;-</span> html <span class="sc">%&gt;%</span>  </span>
-<span id="cb2523-2"><a href="ch-R-import.html#cb2523-2" tabindex="-1"></a>  <span class="fu">html_table</span>()</span>
-<span id="cb2523-3"><a href="ch-R-import.html#cb2523-3" tabindex="-1"></a><span class="fu">length</span>(tables)</span></code></pre></div>
+<div class="sourceCode" id="cb2521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2521-1"><a href="ch-R-import.html#cb2521-1" tabindex="-1"></a>tables <span class="ot">&lt;-</span> html <span class="sc">%&gt;%</span>  </span>
+<span id="cb2521-2"><a href="ch-R-import.html#cb2521-2" tabindex="-1"></a>  <span class="fu">html_table</span>()</span>
+<span id="cb2521-3"><a href="ch-R-import.html#cb2521-3" tabindex="-1"></a><span class="fu">length</span>(tables)</span></code></pre></div>
 <pre><code>[1] 2</code></pre>
-<div class="sourceCode" id="cb2525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2525-1"><a href="ch-R-import.html#cb2525-1" tabindex="-1"></a>tables[[<span class="dv">1</span>]]  <span class="co"># 첫 번째 테이블블</span></span></code></pre></div>
-<div class="sourceCode" id="cb2526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2526-1"><a href="ch-R-import.html#cb2526-1" tabindex="-1"></a>tables[[<span class="dv">2</span>]] <span class="co">#  두 번째 테이블블</span></span></code></pre></div>
+<div class="sourceCode" id="cb2523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2523-1"><a href="ch-R-import.html#cb2523-1" tabindex="-1"></a>tables[[<span class="dv">1</span>]]  <span class="co"># 첫 번째 테이블블</span></span></code></pre></div>
+<div class="sourceCode" id="cb2524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2524-1"><a href="ch-R-import.html#cb2524-1" tabindex="-1"></a>tables[[<span class="dv">2</span>]] <span class="co">#  두 번째 테이블블</span></span></code></pre></div>
 <p>웹 페이지에 표가 여러 개 있는 경우에 표 하나를 특정하여 데이터를 수집할 수도 있다.</p>
 <ol style="list-style-type: decimal">
 <li>웹 페이지에서 선택하고자 하는 표를 선택한 후 컨텍스트 메뉴에서 <code>검사</code>를 선택한다.</li>
@@ -2376,10 +2396,10 @@ HTML 요소에서 태그를 제외하고 텍스트만 추출하고자 하면 <co
 <ol start="4" style="list-style-type: decimal">
 <li><code>html_element()</code>의 결과에 <code>html_table()</code>을 적용하여 데이터프레임으로 추출한다.</li>
 </ol>
-<div class="sourceCode" id="cb2527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2527-1"><a href="ch-R-import.html#cb2527-1" tabindex="-1"></a>players <span class="ot">&lt;-</span> html <span class="sc">%&gt;%</span>  </span>
-<span id="cb2527-2"><a href="ch-R-import.html#cb2527-2" tabindex="-1"></a>  <span class="fu">html_element</span>(<span class="at">xpath=</span><span class="st">&#39;//*[@id=&quot;content&quot;]/div[3]/div/div[4]/table&#39;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2527-3"><a href="ch-R-import.html#cb2527-3" tabindex="-1"></a>  <span class="fu">html_table</span>()</span>
-<span id="cb2527-4"><a href="ch-R-import.html#cb2527-4" tabindex="-1"></a>players </span></code></pre></div>
+<div class="sourceCode" id="cb2525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2525-1"><a href="ch-R-import.html#cb2525-1" tabindex="-1"></a>players <span class="ot">&lt;-</span> html <span class="sc">%&gt;%</span>  </span>
+<span id="cb2525-2"><a href="ch-R-import.html#cb2525-2" tabindex="-1"></a>  <span class="fu">html_element</span>(<span class="at">xpath=</span><span class="st">&#39;//*[@id=&quot;content&quot;]/div[3]/div/div[4]/table&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2525-3"><a href="ch-R-import.html#cb2525-3" tabindex="-1"></a>  <span class="fu">html_table</span>()</span>
+<span id="cb2525-4"><a href="ch-R-import.html#cb2525-4" tabindex="-1"></a>players </span></code></pre></div>
 <pre><code># A tibble: 20 × 9
       X1 X2                         X3    X4    X5    X6    X7    X8    X9
    &lt;int&gt; &lt;chr&gt;                   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -2392,9 +2412,9 @@ HTML 요소에서 태그를 제외하고 텍스트만 추출하고자 하면 <co
  7     7 표승주(IBK기업은행)       529  34.8  0.09  0.36  6.83  0.21  36.4
 ......</code></pre>
 <p>추출된 표의 열 이름이 제대로 설정되지 않은 경우에는 직접 열 이름 설정한다.</p>
-<div class="sourceCode" id="cb2529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2529-1"><a href="ch-R-import.html#cb2529-1" tabindex="-1"></a><span class="fu">names</span>(players) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;rank&quot;</span>, <span class="st">&quot;player&quot;</span>, <span class="st">&quot;score&quot;</span>, <span class="st">&quot;attack&quot;</span>, <span class="st">&quot;serve&quot;</span>, </span>
-<span id="cb2529-2"><a href="ch-R-import.html#cb2529-2" tabindex="-1"></a>                    <span class="st">&quot;blocking&quot;</span>, <span class="st">&quot;defence&quot;</span>, <span class="st">&quot;sets&quot;</span>, <span class="st">&quot;receive&quot;</span>)</span>
-<span id="cb2529-3"><a href="ch-R-import.html#cb2529-3" tabindex="-1"></a>players</span></code></pre></div>
+<div class="sourceCode" id="cb2527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2527-1"><a href="ch-R-import.html#cb2527-1" tabindex="-1"></a><span class="fu">names</span>(players) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;rank&quot;</span>, <span class="st">&quot;player&quot;</span>, <span class="st">&quot;score&quot;</span>, <span class="st">&quot;attack&quot;</span>, <span class="st">&quot;serve&quot;</span>, </span>
+<span id="cb2527-2"><a href="ch-R-import.html#cb2527-2" tabindex="-1"></a>                    <span class="st">&quot;blocking&quot;</span>, <span class="st">&quot;defence&quot;</span>, <span class="st">&quot;sets&quot;</span>, <span class="st">&quot;receive&quot;</span>)</span>
+<span id="cb2527-3"><a href="ch-R-import.html#cb2527-3" tabindex="-1"></a>players</span></code></pre></div>
 <pre><code># A tibble: 20 × 9
     rank player                score attack serve blocking defence  sets receive
    &lt;int&gt; &lt;chr&gt;                 &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;

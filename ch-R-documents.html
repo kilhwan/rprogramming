@@ -23,7 +23,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2024-11-23" />
+<meta name="date" content="2024-11-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -595,6 +595,25 @@ div.csl-indent {
 <li class="chapter" data-level="16.2.3" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#독립성-검정"><i class="fa fa-check"></i><b>16.2.3</b> 독립성 검정</a></li>
 </ul></li>
 <li class="chapter" data-level="16.3" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#수치형-변수에-대한-가설검정"><i class="fa fa-check"></i><b>16.3</b> 수치형 변수에 대한 가설검정</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html"><i class="fa fa-check"></i><b>17</b> <strong>R</strong> 선형 회귀</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-simple-linear-regression"><i class="fa fa-check"></i><b>17.1</b> 단순 선형 회귀</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-cars"><i class="fa fa-check"></i><b>17.1.1</b> <code>cars</code> 데이터</a></li>
+<li class="chapter" data-level="17.1.2" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-simple-linear-regression-theory"><i class="fa fa-check"></i><b>17.1.2</b> 단순 선형 회귀 모형</a></li>
+<li class="chapter" data-level="17.1.3" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-lm"><i class="fa fa-check"></i><b>17.1.3</b> <code>lm()</code> 함수</a></li>
+<li class="chapter" data-level="17.1.4" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-linear-regression-evaluation"><i class="fa fa-check"></i><b>17.1.4</b> 선형 회귀 모형의 평가</a></li>
+<li class="chapter" data-level="17.1.5" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#모형의-개선"><i class="fa fa-check"></i><b>17.1.5</b> 모형의 개선</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-multiple-linear-regression"><i class="fa fa-check"></i><b>17.2</b> 다중 선형 회귀</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#galtonfamilies-데이터"><i class="fa fa-check"></i><b>17.2.1</b> <code>GaltonFamilies</code> 데이터</a></li>
+<li class="chapter" data-level="17.2.2" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-multiple-linear-regression-theory"><i class="fa fa-check"></i><b>17.2.2</b> 다중 선형 회귀 모형</a></li>
+<li class="chapter" data-level="17.2.3" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#lm을-이용한-다중-선형-회귀"><i class="fa fa-check"></i><b>17.2.3</b> <code>lm()</code>을 이용한 다중 선형 회귀</a></li>
+<li class="chapter" data-level="17.2.4" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-interaction-terms"><i class="fa fa-check"></i><b>17.2.4</b> 교차항의 도입</a></li>
+<li class="chapter" data-level="17.2.5" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-variable-selections"><i class="fa fa-check"></i><b>17.2.5</b> 변수 선택</a></li>
+</ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="ch-RandPython.html"><a href="ch-RandPython.html"><i class="fa fa-check"></i><b>A</b> <strong>R</strong>과 <strong>Python</strong> 연동하기</a>
@@ -1204,17 +1223,17 @@ RStudio의<code>[Help]-[Markdwon Quick Reference]</code> 메뉴에서 마크다�
 <li><code>fig-show: hide</code>로 지정되면 코드 모듬이 생성한 그래프가 문서에 나타나지 않는다.</li>
 </ul>
 <p>다음 코드 모듬의 코드는 문서에 나타나지만 문서 변환 시에는 실행되지 않는다.</p>
-<div class="sourceCode" id="cb2550"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2550-1"><a href="ch-R-documents.html#cb2550-1" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2550-2"><a href="ch-R-documents.html#cb2550-2" tabindex="-1"></a><span class="in">#| eval: false</span></span>
-<span id="cb2550-3"><a href="ch-R-documents.html#cb2550-3" tabindex="-1"></a><span class="in">1:10</span></span>
-<span id="cb2550-4"><a href="ch-R-documents.html#cb2550-4" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb2548"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2548-1"><a href="ch-R-documents.html#cb2548-1" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2548-2"><a href="ch-R-documents.html#cb2548-2" tabindex="-1"></a><span class="in">#| eval: false</span></span>
+<span id="cb2548-3"><a href="ch-R-documents.html#cb2548-3" tabindex="-1"></a><span class="in">1:10</span></span>
+<span id="cb2548-4"><a href="ch-R-documents.html#cb2548-4" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <p>다음 코드 모듬은 코드는 실행되 결과는 문서에 포함되지만, 코드와 실행 중에 출력되는 메시지는 문서에 포함되지 않는다. 메시지란 코드의 실행 결과가 아니지만 사용자게 정보를 주기 위해서 출려되는 정보이다. <code>geom_smooth()</code> 함수는 추세선을 추정한 방법에 대하여 메시지를 출력한다.</p>
-<div class="sourceCode" id="cb2551"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2551-1"><a href="ch-R-documents.html#cb2551-1" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2551-2"><a href="ch-R-documents.html#cb2551-2" tabindex="-1"></a><span class="in">#| echo: false</span></span>
-<span id="cb2551-3"><a href="ch-R-documents.html#cb2551-3" tabindex="-1"></a><span class="in">#| message: false</span></span>
-<span id="cb2551-4"><a href="ch-R-documents.html#cb2551-4" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
-<span id="cb2551-5"><a href="ch-R-documents.html#cb2551-5" tabindex="-1"></a><span class="in">ggplot(mpg) + geom_smooth(aes(displ, hwy))</span></span>
-<span id="cb2551-6"><a href="ch-R-documents.html#cb2551-6" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb2549"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2549-1"><a href="ch-R-documents.html#cb2549-1" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2549-2"><a href="ch-R-documents.html#cb2549-2" tabindex="-1"></a><span class="in">#| echo: false</span></span>
+<span id="cb2549-3"><a href="ch-R-documents.html#cb2549-3" tabindex="-1"></a><span class="in">#| message: false</span></span>
+<span id="cb2549-4"><a href="ch-R-documents.html#cb2549-4" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
+<span id="cb2549-5"><a href="ch-R-documents.html#cb2549-5" tabindex="-1"></a><span class="in">ggplot(mpg) + geom_smooth(aes(displ, hwy))</span></span>
+<span id="cb2549-6"><a href="ch-R-documents.html#cb2549-6" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <p>코드 모듬 옵션으로 코드가 생성한 그래프의 크기를 지정할 수 있다.
 그런데 그래프의 크기에는 두 가지 기준이 있다.</p>
 <ul>
@@ -1302,9 +1321,9 @@ execute:
 <div id="데이터프레임과-행렬을-표로-출력하기" class="section level3 hasAnchor" number="13.5.3">
 <h3><span class="header-section-number">13.5.3</span> 데이터프레임과 행렬을 표로 출력하기<a href="ch-R-documents.html#데이터프레임과-행렬을-표로-출력하기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Quarto 문서의 코드 모듬에서 데이터프레임이나 행렬을 출력하면 <strong>R</strong> 콘솔에서 출력되는 형태대로 출력 문서에 나타난다.</p>
-<div class="sourceCode" id="cb2553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2553-1"><a href="ch-R-documents.html#cb2553-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> <span class="fu">filter</span>(manufacturer<span class="sc">==</span><span class="st">&quot;hyundai&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2553-2"><a href="ch-R-documents.html#cb2553-2" tabindex="-1"></a>  <span class="fu">select</span>(, model, manufacturer, year, displ, cty, hwy)</span>
-<span id="cb2553-3"><a href="ch-R-documents.html#cb2553-3" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb2551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2551-1"><a href="ch-R-documents.html#cb2551-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> <span class="fu">filter</span>(manufacturer<span class="sc">==</span><span class="st">&quot;hyundai&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2551-2"><a href="ch-R-documents.html#cb2551-2" tabindex="-1"></a>  <span class="fu">select</span>(, model, manufacturer, year, displ, cty, hwy)</span>
+<span id="cb2551-3"><a href="ch-R-documents.html#cb2551-3" tabindex="-1"></a>df</span></code></pre></div>
 <pre><code># A tibble: 14 × 6
    model   manufacturer  year displ   cty   hwy
    &lt;chr&gt;   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;
@@ -1323,7 +1342,7 @@ execute:
 13 tiburon hyundai       2008   2.7    16    24
 14 tiburon hyundai       2008   2.7    17    24</code></pre>
 <p>이를 표 형식으로 출력하려면 <code>knitr::kable()</code> 함수를 사용한다.</p>
-<div class="sourceCode" id="cb2555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2555-1"><a href="ch-R-documents.html#cb2555-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df, <span class="at">caption=</span><span class="st">&quot;현대자동차 모델의 연비&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2553-1"><a href="ch-R-documents.html#cb2553-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(df, <span class="at">caption=</span><span class="st">&quot;현대자동차 모델의 연비&quot;</span>)</span></code></pre></div>
 <table>
 <caption><span id="tab:unnamed-chunk-21">Table 13.1: </span>현대자동차 모델의 연비</caption>
 <thead>
@@ -1458,15 +1477,15 @@ execute:
 텍스트 내부에 포함된 인라인 코드는 문서 변환 시에 실행되어 실행 결과가 텍스트 안에 포함된다.
 인라인 코드와 코드 모듬은 문서 변환 시에 순서대로 실행된다.</p>
 <p>인라인 코드를 포함시키는 방법은 다음과 같다.</p>
-<div class="sourceCode" id="cb2556"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2556-1"><a href="ch-R-documents.html#cb2556-1" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2556-2"><a href="ch-R-documents.html#cb2556-2" tabindex="-1"></a><span class="in">radius &lt;- 5</span></span>
-<span id="cb2556-3"><a href="ch-R-documents.html#cb2556-3" tabindex="-1"></a><span class="in">area &lt;- round(pi * radius^2, digits=2) </span></span>
-<span id="cb2556-4"><a href="ch-R-documents.html#cb2556-4" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2556-5"><a href="ch-R-documents.html#cb2556-5" tabindex="-1"></a></span>
-<span id="cb2556-6"><a href="ch-R-documents.html#cb2556-6" tabindex="-1"></a>원의 반지름은 <span class="in">`{r} radius`</span>이고 면적은 <span class="in">`{r} area`</span>입니다.</span></code></pre></div>
+<div class="sourceCode" id="cb2554"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2554-1"><a href="ch-R-documents.html#cb2554-1" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2554-2"><a href="ch-R-documents.html#cb2554-2" tabindex="-1"></a><span class="in">radius &lt;- 5</span></span>
+<span id="cb2554-3"><a href="ch-R-documents.html#cb2554-3" tabindex="-1"></a><span class="in">area &lt;- round(pi * radius^2, digits=2) </span></span>
+<span id="cb2554-4"><a href="ch-R-documents.html#cb2554-4" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2554-5"><a href="ch-R-documents.html#cb2554-5" tabindex="-1"></a></span>
+<span id="cb2554-6"><a href="ch-R-documents.html#cb2554-6" tabindex="-1"></a>원의 반지름은 <span class="in">`{r} radius`</span>이고 면적은 <span class="in">`{r} area`</span>입니다.</span></code></pre></div>
 <hr />
-<div class="sourceCode" id="cb2557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2557-1"><a href="ch-R-documents.html#cb2557-1" tabindex="-1"></a>radius <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb2557-2"><a href="ch-R-documents.html#cb2557-2" tabindex="-1"></a>area <span class="ot">&lt;-</span> <span class="fu">round</span>(pi <span class="sc">*</span> radius<span class="sc">^</span><span class="dv">2</span>, <span class="at">digits=</span><span class="dv">2</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb2555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2555-1"><a href="ch-R-documents.html#cb2555-1" tabindex="-1"></a>radius <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb2555-2"><a href="ch-R-documents.html#cb2555-2" tabindex="-1"></a>area <span class="ot">&lt;-</span> <span class="fu">round</span>(pi <span class="sc">*</span> radius<span class="sc">^</span><span class="dv">2</span>, <span class="at">digits=</span><span class="dv">2</span>) </span></code></pre></div>
 <p>원의 반지름은 5이고 면적은 78.54입니다.</p>
 <hr />
 

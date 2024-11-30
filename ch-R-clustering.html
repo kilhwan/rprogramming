@@ -23,7 +23,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2024-11-23" />
+<meta name="date" content="2024-11-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -596,6 +596,25 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="16.3" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#수치형-변수에-대한-가설검정"><i class="fa fa-check"></i><b>16.3</b> 수치형 변수에 대한 가설검정</a></li>
 </ul></li>
+<li class="chapter" data-level="17" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html"><i class="fa fa-check"></i><b>17</b> <strong>R</strong> 선형 회귀</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-simple-linear-regression"><i class="fa fa-check"></i><b>17.1</b> 단순 선형 회귀</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-cars"><i class="fa fa-check"></i><b>17.1.1</b> <code>cars</code> 데이터</a></li>
+<li class="chapter" data-level="17.1.2" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-simple-linear-regression-theory"><i class="fa fa-check"></i><b>17.1.2</b> 단순 선형 회귀 모형</a></li>
+<li class="chapter" data-level="17.1.3" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-lm"><i class="fa fa-check"></i><b>17.1.3</b> <code>lm()</code> 함수</a></li>
+<li class="chapter" data-level="17.1.4" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-linear-regression-evaluation"><i class="fa fa-check"></i><b>17.1.4</b> 선형 회귀 모형의 평가</a></li>
+<li class="chapter" data-level="17.1.5" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#모형의-개선"><i class="fa fa-check"></i><b>17.1.5</b> 모형의 개선</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-multiple-linear-regression"><i class="fa fa-check"></i><b>17.2</b> 다중 선형 회귀</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#galtonfamilies-데이터"><i class="fa fa-check"></i><b>17.2.1</b> <code>GaltonFamilies</code> 데이터</a></li>
+<li class="chapter" data-level="17.2.2" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-multiple-linear-regression-theory"><i class="fa fa-check"></i><b>17.2.2</b> 다중 선형 회귀 모형</a></li>
+<li class="chapter" data-level="17.2.3" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#lm을-이용한-다중-선형-회귀"><i class="fa fa-check"></i><b>17.2.3</b> <code>lm()</code>을 이용한 다중 선형 회귀</a></li>
+<li class="chapter" data-level="17.2.4" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-interaction-terms"><i class="fa fa-check"></i><b>17.2.4</b> 교차항의 도입</a></li>
+<li class="chapter" data-level="17.2.5" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-variable-selections"><i class="fa fa-check"></i><b>17.2.5</b> 변수 선택</a></li>
+</ul></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="ch-RandPython.html"><a href="ch-RandPython.html"><i class="fa fa-check"></i><b>A</b> <strong>R</strong>과 <strong>Python</strong> 연동하기</a>
 <ul>
@@ -1048,7 +1067,7 @@ HR 다이어그램은 헤르츠스프롱과 러셀이 별의 밝기와 온도 �
 <div id="r을-이용한-k-평균-군집-분석" class="section level3 hasAnchor" number="15.2.3">
 <h3><span class="header-section-number">15.2.3</span> R을 이용한 k-평균 군집 분석<a href="ch-R-clustering.html#r을-이용한-k-평균-군집-분석" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><a href="ch-R-dimension-reduction.html#sec-dimension-reduction">14.1</a> 절에서 소개한 한국프로야구(KBO) 2024 정규 시즌의 타자 기록을 사용하여 k-평균 군집화를 수행해 보자.</p>
-<div class="sourceCode" id="cb2637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2637-1"><a href="ch-R-clustering.html#cb2637-1" tabindex="-1"></a>batters <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;kbo-2024.csv&quot;</span>, <span class="at">na=</span><span class="st">&quot;-&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2635-1"><a href="ch-R-clustering.html#cb2635-1" tabindex="-1"></a>batters <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;kbo-2024.csv&quot;</span>, <span class="at">na=</span><span class="st">&quot;-&quot;</span>)</span></code></pre></div>
 <pre><code>Rows: 100 Columns: 38
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: &quot;,&quot;
@@ -1061,13 +1080,13 @@ dbl (35): 경기, 타석, 타수, 안타, 단타, 2루타, 3루타, 홈런, 득�
 <h4>변수 정규화<a href="ch-R-clustering.html#변수-정규화" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><a href="ch-R-dimension-reduction.html#sec-dimension-reduction">14.1</a> 절에서 살펴본 바와 같이 타자들의 기록은 스케일이 서로 다르다.
 다음은 타자들의 기본통계 열들의 표준편차를 보여준다.</p>
-<div class="sourceCode" id="cb2639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2639-1"><a href="ch-R-clustering.html#cb2639-1" tabindex="-1"></a><span class="fu">select</span>(batters, 경기<span class="sc">:</span>도실) <span class="sc">%&gt;%</span> </span>
-<span id="cb2639-2"><a href="ch-R-clustering.html#cb2639-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), sd)) <span class="sc">%&gt;%</span> </span>
-<span id="cb2639-3"><a href="ch-R-clustering.html#cb2639-3" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), <span class="at">names_to=</span><span class="st">&quot;variable&quot;</span>, <span class="at">values_to=</span><span class="st">&quot;sd&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2639-4"><a href="ch-R-clustering.html#cb2639-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">variable =</span> <span class="fu">reorder</span>(variable, sd)) <span class="sc">%&gt;%</span> </span>
-<span id="cb2639-5"><a href="ch-R-clustering.html#cb2639-5" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb2639-6"><a href="ch-R-clustering.html#cb2639-6" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x=</span>variable, <span class="at">y=</span>sd)) <span class="sc">+</span></span>
-<span id="cb2639-7"><a href="ch-R-clustering.html#cb2639-7" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2637-1"><a href="ch-R-clustering.html#cb2637-1" tabindex="-1"></a><span class="fu">select</span>(batters, 경기<span class="sc">:</span>도실) <span class="sc">%&gt;%</span> </span>
+<span id="cb2637-2"><a href="ch-R-clustering.html#cb2637-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), sd)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2637-3"><a href="ch-R-clustering.html#cb2637-3" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), <span class="at">names_to=</span><span class="st">&quot;variable&quot;</span>, <span class="at">values_to=</span><span class="st">&quot;sd&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2637-4"><a href="ch-R-clustering.html#cb2637-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">variable =</span> <span class="fu">reorder</span>(variable, sd)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2637-5"><a href="ch-R-clustering.html#cb2637-5" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb2637-6"><a href="ch-R-clustering.html#cb2637-6" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x=</span>variable, <span class="at">y=</span>sd)) <span class="sc">+</span></span>
+<span id="cb2637-7"><a href="ch-R-clustering.html#cb2637-7" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-17-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>스케일이 다른 변수로된 사례들의 거리를 계산하며, 스케일이 큰 변수가 다른 변수들을 압도하여 특정 변수의 차이만 거리에 과대하게 반영된다.
 그러므로 사례들 사이의 거리를 계산하기 전에 변수의 스케일을 통일해 준다.
@@ -1079,12 +1098,12 @@ dbl (35): 경기, 타석, 타수, 안타, 단타, 2루타, 3루타, 홈런, 득�
 \]</span></p>
 <p><strong>R</strong>에서 정규화를 하는 방법은 <code>scale()</code> 함수를 사용하는 것이다.
 다음은 <code>batters</code> 데이터의 수치변수들을 <code>scale()</code> 함수로 정규화하는 예를 보여준다.</p>
-<div class="sourceCode" id="cb2640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2640-1"><a href="ch-R-clustering.html#cb2640-1" tabindex="-1"></a>batters_scaled <span class="ot">&lt;-</span> <span class="fu">select</span>(batters, 경기<span class="sc">:</span>도실) <span class="sc">%&gt;%</span> </span>
-<span id="cb2640-2"><a href="ch-R-clustering.html#cb2640-2" tabindex="-1"></a>  <span class="fu">scale</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2638"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2638-1"><a href="ch-R-clustering.html#cb2638-1" tabindex="-1"></a>batters_scaled <span class="ot">&lt;-</span> <span class="fu">select</span>(batters, 경기<span class="sc">:</span>도실) <span class="sc">%&gt;%</span> </span>
+<span id="cb2638-2"><a href="ch-R-clustering.html#cb2638-2" tabindex="-1"></a>  <span class="fu">scale</span>()</span></code></pre></div>
 <p><code>scale()</code> 함수가 적용되면 행렬이라는 형식의 데이터로 반환한다.
 다음은 행렬의 모든 열에서 표준편차를 구하는 방법을 보여준다.
 모든 변수의 표준편차가 1이 되었다.</p>
-<div class="sourceCode" id="cb2641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2641-1"><a href="ch-R-clustering.html#cb2641-1" tabindex="-1"></a><span class="fu">apply</span>(batters_scaled, <span class="dv">2</span>, sd)</span></code></pre></div>
+<div class="sourceCode" id="cb2639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2639-1"><a href="ch-R-clustering.html#cb2639-1" tabindex="-1"></a><span class="fu">apply</span>(batters_scaled, <span class="dv">2</span>, sd)</span></code></pre></div>
 <pre><code> 경기  타석  타수  안타  단타 2루타 3루타  홈런  득점  타점  볼넷   고4   HBP 
     1     1     1     1     1     1     1     1     1     1     1     1     1 
  삼진  희플  희타  병살  도루  도실 
@@ -1162,8 +1181,8 @@ r_{ij} = \frac{\sum_{k=1}^{m}x_{ik} x_{jk} }
 <li><code>p</code>: 민코프스키 거리를 계산할 때 사용할 승수를 지정한다.</li>
 </ul>
 <p>다음은 정규화된 타자 데이터에서 처음 6 타자 사이의 유클리드 거리를 계산하는 예이다.</p>
-<div class="sourceCode" id="cb2643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2643-1"><a href="ch-R-clustering.html#cb2643-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">dist</span>(batters_scaled[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, ])</span>
-<span id="cb2643-2"><a href="ch-R-clustering.html#cb2643-2" tabindex="-1"></a>d</span></code></pre></div>
+<div class="sourceCode" id="cb2641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2641-1"><a href="ch-R-clustering.html#cb2641-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">dist</span>(batters_scaled[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, ])</span>
+<span id="cb2641-2"><a href="ch-R-clustering.html#cb2641-2" tabindex="-1"></a>d</span></code></pre></div>
 <pre><code>         1        2        3        4        5
 2 6.414634                                    
 3 6.209822 4.353452                           
@@ -1173,7 +1192,7 @@ r_{ij} = \frac{\sum_{k=1}^{m}x_{ik} x_{jk} }
 <p><span class="math inline">\(i\)</span>-번째 사례에서 <span class="math inline">\(j\)</span>-번째 사례까지의 거리나, <span class="math inline">\(j\)</span>-번째 사례에서 <span class="math inline">\(i\)</span>-번째 사례까지의 거리는 동일하므로 두 쌍의 사례들 사이의 거리 행렬에서 아래 삼각형 영역만 출력을 한다.
 거리 계산 결과를 행렬 형태로 얻고자 하면 <code>as_matrix()</code> 함수로 행렬 형식으로 변환한다.
 대각선은 자기 자신과의 거리이므로 0, 대각선을 사이에 두고 마주보는 요소는 모두 동일한 값이다.</p>
-<div class="sourceCode" id="cb2645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2645-1"><a href="ch-R-clustering.html#cb2645-1" tabindex="-1"></a><span class="fu">as.matrix</span>(d)</span></code></pre></div>
+<div class="sourceCode" id="cb2643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2643-1"><a href="ch-R-clustering.html#cb2643-1" tabindex="-1"></a><span class="fu">as.matrix</span>(d)</span></code></pre></div>
 <pre><code>         1        2        3        4        5        6
 1 0.000000 6.414634 6.209822 5.638388 7.197932 7.224850
 2 6.414634 0.000000 4.353452 5.424104 6.098121 5.722043
@@ -1182,7 +1201,7 @@ r_{ij} = \frac{\sum_{k=1}^{m}x_{ik} x_{jk} }
 5 7.197932 6.098121 3.593338 5.036222 0.000000 4.324725
 6 7.224850 5.722043 3.374603 4.158341 4.324725 0.000000</code></pre>
 <p>다음은 동일한 데이터에 대해 맨해튼 거리를 계산한 결과이다.</p>
-<div class="sourceCode" id="cb2647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2647-1"><a href="ch-R-clustering.html#cb2647-1" tabindex="-1"></a><span class="fu">dist</span>(batters_scaled[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, ], <span class="at">method=</span><span class="st">&quot;manhattan&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2645-1"><a href="ch-R-clustering.html#cb2645-1" tabindex="-1"></a><span class="fu">dist</span>(batters_scaled[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, ], <span class="at">method=</span><span class="st">&quot;manhattan&quot;</span>)</span></code></pre></div>
 <pre><code>         1        2        3        4        5
 2 17.28656                                    
 3 18.21640 14.88897                           
@@ -1204,8 +1223,8 @@ r_{ij} = \frac{\sum_{k=1}^{m}x_{ik} x_{jk} }
 <li><code>algorithm</code> 인수로 조금씩 구현 방법이 다른 알고리즘을 선택할 수 있다. 우리는 기본값으로 설정된 Hartigan and Wong이 개발한 알고리즘을 사용할 것이다.</li>
 </ul>
 <p>다음 예는 정규화된 타자 데이터를 <span class="math inline">\(k=3\)</span> 개의 군집을 생성한다.</p>
-<div class="sourceCode" id="cb2649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2649-1"><a href="ch-R-clustering.html#cb2649-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(batters_scaled, <span class="dv">3</span>)</span>
-<span id="cb2649-2"><a href="ch-R-clustering.html#cb2649-2" tabindex="-1"></a>result</span></code></pre></div>
+<div class="sourceCode" id="cb2647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2647-1"><a href="ch-R-clustering.html#cb2647-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(batters_scaled, <span class="dv">3</span>)</span>
+<span id="cb2647-2"><a href="ch-R-clustering.html#cb2647-2" tabindex="-1"></a>result</span></code></pre></div>
 <pre><code>K-means clustering with 3 clusters of sizes 38, 32, 30
 
 Cluster means:
@@ -1254,11 +1273,11 @@ Available components:
 <li>Available components 영역은 <code>kmeans()</code> 함수의 결과가 가지고 있는 요소들이다. 이미 출력된 정보뿐 아니라 다른 정보를 가진 요소들도 있다.</li>
 </ul>
 <p>군집화 결과의 요소들을 하나씩 탐색해 보자.</p>
-<div class="sourceCode" id="cb2651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2651-1"><a href="ch-R-clustering.html#cb2651-1" tabindex="-1"></a>result<span class="sc">$</span>cluster <span class="co"># 사례의 군집 배정 결과</span></span></code></pre></div>
+<div class="sourceCode" id="cb2649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2649-1"><a href="ch-R-clustering.html#cb2649-1" tabindex="-1"></a>result<span class="sc">$</span>cluster <span class="co"># 사례의 군집 배정 결과</span></span></code></pre></div>
 <pre><code>  [1] 2 2 2 2 2 2 2 2 2 2 2 2 1 2 1 2 1 2 2 1 1 2 1 1 1 1 1 1 2 2 2 1 1 2 1 2 3
  [38] 2 2 2 1 2 2 2 1 1 2 1 1 1 1 1 1 3 1 1 3 1 1 1 3 1 1 1 1 2 1 3 1 3 3 3 3 3
  [75] 1 1 3 3 3 3 1 1 3 3 2 3 2 3 3 3 3 3 3 3 3 3 3 3 3 3</code></pre>
-<div class="sourceCode" id="cb2653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2653-1"><a href="ch-R-clustering.html#cb2653-1" tabindex="-1"></a>result<span class="sc">$</span>centers <span class="co"># 군집의 평균점</span></span></code></pre></div>
+<div class="sourceCode" id="cb2651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2651-1"><a href="ch-R-clustering.html#cb2651-1" tabindex="-1"></a>result<span class="sc">$</span>centers <span class="co"># 군집의 평균점</span></span></code></pre></div>
 <pre><code>        경기       타석       타수       안타       단타      2루타      3루타
 1  0.2156607  0.1818939  0.1817526  0.1044683  0.1177994  0.1082262 -0.1940637
 2  0.8407483  0.9873874  0.9850705  1.0250550  0.9495607  0.8631870  0.6675124
@@ -1271,31 +1290,31 @@ Available components:
 1  0.05035605 -0.01124327  0.3708959 -0.3162716 -0.2251868
 2  0.69634113  0.54499385  0.3487327  0.7821202  0.7323434
 3 -0.80654820 -0.56708530 -0.8417830 -0.4336508 -0.4959297</code></pre>
-<div class="sourceCode" id="cb2655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2655-1"><a href="ch-R-clustering.html#cb2655-1" tabindex="-1"></a>result<span class="sc">$</span>size  <span class="co"># 군집별 사례의 수</span></span></code></pre></div>
+<div class="sourceCode" id="cb2653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2653-1"><a href="ch-R-clustering.html#cb2653-1" tabindex="-1"></a>result<span class="sc">$</span>size  <span class="co"># 군집별 사례의 수</span></span></code></pre></div>
 <pre><code>[1] 38 32 30</code></pre>
-<div class="sourceCode" id="cb2657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2657-1"><a href="ch-R-clustering.html#cb2657-1" tabindex="-1"></a>result<span class="sc">$</span>totss <span class="co"># 전체 평균점과 사례의 거리의 제곱의 합</span></span></code></pre></div>
+<div class="sourceCode" id="cb2655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2655-1"><a href="ch-R-clustering.html#cb2655-1" tabindex="-1"></a>result<span class="sc">$</span>totss <span class="co"># 전체 평균점과 사례의 거리의 제곱의 합</span></span></code></pre></div>
 <pre><code>[1] 1881</code></pre>
-<div class="sourceCode" id="cb2659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2659-1"><a href="ch-R-clustering.html#cb2659-1" tabindex="-1"></a>result<span class="sc">$</span>withinss <span class="co"># 군집 내 거리: 군집 별 군집 중심과 사례의 거리의 제곱의 합</span></span></code></pre></div>
+<div class="sourceCode" id="cb2657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2657-1"><a href="ch-R-clustering.html#cb2657-1" tabindex="-1"></a>result<span class="sc">$</span>withinss <span class="co"># 군집 내 거리: 군집 별 군집 중심과 사례의 거리의 제곱의 합</span></span></code></pre></div>
 <pre><code>[1] 302.2123 498.8580 175.0282</code></pre>
-<div class="sourceCode" id="cb2661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2661-1"><a href="ch-R-clustering.html#cb2661-1" tabindex="-1"></a>result<span class="sc">$</span>tot.withinss <span class="co"># 군집 내 거리의 합</span></span></code></pre></div>
+<div class="sourceCode" id="cb2659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2659-1"><a href="ch-R-clustering.html#cb2659-1" tabindex="-1"></a>result<span class="sc">$</span>tot.withinss <span class="co"># 군집 내 거리의 합</span></span></code></pre></div>
 <pre><code>[1] 976.0985</code></pre>
-<div class="sourceCode" id="cb2663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2663-1"><a href="ch-R-clustering.html#cb2663-1" tabindex="-1"></a>result<span class="sc">$</span>betweenss <span class="co"># 군집 사이의 거리의 제곱의 합</span></span></code></pre></div>
+<div class="sourceCode" id="cb2661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2661-1"><a href="ch-R-clustering.html#cb2661-1" tabindex="-1"></a>result<span class="sc">$</span>betweenss <span class="co"># 군집 사이의 거리의 제곱의 합</span></span></code></pre></div>
 <pre><code>[1] 904.9015</code></pre>
 <p>군집 내의 거리(within_SS)와 군집 사이의 거리(between_SS)의 합이 전체 평균에서의 거리(total_SS)와 같음을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb2665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2665-1"><a href="ch-R-clustering.html#cb2665-1" tabindex="-1"></a><span class="fu">sum</span>(result<span class="sc">$</span>withinss, result<span class="sc">$</span>betweenss)</span></code></pre></div>
+<div class="sourceCode" id="cb2663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2663-1"><a href="ch-R-clustering.html#cb2663-1" tabindex="-1"></a><span class="fu">sum</span>(result<span class="sc">$</span>withinss, result<span class="sc">$</span>betweenss)</span></code></pre></div>
 <pre><code>[1] 1881</code></pre>
 <p>그리고 군집화 결과의 출력에서 볼 수 있었던 between_SS / total_SS 의 값도 계산할 수 있다.</p>
-<div class="sourceCode" id="cb2667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2667-1"><a href="ch-R-clustering.html#cb2667-1" tabindex="-1"></a>result<span class="sc">$</span>betweenss <span class="sc">/</span> result<span class="sc">$</span>totss</span></code></pre></div>
+<div class="sourceCode" id="cb2665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2665-1"><a href="ch-R-clustering.html#cb2665-1" tabindex="-1"></a>result<span class="sc">$</span>betweenss <span class="sc">/</span> result<span class="sc">$</span>totss</span></code></pre></div>
 <pre><code>[1] 0.4810747</code></pre>
-<div class="sourceCode" id="cb2669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2669-1"><a href="ch-R-clustering.html#cb2669-1" tabindex="-1"></a>result<span class="sc">$</span>iter <span class="co"># 알고리즘이 수렴할 때까지 반복 횟수 </span></span></code></pre></div>
+<div class="sourceCode" id="cb2667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2667-1"><a href="ch-R-clustering.html#cb2667-1" tabindex="-1"></a>result<span class="sc">$</span>iter <span class="co"># 알고리즘이 수렴할 때까지 반복 횟수 </span></span></code></pre></div>
 <pre><code>[1] 3</code></pre>
 <p>이 사례에서는 3 반복 만에 알고리즘이 수렴한 것을 볼 수 있다.</p>
 </div>
 <div id="초기-시드를-달리하며-반복하기" class="section level4 unnumbered hasAnchor">
 <h4>초기 시드를 달리하며 반복하기<a href="ch-R-clustering.html#초기-시드를-달리하며-반복하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>초기 시드를 바꾸어서 여러 번 시도하면 더 좋은 결과를 얻을 수 있는지 확인해 보자.</p>
-<div class="sourceCode" id="cb2671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2671-1"><a href="ch-R-clustering.html#cb2671-1" tabindex="-1"></a>result3 <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(batters_scaled, <span class="dv">3</span>, <span class="at">nstart=</span><span class="dv">5</span>)</span>
-<span id="cb2671-2"><a href="ch-R-clustering.html#cb2671-2" tabindex="-1"></a>result3</span></code></pre></div>
+<div class="sourceCode" id="cb2669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2669-1"><a href="ch-R-clustering.html#cb2669-1" tabindex="-1"></a>result3 <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(batters_scaled, <span class="dv">3</span>, <span class="at">nstart=</span><span class="dv">5</span>)</span>
+<span id="cb2669-2"><a href="ch-R-clustering.html#cb2669-2" tabindex="-1"></a>result3</span></code></pre></div>
 <pre><code>K-means clustering with 3 clusters of sizes 35, 23, 42
 
 Cluster means:
@@ -1332,8 +1351,8 @@ Available components:
 <p>앞의 예에서는 <span class="math inline">\(k=3\)</span>으로 군집화를 하였지만, 3 개의 군집이 타자들의 설명하는 최적의 군집인지는 사전에 알 수 없다.
 그러므로 <span class="math inline">\(k\)</span>를 바꾸어 가면 군집화를 수행해 보아야 한다.</p>
 <p>다음은 <span class="math inline">\(k=5\)</span>일 때의 군집화 결과를 보여준다. 초기 시드를 5 번 바꾸어 군집화를 시도하였다.</p>
-<div class="sourceCode" id="cb2673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2673-1"><a href="ch-R-clustering.html#cb2673-1" tabindex="-1"></a>result5 <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(batters_scaled, <span class="dv">5</span>, <span class="at">nstart=</span><span class="dv">5</span>)</span>
-<span id="cb2673-2"><a href="ch-R-clustering.html#cb2673-2" tabindex="-1"></a>result5</span></code></pre></div>
+<div class="sourceCode" id="cb2671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2671-1"><a href="ch-R-clustering.html#cb2671-1" tabindex="-1"></a>result5 <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(batters_scaled, <span class="dv">5</span>, <span class="at">nstart=</span><span class="dv">5</span>)</span>
+<span id="cb2671-2"><a href="ch-R-clustering.html#cb2671-2" tabindex="-1"></a>result5</span></code></pre></div>
 <pre><code>K-means clustering with 5 clusters of sizes 12, 24, 18, 17, 29
 
 Cluster means:
@@ -1370,7 +1389,7 @@ Available components:
 [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;        &quot;withinss&quot;     &quot;tot.withinss&quot;
 [6] &quot;betweenss&quot;    &quot;size&quot;         &quot;iter&quot;         &quot;ifault&quot;      </code></pre>
 <p>군집화는 3 번만에 수렴을 하였다.</p>
-<div class="sourceCode" id="cb2675"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2675-1"><a href="ch-R-clustering.html#cb2675-1" tabindex="-1"></a>result5<span class="sc">$</span>iter</span></code></pre></div>
+<div class="sourceCode" id="cb2673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2673-1"><a href="ch-R-clustering.html#cb2673-1" tabindex="-1"></a>result5<span class="sc">$</span>iter</span></code></pre></div>
 <pre><code>[1] 3</code></pre>
 <p>between_SS / total_SS 값에서 군집의 수를 5로 하면 데이터의 변동의 더 많은 부분은 군집이 설명하는 것을 알 수 있다.</p>
 <p>동일한 데이터에서 군집의 수 <span class="math inline">\(k\)</span>를 증가시키면 between_SS / total_SS 값이 증가한다.
@@ -1390,19 +1409,19 @@ Available components:
 <p>좀 더 간단한 방법은 팔꿈치 차트(elbow chart)를 사용하는 것이다.
 팔꿈치 차트는 <span class="math inline">\(k\)</span>가 변화함에 따라 군집 내 거리(within_SS)의 합의 변화를 그래프로 그린 것이다.
 다음은 <span class="math inline">\(k=2\)</span>부터 <span class="math inline">\(k=20\)</span>까지 군집화를 했을 때의 군집 내 거리(within_SS)의 변화를 시각화한 것이다.</p>
-<div class="sourceCode" id="cb2677"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2677-1"><a href="ch-R-clustering.html#cb2677-1" tabindex="-1"></a>k_range <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">20</span></span>
-<span id="cb2677-2"><a href="ch-R-clustering.html#cb2677-2" tabindex="-1"></a>within_ss <span class="ot">&lt;-</span> <span class="fu">sapply</span>(k_range, <span class="cf">function</span>(k) {</span>
-<span id="cb2677-3"><a href="ch-R-clustering.html#cb2677-3" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(batters_scaled, k, <span class="at">nstart=</span><span class="dv">5</span>)</span>
-<span id="cb2677-4"><a href="ch-R-clustering.html#cb2677-4" tabindex="-1"></a>  result<span class="sc">$</span>tot.withinss</span>
-<span id="cb2677-5"><a href="ch-R-clustering.html#cb2677-5" tabindex="-1"></a>}) </span>
-<span id="cb2677-6"><a href="ch-R-clustering.html#cb2677-6" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="fu">aes</span>(k_range, within_ss))</span></code></pre></div>
+<div class="sourceCode" id="cb2675"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2675-1"><a href="ch-R-clustering.html#cb2675-1" tabindex="-1"></a>k_range <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">20</span></span>
+<span id="cb2675-2"><a href="ch-R-clustering.html#cb2675-2" tabindex="-1"></a>within_ss <span class="ot">&lt;-</span> <span class="fu">sapply</span>(k_range, <span class="cf">function</span>(k) {</span>
+<span id="cb2675-3"><a href="ch-R-clustering.html#cb2675-3" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(batters_scaled, k, <span class="at">nstart=</span><span class="dv">5</span>)</span>
+<span id="cb2675-4"><a href="ch-R-clustering.html#cb2675-4" tabindex="-1"></a>  result<span class="sc">$</span>tot.withinss</span>
+<span id="cb2675-5"><a href="ch-R-clustering.html#cb2675-5" tabindex="-1"></a>}) </span>
+<span id="cb2675-6"><a href="ch-R-clustering.html#cb2675-6" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="fu">aes</span>(k_range, within_ss))</span></code></pre></div>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-38-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>군집의 수가 증가함에 따라 군집 내 거리가 지속적으로 감소하는 것을 관찰할 수 있다.
 아울러 감소의 정도가 처음에는 크다가 감소하여 완만해져서 그래프에서 팔의 팔꿈치처럼 꺾이는 지점이 있는 것도 볼 수 있다.
 팔꿈치 방법은 이 지점 근처의 군집의 수로 최적 <span class="math inline">\(k\)</span>를 결정하는 것이다.
 이 예에서는 <span class="math inline">\(k=5\)</span> 근처가 최적 군집 수이다.
 최적 군집의 수로 군집화를 수행한다.</p>
-<div class="sourceCode" id="cb2678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2678-1"><a href="ch-R-clustering.html#cb2678-1" tabindex="-1"></a>result_best <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(batters_scaled, <span class="dv">5</span>, <span class="at">nstart=</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2676-1"><a href="ch-R-clustering.html#cb2676-1" tabindex="-1"></a>result_best <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(batters_scaled, <span class="dv">5</span>, <span class="at">nstart=</span><span class="dv">5</span>)</span></code></pre></div>
 </div>
 <div id="군집의-해석" class="section level4 unnumbered hasAnchor">
 <h4>군집의 해석<a href="ch-R-clustering.html#군집의-해석" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1415,9 +1434,9 @@ Available components:
 따라서 군집의 평균이 양수이면 전체 집단에 비해 해당 변수의 값이 큰 경향이 군집에 있는 것이고, 음수이면 전체에 비해 해당 변수의 값이 작은 경향이 있다는 것이다.</p>
 <p>군집의 평균을 시각화해 보자.
 행렬로 되어 있는 군집의 평균을 데이터프레임으로 변환한 후, 행 이름을 <code>군집</code>이라는 열로 변환하였다.</p>
-<div class="sourceCode" id="cb2679"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2679-1"><a href="ch-R-clustering.html#cb2679-1" tabindex="-1"></a>cluster_means <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(result_best<span class="sc">$</span>centers) <span class="sc">%&gt;%</span> </span>
-<span id="cb2679-2"><a href="ch-R-clustering.html#cb2679-2" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">&quot;군집&quot;</span>)</span>
-<span id="cb2679-3"><a href="ch-R-clustering.html#cb2679-3" tabindex="-1"></a>cluster_means</span></code></pre></div>
+<div class="sourceCode" id="cb2677"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2677-1"><a href="ch-R-clustering.html#cb2677-1" tabindex="-1"></a>cluster_means <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(result_best<span class="sc">$</span>centers) <span class="sc">%&gt;%</span> </span>
+<span id="cb2677-2"><a href="ch-R-clustering.html#cb2677-2" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">&quot;군집&quot;</span>)</span>
+<span id="cb2677-3"><a href="ch-R-clustering.html#cb2677-3" tabindex="-1"></a>cluster_means</span></code></pre></div>
 <pre><code># A tibble: 5 × 20
   군집    경기   타석   타수   안타   단타 `2루타` `3루타`   홈런   득점   타점
   &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -1430,37 +1449,37 @@ Available components:
 #   희타 &lt;dbl&gt;, 병살 &lt;dbl&gt;, 도루 &lt;dbl&gt;, 도실 &lt;dbl&gt;</code></pre>
 <p>이 데이터를 이용하여 군집의 평균을 <code>ggplot2</code>를 이용하여 평행좌표계로 시각화해 보자.
 다음 예에서는 <code>cluster_means</code> 데이터의 <code>군집</code>을 제외한 모든 열의 데이터를 긴 열로 변환한 후 선 그래프를 그린다.</p>
-<div class="sourceCode" id="cb2681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2681-1"><a href="ch-R-clustering.html#cb2681-1" tabindex="-1"></a><span class="fu">pivot_longer</span>(cluster_means, <span class="sc">-</span>군집, <span class="at">names_to=</span><span class="st">&quot;변수&quot;</span>, <span class="at">values_to=</span><span class="st">&quot;평균&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2681-2"><a href="ch-R-clustering.html#cb2681-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb2681-3"><a href="ch-R-clustering.html#cb2681-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(변수, 평균, <span class="at">group=</span>군집, <span class="at">color=</span>군집, <span class="at">linetype=</span>군집)) <span class="sc">+</span></span>
-<span id="cb2681-4"><a href="ch-R-clustering.html#cb2681-4" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2679"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2679-1"><a href="ch-R-clustering.html#cb2679-1" tabindex="-1"></a><span class="fu">pivot_longer</span>(cluster_means, <span class="sc">-</span>군집, <span class="at">names_to=</span><span class="st">&quot;변수&quot;</span>, <span class="at">values_to=</span><span class="st">&quot;평균&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2679-2"><a href="ch-R-clustering.html#cb2679-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb2679-3"><a href="ch-R-clustering.html#cb2679-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(변수, 평균, <span class="at">group=</span>군집, <span class="at">color=</span>군집, <span class="at">linetype=</span>군집)) <span class="sc">+</span></span>
+<span id="cb2679-4"><a href="ch-R-clustering.html#cb2679-4" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-41-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>평행좌표계 그래프를 좀 더 쉽게 그리는 방법은 <code>GGally</code> 패키지의 <code>ggparcoord()</code> 함수를 사용하는 것이다.
 먼저 <code>GGally</code> 패킺가 설치되어 있지 않다면 설치를 하자.</p>
-<div class="sourceCode" id="cb2682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2682-1"><a href="ch-R-clustering.html#cb2682-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;GGally&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2680-1"><a href="ch-R-clustering.html#cb2680-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;GGally&quot;</span>)</span></code></pre></div>
 <p><code>ggparcoord()</code> 함수의 주요 인수는 다음과 같다.</p>
 <ul>
 <li><code>data</code> 인수: 첫 번째 인수로 평행좌표계로 나타낼 데이터를 지정</li>
 <li><code>columns</code> 인수: 평행좌표로 그릴 열의 버뮈를 지정. 열의 인덱스를 숫자 벡터로 지정하거나, 열의 이름을 문자열 벡터로 지정한다.</li>
 <li><code>groupColumn</code> 인수: 그룹을 지정하는 열을 지정한다. 그룹 별로 다른 색의 선으로 그래프가 그려진다.</li>
 </ul>
-<div class="sourceCode" id="cb2683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2683-1"><a href="ch-R-clustering.html#cb2683-1" tabindex="-1"></a><span class="fu">library</span>(GGally)</span></code></pre></div>
+<div class="sourceCode" id="cb2681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2681-1"><a href="ch-R-clustering.html#cb2681-1" tabindex="-1"></a><span class="fu">library</span>(GGally)</span></code></pre></div>
 <pre><code>Registered S3 method overwritten by &#39;GGally&#39;:
   method from   
   +.gg   ggplot2</code></pre>
-<div class="sourceCode" id="cb2685"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2685-1"><a href="ch-R-clustering.html#cb2685-1" tabindex="-1"></a><span class="fu">ggparcoord</span>(cluster_means,  <span class="co"># 데이터</span></span>
-<span id="cb2685-2"><a href="ch-R-clustering.html#cb2685-2" tabindex="-1"></a>           <span class="at">columns=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">20</span>,   <span class="co"># 평행좌표로 그릴 열의 범위</span></span>
-<span id="cb2685-3"><a href="ch-R-clustering.html#cb2685-3" tabindex="-1"></a>           <span class="at">groupColumn=</span><span class="dv">1</span>,  <span class="co"># 다른 색으로 표현할 그룹을 지정하는 열</span></span>
-<span id="cb2685-4"><a href="ch-R-clustering.html#cb2685-4" tabindex="-1"></a>           <span class="at">showPoints=</span>T    <span class="co"># 점 표시 여부</span></span>
-<span id="cb2685-5"><a href="ch-R-clustering.html#cb2685-5" tabindex="-1"></a>           ) <span class="sc">+</span></span>
-<span id="cb2685-6"><a href="ch-R-clustering.html#cb2685-6" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2683-1"><a href="ch-R-clustering.html#cb2683-1" tabindex="-1"></a><span class="fu">ggparcoord</span>(cluster_means,  <span class="co"># 데이터</span></span>
+<span id="cb2683-2"><a href="ch-R-clustering.html#cb2683-2" tabindex="-1"></a>           <span class="at">columns=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">20</span>,   <span class="co"># 평행좌표로 그릴 열의 범위</span></span>
+<span id="cb2683-3"><a href="ch-R-clustering.html#cb2683-3" tabindex="-1"></a>           <span class="at">groupColumn=</span><span class="dv">1</span>,  <span class="co"># 다른 색으로 표현할 그룹을 지정하는 열</span></span>
+<span id="cb2683-4"><a href="ch-R-clustering.html#cb2683-4" tabindex="-1"></a>           <span class="at">showPoints=</span>T    <span class="co"># 점 표시 여부</span></span>
+<span id="cb2683-5"><a href="ch-R-clustering.html#cb2683-5" tabindex="-1"></a>           ) <span class="sc">+</span></span>
+<span id="cb2683-6"><a href="ch-R-clustering.html#cb2683-6" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-43-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p><code>ggparcoord()</code> 함수를 이용하면 모든 사례를 군집 별로 다른 색으로 표시하여 평행좌표계로 표현할 수도 있다.
 이를 위해 먼저 정규화된 데이터를 데이터프레임으로 변환한 후 군집 결과를 열로 추가하자.
 군집 열이 첫 번째 열이 되도록 <code>.before=1</code>을 설정하였다.</p>
-<div class="sourceCode" id="cb2686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2686-1"><a href="ch-R-clustering.html#cb2686-1" tabindex="-1"></a>batters_clustered <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(batters_scaled) <span class="sc">%&gt;%</span> </span>
-<span id="cb2686-2"><a href="ch-R-clustering.html#cb2686-2" tabindex="-1"></a>  <span class="fu">mutate</span>(군집<span class="ot">=</span><span class="fu">factor</span>(result_best<span class="sc">$</span>cluster), <span class="at">.before=</span><span class="dv">1</span>)</span>
-<span id="cb2686-3"><a href="ch-R-clustering.html#cb2686-3" tabindex="-1"></a>batters_clustered</span></code></pre></div>
+<div class="sourceCode" id="cb2684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2684-1"><a href="ch-R-clustering.html#cb2684-1" tabindex="-1"></a>batters_clustered <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(batters_scaled) <span class="sc">%&gt;%</span> </span>
+<span id="cb2684-2"><a href="ch-R-clustering.html#cb2684-2" tabindex="-1"></a>  <span class="fu">mutate</span>(군집<span class="ot">=</span><span class="fu">factor</span>(result_best<span class="sc">$</span>cluster), <span class="at">.before=</span><span class="dv">1</span>)</span>
+<span id="cb2684-3"><a href="ch-R-clustering.html#cb2684-3" tabindex="-1"></a>batters_clustered</span></code></pre></div>
 <pre><code># A tibble: 100 × 20
    군집   경기  타석  타수  안타   단타 `2루타` `3루타`   홈런  득점  타점
    &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -1478,9 +1497,9 @@ Available components:
 # ℹ 9 more variables: 볼넷 &lt;dbl&gt;, 고4 &lt;dbl&gt;, HBP &lt;dbl&gt;, 삼진 &lt;dbl&gt;, 희플 &lt;dbl&gt;,
 #   희타 &lt;dbl&gt;, 병살 &lt;dbl&gt;, 도루 &lt;dbl&gt;, 도실 &lt;dbl&gt;</code></pre>
 <p>이 데이터를 파이프 연산자로 <code>ggparcoord()</code>의 첫 번째 인수로 넘겨서 모든 선수들을 평행좌표계에 표시해 보자.</p>
-<div class="sourceCode" id="cb2688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2688-1"><a href="ch-R-clustering.html#cb2688-1" tabindex="-1"></a><span class="fu">ggparcoord</span>(batters_clustered, <span class="at">columns=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">20</span>, </span>
-<span id="cb2688-2"><a href="ch-R-clustering.html#cb2688-2" tabindex="-1"></a>           <span class="at">groupColumn=</span><span class="dv">1</span>, <span class="at">alphaLines=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb2688-3"><a href="ch-R-clustering.html#cb2688-3" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2686-1"><a href="ch-R-clustering.html#cb2686-1" tabindex="-1"></a><span class="fu">ggparcoord</span>(batters_clustered, <span class="at">columns=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">20</span>, </span>
+<span id="cb2686-2"><a href="ch-R-clustering.html#cb2686-2" tabindex="-1"></a>           <span class="at">groupColumn=</span><span class="dv">1</span>, <span class="at">alphaLines=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb2686-3"><a href="ch-R-clustering.html#cb2686-3" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-45-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>군집 평균을 이용하여 군집에 대한 다음과 같은 해석을 할 수 있다.</p>
 <ul>
@@ -1492,14 +1511,14 @@ Available components:
 </ul>
 <p>이러한 군집 해석이 맞는지 각 군집의 평균점에 어떠한 선수가 있는지 알아보자.
 군집의 평균점과 각 사례의 거리를 계산하여 파악할 수도 있고, <a href="ch-R-dimension-reduction.html#sec-pca">14.2</a>에서 소개한 주성분 분석을 사용하여 데이터를 산점도로 표현하고 산점도에 군집을 표현하여 군집의 중심에 어떠한 데이터가 있는지 살펴볼 수도 있다.</p>
-<div class="sourceCode" id="cb2689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2689-1"><a href="ch-R-clustering.html#cb2689-1" tabindex="-1"></a><span class="fu">library</span>(ggbiplot)</span>
-<span id="cb2689-2"><a href="ch-R-clustering.html#cb2689-2" tabindex="-1"></a>batters_pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(batters_scaled)</span>
-<span id="cb2689-3"><a href="ch-R-clustering.html#cb2689-3" tabindex="-1"></a><span class="fu">ggbiplot</span>(batters_pca,  </span>
-<span id="cb2689-4"><a href="ch-R-clustering.html#cb2689-4" tabindex="-1"></a>         <span class="at">var.axes =</span> F,  <span class="co"># 변수 벡터 생략</span></span>
-<span id="cb2689-5"><a href="ch-R-clustering.html#cb2689-5" tabindex="-1"></a>         <span class="at">labels=</span>batters<span class="sc">$</span>선수명,</span>
-<span id="cb2689-6"><a href="ch-R-clustering.html#cb2689-6" tabindex="-1"></a>         <span class="at">groups=</span><span class="fu">paste</span>(<span class="st">&quot;군집&quot;</span>, result_best<span class="sc">$</span>cluster),  <span class="co"># 군집 결과로 그룹화</span></span>
-<span id="cb2689-7"><a href="ch-R-clustering.html#cb2689-7" tabindex="-1"></a>         <span class="at">ellipse=</span>T, <span class="at">ellipse.alpha=</span><span class="fl">0.1</span>, <span class="at">ellipse.linewidth=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb2689-8"><a href="ch-R-clustering.html#cb2689-8" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2687-1"><a href="ch-R-clustering.html#cb2687-1" tabindex="-1"></a><span class="fu">library</span>(ggbiplot)</span>
+<span id="cb2687-2"><a href="ch-R-clustering.html#cb2687-2" tabindex="-1"></a>batters_pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(batters_scaled)</span>
+<span id="cb2687-3"><a href="ch-R-clustering.html#cb2687-3" tabindex="-1"></a><span class="fu">ggbiplot</span>(batters_pca,  </span>
+<span id="cb2687-4"><a href="ch-R-clustering.html#cb2687-4" tabindex="-1"></a>         <span class="at">var.axes =</span> F,  <span class="co"># 변수 벡터 생략</span></span>
+<span id="cb2687-5"><a href="ch-R-clustering.html#cb2687-5" tabindex="-1"></a>         <span class="at">labels=</span>batters<span class="sc">$</span>선수명,</span>
+<span id="cb2687-6"><a href="ch-R-clustering.html#cb2687-6" tabindex="-1"></a>         <span class="at">groups=</span><span class="fu">paste</span>(<span class="st">&quot;군집&quot;</span>, result_best<span class="sc">$</span>cluster),  <span class="co"># 군집 결과로 그룹화</span></span>
+<span id="cb2687-7"><a href="ch-R-clustering.html#cb2687-7" tabindex="-1"></a>         <span class="at">ellipse=</span>T, <span class="at">ellipse.alpha=</span><span class="fl">0.1</span>, <span class="at">ellipse.linewidth=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb2687-8"><a href="ch-R-clustering.html#cb2687-8" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-46-1.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -1684,9 +1703,9 @@ ESS(\{2, 3\}, \{7, 9, 11, 13\}) &amp;= 20.5
 </ul></li>
 </ul>
 <p>다음은 정규화된 KBO 타자들의 기본통계 데이터에 대한 유클리드 거리를 계산한 후, 단일 연결법으로 병합 군집화를 수행한는 예이다.</p>
-<div class="sourceCode" id="cb2690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2690-1"><a href="ch-R-clustering.html#cb2690-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">dist</span>(batters_scaled)</span>
-<span id="cb2690-2"><a href="ch-R-clustering.html#cb2690-2" tabindex="-1"></a>batters_hcls <span class="ot">&lt;-</span> <span class="fu">hclust</span>(d, <span class="at">method=</span><span class="st">&quot;single&quot;</span>)</span>
-<span id="cb2690-3"><a href="ch-R-clustering.html#cb2690-3" tabindex="-1"></a>batters_hcls</span></code></pre></div>
+<div class="sourceCode" id="cb2688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2688-1"><a href="ch-R-clustering.html#cb2688-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">dist</span>(batters_scaled)</span>
+<span id="cb2688-2"><a href="ch-R-clustering.html#cb2688-2" tabindex="-1"></a>batters_hcls <span class="ot">&lt;-</span> <span class="fu">hclust</span>(d, <span class="at">method=</span><span class="st">&quot;single&quot;</span>)</span>
+<span id="cb2688-3"><a href="ch-R-clustering.html#cb2688-3" tabindex="-1"></a>batters_hcls</span></code></pre></div>
 <pre><code>
 Call:
 hclust(d = d, method = &quot;single&quot;)
@@ -1710,11 +1729,11 @@ Number of objects: 100 </code></pre>
 <div id="병합-군집화에-대한-계통도-그리기" class="section level3 hasAnchor" number="15.3.4">
 <h3><span class="header-section-number">15.3.4</span> 병합 군집화에 대한 계통도 그리기<a href="ch-R-clustering.html#병합-군집화에-대한-계통도-그리기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>병합 군집화의 결과를 <code>plot()</code> 함수에 전달하면 계통도를 시각화한다.</p>
-<div class="sourceCode" id="cb2692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2692-1"><a href="ch-R-clustering.html#cb2692-1" tabindex="-1"></a><span class="fu">plot</span>(batters_hcls)</span></code></pre></div>
+<div class="sourceCode" id="cb2690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2690-1"><a href="ch-R-clustering.html#cb2690-1" tabindex="-1"></a><span class="fu">plot</span>(batters_hcls)</span></code></pre></div>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-59-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>계통도에서 사례들이 행 번호로 표현되었다.
 선수의 이름이 나타나도록 <code>label</code> 인수를 지정해 보자.</p>
-<div class="sourceCode" id="cb2693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2693-1"><a href="ch-R-clustering.html#cb2693-1" tabindex="-1"></a><span class="fu">plot</span>(batters_hcls, <span class="at">label=</span>batters<span class="sc">$</span>선수명)</span></code></pre></div>
+<div class="sourceCode" id="cb2691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2691-1"><a href="ch-R-clustering.html#cb2691-1" tabindex="-1"></a><span class="fu">plot</span>(batters_hcls, <span class="at">label=</span>batters<span class="sc">$</span>선수명)</span></code></pre></div>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-60-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>2024 시즌에 가장 특이했던 타자는 ’김도엉’이었음을 볼 수 있다.
 나머지 군집들과 가장 마지막에 병합되었다.
@@ -1724,7 +1743,7 @@ Number of objects: 100 </code></pre>
 <code>hang</code>은 두 군집이 병합된 거리에서 어느 정도 떨어뜨려 사례를 표시할지를 지정하는 인수이다.
 <code>hang=0.1</code>이 기본값이고 그래프의 세로축의 길이의 10% 정도 떨어뜨려 사례를 표시한다.
 <code>hang=-1</code>이면 세로축의 0 밑에 사례들을 표시한다.</p>
-<div class="sourceCode" id="cb2694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2694-1"><a href="ch-R-clustering.html#cb2694-1" tabindex="-1"></a><span class="fu">plot</span>(batters_hcls, <span class="at">label=</span>batters<span class="sc">$</span>선수명, <span class="at">hang=</span><span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2692-1"><a href="ch-R-clustering.html#cb2692-1" tabindex="-1"></a><span class="fu">plot</span>(batters_hcls, <span class="at">label=</span>batters<span class="sc">$</span>선수명, <span class="at">hang=</span><span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-61-1.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="군집-나누기" class="section level3 hasAnchor" number="15.3.5">
@@ -1737,19 +1756,19 @@ Number of objects: 100 </code></pre>
 <li><code>h</code> 인수로 군집을 어느 거리를 기준으로 분할할지를 지정한다. <code>k</code>와 <code>h</code>는 둘 중에 하나만 지정되어야 한다. 둘 다 지정되면 <code>k</code>가 우선적으로 적용된다.</li>
 </ul>
 <p>다음은 <span class="math inline">\(k=3\)</span>일 때의 사례들의 군집화 결과이다.</p>
-<div class="sourceCode" id="cb2695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2695-1"><a href="ch-R-clustering.html#cb2695-1" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">cutree</span>(batters_hcls, <span class="at">k=</span><span class="dv">3</span>)</span>
-<span id="cb2695-2"><a href="ch-R-clustering.html#cb2695-2" tabindex="-1"></a>cls</span></code></pre></div>
+<div class="sourceCode" id="cb2693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2693-1"><a href="ch-R-clustering.html#cb2693-1" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">cutree</span>(batters_hcls, <span class="at">k=</span><span class="dv">3</span>)</span>
+<span id="cb2693-2"><a href="ch-R-clustering.html#cb2693-2" tabindex="-1"></a>cls</span></code></pre></div>
 <pre><code>  [1] 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 2 2 2 2 2
  [38] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
  [75] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</code></pre>
 <p>군집에 포함된 사례 수를 확인해 보자.</p>
-<div class="sourceCode" id="cb2697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2697-1"><a href="ch-R-clustering.html#cb2697-1" tabindex="-1"></a><span class="fu">table</span>(cls) <span class="co"># 군집별 사례 수</span></span></code></pre></div>
+<div class="sourceCode" id="cb2695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2695-1"><a href="ch-R-clustering.html#cb2695-1" tabindex="-1"></a><span class="fu">table</span>(cls) <span class="co"># 군집별 사례 수</span></span></code></pre></div>
 <pre><code>cls
  1  2  3 
  1 98  1 </code></pre>
 <p>단열 연결법의 특징때문에 98 명의 타자가 한 군집에 몰려 있고, 두 명의 예외적인 타자가 각기 하나의 군집을 이루고 있다.</p>
 <p>데이터에서 예외적인 군집에 속하는 타자가 누구였는지 확인해 보자.</p>
-<div class="sourceCode" id="cb2699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2699-1"><a href="ch-R-clustering.html#cb2699-1" tabindex="-1"></a><span class="fu">filter</span>(batters, cls <span class="sc">==</span> <span class="dv">1</span>) <span class="co"># 군집 1에 속하는 사례</span></span></code></pre></div>
+<div class="sourceCode" id="cb2697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2697-1"><a href="ch-R-clustering.html#cb2697-1" tabindex="-1"></a><span class="fu">filter</span>(batters, cls <span class="sc">==</span> <span class="dv">1</span>) <span class="co"># 군집 1에 속하는 사례</span></span></code></pre></div>
 <pre><code># A tibble: 1 × 38
   선수명 팀명  포지션  경기  타석  타수  안타  단타 `2루타` `3루타`  홈런  득점
   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -1759,7 +1778,7 @@ Number of objects: 100 </code></pre>
 #   타율 &lt;dbl&gt;, BABIP &lt;dbl&gt;, `볼넷%` &lt;dbl&gt;, `삼진%` &lt;dbl&gt;, `볼/삼` &lt;dbl&gt;,
 #   ISO &lt;dbl&gt;, `타수/홈런` &lt;dbl&gt;, OPS &lt;dbl&gt;, RC &lt;dbl&gt;, `RC/27` &lt;dbl&gt;,
 #   wRC &lt;dbl&gt;, SPD &lt;dbl&gt;, wSB &lt;dbl&gt;, wOBA &lt;dbl&gt;, wRAA &lt;dbl&gt;, WAR &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb2701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2701-1"><a href="ch-R-clustering.html#cb2701-1" tabindex="-1"></a><span class="fu">filter</span>(batters, cls <span class="sc">==</span> <span class="dv">3</span>) <span class="co"># 군집 3에 속하는 사례</span></span></code></pre></div>
+<div class="sourceCode" id="cb2699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2699-1"><a href="ch-R-clustering.html#cb2699-1" tabindex="-1"></a><span class="fu">filter</span>(batters, cls <span class="sc">==</span> <span class="dv">3</span>) <span class="co"># 군집 3에 속하는 사례</span></span></code></pre></div>
 <pre><code># A tibble: 1 × 38
   선수명 팀명  포지션  경기  타석  타수  안타  단타 `2루타` `3루타`  홈런  득점
   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -1777,13 +1796,13 @@ Number of objects: 100 </code></pre>
 <p>병합 군집이 완료된 후 최적 군집의 수를 어떻게 결정해야 할까?</p>
 <p>사례의 수가 많지 않은 경우에는 계통도 상에서 여러 개의 군집 수로 분할해 보아서 군집이 잘 분리되고 설명이 용이한 군집의 수를 선택하기도 한다.</p>
 <p>다음과 같은 어떤 가족 모임의 참석자의 나이에 대한 정보가 있다고 하자.</p>
-<div class="sourceCode" id="cb2703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2703-1"><a href="ch-R-clustering.html#cb2703-1" tabindex="-1"></a>ages<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">28</span>, <span class="dv">31</span>, <span class="dv">34</span>, <span class="dv">35</span>, <span class="dv">39</span>, <span class="dv">43</span>, <span class="dv">45</span>, <span class="dv">70</span>, <span class="dv">72</span>, <span class="dv">75</span>)</span>
-<span id="cb2703-2"><a href="ch-R-clustering.html#cb2703-2" tabindex="-1"></a>ages</span></code></pre></div>
+<div class="sourceCode" id="cb2701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2701-1"><a href="ch-R-clustering.html#cb2701-1" tabindex="-1"></a>ages<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">28</span>, <span class="dv">31</span>, <span class="dv">34</span>, <span class="dv">35</span>, <span class="dv">39</span>, <span class="dv">43</span>, <span class="dv">45</span>, <span class="dv">70</span>, <span class="dv">72</span>, <span class="dv">75</span>)</span>
+<span id="cb2701-2"><a href="ch-R-clustering.html#cb2701-2" tabindex="-1"></a>ages</span></code></pre></div>
 <pre><code> [1]  1  3  5  7  9 11 13 28 31 34 35 39 43 45 70 72 75</code></pre>
 <p>이 가족 모임을 단일 연결법으로 군집화하면 다음과 같이 군집화 된다.</p>
-<div class="sourceCode" id="cb2705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2705-1"><a href="ch-R-clustering.html#cb2705-1" tabindex="-1"></a>d_ages <span class="ot">&lt;-</span> <span class="fu">dist</span>(ages)</span>
-<span id="cb2705-2"><a href="ch-R-clustering.html#cb2705-2" tabindex="-1"></a>hcls_ages <span class="ot">&lt;-</span> <span class="fu">hclust</span>(d_ages, <span class="at">method=</span><span class="st">&quot;single&quot;</span>)</span>
-<span id="cb2705-3"><a href="ch-R-clustering.html#cb2705-3" tabindex="-1"></a><span class="fu">plot</span>(hcls_ages, <span class="at">labels=</span>ages)</span></code></pre></div>
+<div class="sourceCode" id="cb2703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2703-1"><a href="ch-R-clustering.html#cb2703-1" tabindex="-1"></a>d_ages <span class="ot">&lt;-</span> <span class="fu">dist</span>(ages)</span>
+<span id="cb2703-2"><a href="ch-R-clustering.html#cb2703-2" tabindex="-1"></a>hcls_ages <span class="ot">&lt;-</span> <span class="fu">hclust</span>(d_ages, <span class="at">method=</span><span class="st">&quot;single&quot;</span>)</span>
+<span id="cb2703-3"><a href="ch-R-clustering.html#cb2703-3" tabindex="-1"></a><span class="fu">plot</span>(hcls_ages, <span class="at">labels=</span>ages)</span></code></pre></div>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-67-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>이 데이터는 거리가 5 이상인 곳에서 자연스럽게 데이터가 분리되는 것을 확인할 수 있다.</p>
 <p><code>rect.hclust()</code> 함수는 <code>plot()</code> 함수로 그려진 계통도 위해 군집 결과를 사각형으로 표시해 준다.</p>
@@ -1794,22 +1813,22 @@ Number of objects: 100 </code></pre>
 <li><code>border</code>는 사각형의 경계 색상을 지정한다.</li>
 </ul>
 <p><code>rect.hclust()</code> 함수를 사용하면 계통도 상에서 군집의 분할 결과를 시각적으로 탐색할 수 있다.</p>
-<div class="sourceCode" id="cb2706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2706-1"><a href="ch-R-clustering.html#cb2706-1" tabindex="-1"></a><span class="fu">plot</span>(hcls_ages, <span class="at">labels=</span>ages) <span class="co"># 계통도 시각화 </span></span>
-<span id="cb2706-2"><a href="ch-R-clustering.html#cb2706-2" tabindex="-1"></a><span class="fu">rect.hclust</span>(hcls_ages, <span class="at">h=</span><span class="dv">5</span>)  <span class="co"># 군집 분할 시각화</span></span></code></pre></div>
+<div class="sourceCode" id="cb2704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2704-1"><a href="ch-R-clustering.html#cb2704-1" tabindex="-1"></a><span class="fu">plot</span>(hcls_ages, <span class="at">labels=</span>ages) <span class="co"># 계통도 시각화 </span></span>
+<span id="cb2704-2"><a href="ch-R-clustering.html#cb2704-2" tabindex="-1"></a><span class="fu">rect.hclust</span>(hcls_ages, <span class="at">h=</span><span class="dv">5</span>)  <span class="co"># 군집 분할 시각화</span></span></code></pre></div>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-68-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>5 살 거리로 분할하면 자연스럽게 조부모 세대, 부모 세대, 자식 세대로 분할되었다는 것을 확인할 수 있다.</p>
 <p>다음처럼 군집의 수로도 분할을 탐개할 수 있다.
 6 개로 군집을 하면 어떻게 분할되는지 살펴보자.</p>
-<div class="sourceCode" id="cb2707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2707-1"><a href="ch-R-clustering.html#cb2707-1" tabindex="-1"></a><span class="fu">plot</span>(hcls_ages, <span class="at">labels=</span>ages) <span class="co"># 계통도 시각화 </span></span>
-<span id="cb2707-2"><a href="ch-R-clustering.html#cb2707-2" tabindex="-1"></a><span class="fu">rect.hclust</span>(hcls_ages, <span class="at">k=</span><span class="dv">6</span>)  <span class="co"># 군집 분할 시각화</span></span></code></pre></div>
+<div class="sourceCode" id="cb2705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2705-1"><a href="ch-R-clustering.html#cb2705-1" tabindex="-1"></a><span class="fu">plot</span>(hcls_ages, <span class="at">labels=</span>ages) <span class="co"># 계통도 시각화 </span></span>
+<span id="cb2705-2"><a href="ch-R-clustering.html#cb2705-2" tabindex="-1"></a><span class="fu">rect.hclust</span>(hcls_ages, <span class="at">k=</span><span class="dv">6</span>)  <span class="co"># 군집 분할 시각화</span></span></code></pre></div>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-69-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>3 살 이상 차이가 나는 그룹으로 나누어져 부모 세대는 30대 초반, 30대 후반, 40대 초반으로 분할되고 조부모 세대는 70 대 초반과 후반으로 분할되었다.
 이렇듯 군집의 수나 군집을 분리하는 거리를 기준으로 군집을 분할하여 계통도에 시각화하여 가장 직관적으로 적절하다고 판단되는 군집 결과를 선택한다.</p>
 <p>그러나 데이터의 사례 수가 많아지면 계통도에 시각화하는 것만으로 군집화를 하기 어렵다.
 다음은 KBO 타자의 병합 군집 결과를 5 개의 군집으로 분할한 것을 계통도에 시각화한 것이다.
 사례 수가 너무 많으면 군집 결과를 파악하기가 쉽지 않다.</p>
-<div class="sourceCode" id="cb2708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2708-1"><a href="ch-R-clustering.html#cb2708-1" tabindex="-1"></a><span class="fu">plot</span>(batters_hcls, <span class="at">labels=</span>batters<span class="sc">$</span>선수명, <span class="at">hang=</span><span class="sc">-</span><span class="dv">1</span>)  <span class="co"># 계통도 시각화</span></span>
-<span id="cb2708-2"><a href="ch-R-clustering.html#cb2708-2" tabindex="-1"></a><span class="fu">rect.hclust</span>(batters_hcls, <span class="at">k=</span><span class="dv">5</span>)  <span class="co"># 군집 분할 시각화</span></span></code></pre></div>
+<div class="sourceCode" id="cb2706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2706-1"><a href="ch-R-clustering.html#cb2706-1" tabindex="-1"></a><span class="fu">plot</span>(batters_hcls, <span class="at">labels=</span>batters<span class="sc">$</span>선수명, <span class="at">hang=</span><span class="sc">-</span><span class="dv">1</span>)  <span class="co"># 계통도 시각화</span></span>
+<span id="cb2706-2"><a href="ch-R-clustering.html#cb2706-2" tabindex="-1"></a><span class="fu">rect.hclust</span>(batters_hcls, <span class="at">k=</span><span class="dv">5</span>)  <span class="co"># 군집 분할 시각화</span></span></code></pre></div>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-70-1.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="평가-지표를-이용한-최적-군집-수-결정" class="section level4 unnumbered hasAnchor">
@@ -1834,7 +1853,7 @@ Number of objects: 100 </code></pre>
 그런데 군집을 평가하는 척도는 매우 많으며, 평가 척도 별로 엇갈린 결과를 줄 때가 많다.</p>
 <p><code>NbClust</code> 패키지는 다양한 평가 척도로 군집화 결과를 평가한 후, 가장 많은 척도에서 최적이라고 한 군집의 수를 선택해 준다.
 <code>NbClust</code>를 설치되어 있지 않다면 설치를 한다.</p>
-<div class="sourceCode" id="cb2709"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2709-1"><a href="ch-R-clustering.html#cb2709-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;NbClust&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2707-1"><a href="ch-R-clustering.html#cb2707-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;NbClust&quot;</span>)</span></code></pre></div>
 <p><code>NbClust</code> 패키지의 <code>NbClust()</code> 함수는 20 여개의 평가 척도로 군집의 수에 따라 군집화를 평가해 준다.</p>
 <ul>
 <li><code>data</code> 인수: 첫번째 인수로 군집화를 수행할 데이터가 기술된다.</li>
@@ -1848,11 +1867,11 @@ Number of objects: 100 </code></pre>
 데이터에서 이러한 선형 종속성이 있으면 <code>NbClust()</code> 함수의 지표 계산 중에 역행렬을 구하는 부분이 있어서 오류가 발생한다.
 이를 방지하기 위하여 안타 열을 제외하고 최적의 군집 수를 평가해 보자.
 그리고 단일 연결법은 주류의 선수에서 벗어난 특이한 선수를 찾는데 주로 사용되므로, 평균 연결법을 사용하여 최적 군집 수를 찾아보자.</p>
-<div class="sourceCode" id="cb2710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2710-1"><a href="ch-R-clustering.html#cb2710-1" tabindex="-1"></a><span class="fu">library</span>(NbClust)</span>
-<span id="cb2710-2"><a href="ch-R-clustering.html#cb2710-2" tabindex="-1"></a>nc_all <span class="ot">&lt;-</span> <span class="fu">NbClust</span>(<span class="at">data=</span>batters_scaled[, <span class="sc">-</span><span class="dv">4</span>],</span>
-<span id="cb2710-3"><a href="ch-R-clustering.html#cb2710-3" tabindex="-1"></a>              <span class="at">distance=</span><span class="st">&quot;euclidean&quot;</span>,</span>
-<span id="cb2710-4"><a href="ch-R-clustering.html#cb2710-4" tabindex="-1"></a>              <span class="at">min.nc=</span><span class="dv">2</span>, <span class="at">max.nc=</span><span class="dv">15</span>,</span>
-<span id="cb2710-5"><a href="ch-R-clustering.html#cb2710-5" tabindex="-1"></a>              <span class="at">method=</span><span class="st">&quot;average&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2708-1"><a href="ch-R-clustering.html#cb2708-1" tabindex="-1"></a><span class="fu">library</span>(NbClust)</span>
+<span id="cb2708-2"><a href="ch-R-clustering.html#cb2708-2" tabindex="-1"></a>nc_all <span class="ot">&lt;-</span> <span class="fu">NbClust</span>(<span class="at">data=</span>batters_scaled[, <span class="sc">-</span><span class="dv">4</span>],</span>
+<span id="cb2708-3"><a href="ch-R-clustering.html#cb2708-3" tabindex="-1"></a>              <span class="at">distance=</span><span class="st">&quot;euclidean&quot;</span>,</span>
+<span id="cb2708-4"><a href="ch-R-clustering.html#cb2708-4" tabindex="-1"></a>              <span class="at">min.nc=</span><span class="dv">2</span>, <span class="at">max.nc=</span><span class="dv">15</span>,</span>
+<span id="cb2708-5"><a href="ch-R-clustering.html#cb2708-5" tabindex="-1"></a>              <span class="at">method=</span><span class="st">&quot;average&quot;</span>)</span></code></pre></div>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-72-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <pre><code>*** : The Hubert index is a graphical method of determining the number of clusters.
                 In the plot of Hubert index, we seek a significant knee that corresponds to a 
@@ -1892,28 +1911,28 @@ Number of objects: 100 </code></pre>
 <li><code>$Best.partition</code>: 다수결에 의해 최종적으로 최적으로 선택된 군집 수로 군집을 분할한 결과</li>
 </ul>
 <p>각 지표가 선택한 최적 군집 수의 빈도를 시각화해 보자.</p>
-<div class="sourceCode" id="cb2713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2713-1"><a href="ch-R-clustering.html#cb2713-1" tabindex="-1"></a><span class="fu">t</span>(nc_all<span class="sc">$</span>Best.nc) <span class="sc">%&gt;%</span>  <span class="co"># 행렬 전치</span></span>
-<span id="cb2713-2"><a href="ch-R-clustering.html#cb2713-2" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span>     <span class="co"># 데이터프레임으로 변환</span></span>
-<span id="cb2713-3"><a href="ch-R-clustering.html#cb2713-3" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">&quot;index&quot;</span>) <span class="sc">%&gt;%</span>  <span class="co"># 행이름 열로 변환</span></span>
-<span id="cb2713-4"><a href="ch-R-clustering.html#cb2713-4" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb2713-5"><a href="ch-R-clustering.html#cb2713-5" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(Number_clusters)) <span class="sc">+</span></span>
-<span id="cb2713-6"><a href="ch-R-clustering.html#cb2713-6" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">15</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2711-1"><a href="ch-R-clustering.html#cb2711-1" tabindex="-1"></a><span class="fu">t</span>(nc_all<span class="sc">$</span>Best.nc) <span class="sc">%&gt;%</span>  <span class="co"># 행렬 전치</span></span>
+<span id="cb2711-2"><a href="ch-R-clustering.html#cb2711-2" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span>     <span class="co"># 데이터프레임으로 변환</span></span>
+<span id="cb2711-3"><a href="ch-R-clustering.html#cb2711-3" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">&quot;index&quot;</span>) <span class="sc">%&gt;%</span>  <span class="co"># 행이름 열로 변환</span></span>
+<span id="cb2711-4"><a href="ch-R-clustering.html#cb2711-4" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb2711-5"><a href="ch-R-clustering.html#cb2711-5" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(Number_clusters)) <span class="sc">+</span></span>
+<span id="cb2711-6"><a href="ch-R-clustering.html#cb2711-6" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">15</span>)</span></code></pre></div>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-73-1.png" width="80%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="군집-결과의-해석" class="section level4 unnumbered hasAnchor">
 <h4>군집 결과의 해석<a href="ch-R-clustering.html#군집-결과의-해석" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>최적 군집 결과를 프로파일링 해 보자.
 각 사례의 군집 배정 결과는 다음과 같다.</p>
-<div class="sourceCode" id="cb2714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2714-1"><a href="ch-R-clustering.html#cb2714-1" tabindex="-1"></a>nc_all<span class="sc">$</span>Best.partition</span></code></pre></div>
+<div class="sourceCode" id="cb2712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2712-1"><a href="ch-R-clustering.html#cb2712-1" tabindex="-1"></a>nc_all<span class="sc">$</span>Best.partition</span></code></pre></div>
 <pre><code>  [1] 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 4 2 3 2 3 4
  [38] 3 2 2 2 2 3 2 2 2 2 2 4 4 2 4 2 4 4 2 4 2 4 2 4 2 2 2 2 2 2 4 4 4 4 4 4 4
  [75] 2 2 4 4 4 4 2 4 4 4 2 4 3 4 4 4 4 4 4 4 4 4 4 4 4 4</code></pre>
 <p>이 정보를 정규화된 데이터와 결합하여 군집의 평균을 비교해 보자.
 <code>kmeans()</code>는 군집의 평균점을 알고리즘 상에서 계산하므로 이 정보를 제공하지만, 다른 알고리즘의 경우에는 군집화가 수행된 후에 군집 평균을 직접 계산하여야 한다.</p>
 <p>이를 위해 먼저 정규화된 데이터를 데이터프레임으로 변환한 후, 군집 결과를 <code>군집</code>이라는 열로 추가해 보자.</p>
-<div class="sourceCode" id="cb2716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2716-1"><a href="ch-R-clustering.html#cb2716-1" tabindex="-1"></a>batters_clustered <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(batters_scaled) <span class="sc">%&gt;%</span>  <span class="co"># 데이터프레임으로 변환</span></span>
-<span id="cb2716-2"><a href="ch-R-clustering.html#cb2716-2" tabindex="-1"></a>  <span class="fu">mutate</span>(군집<span class="ot">=</span><span class="fu">factor</span>(nc_all<span class="sc">$</span>Best.partition), <span class="at">.before=</span><span class="dv">1</span>)  <span class="co"># 군집 결과를 열로 추가 </span></span>
-<span id="cb2716-3"><a href="ch-R-clustering.html#cb2716-3" tabindex="-1"></a>batters_clustered</span></code></pre></div>
+<div class="sourceCode" id="cb2714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2714-1"><a href="ch-R-clustering.html#cb2714-1" tabindex="-1"></a>batters_clustered <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(batters_scaled) <span class="sc">%&gt;%</span>  <span class="co"># 데이터프레임으로 변환</span></span>
+<span id="cb2714-2"><a href="ch-R-clustering.html#cb2714-2" tabindex="-1"></a>  <span class="fu">mutate</span>(군집<span class="ot">=</span><span class="fu">factor</span>(nc_all<span class="sc">$</span>Best.partition), <span class="at">.before=</span><span class="dv">1</span>)  <span class="co"># 군집 결과를 열로 추가 </span></span>
+<span id="cb2714-3"><a href="ch-R-clustering.html#cb2714-3" tabindex="-1"></a>batters_clustered</span></code></pre></div>
 <pre><code># A tibble: 100 × 20
    군집   경기  타석  타수  안타   단타 `2루타` `3루타`   홈런  득점  타점
    &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -1931,9 +1950,9 @@ Number of objects: 100 </code></pre>
 # ℹ 9 more variables: 볼넷 &lt;dbl&gt;, 고4 &lt;dbl&gt;, HBP &lt;dbl&gt;, 삼진 &lt;dbl&gt;, 희플 &lt;dbl&gt;,
 #   희타 &lt;dbl&gt;, 병살 &lt;dbl&gt;, 도루 &lt;dbl&gt;, 도실 &lt;dbl&gt;</code></pre>
 <p>이 데이터를 이용하여 군집의 평균을 구해보자.</p>
-<div class="sourceCode" id="cb2718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2718-1"><a href="ch-R-clustering.html#cb2718-1" tabindex="-1"></a>cluster_means <span class="ot">&lt;-</span> <span class="fu">group_by</span>(batters_clustered, 군집) <span class="sc">%&gt;%</span>  <span class="co"># 군집으로 그룹화</span></span>
-<span id="cb2718-2"><a href="ch-R-clustering.html#cb2718-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), mean))  <span class="co"># 군집 별 평균 구하기</span></span>
-<span id="cb2718-3"><a href="ch-R-clustering.html#cb2718-3" tabindex="-1"></a>cluster_means</span></code></pre></div>
+<div class="sourceCode" id="cb2716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2716-1"><a href="ch-R-clustering.html#cb2716-1" tabindex="-1"></a>cluster_means <span class="ot">&lt;-</span> <span class="fu">group_by</span>(batters_clustered, 군집) <span class="sc">%&gt;%</span>  <span class="co"># 군집으로 그룹화</span></span>
+<span id="cb2716-2"><a href="ch-R-clustering.html#cb2716-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), mean))  <span class="co"># 군집 별 평균 구하기</span></span>
+<span id="cb2716-3"><a href="ch-R-clustering.html#cb2716-3" tabindex="-1"></a>cluster_means</span></code></pre></div>
 <pre><code># A tibble: 4 × 20
   군집    경기   타석   타수   안타   단타 `2루타` `3루타`   홈런   득점   타점
   &lt;fct&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -1946,32 +1965,32 @@ Number of objects: 100 </code></pre>
 <p>군집의 평균을 평행좌표계로 시각화해 보자.
 k-평균 군집화 절에서 설명한 바와 같이 평행좌표계로 시각화하는 방법은 두 가지 방법이 있다.
 첫 번재 방법은 데이터를 직접 긴 형식으로 변환하 후 <code>ggplot2</code>의 기본 기능을 사용하여 그래프를 그리는 것이다.</p>
-<div class="sourceCode" id="cb2720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2720-1"><a href="ch-R-clustering.html#cb2720-1" tabindex="-1"></a><span class="fu">pivot_longer</span>(cluster_means, <span class="sc">-</span>군집, <span class="at">names_to=</span><span class="st">&quot;변수&quot;</span>, <span class="at">values_to=</span><span class="st">&quot;평균&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2720-2"><a href="ch-R-clustering.html#cb2720-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb2720-3"><a href="ch-R-clustering.html#cb2720-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(변수, 평균, <span class="at">group=</span>군집, <span class="at">color=</span>군집, <span class="at">linetype=</span>군집)) <span class="sc">+</span></span>
-<span id="cb2720-4"><a href="ch-R-clustering.html#cb2720-4" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2718-1"><a href="ch-R-clustering.html#cb2718-1" tabindex="-1"></a><span class="fu">pivot_longer</span>(cluster_means, <span class="sc">-</span>군집, <span class="at">names_to=</span><span class="st">&quot;변수&quot;</span>, <span class="at">values_to=</span><span class="st">&quot;평균&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2718-2"><a href="ch-R-clustering.html#cb2718-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb2718-3"><a href="ch-R-clustering.html#cb2718-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(변수, 평균, <span class="at">group=</span>군집, <span class="at">color=</span>군집, <span class="at">linetype=</span>군집)) <span class="sc">+</span></span>
+<span id="cb2718-4"><a href="ch-R-clustering.html#cb2718-4" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-77-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>좀 더 간편한 방법은 <code>GGally</code>의 <code>ggparcoord()</code> 함수를 사용하는 것이다.
 이 함수를 사용하면 데이터를 긴 형식으로 변환하는 과정을 생략할 수 있다.
 <code>ggparcoord()</code>의 또 다른 장점은 열의 원래의 순서대로 평행좌표를 그린다는 것이다.</p>
-<div class="sourceCode" id="cb2721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2721-1"><a href="ch-R-clustering.html#cb2721-1" tabindex="-1"></a><span class="fu">ggparcoord</span>(cluster_means, <span class="at">columns=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">20</span>, </span>
-<span id="cb2721-2"><a href="ch-R-clustering.html#cb2721-2" tabindex="-1"></a>           <span class="at">groupColumn=</span><span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb2721-3"><a href="ch-R-clustering.html#cb2721-3" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2719-1"><a href="ch-R-clustering.html#cb2719-1" tabindex="-1"></a><span class="fu">ggparcoord</span>(cluster_means, <span class="at">columns=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">20</span>, </span>
+<span id="cb2719-2"><a href="ch-R-clustering.html#cb2719-2" tabindex="-1"></a>           <span class="at">groupColumn=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb2719-3"><a href="ch-R-clustering.html#cb2719-3" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-78-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>군집의 평균 대신 모든 선수의 데이터를 평행좌표계로 시각화하면 다음과 같다.</p>
-<div class="sourceCode" id="cb2722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2722-1"><a href="ch-R-clustering.html#cb2722-1" tabindex="-1"></a><span class="fu">ggparcoord</span>(batters_clustered, <span class="at">columns=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">20</span>, </span>
-<span id="cb2722-2"><a href="ch-R-clustering.html#cb2722-2" tabindex="-1"></a>           <span class="at">groupColumn=</span><span class="dv">1</span>, <span class="at">alphaLines=</span><span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb2722-3"><a href="ch-R-clustering.html#cb2722-3" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2720-1"><a href="ch-R-clustering.html#cb2720-1" tabindex="-1"></a><span class="fu">ggparcoord</span>(batters_clustered, <span class="at">columns=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">20</span>, </span>
+<span id="cb2720-2"><a href="ch-R-clustering.html#cb2720-2" tabindex="-1"></a>           <span class="at">groupColumn=</span><span class="dv">1</span>, <span class="at">alphaLines=</span><span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb2720-3"><a href="ch-R-clustering.html#cb2720-3" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-79-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>마지막으로 k-평균 군집화 때와 마찬가지로 군집의 사례를 파악할 수 있도록 <a href="ch-R-dimension-reduction.html#sec-pca">14.2</a>에서 소개한 주성분 분석을 사용하여 사례를 산점도로 표현하고 산점도에 군집을 표현해 보자.
 한 명으로 이루어진 군집이 있어서 타원 추정이 어렵다는 정보가 출력될 것이다.</p>
-<div class="sourceCode" id="cb2723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2723-1"><a href="ch-R-clustering.html#cb2723-1" tabindex="-1"></a>batters_pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(batters_scaled)</span>
-<span id="cb2723-2"><a href="ch-R-clustering.html#cb2723-2" tabindex="-1"></a><span class="fu">ggbiplot</span>(batters_pca,  </span>
-<span id="cb2723-3"><a href="ch-R-clustering.html#cb2723-3" tabindex="-1"></a>         <span class="at">var.axes =</span> F,  <span class="co"># 변수 벡터 생략</span></span>
-<span id="cb2723-4"><a href="ch-R-clustering.html#cb2723-4" tabindex="-1"></a>         <span class="at">labels=</span>batters<span class="sc">$</span>선수명,</span>
-<span id="cb2723-5"><a href="ch-R-clustering.html#cb2723-5" tabindex="-1"></a>         <span class="at">groups=</span><span class="fu">paste</span>(<span class="st">&quot;군집&quot;</span>, nc_all<span class="sc">$</span>Best.partition),  <span class="co"># 군집 결과로 그룹화</span></span>
-<span id="cb2723-6"><a href="ch-R-clustering.html#cb2723-6" tabindex="-1"></a>         <span class="at">ellipse=</span>T, <span class="at">ellipse.alpha=</span><span class="fl">0.1</span>, <span class="at">ellipse.linewidth=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb2723-7"><a href="ch-R-clustering.html#cb2723-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2721-1"><a href="ch-R-clustering.html#cb2721-1" tabindex="-1"></a>batters_pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(batters_scaled)</span>
+<span id="cb2721-2"><a href="ch-R-clustering.html#cb2721-2" tabindex="-1"></a><span class="fu">ggbiplot</span>(batters_pca,  </span>
+<span id="cb2721-3"><a href="ch-R-clustering.html#cb2721-3" tabindex="-1"></a>         <span class="at">var.axes =</span> F,  <span class="co"># 변수 벡터 생략</span></span>
+<span id="cb2721-4"><a href="ch-R-clustering.html#cb2721-4" tabindex="-1"></a>         <span class="at">labels=</span>batters<span class="sc">$</span>선수명,</span>
+<span id="cb2721-5"><a href="ch-R-clustering.html#cb2721-5" tabindex="-1"></a>         <span class="at">groups=</span><span class="fu">paste</span>(<span class="st">&quot;군집&quot;</span>, nc_all<span class="sc">$</span>Best.partition),  <span class="co"># 군집 결과로 그룹화</span></span>
+<span id="cb2721-6"><a href="ch-R-clustering.html#cb2721-6" tabindex="-1"></a>         <span class="at">ellipse=</span>T, <span class="at">ellipse.alpha=</span><span class="fl">0.1</span>, <span class="at">ellipse.linewidth=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb2721-7"><a href="ch-R-clustering.html#cb2721-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>Too few points to calculate an ellipse</code></pre>
 <p><img src="R-clustering_files/figure-html/unnamed-chunk-80-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>k-평균 군집화와 크게 다른 점은 두 가지이다.</p>
