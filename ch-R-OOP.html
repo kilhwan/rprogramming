@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 11 R 객체 지향 프로그래밍 | R 프로그래밍 3판 (draft)</title>
   <meta name="description" content="이 책은 경영데이터분석기초의 주교재로 사용되기 위해 개발되었습니다." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 11 R 객체 지향 프로그래밍 | R 프로그래밍 3판 (draft)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Kilhwan Kim" />
 
 
-<meta name="date" content="2024-11-30" />
+<meta name="date" content="2025-11-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -77,8 +77,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -88,7 +89,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -187,13 +188,13 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#판-서문"><i class="fa fa-check"></i>1판 서문</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#판-서문-1"><i class="fa fa-check"></i>2판 서문</a>
+<li class="chapter" data-level="" data-path=""><a href="#%ED%8C%90-%EC%84%9C%EB%AC%B8"><i class="fa fa-check"></i>1판 서문</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#%ED%8C%90-%EC%84%9C%EB%AC%B8-1"><i class="fa fa-check"></i>2판 서문</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#판의-주요-개정-2022년-7월-이후부터"><i class="fa fa-check"></i>2판의 주요 개정 (2022년 7월 이후부터)</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#%ED%8C%90%EC%9D%98-%EC%A3%BC%EC%9A%94-%EA%B0%9C%EC%A0%95-2022%EB%85%84-7%EC%9B%94-%EC%9D%B4%ED%9B%84%EB%B6%80%ED%84%B0"><i class="fa fa-check"></i>2판의 주요 개정 (2022년 7월 이후부터)</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#판-서문-2"><i class="fa fa-check"></i>3판 서문</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#일러두기"><i class="fa fa-check"></i>일러두기</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#%ED%8C%90-%EC%84%9C%EB%AC%B8-2"><i class="fa fa-check"></i>3판 서문</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#%EC%9D%BC%EB%9F%AC%EB%91%90%EA%B8%B0"><i class="fa fa-check"></i>일러두기</a></li>
 </ul></li>
 <li class="part"><span><b>I R 프로그래밍 기초</b></span></li>
 <li class="chapter" data-level="1" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>1</b> <strong>R</strong> 설치 및 시작</a>
@@ -201,180 +202,180 @@ div.csl-indent {
 <li class="chapter" data-level="1.1" data-path="ch-intro.html"><a href="ch-intro.html#sec-Rintro"><i class="fa fa-check"></i><b>1.1</b> <strong>R</strong> 소개</a></li>
 <li class="chapter" data-level="1.2" data-path="ch-intro.html"><a href="ch-intro.html#sec-installation"><i class="fa fa-check"></i><b>1.2</b> <strong>R</strong> 설치하기</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="ch-intro.html"><a href="ch-intro.html#r을-윈도우즈에-설치할-때-주의-사항"><i class="fa fa-check"></i><b>1.2.1</b> <strong>R</strong>을 윈도우즈에 설치할 때 주의 사항</a></li>
+<li class="chapter" data-level="1.2.1" data-path="R-OOP.html"><a href="#r%EC%9D%84-%EC%9C%88%EB%8F%84%EC%9A%B0%EC%A6%88%EC%97%90-%EC%84%A4%EC%B9%98%ED%95%A0-%EB%95%8C-%EC%A3%BC%EC%9D%98-%EC%82%AC%ED%95%AD"><i class="fa fa-check"></i><b>1.2.1</b> <strong>R</strong>을 윈도우즈에 설치할 때 주의 사항</a></li>
 <li class="chapter" data-level="1.2.2" data-path="ch-intro.html"><a href="ch-intro.html#winget"><i class="fa fa-check"></i><b>1.2.2</b> <code>winget</code> 명령어로 설치하기</a></li>
-<li class="chapter" data-level="1.2.3" data-path="ch-intro.html"><a href="ch-intro.html#r-배포판-내려받기"><i class="fa fa-check"></i><b>1.2.3</b> <strong>R</strong> 배포판 내려받기</a></li>
-<li class="chapter" data-level="1.2.4" data-path="ch-intro.html"><a href="ch-intro.html#r-설치하기"><i class="fa fa-check"></i><b>1.2.4</b> R 설치하기</a></li>
+<li class="chapter" data-level="1.2.3" data-path="R-OOP.html"><a href="#r-%EB%B0%B0%ED%8F%AC%ED%8C%90-%EB%82%B4%EB%A0%A4%EB%B0%9B%EA%B8%B0"><i class="fa fa-check"></i><b>1.2.3</b> <strong>R</strong> 배포판 내려받기</a></li>
+<li class="chapter" data-level="1.2.4" data-path="R-OOP.html"><a href="#r-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>1.2.4</b> R 설치하기</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="ch-intro.html"><a href="ch-intro.html#sec-RStudio"><i class="fa fa-check"></i><b>1.3</b> RStudio</a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="ch-intro.html"><a href="ch-intro.html#winget을-이용한-rstudio-설치"><i class="fa fa-check"></i><b>1.3.1</b> <code>winget</code>을 이용한 RStudio 설치</a></li>
-<li class="chapter" data-level="1.3.2" data-path="ch-intro.html"><a href="ch-intro.html#rstudio-설치"><i class="fa fa-check"></i><b>1.3.2</b> RStudio 설치</a></li>
+<li class="chapter" data-level="1.3.1" data-path="R-OOP.html"><a href="#winget%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-rstudio-%EC%84%A4%EC%B9%98"><i class="fa fa-check"></i><b>1.3.1</b> <code>winget</code>을 이용한 RStudio 설치</a></li>
+<li class="chapter" data-level="1.3.2" data-path="R-OOP.html"><a href="#rstudio-%EC%84%A4%EC%B9%98"><i class="fa fa-check"></i><b>1.3.2</b> RStudio 설치</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="ch-intro.html"><a href="ch-intro.html#sec-R-start"><i class="fa fa-check"></i><b>1.4</b> RStudio로 R 시작하기</a>
 <ul>
-<li class="chapter" data-level="1.4.1" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔과-프롬프트"><i class="fa fa-check"></i><b>1.4.1</b> R 콘솔과 프롬프트</a></li>
-<li class="chapter" data-level="1.4.2" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔-사용과-관련된-몇-가지-팁"><i class="fa fa-check"></i><b>1.4.2</b> R 콘솔 사용과 관련된 몇 가지 팁</a></li>
-<li class="chapter" data-level="1.4.3" data-path="ch-intro.html"><a href="ch-intro.html#r-스크립트-파일-만들기"><i class="fa fa-check"></i><b>1.4.3</b> R 스크립트 파일 만들기</a></li>
+<li class="chapter" data-level="1.4.1" data-path="R-OOP.html"><a href="#r-%EC%BD%98%EC%86%94%EA%B3%BC-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8"><i class="fa fa-check"></i><b>1.4.1</b> R 콘솔과 프롬프트</a></li>
+<li class="chapter" data-level="1.4.2" data-path="R-OOP.html"><a href="#r-%EC%BD%98%EC%86%94-%EC%82%AC%EC%9A%A9%EA%B3%BC-%EA%B4%80%EB%A0%A8%EB%90%9C-%EB%AA%87-%EA%B0%80%EC%A7%80-%ED%8C%81"><i class="fa fa-check"></i><b>1.4.2</b> R 콘솔 사용과 관련된 몇 가지 팁</a></li>
+<li class="chapter" data-level="1.4.3" data-path="R-OOP.html"><a href="#r-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%8C%8C%EC%9D%BC-%EB%A7%8C%EB%93%A4%EA%B8%B0"><i class="fa fa-check"></i><b>1.4.3</b> R 스크립트 파일 만들기</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html"><i class="fa fa-check"></i><b>2</b> R 데이터 기초</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#단순한-데이터-형식-data-types"><i class="fa fa-check"></i><b>2.1</b> 단순한 데이터 형식 (data types)</a></li>
-<li class="chapter" data-level="2.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#단순-연산"><i class="fa fa-check"></i><b>2.2</b> 단순 연산</a></li>
-<li class="chapter" data-level="2.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수와-할당"><i class="fa fa-check"></i><b>2.3</b> 변수와 할당</a></li>
-<li class="chapter" data-level="2.4" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#함수를-이용한-연산"><i class="fa fa-check"></i><b>2.4</b> 함수를 이용한 연산</a></li>
+<li class="chapter" data-level="2.1" data-path="R-OOP.html"><a href="#%EB%8B%A8%EC%88%9C%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%98%95%EC%8B%9D-data-types"><i class="fa fa-check"></i><b>2.1</b> 단순한 데이터 형식 (data types)</a></li>
+<li class="chapter" data-level="2.2" data-path="R-OOP.html"><a href="#%EB%8B%A8%EC%88%9C-%EC%97%B0%EC%82%B0"><i class="fa fa-check"></i><b>2.2</b> 단순 연산</a></li>
+<li class="chapter" data-level="2.3" data-path="R-OOP.html"><a href="#%EB%B3%80%EC%88%98%EC%99%80-%ED%95%A0%EB%8B%B9"><i class="fa fa-check"></i><b>2.3</b> 변수와 할당</a></li>
+<li class="chapter" data-level="2.4" data-path="R-OOP.html"><a href="#%ED%95%A8%EC%88%98%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%97%B0%EC%82%B0"><i class="fa fa-check"></i><b>2.4</b> 함수를 이용한 연산</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html"><i class="fa fa-check"></i><b>3</b> <strong>R</strong> 벡터</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#숫자-벡터"><i class="fa fa-check"></i><b>3.1</b> 숫자 벡터</a>
+<li class="chapter" data-level="3.1" data-path="R-OOP.html"><a href="#%EC%88%AB%EC%9E%90-%EB%B2%A1%ED%84%B0"><i class="fa fa-check"></i><b>3.1</b> 숫자 벡터</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#c-함수를-이용한-숫자-벡터-만들기"><i class="fa fa-check"></i><b>3.1.1</b> c() 함수를 이용한 숫자 벡터 만들기</a></li>
-<li class="chapter" data-level="3.1.2" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#패턴을-이용한-숫자-벡터-만들기"><i class="fa fa-check"></i><b>3.1.2</b> 패턴을 이용한 숫자 벡터 만들기</a></li>
-<li class="chapter" data-level="3.1.3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#숫자-벡터의-연산"><i class="fa fa-check"></i><b>3.1.3</b> 숫자 벡터의 연산</a></li>
+<li class="chapter" data-level="3.1.1" data-path="R-OOP.html"><a href="#c-%ED%95%A8%EC%88%98%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%88%AB%EC%9E%90-%EB%B2%A1%ED%84%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.1</b> c() 함수를 이용한 숫자 벡터 만들기</a></li>
+<li class="chapter" data-level="3.1.2" data-path="R-OOP.html"><a href="#%ED%8C%A8%ED%84%B4%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%88%AB%EC%9E%90-%EB%B2%A1%ED%84%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.2</b> 패턴을 이용한 숫자 벡터 만들기</a></li>
+<li class="chapter" data-level="3.1.3" data-path="R-OOP.html"><a href="#%EC%88%AB%EC%9E%90-%EB%B2%A1%ED%84%B0%EC%9D%98-%EC%97%B0%EC%82%B0"><i class="fa fa-check"></i><b>3.1.3</b> 숫자 벡터의 연산</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#논리-벡터"><i class="fa fa-check"></i><b>3.2</b> 논리 벡터</a></li>
-<li class="chapter" data-level="3.3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#문자-벡터"><i class="fa fa-check"></i><b>3.3</b> 문자 벡터</a></li>
-<li class="chapter" data-level="3.4" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#결측치-missing-values"><i class="fa fa-check"></i><b>3.4</b> 결측치 (Missing Values)</a></li>
-<li class="chapter" data-level="3.5" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#인덱스-벡터와-필터링"><i class="fa fa-check"></i><b>3.5</b> 인덱스 벡터와 필터링</a>
+<li class="chapter" data-level="3.2" data-path="R-OOP.html"><a href="#%EB%85%BC%EB%A6%AC-%EB%B2%A1%ED%84%B0"><i class="fa fa-check"></i><b>3.2</b> 논리 벡터</a></li>
+<li class="chapter" data-level="3.3" data-path="R-OOP.html"><a href="#%EB%AC%B8%EC%9E%90-%EB%B2%A1%ED%84%B0"><i class="fa fa-check"></i><b>3.3</b> 문자 벡터</a></li>
+<li class="chapter" data-level="3.4" data-path="R-OOP.html"><a href="#%EA%B2%B0%EC%B8%A1%EC%B9%98-missing-values"><i class="fa fa-check"></i><b>3.4</b> 결측치 (Missing Values)</a></li>
+<li class="chapter" data-level="3.5" data-path="R-OOP.html"><a href="#%EC%9D%B8%EB%8D%B1%EC%8A%A4-%EB%B2%A1%ED%84%B0%EC%99%80-%ED%95%84%ED%84%B0%EB%A7%81"><i class="fa fa-check"></i><b>3.5</b> 인덱스 벡터와 필터링</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#자연수-인덱스-벡터"><i class="fa fa-check"></i><b>3.5.1</b> 자연수 인덱스 벡터</a></li>
-<li class="chapter" data-level="3.5.2" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#음의-정수-인덱스-벡터"><i class="fa fa-check"></i><b>3.5.2</b> 음의 정수 인덱스 벡터</a></li>
-<li class="chapter" data-level="3.5.3" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#논리-인덱스-벡터"><i class="fa fa-check"></i><b>3.5.3</b> 논리 인덱스 벡터</a></li>
-<li class="chapter" data-level="3.5.4" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#이름-인덱스-벡터"><i class="fa fa-check"></i><b>3.5.4</b> 이름 인덱스 벡터</a></li>
-<li class="chapter" data-level="3.5.5" data-path="ch-R-Vectors.html"><a href="ch-R-Vectors.html#인덱스-벡터를-이용해-벡터-요소에-값-할당하기"><i class="fa fa-check"></i><b>3.5.5</b> 인덱스 벡터를 이용해 벡터 요소에 값 할당하기</a></li>
+<li class="chapter" data-level="3.5.1" data-path="R-OOP.html"><a href="#%EC%9E%90%EC%97%B0%EC%88%98-%EC%9D%B8%EB%8D%B1%EC%8A%A4-%EB%B2%A1%ED%84%B0"><i class="fa fa-check"></i><b>3.5.1</b> 자연수 인덱스 벡터</a></li>
+<li class="chapter" data-level="3.5.2" data-path="R-OOP.html"><a href="#%EC%9D%8C%EC%9D%98-%EC%A0%95%EC%88%98-%EC%9D%B8%EB%8D%B1%EC%8A%A4-%EB%B2%A1%ED%84%B0"><i class="fa fa-check"></i><b>3.5.2</b> 음의 정수 인덱스 벡터</a></li>
+<li class="chapter" data-level="3.5.3" data-path="R-OOP.html"><a href="#%EB%85%BC%EB%A6%AC-%EC%9D%B8%EB%8D%B1%EC%8A%A4-%EB%B2%A1%ED%84%B0"><i class="fa fa-check"></i><b>3.5.3</b> 논리 인덱스 벡터</a></li>
+<li class="chapter" data-level="3.5.4" data-path="R-OOP.html"><a href="#%EC%9D%B4%EB%A6%84-%EC%9D%B8%EB%8D%B1%EC%8A%A4-%EB%B2%A1%ED%84%B0"><i class="fa fa-check"></i><b>3.5.4</b> 이름 인덱스 벡터</a></li>
+<li class="chapter" data-level="3.5.5" data-path="R-OOP.html"><a href="#%EC%9D%B8%EB%8D%B1%EC%8A%A4-%EB%B2%A1%ED%84%B0%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%B4-%EB%B2%A1%ED%84%B0-%EC%9A%94%EC%86%8C%EC%97%90-%EA%B0%92-%ED%95%A0%EB%8B%B9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.5.5</b> 인덱스 벡터를 이용해 벡터 요소에 값 할당하기</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html"><i class="fa fa-check"></i><b>4</b> <strong>R</strong> 행렬</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬-만들기"><i class="fa fa-check"></i><b>4.1</b> 행렬 만들기</a></li>
-<li class="chapter" data-level="4.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#벡터를-결합하여-행렬-만들기"><i class="fa fa-check"></i><b>4.2</b> 벡터를 결합하여 행렬 만들기</a></li>
-<li class="chapter" data-level="4.3" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-필터링"><i class="fa fa-check"></i><b>4.3</b> 행렬의 필터링</a></li>
-<li class="chapter" data-level="4.4" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-연산"><i class="fa fa-check"></i><b>4.4</b> 행렬의 연산</a></li>
-<li class="chapter" data-level="4.5" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬과-함수"><i class="fa fa-check"></i><b>4.5</b> 행렬과 함수</a>
+<li class="chapter" data-level="4.1" data-path="R-OOP.html"><a href="#%ED%96%89%EB%A0%AC-%EB%A7%8C%EB%93%A4%EA%B8%B0"><i class="fa fa-check"></i><b>4.1</b> 행렬 만들기</a></li>
+<li class="chapter" data-level="4.2" data-path="R-OOP.html"><a href="#%EB%B2%A1%ED%84%B0%EB%A5%BC-%EA%B2%B0%ED%95%A9%ED%95%98%EC%97%AC-%ED%96%89%EB%A0%AC-%EB%A7%8C%EB%93%A4%EA%B8%B0"><i class="fa fa-check"></i><b>4.2</b> 벡터를 결합하여 행렬 만들기</a></li>
+<li class="chapter" data-level="4.3" data-path="R-OOP.html"><a href="#%ED%96%89%EB%A0%AC%EC%9D%98-%ED%95%84%ED%84%B0%EB%A7%81"><i class="fa fa-check"></i><b>4.3</b> 행렬의 필터링</a></li>
+<li class="chapter" data-level="4.4" data-path="R-OOP.html"><a href="#%ED%96%89%EB%A0%AC%EC%9D%98-%EC%97%B0%EC%82%B0"><i class="fa fa-check"></i><b>4.4</b> 행렬의 연산</a></li>
+<li class="chapter" data-level="4.5" data-path="R-OOP.html"><a href="#%ED%96%89%EB%A0%AC%EA%B3%BC-%ED%95%A8%EC%88%98"><i class="fa fa-check"></i><b>4.5</b> 행렬과 함수</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬을-인수로-하는-함수들"><i class="fa fa-check"></i><b>4.5.1</b> 행렬을 인수로 하는 함수들</a></li>
-<li class="chapter" data-level="4.5.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-행별-또는-열별로-함수를-적용하는-방법"><i class="fa fa-check"></i><b>4.5.2</b> 행렬의 행별 또는 열별로 함수를 적용하는 방법</a></li>
+<li class="chapter" data-level="4.5.1" data-path="R-OOP.html"><a href="#%ED%96%89%EB%A0%AC%EC%9D%84-%EC%9D%B8%EC%88%98%EB%A1%9C-%ED%95%98%EB%8A%94-%ED%95%A8%EC%88%98%EB%93%A4"><i class="fa fa-check"></i><b>4.5.1</b> 행렬을 인수로 하는 함수들</a></li>
+<li class="chapter" data-level="4.5.2" data-path="R-OOP.html"><a href="#%ED%96%89%EB%A0%AC%EC%9D%98-%ED%96%89%EB%B3%84-%EB%98%90%EB%8A%94-%EC%97%B4%EB%B3%84%EB%A1%9C-%ED%95%A8%EC%88%98%EB%A5%BC-%EC%A0%81%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95"><i class="fa fa-check"></i><b>4.5.2</b> 행렬의 행별 또는 열별로 함수를 적용하는 방법</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#sec-RMatrix-array"><i class="fa fa-check"></i><b>4.6</b> 배열 *</a>
 <ul>
-<li class="chapter" data-level="4.6.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#배열의-생성"><i class="fa fa-check"></i><b>4.6.1</b> 배열의 생성</a></li>
-<li class="chapter" data-level="4.6.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#배열도-결국-벡터"><i class="fa fa-check"></i><b>4.6.2</b> 배열도 결국 벡터</a></li>
-<li class="chapter" data-level="4.6.3" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#배열의-연산과-필터링"><i class="fa fa-check"></i><b>4.6.3</b> 배열의 연산과 필터링</a></li>
+<li class="chapter" data-level="4.6.1" data-path="R-OOP.html"><a href="#%EB%B0%B0%EC%97%B4%EC%9D%98-%EC%83%9D%EC%84%B1"><i class="fa fa-check"></i><b>4.6.1</b> 배열의 생성</a></li>
+<li class="chapter" data-level="4.6.2" data-path="R-OOP.html"><a href="#%EB%B0%B0%EC%97%B4%EB%8F%84-%EA%B2%B0%EA%B5%AD-%EB%B2%A1%ED%84%B0"><i class="fa fa-check"></i><b>4.6.2</b> 배열도 결국 벡터</a></li>
+<li class="chapter" data-level="4.6.3" data-path="R-OOP.html"><a href="#%EB%B0%B0%EC%97%B4%EC%9D%98-%EC%97%B0%EC%82%B0%EA%B3%BC-%ED%95%84%ED%84%B0%EB%A7%81"><i class="fa fa-check"></i><b>4.6.3</b> 배열의 연산과 필터링</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#sec-RMatrix-operation-advanced"><i class="fa fa-check"></i><b>4.7</b> 행렬과 배열의 고급 연산 *</a>
 <ul>
-<li class="chapter" data-level="4.7.1" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-곱"><i class="fa fa-check"></i><b>4.7.1</b> 행렬의 곱</a></li>
-<li class="chapter" data-level="4.7.2" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#행렬의-주대각선-요소와-대각행렬"><i class="fa fa-check"></i><b>4.7.2</b> 행렬의 주대각선 요소와 대각행렬</a></li>
-<li class="chapter" data-level="4.7.3" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#연립-일차-방정식과-역행렬"><i class="fa fa-check"></i><b>4.7.3</b> 연립 일차 방정식과 역행렬</a></li>
-<li class="chapter" data-level="4.7.4" data-path="ch-R-Matrix.html"><a href="ch-R-Matrix.html#고유치eigenvalues와-고유벡터eigenvectors"><i class="fa fa-check"></i><b>4.7.4</b> 고유치(eigenvalues)와 고유벡터(eigenvectors)</a></li>
+<li class="chapter" data-level="4.7.1" data-path="R-OOP.html"><a href="#%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%B1"><i class="fa fa-check"></i><b>4.7.1</b> 행렬의 곱</a></li>
+<li class="chapter" data-level="4.7.2" data-path="R-OOP.html"><a href="#%ED%96%89%EB%A0%AC%EC%9D%98-%EC%A3%BC%EB%8C%80%EA%B0%81%EC%84%A0-%EC%9A%94%EC%86%8C%EC%99%80-%EB%8C%80%EA%B0%81%ED%96%89%EB%A0%AC"><i class="fa fa-check"></i><b>4.7.2</b> 행렬의 주대각선 요소와 대각행렬</a></li>
+<li class="chapter" data-level="4.7.3" data-path="R-OOP.html"><a href="#%EC%97%B0%EB%A6%BD-%EC%9D%BC%EC%B0%A8-%EB%B0%A9%EC%A0%95%EC%8B%9D%EA%B3%BC-%EC%97%AD%ED%96%89%EB%A0%AC"><i class="fa fa-check"></i><b>4.7.3</b> 연립 일차 방정식과 역행렬</a></li>
+<li class="chapter" data-level="4.7.4" data-path="R-OOP.html"><a href="#%EA%B3%A0%EC%9C%A0%EC%B9%98eigenvalues%EC%99%80-%EA%B3%A0%EC%9C%A0%EB%B2%A1%ED%84%B0eigenvectors"><i class="fa fa-check"></i><b>4.7.4</b> 고유치(eigenvalues)와 고유벡터(eigenvectors)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="ch-R-List.html"><a href="ch-R-List.html"><i class="fa fa-check"></i><b>5</b> <strong>R</strong> 리스트</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="ch-R-List.html"><a href="ch-R-List.html#객체-객체의-타입-객체의-속성"><i class="fa fa-check"></i><b>5.1</b> 객체, 객체의 타입, 객체의 속성 *</a></li>
-<li class="chapter" data-level="5.2" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트의-생성-및-필터링"><i class="fa fa-check"></i><b>5.2</b> 리스트의 생성 및 필터링</a></li>
-<li class="chapter" data-level="5.3" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트의-변경-및-연결"><i class="fa fa-check"></i><b>5.3</b> 리스트의 변경 및 연결</a></li>
-<li class="chapter" data-level="5.4" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트에-함수-적용하기"><i class="fa fa-check"></i><b>5.4</b> 리스트에 함수 적용하기</a>
+<li class="chapter" data-level="5.1" data-path="R-OOP.html"><a href="#%EA%B0%9D%EC%B2%B4-%EA%B0%9D%EC%B2%B4%EC%9D%98-%ED%83%80%EC%9E%85-%EA%B0%9D%EC%B2%B4%EC%9D%98-%EC%86%8D%EC%84%B1"><i class="fa fa-check"></i><b>5.1</b> 객체, 객체의 타입, 객체의 속성 *</a></li>
+<li class="chapter" data-level="5.2" data-path="R-OOP.html"><a href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%9D%98-%EC%83%9D%EC%84%B1-%EB%B0%8F-%ED%95%84%ED%84%B0%EB%A7%81"><i class="fa fa-check"></i><b>5.2</b> 리스트의 생성 및 필터링</a></li>
+<li class="chapter" data-level="5.3" data-path="R-OOP.html"><a href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%9D%98-%EB%B3%80%EA%B2%BD-%EB%B0%8F-%EC%97%B0%EA%B2%B0"><i class="fa fa-check"></i><b>5.3</b> 리스트의 변경 및 연결</a></li>
+<li class="chapter" data-level="5.4" data-path="R-OOP.html"><a href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%97%90-%ED%95%A8%EC%88%98-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>5.4</b> 리스트에 함수 적용하기</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="ch-R-List.html"><a href="ch-R-List.html#lapply-함수"><i class="fa fa-check"></i><b>5.4.1</b> lapply() 함수</a></li>
-<li class="chapter" data-level="5.4.2" data-path="ch-R-List.html"><a href="ch-R-List.html#sapply-함수"><i class="fa fa-check"></i><b>5.4.2</b> sapply() 함수</a></li>
-<li class="chapter" data-level="5.4.3" data-path="ch-R-List.html"><a href="ch-R-List.html#mapply-함수"><i class="fa fa-check"></i><b>5.4.3</b> mapply() 함수</a></li>
+<li class="chapter" data-level="5.4.1" data-path="R-OOP.html"><a href="#lapply-%ED%95%A8%EC%88%98"><i class="fa fa-check"></i><b>5.4.1</b> lapply() 함수</a></li>
+<li class="chapter" data-level="5.4.2" data-path="R-OOP.html"><a href="#sapply-%ED%95%A8%EC%88%98"><i class="fa fa-check"></i><b>5.4.2</b> sapply() 함수</a></li>
+<li class="chapter" data-level="5.4.3" data-path="R-OOP.html"><a href="#mapply-%ED%95%A8%EC%88%98"><i class="fa fa-check"></i><b>5.4.3</b> mapply() 함수</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="ch-R-List.html"><a href="ch-R-List.html#리스트-활용-분야"><i class="fa fa-check"></i><b>5.5</b> 리스트 활용 분야</a></li>
+<li class="chapter" data-level="5.5" data-path="R-OOP.html"><a href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8-%ED%99%9C%EC%9A%A9-%EB%B6%84%EC%95%BC"><i class="fa fa-check"></i><b>5.5</b> 리스트 활용 분야</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html"><i class="fa fa-check"></i><b>6</b> <strong>R</strong> 데이터 프레임</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#범주형-데이터와-요인-factors"><i class="fa fa-check"></i><b>6.1</b> 범주형 데이터와 요인 (Factors)</a>
+<li class="chapter" data-level="6.1" data-path="R-OOP.html"><a href="#%EB%B2%94%EC%A3%BC%ED%98%95-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%99%80-%EC%9A%94%EC%9D%B8-factors"><i class="fa fa-check"></i><b>6.1</b> 범주형 데이터와 요인 (Factors)</a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#명목형-변수와-요인"><i class="fa fa-check"></i><b>6.1.1</b> 명목형 변수와 요인</a></li>
-<li class="chapter" data-level="6.1.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#순서형-변수와-요인"><i class="fa fa-check"></i><b>6.1.2</b> 순서형 변수와 요인</a></li>
+<li class="chapter" data-level="6.1.1" data-path="R-OOP.html"><a href="#%EB%AA%85%EB%AA%A9%ED%98%95-%EB%B3%80%EC%88%98%EC%99%80-%EC%9A%94%EC%9D%B8"><i class="fa fa-check"></i><b>6.1.1</b> 명목형 변수와 요인</a></li>
+<li class="chapter" data-level="6.1.2" data-path="R-OOP.html"><a href="#%EC%88%9C%EC%84%9C%ED%98%95-%EB%B3%80%EC%88%98%EC%99%80-%EC%9A%94%EC%9D%B8"><i class="fa fa-check"></i><b>6.1.2</b> 순서형 변수와 요인</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임-만들기"><i class="fa fa-check"></i><b>6.2</b> 데이터 프레임 만들기</a></li>
-<li class="chapter" data-level="6.3" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임-각-열의-지정"><i class="fa fa-check"></i><b>6.3</b> 데이터 프레임 각 열의 지정</a></li>
-<li class="chapter" data-level="6.4" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임의-필터링"><i class="fa fa-check"></i><b>6.4</b> 데이터 프레임의 필터링</a>
+<li class="chapter" data-level="6.2" data-path="R-OOP.html"><a href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%EB%A7%8C%EB%93%A4%EA%B8%B0"><i class="fa fa-check"></i><b>6.2</b> 데이터 프레임 만들기</a></li>
+<li class="chapter" data-level="6.3" data-path="R-OOP.html"><a href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%EA%B0%81-%EC%97%B4%EC%9D%98-%EC%A7%80%EC%A0%95"><i class="fa fa-check"></i><b>6.3</b> 데이터 프레임 각 열의 지정</a></li>
+<li class="chapter" data-level="6.4" data-path="R-OOP.html"><a href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84%EC%9D%98-%ED%95%84%ED%84%B0%EB%A7%81"><i class="fa fa-check"></i><b>6.4</b> 데이터 프레임의 필터링</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#리스트-형식으로-필터링"><i class="fa fa-check"></i><b>6.4.1</b> 리스트 형식으로 필터링</a></li>
-<li class="chapter" data-level="6.4.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#행렬-형식으로-필터링"><i class="fa fa-check"></i><b>6.4.2</b> 행렬 형식으로 필터링</a></li>
-<li class="chapter" data-level="6.4.3" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#subset을-이용한-필터링"><i class="fa fa-check"></i><b>6.4.3</b> subset()을 이용한 필터링</a></li>
+<li class="chapter" data-level="6.4.1" data-path="R-OOP.html"><a href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8-%ED%98%95%EC%8B%9D%EC%9C%BC%EB%A1%9C-%ED%95%84%ED%84%B0%EB%A7%81"><i class="fa fa-check"></i><b>6.4.1</b> 리스트 형식으로 필터링</a></li>
+<li class="chapter" data-level="6.4.2" data-path="R-OOP.html"><a href="#%ED%96%89%EB%A0%AC-%ED%98%95%EC%8B%9D%EC%9C%BC%EB%A1%9C-%ED%95%84%ED%84%B0%EB%A7%81"><i class="fa fa-check"></i><b>6.4.2</b> 행렬 형식으로 필터링</a></li>
+<li class="chapter" data-level="6.4.3" data-path="R-OOP.html"><a href="#subset%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%ED%95%84%ED%84%B0%EB%A7%81"><i class="fa fa-check"></i><b>6.4.3</b> subset()을 이용한 필터링</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임에-함수-적용하기"><i class="fa fa-check"></i><b>6.5</b> 데이터 프레임에 함수 적용하기</a></li>
+<li class="chapter" data-level="6.5" data-path="R-OOP.html"><a href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84%EC%97%90-%ED%95%A8%EC%88%98-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>6.5</b> 데이터 프레임에 함수 적용하기</a></li>
 <li class="chapter" data-level="6.6" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#sec-read-file"><i class="fa fa-check"></i><b>6.6</b> 파일에서 데이터 읽어오기</a>
 <ul>
-<li class="chapter" data-level="6.6.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#텍스트-파일에서-데이터-읽어오기"><i class="fa fa-check"></i><b>6.6.1</b> 텍스트 파일에서 데이터 읽어오기</a></li>
-<li class="chapter" data-level="6.6.2" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#csv-파일에서-데이터-읽어오기"><i class="fa fa-check"></i><b>6.6.2</b> CSV 파일에서 데이터 읽어오기</a></li>
+<li class="chapter" data-level="6.6.1" data-path="R-OOP.html"><a href="#%ED%85%8D%EC%8A%A4%ED%8A%B8-%ED%8C%8C%EC%9D%BC%EC%97%90%EC%84%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%9D%BD%EC%96%B4%EC%98%A4%EA%B8%B0"><i class="fa fa-check"></i><b>6.6.1</b> 텍스트 파일에서 데이터 읽어오기</a></li>
+<li class="chapter" data-level="6.6.2" data-path="R-OOP.html"><a href="#csv-%ED%8C%8C%EC%9D%BC%EC%97%90%EC%84%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%9D%BD%EC%96%B4%EC%98%A4%EA%B8%B0"><i class="fa fa-check"></i><b>6.6.2</b> CSV 파일에서 데이터 읽어오기</a></li>
 </ul></li>
 <li class="chapter" data-level="6.7" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#sec-write-file"><i class="fa fa-check"></i><b>6.7</b> 데이터 프레임을 파일로 쓰기</a>
 <ul>
-<li class="chapter" data-level="6.7.1" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#바이너리-형식으로-데이터-객체-저장-및-복원"><i class="fa fa-check"></i><b>6.7.1</b> 바이너리 형식으로 데이터 객체 저장 및 복원</a></li>
+<li class="chapter" data-level="6.7.1" data-path="R-OOP.html"><a href="#%EB%B0%94%EC%9D%B4%EB%84%88%EB%A6%AC-%ED%98%95%EC%8B%9D%EC%9C%BC%EB%A1%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B0%9D%EC%B2%B4-%EC%A0%80%EC%9E%A5-%EB%B0%8F-%EB%B3%B5%EC%9B%90"><i class="fa fa-check"></i><b>6.7.1</b> 바이너리 형식으로 데이터 객체 저장 및 복원</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="ch-R-Data-Frame.html"><a href="ch-R-Data-Frame.html#데이터-프레임의-열을-변수처럼-이용하는-방법"><i class="fa fa-check"></i><b>6.8</b> 데이터 프레임의 열을 변수처럼 이용하는 방법 *</a></li>
+<li class="chapter" data-level="6.8" data-path="R-OOP.html"><a href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84%EC%9D%98-%EC%97%B4%EC%9D%84-%EB%B3%80%EC%88%98%EC%B2%98%EB%9F%BC-%EC%9D%B4%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95"><i class="fa fa-check"></i><b>6.8</b> 데이터 프레임의 열을 변수처럼 이용하는 방법 *</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html"><i class="fa fa-check"></i><b>7</b> dplyr을 이용한 데이터 변환</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-tidyData"><i class="fa fa-check"></i><b>7.1</b> 정돈 데이터 (tidy data)</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#정돈-데이터-형식의-조건"><i class="fa fa-check"></i><b>7.1.1</b> 정돈 데이터 형식의 조건</a></li>
-<li class="chapter" data-level="7.1.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#비정돈-데이터-형식"><i class="fa fa-check"></i><b>7.1.2</b> 비정돈 데이터 형식</a></li>
-<li class="chapter" data-level="7.1.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#정돈-데이터를-사용하는-이유"><i class="fa fa-check"></i><b>7.1.3</b> 정돈 데이터를 사용하는 이유</a></li>
+<li class="chapter" data-level="7.1.1" data-path="R-OOP.html"><a href="#%EC%A0%95%EB%8F%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%98%95%EC%8B%9D%EC%9D%98-%EC%A1%B0%EA%B1%B4"><i class="fa fa-check"></i><b>7.1.1</b> 정돈 데이터 형식의 조건</a></li>
+<li class="chapter" data-level="7.1.2" data-path="R-OOP.html"><a href="#%EB%B9%84%EC%A0%95%EB%8F%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%98%95%EC%8B%9D"><i class="fa fa-check"></i><b>7.1.2</b> 비정돈 데이터 형식</a></li>
+<li class="chapter" data-level="7.1.3" data-path="R-OOP.html"><a href="#%EC%A0%95%EB%8F%88-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0"><i class="fa fa-check"></i><b>7.1.3</b> 정돈 데이터를 사용하는 이유</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#tidyverse-패키지"><i class="fa fa-check"></i><b>7.2</b> <code>tidyverse</code> 패키지</a>
+<li class="chapter" data-level="7.2" data-path="R-OOP.html"><a href="#tidyverse-%ED%8C%A8%ED%82%A4%EC%A7%80"><i class="fa fa-check"></i><b>7.2</b> <code>tidyverse</code> 패키지</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#tidyverse-패키지-설치"><i class="fa fa-check"></i><b>7.2.1</b> <code>tidyverse</code> 패키지 설치</a></li>
-<li class="chapter" data-level="7.2.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#tidyverse-패키지-적재"><i class="fa fa-check"></i><b>7.2.2</b> <code>tidyverse</code> 패키지 적재</a></li>
+<li class="chapter" data-level="7.2.1" data-path="R-OOP.html"><a href="#tidyverse-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%84%A4%EC%B9%98"><i class="fa fa-check"></i><b>7.2.1</b> <code>tidyverse</code> 패키지 설치</a></li>
+<li class="chapter" data-level="7.2.2" data-path="R-OOP.html"><a href="#tidyverse-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%A0%81%EC%9E%AC"><i class="fa fa-check"></i><b>7.2.2</b> <code>tidyverse</code> 패키지 적재</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-dplyr"><i class="fa fa-check"></i><b>7.3</b> <code>dplyr</code> 패키지와 정돈 데이터의 변환</a>
 <ul>
-<li class="chapter" data-level="7.3.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#dplyr-패키지"><i class="fa fa-check"></i><b>7.3.1</b> <code>dplyr</code> 패키지</a></li>
-<li class="chapter" data-level="7.3.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#정돈-데이터-변환의-종류"><i class="fa fa-check"></i><b>7.3.2</b> 정돈 데이터 변환의 종류</a></li>
-<li class="chapter" data-level="7.3.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#dplyr-패키지-vs.-r의-기본-기능"><i class="fa fa-check"></i><b>7.3.3</b> <code>dplyr</code> 패키지 vs. R의 기본 기능</a></li>
-<li class="chapter" data-level="7.3.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#mpg-데이터"><i class="fa fa-check"></i><b>7.3.4</b> <code>mpg</code> 데이터</a></li>
+<li class="chapter" data-level="7.3.1" data-path="R-OOP.html"><a href="#dplyr-%ED%8C%A8%ED%82%A4%EC%A7%80"><i class="fa fa-check"></i><b>7.3.1</b> <code>dplyr</code> 패키지</a></li>
+<li class="chapter" data-level="7.3.2" data-path="R-OOP.html"><a href="#%EC%A0%95%EB%8F%88-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B3%80%ED%99%98%EC%9D%98-%EC%A2%85%EB%A5%98"><i class="fa fa-check"></i><b>7.3.2</b> 정돈 데이터 변환의 종류</a></li>
+<li class="chapter" data-level="7.3.3" data-path="R-OOP.html"><a href="#dplyr-%ED%8C%A8%ED%82%A4%EC%A7%80-vs.-r%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EA%B8%B0%EB%8A%A5"><i class="fa fa-check"></i><b>7.3.3</b> <code>dplyr</code> 패키지 vs. R의 기본 기능</a></li>
+<li class="chapter" data-level="7.3.4" data-path="R-OOP.html"><a href="#mpg-%EB%8D%B0%EC%9D%B4%ED%84%B0"><i class="fa fa-check"></i><b>7.3.4</b> <code>mpg</code> 데이터</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-filter"><i class="fa fa-check"></i><b>7.4</b> <code>filter()</code>로 행 선택하기</a>
 <ul>
-<li class="chapter" data-level="7.4.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#선택-조건이-하나인-경우"><i class="fa fa-check"></i><b>7.4.1</b> 선택 조건이 하나인 경우</a></li>
-<li class="chapter" data-level="7.4.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#여러-조건을-만족하는-행-추출하기"><i class="fa fa-check"></i><b>7.4.2</b> 여러 조건을 만족하는 행 추출하기</a></li>
-<li class="chapter" data-level="7.4.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#논리-연산자로-복합-조건-만들기"><i class="fa fa-check"></i><b>7.4.3</b> 논리 연산자로 복합 조건 만들기</a></li>
-<li class="chapter" data-level="7.4.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#in-연산자"><i class="fa fa-check"></i><b>7.4.4</b> <code>%in%</code> 연산자</a></li>
+<li class="chapter" data-level="7.4.1" data-path="R-OOP.html"><a href="#%EC%84%A0%ED%83%9D-%EC%A1%B0%EA%B1%B4%EC%9D%B4-%ED%95%98%EB%82%98%EC%9D%B8-%EA%B2%BD%EC%9A%B0"><i class="fa fa-check"></i><b>7.4.1</b> 선택 조건이 하나인 경우</a></li>
+<li class="chapter" data-level="7.4.2" data-path="R-OOP.html"><a href="#%EC%97%AC%EB%9F%AC-%EC%A1%B0%EA%B1%B4%EC%9D%84-%EB%A7%8C%EC%A1%B1%ED%95%98%EB%8A%94-%ED%96%89-%EC%B6%94%EC%B6%9C%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>7.4.2</b> 여러 조건을 만족하는 행 추출하기</a></li>
+<li class="chapter" data-level="7.4.3" data-path="R-OOP.html"><a href="#%EB%85%BC%EB%A6%AC-%EC%97%B0%EC%82%B0%EC%9E%90%EB%A1%9C-%EB%B3%B5%ED%95%A9-%EC%A1%B0%EA%B1%B4-%EB%A7%8C%EB%93%A4%EA%B8%B0"><i class="fa fa-check"></i><b>7.4.3</b> 논리 연산자로 복합 조건 만들기</a></li>
+<li class="chapter" data-level="7.4.4" data-path="R-OOP.html"><a href="#in-%EC%97%B0%EC%82%B0%EC%9E%90"><i class="fa fa-check"></i><b>7.4.4</b> <code>%in%</code> 연산자</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-slice"><i class="fa fa-check"></i><b>7.5</b> <code>slice()</code>로 행 선택하기</a>
 <ul>
-<li class="chapter" data-level="7.5.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#slice_sample로-표본-추출하기"><i class="fa fa-check"></i><b>7.5.1</b> <code>slice_sample()</code>로 표본 추출하기</a></li>
-<li class="chapter" data-level="7.5.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#slice_head와-slice_tail"><i class="fa fa-check"></i><b>7.5.2</b> <code>slice_head()</code>와 <code>slice_tail()</code></a></li>
-<li class="chapter" data-level="7.5.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#slice_min과-slice_max"><i class="fa fa-check"></i><b>7.5.3</b> <code>slice_min()</code>과 <code>slice_max()</code></a></li>
+<li class="chapter" data-level="7.5.1" data-path="R-OOP.html"><a href="#slice_sample%EB%A1%9C-%ED%91%9C%EB%B3%B8-%EC%B6%94%EC%B6%9C%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>7.5.1</b> <code>slice_sample()</code>로 표본 추출하기</a></li>
+<li class="chapter" data-level="7.5.2" data-path="R-OOP.html"><a href="#slice_head%EC%99%80-slice_tail"><i class="fa fa-check"></i><b>7.5.2</b> <code>slice_head()</code>와 <code>slice_tail()</code></a></li>
+<li class="chapter" data-level="7.5.3" data-path="R-OOP.html"><a href="#slice_min%EA%B3%BC-slice_max"><i class="fa fa-check"></i><b>7.5.3</b> <code>slice_min()</code>과 <code>slice_max()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="7.6" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-arrange"><i class="fa fa-check"></i><b>7.6</b> <code>arrange()</code>로 행 정렬하기</a>
 <ul>
-<li class="chapter" data-level="7.6.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#desc를-이용하여-내림차순으로-정렬하기"><i class="fa fa-check"></i><b>7.6.1</b> <code>desc()</code>를 이용하여 내림차순으로 정렬하기</a></li>
+<li class="chapter" data-level="7.6.1" data-path="R-OOP.html"><a href="#desc%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-%EB%82%B4%EB%A6%BC%EC%B0%A8%EC%88%9C%EC%9C%BC%EB%A1%9C-%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>7.6.1</b> <code>desc()</code>를 이용하여 내림차순으로 정렬하기</a></li>
 </ul></li>
 <li class="chapter" data-level="7.7" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-select"><i class="fa fa-check"></i><b>7.7</b> <code>select()</code>를 이용하여 변수 이름으로 열 선택하기</a>
 <ul>
-<li class="chapter" data-level="7.7.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-이름을-나열하여-선택하기"><i class="fa fa-check"></i><b>7.7.1</b> 변수 이름을 나열하여 선택하기</a></li>
-<li class="chapter" data-level="7.7.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-이름으로-변수-범위를-선택하기"><i class="fa fa-check"></i><b>7.7.2</b> 변수 이름으로 변수 범위를 선택하기</a></li>
-<li class="chapter" data-level="7.7.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-위치로-매칭하여-선택하기"><i class="fa fa-check"></i><b>7.7.3</b> 변수 위치로 매칭하여 선택하기</a></li>
+<li class="chapter" data-level="7.7.1" data-path="R-OOP.html"><a href="#%EB%B3%80%EC%88%98-%EC%9D%B4%EB%A6%84%EC%9D%84-%EB%82%98%EC%97%B4%ED%95%98%EC%97%AC-%EC%84%A0%ED%83%9D%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>7.7.1</b> 변수 이름을 나열하여 선택하기</a></li>
+<li class="chapter" data-level="7.7.2" data-path="R-OOP.html"><a href="#%EB%B3%80%EC%88%98-%EC%9D%B4%EB%A6%84%EC%9C%BC%EB%A1%9C-%EB%B3%80%EC%88%98-%EB%B2%94%EC%9C%84%EB%A5%BC-%EC%84%A0%ED%83%9D%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>7.7.2</b> 변수 이름으로 변수 범위를 선택하기</a></li>
+<li class="chapter" data-level="7.7.3" data-path="R-OOP.html"><a href="#%EB%B3%80%EC%88%98-%EC%9C%84%EC%B9%98%EB%A1%9C-%EB%A7%A4%EC%B9%AD%ED%95%98%EC%97%AC-%EC%84%A0%ED%83%9D%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>7.7.3</b> 변수 위치로 매칭하여 선택하기</a></li>
 <li class="chapter" data-level="7.7.4" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-select-match"><i class="fa fa-check"></i><b>7.7.4</b> 변수 이름을 매칭하여 선택하기</a></li>
-<li class="chapter" data-level="7.7.5" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수의-형식이나-조건으로-매칭하여-선택하기"><i class="fa fa-check"></i><b>7.7.5</b> 변수의 형식이나 조건으로 매칭하여 선택하기*</a></li>
-<li class="chapter" data-level="7.7.6" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-이름-바꾸기"><i class="fa fa-check"></i><b>7.7.6</b> 변수 이름 바꾸기</a></li>
-<li class="chapter" data-level="7.7.7" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#변수-순서-바꾸기"><i class="fa fa-check"></i><b>7.7.7</b> 변수 순서 바꾸기</a></li>
+<li class="chapter" data-level="7.7.5" data-path="R-OOP.html"><a href="#%EB%B3%80%EC%88%98%EC%9D%98-%ED%98%95%EC%8B%9D%EC%9D%B4%EB%82%98-%EC%A1%B0%EA%B1%B4%EC%9C%BC%EB%A1%9C-%EB%A7%A4%EC%B9%AD%ED%95%98%EC%97%AC-%EC%84%A0%ED%83%9D%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>7.7.5</b> 변수의 형식이나 조건으로 매칭하여 선택하기*</a></li>
+<li class="chapter" data-level="7.7.6" data-path="R-OOP.html"><a href="#%EB%B3%80%EC%88%98-%EC%9D%B4%EB%A6%84-%EB%B0%94%EA%BE%B8%EA%B8%B0"><i class="fa fa-check"></i><b>7.7.6</b> 변수 이름 바꾸기</a></li>
+<li class="chapter" data-level="7.7.7" data-path="R-OOP.html"><a href="#%EB%B3%80%EC%88%98-%EC%88%9C%EC%84%9C-%EB%B0%94%EA%BE%B8%EA%B8%B0"><i class="fa fa-check"></i><b>7.7.7</b> 변수 순서 바꾸기</a></li>
 </ul></li>
 <li class="chapter" data-level="7.8" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-mutate"><i class="fa fa-check"></i><b>7.8</b> <code>mutate()</code>로 새로운 변수 만들기</a>
 <ul>
-<li class="chapter" data-level="7.8.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#transmute로-새로운-변수만-남기기"><i class="fa fa-check"></i><b>7.8.1</b> <code>transmute()</code>로 새로운 변수만 남기기</a></li>
-<li class="chapter" data-level="7.8.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#새로운-변수를-만들-때-사용할-수-있는-함수들"><i class="fa fa-check"></i><b>7.8.2</b> 새로운 변수를 만들 때 사용할 수 있는 함수들</a></li>
+<li class="chapter" data-level="7.8.1" data-path="R-OOP.html"><a href="#transmute%EB%A1%9C-%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%B3%80%EC%88%98%EB%A7%8C-%EB%82%A8%EA%B8%B0%EA%B8%B0"><i class="fa fa-check"></i><b>7.8.1</b> <code>transmute()</code>로 새로운 변수만 남기기</a></li>
+<li class="chapter" data-level="7.8.2" data-path="R-OOP.html"><a href="#%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%B3%80%EC%88%98%EB%A5%BC-%EB%A7%8C%EB%93%A4-%EB%95%8C-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8A%94-%ED%95%A8%EC%88%98%EB%93%A4"><i class="fa fa-check"></i><b>7.8.2</b> 새로운 변수를 만들 때 사용할 수 있는 함수들</a></li>
 </ul></li>
 <li class="chapter" data-level="7.9" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-summarize"><i class="fa fa-check"></i><b>7.9</b> <code>summarize()</code>로 변수 요약하기</a>
 <ul>
-<li class="chapter" data-level="7.9.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#across로-여려-변수를-요약하기"><i class="fa fa-check"></i><b>7.9.1</b> <code>across()</code>로 여려 변수를 요약하기*</a></li>
+<li class="chapter" data-level="7.9.1" data-path="R-OOP.html"><a href="#across%EB%A1%9C-%EC%97%AC%EB%A0%A4-%EB%B3%80%EC%88%98%EB%A5%BC-%EC%9A%94%EC%95%BD%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>7.9.1</b> <code>across()</code>로 여려 변수를 요약하기*</a></li>
 </ul></li>
 <li class="chapter" data-level="7.10" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-groupBy"><i class="fa fa-check"></i><b>7.10</b> <code>group_by()</code>로 그룹별로 요약하기</a>
 <ul>
-<li class="chapter" data-level="7.10.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#group_by로-그룹별로-새-변수-추가하기"><i class="fa fa-check"></i><b>7.10.1</b> <code>group_by()</code>로 그룹별로 새 변수 추가하기</a></li>
-<li class="chapter" data-level="7.10.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#count로-개수-세기"><i class="fa fa-check"></i><b>7.10.2</b> <code>count()</code>로 개수 세기</a></li>
+<li class="chapter" data-level="7.10.1" data-path="R-OOP.html"><a href="#group_by%EB%A1%9C-%EA%B7%B8%EB%A3%B9%EB%B3%84%EB%A1%9C-%EC%83%88-%EB%B3%80%EC%88%98-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>7.10.1</b> <code>group_by()</code>로 그룹별로 새 변수 추가하기</a></li>
+<li class="chapter" data-level="7.10.2" data-path="R-OOP.html"><a href="#count%EB%A1%9C-%EA%B0%9C%EC%88%98-%EC%84%B8%EA%B8%B0"><i class="fa fa-check"></i><b>7.10.2</b> <code>count()</code>로 개수 세기</a></li>
 </ul></li>
 <li class="chapter" data-level="7.11" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#sec-pipeOperator"><i class="fa fa-check"></i><b>7.11</b> <code>%&gt;%</code> 파이프 연산자</a>
 <ul>
-<li class="chapter" data-level="7.11.1" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#여러-단계를-거쳐-데이터를-변환할-때"><i class="fa fa-check"></i><b>7.11.1</b> 여러 단계를 거쳐 데이터를 변환할 때</a></li>
-<li class="chapter" data-level="7.11.2" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#파이프-연산자"><i class="fa fa-check"></i><b>7.11.2</b> 파이프 연산자</a></li>
+<li class="chapter" data-level="7.11.1" data-path="R-OOP.html"><a href="#%EC%97%AC%EB%9F%AC-%EB%8B%A8%EA%B3%84%EB%A5%BC-%EA%B1%B0%EC%B3%90-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EB%B3%80%ED%99%98%ED%95%A0-%EB%95%8C"><i class="fa fa-check"></i><b>7.11.1</b> 여러 단계를 거쳐 데이터를 변환할 때</a></li>
+<li class="chapter" data-level="7.11.2" data-path="R-OOP.html"><a href="#%ED%8C%8C%EC%9D%B4%ED%94%84-%EC%97%B0%EC%82%B0%EC%9E%90"><i class="fa fa-check"></i><b>7.11.2</b> 파이프 연산자</a></li>
 <li class="chapter" data-level="7.11.3" data-path="ch-dataTransformation.html"><a href="ch-dataTransformation.html#ungroup"><i class="fa fa-check"></i><b>7.11.3</b> <code>ungroup()</code></a></li>
 </ul></li>
 </ul></li>
@@ -386,28 +387,28 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-aesMapping"><i class="fa fa-check"></i><b>8.2</b> 도형의 속성에 데이터 열을 대응시키기 (aesthetic mapping)</a>
 <ul>
-<li class="chapter" data-level="8.2.1" data-path="ch-visualization.html"><a href="ch-visualization.html#범주형-변수를-색상color-속성에-매핑하기"><i class="fa fa-check"></i><b>8.2.1</b> 범주형 변수를 색상(<code>color</code>) 속성에 매핑하기</a></li>
-<li class="chapter" data-level="8.2.2" data-path="ch-visualization.html"><a href="ch-visualization.html#범주형-변수를-모양shape-속성에-매핑하기"><i class="fa fa-check"></i><b>8.2.2</b> 범주형 변수를 모양(<code>shape</code>) 속성에 매핑하기</a></li>
-<li class="chapter" data-level="8.2.3" data-path="ch-visualization.html"><a href="ch-visualization.html#연속형-변수를-크기size-투명도alpha-색상color-속성에-매핑하기"><i class="fa fa-check"></i><b>8.2.3</b> 연속형 변수를 크기(<code>size</code>), 투명도(<code>alpha</code>), 색상(<code>color</code>) 속성에 매핑하기</a></li>
-<li class="chapter" data-level="8.2.4" data-path="ch-visualization.html"><a href="ch-visualization.html#도형의-여러-속성에-데이터-열을-매핑시키기"><i class="fa fa-check"></i><b>8.2.4</b> 도형의 여러 속성에 데이터 열을 매핑시키기</a></li>
-<li class="chapter" data-level="8.2.5" data-path="ch-visualization.html"><a href="ch-visualization.html#도형-속성에-데이터-열을-매핑하기---예제"><i class="fa fa-check"></i><b>8.2.5</b> 도형 속성에 데이터 열을 매핑하기 - 예제</a></li>
-<li class="chapter" data-level="8.2.6" data-path="ch-visualization.html"><a href="ch-visualization.html#도형의-속성에-대응시키기-vs.-도형의-속성-인수를-설정하기"><i class="fa fa-check"></i><b>8.2.6</b> 도형의 속성에 대응시키기 vs. 도형의 속성 인수를 설정하기</a></li>
-<li class="chapter" data-level="8.2.7" data-path="ch-visualization.html"><a href="ch-visualization.html#group-속성"><i class="fa fa-check"></i><b>8.2.7</b> <code>group</code> 속성</a></li>
-<li class="chapter" data-level="8.2.8" data-path="ch-visualization.html"><a href="ch-visualization.html#그룹으로-나누어-선-그래프-그리기"><i class="fa fa-check"></i><b>8.2.8</b> 그룹으로 나누어 선 그래프 그리기</a></li>
-<li class="chapter" data-level="8.2.9" data-path="ch-visualization.html"><a href="ch-visualization.html#이산형-변수는-group-속성으로-자동-매핑된다."><i class="fa fa-check"></i><b>8.2.9</b> 이산형 변수는 <code>group</code> 속성으로 자동 매핑된다.</a></li>
-<li class="chapter" data-level="8.2.10" data-path="ch-visualization.html"><a href="ch-visualization.html#geom_smooth-함수에서-group-속성"><i class="fa fa-check"></i><b>8.2.10</b> <code>geom_smooth()</code> 함수에서 <code>group</code> 속성</a></li>
+<li class="chapter" data-level="8.2.1" data-path="R-OOP.html"><a href="#%EB%B2%94%EC%A3%BC%ED%98%95-%EB%B3%80%EC%88%98%EB%A5%BC-%EC%83%89%EC%83%81color-%EC%86%8D%EC%84%B1%EC%97%90-%EB%A7%A4%ED%95%91%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>8.2.1</b> 범주형 변수를 색상(<code>color</code>) 속성에 매핑하기</a></li>
+<li class="chapter" data-level="8.2.2" data-path="R-OOP.html"><a href="#%EB%B2%94%EC%A3%BC%ED%98%95-%EB%B3%80%EC%88%98%EB%A5%BC-%EB%AA%A8%EC%96%91shape-%EC%86%8D%EC%84%B1%EC%97%90-%EB%A7%A4%ED%95%91%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>8.2.2</b> 범주형 변수를 모양(<code>shape</code>) 속성에 매핑하기</a></li>
+<li class="chapter" data-level="8.2.3" data-path="R-OOP.html"><a href="#%EC%97%B0%EC%86%8D%ED%98%95-%EB%B3%80%EC%88%98%EB%A5%BC-%ED%81%AC%EA%B8%B0size-%ED%88%AC%EB%AA%85%EB%8F%84alpha-%EC%83%89%EC%83%81color-%EC%86%8D%EC%84%B1%EC%97%90-%EB%A7%A4%ED%95%91%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>8.2.3</b> 연속형 변수를 크기(<code>size</code>), 투명도(<code>alpha</code>), 색상(<code>color</code>) 속성에 매핑하기</a></li>
+<li class="chapter" data-level="8.2.4" data-path="R-OOP.html"><a href="#%EB%8F%84%ED%98%95%EC%9D%98-%EC%97%AC%EB%9F%AC-%EC%86%8D%EC%84%B1%EC%97%90-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%97%B4%EC%9D%84-%EB%A7%A4%ED%95%91%EC%8B%9C%ED%82%A4%EA%B8%B0"><i class="fa fa-check"></i><b>8.2.4</b> 도형의 여러 속성에 데이터 열을 매핑시키기</a></li>
+<li class="chapter" data-level="8.2.5" data-path="R-OOP.html"><a href="#%EB%8F%84%ED%98%95-%EC%86%8D%EC%84%B1%EC%97%90-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%97%B4%EC%9D%84-%EB%A7%A4%ED%95%91%ED%95%98%EA%B8%B0---%EC%98%88%EC%A0%9C"><i class="fa fa-check"></i><b>8.2.5</b> 도형 속성에 데이터 열을 매핑하기 - 예제</a></li>
+<li class="chapter" data-level="8.2.6" data-path="R-OOP.html"><a href="#%EB%8F%84%ED%98%95%EC%9D%98-%EC%86%8D%EC%84%B1%EC%97%90-%EB%8C%80%EC%9D%91%EC%8B%9C%ED%82%A4%EA%B8%B0-vs.-%EB%8F%84%ED%98%95%EC%9D%98-%EC%86%8D%EC%84%B1-%EC%9D%B8%EC%88%98%EB%A5%BC-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>8.2.6</b> 도형의 속성에 대응시키기 vs. 도형의 속성 인수를 설정하기</a></li>
+<li class="chapter" data-level="8.2.7" data-path="R-OOP.html"><a href="#group-%EC%86%8D%EC%84%B1"><i class="fa fa-check"></i><b>8.2.7</b> <code>group</code> 속성</a></li>
+<li class="chapter" data-level="8.2.8" data-path="R-OOP.html"><a href="#%EA%B7%B8%EB%A3%B9%EC%9C%BC%EB%A1%9C-%EB%82%98%EB%88%84%EC%96%B4-%EC%84%A0-%EA%B7%B8%EB%9E%98%ED%94%84-%EA%B7%B8%EB%A6%AC%EA%B8%B0"><i class="fa fa-check"></i><b>8.2.8</b> 그룹으로 나누어 선 그래프 그리기</a></li>
+<li class="chapter" data-level="8.2.9" data-path="R-OOP.html"><a href="#%EC%9D%B4%EC%82%B0%ED%98%95-%EB%B3%80%EC%88%98%EB%8A%94-group-%EC%86%8D%EC%84%B1%EC%9C%BC%EB%A1%9C-%EC%9E%90%EB%8F%99-%EB%A7%A4%ED%95%91%EB%90%9C%EB%8B%A4."><i class="fa fa-check"></i><b>8.2.9</b> 이산형 변수는 <code>group</code> 속성으로 자동 매핑된다.</a></li>
+<li class="chapter" data-level="8.2.10" data-path="R-OOP.html"><a href="#geom_smooth-%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C-group-%EC%86%8D%EC%84%B1"><i class="fa fa-check"></i><b>8.2.10</b> <code>geom_smooth()</code> 함수에서 <code>group</code> 속성</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-facets"><i class="fa fa-check"></i><b>8.3</b> 측면(facets)으로 나누어 그리기</a>
 <ul>
-<li class="chapter" data-level="8.3.1" data-path="ch-visualization.html"><a href="ch-visualization.html#facet_wrap로-일차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>8.3.1</b> <code>facet_wrap()</code>로 일차원 측면 그래프 그리기</a></li>
-<li class="chapter" data-level="8.3.2" data-path="ch-visualization.html"><a href="ch-visualization.html#facet_grid로-이차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>8.3.2</b> <code>facet_grid()</code>로 이차원 측면 그래프 그리기</a></li>
+<li class="chapter" data-level="8.3.1" data-path="R-OOP.html"><a href="#facet_wrap%EB%A1%9C-%EC%9D%BC%EC%B0%A8%EC%9B%90-%EC%B8%A1%EB%A9%B4-%EA%B7%B8%EB%9E%98%ED%94%84-%EA%B7%B8%EB%A6%AC%EA%B8%B0"><i class="fa fa-check"></i><b>8.3.1</b> <code>facet_wrap()</code>로 일차원 측면 그래프 그리기</a></li>
+<li class="chapter" data-level="8.3.2" data-path="R-OOP.html"><a href="#facet_grid%EB%A1%9C-%EC%9D%B4%EC%B0%A8%EC%9B%90-%EC%B8%A1%EB%A9%B4-%EA%B7%B8%EB%9E%98%ED%94%84-%EA%B7%B8%EB%A6%AC%EA%B8%B0"><i class="fa fa-check"></i><b>8.3.2</b> <code>facet_grid()</code>로 이차원 측면 그래프 그리기</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-layerAndGeom"><i class="fa fa-check"></i><b>8.4</b> 그래프 계층(layers)과 도형(geoms)</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="ch-visualization.html"><a href="ch-visualization.html#geom-함수의-순서와-그래프-계층"><i class="fa fa-check"></i><b>8.4.1</b> geom 함수의 순서와 그래프 계층</a></li>
-<li class="chapter" data-level="8.4.2" data-path="ch-visualization.html"><a href="ch-visualization.html#ggplot-함수는-좌표축을-자동-조정한다."><i class="fa fa-check"></i><b>8.4.2</b> <code>ggplot()</code> 함수는 좌표축을 자동 조정한다.</a></li>
-<li class="chapter" data-level="8.4.3" data-path="ch-visualization.html"><a href="ch-visualization.html#여러-데이터를-사용하여-그래프-계층-만들기"><i class="fa fa-check"></i><b>8.4.3</b> 여러 데이터를 사용하여 그래프 계층 만들기</a></li>
-<li class="chapter" data-level="8.4.4" data-path="ch-visualization.html"><a href="ch-visualization.html#다른-데이터-범위로-그래프-계층-만들기"><i class="fa fa-check"></i><b>8.4.4</b> 다른 데이터 범위로 그래프 계층 만들기</a></li>
+<li class="chapter" data-level="8.4.1" data-path="R-OOP.html"><a href="#geom-%ED%95%A8%EC%88%98%EC%9D%98-%EC%88%9C%EC%84%9C%EC%99%80-%EA%B7%B8%EB%9E%98%ED%94%84-%EA%B3%84%EC%B8%B5"><i class="fa fa-check"></i><b>8.4.1</b> geom 함수의 순서와 그래프 계층</a></li>
+<li class="chapter" data-level="8.4.2" data-path="R-OOP.html"><a href="#ggplot-%ED%95%A8%EC%88%98%EB%8A%94-%EC%A2%8C%ED%91%9C%EC%B6%95%EC%9D%84-%EC%9E%90%EB%8F%99-%EC%A1%B0%EC%A0%95%ED%95%9C%EB%8B%A4."><i class="fa fa-check"></i><b>8.4.2</b> <code>ggplot()</code> 함수는 좌표축을 자동 조정한다.</a></li>
+<li class="chapter" data-level="8.4.3" data-path="R-OOP.html"><a href="#%EC%97%AC%EB%9F%AC-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-%EA%B7%B8%EB%9E%98%ED%94%84-%EA%B3%84%EC%B8%B5-%EB%A7%8C%EB%93%A4%EA%B8%B0"><i class="fa fa-check"></i><b>8.4.3</b> 여러 데이터를 사용하여 그래프 계층 만들기</a></li>
+<li class="chapter" data-level="8.4.4" data-path="R-OOP.html"><a href="#%EB%8B%A4%EB%A5%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B2%94%EC%9C%84%EB%A1%9C-%EA%B7%B8%EB%9E%98%ED%94%84-%EA%B3%84%EC%B8%B5-%EB%A7%8C%EB%93%A4%EA%B8%B0"><i class="fa fa-check"></i><b>8.4.4</b> 다른 데이터 범위로 그래프 계층 만들기</a></li>
 <li class="chapter" data-level="8.4.5" data-path="ch-visualization.html"><a href="ch-visualization.html#subsec-commonDataMapping"><i class="fa fa-check"></i><b>8.4.5</b> 공통 <code>data</code>와 <code>mapping</code>의 설정</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="ch-visualization.html"><a href="ch-visualization.html#sec-commonProblems"><i class="fa fa-check"></i><b>8.5</b> ggplot 명령문을 입력할 때 자주 발생하는 문제들</a></li>
@@ -431,8 +432,8 @@ div.csl-indent {
 <li class="chapter" data-level="8.9" data-path="ch-visualization.html"><a href="ch-visualization.html#modification"><i class="fa fa-check"></i><b>8.9</b> 그래프의 외양 바꾸기</a>
 <ul>
 <li class="chapter" data-level="8.9.1" data-path="ch-visualization.html"><a href="ch-visualization.html#axes"><i class="fa fa-check"></i><b>8.9.1</b> 좌표축의 조정</a></li>
-<li class="chapter" data-level="8.9.2" data-path="ch-visualization.html"><a href="ch-visualization.html#좌표계의-변경"><i class="fa fa-check"></i><b>8.9.2</b> 좌표계의 변경</a></li>
-<li class="chapter" data-level="8.9.3" data-path="ch-visualization.html"><a href="ch-visualization.html#색상-척도color-scales의-변경"><i class="fa fa-check"></i><b>8.9.3</b> 색상 척도(color scales)의 변경</a></li>
+<li class="chapter" data-level="8.9.2" data-path="R-OOP.html"><a href="#%EC%A2%8C%ED%91%9C%EA%B3%84%EC%9D%98-%EB%B3%80%EA%B2%BD"><i class="fa fa-check"></i><b>8.9.2</b> 좌표계의 변경</a></li>
+<li class="chapter" data-level="8.9.3" data-path="R-OOP.html"><a href="#%EC%83%89%EC%83%81-%EC%B2%99%EB%8F%84color-scales%EC%9D%98-%EB%B3%80%EA%B2%BD"><i class="fa fa-check"></i><b>8.9.3</b> 색상 척도(color scales)의 변경</a></li>
 <li class="chapter" data-level="8.9.4" data-path="ch-visualization.html"><a href="ch-visualization.html#labelsmodification"><i class="fa fa-check"></i><b>8.9.4</b> 레이블 조정</a></li>
 <li class="chapter" data-level="8.9.5" data-path="ch-visualization.html"><a href="ch-visualization.html#themes"><i class="fa fa-check"></i><b>8.9.5</b> 테마 변경</a></li>
 </ul></li>
@@ -446,57 +447,57 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="9.1" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#sec-bind-data"><i class="fa fa-check"></i><b>9.1</b> 데이터의 단순 결합</a>
 <ul>
-<li class="chapter" data-level="9.1.1" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#데이터를-행으로-결합하기"><i class="fa fa-check"></i><b>9.1.1</b> 데이터를 행으로 결합하기</a></li>
-<li class="chapter" data-level="9.1.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#데이터를-열로-결합하기"><i class="fa fa-check"></i><b>9.1.2</b> 데이터를 열로 결합하기</a></li>
+<li class="chapter" data-level="9.1.1" data-path="R-OOP.html"><a href="#%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%ED%96%89%EC%9C%BC%EB%A1%9C-%EA%B2%B0%ED%95%A9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>9.1.1</b> 데이터를 행으로 결합하기</a></li>
+<li class="chapter" data-level="9.1.2" data-path="R-OOP.html"><a href="#%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EC%97%B4%EB%A1%9C-%EA%B2%B0%ED%95%A9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>9.1.2</b> 데이터를 열로 결합하기</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#관계형-데이터베이스처럼-데이터-결합하기"><i class="fa fa-check"></i><b>9.2</b> 관계형 데이터베이스처럼 데이터 결합하기</a>
+<li class="chapter" data-level="9.2" data-path="R-OOP.html"><a href="#%EA%B4%80%EA%B3%84%ED%98%95-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%B2%98%EB%9F%BC-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>9.2</b> 관계형 데이터베이스처럼 데이터 결합하기</a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#inner-join과-outer-join"><i class="fa fa-check"></i><b>9.2.1</b> Inner join과 outer join</a></li>
+<li class="chapter" data-level="9.2.1" data-path="R-OOP.html"><a href="#inner-join%EA%B3%BC-outer-join"><i class="fa fa-check"></i><b>9.2.1</b> Inner join과 outer join</a></li>
 <li class="chapter" data-level="9.2.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#filtering-join"><i class="fa fa-check"></i><b>9.2.2</b> Filtering join</a></li>
-<li class="chapter" data-level="9.2.3" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#join을-수행하는-다른-방법들"><i class="fa fa-check"></i><b>9.2.3</b> Join을 수행하는 다른 방법들</a></li>
+<li class="chapter" data-level="9.2.3" data-path="R-OOP.html"><a href="#join%EC%9D%84-%EC%88%98%ED%96%89%ED%95%98%EB%8A%94-%EB%8B%A4%EB%A5%B8-%EB%B0%A9%EB%B2%95%EB%93%A4"><i class="fa fa-check"></i><b>9.2.3</b> Join을 수행하는 다른 방법들</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#sec-tidyr"><i class="fa fa-check"></i><b>9.3</b> <code>tidyr</code> 패키지를 이용하여 정돈 데이터 형식으로 바꾸기</a>
 <ul>
-<li class="chapter" data-level="9.3.1" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#pivot_longer-여러-열에-걸친-한-변수의-데이터를-하나의-열로-길게-모으기"><i class="fa fa-check"></i><b>9.3.1</b> <code>pivot_longer</code>: 여러 열에 걸친 한 변수의 데이터를 하나의 열로 길게 모으기</a></li>
+<li class="chapter" data-level="9.3.1" data-path="R-OOP.html"><a href="#pivot_longer-%EC%97%AC%EB%9F%AC-%EC%97%B4%EC%97%90-%EA%B1%B8%EC%B9%9C-%ED%95%9C-%EB%B3%80%EC%88%98%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%ED%95%98%EB%82%98%EC%9D%98-%EC%97%B4%EB%A1%9C-%EA%B8%B8%EA%B2%8C-%EB%AA%A8%EC%9C%BC%EA%B8%B0"><i class="fa fa-check"></i><b>9.3.1</b> <code>pivot_longer</code>: 여러 열에 걸친 한 변수의 데이터를 하나의 열로 길게 모으기</a></li>
 <li class="chapter" data-level="9.3.2" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#subsec-pivot-wider"><i class="fa fa-check"></i><b>9.3.2</b> <code>pivot_wider</code>: 한 열에 기술된 여러 변수의 데이터를 여러 열로 넓게 펼치기</a></li>
-<li class="chapter" data-level="9.3.3" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#seperate-한-셀을-여러-셀로-분리하기"><i class="fa fa-check"></i><b>9.3.3</b> <code>seperate</code>: 한 셀을 여러 셀로 분리하기</a></li>
-<li class="chapter" data-level="9.3.4" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#unite-여러-셀의-데이터를-하나의-셀로-병합하기"><i class="fa fa-check"></i><b>9.3.4</b> <code>unite</code>: 여러 셀의 데이터를 하나의 셀로 병합하기</a></li>
+<li class="chapter" data-level="9.3.3" data-path="R-OOP.html"><a href="#seperate-%ED%95%9C-%EC%85%80%EC%9D%84-%EC%97%AC%EB%9F%AC-%EC%85%80%EB%A1%9C-%EB%B6%84%EB%A6%AC%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>9.3.3</b> <code>seperate</code>: 한 셀을 여러 셀로 분리하기</a></li>
+<li class="chapter" data-level="9.3.4" data-path="R-OOP.html"><a href="#unite-%EC%97%AC%EB%9F%AC-%EC%85%80%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%ED%95%98%EB%82%98%EC%9D%98-%EC%85%80%EB%A1%9C-%EB%B3%91%ED%95%A9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>9.3.4</b> <code>unite</code>: 여러 셀의 데이터를 하나의 셀로 병합하기</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="ch-R-Advanced-Data-Mgmt.html"><a href="ch-R-Advanced-Data-Mgmt.html#데이터-열의-형식-바꾸기"><i class="fa fa-check"></i><b>9.4</b> 데이터 열의 형식 바꾸기</a></li>
+<li class="chapter" data-level="9.4" data-path="R-OOP.html"><a href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%97%B4%EC%9D%98-%ED%98%95%EC%8B%9D-%EB%B0%94%EA%BE%B8%EA%B8%B0"><i class="fa fa-check"></i><b>9.4</b> 데이터 열의 형식 바꾸기</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html"><i class="fa fa-check"></i><b>10</b> R 프로그래밍 구조</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r-조건문"><i class="fa fa-check"></i><b>10.1</b> R 조건문</a>
+<li class="chapter" data-level="10.1" data-path="R-OOP.html"><a href="#r-%EC%A1%B0%EA%B1%B4%EB%AC%B8"><i class="fa fa-check"></i><b>10.1</b> R 조건문</a>
 <ul>
-<li class="chapter" data-level="10.1.1" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#if-조건문"><i class="fa fa-check"></i><b>10.1.1</b> if 조건문</a></li>
-<li class="chapter" data-level="10.1.2" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#switch-함수"><i class="fa fa-check"></i><b>10.1.2</b> switch 함수</a></li>
+<li class="chapter" data-level="10.1.1" data-path="R-OOP.html"><a href="#if-%EC%A1%B0%EA%B1%B4%EB%AC%B8"><i class="fa fa-check"></i><b>10.1.1</b> if 조건문</a></li>
+<li class="chapter" data-level="10.1.2" data-path="R-OOP.html"><a href="#switch-%ED%95%A8%EC%88%98"><i class="fa fa-check"></i><b>10.1.2</b> switch 함수</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r-반복문"><i class="fa fa-check"></i><b>10.2</b> R 반복문</a>
+<li class="chapter" data-level="10.2" data-path="R-OOP.html"><a href="#r-%EB%B0%98%EB%B3%B5%EB%AC%B8"><i class="fa fa-check"></i><b>10.2</b> R 반복문</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#for-반복문"><i class="fa fa-check"></i><b>10.2.1</b> for 반복문</a></li>
-<li class="chapter" data-level="10.2.2" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#while-반복문"><i class="fa fa-check"></i><b>10.2.2</b> while 반복문</a></li>
-<li class="chapter" data-level="10.2.3" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#repeat-반복문"><i class="fa fa-check"></i><b>10.2.3</b> repeat 반복문</a></li>
-<li class="chapter" data-level="10.2.4" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#반복문의-제어-명령"><i class="fa fa-check"></i><b>10.2.4</b> 반복문의 제어 명령</a></li>
-<li class="chapter" data-level="10.2.5" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r에서-반복문-사용의-주의점"><i class="fa fa-check"></i><b>10.2.5</b> R에서 반복문 사용의 주의점</a></li>
+<li class="chapter" data-level="10.2.1" data-path="R-OOP.html"><a href="#for-%EB%B0%98%EB%B3%B5%EB%AC%B8"><i class="fa fa-check"></i><b>10.2.1</b> for 반복문</a></li>
+<li class="chapter" data-level="10.2.2" data-path="R-OOP.html"><a href="#while-%EB%B0%98%EB%B3%B5%EB%AC%B8"><i class="fa fa-check"></i><b>10.2.2</b> while 반복문</a></li>
+<li class="chapter" data-level="10.2.3" data-path="R-OOP.html"><a href="#repeat-%EB%B0%98%EB%B3%B5%EB%AC%B8"><i class="fa fa-check"></i><b>10.2.3</b> repeat 반복문</a></li>
+<li class="chapter" data-level="10.2.4" data-path="R-OOP.html"><a href="#%EB%B0%98%EB%B3%B5%EB%AC%B8%EC%9D%98-%EC%A0%9C%EC%96%B4-%EB%AA%85%EB%A0%B9"><i class="fa fa-check"></i><b>10.2.4</b> 반복문의 제어 명령</a></li>
+<li class="chapter" data-level="10.2.5" data-path="R-OOP.html"><a href="#r%EC%97%90%EC%84%9C-%EB%B0%98%EB%B3%B5%EB%AC%B8-%EC%82%AC%EC%9A%A9%EC%9D%98-%EC%A3%BC%EC%9D%98%EC%A0%90"><i class="fa fa-check"></i><b>10.2.5</b> R에서 반복문 사용의 주의점</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r-함수"><i class="fa fa-check"></i><b>10.3</b> R 함수</a>
+<li class="chapter" data-level="10.3" data-path="R-OOP.html"><a href="#r-%ED%95%A8%EC%88%98"><i class="fa fa-check"></i><b>10.3</b> R 함수</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#함수의-생성과-호출"><i class="fa fa-check"></i><b>10.3.1</b> 함수의 생성과 호출</a></li>
-<li class="chapter" data-level="10.3.2" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#함수-객체를-인수로-사용하기"><i class="fa fa-check"></i><b>10.3.2</b> 함수 객체를 인수로 사용하기</a></li>
-<li class="chapter" data-level="10.3.3" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#r-연산자"><i class="fa fa-check"></i><b>10.3.3</b> R 연산자</a></li>
-<li class="chapter" data-level="10.3.4" data-path="ch-R-Programming-Structure.html"><a href="ch-R-Programming-Structure.html#변수-범위"><i class="fa fa-check"></i><b>10.3.4</b> 변수 범위</a></li>
+<li class="chapter" data-level="10.3.1" data-path="R-OOP.html"><a href="#%ED%95%A8%EC%88%98%EC%9D%98-%EC%83%9D%EC%84%B1%EA%B3%BC-%ED%98%B8%EC%B6%9C"><i class="fa fa-check"></i><b>10.3.1</b> 함수의 생성과 호출</a></li>
+<li class="chapter" data-level="10.3.2" data-path="R-OOP.html"><a href="#%ED%95%A8%EC%88%98-%EA%B0%9D%EC%B2%B4%EB%A5%BC-%EC%9D%B8%EC%88%98%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>10.3.2</b> 함수 객체를 인수로 사용하기</a></li>
+<li class="chapter" data-level="10.3.3" data-path="R-OOP.html"><a href="#r-%EC%97%B0%EC%82%B0%EC%9E%90"><i class="fa fa-check"></i><b>10.3.3</b> R 연산자</a></li>
+<li class="chapter" data-level="10.3.4" data-path="R-OOP.html"><a href="#%EB%B3%80%EC%88%98-%EB%B2%94%EC%9C%84"><i class="fa fa-check"></i><b>10.3.4</b> 변수 범위</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html"><i class="fa fa-check"></i><b>11</b> R 객체 지향 프로그래밍</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#객체-지향-프로그래밍"><i class="fa fa-check"></i><b>11.1</b> 객체 지향 프로그래밍</a></li>
-<li class="chapter" data-level="11.2" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s3-클래스"><i class="fa fa-check"></i><b>11.2</b> S3 클래스</a>
+<li class="chapter" data-level="11.1" data-path="R-OOP.html"><a href="#%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D"><i class="fa fa-check"></i><b>11.1</b> 객체 지향 프로그래밍</a></li>
+<li class="chapter" data-level="11.2" data-path="R-OOP.html"><a href="#s3-%ED%81%B4%EB%9E%98%EC%8A%A4"><i class="fa fa-check"></i><b>11.2</b> S3 클래스</a>
 <ul>
-<li class="chapter" data-level="11.2.1" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s3-클래스-객체-만들기"><i class="fa fa-check"></i><b>11.2.1</b> S3 클래스 객체 만들기</a></li>
-<li class="chapter" data-level="11.2.2" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#포괄-함수generic-functions"><i class="fa fa-check"></i><b>11.2.2</b> 포괄 함수(generic functions)</a></li>
-<li class="chapter" data-level="11.2.3" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s3에서-상속성의-구현"><i class="fa fa-check"></i><b>11.2.3</b> S3에서 상속성의 구현</a></li>
+<li class="chapter" data-level="11.2.1" data-path="R-OOP.html"><a href="#s3-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B0%9D%EC%B2%B4-%EB%A7%8C%EB%93%A4%EA%B8%B0"><i class="fa fa-check"></i><b>11.2.1</b> S3 클래스 객체 만들기</a></li>
+<li class="chapter" data-level="11.2.2" data-path="R-OOP.html"><a href="#%ED%8F%AC%EA%B4%84-%ED%95%A8%EC%88%98generic-functions"><i class="fa fa-check"></i><b>11.2.2</b> 포괄 함수(generic functions)</a></li>
+<li class="chapter" data-level="11.2.3" data-path="R-OOP.html"><a href="#s3%EC%97%90%EC%84%9C-%EC%83%81%EC%86%8D%EC%84%B1%EC%9D%98-%EA%B5%AC%ED%98%84"><i class="fa fa-check"></i><b>11.2.3</b> S3에서 상속성의 구현</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="ch-R-OOP.html"><a href="ch-R-OOP.html#s4-클래스"><i class="fa fa-check"></i><b>11.3</b> S4 클래스</a></li>
+<li class="chapter" data-level="11.3" data-path="R-OOP.html"><a href="#s4-%ED%81%B4%EB%9E%98%EC%8A%A4"><i class="fa fa-check"></i><b>11.3</b> S4 클래스</a></li>
 </ul></li>
 <li class="part"><span><b>II R 프로그래밍 응용</b></span></li>
 <li class="chapter" data-level="12" data-path="ch-R-import.html"><a href="ch-R-import.html"><i class="fa fa-check"></i><b>12</b> <strong>R</strong> 데이터 수집</a>
@@ -513,46 +514,46 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="13" data-path="ch-R-documents.html"><a href="ch-R-documents.html"><i class="fa fa-check"></i><b>13</b> <strong>R</strong> 동적 문서</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="ch-R-documents.html"><a href="ch-R-documents.html#quarto-설치"><i class="fa fa-check"></i><b>13.1</b> Quarto 설치</a></li>
+<li class="chapter" data-level="13.1" data-path="R-OOP.html"><a href="#quarto-%EC%84%A4%EC%B9%98"><i class="fa fa-check"></i><b>13.1</b> Quarto 설치</a></li>
 <li class="chapter" data-level="13.2" data-path="ch-R-documents.html"><a href="ch-R-documents.html#sec-quarto-creation"><i class="fa fa-check"></i><b>13.2</b> Quarto 문서 만들기</a></li>
-<li class="chapter" data-level="13.3" data-path="ch-R-documents.html"><a href="ch-R-documents.html#quarto의-출력-형식"><i class="fa fa-check"></i><b>13.3</b> Quarto의 출력 형식</a>
+<li class="chapter" data-level="13.3" data-path="R-OOP.html"><a href="#quarto%EC%9D%98-%EC%B6%9C%EB%A0%A5-%ED%98%95%EC%8B%9D"><i class="fa fa-check"></i><b>13.3</b> Quarto의 출력 형식</a>
 <ul>
-<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#출력-형식-바꾸기"><i class="fa fa-check"></i>출력 형식 바꾸기</a></li>
-<li class="chapter" data-level="13.3.1" data-path="ch-R-documents.html"><a href="ch-R-documents.html#여러-출력-형식으로-문서-변환하기"><i class="fa fa-check"></i><b>13.3.1</b> 여러 출력 형식으로 문서 변환하기</a></li>
-<li class="chapter" data-level="13.3.2" data-path="ch-R-documents.html"><a href="ch-R-documents.html#출력-옵션-조정하기"><i class="fa fa-check"></i><b>13.3.2</b> 출력 옵션 조정하기</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#%EC%B6%9C%EB%A0%A5-%ED%98%95%EC%8B%9D-%EB%B0%94%EA%BE%B8%EA%B8%B0"><i class="fa fa-check"></i>출력 형식 바꾸기</a></li>
+<li class="chapter" data-level="13.3.1" data-path="R-OOP.html"><a href="#%EC%97%AC%EB%9F%AC-%EC%B6%9C%EB%A0%A5-%ED%98%95%EC%8B%9D%EC%9C%BC%EB%A1%9C-%EB%AC%B8%EC%84%9C-%EB%B3%80%ED%99%98%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>13.3.1</b> 여러 출력 형식으로 문서 변환하기</a></li>
+<li class="chapter" data-level="13.3.2" data-path="R-OOP.html"><a href="#%EC%B6%9C%EB%A0%A5-%EC%98%B5%EC%85%98-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>13.3.2</b> 출력 옵션 조정하기</a></li>
 </ul></li>
-<li class="chapter" data-level="13.4" data-path="ch-R-documents.html"><a href="ch-R-documents.html#마크다운-기초"><i class="fa fa-check"></i><b>13.4</b> 마크다운 기초</a>
+<li class="chapter" data-level="13.4" data-path="R-OOP.html"><a href="#%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EA%B8%B0%EC%B4%88"><i class="fa fa-check"></i><b>13.4</b> 마크다운 기초</a>
 <ul>
-<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#텍스트-서식"><i class="fa fa-check"></i>텍스트 서식</a></li>
-<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#장과-절의-제목"><i class="fa fa-check"></i>장과 절의 제목</a></li>
-<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#목록"><i class="fa fa-check"></i>목록</a></li>
-<li class="chapter" data-level="13.4.1" data-path="ch-R-documents.html"><a href="ch-R-documents.html#url-링크"><i class="fa fa-check"></i><b>13.4.1</b> URL 링크</a></li>
-<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#그림"><i class="fa fa-check"></i>그림</a></li>
-<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#표"><i class="fa fa-check"></i>표</a></li>
-<li class="chapter" data-level="" data-path="ch-R-documents.html"><a href="ch-R-documents.html#블록"><i class="fa fa-check"></i>블록</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#%ED%85%8D%EC%8A%A4%ED%8A%B8-%EC%84%9C%EC%8B%9D"><i class="fa fa-check"></i>텍스트 서식</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#%EC%9E%A5%EA%B3%BC-%EC%A0%88%EC%9D%98-%EC%A0%9C%EB%AA%A9"><i class="fa fa-check"></i>장과 절의 제목</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#%EB%AA%A9%EB%A1%9D"><i class="fa fa-check"></i>목록</a></li>
+<li class="chapter" data-level="13.4.1" data-path="R-OOP.html"><a href="#url-%EB%A7%81%ED%81%AC"><i class="fa fa-check"></i><b>13.4.1</b> URL 링크</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#%EA%B7%B8%EB%A6%BC"><i class="fa fa-check"></i>그림</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#%ED%91%9C"><i class="fa fa-check"></i>표</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#%EB%B8%94%EB%A1%9D"><i class="fa fa-check"></i>블록</a></li>
 </ul></li>
-<li class="chapter" data-level="13.5" data-path="ch-R-documents.html"><a href="ch-R-documents.html#코드-모듬"><i class="fa fa-check"></i><b>13.5</b> 코드 모듬</a>
+<li class="chapter" data-level="13.5" data-path="R-OOP.html"><a href="#%EC%BD%94%EB%93%9C-%EB%AA%A8%EB%93%AC"><i class="fa fa-check"></i><b>13.5</b> 코드 모듬</a>
 <ul>
-<li class="chapter" data-level="13.5.1" data-path="ch-R-documents.html"><a href="ch-R-documents.html#코드-모듬-옵션"><i class="fa fa-check"></i><b>13.5.1</b> 코드 모듬 옵션</a></li>
-<li class="chapter" data-level="13.5.2" data-path="ch-R-documents.html"><a href="ch-R-documents.html#실행-옵션-excution-options"><i class="fa fa-check"></i><b>13.5.2</b> 실행 옵션 (Excution Options)</a></li>
-<li class="chapter" data-level="13.5.3" data-path="ch-R-documents.html"><a href="ch-R-documents.html#데이터프레임과-행렬을-표로-출력하기"><i class="fa fa-check"></i><b>13.5.3</b> 데이터프레임과 행렬을 표로 출력하기</a></li>
-<li class="chapter" data-level="13.5.4" data-path="ch-R-documents.html"><a href="ch-R-documents.html#인라인-코드"><i class="fa fa-check"></i><b>13.5.4</b> 인라인 코드</a></li>
+<li class="chapter" data-level="13.5.1" data-path="R-OOP.html"><a href="#%EC%BD%94%EB%93%9C-%EB%AA%A8%EB%93%AC-%EC%98%B5%EC%85%98"><i class="fa fa-check"></i><b>13.5.1</b> 코드 모듬 옵션</a></li>
+<li class="chapter" data-level="13.5.2" data-path="R-OOP.html"><a href="#%EC%8B%A4%ED%96%89-%EC%98%B5%EC%85%98-excution-options"><i class="fa fa-check"></i><b>13.5.2</b> 실행 옵션 (Excution Options)</a></li>
+<li class="chapter" data-level="13.5.3" data-path="R-OOP.html"><a href="#%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%94%84%EB%A0%88%EC%9E%84%EA%B3%BC-%ED%96%89%EB%A0%AC%EC%9D%84-%ED%91%9C%EB%A1%9C-%EC%B6%9C%EB%A0%A5%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>13.5.3</b> 데이터프레임과 행렬을 표로 출력하기</a></li>
+<li class="chapter" data-level="13.5.4" data-path="R-OOP.html"><a href="#%EC%9D%B8%EB%9D%BC%EC%9D%B8-%EC%BD%94%EB%93%9C"><i class="fa fa-check"></i><b>13.5.4</b> 인라인 코드</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html"><i class="fa fa-check"></i><b>14</b> <strong>R</strong> 차원 축소</a>
 <ul>
 <li class="chapter" data-level="14.1" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html#sec-dimension-reduction"><i class="fa fa-check"></i><b>14.1</b> 차원 축소 (Dimension Reduction)</a>
 <ul>
-<li class="chapter" data-level="14.1.1" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html#데이터의-차원"><i class="fa fa-check"></i><b>14.1.1</b> 데이터의 차원</a></li>
-<li class="chapter" data-level="14.1.2" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html#차원-축소-방법"><i class="fa fa-check"></i><b>14.1.2</b> 차원 축소 방법</a></li>
+<li class="chapter" data-level="14.1.1" data-path="R-OOP.html"><a href="#%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EC%B0%A8%EC%9B%90"><i class="fa fa-check"></i><b>14.1.1</b> 데이터의 차원</a></li>
+<li class="chapter" data-level="14.1.2" data-path="R-OOP.html"><a href="#%EC%B0%A8%EC%9B%90-%EC%B6%95%EC%86%8C-%EB%B0%A9%EB%B2%95"><i class="fa fa-check"></i><b>14.1.2</b> 차원 축소 방법</a></li>
 </ul></li>
 <li class="chapter" data-level="14.2" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html#sec-pca"><i class="fa fa-check"></i><b>14.2</b> 주성분 분석 (Principal Components Analysis)</a>
 <ul>
-<li class="chapter" data-level="14.2.1" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html#주성분-분석에-대한-직관적-이해"><i class="fa fa-check"></i><b>14.2.1</b> 주성분 분석에 대한 직관적 이해</a></li>
-<li class="chapter" data-level="14.2.2" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html#차원-이상의-데이터로의-주성분-분석의-확장"><i class="fa fa-check"></i><b>14.2.2</b> 3차원 이상의 데이터로의 주성분 분석의 확장</a></li>
-<li class="chapter" data-level="14.2.3" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html#주성분-분석의-간략한-이론"><i class="fa fa-check"></i><b>14.2.3</b> 주성분 분석의 간략한 이론</a></li>
-<li class="chapter" data-level="14.2.4" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html#r로-주성분-분석하기"><i class="fa fa-check"></i><b>14.2.4</b> <strong>R</strong>로 주성분 분석하기</a></li>
-<li class="chapter" data-level="14.2.5" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html#데이터-정규화-후-주성분-분석하기"><i class="fa fa-check"></i><b>14.2.5</b> 데이터 정규화 후 주성분 분석하기</a></li>
+<li class="chapter" data-level="14.2.1" data-path="R-OOP.html"><a href="#%EC%A3%BC%EC%84%B1%EB%B6%84-%EB%B6%84%EC%84%9D%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A7%81%EA%B4%80%EC%A0%81-%EC%9D%B4%ED%95%B4"><i class="fa fa-check"></i><b>14.2.1</b> 주성분 분석에 대한 직관적 이해</a></li>
+<li class="chapter" data-level="14.2.2" data-path="R-OOP.html"><a href="#%EC%B0%A8%EC%9B%90-%EC%9D%B4%EC%83%81%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A1%9C%EC%9D%98-%EC%A3%BC%EC%84%B1%EB%B6%84-%EB%B6%84%EC%84%9D%EC%9D%98-%ED%99%95%EC%9E%A5"><i class="fa fa-check"></i><b>14.2.2</b> 3차원 이상의 데이터로의 주성분 분석의 확장</a></li>
+<li class="chapter" data-level="14.2.3" data-path="R-OOP.html"><a href="#%EC%A3%BC%EC%84%B1%EB%B6%84-%EB%B6%84%EC%84%9D%EC%9D%98-%EA%B0%84%EB%9E%B5%ED%95%9C-%EC%9D%B4%EB%A1%A0"><i class="fa fa-check"></i><b>14.2.3</b> 주성분 분석의 간략한 이론</a></li>
+<li class="chapter" data-level="14.2.4" data-path="R-OOP.html"><a href="#r%EB%A1%9C-%EC%A3%BC%EC%84%B1%EB%B6%84-%EB%B6%84%EC%84%9D%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>14.2.4</b> <strong>R</strong>로 주성분 분석하기</a></li>
+<li class="chapter" data-level="14.2.5" data-path="R-OOP.html"><a href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%95%EA%B7%9C%ED%99%94-%ED%9B%84-%EC%A3%BC%EC%84%B1%EB%B6%84-%EB%B6%84%EC%84%9D%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>14.2.5</b> 데이터 정규화 후 주성분 분석하기</a></li>
 <li class="chapter" data-level="14.2.6" data-path="ch-R-dimension-reduction.html"><a href="ch-R-dimension-reduction.html#sec-pca-viaulaization"><i class="fa fa-check"></i><b>14.2.6</b> 주성분 분석의 시각화</a></li>
 </ul></li>
 </ul></li>
@@ -560,41 +561,41 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="15.1" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#sec-clustering"><i class="fa fa-check"></i><b>15.1</b> 군집 분석이란?</a>
 <ul>
-<li class="chapter" data-level="15.1.1" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#군집-분석의-필요성"><i class="fa fa-check"></i><b>15.1.1</b> 군집 분석의 필요성</a></li>
-<li class="chapter" data-level="15.1.2" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#군집-분석의-유형"><i class="fa fa-check"></i><b>15.1.2</b> 군집 분석의 유형</a></li>
+<li class="chapter" data-level="15.1.1" data-path="R-OOP.html"><a href="#%EA%B5%B0%EC%A7%91-%EB%B6%84%EC%84%9D%EC%9D%98-%ED%95%84%EC%9A%94%EC%84%B1"><i class="fa fa-check"></i><b>15.1.1</b> 군집 분석의 필요성</a></li>
+<li class="chapter" data-level="15.1.2" data-path="R-OOP.html"><a href="#%EA%B5%B0%EC%A7%91-%EB%B6%84%EC%84%9D%EC%9D%98-%EC%9C%A0%ED%98%95"><i class="fa fa-check"></i><b>15.1.2</b> 군집 분석의 유형</a></li>
 </ul></li>
 <li class="chapter" data-level="15.2" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#sec-k-means"><i class="fa fa-check"></i><b>15.2</b> k-평균 군집화</a>
 <ul>
-<li class="chapter" data-level="15.2.1" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#알고리즘"><i class="fa fa-check"></i><b>15.2.1</b> 알고리즘</a></li>
-<li class="chapter" data-level="15.2.2" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#k-평균-군집화의-장점-및-단점"><i class="fa fa-check"></i><b>15.2.2</b> k-평균 군집화의 장점 및 단점</a></li>
-<li class="chapter" data-level="15.2.3" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#r을-이용한-k-평균-군집-분석"><i class="fa fa-check"></i><b>15.2.3</b> R을 이용한 k-평균 군집 분석</a></li>
+<li class="chapter" data-level="15.2.1" data-path="R-OOP.html"><a href="#%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98"><i class="fa fa-check"></i><b>15.2.1</b> 알고리즘</a></li>
+<li class="chapter" data-level="15.2.2" data-path="R-OOP.html"><a href="#k-%ED%8F%89%EA%B7%A0-%EA%B5%B0%EC%A7%91%ED%99%94%EC%9D%98-%EC%9E%A5%EC%A0%90-%EB%B0%8F-%EB%8B%A8%EC%A0%90"><i class="fa fa-check"></i><b>15.2.2</b> k-평균 군집화의 장점 및 단점</a></li>
+<li class="chapter" data-level="15.2.3" data-path="R-OOP.html"><a href="#r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-k-%ED%8F%89%EA%B7%A0-%EA%B5%B0%EC%A7%91-%EB%B6%84%EC%84%9D"><i class="fa fa-check"></i><b>15.2.3</b> R을 이용한 k-평균 군집 분석</a></li>
 </ul></li>
 <li class="chapter" data-level="15.3" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#sec-agglomorative-clustering"><i class="fa fa-check"></i><b>15.3</b> 병합 군집화</a>
 <ul>
 <li class="chapter" data-level="15.3.1" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#sec-agglomorative-clustering-algorithm"><i class="fa fa-check"></i><b>15.3.1</b> 병합 군집화 알고리즘</a></li>
 <li class="chapter" data-level="15.3.2" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#sec-distance-between-clusters"><i class="fa fa-check"></i><b>15.3.2</b> 군집 사이의 거리 계산</a></li>
 <li class="chapter" data-level="15.3.3" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#sec-hclust"><i class="fa fa-check"></i><b>15.3.3</b> <code>hclust()</code> 함수를 이용한 병합 군집화</a></li>
-<li class="chapter" data-level="15.3.4" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#병합-군집화에-대한-계통도-그리기"><i class="fa fa-check"></i><b>15.3.4</b> 병합 군집화에 대한 계통도 그리기</a></li>
-<li class="chapter" data-level="15.3.5" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#군집-나누기"><i class="fa fa-check"></i><b>15.3.5</b> 군집 나누기</a></li>
-<li class="chapter" data-level="15.3.6" data-path="ch-R-clustering.html"><a href="ch-R-clustering.html#최적-군집-수의-결정"><i class="fa fa-check"></i><b>15.3.6</b> 최적 군집 수의 결정</a></li>
+<li class="chapter" data-level="15.3.4" data-path="R-OOP.html"><a href="#%EB%B3%91%ED%95%A9-%EA%B5%B0%EC%A7%91%ED%99%94%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%84%ED%86%B5%EB%8F%84-%EA%B7%B8%EB%A6%AC%EA%B8%B0"><i class="fa fa-check"></i><b>15.3.4</b> 병합 군집화에 대한 계통도 그리기</a></li>
+<li class="chapter" data-level="15.3.5" data-path="R-OOP.html"><a href="#%EA%B5%B0%EC%A7%91-%EB%82%98%EB%88%84%EA%B8%B0"><i class="fa fa-check"></i><b>15.3.5</b> 군집 나누기</a></li>
+<li class="chapter" data-level="15.3.6" data-path="R-OOP.html"><a href="#%EC%B5%9C%EC%A0%81-%EA%B5%B0%EC%A7%91-%EC%88%98%EC%9D%98-%EA%B2%B0%EC%A0%95"><i class="fa fa-check"></i><b>15.3.6</b> 최적 군집 수의 결정</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html"><i class="fa fa-check"></i><b>16</b> <strong>R</strong> 통계적 가설검정</a>
 <ul>
 <li class="chapter" data-level="16.1" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#sec-hypothesis"><i class="fa fa-check"></i><b>16.1</b> 가설검정이란?</a>
 <ul>
-<li class="chapter" data-level="16.1.1" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#가설의-설정"><i class="fa fa-check"></i><b>16.1.1</b> 가설의 설정</a></li>
-<li class="chapter" data-level="16.1.2" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#검정통계량과-표본-분포"><i class="fa fa-check"></i><b>16.1.2</b> 검정통계량과 표본 분포</a></li>
-<li class="chapter" data-level="16.1.3" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#기각역과-유의수준"><i class="fa fa-check"></i><b>16.1.3</b> 기각역과 유의수준</a></li>
-<li class="chapter" data-level="16.1.4" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#유의확률-p-값p-value"><i class="fa fa-check"></i><b>16.1.4</b> 유의확률 p-값(p-value)</a></li>
+<li class="chapter" data-level="16.1.1" data-path="R-OOP.html"><a href="#%EA%B0%80%EC%84%A4%EC%9D%98-%EC%84%A4%EC%A0%95"><i class="fa fa-check"></i><b>16.1.1</b> 가설의 설정</a></li>
+<li class="chapter" data-level="16.1.2" data-path="R-OOP.html"><a href="#%EA%B2%80%EC%A0%95%ED%86%B5%EA%B3%84%EB%9F%89%EA%B3%BC-%ED%91%9C%EB%B3%B8-%EB%B6%84%ED%8F%AC"><i class="fa fa-check"></i><b>16.1.2</b> 검정통계량과 표본 분포</a></li>
+<li class="chapter" data-level="16.1.3" data-path="R-OOP.html"><a href="#%EA%B8%B0%EA%B0%81%EC%97%AD%EA%B3%BC-%EC%9C%A0%EC%9D%98%EC%88%98%EC%A4%80"><i class="fa fa-check"></i><b>16.1.3</b> 기각역과 유의수준</a></li>
+<li class="chapter" data-level="16.1.4" data-path="R-OOP.html"><a href="#%EC%9C%A0%EC%9D%98%ED%99%95%EB%A5%A0-p-%EA%B0%92p-value"><i class="fa fa-check"></i><b>16.1.4</b> 유의확률 p-값(p-value)</a></li>
 </ul></li>
-<li class="chapter" data-level="16.2" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#r을-이용한-범주형-변수의-가설검점"><i class="fa fa-check"></i><b>16.2</b> <strong>R</strong>을 이용한 범주형 변수의 가설검점</a>
+<li class="chapter" data-level="16.2" data-path="R-OOP.html"><a href="#r%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%B2%94%EC%A3%BC%ED%98%95-%EB%B3%80%EC%88%98%EC%9D%98-%EA%B0%80%EC%84%A4%EA%B2%80%EC%A0%90"><i class="fa fa-check"></i><b>16.2</b> <strong>R</strong>을 이용한 범주형 변수의 가설검점</a>
 <ul>
-<li class="chapter" data-level="16.2.1" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#관절염-치료-임상시험-데이터-분석"><i class="fa fa-check"></i><b>16.2.1</b> 관절염 치료 임상시험 데이터 분석</a></li>
-<li class="chapter" data-level="16.2.2" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#기술-통계-분석"><i class="fa fa-check"></i><b>16.2.2</b> 기술 통계 분석</a></li>
-<li class="chapter" data-level="16.2.3" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#독립성-검정"><i class="fa fa-check"></i><b>16.2.3</b> 독립성 검정</a></li>
+<li class="chapter" data-level="16.2.1" data-path="R-OOP.html"><a href="#%EA%B4%80%EC%A0%88%EC%97%BC-%EC%B9%98%EB%A3%8C-%EC%9E%84%EC%83%81%EC%8B%9C%ED%97%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D"><i class="fa fa-check"></i><b>16.2.1</b> 관절염 치료 임상시험 데이터 분석</a></li>
+<li class="chapter" data-level="16.2.2" data-path="R-OOP.html"><a href="#%EA%B8%B0%EC%88%A0-%ED%86%B5%EA%B3%84-%EB%B6%84%EC%84%9D"><i class="fa fa-check"></i><b>16.2.2</b> 기술 통계 분석</a></li>
+<li class="chapter" data-level="16.2.3" data-path="R-OOP.html"><a href="#%EB%8F%85%EB%A6%BD%EC%84%B1-%EA%B2%80%EC%A0%95"><i class="fa fa-check"></i><b>16.2.3</b> 독립성 검정</a></li>
 </ul></li>
-<li class="chapter" data-level="16.3" data-path="ch-R-hypothesis-tests.html"><a href="ch-R-hypothesis-tests.html#수치형-변수에-대한-가설검정"><i class="fa fa-check"></i><b>16.3</b> 수치형 변수에 대한 가설검정</a></li>
+<li class="chapter" data-level="16.3" data-path="R-OOP.html"><a href="#%EC%88%98%EC%B9%98%ED%98%95-%EB%B3%80%EC%88%98%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B0%80%EC%84%A4%EA%B2%80%EC%A0%95"><i class="fa fa-check"></i><b>16.3</b> 수치형 변수에 대한 가설검정</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html"><i class="fa fa-check"></i><b>17</b> <strong>R</strong> 선형 회귀</a>
 <ul>
@@ -604,13 +605,13 @@ div.csl-indent {
 <li class="chapter" data-level="17.1.2" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-simple-linear-regression-theory"><i class="fa fa-check"></i><b>17.1.2</b> 단순 선형 회귀 모형</a></li>
 <li class="chapter" data-level="17.1.3" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-lm"><i class="fa fa-check"></i><b>17.1.3</b> <code>lm()</code> 함수</a></li>
 <li class="chapter" data-level="17.1.4" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-linear-regression-evaluation"><i class="fa fa-check"></i><b>17.1.4</b> 선형 회귀 모형의 평가</a></li>
-<li class="chapter" data-level="17.1.5" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#모형의-개선"><i class="fa fa-check"></i><b>17.1.5</b> 모형의 개선</a></li>
+<li class="chapter" data-level="17.1.5" data-path="R-OOP.html"><a href="#%EB%AA%A8%ED%98%95%EC%9D%98-%EA%B0%9C%EC%84%A0"><i class="fa fa-check"></i><b>17.1.5</b> 모형의 개선</a></li>
 </ul></li>
 <li class="chapter" data-level="17.2" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-multiple-linear-regression"><i class="fa fa-check"></i><b>17.2</b> 다중 선형 회귀</a>
 <ul>
-<li class="chapter" data-level="17.2.1" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#galtonfamilies-데이터"><i class="fa fa-check"></i><b>17.2.1</b> <code>GaltonFamilies</code> 데이터</a></li>
+<li class="chapter" data-level="17.2.1" data-path="R-OOP.html"><a href="#galtonfamilies-%EB%8D%B0%EC%9D%B4%ED%84%B0"><i class="fa fa-check"></i><b>17.2.1</b> <code>GaltonFamilies</code> 데이터</a></li>
 <li class="chapter" data-level="17.2.2" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-multiple-linear-regression-theory"><i class="fa fa-check"></i><b>17.2.2</b> 다중 선형 회귀 모형</a></li>
-<li class="chapter" data-level="17.2.3" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#lm을-이용한-다중-선형-회귀"><i class="fa fa-check"></i><b>17.2.3</b> <code>lm()</code>을 이용한 다중 선형 회귀</a></li>
+<li class="chapter" data-level="17.2.3" data-path="R-OOP.html"><a href="#lm%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%8B%A4%EC%A4%91-%EC%84%A0%ED%98%95-%ED%9A%8C%EA%B7%80"><i class="fa fa-check"></i><b>17.2.3</b> <code>lm()</code>을 이용한 다중 선형 회귀</a></li>
 <li class="chapter" data-level="17.2.4" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-interaction-terms"><i class="fa fa-check"></i><b>17.2.4</b> 교차항의 도입</a></li>
 <li class="chapter" data-level="17.2.5" data-path="ch-R-linear-regression.html"><a href="ch-R-linear-regression.html#sec-variable-selections"><i class="fa fa-check"></i><b>17.2.5</b> 변수 선택</a></li>
 </ul></li>
@@ -618,28 +619,28 @@ div.csl-indent {
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="ch-RandPython.html"><a href="ch-RandPython.html"><i class="fa fa-check"></i><b>A</b> <strong>R</strong>과 <strong>Python</strong> 연동하기</a>
 <ul>
-<li class="chapter" data-level="A.1" data-path="ch-RandPython.html"><a href="ch-RandPython.html#reticulate-설치-및-사용할-파이썬-버전-설정"><i class="fa fa-check"></i><b>A.1</b> <code>reticulate</code> 설치 및 사용할 파이썬 버전 설정</a></li>
-<li class="chapter" data-level="A.2" data-path="ch-RandPython.html"><a href="ch-RandPython.html#r과-파이썬-연동하는-방법"><i class="fa fa-check"></i><b>A.2</b> R과 파이썬 연동하는 방법</a></li>
-<li class="chapter" data-level="A.3" data-path="ch-RandPython.html"><a href="ch-RandPython.html#파이썬-모듈-연동하기"><i class="fa fa-check"></i><b>A.3</b> 파이썬 모듈 연동하기</a>
+<li class="chapter" data-level="A.1" data-path="R-OOP.html"><a href="#reticulate-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%82%AC%EC%9A%A9%ED%95%A0-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%B2%84%EC%A0%84-%EC%84%A4%EC%A0%95"><i class="fa fa-check"></i><b>A.1</b> <code>reticulate</code> 설치 및 사용할 파이썬 버전 설정</a></li>
+<li class="chapter" data-level="A.2" data-path="R-OOP.html"><a href="#r%EA%B3%BC-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%97%B0%EB%8F%99%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95"><i class="fa fa-check"></i><b>A.2</b> R과 파이썬 연동하는 방법</a></li>
+<li class="chapter" data-level="A.3" data-path="R-OOP.html"><a href="#%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AA%A8%EB%93%88-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>A.3</b> 파이썬 모듈 연동하기</a>
 <ul>
-<li class="chapter" data-level="A.3.1" data-path="ch-RandPython.html"><a href="ch-RandPython.html#r과-python의-형식-변환"><i class="fa fa-check"></i><b>A.3.1</b> <strong>R</strong>과 <strong>Python</strong>의 형식 변환</a></li>
-<li class="chapter" data-level="A.3.2" data-path="ch-RandPython.html"><a href="ch-RandPython.html#형변환-직접-하기"><i class="fa fa-check"></i><b>A.3.2</b> 형변환 직접 하기</a></li>
-<li class="chapter" data-level="A.3.3" data-path="ch-RandPython.html"><a href="ch-RandPython.html#파이썬-모듈의-도움말-확인하기"><i class="fa fa-check"></i><b>A.3.3</b> 파이썬 모듈의 도움말 확인하기</a></li>
-<li class="chapter" data-level="A.3.4" data-path="ch-RandPython.html"><a href="ch-RandPython.html#pickle-사용하기"><i class="fa fa-check"></i><b>A.3.4</b> <code>pickle</code> 사용하기</a></li>
+<li class="chapter" data-level="A.3.1" data-path="R-OOP.html"><a href="#r%EA%B3%BC-python%EC%9D%98-%ED%98%95%EC%8B%9D-%EB%B3%80%ED%99%98"><i class="fa fa-check"></i><b>A.3.1</b> <strong>R</strong>과 <strong>Python</strong>의 형식 변환</a></li>
+<li class="chapter" data-level="A.3.2" data-path="R-OOP.html"><a href="#%ED%98%95%EB%B3%80%ED%99%98-%EC%A7%81%EC%A0%91-%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>A.3.2</b> 형변환 직접 하기</a></li>
+<li class="chapter" data-level="A.3.3" data-path="R-OOP.html"><a href="#%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AA%A8%EB%93%88%EC%9D%98-%EB%8F%84%EC%9B%80%EB%A7%90-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>A.3.3</b> 파이썬 모듈의 도움말 확인하기</a></li>
+<li class="chapter" data-level="A.3.4" data-path="R-OOP.html"><a href="#pickle-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>A.3.4</b> <code>pickle</code> 사용하기</a></li>
 </ul></li>
-<li class="chapter" data-level="A.4" data-path="ch-RandPython.html"><a href="ch-RandPython.html#r-마크다운-문서에서-파이썬-명령-실행하기"><i class="fa fa-check"></i><b>A.4</b> R 마크다운 문서에서 파이썬 명령 실행하기</a></li>
+<li class="chapter" data-level="A.4" data-path="R-OOP.html"><a href="#r-%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EB%AC%B8%EC%84%9C%EC%97%90%EC%84%9C-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AA%85%EB%A0%B9-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>A.4</b> R 마크다운 문서에서 파이썬 명령 실행하기</a></li>
 </ul></li>
 <li class="chapter" data-level="B" data-path="ch-RTips.html"><a href="ch-RTips.html"><i class="fa fa-check"></i><b>B</b> <strong>R</strong> 관련 여러 주제들</a>
 <ul>
-<li class="chapter" data-level="B.1" data-path="ch-RTips.html"><a href="ch-RTips.html#r의-파일-및-폴더-관련-명령어등"><i class="fa fa-check"></i><b>B.1</b> <strong>R</strong>의 파일 및 폴더 관련 명령어등</a>
+<li class="chapter" data-level="B.1" data-path="R-OOP.html"><a href="#r%EC%9D%98-%ED%8C%8C%EC%9D%BC-%EB%B0%8F-%ED%8F%B4%EB%8D%94-%EA%B4%80%EB%A0%A8-%EB%AA%85%EB%A0%B9%EC%96%B4%EB%93%B1"><i class="fa fa-check"></i><b>B.1</b> <strong>R</strong>의 파일 및 폴더 관련 명령어등</a>
 <ul>
-<li class="chapter" data-level="B.1.1" data-path="ch-RTips.html"><a href="ch-RTips.html#작업-디렉토리"><i class="fa fa-check"></i><b>B.1.1</b> 작업 디렉토리</a></li>
-<li class="chapter" data-level="B.1.2" data-path="ch-RTips.html"><a href="ch-RTips.html#폴더-내의-파일-목록-확인하기"><i class="fa fa-check"></i><b>B.1.2</b> 폴더 내의 파일 목록 확인하기</a></li>
-<li class="chapter" data-level="B.1.3" data-path="ch-RTips.html"><a href="ch-RTips.html#파일과-폴더-존재-확인"><i class="fa fa-check"></i><b>B.1.3</b> 파일과 폴더 존재 확인</a></li>
-<li class="chapter" data-level="B.1.4" data-path="ch-RTips.html"><a href="ch-RTips.html#폴더의-생성과-삭제"><i class="fa fa-check"></i><b>B.1.4</b> 폴더의 생성과 삭제</a></li>
-<li class="chapter" data-level="B.1.5" data-path="ch-RTips.html"><a href="ch-RTips.html#파일의-생성-복사-이동-삭제"><i class="fa fa-check"></i><b>B.1.5</b> 파일의 생성, 복사, 이동, 삭제</a></li>
+<li class="chapter" data-level="B.1.1" data-path="R-OOP.html"><a href="#%EC%9E%91%EC%97%85-%EB%94%94%EB%A0%89%ED%86%A0%EB%A6%AC"><i class="fa fa-check"></i><b>B.1.1</b> 작업 디렉토리</a></li>
+<li class="chapter" data-level="B.1.2" data-path="R-OOP.html"><a href="#%ED%8F%B4%EB%8D%94-%EB%82%B4%EC%9D%98-%ED%8C%8C%EC%9D%BC-%EB%AA%A9%EB%A1%9D-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>B.1.2</b> 폴더 내의 파일 목록 확인하기</a></li>
+<li class="chapter" data-level="B.1.3" data-path="R-OOP.html"><a href="#%ED%8C%8C%EC%9D%BC%EA%B3%BC-%ED%8F%B4%EB%8D%94-%EC%A1%B4%EC%9E%AC-%ED%99%95%EC%9D%B8"><i class="fa fa-check"></i><b>B.1.3</b> 파일과 폴더 존재 확인</a></li>
+<li class="chapter" data-level="B.1.4" data-path="R-OOP.html"><a href="#%ED%8F%B4%EB%8D%94%EC%9D%98-%EC%83%9D%EC%84%B1%EA%B3%BC-%EC%82%AD%EC%A0%9C"><i class="fa fa-check"></i><b>B.1.4</b> 폴더의 생성과 삭제</a></li>
+<li class="chapter" data-level="B.1.5" data-path="R-OOP.html"><a href="#%ED%8C%8C%EC%9D%BC%EC%9D%98-%EC%83%9D%EC%84%B1-%EB%B3%B5%EC%82%AC-%EC%9D%B4%EB%8F%99-%EC%82%AD%EC%A0%9C"><i class="fa fa-check"></i><b>B.1.5</b> 파일의 생성, 복사, 이동, 삭제</a></li>
 </ul></li>
-<li class="chapter" data-level="B.2" data-path="ch-RTips.html"><a href="ch-RTips.html#r에서-계산-정확도를-향상시키기"><i class="fa fa-check"></i><b>B.2</b> <strong>R</strong>에서 계산 정확도를 향상시키기</a></li>
+<li class="chapter" data-level="B.2" data-path="R-OOP.html"><a href="#r%EC%97%90%EC%84%9C-%EA%B3%84%EC%82%B0-%EC%A0%95%ED%99%95%EB%8F%84%EB%A5%BC-%ED%96%A5%EC%83%81%EC%8B%9C%ED%82%A4%EA%B8%B0"><i class="fa fa-check"></i><b>B.2</b> <strong>R</strong>에서 계산 정확도를 향상시키기</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -664,11 +665,11 @@ div.csl-indent {
 <div id="ch-R-OOP" class="section level1 hasAnchor" number="11">
 <h1><span class="header-section-number">Chapter 11</span> R 객체 지향 프로그래밍<a href="ch-R-OOP.html#ch-R-OOP" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="객체-지향-프로그래밍" class="section level2 hasAnchor" number="11.1">
-<h2><span class="header-section-number">11.1</span> 객체 지향 프로그래밍<a href="ch-R-OOP.html#객체-지향-프로그래밍" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">11.1</span> 객체 지향 프로그래밍<a href="#%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>객체 지향 프로그램(Object-Oriented Programming(OOP))이 무엇인지, 그것이 왜 필요한지를 논의하려면 별도로 한 장이 할애되어야 할 것이다. 여기서는 객체 지향 프로그래밍의 개요에 대해서만 간단히 짚어본다.</p>
 <p>OOP는 복잡한 프로그램을 구조화하는 방식에 대한 하나의 관점 또는 패러다임이라 할 수 있다. 간단한 프로그램은 어떠한 방식으로 작성하여도 이해하거나 수정이 어렵지 않다. 그러나 프로그램이 복잡해지면 프로그램을 적절한 단위로 구조화해야 프로그램 전체를 이해할 수 있고 유지보수가 가능해진다.</p>
 <div id="절차적-프로그래밍-vs.-객체-지향-프로그래밍" class="section level4 unnumbered hasAnchor">
-<h4>절차적 프로그래밍 vs. 객체 지향 프로그래밍<a href="ch-R-OOP.html#절차적-프로그래밍-vs.-객체-지향-프로그래밍" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<h4>절차적 프로그래밍 vs. 객체 지향 프로그래밍<a href="#%EC%A0%88%EC%B0%A8%EC%A0%81-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-vs.-%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>이러한 프로그램 구조화 패러다임 중 가장 오래된 방식이 절차적 프로그래밍(procedural programming) 패러다임이다. 절차적 프로그래밍은 프로그램을 기능적으로 유사한 부분으로 분절한다. 이러한 분절은 전체 프로그램을 기능에 따라 프로그램-모듈-함수/서브루틴/프로시저 등으로 계층적으로 구조화한다.
 반복되어 사용되는 부분을 함수나 프로시저로 구현한 후, 필요할 때마다 해당 함수나 프로시저를 호출하여 사용할 수 있게 함으로써 비슷한 기능에 대한 구현이 프로그램 전체에 산재하여 유지보수하기 어렵게 되는 것을 막아 준다. 절차적 프로그래밍 방식을 비유적으로 말하자면, 어떤 복잡한 조직을 총무부, 인사부, 생산부, 자재부 등의 기능조직으로 나누어 구조화하는 방식과 비슷하다고 하겠다.
 특화된 기능 조직이 비슷한 기능을 효율적으로 전담하여 반복수행하는 것처럼, 특화된 모듈과 함수는 비슷한 작업을 호출할 때마다 반복수행한다.
@@ -676,22 +677,22 @@ div.csl-indent {
 <p>객체 지향 프로그래밍(OOP)는 복잡한 프로그램을 객체를 중심으로 구조화한다. 절차적 프로그래밍이 함수나 프로시저 등을 이용하여 기능 중심으로 프로그램을 분절한다면, OOP는 데이터를 중심으로 동일한 형식의 데이터를 처리하는 부분으로 프로그램을 분절한다. 이를 비유적으로 말하자면 절차적 프로그래밍이 기능 조직이어서 여러 사업과 관련된 동일한 기능이 하나의 기능 부서에 통합되어 있는 형식이라면, OOP는 사업부 조직으로서 하나의 사업이라는 내용을 중심으로 총무, 인사, 생산, 자재 등의 기능이 뭉쳐 있는 형식이라 할 수 있다. OOP를 따르는 주요 언어로는 C++, Java 등이 있다. R은 이러한 언어와는 조금 다르지만 기본적인 OOP 특성을 가지고 있다.</p>
 </div>
 <div id="oop의-기본-특징" class="section level4 unnumbered hasAnchor">
-<h4>OOP의 기본 특징<a href="ch-R-OOP.html#oop의-기본-특징" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<h4>OOP의 기본 특징<a href="#oop%EC%9D%98-%EA%B8%B0%EB%B3%B8-%ED%8A%B9%EC%A7%95" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 OOP가 가져야 하는 기본 특징은 다음과 같다.
 </div>
 </div>
 <div id="s3-클래스" class="section level2 hasAnchor" number="11.2">
-<h2><span class="header-section-number">11.2</span> S3 클래스<a href="ch-R-OOP.html#s3-클래스" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">11.2</span> S3 클래스<a href="#s3-%ED%81%B4%EB%9E%98%EC%8A%A4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R은 OOP 개념을 처음에는 S3 클래스로 구현하였다. 그러나 S3 클래스는 캡슐화 및 데이터 보안에 취약한 점이 있으므로 이를 강화할 수 있는 S4 클래스를 나중에 도입하였다. 그러나 아직까지 대다수의 R 패키지는 S3 클래스에 의해 OOP를 구현하고 있고, 아직도 많은 R 사용자가 S3 클래스로 개발하는 것을 선호하고 있다.</p>
 <div id="s3-클래스-객체-만들기" class="section level3 hasAnchor" number="11.2.1">
-<h3><span class="header-section-number">11.2.1</span> S3 클래스 객체 만들기<a href="ch-R-OOP.html#s3-클래스-객체-만들기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">11.2.1</span> S3 클래스 객체 만들기<a href="#s3-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B0%9D%EC%B2%B4-%EB%A7%8C%EB%93%A4%EA%B8%B0" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>본질적으로 S3 클래스 객체란 R의 리스트 객체에 class 속성을 부여한 것뿐이다. 앞서 본 lm() 함수의 결과 객체 a는 lm 클래스 객체였다. 이 객체를 unclass() 함수를 이용하여 클래스 속성을 제외하면 단순한 리스트임을 확인할 수 있다.</p>
 <div id="s3-클래스-객체는-리스트에-class-속성-부여하여-만든다." class="section level4 unnumbered hasAnchor">
-<h4>S3 클래스 객체는 리스트에 class 속성 부여하여 만든다.<a href="ch-R-OOP.html#s3-클래스-객체는-리스트에-class-속성-부여하여-만든다." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<h4>S3 클래스 객체는 리스트에 class 속성 부여하여 만든다.<a href="#s3-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B0%9D%EC%B2%B4%EB%8A%94-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%97%90-class-%EC%86%8D%EC%84%B1-%EB%B6%80%EC%97%AC%ED%95%98%EC%97%AC-%EB%A7%8C%EB%93%A0%EB%8B%A4." class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>사용자도 리스트와 class() 함수를 이용하여 자신만의 S3 클래스를 만들 수 있다. 다음은 학생 관련 정보를 담는 student 클래스를 만든 예이다.</p>
-<div class="sourceCode" id="cb2219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2219-1"><a href="ch-R-OOP.html#cb2219-1" tabindex="-1"></a>st1 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">name=</span><span class="st">&quot;Gildong&quot;</span>, <span class="at">year=</span><span class="dv">2</span>, <span class="at">GPA=</span><span class="fl">3.2</span>)</span>
-<span id="cb2219-2"><a href="ch-R-OOP.html#cb2219-2" tabindex="-1"></a><span class="fu">class</span>(st1) <span class="ot">&lt;-</span> <span class="st">&quot;student&quot;</span></span>
-<span id="cb2219-3"><a href="ch-R-OOP.html#cb2219-3" tabindex="-1"></a>st1</span></code></pre></div>
+<div class="sourceCode" id="cb2221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2221-1"><a href="ch-R-OOP.html#cb2221-1" tabindex="-1"></a>st1 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">name=</span><span class="st">&quot;Gildong&quot;</span>, <span class="at">year=</span><span class="dv">2</span>, <span class="at">GPA=</span><span class="fl">3.2</span>)</span>
+<span id="cb2221-2"><a href="ch-R-OOP.html#cb2221-2" tabindex="-1"></a><span class="fu">class</span>(st1) <span class="ot">&lt;-</span> <span class="st">&quot;student&quot;</span></span>
+<span id="cb2221-3"><a href="ch-R-OOP.html#cb2221-3" tabindex="-1"></a>st1</span></code></pre></div>
 <pre><code>$name
 [1] &quot;Gildong&quot;
 
@@ -707,55 +708,55 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div id="포괄-함수generic-functions" class="section level3 hasAnchor" number="11.2.2">
-<h3><span class="header-section-number">11.2.2</span> 포괄 함수(generic functions)<a href="ch-R-OOP.html#포괄-함수generic-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">11.2.2</span> 포괄 함수(generic functions)<a href="#%ED%8F%AC%EA%B4%84-%ED%95%A8%EC%88%98generic-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="포괄-함수는-usemethod로-클래스에-따라-적절한-메소드를-호출한다." class="section level4 unnumbered hasAnchor">
-<h4>포괄 함수는 UseMethod()로 클래스에 따라 적절한 메소드를 호출한다.<a href="ch-R-OOP.html#포괄-함수는-usemethod로-클래스에-따라-적절한-메소드를-호출한다." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<h4>포괄 함수는 UseMethod()로 클래스에 따라 적절한 메소드를 호출한다.<a href="#%ED%8F%AC%EA%B4%84-%ED%95%A8%EC%88%98%EB%8A%94-usemethod%EB%A1%9C-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%97%90-%EB%94%B0%EB%9D%BC-%EC%A0%81%EC%A0%88%ED%95%9C-%EB%A9%94%EC%86%8C%EB%93%9C%EB%A5%BC-%ED%98%B8%EC%B6%9C%ED%95%9C%EB%8B%A4." class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>포괄 함수란 print() 함수처럼 여러 클래스의 객체에 적용 가능한 함수를 의미한다. 포괄 함수는 인수로 주어진 객체의 클래스에 따라 클래스에 적합한 기능을 수행한다.</p>
 <p>그러면 포괄 함수는 어떻게 객체에 따라 적절한 기능을 수행할 수 있는 것일까? 심지어 print() 함수 같은 포괄 함수는 자신이 구현된 이후에 새로운 클래스가 추가되어도 새로운 클래스에 적합한 기능을 수행할 수 있다.
 포괄 함수는 사실 분배기의 역할만을 수행하기 때문에 이러한 기능이 가능한 것이다. 포괄 함수는 호출이 되면 UseMethod() 라는 분배 기능을 가지는 함수를 호출한다. 이 함수는 포괄 함수에 첫번째 인수로 부여된 객체의 클래스에 따라 포괄 함수를 대신하여 실행될 해당 클래스의 메소드를 호출한다. 그리고 포괄 함수는 해당 클래스의 메소드가 객체에 실행된 결과를 반환한다. 다음은 print() 함수가 호출되면 무엇이 수행되는지를 보여준다. UseMethod()가 호출되는 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb2221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2221-1"><a href="ch-R-OOP.html#cb2221-1" tabindex="-1"></a>print</span></code></pre></div>
+<div class="sourceCode" id="cb2223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2223-1"><a href="ch-R-OOP.html#cb2223-1" tabindex="-1"></a>print</span></code></pre></div>
 <pre><code>function (x, ...) 
 UseMethod(&quot;print&quot;)
-&lt;bytecode: 0x55bc10c839e8&gt;
+&lt;bytecode: 0x55ed7d340298&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 <div id="methods" class="section level4 unnumbered hasAnchor">
 <h4>methods()<a href="ch-R-OOP.html#methods" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>그러면 클래스별로 print 메소드는 어디에 있는 것일끼? methods() 함수를 이용하면 각 포괄 함수에 대해 구현된 모든 메소드를 확인할 수 있다. 다음은 그 중 일부만을 보여주고 있다.</p>
-<div class="sourceCode" id="cb2223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2223-1"><a href="ch-R-OOP.html#cb2223-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">methods</span>(print))</span></code></pre></div>
+<div class="sourceCode" id="cb2225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2225-1"><a href="ch-R-OOP.html#cb2225-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">methods</span>(print))</span></code></pre></div>
 <pre><code>[1] &quot;print.acf&quot;               &quot;print.activeConcordance&quot;
 [3] &quot;print.AES&quot;               &quot;print.anova&quot;            
 [5] &quot;print.aov&quot;               &quot;print.aovlist&quot;          </code></pre>
 </div>
 <div id="메소드-이름-규칙" class="section level4 unnumbered hasAnchor">
-<h4>메소드 이름 규칙<a href="ch-R-OOP.html#메소드-이름-규칙" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<h4>메소드 이름 규칙<a href="#%EB%A9%94%EC%86%8C%EB%93%9C-%EC%9D%B4%EB%A6%84-%EA%B7%9C%EC%B9%99" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>메소드 함수는 다음과 같은 이름으로 정의되어 있다.</p>
-<div class="sourceCode" id="cb2225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2225-1"><a href="ch-R-OOP.html#cb2225-1" tabindex="-1"></a>generic_function_name.class_name</span></code></pre></div>
+<div class="sourceCode" id="cb2227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2227-1"><a href="ch-R-OOP.html#cb2227-1" tabindex="-1"></a>generic_function_name.class_name</span></code></pre></div>
 <p>따라서 data.frame 클래스의 print 메소드는 print.data.frame이 된다. 이 메소드를 data.frame 객체에 적용하나, 포괄 함수인 print를 data.frame 객체에 적용하나 동일한 결과를 얻는다. 사실 R 콘솔은 명령문을 평가한 후 자동으로 print() 함수를 실행하므로 클래스에 대한 print 메소드 구현은 매우 중요하다. 다음은 R 콘솔에서 print(f)나, print.data.frame(f)나, f는 동일한 결과를 주는 것을 보여준다.</p>
-<div class="sourceCode" id="cb2226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2226-1"><a href="ch-R-OOP.html#cb2226-1" tabindex="-1"></a><span class="fu">print</span>(f)</span></code></pre></div>
+<div class="sourceCode" id="cb2228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2228-1"><a href="ch-R-OOP.html#cb2228-1" tabindex="-1"></a><span class="fu">print</span>(f)</span></code></pre></div>
 <pre><code>  X1.3 X6.8
 1    1    6
 2    2    7
 3    3    8</code></pre>
-<div class="sourceCode" id="cb2228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2228-1"><a href="ch-R-OOP.html#cb2228-1" tabindex="-1"></a><span class="fu">print.data.frame</span>(f)</span></code></pre></div>
+<div class="sourceCode" id="cb2230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2230-1"><a href="ch-R-OOP.html#cb2230-1" tabindex="-1"></a><span class="fu">print.data.frame</span>(f)</span></code></pre></div>
 <pre><code>  X1.3 X6.8
 1    1    6
 2    2    7
 3    3    8</code></pre>
-<div class="sourceCode" id="cb2230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2230-1"><a href="ch-R-OOP.html#cb2230-1" tabindex="-1"></a>f</span></code></pre></div>
+<div class="sourceCode" id="cb2232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2232-1"><a href="ch-R-OOP.html#cb2232-1" tabindex="-1"></a>f</span></code></pre></div>
 <pre><code>  X1.3 X6.8
 1    1    6
 2    2    7
 3    3    8</code></pre>
 <p>앞에서 확인할 수 있듯이 지금까지 객체가 R 콘솔에 출력될 때, 해당 객체의 클래스의 print 메소드들이 적절히 호출되어 해당 클래스에 적합한 형식으로 데이터를 보여 주었던 것이다.</p>
 <p>그러면 integer, character, list 등을 위한 메소드들도 있을까? grep() 함수로 해당 이름의 메소드를 찾아보면 그렇지 않음을 알 수 있다. 그러면 이 클래스의 객체들은 어떻게 출력이 이루어지는 걸까?</p>
-<div class="sourceCode" id="cb2232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2232-1"><a href="ch-R-OOP.html#cb2232-1" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;integer&quot;</span>, <span class="fu">methods</span>(print))</span></code></pre></div>
+<div class="sourceCode" id="cb2234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2234-1"><a href="ch-R-OOP.html#cb2234-1" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;integer&quot;</span>, <span class="fu">methods</span>(print))</span></code></pre></div>
 <pre><code>integer(0)</code></pre>
-<div class="sourceCode" id="cb2234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2234-1"><a href="ch-R-OOP.html#cb2234-1" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;character&quot;</span>, <span class="fu">methods</span>(print))</span></code></pre></div>
+<div class="sourceCode" id="cb2236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2236-1"><a href="ch-R-OOP.html#cb2236-1" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;character&quot;</span>, <span class="fu">methods</span>(print))</span></code></pre></div>
 <pre><code>integer(0)</code></pre>
-<div class="sourceCode" id="cb2236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2236-1"><a href="ch-R-OOP.html#cb2236-1" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;list&quot;</span>, <span class="fu">methods</span>(print))</span></code></pre></div>
-<pre><code> [1]   6  43 100 109 134 146 200 213 215 226 254</code></pre>
-<div class="sourceCode" id="cb2238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2238-1"><a href="ch-R-OOP.html#cb2238-1" tabindex="-1"></a><span class="fu">methods</span>(print)[<span class="fu">grep</span>(<span class="st">&quot;list&quot;</span>, <span class="fu">methods</span>(print))]</span></code></pre></div>
+<div class="sourceCode" id="cb2238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2238-1"><a href="ch-R-OOP.html#cb2238-1" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;list&quot;</span>, <span class="fu">methods</span>(print))</span></code></pre></div>
+<pre><code> [1]   6  43 100 109 133 145 199 212 214 225 253</code></pre>
+<div class="sourceCode" id="cb2240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2240-1"><a href="ch-R-OOP.html#cb2240-1" tabindex="-1"></a><span class="fu">methods</span>(print)[<span class="fu">grep</span>(<span class="st">&quot;list&quot;</span>, <span class="fu">methods</span>(print))]</span></code></pre></div>
 <pre><code> [1] &quot;print.aovlist&quot;                    &quot;print.check_package_datalist&quot;    
  [3] &quot;print.Dlist&quot;                      &quot;print.dummy_coef_list&quot;           
  [5] &quot;print.htmltools.selector.list&quot;    &quot;print.listof&quot;                    
@@ -765,8 +766,8 @@ UseMethod(&quot;print&quot;)
 <p>해당 클래스의 메소드가 없으면 UseMethod() 분배 함수는 default 메소드를 호출한다. default 메소드는 <code>generic_function_name.default</code> 형식으로 이름이 주어진다. print 포괄 함수의 경우 print.defualt 메소드이다.</p>
 </div>
 <div id="디폴트-메소드" class="section level4 unnumbered hasAnchor">
-<h4>디폴트 메소드<a href="ch-R-OOP.html#디폴트-메소드" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb2240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2240-1"><a href="ch-R-OOP.html#cb2240-1" tabindex="-1"></a>print.default</span></code></pre></div>
+<h4>디폴트 메소드<a href="#%EB%94%94%ED%8F%B4%ED%8A%B8-%EB%A9%94%EC%86%8C%EB%93%9C" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb2242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2242-1"><a href="ch-R-OOP.html#cb2242-1" tabindex="-1"></a>print.default</span></code></pre></div>
 <pre><code>function (x, digits = NULL, quote = TRUE, na.print = NULL, print.gap = NULL, 
     right = FALSE, max = NULL, width = NULL, useSource = TRUE, 
     ...) 
@@ -779,12 +780,12 @@ UseMethod(&quot;print&quot;)
         missing(useSource))
     .Internal(print.default(x, args, missings))
 }
-&lt;bytecode: 0x55bc0eed6858&gt;
+&lt;bytecode: 0x55ed7b8ba300&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>보통 default 메소드는 데이터가 가지는 기본적 타입에 대해 적절한 포괄 함수 관련 처리를 수행하도록 구현되어 있다. print.default는 기본적인 데이터의 타입에 따라 적절한 출력을 보여준다.</p>
 <p>앞서 우리는 student 클래스 객체를 만들었다. 그런나 print.student라는 메소드는 존재하지 않으므로 콘솔에서 해당 객체가 입력되었을 때, print.defualt가 student의 출력을 담당하였다. 따라서 student의 데이터 기본 타입인 list의 형식으로 데이터가 출력이 된것이다.</p>
 <p>methods() 함수의 class 인수를 이용하면 해당 클래스를 위해 정의된 모든 메소드의 목록을 볼 수 있다. student 클래스를 위한 어떠한 메소드도 구현되지 않았음을 볼 수 있다.</p>
-<div class="sourceCode" id="cb2242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2242-1"><a href="ch-R-OOP.html#cb2242-1" tabindex="-1"></a><span class="fu">methods</span>(<span class="at">class=</span><span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2244-1"><a href="ch-R-OOP.html#cb2244-1" tabindex="-1"></a><span class="fu">methods</span>(<span class="at">class=</span><span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
 <pre><code> [1] add1           alias          anova          case.names     coerce        
  [6] confint        cooks.distance deviance       dfbeta         dfbetas       
 [11] drop1          dummy.coef     effects        extractAIC     family        
@@ -794,9 +795,9 @@ UseMethod(&quot;print&quot;)
 [31] residuals      rstandard      rstudent       show           simulate      
 [36] slotsFromS3    summary        variable.names vcov          
 see &#39;?methods&#39; for accessing help and source code</code></pre>
-<div class="sourceCode" id="cb2244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2244-1"><a href="ch-R-OOP.html#cb2244-1" tabindex="-1"></a><span class="fu">methods</span>(<span class="at">class=</span><span class="st">&quot;student&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2246-1"><a href="ch-R-OOP.html#cb2246-1" tabindex="-1"></a><span class="fu">methods</span>(<span class="at">class=</span><span class="st">&quot;student&quot;</span>)</span></code></pre></div>
 <pre><code>no methods found</code></pre>
-<div class="sourceCode" id="cb2246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2246-1"><a href="ch-R-OOP.html#cb2246-1" tabindex="-1"></a><span class="fu">print.default</span>(st1)</span></code></pre></div>
+<div class="sourceCode" id="cb2248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2248-1"><a href="ch-R-OOP.html#cb2248-1" tabindex="-1"></a><span class="fu">print.default</span>(st1)</span></code></pre></div>
 <pre><code>$name
 [1] &quot;Gildong&quot;
 
@@ -810,23 +811,23 @@ attr(,&quot;class&quot;)
 [1] &quot;student&quot;</code></pre>
 </div>
 <div id="메소드-정의하기" class="section level4 unnumbered hasAnchor">
-<h4>메소드 정의하기<a href="ch-R-OOP.html#메소드-정의하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<h4>메소드 정의하기<a href="#%EB%A9%94%EC%86%8C%EB%93%9C-%EC%A0%95%EC%9D%98%ED%95%98%EA%B8%B0" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>다음처럼 student 클래스를 위한 print 메소드를 만들어 보자. S3 클래스에서는 함수의 이름을 (포괄 함수명).(클래스명)으로 부여하면 된다. 그러면 UseMethod()가 해당 클래스를 위해 정의된 메소드를 호출해 준다.</p>
-<div class="sourceCode" id="cb2248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2248-1"><a href="ch-R-OOP.html#cb2248-1" tabindex="-1"></a>print.student <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb2248-2"><a href="ch-R-OOP.html#cb2248-2" tabindex="-1"></a>  <span class="fu">cat</span>(x<span class="sc">$</span>name, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb2248-3"><a href="ch-R-OOP.html#cb2248-3" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;year&quot;</span>, x<span class="sc">$</span>year, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb2248-4"><a href="ch-R-OOP.html#cb2248-4" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;GPA&quot;</span>, x<span class="sc">$</span>GPA, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb2248-5"><a href="ch-R-OOP.html#cb2248-5" tabindex="-1"></a>}</span>
-<span id="cb2248-6"><a href="ch-R-OOP.html#cb2248-6" tabindex="-1"></a><span class="fu">methods</span>(<span class="at">class=</span><span class="st">&quot;student&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2250-1"><a href="ch-R-OOP.html#cb2250-1" tabindex="-1"></a>print.student <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb2250-2"><a href="ch-R-OOP.html#cb2250-2" tabindex="-1"></a>  <span class="fu">cat</span>(x<span class="sc">$</span>name, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb2250-3"><a href="ch-R-OOP.html#cb2250-3" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;year&quot;</span>, x<span class="sc">$</span>year, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb2250-4"><a href="ch-R-OOP.html#cb2250-4" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;GPA&quot;</span>, x<span class="sc">$</span>GPA, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb2250-5"><a href="ch-R-OOP.html#cb2250-5" tabindex="-1"></a>}</span>
+<span id="cb2250-6"><a href="ch-R-OOP.html#cb2250-6" tabindex="-1"></a><span class="fu">methods</span>(<span class="at">class=</span><span class="st">&quot;student&quot;</span>)</span></code></pre></div>
 <pre><code>[1] print
 see &#39;?methods&#39; for accessing help and source code</code></pre>
-<div class="sourceCode" id="cb2250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2250-1"><a href="ch-R-OOP.html#cb2250-1" tabindex="-1"></a><span class="fu">print</span>(st1)</span></code></pre></div>
+<div class="sourceCode" id="cb2252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2252-1"><a href="ch-R-OOP.html#cb2252-1" tabindex="-1"></a><span class="fu">print</span>(st1)</span></code></pre></div>
 <pre><code>Gildong 
 year 2 
 GPA 3.2 </code></pre>
 <p>위의 예에서 보듯이 student 클래스를 위한 print 메소드가 구현되었으므로 이제는 default 메소드가 아니라 student 클래스를 위한 print 메소드가 실행된다. 일반적으로 복잡한 클래스일수록 자신만의 print 메소드를 구현한다. 그래야 복잡한 내부 데이터를 모두 출력하지 않고 필요한 정보만 효율적으로 보여줄 수 있기 때문이다.</p>
 <p>그리고 R을 처음 접한 사람들이 의아해 하는 사항이 있다. 그것은 대부분의 클래스에서 print 메소드보다는 summary 메소드가 더 자세한 정보를 출력한다는 것이다. 문자 그대로 해석한다면 print() 함수는 모든 내용을 출력해야 하고, summary() 함수는 좀 더 요약된 정보를 제공해야 할 것 같은데 말이다. lm 클래스도 print() 함수 보다는 summary() 함수가 훨씬 더 자세한 정보를 제공한다.</p>
-<div class="sourceCode" id="cb2252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2252-1"><a href="ch-R-OOP.html#cb2252-1" tabindex="-1"></a><span class="fu">summary</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb2254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2254-1"><a href="ch-R-OOP.html#cb2254-1" tabindex="-1"></a><span class="fu">summary</span>(a)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = cars)
@@ -849,35 +850,35 @@ F-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12</code></pre>
 </div>
 </div>
 <div id="s3에서-상속성의-구현" class="section level3 hasAnchor" number="11.2.3">
-<h3><span class="header-section-number">11.2.3</span> S3에서 상속성의 구현<a href="ch-R-OOP.html#s3에서-상속성의-구현" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">11.2.3</span> S3에서 상속성의 구현<a href="#s3%EC%97%90%EC%84%9C-%EC%83%81%EC%86%8D%EC%84%B1%EC%9D%98-%EA%B5%AC%ED%98%84" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>상속성은 객체 지향 프로그래밍의 매력 중에 하나이다. 새로운 클래스를 만들 때 이전의 클래스를 상위 클래스로 하고 자신을 하위 클래스로 하면, 상위 클래스에 정의된 메소드들을 하위 클래스 객체가 이용할 수 있다.</p>
 <div id="상위-클래스와-하위-클래스" class="section level4 unnumbered hasAnchor">
-<h4>상위 클래스와 하위 클래스<a href="ch-R-OOP.html#상위-클래스와-하위-클래스" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<h4>상위 클래스와 하위 클래스<a href="#%EC%83%81%EC%9C%84-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80-%ED%95%98%EC%9C%84-%ED%81%B4%EB%9E%98%EC%8A%A4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>이 때 주의할 점은 하위 클래스 객체는 상위 클래스에 부분집합의 관계를 가져야 한다는 것이다. 예를 들어 MTB 자전거라는 하위 클래스를 자전거라는 상위 클래스를 상속받아 구현하였다면, MTB 자전거 객체는 역시 자전거 객체이기도 해야 한다는 것이다. 따라서 하위 클래스의 데이터 구조는 상위 클래스의 데이터 요소를 모두 포함하고 있어야 하고, 거기에 덧붙여 자신만의 데이터와 기능을 더 포함하는 구조이어야 한다.</p>
 </div>
 <div id="상속성을-구현하는-방법" class="section level4 unnumbered hasAnchor">
-<h4>상속성을 구현하는 방법<a href="ch-R-OOP.html#상속성을-구현하는-방법" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<h4>상속성을 구현하는 방법<a href="#%EC%83%81%EC%86%8D%EC%84%B1%EC%9D%84-%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>S3 클래스에서 상속성의 구현은 객체를 생성할 때 단지 class 속성에 하위 클래스 이름 다음에 상위 클래스 이름을 모두 나열하기만 하면 된다. 그러면 UseMethod() 분배 함수는 class 속성에 부여된 클래스 순으로 메소드를 찾아 실행한다. 따라서 하위 클래스를 위한 메소드가 없으면 다음에 정의되어 있는 상위 클래스의 메소드를 실행해 준다. 하위 클래스가 상속받은 상위 클래스가 또 다른 클래스를 상속 받았다면, class 속성에는 하위 클래스, 상위 클래스, 상위-상위 클래스 순으로 차례대로 기술해 주면 된다.</p>
 <p>S3 클래스에서 상속성이 어떻게 수행되는지 다음 예로 살펴보자. 현재 student 클래스를 이용하여 대학생과 대학원생 정보를 모두 처리하고 있다고 하자. 그런데 대학원생의 경우에는 student에 있는 데이터뿐 아니라 지도교수(advisor)에 대한 정보가 추가되어 관리되는 것이 편리하다고 판단되어, 지도교수 정보를 포함하는 gradstudent 클래스를 정의하고자 한다.
 다음 예에서 st2 객체를 생성할 때 리스트에 advisor 요소가 추가되었다. 그리고 class 속성에 먼저 하위 클래스 이름인 gradstudent, 그리고 상위 클래스 이름인 student가 기술되었다. 물론 아직은 gradstudent 클래스에 대한 어떠한 메소드도 존재하지 않는다.</p>
-<div class="sourceCode" id="cb2254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2254-1"><a href="ch-R-OOP.html#cb2254-1" tabindex="-1"></a>st2 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">name=</span><span class="st">&quot;Gilsan&quot;</span>, <span class="at">year=</span><span class="dv">1</span>, <span class="at">GPA=</span><span class="fl">3.8</span>, <span class="at">advisor=</span><span class="st">&quot;Sejong&quot;</span>)</span>
-<span id="cb2254-2"><a href="ch-R-OOP.html#cb2254-2" tabindex="-1"></a><span class="fu">class</span>(st2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;gradstudent&quot;</span>, <span class="st">&quot;student&quot;</span>)</span>
-<span id="cb2254-3"><a href="ch-R-OOP.html#cb2254-3" tabindex="-1"></a><span class="fu">methods</span>(<span class="at">class=</span><span class="st">&quot;gradstudent&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2256-1"><a href="ch-R-OOP.html#cb2256-1" tabindex="-1"></a>st2 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">name=</span><span class="st">&quot;Gilsan&quot;</span>, <span class="at">year=</span><span class="dv">1</span>, <span class="at">GPA=</span><span class="fl">3.8</span>, <span class="at">advisor=</span><span class="st">&quot;Sejong&quot;</span>)</span>
+<span id="cb2256-2"><a href="ch-R-OOP.html#cb2256-2" tabindex="-1"></a><span class="fu">class</span>(st2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;gradstudent&quot;</span>, <span class="st">&quot;student&quot;</span>)</span>
+<span id="cb2256-3"><a href="ch-R-OOP.html#cb2256-3" tabindex="-1"></a><span class="fu">methods</span>(<span class="at">class=</span><span class="st">&quot;gradstudent&quot;</span>)</span></code></pre></div>
 <pre><code>no methods found</code></pre>
 <p>그러면 gradstudent 클래스인 st2를 출력해 보자. 그러면 UseMethod() 함수는 먼저 gradstudent 클래스를 위한 print 메소드를 찾는다. 해당 메소드가 없으므로 두번째로 기술되어 있는 student 클래스의 print 메소드를 찾는다. 해당 메소드가 있으므로 이 메소드로 출력을 수행한다. 이마저도 없으면 default 메소드가 수행될 것이다. 물론 student 클래스를 위한 print 메소드는 이미 구현되어 있기 때문에, 대학원생 정보인 st2도 student 클래스의 출력 형식에 맞추어 출력이 이루어진다. 따라서 gradstudent 객체는 student 클래스의 메소드를 상속 받았다고 볼 수 있다.</p>
-<div class="sourceCode" id="cb2256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2256-1"><a href="ch-R-OOP.html#cb2256-1" tabindex="-1"></a>st2</span></code></pre></div>
+<div class="sourceCode" id="cb2258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2258-1"><a href="ch-R-OOP.html#cb2258-1" tabindex="-1"></a>st2</span></code></pre></div>
 <pre><code>Gilsan 
 year 1 
 GPA 3.8 </code></pre>
 </div>
 <div id="메소드-overiding" class="section level4 unnumbered hasAnchor">
-<h4>메소드 overiding<a href="ch-R-OOP.html#메소드-overiding" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<h4>메소드 overiding<a href="#%EB%A9%94%EC%86%8C%EB%93%9C-overiding" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>만약 gradstudent 객체의 출력에 지도 교수 정보도 같이 출력되기를 원한다면, 다음처럼 gradstudent 클래스의 print 메소드를 구현하면 된다. 이 경우 gradstudent 클래스만의 메소드가 상속받은 student 클래스의 메소드를 overiding 하였다고 표현한다.</p>
-<div class="sourceCode" id="cb2258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2258-1"><a href="ch-R-OOP.html#cb2258-1" tabindex="-1"></a>print.gradstudent <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb2258-2"><a href="ch-R-OOP.html#cb2258-2" tabindex="-1"></a>  <span class="fu">print.student</span>(x)</span>
-<span id="cb2258-3"><a href="ch-R-OOP.html#cb2258-3" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Advisor&quot;</span>, x<span class="sc">$</span>advisor, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb2258-4"><a href="ch-R-OOP.html#cb2258-4" tabindex="-1"></a>}</span>
-<span id="cb2258-5"><a href="ch-R-OOP.html#cb2258-5" tabindex="-1"></a>st2</span></code></pre></div>
+<div class="sourceCode" id="cb2260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2260-1"><a href="ch-R-OOP.html#cb2260-1" tabindex="-1"></a>print.gradstudent <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb2260-2"><a href="ch-R-OOP.html#cb2260-2" tabindex="-1"></a>  <span class="fu">print.student</span>(x)</span>
+<span id="cb2260-3"><a href="ch-R-OOP.html#cb2260-3" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Advisor&quot;</span>, x<span class="sc">$</span>advisor, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb2260-4"><a href="ch-R-OOP.html#cb2260-4" tabindex="-1"></a>}</span>
+<span id="cb2260-5"><a href="ch-R-OOP.html#cb2260-5" tabindex="-1"></a>st2</span></code></pre></div>
 <pre><code>Gilsan 
 year 1 
 GPA 3.8 
@@ -886,9 +887,9 @@ Advisor Sejong </code></pre>
 </div>
 </div>
 <div id="s4-클래스" class="section level2 hasAnchor" number="11.3">
-<h2><span class="header-section-number">11.3</span> S4 클래스<a href="ch-R-OOP.html#s4-클래스" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">11.3</span> S4 클래스<a href="#s4-%ED%81%B4%EB%9E%98%EC%8A%A4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="s3-클래스의-안전성-문제" class="section level4 unnumbered hasAnchor">
-<h4>S3 클래스의 안전성 문제<a href="ch-R-OOP.html#s3-클래스의-안전성-문제" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<h4>S3 클래스의 안전성 문제<a href="#s3-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-%EC%95%88%EC%A0%84%EC%84%B1-%EB%AC%B8%EC%A0%9C" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>S3 클래스는 Java 같은 OOP 언어와 비교해 보면 다음과 같은 안전성(safety) 문제를 가지고 있다.</p>
 <ul>
 <li>클래스 정의를 사전에 하지 않으므로 객체 생성시 필요한 요소가 누락되거나 이름이 잘못 부여될 수 있다.</li>
@@ -911,34 +912,34 @@ chr (3): 작업 ,  S3 ,  S4
 <col width="36%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th align="left">작업</th>
 <th align="left">S3</th>
 <th align="left">S4</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="left">클래스 정의</td>
 <td align="left">명시적 정의 없음</td>
 <td align="left">setClass()로 클래스 정의</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">객체 생성</td>
 <td align="left">리스트 생성 후 class 속성 부여</td>
 <td align="left">new()로 명시적 객체 생성</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">클래스 요소 접근</td>
 <td align="left"><code>$</code></td>
 <td align="left"><code>@</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">f 메소드 구현</td>
 <td align="left">f.classname() 함수 정의</td>
 <td align="left">setMethod()로 명시적 구현</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">포괄 함수 구현</td>
 <td align="left">포괄 함수에 UseMethod() 이용</td>
 <td align="left">setGeneric()로 명시적 구현</td>
@@ -947,16 +948,16 @@ chr (3): 작업 ,  S3 ,  S4
 </table>
 </div>
 <div id="클래스-정의-setclass" class="section level4 unnumbered hasAnchor">
-<h4>클래스 정의 setClass()<a href="ch-R-OOP.html#클래스-정의-setclass" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<h4>클래스 정의 setClass()<a href="#%ED%81%B4%EB%9E%98%EC%8A%A4-%EC%A0%95%EC%9D%98-setclass" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>다음은 setClass() 함수로 newstudent라는 새로운 클래스를 생성한 예이다. 데이터의 요소는 앞서 S3 클래스로 생성한 student 클래스와 동일하다. setClass()의 첫번째 인수로는 클래스 이름이, representation 인수는 클래스의 데이터 요소의 이름과 각 데이터 요소의 클래스가 명시된다. 이를 통해 해당 클래스 객체가 생성될 때 객체 요소의 데이터의 이름과 타입이 같아지도록 강제할 수 있다.</p>
-<div class="sourceCode" id="cb2261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2261-1"><a href="ch-R-OOP.html#cb2261-1" tabindex="-1"></a><span class="fu">setClass</span>(<span class="st">&quot;newstudent&quot;</span>, </span>
-<span id="cb2261-2"><a href="ch-R-OOP.html#cb2261-2" tabindex="-1"></a>  <span class="fu">representation</span>(<span class="at">name=</span><span class="st">&quot;character&quot;</span>, <span class="at">year=</span><span class="st">&quot;numeric&quot;</span>, <span class="at">GPA=</span><span class="st">&quot;numeric&quot;</span> ))</span></code></pre></div>
+<div class="sourceCode" id="cb2263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2263-1"><a href="ch-R-OOP.html#cb2263-1" tabindex="-1"></a><span class="fu">setClass</span>(<span class="st">&quot;newstudent&quot;</span>, </span>
+<span id="cb2263-2"><a href="ch-R-OOP.html#cb2263-2" tabindex="-1"></a>  <span class="fu">representation</span>(<span class="at">name=</span><span class="st">&quot;character&quot;</span>, <span class="at">year=</span><span class="st">&quot;numeric&quot;</span>, <span class="at">GPA=</span><span class="st">&quot;numeric&quot;</span> ))</span></code></pre></div>
 </div>
 <div id="객체-생성-new" class="section level4 unnumbered hasAnchor">
-<h4>객체 생성 new()<a href="ch-R-OOP.html#객체-생성-new" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<h4>객체 생성 new()<a href="#%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1-new" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>클래스로부터 새로운 객체를 생성할 때는 new() 함수를 이용한다. new() 함수는 첫번째 인수로 클래스 이름을, 나머지 인수로 객체의 각 데이터 요소를 정의한다.</p>
-<div class="sourceCode" id="cb2262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2262-1"><a href="ch-R-OOP.html#cb2262-1" tabindex="-1"></a>st3 <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">&quot;newstudent&quot;</span>, <span class="at">name=</span><span class="st">&quot;Gildong&quot;</span>, <span class="at">year=</span><span class="dv">2</span>, <span class="at">GPA=</span><span class="fl">3.2</span>)</span>
-<span id="cb2262-2"><a href="ch-R-OOP.html#cb2262-2" tabindex="-1"></a>st3</span></code></pre></div>
+<div class="sourceCode" id="cb2264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2264-1"><a href="ch-R-OOP.html#cb2264-1" tabindex="-1"></a>st3 <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">&quot;newstudent&quot;</span>, <span class="at">name=</span><span class="st">&quot;Gildong&quot;</span>, <span class="at">year=</span><span class="dv">2</span>, <span class="at">GPA=</span><span class="fl">3.2</span>)</span>
+<span id="cb2264-2"><a href="ch-R-OOP.html#cb2264-2" tabindex="-1"></a>st3</span></code></pre></div>
 <pre><code>An object of class &quot;newstudent&quot;
 Slot &quot;name&quot;:
 [1] &quot;Gildong&quot;
@@ -967,22 +968,22 @@ Slot &quot;year&quot;:
 Slot &quot;GPA&quot;:
 [1] 3.2</code></pre>
 <p>setClass()에 의해 클래스의 형태가 이미 정의되어 있어서 new()로 객체 생성 시 틀린 이름이나 틀린 타입의 데이터가 입력되면 오류가 발생하므로 항상 정확한 이름과 형식으로 객체가 생성되도록 강제할 수 있다.</p>
-<div class="sourceCode" id="cb2264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2264-1"><a href="ch-R-OOP.html#cb2264-1" tabindex="-1"></a>st4 <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">&quot;newstudent&quot;</span>, <span class="at">sname=</span><span class="st">&quot;Gildong&quot;</span>, <span class="at">year=</span><span class="dv">2</span>, <span class="at">GPA=</span><span class="fl">3.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2266-1"><a href="ch-R-OOP.html#cb2266-1" tabindex="-1"></a>st4 <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">&quot;newstudent&quot;</span>, <span class="at">sname=</span><span class="st">&quot;Gildong&quot;</span>, <span class="at">year=</span><span class="dv">2</span>, <span class="at">GPA=</span><span class="fl">3.2</span>)</span></code></pre></div>
 <pre><code>Error in initialize(value, ...): invalid name for slot of class &quot;newstudent&quot;: sname</code></pre>
-<div class="sourceCode" id="cb2266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2266-1"><a href="ch-R-OOP.html#cb2266-1" tabindex="-1"></a>st4 <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">&quot;newstudent&quot;</span>, <span class="at">name=</span><span class="st">&quot;Gildong&quot;</span>, <span class="at">year=</span><span class="dv">2</span>, <span class="at">GPA=</span><span class="st">&quot;3.2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2268-1"><a href="ch-R-OOP.html#cb2268-1" tabindex="-1"></a>st4 <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">&quot;newstudent&quot;</span>, <span class="at">name=</span><span class="st">&quot;Gildong&quot;</span>, <span class="at">year=</span><span class="dv">2</span>, <span class="at">GPA=</span><span class="st">&quot;3.2&quot;</span>)</span></code></pre></div>
 <pre><code>Error in validObject(.Object): 잘못된 클래스 &quot;newstudent&quot; 객체입니다: invalid object for slot &quot;GPA&quot; in class &quot;newstudent&quot;: got class &quot;character&quot;, should be or extend class &quot;numeric&quot;</code></pre>
 </div>
 <div id="객체-요소에-접근-slot" class="section level4 unnumbered hasAnchor">
-<h4>객체 요소에 접근 slot()<a href="ch-R-OOP.html#객체-요소에-접근-slot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<h4>객체 요소에 접근 slot()<a href="#%EA%B0%9D%EC%B2%B4-%EC%9A%94%EC%86%8C%EC%97%90-%EC%A0%91%EA%B7%BC-slot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>S4 클래스에서 객체의 각 데이터 요소(멤버 변수라고 한다)를 슬롯(slot)이라 하며, <code>@</code> 또는 slot()으로 접근한다. S4 클래스는 정의되지 않은 멤버 변수의 생성을 허용하지 않는다. 반면 S3는 단순한 리스트 객체이므로 아무 제약 없이 새로운 요소를 추가하거나 기존 요소를 삭제할 수 있다.</p>
-<div class="sourceCode" id="cb2268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2268-1"><a href="ch-R-OOP.html#cb2268-1" tabindex="-1"></a>st3<span class="sc">@</span>name</span></code></pre></div>
+<div class="sourceCode" id="cb2270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2270-1"><a href="ch-R-OOP.html#cb2270-1" tabindex="-1"></a>st3<span class="sc">@</span>name</span></code></pre></div>
 <pre><code>[1] &quot;Gildong&quot;</code></pre>
-<div class="sourceCode" id="cb2270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2270-1"><a href="ch-R-OOP.html#cb2270-1" tabindex="-1"></a><span class="fu">slot</span>(st3, <span class="st">&quot;GPA&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2272-1"><a href="ch-R-OOP.html#cb2272-1" tabindex="-1"></a><span class="fu">slot</span>(st3, <span class="st">&quot;GPA&quot;</span>)</span></code></pre></div>
 <pre><code>[1] 3.2</code></pre>
-<div class="sourceCode" id="cb2272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2272-1"><a href="ch-R-OOP.html#cb2272-1" tabindex="-1"></a>st3<span class="sc">@</span>year <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb2272-2"><a href="ch-R-OOP.html#cb2272-2" tabindex="-1"></a>st3<span class="sc">@</span>GPa <span class="ot">&lt;-</span> <span class="fl">4.0</span></span></code></pre></div>
+<div class="sourceCode" id="cb2274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2274-1"><a href="ch-R-OOP.html#cb2274-1" tabindex="-1"></a>st3<span class="sc">@</span>year <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb2274-2"><a href="ch-R-OOP.html#cb2274-2" tabindex="-1"></a>st3<span class="sc">@</span>GPa <span class="ot">&lt;-</span> <span class="fl">4.0</span></span></code></pre></div>
 <pre><code>Error in (function (cl, name, valueClass) : &#39;GPa&#39;는 클래스 &quot;newstudent&quot;내에 있는 슬롯이 아닙니다</code></pre>
-<div class="sourceCode" id="cb2274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2274-1"><a href="ch-R-OOP.html#cb2274-1" tabindex="-1"></a>st3</span></code></pre></div>
+<div class="sourceCode" id="cb2276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2276-1"><a href="ch-R-OOP.html#cb2276-1" tabindex="-1"></a>st3</span></code></pre></div>
 <pre><code>An object of class &quot;newstudent&quot;
 Slot &quot;name&quot;:
 [1] &quot;Gildong&quot;
@@ -994,24 +995,24 @@ Slot &quot;GPA&quot;:
 [1] 3.2</code></pre>
 </div>
 <div id="s4-클래스-메소드-생성-setmethod" class="section level4 unnumbered hasAnchor">
-<h4>S4 클래스 메소드 생성 setMethod()<a href="ch-R-OOP.html#s4-클래스-메소드-생성-setmethod" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<h4>S4 클래스 메소드 생성 setMethod()<a href="#s4-%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%A9%94%EC%86%8C%EB%93%9C-%EC%83%9D%EC%84%B1-setmethod" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>S4 클래스에서는 메소드는 setMethod() 함수에 의해 정의된다. 앞에서 생성한 newstudent 객체에 summary() 함수를 적용하면 해당 클래스의 summary 메소드가 구현되지 않았으므로 디폴트로 제공되는 메소드에 의해 객체에 대한 매우 간략한 요약 정보만 출력한다.</p>
-<div class="sourceCode" id="cb2276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2276-1"><a href="ch-R-OOP.html#cb2276-1" tabindex="-1"></a><span class="fu">summary</span>(st3)</span></code></pre></div>
+<div class="sourceCode" id="cb2278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2278-1"><a href="ch-R-OOP.html#cb2278-1" tabindex="-1"></a><span class="fu">summary</span>(st3)</span></code></pre></div>
 <pre><code>    Length      Class       Mode 
          1 newstudent         S4 </code></pre>
 <p>newstudent 클래스에 summary 메소드를 다음과 같이 추가해 보자. setMethod() 함수는 첫번째 인수로 메소드 이름, 두번째 인수로 클래스 이름, 세번째 인수로 메소드 호출시 실행될 함수 객체를 받는다.</p>
-<div class="sourceCode" id="cb2278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2278-1"><a href="ch-R-OOP.html#cb2278-1" tabindex="-1"></a><span class="fu">setMethod</span>(<span class="st">&quot;summary&quot;</span>, <span class="st">&quot;newstudent&quot;</span>,</span>
-<span id="cb2278-2"><a href="ch-R-OOP.html#cb2278-2" tabindex="-1"></a>    <span class="cf">function</span>(object){</span>
-<span id="cb2278-3"><a href="ch-R-OOP.html#cb2278-3" tabindex="-1"></a>      <span class="fu">cat</span>(object<span class="sc">@</span>name, <span class="st">&quot; is a &quot;</span>, </span>
-<span id="cb2278-4"><a href="ch-R-OOP.html#cb2278-4" tabindex="-1"></a>          object<span class="sc">@</span>year, <span class="st">&quot;th year student with GPA &quot;</span>, </span>
-<span id="cb2278-5"><a href="ch-R-OOP.html#cb2278-5" tabindex="-1"></a>          object<span class="sc">@</span>GPA, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb2278-6"><a href="ch-R-OOP.html#cb2278-6" tabindex="-1"></a>    })</span>
-<span id="cb2278-7"><a href="ch-R-OOP.html#cb2278-7" tabindex="-1"></a><span class="fu">summary</span>(st3)</span></code></pre></div>
+<div class="sourceCode" id="cb2280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2280-1"><a href="ch-R-OOP.html#cb2280-1" tabindex="-1"></a><span class="fu">setMethod</span>(<span class="st">&quot;summary&quot;</span>, <span class="st">&quot;newstudent&quot;</span>,</span>
+<span id="cb2280-2"><a href="ch-R-OOP.html#cb2280-2" tabindex="-1"></a>    <span class="cf">function</span>(object){</span>
+<span id="cb2280-3"><a href="ch-R-OOP.html#cb2280-3" tabindex="-1"></a>      <span class="fu">cat</span>(object<span class="sc">@</span>name, <span class="st">&quot; is a &quot;</span>, </span>
+<span id="cb2280-4"><a href="ch-R-OOP.html#cb2280-4" tabindex="-1"></a>          object<span class="sc">@</span>year, <span class="st">&quot;th year student with GPA &quot;</span>, </span>
+<span id="cb2280-5"><a href="ch-R-OOP.html#cb2280-5" tabindex="-1"></a>          object<span class="sc">@</span>GPA, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb2280-6"><a href="ch-R-OOP.html#cb2280-6" tabindex="-1"></a>    })</span>
+<span id="cb2280-7"><a href="ch-R-OOP.html#cb2280-7" tabindex="-1"></a><span class="fu">summary</span>(st3)</span></code></pre></div>
 <pre><code>Gildong is a 4th year student with GPA 3.2</code></pre>
 <p>만약 명시적으로 생성한 메소드를 제거하려면 removeMethod() 함수를 이용한다.</p>
-<div class="sourceCode" id="cb2280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2280-1"><a href="ch-R-OOP.html#cb2280-1" tabindex="-1"></a><span class="fu">removeMethod</span>(<span class="st">&quot;summary&quot;</span>, <span class="st">&quot;newstudent&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2282-1"><a href="ch-R-OOP.html#cb2282-1" tabindex="-1"></a><span class="fu">removeMethod</span>(<span class="st">&quot;summary&quot;</span>, <span class="st">&quot;newstudent&quot;</span>)</span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb2282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2282-1"><a href="ch-R-OOP.html#cb2282-1" tabindex="-1"></a><span class="fu">summary</span>(st3)</span></code></pre></div>
+<div class="sourceCode" id="cb2284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2284-1"><a href="ch-R-OOP.html#cb2284-1" tabindex="-1"></a><span class="fu">summary</span>(st3)</span></code></pre></div>
 <pre><code>    Length      Class       Mode 
          1 newstudent         S4 </code></pre>
 
